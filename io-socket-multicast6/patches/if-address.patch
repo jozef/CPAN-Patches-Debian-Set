@@ -1,0 +1,14 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: Ignore interfaces without addresses, otherwise the test fails.
+ Idea taken from IO::Socket::Multicast.
+
+--- libio-socket-multicast6-perl-0.03.orig/t/05interface.t
++++ libio-socket-multicast6-perl-0.03/t/05interface.t
+@@ -19,6 +19,7 @@
+ foreach my $if (@interfaces) {
+ 	next unless ($if->is_running);
+ 	next unless ($if->is_multicast);
++	next unless ($if->address);
+ 	
+ 	# Found multicast enabled interface
+ 	$iface = $if->name();

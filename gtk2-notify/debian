@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: dbus-x11, debhelper (>= 7.2), libextutils-depends-perl, libextutils-pkgconfig-perl, libgtk2-perl, libnotify-dev, libtest-exception-perl, libtest-pod-perl, notification-daemon, perl, quilt, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libgtk2-perl
+X: 1

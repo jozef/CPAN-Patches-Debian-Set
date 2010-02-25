@@ -1,0 +1,27 @@
+Description: fix whatis entries
+Origin: vendor
+Forwarded: no
+Author: Jonathan Yu <frequency@cpan.org>
+--- a/lib/DBIx/Class/EncodedColumn/Crypt/Eksblowfish/Bcrypt.pm
++++ b/lib/DBIx/Class/EncodedColumn/Crypt/Eksblowfish/Bcrypt.pm
+@@ -51,7 +51,8 @@
+ 
+ =head1 NAME
+ 
+-DBIx::Class::EncodedColumn::Crypt::Eksblowfish::Bcrypt
++DBIx::Class::EncodedColumn::Crypt::Eksblowfish::Bcrypt - Eksblowfish bcrypt
++backend
+ 
+ =head1 SYNOPSYS
+ 
+--- a/lib/DBIx/Class/EncodedColumn/Digest.pm
++++ b/lib/DBIx/Class/EncodedColumn/Digest.pm
+@@ -78,7 +78,7 @@
+ 
+ =head1 NAME
+ 
+-DBIx::Class::EncodedColumn::Digest
++DBIx::Class::EncodedColumn::Digest - Digest backend
+ 
+ =head1 SYNOPSYS
+ 

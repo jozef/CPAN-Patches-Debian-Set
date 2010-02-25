@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libio-socket-ssl-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libio-socket-ssl-perl (>= 1.06)
+X: 0

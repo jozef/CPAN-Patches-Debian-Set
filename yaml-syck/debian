@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libdevel-leak-perl, perl (>= 5.6.0)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

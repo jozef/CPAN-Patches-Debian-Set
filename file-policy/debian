@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libfile-slurp-perl, liblog-trace-perl, libtest-assertions-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-slurp-perl, liblog-trace-perl, libtest-assertions-perl
+X: 0

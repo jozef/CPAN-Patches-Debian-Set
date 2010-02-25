@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libclass-inspector-perl, libclone-perl (>= 0.30), libfile-remove-perl (>= 0.39), libio-string-perl, liblist-moreutils-perl, libparams-util-perl (>= 0.21), libtask-weaken-perl, libtest-cpan-meta-perl, libtest-nowarnings-perl (>= 0.084), libtest-object-perl, libtest-pod-perl, libtest-subcalls-perl, perl (>= 5.10.1) | libpod-simple-perl (>= 3.06)
+Depends: ${misc:Depends}, ${perl:Depends}, libclone-perl (>= 0.25), libio-string-perl, liblist-moreutils-perl, libparams-util-perl (>= 0.21), libtask-weaken-perl, perl (>= 5.10)
+X: 0

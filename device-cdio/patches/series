@@ -1,0 +1,7 @@
+01_invalid_cflags.patch
+02_wrong_function_name.patch
+03_version_information_in_swig.patch
+04_wrong_handling_of_output_parameters.patch
+05_buffer_overflows_in_perliso9660.patch
+06_module_build.patch
+07_pod-coverage.patch

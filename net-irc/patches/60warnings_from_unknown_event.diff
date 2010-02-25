@@ -1,0 +1,36 @@
+--- a/Connection.pm
++++ b/Connection.pm
+@@ -467,6 +467,7 @@
+   my $ev;
+   if (ref $event) {
+     $ev = $event->type;
++    $ev = "" if !$ev;
+   } elsif (defined $event) {
+     $ev = $event;
+     $event = Net::IRC::Event->new($event, '', '', '');
+@@ -1126,11 +1127,15 @@
+   
+   $from = substr $from, 1 if $from =~ /^:/;
+   
+-  return Net::IRC::Event->new( $type,
++  my $event = Net::IRC::Event->new( $type,
+                                $from,
+                                '',
+                                'server',
+                                @stuff );
++  if (!$event->type and $self->{_debug}) {
++    carp("Unknown code $type received") ;
++  }
++  return $event;
+ }
+ 
+ # Helps you flee those hard-to-stand channels.
+@@ -1584,6 +1589,8 @@
+     croak "You EEEEEDIOT!!! Not enough args to _default()!";
+   }
+   
++  return 1 if !$event->type;
++
+   # Reply to PING from server as quickly as possible.
+   if ($event->type eq "ping") {
+     $self->sl("PONG " . (CORE::join ' ', $event->args));

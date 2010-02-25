@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.3), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libclass-base-perl, libreadonly-perl, libtest-pod-coverage-perl, libtest-pod-perl, libwww-perl, ncbi-epcr, perl (>= 5.6.10-12), primer3
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-base-perl, libreadonly-perl, libwww-perl, ncbi-epcr, primer3
+X: 0

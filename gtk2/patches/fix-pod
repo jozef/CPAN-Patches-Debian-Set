@@ -1,0 +1,10 @@
+fix POD errors.
+
+--- a/tools/podifystockitems.pl
++++ b/tools/podifystockitems.pl
+@@ -67,4 +67,4 @@
+ {
+ 	printf $fmt, @$_;
+ }
+-print $end."\n=cut\n\n";
++#print $end."\n=cut\n\n";

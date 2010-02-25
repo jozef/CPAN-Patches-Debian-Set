@@ -1,0 +1,21 @@
+Author: Florian Ragwitz <rafl@debian.org>
+Description: add more documentation on encoding errors
+Index: libxml-sax-writer-perl/lib/XML/SAX/Writer.pm
+===================================================================
+--- libxml-sax-writer-perl.orig/lib/XML/SAX/Writer.pm	2009-02-25 23:00:41.000000000 +0000
++++ libxml-sax-writer-perl/lib/XML/SAX/Writer.pm	2009-02-25 23:01:46.000000000 +0000
+@@ -588,6 +588,14 @@
+ 
+ =back
+ 
++Note that the return value of the convert method is B<not> checked. Output may
++be truncated if a character couldn't be converted correctly. To avoid problems
++the encoder should take care encoding errors itself, for example by raising an
++exception. If you use Text::Iconv as the encoder you can use the following:
++
++  my $w = XML::Sax::Writer->new;
++  $w->{Encoder}->raise_error(1);
++
+ =head1 CUSTOM OUTPUT
+ 
+ This module is generally used to write XML -- which it does most of the

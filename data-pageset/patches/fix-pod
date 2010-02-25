@@ -1,0 +1,31 @@
+fix errors in the POD, and test the POD
+
+--- libdata-pageset-perl-1.05.orig/t/pod.t
++++ libdata-pageset-perl-1.05/t/pod.t
+@@ -0,0 +1,6 @@
++use strict;
++use warnings;
++use Test::More;
++use Test::Pod;
++
++all_pod_files_ok();
+--- libdata-pageset-perl-1.05.orig/lib/Data/Pageset.pm
++++ libdata-pageset-perl-1.05/lib/Data/Pageset.pm
+@@ -109,7 +109,7 @@
+ 
+ 21
+ 
+-=back 4
++=back
+ 
+ =head3 Slide:
+ 
+@@ -127,7 +127,7 @@
+ 
+ 24
+ 
+-=back 4
++=back
+ 
+ You can not change modes once the object is created.
+ 

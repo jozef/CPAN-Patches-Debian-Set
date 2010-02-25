@@ -1,0 +1,16 @@
+Description: add a whatis entry
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/TAP/Harness/Beyond.pod
++++ b/lib/TAP/Harness/Beyond.pod
+@@ -1,4 +1,8 @@
+-=head1 Beyond make test
++=head1 NAME
++
++TAP::Harness::Beyond - Beyond make test
++
++=head1 BEYOND make test
+ 
+ Test::Harness is responsible for running test scripts, analysing
+ their output and reporting success or failure. When I type 

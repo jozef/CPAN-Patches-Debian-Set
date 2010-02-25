@@ -1,0 +1,29 @@
+Author: Daniel Leidert <daniel.leidert@wgdd.de>
+Bugs-Debian: #549465
+
+The default return values by gtk_print_settings_get_printer_lpi,
+_get_resolution_x and _get_resolution_y have been changed, making it
+necessary to fix the expected return values here.
+
+http://git.gnome.org/cgit/gtk+/commit/?id=f117777c20f9ad0447bea9eb8c8d03c1b64d4344
+https://bugzilla.gnome.org/590861
+http://bugs.debian.org/549465
+
+--- a/t/GtkPrintSettings.t
++++ b/t/GtkPrintSettings.t
+@@ -118,12 +118,12 @@
+ 
+   my $settings = Gtk2::PrintSettings -> new();
+ 
+-  is($settings -> get_printer_lpi(), 0);
++  is($settings -> get_printer_lpi(), 150);
+   $settings -> set_printer_lpi(3.1416);
+   delta_ok($settings -> get_printer_lpi(), 3.1416);
+ 
+-  is($settings -> get_resolution_x(), 0);
+-  is($settings -> get_resolution_y(), 0);
++  is($settings -> get_resolution_x(), 300);
++  is($settings -> get_resolution_y(), 300);
+   $settings -> set_resolution_xy(10, 20);
+   is($settings -> get_resolution_x(), 10);
+   is($settings -> get_resolution_y(), 20);

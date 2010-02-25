@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhttp-server-simple-perl (>= 0.33-2), libtest-pod-coverage-perl, libtest-pod-perl, libtest-simple-perl (>= 0.78) | perl (>= 5.10), perl (>= 5.6.10)
+Depends: ${misc:Depends}, ${perl:Depends}, libhttp-server-simple-perl (>= 0.33-2)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt
+Build-Depends-Indep: libclass-adapter-perl (>= 1.00), libtest-minimumversion-perl (>= 0.007), libtest-pod-perl (>= 1.00), perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-adapter-perl (>= 1.00), libparams-util-perl (>= 0.14)
+X: 0

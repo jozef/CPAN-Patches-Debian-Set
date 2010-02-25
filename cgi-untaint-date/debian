@@ -1,0 +1,4 @@
+App: 0
+Build-Depends-Indep: debhelper (>= 5), libcgi-untaint-perl, libdate-manip-perl, libdate-simple-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-untaint-perl, libdate-manip-perl, libdate-simple-perl
+X: 0

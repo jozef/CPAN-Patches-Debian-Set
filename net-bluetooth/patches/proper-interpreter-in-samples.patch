@@ -1,0 +1,44 @@
+# proper-interpreter-in-samples.patch by Rene Mayorga <rmayorga@debian.org.sv>
+# Adding #!/usr/bin/perl in some samples
+
+@DPATCH@
+--- a/samples/client_connection
++++ b/samples/client_connection
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use Net::Bluetooth;
+ 
+ 	#### Create a RFCOMM client
+--- a/samples/device_discovery
++++ b/samples/device_discovery
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use Net::Bluetooth;
+                                                                                                                    
+ 	#### list all remote devices in the area
+--- a/samples/get_gps_data
++++ b/samples/get_gps_data
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use Net::Bluetooth;
+ $| = 1;
+ 
+--- a/samples/server_and_service_registration
++++ b/samples/server_and_service_registration
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use Net::Bluetooth;
+ 
+ 	#### Create a RFCOMM server
+--- a/samples/service_discovery
++++ b/samples/service_discovery
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use Net::Bluetooth;
+                                                                                                                          
+ 	#### About the sdp_search call:

@@ -1,0 +1,14 @@
+# Description: remove -lssl from LIBS as it is not needed; no symbols from
+#              libssl are used
+# Author: Damyan Ivanov <dmn@debian.org>
+# Upstream-Bug: https://sourceforge.net/tracker2/?func=detail&aid=2556362&group_id=73194&atid=537056
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -6,6 +6,6 @@ WriteMakefile(
+     'VERSION_FROM'	=> 'lib/Crypt/OpenSSL/DSA.pm', # finds $VERSION
+     'PREREQ_PM'		=> {}, # e.g., Module::Name => 1.1
+     'AUTHOR'            => 'T.J. Mather',
+-    'LIBS'              => ['-lssl -lcrypto'],
++    'LIBS'              => ['-lcrypto'],
+     'DEFINE'            => '-DPERL5',   # perl-5.8/gcc-3.2 needs this
+ );

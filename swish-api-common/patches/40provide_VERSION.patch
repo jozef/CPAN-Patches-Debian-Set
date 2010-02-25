@@ -1,0 +1,17 @@
+Description: work around SWISH namespaces wreckage
+ The absence of a working &VERSION causes problems with ExtUtils::MakeMaker
+Origin: vendor
+Author: Frank Lichtenheld <djpig@debian.org>
+Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=422609
+Forwarded: no
+--- a/lib/SWISH/API/Common.pm
++++ b/lib/SWISH/API/Common.pm
+@@ -22,6 +22,8 @@
+ use Sysadm::Install qw(:all);
+ use File::Temp qw(tempfile);
+ 
++sub VERSION { return $VERSION; }
++
+ ###########################################
+ sub new {
+ ###########################################

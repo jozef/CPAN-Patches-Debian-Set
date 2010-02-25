@@ -1,0 +1,13 @@
+Description: fix POD errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/MooseX/Types/VariantTable/Declare.pm
++++ b/lib/MooseX/Types/VariantTable/Declare.pm
+@@ -118,4 +118,5 @@
+ time in a role composition like way, so your code will not continue to work the
+ same.
+ 
+-=back
++=cut
++

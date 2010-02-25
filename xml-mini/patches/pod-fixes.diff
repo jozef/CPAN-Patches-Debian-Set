@@ -1,0 +1,76 @@
+Description: Enhance POD documentation to have proper whatis entries
+ Without those changes the generated manual pages can't be properly
+ indexed by man-db as they lack a short description in the NAME section.
+ Those descriptions are used by the whatis utility in particular.
+Author: Raphaël Hertzog <hertzog@debian.org>
+
+--- a/lib/XML/Mini/Element/CData.pm
++++ b/lib/XML/Mini/Element/CData.pm
+@@ -80,7 +80,7 @@ __END__
+ 
+ =head1 NAME
+ 
+-XML::Mini::Element::CData
++XML::Mini::Element::CData - represents CDATA blocks in XML::Mini parser
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/XML/Mini/Element/Comment.pm
++++ b/lib/XML/Mini/Element/Comment.pm
+@@ -83,7 +83,7 @@ __END__
+ 
+ =head1 NAME
+ 
+-XML::Mini::Element::Comment
++XML::Mini::Element::Comment - represents comments in XML::Mini parser
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/XML/Mini/Element/DocType.pm
++++ b/lib/XML/Mini/Element/DocType.pm
+@@ -77,7 +77,7 @@ __END__
+ 
+ =head1 NAME
+ 
+-XML::Mini::Element::DocType
++XML::Mini::Element::DocType - represents DocType header in XML::Mini parser
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/XML/Mini/Element/Entity.pm
++++ b/lib/XML/Mini/Element/Entity.pm
+@@ -84,7 +84,7 @@ __END__
+ 
+ =head1 NAME
+ 
+-XML::Mini::Element::Entity
++XML::Mini::Element::Entity - represents XML entities in XML::Mini parser
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/XML/Mini/Element/Header.pm
++++ b/lib/XML/Mini/Element/Header.pm
+@@ -91,7 +91,7 @@ __END__
+ 
+ =head1 NAME
+ 
+-XML::Mini::Element::Header
++XML::Mini::Element::Header - represents XML headers in XML::Mini parser
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/XML/Mini/Node.pm
++++ b/lib/XML/Mini/Node.pm
+@@ -136,7 +136,11 @@ sub toStringNoWhiteSpaces
+ 
+ __END__
+ 
+-=head1 class XML::Mini::Node
++=head1 NAME
++
++XML::Mini::Node - XML node for XML::Midi parser/generator
++
++=head1 DESCRIPTION
+ 
+ Nodes are used as atomic containers for numerical and text data
+ and act as leaves in the XML tree.

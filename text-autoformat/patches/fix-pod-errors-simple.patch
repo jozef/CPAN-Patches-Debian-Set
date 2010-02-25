@@ -1,0 +1,27 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: remove some spurious pod stuff, otherwise the output is just empty
+
+--- a/lib/Text/Autoformat.pm
++++ b/lib/Text/Autoformat.pm
+@@ -579,21 +579,6 @@
+ # blockquote($text,$para, $format, $tlen, \@hang, \%args);
+ sub blockquote {
+     my ($dummy, $para, $format, $tlen, $hang, $args) = @_;
+-=begin other
+-    print STDERR "[", join("|", $para->{raw} =~
+-/ \A(\s*)       # $1 - leading whitespace (quotation)
+-       (["']|``)        # $2 - opening quotemark
+-       (.*)         # $3 - quotation
+-       (''|\2)      # $4 closing quotemark
+-       \s*?\n       # trailing whitespace
+-       (\1[ ]+)     # $5 - leading whitespace (attribution)
+-       (--|-)       # $6 - attribution introducer
+-       ([^\n]*?$)       # $7 - attribution line 1
+-       ((\5[^\n]*?$)*)      # $8 - attributions lines 2-N
+-       \s*\Z
+-     /xsm
+-), "]\n";
+-=cut
+     $para->{text} =~
+         / \A(\s*)       # $1 - leading whitespace (quotation)
+        (["']|``)        # $2 - opening quotemark

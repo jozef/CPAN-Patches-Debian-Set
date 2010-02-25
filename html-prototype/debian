@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libclass-accessor-perl, libhtml-tree-perl, libjs-prototype, libjs-scriptaculous, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libhtml-tree-perl, libjs-prototype, libjs-scriptaculous
+X: 0

@@ -1,0 +1,45 @@
+diff -upr svn/bind-hammer.pl b/bind-hammer.pl
+--- svn/bind-hammer.pl	2009-10-02 13:55:36.000000000 -0430
++++ b/bind-hammer.pl	2009-10-02 23:43:56.000000000 -0430
+@@ -1,4 +1,4 @@
+-#!/apps/perl/std/bin/perl
++#!/usr/bin/perl
+ #
+ # Copyright (c) 2001 SymLABS <symlabs@symlabs.com>, All Rights Reserved.
+ # See README for license. NO WARRANTY.
+diff -upr svn/esme-hammer.pl b/esme-hammer.pl
+--- svn/esme-hammer.pl	2009-10-02 13:55:36.000000000 -0430
++++ b/esme-hammer.pl	2009-10-02 23:44:07.000000000 -0430
+@@ -1,4 +1,4 @@
+-#!/apps/perl/std/bin/perl
++#!/usr/bin/perl
+ #
+ # Copyright (c) 2001 SymLABS <symlabs@symlabs.com>, All Rights Reserved.
+ # See README for license. NO WARRANTY.
+diff -upr svn/esme.pl b/esme.pl
+--- svn/esme.pl	2009-10-02 13:55:36.000000000 -0430
++++ b/esme.pl	2009-10-02 23:44:17.000000000 -0430
+@@ -1,4 +1,4 @@
+-#!/apps/perl/std/bin/perl
++#!/usr/bin/perl
+ #
+ # Copyright (c) 2001 SymLABS <symlabs@symlabs.com>, All Rights Reserved.
+ # See README for license. NO WARRANTY.
+diff -upr svn/esme-rec.pl b/esme-rec.pl
+--- svn/esme-rec.pl	2009-10-02 13:55:36.000000000 -0430
++++ b/esme-rec.pl	2009-10-02 23:44:28.000000000 -0430
+@@ -1,4 +1,4 @@
+-#!/apps/perl/std/bin/perl
++#!/usr/bin/perl
+ #
+ # Copyright (c) 2001 SymLABS <symlabs@symlabs.com>, All Rights Reserved.
+ # See README for license. NO WARRANTY.
+diff -upr svn/smsc.pl b/smsc.pl
+--- svn/smsc.pl	2009-10-02 14:02:53.000000000 -0430
++++ b/smsc.pl	2009-10-02 23:44:44.000000000 -0430
+@@ -1,4 +1,4 @@
+-#!/apps/perl/std/bin/perl
++#!/usr/bin/perl
+ #
+ # Copyright (c) 2001 SymLABS <symlabs@symlabs.com>, All Rights Reserved.
+ # See README for license. NO WARRANTY.

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: apache2-prefork-dev | apache2-threaded-dev, debhelper (>= 5), libapache2-mod-perl2-dev, libapr1-dev, libperl-dev, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libapache2-mod-perl2
+X: 0

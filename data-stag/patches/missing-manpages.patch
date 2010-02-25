@@ -1,0 +1,91 @@
+Author: Charles Plessy <plessy@debian.org>
+Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=37218
+Description: Adds POD documentation to supply missing manual pages.
+ This patch is referenced in Debian bug #488614
+License: Same as Data::Stag itself
+--- a/scripts/stag-itext2simple.pl
++++ b/scripts/stag-itext2simple.pl
+@@ -12,3 +12,18 @@ foreach my $f (@ARGV) {
+     $p->parse($f);
+ }
+ 
++__END__
++
++=head1 NAME
++
++stag-itext2simple - converts between stag formats
++
++=head1 DESCRIPTION
++
++Converts from itext to simple format.
++
++=head1 SEE ALSO
++
++L<Data::Stag>
++
++=cut
+--- a/scripts/stag-itext2sxpr.pl
++++ b/scripts/stag-itext2sxpr.pl
+@@ -11,4 +11,18 @@ foreach my $f (@ARGV) {
+ }
+ 
+ 
++__END__
+ 
++=head1 NAME
++
++stag-itext2sxpr - converts between stag formats
++
++=head1 DESCRIPTION
++
++Converts from itext to sxpr format.
++
++=head1 SEE ALSO
++
++L<Data::Stag>
++
++=cut
+--- a/scripts/stag-itext2xml.pl
++++ b/scripts/stag-itext2xml.pl
+@@ -12,3 +12,19 @@ foreach my $f (@ARGV) {
+     $p->parse($f);
+     print $h->tree->xml;
+ }
++
++__END__
++
++=head1 NAME
++
++stag-itext2xml - converts between stag formats
++
++=head1 DESCRIPTION
++
++Converts from itext to xml format.
++
++=head1 SEE ALSO
++
++L<Data::Stag>
++
++=cut
+--- a/scripts/stag-xml2itext.pl
++++ b/scripts/stag-xml2itext.pl
+@@ -9,4 +9,19 @@ $p->handler($h);
+ foreach my $xmlfile (@ARGV) {
+     $p->parse($xmlfile);
+ }
++__END__
++
++=head1 NAME
++
++stag-xml2itext - converts between stag formats
++
++=head1 DESCRIPTION
++
++Converts from xml to itext format.
++
++=head1 SEE ALSO
++
++L<Data::Stag>
++
++=cut
+ 

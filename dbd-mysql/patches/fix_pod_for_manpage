@@ -1,0 +1,30 @@
+Index: libdbd-mysql-perl/lib/DBD/mysql.pm
+===================================================================
+--- libdbd-mysql-perl.orig/lib/DBD/mysql.pm	2009-07-20 12:36:37.000000000 +0200
++++ libdbd-mysql-perl/lib/DBD/mysql.pm	2009-07-20 12:36:56.000000000 +0200
+@@ -1224,6 +1224,7 @@
+  $bool_value = $dbh->{mysql_auto_reconnect};
+  $dbh->{mysql_auto_reconnect} = $AutoReconnect ? 1 : 0;
+ 
++=over
+ 
+ =item mysql_auto_reconnect
+ 
+@@ -1326,7 +1327,7 @@
+ 
+   $dbh->{mysql_no_autocommit_cmd} = 1;
+ 
+-
++=back
+ 
+ =head1 STATEMENT HANDLES
+ 
+@@ -1568,8 +1569,6 @@
+ 
+ =back
+ 
+-=over
+-
+ =head1 MULTIPLE RESULT SETS
+ 
+ As of version 3.0002_5, DBD::mysql supports multiple result sets (Thanks

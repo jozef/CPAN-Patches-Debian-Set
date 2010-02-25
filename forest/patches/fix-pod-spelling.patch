@@ -1,0 +1,18 @@
+Description: fix POD typos
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Forest.pm
++++ b/lib/Forest.pm
+@@ -55,9 +55,9 @@
+ core implementation. There is some good code in here, but the project seems to be
+ very much on the back-burner at this time.
+ 
+-=item O'Caml port of Forest
++=item OCaml port of Forest
+ 
+-Ask me about the O'Caml port of this module, it is also sitting on my hard drive
++Ask me about the OCaml port of this module, it is also sitting on my hard drive
+ waiting for release. It actually helped quite a bit in terms of helping me settle
+ on the APIs for this module. Static typing can be very helpful sometimes.
+ 

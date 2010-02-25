@@ -1,0 +1,25 @@
+Description: fix POD spelling mistakes
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: yes
+Bug-CPAN: http://rt.cpan.org/Ticket/Display.html?id=53265
+--- a/lib/Data/FormValidator.pm
++++ b/lib/Data/FormValidator.pm
+@@ -224,7 +224,7 @@
+ 
+ This is a list of fields which are unknown to the profile. Whether or
+ not this indicates an error in the user input is application
+-dependant.
++dependent.
+ 
+ =back
+ 
+@@ -1087,7 +1087,7 @@
+ 
+ This is a list of fields which are unknown to the profile. Whether or
+ not this indicates an error in the user input is application
+-dependant.
++dependent.
+ 
+ =back
+ 

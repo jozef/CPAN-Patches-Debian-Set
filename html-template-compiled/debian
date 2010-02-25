@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: libdata-treedumper-perl, libdata-treedumper-renderer-dhtml-perl, libhtml-parser-perl, libparse-recdescent-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, perl (>= 5.8) | libscalar-util-perl
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

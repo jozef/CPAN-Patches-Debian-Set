@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt
+Build-Depends-Indep: libdata-validate-domain-perl (>= 0.04), libemail-address-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-validate-domain-perl (>= 0.04), libemail-address-perl
+X: 0

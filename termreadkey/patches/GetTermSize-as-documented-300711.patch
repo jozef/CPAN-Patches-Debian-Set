@@ -1,0 +1,18 @@
+# Modify the GetTerminalSize function to match its documented behaviour
+# http://rt.cpan.org/Ticket/Display.html?id=35669
+--- a/ReadKey.pm
++++ b/ReadKey.pm
+@@ -357,10 +357,11 @@ sub GetTerminalSize
+         push( @fail, "resize program" );
+     }
+ 
+-    if ( @results < 4 )
++    if ( @results != 4 )
+     {
+-        die "Unable to get Terminal Size."
++        warn "Unable to get Terminal Size."
+           . join( "", map( " The $_ didn't work.", @fail ) );
++	return undef;
+     }
+ 
+     @results;

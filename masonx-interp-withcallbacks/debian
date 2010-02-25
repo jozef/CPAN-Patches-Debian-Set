@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), libmodule-build-perl
+Build-Depends-Indep: libclass-container-perl (>= 0.09), libhtml-mason-perl (>= 1:1.23), libparams-callbackrequest-perl (>= 1.15), libtest-pod-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-container-perl (>= 0.09), libhtml-mason-perl (>= 1:1.23), libparams-callbackrequest-perl (>= 1.15)
+X: 0

@@ -1,0 +1,44 @@
+Author: Daniel Barlow <dan@telent.net>
+Origin: http://bugs.debian.org/cgi-bin/bugreport.cgi?msg=10;filename=Decoder.patch;att=1;bug=501250
+Description: Fix broken dithering.
+Bug-Debian: http://bugs.debian.org/501250
+
+Index: libaudio-flac-decoder-perl/Decoder.xs
+===================================================================
+--- libaudio-flac-decoder-perl.orig/Decoder.xs	2009-11-01 19:31:59.000000000 +0000
++++ libaudio-flac-decoder-perl/Decoder.xs	2009-11-02 22:33:15.000000000 +0000
+@@ -489,11 +489,32 @@
+ 			const unsigned n = min(datasource->wide_samples_in_reservoir, SAMPLES_PER_WRITE);
+ 			const unsigned delta = n * channels;
+ 			unsigned i;
+-
++			FLAC__byte *out=datasource->sample_buffer;
++			/*
+ 			int bytes = (int)pack_pcm_signed_little_endian(
+ 				datasource->sample_buffer, datasource->reservoir, n, channels, bps, bps
+ 			);
+-
++			bps==bps (trivially) so all the fancy dithering stuff
++			that pack_pcm_signed_little_endian might do will
++			never get called.  Let's just do it inline
++			*/
++			int bytes;
++			for(i=0; i<channels*n; i++) {
++			    FLAC__int32 sample=(datasource->reservoir)[i];
++			    switch(bps) {
++			    case 8:
++				out[0] = sample ^ 0x80;
++				break;
++			    case 24:
++				out[2] = (FLAC__byte)(sample >> 16);
++				/* fall through */
++			    case 16:
++				out[1] = (FLAC__byte)(sample >> 8);
++				out[0] = (FLAC__byte)sample;
++			    }
++			    out+=bps/8;
++			}
++			bytes=(out-datasource->sample_buffer);
+ 			for (i = delta; i < datasource->wide_samples_in_reservoir * channels; i++) {
+ 				datasource->reservoir[i-delta] = datasource->reservoir[i];
+ 			}

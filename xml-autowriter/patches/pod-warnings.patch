@@ -1,0 +1,94 @@
+Author: Jonathan Yu <frequency@cpan.org>
+Origin: vendor
+Bug-CPAN: https://rt.cpan.org/Ticket/Display.html?id=47961
+Forwarded: yes
+Description: Fix errors with pod2man
+
+--- a/lib/XML/AutoWriter.pm
++++ b/lib/XML/AutoWriter.pm
+@@ -328,6 +328,8 @@
+    $self->SUPER::startTag( $tag, @_ ) ;
+ }
+ 
++=back
++
+ =head1 AUTHOR
+ 
+ Barrie Slaymaker <barries@slaysys.com>
+--- a/lib/XML/Doctype.pm
++++ b/lib/XML/Doctype.pm
+@@ -78,6 +78,8 @@
+ 
+ =head1 METHODS
+ 
++=over
++
+ =item new
+ 
+    $doctype = XML::Doctype->new() ;
+@@ -460,6 +462,7 @@
+    croak join( ', ', @others ), " not exported by $class" if @others ; 
+ }
+ 
++=back
+ 
+ =head1 SUBCLASSING
+ 
+--- a/lib/XML/Doctype/AttDef.pm
++++ b/lib/XML/Doctype/AttDef.pm
+@@ -19,8 +19,6 @@
+ This module is alpha code.  It's developed enough to support XML::ValidWriter,
+ but need a lot of work.  Some big things that are lacking are:
+ 
+-=over
+-
+ =cut
+ 
+ use strict ;
+@@ -39,6 +37,8 @@
+ 
+ =head1 METHODS
+ 
++=over
++
+ =item new
+ 
+    $dtd = XML::Doctype::AttDef->new( $name, $type, $default ) ;
+@@ -151,6 +151,8 @@
+ The default_on_write does not need to be the same as the default unless
+ the quantifier is #FIXED.
+ 
++=back
++
+ =cut
+ 
+ sub default_on_write {
+--- a/lib/XML/Doctype/ElementDecl.pm
++++ b/lib/XML/Doctype/ElementDecl.pm
+@@ -20,8 +20,6 @@
+ This module is alpha code.  It's developed enough to support XML::ValidWriter,
+ but need a lot of work.  Some big things that are lacking are:
+ 
+-=over
+-
+ =cut
+ 
+ use strict ;
+@@ -45,6 +43,8 @@
+ 
+ =head1 METHODS
+ 
++=over
++
+ =item new
+ 
+    # Undefined element constructors:
+@@ -304,6 +304,8 @@
+ Right now, this must be called only when an element's end tag is
+ emitted.  It can be broadened to be incremental if need be.
+ 
++=back
++
+ =cut
+ 
+ sub validate_content {

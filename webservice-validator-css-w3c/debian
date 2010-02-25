@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl, libsoap-lite-perl (>= 0.65), liburi-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libsoap-lite-perl (>= 0.65), liburi-perl, libwww-perl
+X: 0

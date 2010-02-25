@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libclass-accessor-perl, libclass-data-inheritable-perl, libhtml-lint-perl, libstring-bufferstack-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-warn-perl (>= 0.11), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libclass-data-inheritable-perl, libstring-bufferstack-perl
+X: 0

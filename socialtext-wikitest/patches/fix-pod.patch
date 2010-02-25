@@ -1,0 +1,18 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: remove POD fragment so that we don't get a manpage stub
+
+--- a/lib/Socialtext/WikiFixture/Null.pm
++++ b/lib/Socialtext/WikiFixture/Null.pm
+@@ -8,12 +8,6 @@
+ 
+ my $CALLS;
+ 
+-=head2 get_num_calls
+-
+-Return the number of calls made to handle_command, and reset the counter.
+-
+-=cut
+-
+ sub get_num_calls {
+     my $num = $CALLS;
+     $CALLS = 0;

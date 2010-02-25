@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libpoe-api-peek-perl, libpoe-perl (>= 2:0.3007), libwww-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libpoe-perl, libwww-perl
+X: 0

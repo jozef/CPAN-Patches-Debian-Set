@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: help2man, libgtk2-gladexml-perl, libgtk2-perl, libxml-sax-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libgtk2-gladexml-perl, libgtk2-perl
+X: 0

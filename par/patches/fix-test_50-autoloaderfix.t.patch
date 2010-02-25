@@ -1,0 +1,14 @@
+Author: Damyan Ivanov <dmn@debian.org>
+Description: avoid endless loop in t/50-autoloaderfix.t
+
+--- a/t/50-autoloaderfix.t
++++ b/t/50-autoloaderfix.t
+@@ -16,7 +16,7 @@ sub new {
+ 
+ package main;
+ 
+-$INC{"Bar.pm"} = $0; # <--
++$INC{"Bar"} = $0; # <--
+ {
+     my $p = Bar->new();
+ } # <-- looping while looking for Bar::DESTROY

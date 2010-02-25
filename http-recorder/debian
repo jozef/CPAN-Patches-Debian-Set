@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 6)
+Build-Depends-Indep: libhtml-parser-perl, libhttp-request-params-perl, libtest-pod-perl, liburi-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl, libhttp-request-params-perl, liburi-perl, libwww-perl
+X: 0

@@ -1,0 +1,11 @@
+--- a/lib/Net/RawIP.pm
++++ b/lib/Net/RawIP.pm
+@@ -701,7 +701,7 @@
+ 
+ Net::RawIP - Perl extension to manipulate raw IP packets with interface to B<libpcap>
+ 
+-=head VERSION
++=head1 VERSION
+ 
+ This is the documentation of C<Net::RawIP> version 0.25
+ 

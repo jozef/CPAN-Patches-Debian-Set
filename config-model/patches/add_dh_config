@@ -1,0 +1,28 @@
+Author: Dominique Dumont <dominique.dumont@hp.com>
+Description: Arrange for dh_config to be handled by Module::Build
+             (mostly to generate proper man page from pod doc)
+Index: libconfig-model-perl/Build.PL
+===================================================================
+--- libconfig-model-perl.orig/Build.PL	2009-07-20 15:53:27.000000000 +0200
++++ libconfig-model-perl/Build.PL	2009-07-21 17:26:11.000000000 +0200
+@@ -35,7 +35,7 @@
+   (
+    module_name    => 'Config::Model',
+    license        => 'lgpl',
+-   script_files   => [ 'config-edit' ],
++   script_files   => [ 'config-edit' , 'debian/dh/dh_config_model_upgrade' ],
+    dist_abstract  => 'Edit and validate configuration data',
+    dist_author    => 'Dominique Dumont (ddumont at cpan dot org)',
+    requires       => {
+Index: libconfig-model-perl/MANIFEST
+===================================================================
+--- libconfig-model-perl.orig/MANIFEST	2009-07-20 15:53:27.000000000 +0200
++++ libconfig-model-perl/MANIFEST	2009-07-21 17:25:53.000000000 +0200
+@@ -6,6 +6,7 @@
+ TODO
+ META.yml
+ config-edit
++debian/dh/dh_config_model_upgrade
+ examples/fstab/Fstab.pl
+ examples/fstab/README
+ examples/fstab/fstab.sample

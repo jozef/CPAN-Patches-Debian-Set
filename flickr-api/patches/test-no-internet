@@ -1,0 +1,24 @@
+Index: test.pl
+===================================================================
+--- libflickr-api-perl.orig/test.pl
++++ libflickr-api-perl/test.pl
+@@ -13,6 +13,9 @@
+ 		'key' => 'made_up_key',
+ 		'secret' => 'my_secret',
+ 	});
++
++SKIP: {
++skip("No internet connections during Debian builds", 2) if ($ENV{DEBIAN_BUILD});
+ my $rsp = $api->execute_method('fake.method', {});
+ 
+ 
+@@ -41,8 +44,8 @@
+ }else{
+ 	is(1, 1, "skipping error code check, since we couldn't reach the API");
+ }
++}
+ 
+-
+ ##################################################
+ #
+ # check the signing works properly

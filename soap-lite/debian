@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libcrypt-ssleay-perl, libfcgi-perl, libio-socket-ssl-perl, libio-stringy-perl, libmime-lite-perl, libmime-tools-perl, libnet-jabber-perl, libossp-uuid-perl, libtask-weaken-perl, libtest-mockobject-perl, liburi-perl, libwww-perl, libxml-parser-perl, nullmailer | mail-transport-agent, perl (>= 5.10.0) | libversion-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcrypt-ssleay-perl, libfcgi-perl, libio-socket-ssl-perl, libio-stringy-perl, libmime-tools-perl, libossp-uuid-perl, libtask-weaken-perl, liburi-perl, libwww-perl, libxml-parser-perl, perl (>= 5.10.1)
+X: 0

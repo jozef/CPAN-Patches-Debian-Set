@@ -1,0 +1,49 @@
+Add manpage "SEE ALSO" sections for better documentation.
+--- libwww-mechanize-perl.orig/bin/mech-dump
++++ libwww-mechanize-perl/bin/mech-dump
+@@ -114,3 +114,7 @@
+     $mech->dump_forms( undef, $absolute );
+     return;
+ }
++
++=head1 SEE ALSO
++
++L<WWW::Mechanize>
+--- libwww-mechanize-perl.orig/lib/WWW/Mechanize/Cookbook.pod
++++ libwww-mechanize-perl/lib/WWW/Mechanize/Cookbook.pod
+@@ -72,6 +72,10 @@
+ Use Abe Timmerman's L<WWW::CheckSite>
+ L<http://search.cpan.org/dist/WWW-CheckSite/>
+ 
++=head1 SEE ALSO
++
++L<WWW::Mechanize>
++
+ =head1 AUTHORS
+ 
+ Copyright 2005 Andy Lester C<< <andy@petdance.com> >>
+--- libwww-mechanize-perl.orig/lib/WWW/Mechanize/Image.pm
++++ libwww-mechanize-perl/lib/WWW/Mechanize/Image.pm
+@@ -116,6 +116,10 @@
+     return $self->URI->abs;
+ }
+ 
++=head1 SEE ALSO
++
++L<WWW::Mechanize>
++
+ =head1 COPYRIGHT
+ 
+ Copyright (c) 2004 Andy Lester. All rights reserved. This program is
+--- libwww-mechanize-perl.orig/lib/WWW/Mechanize/Link.pm
++++ libwww-mechanize-perl/lib/WWW/Mechanize/Link.pm
+@@ -111,6 +111,9 @@
+ 
+     return $self->URI->abs;
+ }
++=head1 SEE ALSO
++
++L<WWW::Mechanize>
+ 
+ =head1 COPYRIGHT
+ 

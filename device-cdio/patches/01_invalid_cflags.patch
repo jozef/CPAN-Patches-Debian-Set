@@ -1,0 +1,18 @@
+Author: Martín Ferrari <martin.ferrari@gmail.com>
+Description: Some string splitting is generating a empty
+array element that's passed to exec, so cc interprets it as a
+parameter and it fails.
+(Patch sent to http://rt.cpan.org/Public/Bug/Display.html?id=28132)
+--- a/Build.PL
++++ b/Build.PL
+@@ -319,6 +319,10 @@ if ('cygwin' eq $Config{osname} && 
+     $ldflags .= " -bundle -flat_namespace";
+ }
+ 
++$ccflags =~ s/^\s+//;
++$ccflags =~ s/\s+$//;
++$ldflags =~ s/^\s+//;
++$ldflags =~ s/\s+$//;
+ my $class = Module::Build->subclass( code => $code );
+ 
+ my $builder = $class->new( 

@@ -1,0 +1,26 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: POD skeleton to pass Pod::Coverage test
+
+--- libjavascript-perl-1.14.orig/lib/JavaScript/Generator.pm
++++ libjavascript-perl-1.14/lib/JavaScript/Generator.pm
+@@ -18,3 +18,20 @@
+ 
+ 
+ 1;
++__END__
++    
++=head1 NAME
++
++JavaScript::Generated - support for Generators
++
++=head1 DESCRIPTION
++
++=head2 METHODS
++
++=over 4
++
++=item next
++
++=back
++
++=cut

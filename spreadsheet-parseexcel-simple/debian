@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), quilt (>= 0.40)
+Build-Depends-Indep: libspreadsheet-parseexcel-perl, libspreadsheet-writeexcel-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libspreadsheet-parseexcel-perl
+X: 0

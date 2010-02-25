@@ -1,0 +1,21 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: fix pod error
+
+--- a/lib/Socket/Multicast6.pm
++++ b/lib/Socket/Multicast6.pm
+@@ -126,12 +126,15 @@
+ 
+ =head1 FUNCTIONS
+ 
++=over
++
+ =item $ip_mreq = pack_ip_mreq(MCAST_ADDR, IF_ADDR)
+ 
+ =item $ip_mreq_source = pack_ip_mreq_source(MCAST_ADDR, SOURCE_ADDR, IF_ADDR)
+ 
+ =item $ipv6_mreq = pack_ipv6_mreq(MCAST6_ADDR, IF_INDEX)
+ 
++=back
+ 
+ =head1 CONSTANTS
+ 

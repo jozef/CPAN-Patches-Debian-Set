@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libaliased-perl, liblist-moreutils-perl, libmoose-perl, libmoosex-traits-perl, libmoosex-types-perl, libmoosex-types-structured-perl, libnamespace-clean-perl (>= 0.10), libppi-perl (>= 1.203), libtest-differences-perl, libtest-exception-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libmoose-perl, libmoosex-traits-perl, libmoosex-types-perl, libmoosex-types-structured-perl, libnamespace-clean-perl (>= 0.10), libppi-perl (>= 1.203)
+X: 0

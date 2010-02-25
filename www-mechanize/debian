@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt
+Build-Depends-Indep: libhtml-parser-perl, libhttp-server-simple-perl (>= 0.35), libio-socket-ssl-perl, libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-taint-perl, libtest-warn-perl (>= 0.11), liburi-perl (>= 1.36), libwww-perl (>= 5.829), netbase, perl (>=5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl, libhttp-server-simple-perl (>= 0.35), liburi-perl (>= 1.36), libwww-perl (>= 5.829), perl (>= 5.8.0)
+X: 0

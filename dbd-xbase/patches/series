@@ -1,0 +1,4 @@
+Makefile.PL.patch
+underline-dump.patch
+no_O_BINARY_redefine.patch
+pod_spelling.patch

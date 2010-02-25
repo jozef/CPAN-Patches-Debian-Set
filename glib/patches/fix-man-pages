@@ -1,0 +1,150 @@
+improves man pages
+
+--- a/GParamSpec.xs
++++ b/GParamSpec.xs
+@@ -209,6 +209,8 @@
+ 
+ MODULE = Glib::ParamSpec	PACKAGE = Glib::ParamSpec	PREFIX = g_param_spec_
+ 
++=for object Glib::ParamSpec Wrapper to encapsulate metadate needed to specify parameters
++
+ void
+ DESTROY (GParamSpec * pspec)
+     CODE:
+@@ -784,7 +786,7 @@
+  ## similarly, all unsigned integer types
+ 
+ 
+-=for object Glib::Param::UInt
++=for object Glib::Param::UInt Wrapper for uint parameters in GLib
+ 
+ =head1 DESCRIPTION
+ 
+@@ -878,7 +880,7 @@
+ 
+ MODULE = Glib::ParamSpec	PACKAGE = Glib::Param::Int64
+ 
+-=for object Glib::Param::Int64
++=for object Glib::Param::Int64 Wrapper for int64 parameters in GLib
+ 
+ =head1 DESCRIPTION
+ 
+@@ -917,7 +919,7 @@
+ 
+ MODULE = Glib::ParamSpec	PACKAGE = Glib::Param::UInt64
+ 
+-=for object Glib::Param::UInt64
++=for object Glib::Param::UInt64 Wrapper for uint64 parameters in GLib
+ 
+ =head1 DESCRIPTION
+ 
+@@ -958,7 +960,7 @@
+ 
+  ## and again for the floating-point types
+ 
+-=for object Glib::Param::Double
++=for object Glib::Param::Double Wrapper for double parameters in GLib
+ 
+ =head1 DESCRIPTION
+ 
+@@ -1060,6 +1062,9 @@
+ 
+ =cut
+ 
++=for object Glib::Param::Boolean Wrapper for boolean parameters in GLib
++=cut
++
+ =for see_also Glib::ParamSpec
+ =cut
+ 
+@@ -1081,6 +1086,9 @@
+ 
+ =cut
+ 
++=for object Glib::Param::Enum Wrapper for enum parameters in GLib
++=cut
++
+ =for see_also Glib::ParamSpec
+ =cut
+ 
+@@ -1115,6 +1123,9 @@
+ 
+ =cut
+ 
++=for object Glib::Param::Flags Wrapper for flag parameters in GLib
++=cut
++
+ =for see_also Glib::ParamSpec
+ =cut
+ 
+@@ -1150,6 +1161,9 @@
+ 
+ =cut
+ 
++=for object Glib::Param::String Wrapper for string parameters in GLib
++=cut
++
+ =for see_also Glib::ParamSpec
+ =cut
+ 
+@@ -1178,6 +1192,9 @@
+ 
+ =cut
+ 
++=for object Glib::Param::Unichar Wrapper for unichar parameters in GLib
++=cut
++
+ =for see_also Glib::ParamSpec
+ =cut
+ 
+--- a/GType.xs
++++ b/GType.xs
+@@ -2741,6 +2741,8 @@
+ 
+ MODULE = Glib::Type	PACKAGE = Glib::Flags
+ 
++=for object Glib::Flags Overloaded operators representing GLib flags
++
+ =for position DESCRIPTION
+ 
+ =head1 DESCRIPTION
+--- a/GUtils.xs
++++ b/GUtils.xs
+@@ -489,6 +489,9 @@
+ 
+ MODULE = Glib::Utils	PACKAGE = Glib::Markup	PREFIX = g_markup_
+ 
++=for object Glib::Markup Wrapper for markup handling functions in GLib
++=cut
++
+ =for apidoc __function__
+ =cut
+ # gchar* g_markup_escape_text (const gchar *text, gssize length);
+--- a/MakeHelper.pm
++++ b/MakeHelper.pm
+@@ -440,7 +440,7 @@
+ 
+ \$(INST_LIB)/\$(FULLEXT)/index.pod :: \$(INST_LIB)/\$(FULLEXT)/ build/podindex
+ 	\$(NOECHO) \$(ECHO) Creating POD index...
+-	\$(NOECHO) $^X -e "print qq(\\n=head1 NAME\\n\\n\$(NAME) - API Reference Pod Index\\n\\n=head1 PAGES\\n\\n=over\\n\\n)" \\
++	\$(NOECHO) $^X -e "print qq(\\n=head1 NAME\\n\\n\$(NAME) \\\\- API Reference Pod Index\\n\\n=head1 PAGES\\n\\n=over\\n\\n)" \\
+ 		> \$(INST_LIB)/\$(FULLEXT)/index.pod
+ 	\$(NOECHO) $^X -ne "print q(=item L<) . (split q( ))[1] . qq(>\\n\\n);" < build/podindex >> \$(INST_LIB)/\$(FULLEXT)/index.pod
+ 	\$(NOECHO) $^X -e "print qq(=back\\n\\n);" >> \$(INST_LIB)/\$(FULLEXT)/index.pod
+--- a/GOption.xs
++++ b/GOption.xs
+@@ -652,6 +652,14 @@
+ 	gperl_register_fundamental (GPERL_TYPE_OPTION_ARG, "Glib::OptionArg");
+ 	gperl_register_fundamental (GPERL_TYPE_OPTION_FLAGS, "Glib::OptionFlags");
+ 
++=for object Glib::OptionContext defines options accepted by the commandline option parser
++
++=cut
++
++=for object Glib::OptionGroup group of options for command line option parsing
++
++=cut
++
+ =for position SYNOPSIS
+ 
+ =head1 SYNOPSIS

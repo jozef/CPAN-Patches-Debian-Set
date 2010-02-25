@@ -1,0 +1,13 @@
+add whatis information for Devel::REPL::Profile
+
+--- a/lib/Devel/REPL/Profile.pm
++++ b/lib/Devel/REPL/Profile.pm
+@@ -7,7 +7,7 @@
+ 
+ =head1 NAME
+ 
+-Devel::REPL::Profile
++Devel::REPL::Profile - code to execute when re.pl starts
+ 
+ =head1 SYNOPSIS
+ 

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-tree-perl, libtest-pod-coverage-perl, libtest-pod-perl, libxml-xpathengine-perl (>= 0.12), perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-tree-perl, libxml-xpathengine-perl (>= 0.12)
+X: 0

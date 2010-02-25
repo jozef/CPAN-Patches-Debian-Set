@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0)
+Build-Depends-Indep: libtest-harness-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-simple-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

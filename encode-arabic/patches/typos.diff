@@ -1,0 +1,38 @@
+Description: Fix typos
+ fuction -> function in bin/*.pl
+ interchangable -> interchangable in lib/Encode/Arabic.pm
+Forwarded: https://sourceforge.net/apps/trac/encode-arabic/ticket/1
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+--- libencode-arabic-perl-1.8.orig/lib/Encode/Arabic.pm
++++ libencode-arabic-perl-1.8/lib/Encode/Arabic.pm
+@@ -186,7 +186,7 @@
+ =back
+ 
+ There are generic aliases to these provided by L<Encode|Encode>. Case does not matter and all
+-characters of the class C<[ _-]> are interchangable.
++characters of the class C<[ _-]> are interchangeable.
+ 
+ Note that the standard L<Encode|Encode> module already deals with several other single-byte encoding
+ schemes for Arabic popular with whichever operating system, be it *n*x, Windows, DOS or Macintosh.
+--- libencode-arabic-perl-1.8.orig/bin/decode.pl
++++ libencode-arabic-perl-1.8/bin/decode.pl
+@@ -61,7 +61,7 @@
+ The L<Encode|Encode> library provides a unified interface for converting strings
+ from different encodings into a common representation, and vice versa.
+ 
+-The L<encode|encode> and L<decode|decode> programs mimick the fuction calls to
++The L<encode|encode> and L<decode|decode> programs mimick the function calls to
+ the C<encode> and C<decode> methods, respectively.
+ 
+ For the list of supported encoding schemes, please refer to L<Encode|Encode> and
+--- libencode-arabic-perl-1.8.orig/bin/encode.pl
++++ libencode-arabic-perl-1.8/bin/encode.pl
+@@ -61,7 +61,7 @@
+ The L<Encode|Encode> library provides a unified interface for converting strings
+ from different encodings into a common representation, and vice versa.
+ 
+-The L<encode|encode> and L<decode|decode> programs mimick the fuction calls to
++The L<encode|encode> and L<decode|decode> programs mimick the function calls to
+ the C<encode> and C<decode> methods, respectively.
+ 
+ For the list of supported encoding schemes, please refer to L<Encode|Encode> and

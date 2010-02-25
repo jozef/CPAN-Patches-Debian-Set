@@ -1,0 +1,12 @@
+# Description: A patch to add hashbang to eg/list.pl example
+#  http://www.debian.org/doc/packaging-manuals/perl-policy/ch-programs.html#s-hash_bang
+# Forwarded: no
+--- a/eg/list.pl
++++ b/eg/list.pl
+@@ -1,5 +1,5 @@
++#!/usr/bin/perl
+ 
+-
+ use strict;
+ use warnings;
+ 

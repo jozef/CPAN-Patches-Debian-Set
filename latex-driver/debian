@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: ghostscript, libclass-accessor-perl, libexception-class-perl, libfile-slurp-perl, libtemplate-perl, libtest-exception-perl, libtest-perl-critic-perl, libtest-pod-coverage-perl (>= 1.00), libtest-pod-perl (>= 1.00), perl, texlive-base-bin, texlive-latex-base, texlive-latex-extra
+Depends: ${misc:Depends}, ${perl:Depends}, ghostscript, libclass-accessor-perl, libexception-class-perl, libfile-slurp-perl, libtemplate-perl, texlive-base-bin, texlive-latex-base
+X: 0

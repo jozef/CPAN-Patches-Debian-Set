@@ -1,0 +1,20 @@
+Author: Damyan Ivanov
+Description: Modify config.in to use vendor zlib instead of the built-in one.
+Origin: vendor
+Forwarded: no
+
+--- a/config.in
++++ b/config.in
+@@ -16,9 +16,9 @@
+ #    Setting the Gzip OS Code
+ #
+ 
+-BUILD_ZLIB      = True
+-INCLUDE         = ./zlib-src
+-LIB             = ./zlib-src
++BUILD_ZLIB      = False
++INCLUDE         = /usr/include
++LIB             = /usr/lib
+ 
+ OLD_ZLIB        = False
+ GZIP_OS_CODE    = AUTO_DETECT

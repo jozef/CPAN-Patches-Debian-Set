@@ -1,0 +1,40 @@
+--- a/lib/HTML/WikiConverter.pm
++++ b/lib/HTML/WikiConverter.pm
+@@ -270,13 +270,8 @@ sub __wikify {
+   # Concatenate adjacent text nodes
+   $node->normalize_content();
+ 
+-  if( $node->tag eq '~text' ) {
+-    return $node->attr('text');
+-  } elsif( $node->tag eq '~comment' ) {
+-    return '<!--' . $node->attr('text') . '-->';
+-  } else {
+-    my $rules = $self->rules_for_tag( $node->tag );
+-
++    my $rules = $self->rules_for_tag($node->tag);
++    if ( keys(%$rules) ) {
+     return $self->__subst($rules->{replace}, $node, $rules) if exists $rules->{replace};
+ 
+     # Set private preserve rules
+@@ -324,7 +319,12 @@ sub __wikify {
+     $output = "\n$output" if $rules->{block} and $node->parent->look_up( _tag => $node->tag ) and $trim ne 'none';
+ 
+     return $output;
++    } elsif ( $node->tag eq '~text' ) {
++      return $node->attr('text');
++    } elsif( $node->tag eq '~comment' ) {
++      return '<!--' . $node->attr('text') . '-->';
+   }
++  return $self->get_elem_contents($node);
+ }
+ 
+ sub elem_within_block {
+@@ -711,7 +711,7 @@ sub rules_for_tag {
+ sub __rules_for_tag {
+   my( $self, $tag ) = @_;
+   return $self->__rules->{$tag} if $self->__rules->{$tag};
+-  return $self->__rules->{UNKNOWN} if $self->__rules->{UNKNOWN} and !$isKnownTag{$tag};
++  return $self->__rules->{UNKNOWN} if $self->__rules->{UNKNOWN} and !$isKnownTag{$tag} and $tag ne "~text";
+   return { };
+ }
+ 

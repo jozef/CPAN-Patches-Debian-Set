@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libmkdoc-xml-perl (>= 0.70), liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmkdoc-xml-perl (>=0.70)
+X: 0

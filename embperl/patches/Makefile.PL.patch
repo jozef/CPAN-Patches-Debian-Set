@@ -1,0 +1,160 @@
+Description: 
+ - remove extensions from scripts
+ - <more>
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -246,13 +246,15 @@
+             { # with Apache 2, make sure we have the same defines as mod_perl
+             $txt =~ s/-O\d//g if ($ccdebug =~ /-O\d/) ;
+             $txt =~ /CCFLAGS\s*=(.*?)\n/s ;
+-	    my $flags = $mp2cfg->{MODPERL_CCOPTS} || $1 ;
++	    my $extra = "$Config{cppflags} " . `apxs2 -q CFLAGS` ;
++	    my $flags = "$mp2cfg->{MODPERL_CCOPTS} $extra" || $1 ;
+             $txt =~ s/CCFLAGS\s*=(.*?)\n/CCFLAGS = $ccdebug $flags\n/s ;
+             }
+         else
+             {
++	    my $extra = "$Config{cppflags} " . Apache::src->new->ccflags ;
+             $txt =~ s/-O\d//g if ($ccdebug =~ /-O\d/) ;
+-	    $txt =~ s/CCFLAGS\s*=/CCFLAGS = $ccdebug / ;
++	    $txt =~ s/CCFLAGS\s*=/CCFLAGS = $ccdebug $extra/ ;
+             }
+ 
+         
+@@ -304,6 +306,15 @@
+          }
+      }
+ 
++
++	# Debian hack - strip .pl from executables
++	while (($k, $v) = each %{$self->{MAN1PODS}})
++	  {
++	    $v =~ s/\.pl// or next;
++	    $self->{MAN1PODS}{$k} = $v;
++	  }
++
++
+  foreach my $hash (qw(MAN3PODS PM))
+      {
+      foreach (keys %{$self->{$hash}})
+@@ -317,6 +328,14 @@
+        $self -> MM::post_initialize (@_) ;
+        }
+ 
++sub MY::libscan {
++  my ($self, $path) = @_;
++
++  # Debian hack - strip .pl from executables
++  return $path if $path =~ s/\.pl\b//;
++
++  $self->MM::libscan($path);
++}
+ 
+  sub MY::post_constants
+        {
+@@ -326,6 +345,8 @@
+        my $txt = $self -> MM::post_constants (@_) ;
+ 
+        $txt .= "\n# Change name of dynamic lib, in case we need two of them (with and w/o Apache support)\nINST_DYNAMIC = \$(INST_ARCHAUTODIR)\\\$(DLBASE).NoApache.\$(DLEXT)\n" if ($EPNOAPACHELIB) ;
++       $txt .= "\n# Change name of dynamic lib, in case we need two of them (different Apache versions)\nINST_DYNAMIC = \$(INST_ARCHAUTODIR)/\$(DLBASE)-13.\$(DLEXT)\n" if ($mod_perl::VERSION and $mod_perl::VERSION < 1.99) ;
++
+ 
+        return $txt ;
+ 
+@@ -336,21 +357,8 @@
+ sub GetString
+ 	{
+ 	my ($prompt, $default) = @_ ;
+-
+-	printf ("%s [%s]", $prompt, $default) ;
+-	chomp ($_ = <STDIN>) ;
+-	s/\s+$//;
+-        if (!/^\s*$/)
+-	    {return $_ ;}
+-	else
+-    	{
+-        if ($_ eq "")
+-	        {return $default ;}
+-	    else
+-            { return "" ; }
+-    
+-        }
+-    }
++	return prompt($prompt, $default) ;
++	}
+ 
+ ## ----------------------------------------------------------------------------
+ 
+@@ -546,26 +554,26 @@
+     $apache_src = '' if ($apache_src eq '-') ;
+     }
+ 
+-if (!$apache && $apache_src eq '')
++if (1)
+     {
+     # check for mod_perl 2.0
+-    eval 'use Apache2; use Apache::BuildConfig' ;
++    eval 'use Apache2; use Apache::BuildConfig' unless $ENV{FORCEMP1};
+ 
+-    if ($@ eq '')
++    if (!$ENV{FORCEMP1} and $@ eq '')
+         { 
+         $mp2cfg = Apache::BuildConfig -> new ;
+-        $apache_src = $mp2cfg -> {MP_AP_PREFIX} || $mp2cfg -> {ap_includedir} ;
++        $apache_src ||= $mp2cfg -> {MP_AP_PREFIX} || $mp2cfg -> {ap_includedir} ;
+         print "Found mod_perl 2.0\n" ;
+         }
+     else
+ 	{
+-        eval 'use Apache2::BuildConfig' ;
++        eval 'use Apache2::BuildConfig'  unless $ENV{FORCEMP1};
+ 
+-        if ($@ eq '')
++        if (!$ENV{FORCEMP1} and $@ eq '')
+             { 
+ 	    $mp2Apache2 = 1 ;
+             $mp2cfg = Apache2::BuildConfig -> new ;
+-            $apache_src = $mp2cfg -> {MP_AP_PREFIX} || $mp2cfg -> {ap_includedir} ;
++            $apache_src ||= $mp2cfg -> {MP_AP_PREFIX} || $mp2cfg -> {ap_includedir} ;
+             print "Found mod_perl 2.0\n" ;
+ 	    }
+ 	else
+@@ -574,11 +582,11 @@
+ 
+             if ($@ eq '')
+                 { 
+-                $apache_src = $Apache::MyConfig::Setup{Apache_Src} ; 
++                $apache_src ||= $Apache::MyConfig::Setup{Apache_Src} ;
+                 }
+             else
+                 {
+-                $apache_src = '' ;
++                $apache_src ||= '' ;
+                 }
+ 	    }
+         }
+@@ -786,7 +794,10 @@
+     $i = '' ;
+     $o = '' ;
+     }
+-		
++
++if ($mp2cfg) {
++  $i .= " -I$mp2cfg->{apr_includedir}" if $mp2cfg->{apr_includedir};
++}
+ 
+ if ($win32 && $apache)
+     {	# borrowed from mod_perl
+@@ -1290,9 +1301,11 @@
+     'INC'	   => "-I$EPPATH $i",     			 
+     'VERSION'      => undef,
+     'VERSION_FROM' => "$EPPATH/Embperl.pm",
++    'CCFLAGS'      => $Config{cppflags}.($mp2cfg?`apxs2 -q CFLAGS`:Apache::src->new->ccflags),
+     $optdebug?('OPTIMIZE' => $ccdebug):(),
+     ) ;
+ 
++$i = "-I$EPPATH $i";
+ 
+ 
+ open FH, ">xs/mmargs.pl" or die "Cannot open xs/mmargs.pl ($!).\n

@@ -1,0 +1,28 @@
+--- a/lib/REST/Application.pm
++++ b/lib/REST/Application.pm
+@@ -305,9 +305,9 @@ sub header {
+     # Arguments can be passed in as a hash-ref or as an even sized list.
+     if (@_) {
+         if (@_%2 == 0) { # even-sized list, must be hash
+-            %{ $self->{__header} } = @_;
++            %{ $self->{__header} } = ( %{$self->{__header}}, @_ );
+         } elsif (ref($_[0]) eq 'HASH') {  # First item must be a hash reference
+-            $self->{__header} = shift;
++            %{ $self->{__header} } = ( %{$self->{__header}}, %{$_[0]} );
+         } else {
+             croak "Expected even-sized list or hash reference.";
+         }
+--- a/t/01-basic.t
++++ b/t/01-basic.t
+@@ -283,8 +283,10 @@ BEGIN { 
+     my %hash = $rest->header();
+     is_deeply(\%hash, {}, "Retrieving default header values.");
+     $rest->header(-type => 'text/html', -foobar => 5);
++    $rest->header(-baz => 10);
+     %hash = $rest->header();
+-    is_deeply(\%hash, {-type => 'text/html', -foobar => 5}, "Retrieving custom header values.");
++    is_deeply(\%hash, {-type => 'text/html', -foobar => 5, -baz => 10},
++              "Retrieving custom header values.");
+ }
+ 
+ # TEST: resetHeader()

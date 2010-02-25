@@ -1,0 +1,16 @@
+Description: error in POD
+Author: gregor herrmann <gregoa@debian.org>
+Origin: vendor
+Forwarded: no
+
+--- a/lib/POE/Component/Connection/Keepalive.pm
++++ b/lib/POE/Component/Connection/Keepalive.pm
+@@ -184,7 +184,7 @@
+ 
+ =back
+ 
+-=item SEE ALSO
++=head1 SEE ALSO
+ 
+ L<POE>
+ L<POE::Component::Client::Keepalive>

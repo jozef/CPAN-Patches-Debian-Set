@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libgtk2-perl, liblocale-gettext-perl, libnet-cups-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libgtk2-perl, liblocale-gettext-perl, libnet-cups-perl
+X: 0

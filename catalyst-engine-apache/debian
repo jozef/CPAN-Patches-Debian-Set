@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcatalyst-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libapache2-mod-perl2, libcatalyst-perl
+X: 0

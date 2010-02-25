@@ -1,0 +1,27 @@
+Author: Chris Dolan <cdolan@cpan.org>
+Applied-By: Jonathan Yu <frequency@cpan.org>
+Debian-Specific: no
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=21631
+Description: Fix negative options (setting test to false)
+ Test::Portability::Files has had a problem (since its last release circa 2006)
+ with turning off tests. While you do get the choice of enabling tests, you
+ cannot disable tests -- thus leaving you with a superset of the defaults +
+ whatever extra tests you have enabled.
+--- a/lib/Test/Portability/Files.pm
++++ b/lib/Test/Portability/Files.pm
+@@ -276,12 +276,12 @@
+ sub options {
+     my %opts = @_;
+     for my $test (keys %tests) {
+-        $tests{$test} = $opts{"test_$test"} if $opts{"test_$test"}
++        $tests{$test} = $opts{"test_$test"} if exists $opts{"test_$test"}
+     }
+     for my $opt (keys %options) {
+-        $options{$opt} = $opts{$opt} if $opts{$opt}
++        $options{$opt} = $opts{$opt} if exists $opts{$opt}
+     }
+-    @tests{keys %tests} = (1)x(keys %tests) if $opts{all_tests};
++    @tests{keys %tests} = (1)x(keys %tests) if exists $opts{all_tests};
+ }
+ 
+ =item C<test_name_portability()>

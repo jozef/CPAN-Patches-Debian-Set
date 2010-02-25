@@ -1,0 +1,16 @@
+--- libimap-admin-perl.orig/test.pl
++++ libimap-admin-perl/test.pl
+@@ -18,6 +18,13 @@
+ # (correspondingly "not ok 13") depending on the success of chunk 13
+ # of the test code):
+ 
++# Don't ask for a interactive nor internet depending test please
++if ($ENV{NOINTERNET}) {
++	print "We don't run other tests NOINTERNET var is defined\n";
++	print "skipped...\n";
++	exit 0
++}
++
+ $testuser = "user.testjoebob";
+ $renameuser = "user.renamedjoebob";
+ 

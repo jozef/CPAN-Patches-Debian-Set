@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libgraph-perl, libxml-parser-perl, libxml-writer-perl, perl (>= 5.8.7)
+Depends: ${misc:Depends}, ${perl:Depends}, libgraph-perl, libio-all-perl, libxml-parser-perl, libxml-writer-perl
+X: 0

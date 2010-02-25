@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl (>= 0.18), libclass-data-inheritable-perl (>= 0.02), libclass-trigger-perl (>= 0.07), libclone-perl, libdate-simple-perl, libdatetime-format-mysql-perl, libdbd-sqlite3-perl (>= 1.13-1.1), libima-dbi-perl (>= 0.33), libtest-pod-perl, libtime-piece-mysql-perl, libtime-piece-perl, libuniversal-moniker-perl (>= 0.06), perl (>= 5.10) | libversion-perl
+Depends: ${misc:Depends}, libclass-accessor-perl (>= 0.18), libclass-data-inheritable-perl (>= 0.02), libclass-trigger-perl (>= 0.07), libclone-perl, libima-dbi-perl (>= 0.33), libuniversal-moniker-perl (>= 0.06), perl (>= 5.10) | libversion-perl
+X: 0

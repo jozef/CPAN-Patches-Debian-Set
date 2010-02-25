@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libcarp-clan-share-perl, libclone-perl, libconfig-any-perl, libconfig-general-perl, libdata-visitor-perl (>= 0.24), libhash-merge-simple-perl, liblist-moreutils-perl, libmoose-perl, libmoosex-attributehelpers-perl, libpath-class-perl, libsub-install-perl, libtest-most-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcarp-clan-share-perl, libclone-perl, libconfig-any-perl, libdata-visitor-perl (>= 0.24), libhash-merge-simple-perl, liblist-moreutils-perl, libmoose-perl, libmoosex-attributehelpers-perl, libpath-class-perl, libsub-install-perl
+X: 0

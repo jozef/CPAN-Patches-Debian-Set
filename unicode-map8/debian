@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libunicode-string-perl, perl, quilt (>= 0.46-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libunicode-string-perl
+X: 0

@@ -1,0 +1,23 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Subject: Correct POD syntax error
+Date: Thu, 11 Feb 2010 13:49:19 +0900
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=54505
+
+--- libextutils-xspp-perl.orig/lib/ExtUtils/XSpp/Node/Comment.pm
++++ libextutils-xspp-perl/lib/ExtUtils/XSpp/Node/Comment.pm
+@@ -21,7 +21,7 @@
+ 
+ =head2 new
+ 
+-Creates a new C<ExtUtils::XSpp::Node::Comment.
++Creates a new C<ExtUtils::XSpp::Node::Comment>.
+ 
+ Named parameters: C<rows> should be a reference to
+ an array of source code comment lines.
+@@ -42,4 +42,4 @@
+   return "\n";
+ }
+ 
+-1;
+\ No newline at end of file
++1;

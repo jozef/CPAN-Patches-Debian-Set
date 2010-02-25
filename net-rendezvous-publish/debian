@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: cdbs, debhelper (>= 5)
+Build-Depends-Indep: libclass-accessor-lvalue-perl, libmodule-pluggable-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-lvalue-perl, libmodule-pluggable-perl
+X: 0

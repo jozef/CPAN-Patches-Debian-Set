@@ -1,0 +1,25 @@
+Description: warning about XML::SAX::Machines::SiteConfig and upgrades
+ SiteConfig.pm is a Perl module which is supposed to be used for system
+ configuration of the XML-SAX-Machines module, rather than changing
+ things in ConfigDefaults. The problem is that on Debian systems, this
+ file is installed in /usr/share/perl5, rather than /etc/perl, which
+ means that any changes will be silently overwritten upon an upgrade,
+ which would clobber a user's changes. The proposed fix for this is to
+ add a documentation patch explaining this behaviour.
+Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=537582
+Origin: vendor
+Author: Jonathan Yu <jawnsy@cpan.org>
+--- a/lib/XML/SAX/Machines.pm
++++ b/lib/XML/SAX/Machines.pm
+@@ -143,8 +143,9 @@
+ 
+     XML::Filter::Tee->new( Handler => $h );
+ 
+-B<WARNING> If you modify anything, modify only
+-XML::SAX::Machines::SiteConfig.pm.  Don't alter
++B<WARNING> If you modify anything, apply your changes in a new file created
++from XML::SAX::Machines::SiteConfig.pm. On Debian systems, this should be placed
++in /etc/perl so that it is not overwritten during upgrade.  Do not alter
+ XML::SAX::Machines::ConfigDefaults.pm or you will lose your changes when you
+ upgrade.
+ 

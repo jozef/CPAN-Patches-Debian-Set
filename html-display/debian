@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-tokeparser-simple-perl (>= 2), libparent-perl (>= 0.218), libtest-pod-perl, liburi-perl, libwww-perl (>= 5.69), perl (>= 5.8.8-11.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-tokeparser-simple-perl (>= 2), libparent-perl (>= 0.218), liburi-perl, libwww-perl (>= 5.69)
+X: 0

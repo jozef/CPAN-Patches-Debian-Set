@@ -1,0 +1,43 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: fix POD/man issues
+
+--- a/MakeMethods/Docs/RelatedModules.pod
++++ b/MakeMethods/Docs/RelatedModules.pod
+@@ -482,6 +482,8 @@
+ 
+ =head2 Class::Hook
+ 
++=over 4
++
+ =item Distribution
+ 
+ CPAN. Uploaded 12/01.
+@@ -490,6 +492,7 @@
+ 
+ I have not yet reviewed this module in detail.
+ 
++=back
+ 
+ =head2 Class::Holon
+ 
+--- a/MakeMethods/Template/Generic.pm
++++ b/MakeMethods/Template/Generic.pm
+@@ -897,6 +897,7 @@
+ =item set_false
+ 
+ Sets the value to zero.
++
+ =back
+ 
+ =cut
+--- a/MakeMethods/Template/StructBuiltin.pm
++++ b/MakeMethods/Template/StructBuiltin.pm
+@@ -9,7 +9,7 @@
+ 
+ =head1 NAME
+ 
+-Class::MakeMethods::Template::StructBuiltin
++Class::MakeMethods::Template::StructBuiltin - generates a wrapper around some builtin function
+ 
+ =head1 SYNOPSIS
+ 

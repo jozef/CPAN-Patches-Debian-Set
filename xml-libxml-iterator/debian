@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl
+Build-Depends-Indep: libxml-libxml-perl, libxml-nodefilter-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-libxml-perl, libxml-nodefilter-perl
+X: 0

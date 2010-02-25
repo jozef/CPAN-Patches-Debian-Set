@@ -1,0 +1,12 @@
+that file is removed, so skip the test
+
+--- a/t/13-category-hash-bug.t
++++ b/t/13-category-hash-bug.t
+@@ -3,6 +3,7 @@
+ 
+ eval { require XML::RSS::LibXML };
+ plan skip_all => "XML::RSS::LibXML is required." if $@;
++plan skip_all => "category-bug.xml does not exist" if(! -f "t/samples/category-bug.xml");
+ 
+ plan tests => 20;
+ 

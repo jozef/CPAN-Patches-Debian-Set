@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 4.1)
+Build-Depends-Indep: libjcode-pm-perl, libtest-pod-coverage-perl (>= 1.06-1), libtest-pod-perl (>= 1.00-1), libunicode-map-perl, libunicode-map8-perl, libunicode-string-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libjcode-pm-perl, libunicode-map-perl, libunicode-map8-perl, libunicode-string-perl
+X: 0

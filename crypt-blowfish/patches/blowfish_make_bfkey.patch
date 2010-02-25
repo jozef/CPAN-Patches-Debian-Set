@@ -1,0 +1,18 @@
+Subject: Correct documentation for blowfish_make_bfkey
+
+--- a/_blowfish.c
++++ b/_blowfish.c
+@@ -389,11 +389,11 @@
+    dest[7]= block[1]     & 0xff ;
+ }
+ 
+-/* make_bfkey() takes the address of the key data as a char*,
++/* blowfish_make_bfkey() takes the address of the key data as a char*,
+    and the length of the key in bytes.  It generates and returns
+    a pointer to an object of BFkey_type, which can be passed
+    to the crypt functions.  It does some simple testing of the
+-   init data and crypt routine, and returns 0 on error.
++   init data and crypt routine, and returns -1 on error and 0 on success.
+ */
+ int
+ blowfish_make_bfkey(key_string, keylength, bfkey)

@@ -1,0 +1,28 @@
+Description: fix POD errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Graphics/Primitive/Driver/Cairo.pm
++++ b/lib/Graphics/Primitive/Driver/Cairo.pm
+@@ -940,6 +940,8 @@
+ 
+ Get the data in a scalar for this driver.
+ 
++=over
++
+ =item I<format>
+ 
+ Get the format for this driver.
+@@ -948,8 +950,12 @@
+ 
+ Get/Set the surface on which this driver is operating.
+ 
++=back
++
+ =head1 Methods
+ 
++=over
++
+ =item I<new>
+ 
+ Creates a new Graphics::Primitive::Driver::Cairo object.  Requires a format.

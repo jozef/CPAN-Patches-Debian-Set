@@ -1,0 +1,23 @@
+# Description: do not re-define O_BONARY
+#  this stops an annoying warning when this module is loaded
+# Bug: http://rt.cpan.org/Public/Bug/Display.html?id=29523
+# Big-Debian: 494828
+# Author: Damyan Ivanov <dmn@debian.org>
+--- a/lib/XBase/Base.pm
++++ b/lib/XBase/Base.pm
+@@ -11,15 +11,6 @@ use strict;
+ use IO::File;
+ use Fcntl qw( O_RDWR O_RDONLY );
+ 
+-### I _Realy_ hate to have this code here!
+-BEGIN { local $^W = 0;
+-	if ($^O =~ /mswin/i) {
+-		eval 'use Fcntl qw( O_BINARY )'
+-	} else {
+-		eval ' sub O_BINARY { 0 } '
+-	}
+-}
+-
+ $XBase::Base::VERSION = '0.129';
+ 
+ # Sets the debug level

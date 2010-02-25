@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcrypt-blowfish-perl, libcrypt-cbc-perl, libcrypt-des-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcrypt-blowfish-perl, libcrypt-cbc-perl, libcrypt-des-perl
+X: 0

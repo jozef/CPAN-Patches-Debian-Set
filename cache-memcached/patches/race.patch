@@ -1,0 +1,35 @@
+Author: Niko Tyni <ntyni@debian.org>
+Bug: #545626
+Description: fix/skip timing dependent tests
+
+--- a/t/05_reconnect_timeout.t
++++ b/t/05_reconnect_timeout.t
+@@ -10,6 +10,9 @@
+ 
+ plan tests => 2;
+ 
++SKIP: {
++    skip "Skipping network tests for Debian builds", 2 if $ENV{DEBIAN_BUILD};
++
+ my $memd = Cache::Memcached->new({
+     servers   => [ $testaddr ],
+     namespace => "Cache::Memcached::t/$$/" . (time() % 100) . "/",
+@@ -26,3 +29,5 @@
+ $memd->set("key", "foo");
+ my $time3 = Time::HiRes::time();
+ ok($time3 - $time2 < .1, "Should return fast on retry");
++
++} # SKIP
+--- a/t/100_flush_bug.t
++++ b/t/100_flush_bug.t
+@@ -54,6 +54,10 @@
+ # give the forked server a chance to startup
+ sleep 1;
+ 
++# wait for the child to get the server ready
++# see http://bugs.debian.org/545626
++sleep 1;
++
+ my $memd = Cache::Memcached->new({ servers   => [ $testaddr ] });
+ 
+ for (@res) {

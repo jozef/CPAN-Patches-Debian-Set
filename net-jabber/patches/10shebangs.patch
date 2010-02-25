@@ -1,0 +1,16 @@
+Author: Florian Ragwitz <rafl@debian.org>
+Description: Add shebang to some examples
+--- a/examples/component_accept.pl
++++ b/examples/component_accept.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ 
+ use Net::Jabber qw(Component);
+ use strict;
+--- a/examples/component_test.pl
++++ b/examples/component_test.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ 
+ use Net::Jabber qw(Client);
+ use strict;

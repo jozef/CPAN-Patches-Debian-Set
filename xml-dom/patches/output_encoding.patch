@@ -1,0 +1,12 @@
+--- a/lib/XML/DOM.pm
++++ b/lib/XML/DOM.pm
+@@ -1218,7 +1218,8 @@ sub to_sax
+ sub printToFile
+ {
+     my ($self, $fileName) = @_;
+-    my $fh = new FileHandle ($fileName, "w") || 
++    my $encoding = $self->getXMLDecl()->getEncoding();
++    my $fh = new FileHandle ($fileName, ">:encoding($encoding)") ||
+ 	croak "printToFile - can't open output file $fileName";
+     
+     $self->print ($fh);

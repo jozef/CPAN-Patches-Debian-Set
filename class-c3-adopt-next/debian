@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liblist-moreutils-perl, libmro-compat-perl, libtest-exception-perl (>= 0.27), perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libmro-compat-perl
+X: 0

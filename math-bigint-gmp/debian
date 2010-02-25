@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 5), libgmp3-dev, libtest-pod-coverage-perl, libtest-pod-perl, libyaml-perl, perl (>= 5.10)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl (>= 5.10)
+X: 0

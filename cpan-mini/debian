@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcompress-zlib-perl, libfile-homedir-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, libwww-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libcompress-zlib-perl, libfile-homedir-perl, liburi-perl, libwww-perl
+X: 0

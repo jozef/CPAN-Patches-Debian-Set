@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8)
+Build-Depends-Indep: libcgi-pm-perl, libhtml-scrubber-perl, libjifty-perl (>= 0.90519), libmime-base64-urlsafe-perl, libregexp-common-email-address-perl, libregexp-common-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-pm-perl, libhtml-scrubber-perl, libjifty-perl (>= 0.90519-1), libmime-base64-urlsafe-perl, libregexp-common-email-address-perl, libregexp-common-perl
+X: 0

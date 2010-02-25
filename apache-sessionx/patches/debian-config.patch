@@ -1,0 +1,16 @@
+Subject: Mention how to configure module on Debian
+
+--- a/SessionX.pm
++++ b/SessionX.pm
+@@ -572,8 +572,9 @@
+ 
+ =item config
+ 
+-Use predefiend config from Apache::SessionX::Config, which is defined by
+-Makefile.PL
++Use predefiend config from Apache::SessionX::Config, which is configured
++at package installation time.  On Debian, these may be altered by running
++C<dpkg-reconfigure libapache-sessionx-perl>.
+ 
+ 
+ =item object_store

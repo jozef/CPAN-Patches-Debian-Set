@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libclass-accessor-classy-perl (>= 0.9.0), libfile-which-perl (>= 0.05), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-classy-perl (>= 0.9.0), libfile-which-perl (>= 0.05)
+X: 0

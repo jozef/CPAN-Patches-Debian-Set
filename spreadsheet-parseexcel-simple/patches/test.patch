@@ -1,0 +1,24 @@
+--- a/t/02.t
++++ b/t/02.t
+@@ -10,7 +10,8 @@ plan tests => 2;
+ use strict;
+ use Spreadsheet::ParseExcel::Simple;
+ 
+-my $workbook   = Spreadsheet::WriteExcel->new("test.xls");
++my $filename = 'test.xls';
++my $workbook   = Spreadsheet::WriteExcel->new($filename);
+ my $worksheet1 = $workbook->add_worksheet();
+ my $worksheet2 = $workbook->add_worksheet();
+ 
+@@ -21,8 +22,10 @@ $worksheet2->write('A2', 'Hello');
+ 
+ $workbook->close();
+ 
+-my $xls = Spreadsheet::ParseExcel::Simple->read('test.xls');
++my $xls = Spreadsheet::ParseExcel::Simple->read($filename);
+ 
+ for my $sheet ($xls->sheets) {
+ 	ok $sheet->has_data, "Sheet $sheet->{sheet}->{Name} has data";
+ }
++
++unlink($filename);

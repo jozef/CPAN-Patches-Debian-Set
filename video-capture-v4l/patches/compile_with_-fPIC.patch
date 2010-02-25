@@ -1,0 +1,28 @@
+--- a/RTjpeg/Makefile.PL
++++ b/RTjpeg/Makefile.PL
+@@ -3,6 +3,7 @@ use ExtUtils::MakeMaker;
+ WriteMakefile(
+     NAME	 => 'Video::RTjpeg',
+     VERSION_FROM => 'RTjpeg.pm',
++	CCFLAGS  => '-fPIC',
+     OBJECT       => '$(BASEEXT)$(OBJ_EXT) codec/RTjpeg.o',
+ );
+ 
+@@ -11,6 +12,6 @@ codec/RTjpeg.c: codec/compose.sh
+ 	cd codec && . ./compose.sh
+ 
+ codec/RTjpeg.o: codec/RTjpeg.c codec/RTjpeg.h
+-	\$(CCCMD) \$(CCCDLFLAGS) -o \$@ \$<
++	\$(CCCMD) \$(CCCDLFLAGS) -fPIC -o \$@ \$<
+ EOF
+ }
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -9,6 +9,7 @@ WriteMakefile(
+     'NAME'	=> 'Video::Frequencies',
+     DISTNAME	=> 'Video-Capture-V4l',
+     'VERSION_FROM' => 'V4l/V4l.pm',
++	CCFLAGS  => '-fPIC',
+     linkext	=> {LINKTYPE => ''},
+     DIR		=> ['V4l','VBI','RTjpeg'],
+ );

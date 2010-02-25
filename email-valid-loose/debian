@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 6)
+Build-Depends-Indep: libemail-valid-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-valid-perl
+X: 0

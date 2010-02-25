@@ -1,0 +1,5 @@
+App: weblint-perl
+Build-Depends: cdbs (>= 0.4.39), debhelper (>=7)
+Build-Depends-Indep: devscripts (>= 2.10.7), dh-buildinfo, libhtml-parser-perl (>= 3.20), libhtml-tagset-perl (>= 3.03), libtest-pod-coverage-perl (>= 1.04), libtest-pod-perl (>= 0.95), perl, txt2man
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-lint-perl, libhtml-parser-perl (>= 3.20), libhtml-tagset-perl (>= 3.03)
+X: 0

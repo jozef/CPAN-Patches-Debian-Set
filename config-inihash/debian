@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhash-case-perl, libhash-withdefaults-perl, perl (>= 5.8.8-8)
+Depends: ${misc:Depends}, ${perl:Depends}, libhash-case-perl, libhash-withdefaults-perl (>= 0.04)
+X: 0

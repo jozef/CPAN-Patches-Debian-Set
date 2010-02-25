@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: libclass-xsaccessor-perl, libdbd-sqlite3-perl (>= 1.27), libdbi-perl (>= 1.607), libfile-remove-perl (>= 1.40), libparams-util-perl (>= 0.33), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl, libtest-script-perl, perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
+Depends: ${misc:Depends}, ${perl:Depends}, libdbd-sqlite3-perl (>= 1.27), libdbi-perl (>= 1.607), libfile-remove-perl (>= 1.40), libparams-util-perl (>= 0.33), perl (>= 5.10.1) | libfile-temp-perl (>= 0.20)
+X: 0

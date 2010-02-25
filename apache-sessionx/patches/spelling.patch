@@ -1,0 +1,35 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=54910
+Subject: Correct spelling errors
+
+--- libapache-sessionx-perl.orig/SessionX.pm
++++ libapache-sessionx-perl/SessionX.pm
+@@ -507,8 +507,8 @@
+ =head1 DESCRIPTION
+ 
+ Apache::SessionX extents Apache::Session. 
+-It was initialy written to use Apache::Session from inside of HTML::Embperl, 
+-but is seems to be usefull outside of Embperl as well, so here is it as standalone module.
++It was initially written to use Apache::Session from inside of HTML::Embperl, 
++but is seems to be useful outside of Embperl as well, so here is it as standalone module.
+ 
+ Apache::Session is a persistence framework which is particularly useful
+ for tracking session data between httpd requests.  Apache::Session is
+@@ -541,7 +541,7 @@
+ 
+ =item lazy
+ 
+-By Specifing this attribute, you tell Apache::Session to not do any
++By specifying this attribute, you tell Apache::Session to not do any
+ access to the object store, until the first read or write access to
+ the tied hash. Otherwise the B<tie> function will make sure the hash
+ exist or creates a new one.
+@@ -663,7 +663,7 @@
+ 
+ =over 4
+ 
+-=item See documentation of Apache::Session for more informations about it's internals
++=item See documentation of Apache::Session for more information about it's internals
+ 
+ =item Apache::SessionX::Generate::MD5
+ 

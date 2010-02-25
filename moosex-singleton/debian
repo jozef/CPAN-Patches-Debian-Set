@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmoose-perl (>= 0.82), libmoosex-strictconstructor-perl, libtest-exception-perl, libtest-warn-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.82)
+X: 0

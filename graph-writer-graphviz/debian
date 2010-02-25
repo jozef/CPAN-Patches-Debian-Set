@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmodule-build-perl, quilt
+Build-Depends-Indep: libgraph-readwrite-perl, libgraphviz-perl, libio-all-perl, perl (>= 5.8.7)
+Depends: ${misc:Depends}, ${perl:Depends}, libgraph-perl, libgraph-readwrite-perl, libgraphviz-perl, libio-all-perl
+X: 0

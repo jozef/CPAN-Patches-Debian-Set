@@ -1,0 +1,44 @@
+Description: Add shebang to some of the examples/ file as lintian
+ complains about executable-not-elf-or-script.
+Origin: vendor
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com> 
+--- a/examples/data.pl
++++ b/examples/data.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use IO::Prompt;
+ 
+ # The input is taken from the __PROMPT__ section below
+--- a/examples/num.pl
++++ b/examples/num.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use IO::Prompt;
+ 
+ # You can constrain input to be numeric, or even integral...
+--- a/examples/record.pl
++++ b/examples/record.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use IO::Prompt -record;
+ 
+ # Loading the module with the -record flag causes it to record all inputs
+--- a/examples/require.pl
++++ b/examples/require.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use IO::Prompt;
+ 
+ # The -require flag allows you to specify conditions that must be met by
+--- a/examples/underscore.pl
++++ b/examples/underscore.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use IO::Prompt;
+ 
+ # This example demostrates how prompt autosets $_ when appropriate

@@ -1,0 +1,5 @@
+yaml_xs.patch
+meta_json.patch
+configure_test_requires.patch
+use_do_instead_of_require.patch
+set-environment-variables

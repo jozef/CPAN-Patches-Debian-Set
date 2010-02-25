@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libglib-perl, libgtk2-perl, perl, xauth, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libglib-perl, libgtk2-perl
+X: 1

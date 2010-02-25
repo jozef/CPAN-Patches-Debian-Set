@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13), quilt (>= 0.46-7)
+Build-Depends-Indep: libb-hooks-endofscope-perl, libsub-identify-perl (>= 0.04), libsub-name-perl (>= 0.04), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libb-hooks-endofscope-perl, libsub-identify-perl (>= 0.04), libsub-name-perl (>= 0.04)
+X: 0

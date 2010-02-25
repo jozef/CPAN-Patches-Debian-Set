@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libb-hooks-endofscope-perl (>= 0.08), libb-hooks-op-check-perl (>= 0.17), libb-hooks-op-ppaddr-perl, libb-hooks-parser-perl (>= 0.07), libextutils-depends-perl (>= 0.302), libperl6-junction-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libb-hooks-endofscope-perl (>= 0.08), libb-hooks-op-check-perl (>= 0.17), libb-hooks-op-ppaddr-perl, libb-hooks-parser-perl (>= 0.07)
+X: 0

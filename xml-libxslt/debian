@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libxml-libxml-perl (>= 1.70), libxslt1-dev (>= 1.1.8), perl, pkg-config, quilt (>= 0.46-7), zlib1g-dev
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libxml-libxml-perl (>= 1.70)
+X: 0

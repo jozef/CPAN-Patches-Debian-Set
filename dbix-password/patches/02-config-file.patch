@@ -1,0 +1,141 @@
+Add the readConfig($filename) function to read the virtual user data from
+a configuration file instead of hard-coding it into the module.
+Invoke readConfig('/etc/dbix-password.conf') at module load time so
+that all users may benefit from a system-wide config file.
+Add the clearConfig() function to start the configuration from scratch.
+
+--- a/Password.pm
++++ b/Password.pm
+@@ -7,6 +7,64 @@
+ 
+ my $virtual1 = {};
+ 
++#We want to end up with such a structure:
++#my $virtual1 = {
++#        'acs' => {
++#                         'username' => 'root',
++#                         'password' => 'o.r,3',
++#                         'port' => '',
++#                         'database' => 'acs',
++#                         'attributes' => {},
++#                         'connect' => 'DBI:mysql:database=acs;host=localhost',
++#                         'driver' => 'mysql',
++#                         'host' => 'localhost'
++#                       },
++#        'personales' => {
++#                         'username' => 'root',
++#                         'password' => 'p.E.1',
++#                         'port' => '',
++#                         'database' => 'acs',
++#                         'attributes' => {},
++#                         'connect' => 'DBI:mysql:database=PaginasPersonales;host=
++#localhost',
++#                         'driver' => 'mysql',
++#                         'host' => 'localhost'
++#                       },
++#};
++
++sub clearConfig()
++{
++	$virtual1 = {};
++	return 1;
++}
++
++sub readConfig($)
++{
++	my ($config) = @_;
++	my $f;
++	my @user;
++
++	return undef unless -r $config;
++
++	open ($f, $config) || die "Opening config file $config: $!";
++
++	my @fields = qw(user username password port database connect driver
++host);
++
++	while (<$f>) {
++		next if /^(#.*)?$/; #skip comments and blanks
++		@user = m/:?'([^']*)':?/g;
++		foreach (1 .. $#fields) { #write fields
++			$virtual1->{$user[0]}->{$fields[$_]} = $user[$_];
++		};
++		$virtual1->{$user[0]}->{attributes} ||= {};
++	}
++	close $f;
++	return $user[0];
++}
++
++#Now let's fill %virtual1 with values
++readConfig('/etc/dbix-password.conf');
+ 
+ my %driver_cache;
+ 
+@@ -90,15 +148,18 @@
+   DBIx::Password::getDriver($user);
+   DBIx::Password::checkVirtualUser($user);
+ 
++  DBIx::Password::clearConfig();
++  DBIx::Password::readConfig("$ENV{HOME}/.my.secret.file");
++
+ =head1 DESCRIPTION
+ 
+ Don't you hate keeping track of database passwords and such throughout
+ your scripts? How about the problem of changing those passwords 
+-on a mass scale? This module is one possible solution. When you
+-go to build this module it will ask you to create virtual users.
++on a mass scale? This module is one possible solution. It stores all your
++virtual users and data in /etc/dbix-password.conf.
+ For each user you need to specify the database module to use,
+-the database connect string, the username and the password. You
+-will be prompted to give a name to this virtual user.
++the database connect string, the username and the password.
++You will have to give a name to this virtual user.
+ You can add as many as you like.
+ 
+ I would recommend that if you are only using this with
+@@ -125,21 +186,13 @@
+ This is a rewrite of the module Tangent::DB that I did
+ for slashcode.
+ 
+-Hope you enjoy it.
+-
+-=head1 INSTALL
++If your program does not need the system-wide information stored
++in the /etc/dbix-password.conf file, you may use the clearConfig()
++and readConfig() functions to get the data from another source.
++At any time, readConfig() may also be used to merge the data from
++another file into the currently-loaded configuration.
+ 
+-Basically:
+-
+-perl Makefile.PL
+-
+-make
+-
+-make test
+-
+-make install
+-
+-Be sure to answer the questions as you make the module
++Hope you enjoy it.
+ 
+ =head1 HOME
+ 
+--- a/README
++++ b/README
+@@ -14,11 +14,10 @@
+     Don't you hate keeping track of database passwords and such
+     throughout your scripts? How about the problem of changing those
+     passwords on a mass scale? This module is one possible solution.
+-    When you go to build this module it will ask you to create
+-    virtual users. For each user you need to specify the database
++    When you go to build this module it will ask you to create. For each user you need to specify the database
+     module to use, the database connect string, the username and the
+-    password. You will be prompted to give a name to this virtual
+-    user. You can add as many as you like.
++    password. You will have to give a name to this virtual
++    user. All virtual users are stored in /etc/dbix-password.conf
+ 
+     I would recommend that if you are only using this with web
+     applications that you change the final permissions on this

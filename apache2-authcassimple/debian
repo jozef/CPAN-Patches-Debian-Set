@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libapache-session-wrapper-perl, libapache2-mod-perl2, libauthen-cas-client-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libapache-session-wrapper-perl, libapache2-mod-perl2, libapache2-request-perl, libauthen-cas-client-perl, libcrypt-ssleay-perl, liburi-perl
+X: 0

@@ -1,0 +1,19 @@
+Author: Rene Mayorga <rmayorga@debian.org>
+Description: skip t/get_from_prereqs.t, since this test might require
+ CPAN shell and network access.
+--- a/t/get_from_prereqs.t
++++ b/t/get_from_prereqs.t
+@@ -2,7 +2,12 @@
+ use strict;
+ 
+ use Test::Prereq;
+-use Test::More tests => 1;
++use Test::More;
++
++if ($ENV{CPANSHELL}) {
++    plan skip_all => "please un-set CPANSHELL var to enable this tests";
++}
++plan tests => 1;
+ 
+ use lib qw(.);
+ 

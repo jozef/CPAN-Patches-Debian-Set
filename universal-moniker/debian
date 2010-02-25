@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: cdbs, debhelper (>= 5)
+Build-Depends-Indep: liblingua-en-inflect-perl (>= 1.88), perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

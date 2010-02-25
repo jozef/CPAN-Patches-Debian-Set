@@ -1,0 +1,27 @@
+make a man page for test_version
+
+--- a/bin/test_version
++++ b/bin/test_version
+@@ -1,7 +1,19 @@
+-#!perl 
++#!/usr/bin/perl
+ 
+ use strict;
+ use warnings;
+ 
+ use Test::HasVersion; our $VERSION = $Test::HasVersion::VERSION;
+-all_pm_version_ok(@ARGV);
+\ No newline at end of file
++all_pm_version_ok(@ARGV);
++
++=head1 NAME
++
++test_version - check that all Perl modules in a distribution have version numbers
++
++=head1 DESCRIPTION
++
++This script runs the Test::HasVersion tests on the distribution in the
++current directory. Test::HasVersion can also be used like normal
++tests, see the Test::HasVersion man page for how to do that.
++
++=cut

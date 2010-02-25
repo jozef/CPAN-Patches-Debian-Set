@@ -1,0 +1,11 @@
+glext_procs.h was removed from the upstream tarball, because it's not free
+according to DFSG. This stub provided by Lars Stoltenow (writing an application
+based on OpenGL and having some insight) suffices as replacement.
+--- /dev/null
++++ b/glext_procs.h
+@@ -0,0 +1,5 @@
++#ifndef __glext_procs_h_
++#define __glext_procs_h_
++#include <GL/glext.h>
++#define GL_FRAMEBUFFER_INCOMPLETE_DUPLICATE_ATTACHMENT_EXT 0x8CD8
++#endif

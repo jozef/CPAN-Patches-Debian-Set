@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdatetime-perl, libtemplate-perl, liburi-perl, libwww-perl, libxml-feed-perl (>= 0.41), libyaml-syck-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libtemplate-perl, liburi-perl, libwww-perl, libxml-feed-perl (>= 0.41), libyaml-syck-perl
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdevel-lexalias-perl (>= 0.04), libpadwalker-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-lexalias-perl (>= 0.04), libpadwalker-perl (>= 1.1)
+X: 0

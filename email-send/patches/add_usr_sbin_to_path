@@ -1,0 +1,63 @@
+Author: Gunnar Wolf <gwolf@debian.org>
+Description: Adds /usr/sbin to path if it is not present, as Debian's
+sendmail sits there
+Bug: #471885
+
+Author: gregor herrmann <gregoa@debian.org>
+Description: turn off tests that expect an empty PATH (won't happen anywhere
+after we push /usr/sbin in ...)
+
+Author: Nathan Handler <nhandler@ubuntu.com>
+Description: In 2.195-1, this patch was updated to apply cleanly after changes
+upstream. There is no longer a need to patch lib/Email/Send/Sendmail.pm.
+
+--- libemail-send-perl.orig/lib/Email/Send/Qmail.pm
++++ libemail-send-perl/lib/Email/Send/Qmail.pm
+@@ -26,7 +26,9 @@
+       return $QMAIL;
+     }
+ 
+-    for my $dir (File::Spec->path) {
++    my @path = File::Spec->path;
++    push @path, '/usr/sbin' unless grep m!^/usr/sbin/?$!, @path;
++    for my $dir (@path) {
+         if ( -x "$dir/$QMAIL" ) {
+             $sendmail = "$dir/$QMAIL";
+             last;
+--- libemail-send-perl.orig/t/sendmail.t
++++ libemail-send-perl/t/sendmail.t
+@@ -1,4 +1,4 @@
+-use Test::More tests => 11;
++use Test::More tests => 8;
+ use strict;
+ $^W = 1;
+ 
+@@ -14,17 +14,17 @@
+ blah blah blah
+ EOF
+ 
+-{
+-  undef $Email::Send::Sendmail::SENDMAIL;
+-  local $ENV{PERL_EMAIL_SEND_SENDMAIL_NO_EXTRA_PATHS} = 1;
+-  local $ENV{PATH} = '';
+-  ok( Email::Send::Sendmail->is_available, 'Email::Send always is available' );
+-  my $msg = Email::Send::Sendmail->is_available;
+-  is $msg, 'No Sendmail found', 'is available return value says sendmail was not found';
+-
+-  my $path = Email::Send::Sendmail->_find_sendmail;
+-  ok( ! defined $path, 'no sendmail found because we have no path' );
+-}
++#{
++#  undef $Email::Send::Sendmail::SENDMAIL;
++#  local $ENV{PERL_EMAIL_SEND_SENDMAIL_NO_EXTRA_PATHS} = 1;
++#  local $ENV{PATH} = '';
++#  ok( Email::Send::Sendmail->is_available, 'Email::Send always is available' );
++#  my $msg = Email::Send::Sendmail->is_available;
++#  is $msg, 'No Sendmail found', 'is available return value says sendmail was not found';
++#
++#  my $path = Email::Send::Sendmail->_find_sendmail;
++#  ok( ! defined $path, 'no sendmail found because we have no path' );
++#}
+ 
+ {
+   local $Email::Send::Sendmail::SENDMAIL = 'testing';

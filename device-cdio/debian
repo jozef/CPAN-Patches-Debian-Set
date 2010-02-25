@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 6), libcdio-dev, libextutils-pkgconfig-perl, libiso9660-dev, libmodule-build-perl, libtest-pod-coverage-perl, libtest-pod-perl, libversion-perl, perl (>= 5.8.8-7), quilt (>= 0.40), swig
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libversion-perl
+X: 0

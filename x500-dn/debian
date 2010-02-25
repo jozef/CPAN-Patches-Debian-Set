@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libparse-recdescent-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libparse-recdescent-perl
+X: 0

@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/CGI.pm
++++ b/lib/CGI.pm
+@@ -5921,7 +5921,7 @@
+    $query->autoEscape(0);
+ 
+ Note that autoEscape() is exclusively used to effect the behavior of how some
+-CGI.pm HTML generation fuctions handle escaping. Calling escapeHTML()
++CGI.pm HTML generation functions handle escaping. Calling escapeHTML()
+ explicitly will always escape the HTML.
+ 
+ I<A Lurking Trap!> Some of the form-element generating methods return

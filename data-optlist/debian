@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libparams-util-perl, libsub-install-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libparams-util-perl, libsub-install-perl
+X: 0

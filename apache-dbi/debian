@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8~), quilt (>= 0.46-7~)
+Build-Depends-Indep: libdbi-perl, libdigest-sha1-perl, perl (>= 5.6.0-17)
+Depends: ${misc:Depends}, ${perl:Depends}, libapache2-mod-perl2 | libapache-mod-perl, libdbi-perl, libdigest-sha1-perl
+X: 0

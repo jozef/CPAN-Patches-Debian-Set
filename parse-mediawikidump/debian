@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdevel-cycle-perl (>= 1.11), libpadwalker-perl (>= 1.9), libscalar-list-utils-perl (>= 1.21), libtest-exception-perl (>= 0.27), libtest-memory-cycle-perl, libtest-simple-perl (>= 0.94), libtest-warn-perl (>= 0.21), libxml-parser-perl (>= 2.36), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-cycle-perl (>= 1.11), libpadwalker-perl (>= 1.9), libscalar-list-utils-perl (>= 1.21), libxml-parser-perl (>= 2.36)
+X: 0

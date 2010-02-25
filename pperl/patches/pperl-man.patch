@@ -1,0 +1,11 @@
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -56,6 +56,8 @@ WriteMakefile(
+       (ABSTRACT_FROM => 'PPerl.pm', # retrieve abstract from module
+        AUTHOR     => 'Matt Sergeant, matt@sergeant.org') : ()),
+        DEFINE     => "-DVARIANT_$variant -DPERL_INTERP='\"$perl_path\"' -I.",
++      MAN1PODS   => { "PPerl.pm" => 'pperl.1p' },
++      MAN3PODS   => { },
+ );
+ 
+ 

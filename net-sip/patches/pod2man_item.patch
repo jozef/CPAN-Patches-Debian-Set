@@ -1,0 +1,38 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: fix pod2man errors
+--- a/lib/Net/SIP/Debug.pod
++++ b/lib/Net/SIP/Debug.pod
+@@ -23,27 +23,27 @@
+ 
+ =over 4
+ 
+-=item 1
++=item Level 1
+ 
+ Debug messages for users
+ 
+-=item 2
++=item Level 2
+ 
+ Includes short SIP packet dumps of incoming and outgoing data
+ 
+-=item 5
++=item Level 5
+ 
+ Includes detailed SIP packet dumps for incoming and outgoing data
+ 
+-=item 10
++=item Level 10
+ 
+ Includes information about call flow, e.g. why packets get dropped etc.
+ 
+-=item 50
++=item Level 50
+ 
+ Detailed debugging for programmers using L<Net::SIP>.
+ 
+-=item 100
++=item Level 100
+ 
+ Detailed debugging for core developers of L<Net::SIP>.
+ 

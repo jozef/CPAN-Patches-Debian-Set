@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libcrypt-cbc-perl, libcrypt-des-perl, libsocialtext-resting-perl, libtest-mock-lwp-perl, libtest-pod-coverage-perl, libtest-pod-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcrypt-cbc-perl, libcrypt-des-perl, libsocialtext-resting-perl
+X: 0

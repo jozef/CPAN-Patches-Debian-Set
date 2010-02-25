@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), quilt (>= 0.40)
+Build-Depends-Indep: libnet-xmpp-perl, libtime-modules-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-xmpp-perl
+X: 0

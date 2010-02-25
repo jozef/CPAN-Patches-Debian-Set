@@ -1,0 +1,16 @@
+Description: fix POD spelling errors
+Author: Yves Agostini <agostini@univ-metz.fr>
+Origin: vendor
+Forwarded: no
+
+--- a/lib/Jifty/Plugin/OpenID.pm
++++ b/lib/Jifty/Plugin/OpenID.pm
+@@ -128,7 +128,7 @@
+ 
+ =head3 ax_mapping
+ 
+-mapping of recieve values with your application fields in json format.
++mapping of receive values with our application fields in json format.
+ 
+ =cut
+ 

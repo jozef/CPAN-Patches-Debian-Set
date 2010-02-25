@@ -1,0 +1,259 @@
+# Description: rename dbfdump to dbf_dump following the rename in Debian (due
+#  to #274792)
+# Forwarded: not-needed
+--- a/README
++++ b/README
+@@ -48,7 +48,7 @@ How does the code look like:
+ 		my $table = new XBase 'table.dbf';
+ 		my @data = $table->get_record(0);
+ 
+-	The distribution also includes a dbfdump script that prints
++	The distribution also includes a dbf_dump script that prints
+ 	the content of the table in readable form.
+ 
+ 
+@@ -75,7 +75,7 @@ Support, documentation:
+ 	native XBase engines produce data incompatible with this
+ 	module.
+ 
+-	Man pages for XBase, DBD::XBase, dbfdump, XBase::Index and
++	Man pages for XBase, DBD::XBase, dbf_dump, XBase::Index and
+ 	XBase::SDBM are included, examples of little scripts can also
+ 	be found in eg/ directory of the distribution. Read the DBI
+ 	man page for DBI specific issues, and the XBase::FAQ page.
+--- a/bin/dbfdump.PL
++++ b/bin/dbfdump.PL
+@@ -33,7 +33,7 @@ Getopt::Long::GetOptions( \%options,
+ 	) or exit;
+ 
+ if (defined $options{'version'}) {
+-	print "This is dbfdump version $XBase::VERSION.\n";
++	print "This is dbf_dump version $XBase::VERSION.\n";
+ 	exit;
+ }
+ 
+@@ -44,7 +44,7 @@ if ($stdin) {
+ 
+ if (@ARGV == 0 or defined $options{'help'}) {
+ 	die <<'EOF';
+-Usage: dbfdump [ options ] files
++Usage: dbf_dump [ options ] files
+     where the options specify
+ 	--rs		output record separator (default newline)
+ 	--fs		output field separator (default colon)
+@@ -129,11 +129,11 @@ __END__
+ 
+ =head1 NAME
+ 
+-dbfdump - Dump the record of the dbf file
++dbf_dump - Dump the record of the dbf file
+ 
+ =head1 FORMAT
+ 
+-	dbfdump [options] files
++	dbf_dump [options] files
+ 
+ where options are
+ 
+@@ -153,15 +153,15 @@ where options are
+ 
+ =head1 SYNOPSIS
+ 
+-	dbfdump -fields id,msg table.dbf
+-	dbfdump -fs=' : ' table
+-	dbfdump --nomemo file.dbf
++	dbf_dump -fields id,msg table.dbf
++	dbf_dump -fs=' : ' table
++	dbf_dump --nomemo file.dbf
+ 
+-	ssh user@host 'cat file.dbf.gz' | gunzip - | dbfdump -
++	ssh user@host 'cat file.dbf.gz' | gunzip - | dbf_dump -
+ 
+ =head1 DESCRIPTION
+ 
+-Dbfdump prints to standard output the content of dbf files listed. By
++Dbf_dump prints to standard output the content of dbf files listed. By
+ default, it prints all fields, separated by colons, one record on
+ a line. The output record and column separators can be changed by
+ switches on the command line. You can also ask only for some fields to
+@@ -181,7 +181,7 @@ at Faculty of Informatics, Masaryk Unive
+ 
+ =head1 SEE ALSO
+ 
+-perl(1); XBase(3)
++perl(1); XBase(3pm); index_dump(1p)
+ 
+ =cut
+ 
+--- a/bin/indexdump.PL
++++ b/bin/indexdump.PL
+@@ -71,15 +71,15 @@ print "Total records: $i\n" if $showtota
+ 
+ =head1 NAME
+ 
+-indexdump - Show the content of the index file
++index_dump - Show the content of the index file
+ 
+ =head1 FORMAT
+ 
+-        indexdump [options] file [ tag ]
++        index_dump [options] file [ tag ]
+ 
+ where options are
+ 
+-        --debug		output record separator (default newline)
++        --debug		set debug level
+         --type		specifies the num/date/char type of the index
+         --start		defines the value to start dump from
+         --n		prints also the total number of records
+@@ -87,12 +87,12 @@ where options are
+ 
+ =head1 SYNOPSIS
+ 
+-        indexdump rooms.cdx FACILITY
+-        indexdump --debug=14 --start=Dub rooms.cdx ROOMNAME
++        index_dump rooms.cdx FACILITY
++        index_dump --debug=14 --start=Dub rooms.cdx ROOMNAME
+ 
+ =head1 DESCRIPTION
+ 
+-Indexdump prints to standard output the content of the index file.
++Index_dump prints to standard output the content of the index file.
+ The type of the index is one of those supported by the XBase::Index
+ Perl module (cdx, idx, ntx, ndx, mdx).
+ 
+@@ -110,7 +110,7 @@ at Faculty of Informatics, Masaryk Unive
+ 
+ =head1 SEE ALSO
+ 
+-perl(1); XBase::Index(3)
++perl(1); XBase::Index(3pm); dbf_dump(1p)
+ 
+ =cut
+ 
+--- a/eg/use_index
++++ b/eg/use_index
+@@ -77,7 +77,7 @@ name:
+ 	my $cur = $table->prepare_select_with_index(
+ 		[ "cust.cdx", 'addr' ], 'field1', 'field2');
+ 
+-There is a script indexdump that does the dump for you.
++There is a script index_dump that does the dump for you.
+ 
+ If you have an compound index, with an expression instead of just
+ plain field name, chances are that XBase.pm won't be able to recognize
+--- a/lib/XBase.pm
++++ b/lib/XBase.pm
+@@ -1341,7 +1341,7 @@ Example of use is
+     $table->dump_records("fs" => " | ", "rs" => " <-+\n",
+ 			"fields" => [ "id", "msg" ]);'
+ 
+-Also note that there is a script dbfdump(1) that does the printing.
++Also note that there is a script dbf_dump(1) that does the printing.
+ 
+ =head2 Errors and debugging
+ 
+@@ -1423,7 +1423,7 @@ Dan Albertsson for providing support for
+ =head1 SEE ALSO
+ 
+ perl(1); XBase::FAQ(3); DBD::XBase(3) and DBI(3) for DBI interface;
+-dbfdump(1)
++dbf_dump(1)
+ 
+ =cut
+ 
+--- a/lib/XBase/FAQ.pod
++++ b/lib/XBase/FAQ.pod
+@@ -175,11 +175,11 @@ script from a different directory (pwd) 
+ 
+ to your script and you will see that it's not B<DBD::XBase> problem.
+ 
+-=item The B<XBase.pm/dbfdump> stops after reading I<n> records ...
++=item The B<XBase.pm/dbf_dump> stops after reading I<n> records ...
+ 
+ ... why doesn't it read all I<10 x n> records?
+ 
+-Check if the file isn't truncated. C<dbfdump -i file.dbf> will tell
++Check if the file isn't truncated. C<dbf_dump -i file.dbf> will tell
+ you the expected number of records and length of one record, like
+ 
+ 	Filename:       file.dbf
+@@ -191,7 +191,7 @@ you the expected number of records and l
+ 	Num fields:     40
+ 
+ So the expected length of the file is at least I<1313 + 65 * 1117>. If
+-it's shorter, you've got damaged file and B<XBase.pm/dbfdump> only
++it's shorter, you've got damaged file and B<XBase.pm/dbf_dump> only
+ reads as much rows as it can find in the dbf.
+ 
+ =item How is this B<DBD::XBase> related to B<DBD::ODBC>?
+--- a/lib/XBase/Index.pm
++++ b/lib/XBase/Index.pm
+@@ -1647,17 +1647,18 @@ reading support stable before I get to w
+ 
+ =head2 Testing your index file (and XBase::Index)
+ 
+-You can test your index using the indexdump script in the main
+-directory of the DBD::XBase distribution (I mean test XBase::Index
+-on correct index data, not testing corrupted index file, of course ;-)
++You can test your index using the index_dump script (I mean test
++XBase::Index on correct index data, not testing corrupted index file,
++of course ;-)
++
+ Just run
+ 
+-	./indexdump ~/path/index.ndx
+-	./indexdump ~/path/index.cdx tag_name
++	index_dump ~/path/index.ndx
++	index_dump ~/path/index.cdx tag_name
+ 
+ or
+ 
+-	perl -Ilib ./indexdump ~/path/index.cdx tag_name
++	perl -Ilib `which index_dump` ~/path/index.cdx tag_name
+ 
+ if you haven't installed this version of XBase.pm/DBD::XBase yet. You
+ should get the content of the index file. On each row, there is
+@@ -1674,18 +1675,18 @@ index to see if the sequence is OK.
+ 
+ The index formats usually distinguish between numeric and character
+ data. Some of the file formats include the information about the type
+-in the index file, other depend on the dbf file. Since with indexdump
++in the index file, other depend on the dbf file. Since with index_dump
+ we only look at the index file, you may need to specify the -type
+-option to indexdump if it complains that it doesn't know the data
++option to index_dump if it complains that it doesn't know the data
+ type of the values (this is the case with cdx at least). The possible
+ values are num, char and date and the call would be like
+ 
+-	./indexdump -type=num ~/path/index.cdx tag_name
++	index_dump -type=num ~/path/index.cdx tag_name
+ 
+ (this -type option may not work with all index formats at the moment
+ -- will be fixed and patches always welcome).
+ 
+-You can use C<-ddebug> option to indexdump to see how pages are
++You can use C<-ddebug> option to index_dump to see how pages are
+ fetched and decoded, or run debugger to see the calls and parsing.
+ 
+ =head2 Using the index files to speed up searches in dbf
+--- a/new-XBase
++++ b/new-XBase
+@@ -395,7 +395,7 @@ Example of use is
+     $table->dump_records("fs" => " | ", "rs" => " <-+\n",
+ 			"fields" => [ "id", "msg" ]);'
+ 
+-Also note that there is a command line script dbfdump(1) that does
++Also note that there is a command line script dbf_dump(1) that does
+ the printing.
+ 
+ =head1 Writing the data
+@@ -597,7 +597,7 @@ Dan Albertsson for providing support for
+ 
+ XBase::FAQ(3); XBase::Index(3);
+ DBD::XBase(3) and DBI(3) for DBI interface;
+-dbfdump(1); perl(1)
++dbf_dump(1); perl(1)
+ 
+ =cut
+ 

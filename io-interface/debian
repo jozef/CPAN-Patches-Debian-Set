@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 6), netbase, perl (>= 5.8)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

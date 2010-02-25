@@ -1,0 +1,36 @@
+Author: Kevin Ryde <user42[...]zip.com.au>
+Description: fix memory leak
+Origin: http://rt.cpan.org/Public/Bug/Display.html?id=49796
+Bugs-CPAN: http://rt.cpan.org/Public/Bug/Display.html?id=49796
+
+--- a/MoreUtils.xs
++++ b/MoreUtils.xs
+@@ -1269,8 +1269,9 @@
+     CODE:
+     {
+ 	register int i, count = 0;
++        SV *undef = sv_2mortal(newRV_noinc(newSV(0)));
+ 	HV *hv = newHV();
+-        SV *undef = newRV_noinc(newSV(0));
++	sv_2mortal(newRV_noinc((SV*)hv));
+ 	
+ 	/* don't build return list in scalar context */
+ 	if (GIMME == G_SCALAR) {
+@@ -1281,8 +1282,6 @@
+ 		    hv_store_ent(hv, e, &PL_sv_yes, 0);
+ 		}
+ 	    }
+-	    SvREFCNT_dec(hv);
+-            SvREFCNT_dec(undef);
+ 	    ST(0) = sv_2mortal(newSViv(count));
+ 	    XSRETURN(1);
+ 	}
+@@ -1296,8 +1295,6 @@
+ 		hv_store_ent(hv, e, &PL_sv_yes, 0);
+ 	    }
+ 	}
+-	SvREFCNT_dec(hv);
+-        SvREFCNT_dec(undef);
+ 	XSRETURN(count);
+     }
+ 

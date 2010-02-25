@@ -1,0 +1,61 @@
+--- a/exif.c
++++ b/exif.c
+@@ -244,10 +244,11 @@ postprop(struct exifprop *prop, struct e
+ 				return;
+ 			}
+ 			break;
+-
++			/*
+ 		case EXIF_T_GPSIFD:
+ 			gpsprop(prop, t);
+ 			return;
++			*/
+ 		}
+ 	}
+ 
+@@ -521,11 +522,15 @@ parsetag(struct exifprop *prop, struct i
+ 			readifd(prop->value, &dir->next, tags, md);
+ 		else
+ #endif
++		  /*
+ 			if (prop->tag == EXIF_T_GPSIFD) {
+ 				dir->next = readifds(prop->value, gpstags, md);
+ 			} else {
++		  */
+ 				dir->next = readifds(prop->value, tags, md);
++		/*
+ 			}
++		*/
+ 
+ 		if (!dir->next) {
+ 
+@@ -633,7 +638,7 @@ parsetag(struct exifprop *prop, struct i
+ 		 * XXX Note that this is kind of dangerous -- any other
+ 		 * tag set won't reach the end of the switch...
+ 		 */
+-		if (prop->tagset != gpstags)
++	  //		if (prop->tagset != gpstags)
+ 			break;
+ 		/* FALLTHROUGH */
+ 
+--- a/exifint.h
++++ b/exifint.h
+@@ -52,7 +52,7 @@
+ /* Exif IFD tags. */
+ 
+ #define EXIF_T_EXIFIFD		0x8769
+-#define EXIF_T_GPSIFD		0x8825
++//#define EXIF_T_GPSIFD		0x8825
+ #define EXIF_T_MAKERNOTE	0x927c
+ #define EXIF_T_INTEROP		0xa005
+ 
+@@ -139,7 +139,7 @@ extern u_int32_t gcd(u_int32_t a, u_int3
+ 
+ /* Interface to exifgps.c. */
+ 
+-extern struct exiftag gpstags[];
+-extern void gpsprop(struct exifprop *prop, struct exiftags *t);
++//extern struct exiftag gpstags[];
++//extern void gpsprop(struct exifprop *prop, struct exiftags *t);
+ 
+ #endif

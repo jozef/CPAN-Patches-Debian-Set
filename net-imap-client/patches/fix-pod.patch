@@ -1,0 +1,14 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: add missing whatis entry
+
+--- a/lib/Net/IMAP/Client/MsgAddress.pm
++++ b/lib/Net/IMAP/Client/MsgAddress.pm
+@@ -52,7 +52,7 @@
+ 
+ =head1 NAME
+ 
+-Net::IMAP::Client::MsgAddress
++Net::IMAP::Client::MsgAddress - email address object
+ 
+ =head1 DESCRIPTION
+ 

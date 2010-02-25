@@ -1,0 +1,12 @@
+These tests fail sometimes. #499740
+
+--- a/ext/pperl/splashfast/Makefile.PL
++++ b/ext/pperl/splashfast/Makefile.PL
+@@ -24,6 +24,7 @@
+                  AUTHOR          => 'Graciliano M. P. <gm@virtuasites.com.br>',
+                  VERSION_FROM    => 'SplashFast.pm',
+                  WX_CORE_LIB     => ' ',
++                 test => {TESTS => ' ',},
+                 );
+ 
+ }

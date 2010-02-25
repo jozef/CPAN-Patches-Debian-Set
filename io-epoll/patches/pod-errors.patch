@@ -1,0 +1,25 @@
+Description: Fix POD errors
+Origin: vendor
+Bug-CPAN: https://rt.cpan.org/Ticket/Display.html?id=48011
+Forwarded: yes
+Author: Jonathan Yu <frequency@cpan.org>
+--- a/lib/IO/Epoll.pm
++++ b/lib/IO/Epoll.pm
+@@ -343,8 +343,6 @@
+ 
+ =head1 LOW-LEVEL API
+ 
+-=over 4
+-
+ =head2 epoll_create
+ 
+ Create a new C<epoll> file descriptor by requesting the kernel
+@@ -421,8 +419,6 @@
+ events, then restore it to what it was originally. The C<$sigmask> parameter
+ should be undef, or an instance of C<POSIX::SigSet>.
+ 
+-=back
+-
+ =head1 HIGH LEVEL API
+ 
+ IO::Epoll provides an object oriented API designed to be a drop-in

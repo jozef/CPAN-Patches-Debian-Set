@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libregexp-common-perl (>= 2.116), perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libregexp-common-perl (>= 2.116)
+X: 0

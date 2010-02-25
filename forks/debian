@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libacme-damn-perl, liblist-moreutils-perl (>= 0.15), libsys-sigaction-perl (>= 0.11), perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libacme-damn-perl, liblist-moreutils-perl (>= 0.15), libsys-sigaction-perl (>= 0.11)
+X: 0

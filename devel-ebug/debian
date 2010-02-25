@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmodule-build-perl
+Build-Depends-Indep: libclass-accessor-chained-perl, libdevel-stacktrace-perl, libmodule-pluggable-perl, libpadwalker-perl, libproc-background-perl, libstring-koremutake-perl, libtest-expect-perl, libtest-pod-perl, libyaml-perl, libyaml-syck-perl, netbase, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-chained-perl, libdevel-stacktrace-perl, libmodule-pluggable-perl, libpadwalker-perl, libproc-background-perl, libstring-koremutake-perl, libyaml-syck-perl, netbase
+X: 0

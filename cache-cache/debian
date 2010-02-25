@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdigest-sha1-perl (>= 2.02), liberror-perl (>= 0.15), libipc-sharelite-perl (>= 0.09), perl (>= 5.8.0)
+Depends: ${misc:Depends}, libdigest-sha1-perl (>= 2.02), liberror-perl (>= 0.15), libipc-sharelite-perl (>= 0.09), perl (>= 5.8.0)
+X: 0

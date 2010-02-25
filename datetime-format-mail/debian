@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), libmodule-build-perl
+Build-Depends-Indep: libdatetime-perl, libfile-find-rule-perl, libtest-pod-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libparams-validate-perl
+X: 0

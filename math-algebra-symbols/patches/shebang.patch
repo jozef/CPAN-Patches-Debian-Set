@@ -1,0 +1,10 @@
+Author: Deepak Tripathi <apenguinlinux@gmail.com>
+Description: This patch is required for checking Perl interpreter patch because "perl" doesn't come with default path 
+--- a/symbols.pl
++++ b/symbols.pl
+@@ -1,4 +1,4 @@
+-#!perl -w -I..
++#!/usr/bin/perl -w -I..
+ #______________________________________________________________________
+ # Symbolic algebra.
+ # Perl License.

@@ -1,0 +1,69 @@
+Author: Joey Hess <joeyh@debian.org>
+Description: Fix the test suite to not die if the utmp file is empty.
+Bug: #394618
+
+--- a/t/06taint.t
++++ b/t/06taint.t
+@@ -23,5 +23,8 @@ my $utmp = Sys::Utmp->new();
+  
+ my $utent =  $utmp->getutent();
+ 
+-ok(tainted($utent->ut_user()),"ut_user is tainted");
+-ok(tainted($utent->ut_host()),"ut_host is tainted");
++SKIP: {
++	skip "no utmp entries", 2 if ! $utent;
++	ok(tainted($utent->ut_user()),"ut_user is tainted");
++	ok(tainted($utent->ut_host()),"ut_host is tainted");
++}
+--- a/t/07utent_methods.t
++++ b/t/07utent_methods.t
+@@ -7,10 +7,13 @@ my $utmp = Sys::Utmp->new();
+ 
+ my $utent = $utmp->getutent();
+ 
+-ok(defined $utent->ut_user(),"ut_user");
+-ok(defined $utent->ut_id(),"ut_id");
+-ok(defined $utent->ut_line(),"ut_line");
+-ok(defined $utent->ut_pid(),"ut_pid");
+-ok(defined $utent->ut_type(),"ut_type");
+-ok(defined $utent->ut_host(),"ut_host");
+-ok(defined $utent->ut_time(),"ut_time");
++SKIP: {
++	skip "no utmp entries", 7 if ! $utent;
++	ok(defined $utent->ut_user(),"ut_user");
++	ok(defined $utent->ut_id(),"ut_id");
++	ok(defined $utent->ut_line(),"ut_line");
++	ok(defined $utent->ut_pid(),"ut_pid");
++	ok(defined $utent->ut_type(),"ut_type");
++	ok(defined $utent->ut_host(),"ut_host");
++	ok(defined $utent->ut_time(),"ut_time");
++}
+--- a/t/08utent_types.t
++++ b/t/08utent_types.t
+@@ -6,13 +6,16 @@ use Test::More tests => 10;
+ my $utmp = Sys::Utmp->new();
+ my $utent = $utmp->getutent();
+ 
+-ok(defined $utent->accounting(),"accounting");
+-ok(defined $utent->boot_time(),"boot_time");
+-ok(defined $utent->dead_process(),"dead_process");
+-ok(defined $utent->empty(),"empty");
+-ok(defined $utent->init_process(),"init_process");
+-ok(defined $utent->login_process(),"login_process");
+-ok(defined $utent->new_time(),"new_time");
+-ok(defined $utent->old_time(),"old_time");
+-ok(defined $utent->run_lvl(),"run_lvl");
+-ok(defined $utent->user_process(),"user_process");
++SKIP: {
++	skip "no utmp entries", 10 if ! $utent;
++	ok(defined $utent->accounting(),"accounting");
++	ok(defined $utent->boot_time(),"boot_time");
++	ok(defined $utent->dead_process(),"dead_process");
++	ok(defined $utent->empty(),"empty");
++	ok(defined $utent->init_process(),"init_process");
++	ok(defined $utent->login_process(),"login_process");
++	ok(defined $utent->new_time(),"new_time");
++	ok(defined $utent->old_time(),"old_time");
++	ok(defined $utent->run_lvl(),"run_lvl");
++	ok(defined $utent->user_process(),"user_process");
++}

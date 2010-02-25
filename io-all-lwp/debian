@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libio-all-perl (>= 0.30), libtest-pod-perl, libwww-perl, perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libio-all-perl (>= 0.30), libwww-perl, perl (>= 5.8.0)
+X: 0

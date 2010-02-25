@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: gnuplot, perl (>= 5.9.0), xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, gnuplot, perl (>= 5.9.0)
+X: 1

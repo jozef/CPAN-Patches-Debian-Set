@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmoose-perl, libnamespace-autoclean-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libnamespace-autoclean-perl
+X: 0

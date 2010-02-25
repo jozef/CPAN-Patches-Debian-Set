@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libtemplate-perl (>= 2.07), libtest-simple-perl (>= 0.32) | perl (>= 5.8.3), libuniversal-exports-perl, liburi-find-perl (>= 0.13), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtemplate-perl (>= 2.07), libuniversal-exports-perl, liburi-find-perl (>= 0.13)
+X: 0

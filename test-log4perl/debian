@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libclass-accessor-chained-perl, liblingua-en-numbers-ordinate-perl, liblog-log4perl-perl, libtest-exception-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-chained-perl, liblingua-en-numbers-ordinate-perl, liblog-log4perl-perl
+X: 0

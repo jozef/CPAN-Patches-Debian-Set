@@ -1,0 +1,13 @@
+Description: fix POD errors
+ remove extraneous =cut
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Gearman/Client.pm
++++ b/lib/Gearman/Client.pm
+@@ -419,5 +419,3 @@
+  Jonathan Steinert (hachi@cpan.org)
+ 
+ =cut
+-
+-=cut

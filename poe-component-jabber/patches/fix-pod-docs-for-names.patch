@@ -1,0 +1,69 @@
+This patch has been sent upstream:
+ http://rt.cpan.org/Public/Bug/Display.html?id=31237
+
+--- a/lib/POE/Component/Jabber/J2.pm
++++ b/lib/POE/Component/Jabber/J2.pm
+@@ -310,7 +310,7 @@
+ 
+ =head1 NAME
+ 
+-POE::Component::Jabber::J2
++POE::Component::Jabber::J2 - connect to the jabberd20 router as a service
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/POE/Component/Jabber/Legacy.pm
++++ b/lib/POE/Component/Jabber/Legacy.pm
+@@ -117,7 +117,7 @@
+ 
+ =head1 NAME
+ 
+-POE::Component::Jabber::Legacy
++POE::Component::Jabber::Legacy - connect using the pre-XMPP Jabber protocol
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/POE/Component/Jabber/ProtocolFactory.pm
++++ b/lib/POE/Component/Jabber/ProtocolFactory.pm
+@@ -58,7 +58,7 @@
+ 
+ =head1 NAME
+ 
+-POE::Component::Jabber::ProtocolFactory
++POE::Component::Jabber::ProtocolFactory - protected helper class to handle different protocols
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/POE/Component/Jabber/XMPP.pm
++++ b/lib/POE/Component/Jabber/XMPP.pm
+@@ -396,7 +396,7 @@
+ 
+ =head1 NAME
+ 
+-POE::Component::Jabber::XMPP
++POE::Component::Jabber::XMPP - connect using the XMPP Jabber protocol
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/POE/Component/Jabber/J14.pm
++++ b/lib/POE/Component/Jabber/J14.pm
+@@ -85,7 +85,7 @@
+ 
+ =head1 NAME
+ 
+-POE::Component::Jabber::J14
++POE::Component::Jabber::J14 - connect to the jabberd14 router as a service
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/POE/Component/Jabber/Events.pm
++++ b/lib/POE/Component/Jabber/Events.pm
+@@ -52,7 +52,7 @@
+ 
+ =head1 NAME
+ 
+-POE::Component::Jabber::Events
++POE::Component::Jabber::Events - exports constants for tracking status of PCJ
+ 
+ =head1 SYNOPSIS
+ 

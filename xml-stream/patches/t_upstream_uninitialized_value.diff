@@ -1,0 +1,20 @@
+Author: Mikael Magnusson <mikma@users.sourceforge.net>
+Forwarded: no
+Description: Fix an 'uninitialized value' warning
+
+--- a/lib/XML/Stream.pm
++++ b/lib/XML/Stream.pm
+@@ -2075,7 +2075,12 @@
+         $response = $self->{SIDS}->{$sid}->{sasl}->{client}->client_step($challenge);
+     }
+ 
+-    my $response64 = MIME::Base64::encode_base64($response,"");
++    my $response64 = "";
++    if (defined $response)
++    {
++        $response64 = MIME::Base64::encode_base64($response,"");
++    }
++
+     $self->SASLResponse($sid,$response64);
+ }
+ 

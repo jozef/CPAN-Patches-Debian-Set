@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), libdublincore-record-perl, libmarc-record-perl, libmodule-build-perl, libtest-pod-coverage-perl, libtest-pod-perl
+Build-Depends-Indep: perl (>= 5.8.8-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libdublincore-record-perl, libmarc-record-perl
+X: 0

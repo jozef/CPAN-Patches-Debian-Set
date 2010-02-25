@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), libmodule-build-perl
+Build-Depends-Indep: libdatetime-perl, libtest-pod-coverage-perl, libtest-pod-perl (>= 1.00), perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

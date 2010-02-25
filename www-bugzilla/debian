@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: libclass-methodmaker-perl (>= 1.08), libparams-validate-perl, libwww-mechanize-perl (>= 1.20), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-methodmaker-perl, libwww-mechanize-perl
+X: 0

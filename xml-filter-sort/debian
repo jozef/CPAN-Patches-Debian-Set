@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libxml-sax-machines-perl (>= 0.41), libxml-sax-perl (>= 0.12-4), libxml-sax-writer-perl (>= 0.44-4), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-sax-perl (>= 0.12-4), libxml-sax-writer-perl (>= 0.44-4)
+X: 0

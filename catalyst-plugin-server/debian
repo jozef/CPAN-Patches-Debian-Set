@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libcatalyst-perl, libmro-compat-perl, librpc-xml-perl (>= 0.69), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl, libmro-compat-perl, librpc-xml-perl (>= 0.69)
+X: 0

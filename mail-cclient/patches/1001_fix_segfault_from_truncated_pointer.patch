@@ -1,0 +1,12 @@
+# Fix segfault on some architectures due to fs_get implicit conversion
+# More info: http://bugs.debian.org/308541
+--- a/criteria.c
++++ b/criteria.c
+@@ -13,6 +13,7 @@
+ #include <stdio.h>
+ #include <stddef.h>
+ #include <string.h>
++#include <c-client/fs.h>
+ #include "mail.h"
+ #include "misc.h"
+ #include "criteria.h"

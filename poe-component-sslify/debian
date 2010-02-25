@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libnet-ssleay-perl (>= 1.30), perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-ssleay-perl (>= 1.30)
+X: 0

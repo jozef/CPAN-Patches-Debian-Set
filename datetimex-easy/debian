@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libdatetime-format-datemanip-perl, libdatetime-format-flexible-perl, libdatetime-format-ical-perl, libdatetime-format-natural-perl, libdatetime-perl, libtest-most-perl, libtimedate-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-format-datemanip-perl, libdatetime-format-flexible-perl, libdatetime-format-ical-perl, libdatetime-format-natural-perl, libdatetime-perl, libtimedate-perl
+X: 0

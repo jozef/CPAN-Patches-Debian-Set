@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), libsocket6-perl, perl (>= 5.10) |
+ libmodule-build-perl, quilt (>= 0.46-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libsocket6-perl
+X: 0

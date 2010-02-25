@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.6.10-12)
+Build-Depends-Indep: libhttp-server-simple-perl (>= 0.35), libtest-simple-perl, libtest-tester-perl (>= 0.107), libtest-www-mechanize-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtest-simple-perl, libtest-www-mechanize-perl
+X: 0

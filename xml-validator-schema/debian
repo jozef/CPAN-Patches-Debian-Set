@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt
+Build-Depends-Indep: libtree-dagnode-perl, libxml-filter-buffertext-perl, libxml-libxml-perl, libxml-sax-expat-perl, libxml-sax-perl, libxml-sax-writer-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtree-dagnode-perl, libxml-filter-buffertext-perl, libxml-sax-perl
+X: 0

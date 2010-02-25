@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.39), debhelper (>= 5.0.44), devscripts (>= 2.10.7), dh-buildinfo, libfile-spec-perl, libhtml-parser-perl, libhtml-wikiconverter-perl (>= 0.60), libparams-validate-perl, libtest-pod-coverage-perl (>= 1.04), libtest-pod-perl (>= 1.14), libtest-simple-perl, liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-wikiconverter-perl (>= 0.53)
+X: 0

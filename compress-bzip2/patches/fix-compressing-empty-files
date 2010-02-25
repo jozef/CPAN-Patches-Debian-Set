@@ -1,0 +1,29 @@
+Without this patch it creates corrupt files when compressing empty files.
+See http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=464205
+
+--- a/Bzip2.xs
++++ b/Bzip2.xs
+@@ -1485,8 +1485,6 @@
+     return -2;
+   }
+ 
+-  if (nUncompressed == 0) return 0;
+-
+   while (True) {
+     if ( obj->run_progress == 0 ) {
+       ret = BZ2_bzCompressInit ( &(obj->strm), obj->blockSize100k, obj->verbosity, obj->workFactor );
+@@ -2253,12 +2251,10 @@
+     else
+       bufp = SvPV(buf, len);
+ 
+-    if (len) {
+-      RETVAL = bzfile_write( obj, bufp, len);
++    RETVAL = bzfile_write( obj, bufp, len);
+ 
+-      if ( RETVAL > 0 )
++    if ( RETVAL > 0 )
+ 	SvCUR_set( buf, RETVAL );
+-    }
+   }
+ 
+   OUTPUT:

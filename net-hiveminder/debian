@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdatetime-perl, libemail-simple-perl (>= 2.100) | libemail-simple-creator-perl, libmoose-perl, libnet-jifty-perl (>= 0.06), libnumber-recordlocator-perl, libterm-encoding-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libmoose-perl, libnet-jifty-perl (>= 0.06), libnumber-recordlocator-perl
+X: 0

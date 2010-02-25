@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libexporter-tidy-perl, perl (>= 5.8.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libexporter-tidy-perl
+X: 0

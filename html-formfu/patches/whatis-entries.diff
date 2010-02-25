@@ -1,0 +1,69 @@
+Author: Ansgar Burchardt <ansgar@43-1.org> 
+Subject: Adds a description to those files missing one
+
+--- libhtml-formfu-perl.orig/lib/HTML/FormFu/Attribute.pm
++++ libhtml-formfu-perl/lib/HTML/FormFu/Attribute.pm
+@@ -349,7 +349,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::FormFu::Attribute
++HTML::FormFu::Attribute - accessor class
+ 
+ =head1 SYNOPSIS
+ 
+--- libhtml-formfu-perl.orig/lib/HTML/FormFu/QueryType/CGI.pm
++++ libhtml-formfu-perl/lib/HTML/FormFu/QueryType/CGI.pm
+@@ -70,7 +70,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::FormFu::QueryType::CGI
++HTML::FormFu::QueryType::CGI - uploaded file
+ 
+ =head1 METHODS
+ 
+--- libhtml-formfu-perl.orig/lib/HTML/FormFu/QueryType/CGI/Simple.pm
++++ libhtml-formfu-perl/lib/HTML/FormFu/QueryType/CGI/Simple.pm
+@@ -49,7 +49,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::FormFu::QueryType::CGI::Simple
++HTML::FormFu::QueryType::CGI::Simple - uploaded file
+ 
+ =head1 METHODS
+ 
+--- libhtml-formfu-perl.orig/lib/HTML/FormFu/QueryType/Catalyst.pm
++++ libhtml-formfu-perl/lib/HTML/FormFu/QueryType/Catalyst.pm
+@@ -99,7 +99,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::FormFu::QueryType::Catalyst
++HTML::FormFu::QueryType::Catalyst - uploaded file
+ 
+ =head1 DESCRIPTION
+ 
+--- libhtml-formfu-perl.orig/lib/HTML/FormFu/UploadParam.pm
++++ libhtml-formfu-perl/lib/HTML/FormFu/UploadParam.pm
+@@ -104,7 +104,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::FormFu::UploadParam
++HTML::FormFu::UploadParam - accessor class
+ 
+ =head1 DESCRIPTION
+ 
+--- libhtml-formfu-perl.orig/lib/HTML/FormFu/MultiForm.pm
++++ libhtml-formfu-perl/lib/HTML/FormFu/MultiForm.pm
+@@ -576,7 +576,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::FormFu::MultiForm
++HTML::FormFu::MultiForm - Handle multi-page/stage forms
+ 
+ =head1 AUTHOR
+ 

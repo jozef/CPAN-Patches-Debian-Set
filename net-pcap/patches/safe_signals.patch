@@ -1,0 +1,22 @@
+Author: Martín Ferrari <tincho@debian.org>
+Bugs: #508432, RT#43308
+Description: Do not allow pcap_loop to be interrupted by signals
+ Allowing pcap_loop to be interrupted by external signals causes segfaults
+ on i386 architectures.
+ This patch makes the Net::Pcap (0.16) module behave the same way as its
+ previous release.
+ Upstream is working on it since this feature can be useful for some people.
+
+--- libnet-pcap-perl.orig/Pcap.xs
++++ libnet-pcap-perl/Pcap.xs
+@@ -410,10 +410,7 @@
+ 		callback_fn = newSVsv(callback);
+ 		user = newSVsv(user);
+ 
+-		SAVE_signals = PL_signals;  /* Allow the call to be interrupted by signals */
+-		PL_signals |= PERL_SIGNALS_UNSAFE_FLAG;
+ 		RETVAL = pcap_loop(p, cnt, callback_wrapper, (u_char *)user);
+-		PL_signals = SAVE_signals;
+ 
+ 		SvREFCNT_dec(user);
+ 		SvREFCNT_dec(callback_fn);

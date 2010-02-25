@@ -1,0 +1,17 @@
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -12,7 +12,6 @@ WriteMakefile
+     PM            => 
+    {
+     'ObjScanner.pm'   => '$(INST_LIB)/Tk/ObjScanner.pm',
+-    'demo/objscan.pl' => '$(INST_LIB)/Tk/demos/widtrib/objscan.pl'
+    },
+    ABSTRACT   => 'A scanner to view an object\'s attribute',
+    AUTHOR     => 'Dominique Dumont (ddumont@cpan.org)',
+--- a/demo/objscan.pl
++++ b/demo/objscan.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ # ObjScanner - data and object scanner
+ 
+ use Tk ;

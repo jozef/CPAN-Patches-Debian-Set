@@ -1,0 +1,8 @@
+--- a/create_web_gallery.pl
++++ b/create_web_gallery.pl
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ #
+ # author : sergey s prozhogin (ccpro@rrelaxo.org.ru)
+ # script creates web gallery. 

@@ -1,0 +1,13 @@
+# fix pod2man errors
+
+--- a/Schema/SimpleType.pm
++++ b/Schema/SimpleType.pm
+@@ -3,7 +3,7 @@
+ use warnings;
+ 
+ 
+-=item NAME
++=head1 NAME
+ 
+ XML::Validator::Schema::SimpleType
+ 

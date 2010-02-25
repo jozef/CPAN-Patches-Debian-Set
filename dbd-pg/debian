@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libdbi-perl, libpq-dev (>= 8.0), libtest-pod-coverage-perl, libtest-pod-perl, libtest-yaml-meta-perl, perl (>= 5.10) | libversion-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdbi-perl, perl (>= 5.10) | libversion-perl
+X: 0

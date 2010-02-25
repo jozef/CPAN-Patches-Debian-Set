@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libtime-piece-perl (>= 1.03), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtime-piece-perl (>= 1.03)
+X: 0

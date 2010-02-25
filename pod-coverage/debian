@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdevel-symdump-perl, libtest-pod-perl, perl (>= 5.8.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-symdump-perl
+X: 0

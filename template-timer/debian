@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libtemplate-perl, libtest-pod-perl (>= 1.14), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtemplate-perl
+X: 0

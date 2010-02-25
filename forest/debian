@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libmoose-perl (>= 0.74), libmoosex-attributehelpers-perl, libmoosex-clone-perl (>= 0.05), libpath-class-perl, libtest-exception-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.74), libmoosex-attributehelpers-perl, libmoosex-clone-perl (>= 0.05)
+X: 0

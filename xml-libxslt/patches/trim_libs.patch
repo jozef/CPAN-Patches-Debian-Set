@@ -1,0 +1,14 @@
+Author: Damyan Ivanov
+Description: avoid linkage to all libs perl is linked
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -160,8 +160,6 @@
+   $config{DEFINE} .= " -DHAVE_EXSLT"
+ }
+ 
+-$config{LIBS}.=' '.$Config{libs};
+-
+ if ($DEBUG) {
+   print "LIBS: $config{LIBS}\n";
+   print "INC: $config{INC}\n";

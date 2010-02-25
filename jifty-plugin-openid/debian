@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13), quilt (>= 0.46-7)
+Build-Depends-Indep: libcache-cache-perl, libjifty-perl, liblwpx-paranoidagent-perl, libnet-openid-consumer-perl (>= 1.03), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcache-cache-perl, libjifty-perl, liblwpx-paranoidagent-perl, libnet-openid-consumer-perl (>= 1.03)
+X: 0

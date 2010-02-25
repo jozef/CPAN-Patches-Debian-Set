@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt (>= 0.40)
+Build-Depends-Indep: libio-pty-perl (>= 1.00), netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libio-pty-perl (>= 1.00)
+X: 0

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 6), libsmbclient-dev, perl (>= 5.8.0-7), quilt (>= 0.40)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

@@ -1,0 +1,49 @@
+Author: Pierre Neyron <pierre.neyron@free.fr>
+Description: remove invalid pod syntax for hyperlinks as reported by t/10pod
+CPAN bug: #52296 t/10pod fails with libpod-simple-perl >=3.07
+
+--- a/lib/Parse/DMIDecode.pm
++++ b/lib/Parse/DMIDecode.pm
+@@ -466,9 +466,9 @@
+ L<http://perlgirl.org.uk>
+ 
+ If you like this software, why not show your appreciation by sending the
+-author something nice from her
+-L<Amazon wishlist|http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority>? 
+-( http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority )
++author something nice from her Amazon wishlist ?
++
++L<http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority>
+ 
+ =head1 COPYRIGHT
+ 
+--- a/lib/Parse/DMIDecode/Constants.pm
++++ b/lib/Parse/DMIDecode/Constants.pm
+@@ -139,9 +139,9 @@
+ L<http://perlgirl.org.uk>
+ 
+ If you like this software, why not show your appreciation by sending the
+-author something nice from her
+-L<Amazon wishlist|http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority>? 
+-( http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority )
++author something nice from her Amazon wishlist ?
++
++L<http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority>
+ 
+ =head1 COPYRIGHT
+ 
+--- a/lib/Parse/DMIDecode/Handle.pm
++++ b/lib/Parse/DMIDecode/Handle.pm
+@@ -420,9 +420,9 @@
+ L<http://perlgirl.org.uk>
+ 
+ If you like this software, why not show your appreciation by sending the
+-author something nice from her
+-L<Amazon wishlist|http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority>? 
+-( http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority )
++author something nice from her Amazon wishlist ?
++
++L<http://www.amazon.co.uk/gp/registry/1VZXC59ESWYK0?sort=priority>
+ 
+ =head1 COPYRIGHT
+ 

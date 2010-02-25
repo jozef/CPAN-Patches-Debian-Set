@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libparse-recdescent-perl (>= 1.94), libpod-strip-perl (>= 1.00), libtest-deep-perl (>= 0.087), libtest-nowarnings-perl, libtest-pod-coverage-perl, libtest-pod-perl, libuniversal-require-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libparse-recdescent-perl (>= 1.94), libpod-strip-perl (>= 1.00)
+X: 0

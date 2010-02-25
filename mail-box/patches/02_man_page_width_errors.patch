@@ -1,0 +1,25 @@
+Description:  fixing un-splittable lines in two PODs
+Origin: vendor
+Author: Damyan Ivanov <dmn@debian.org>  
+--- a/lib/Mail/Box/Message/Destructed.pod
++++ b/lib/Mail/Box/Message/Destructed.pod
+@@ -182,7 +182,7 @@
+ 
+ =back
+ 
+-Mail::Box::Message::Destructed-E<gt>B<read>(FILEHANDLE|SCALAR|REF-SCALAR|ARRAY-OF-LINES, OPTIONS)
++Mail::Box::Message::Destructed-E<gt>B<read>( FILEHANDLE | SCALAR | REF-SCALAR | ARRAY-OF-LINES, OPTIONS)
+ 
+ =over 4
+ 
+--- a/lib/Mail/Box/Net/Message.pod
++++ b/lib/Mail/Box/Net/Message.pod
+@@ -185,7 +185,7 @@
+ 
+ =back
+ 
+-Mail::Box::Net::Message-E<gt>B<read>(FILEHANDLE|SCALAR|REF-SCALAR|ARRAY-OF-LINES, OPTIONS)
++Mail::Box::Net::Message-E<gt>B<read>( FILEHANDLE | SCALAR | REF-SCALAR | ARRAY-OF-LINES, OPTIONS)
+ 
+ =over 4
+ 

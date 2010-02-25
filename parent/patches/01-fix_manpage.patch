@@ -1,0 +1,11 @@
+--- a/lib/parent.pm
++++ b/lib/parent.pm
+@@ -120,7 +120,7 @@ L<base>
+ 
+ =head1 AUTHORS AND CONTRIBUTORS
+ 
+-Rafaël Garcia-Suarez, Bart Lateur, Max Maischein, Anno Siegel, Michael Schwern
++RafaÃ«l Garcia-Suarez, Bart Lateur, Max Maischein, Anno Siegel, Michael Schwern
+ 
+ =head1 MAINTAINER
+ 

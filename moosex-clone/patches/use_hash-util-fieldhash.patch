@@ -1,0 +1,43 @@
+Description: Don't require Hash::Util::FieldHash::Compat
+ This module requires Hash::Util::FieldHash::Compat, which just
+ loads Hash::Util::FieldHash if available or provides a slower
+ alternate implementation otherwise. Since Perl 5.10 has the
+ Hash::Util::FieldHash module already, we can use it directly.
+Author: franck cuny <franck@lumberjaph.net>
+Reviewed-by: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: not-needed
+--- a/META.yml
++++ b/META.yml
+@@ -11,7 +11,7 @@
+     ExtUtils::MakeMaker:  0
+ requires:
+     Data::Visitor:        0.24
+-    Hash::Util::FieldHash::Compat:  0
++    Hash::Util::FieldHash:  0
+     Moose:                0.74
+     namespace::clean:     0.08
+     Test::use::ok:        0
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -12,8 +12,8 @@
+ 	PL_FILES     => { },
+ 	PREREQ_PM    => {
+ 		'Test::use::ok' => 0,
+-        'Hash::Util::FieldHash::Compat' => 0,
+         'Moose' => "0.74",
++        'Hash::Util::FieldHash' => 0,
+         'Data::Visitor' => '0.24',
+         'namespace::clean' => '0.08',
+ 	},
+--- a/lib/MooseX/Clone.pm
++++ b/lib/MooseX/Clone.pm
+@@ -5,7 +5,7 @@
+ 
+ our $VERSION = "0.05";
+ 
+-use Hash::Util::FieldHash::Compat qw(idhash);
++use Hash::Util::FieldHash qw(idhash);
+ 
+ use MooseX::Clone::Meta::Attribute::Trait::Clone;
+ use MooseX::Clone::Meta::Attribute::Trait::StorableClone;

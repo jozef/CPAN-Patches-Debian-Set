@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: cdbs, debhelper (>= 6)
+Build-Depends-Indep: libclass-accessor-perl, libhtml-parser-perl (>= 3.4), liburi-perl, libwww-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-spec-perl, libhtml-parser-perl (>=3.40), libio-all-perl, libpod-parser-perl, liburi-perl
+X: 0

@@ -1,0 +1,16 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: run test that needs network access only if NETWORK_TEST is set
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=564369
+Forwarded: no
+--- a/t/51_rate_limit.t
++++ b/t/51_rate_limit.t
+@@ -5,6 +5,9 @@
+ use lib qw(t/lib);
+ use Net::Twitter;
+ 
++plan skip_all => 'set NETWORK_TEST to enable this test'
++  unless ($ENV{NETWORK_TEST});
++
+ eval 'use TestUA';
+ plan skip_all => 'LWP::UserAgent 5.819 required' if $@;
+ 

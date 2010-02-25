@@ -1,0 +1,26 @@
+Description: Fix charset decoding in the PurePerl module (#405186)
+Author: Niko Tyni <ntyni@iki.fi>
+Date: Sun, 04 Nov 2007 20:46:58 +0200
+
+--- a/SAX/PurePerl/Productions.pm
++++ b/SAX/PurePerl/Productions.pm
+@@ -39,7 +39,7 @@
+     # can't do this one without unicode
+     # $CombiningChar = qr/^$/msx;
+     
+-    $NameChar = qr/^ (?: $BaseChar | $Digit | [._:-] | $Extender )+ $/x;
++    $NameChar = qr/ (?: $BaseChar | $Digit | [._:-] | $Extender )+ /x;
+     PERL
+     die $@ if $@;
+ }
+--- a/SAX/PurePerl.pm
++++ b/SAX/PurePerl.pm
+@@ -677,7 +677,7 @@
+     
+     return unless length($name);
+     
+-    $name =~ /$NameChar/o or $self->parser_error("Name <$name> does not match NameChar production", $reader);
++    $name =~ /^$NameChar+$/o or $self->parser_error("Name <$name> does not match NameChar production", $reader);
+ 
+     return $name;
+ }

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), libmodule-build-perl, perl
+Build-Depends-Indep: libclass-accessor-perl, libscalar-list-utils-perl, libwant-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libscalar-list-utils-perl, libwant-perl
+X: 0

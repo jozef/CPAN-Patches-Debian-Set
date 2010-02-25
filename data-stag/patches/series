@@ -1,0 +1,4 @@
+missing-manpages.patch
+fix_WHATIS_entries.patch
+fix_manpage_names.patch
+fix_pod_errors.patch

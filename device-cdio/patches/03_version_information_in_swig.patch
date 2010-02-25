@@ -1,0 +1,55 @@
+Author: Martín Ferrari <martin.ferrari@gmail.com>
+Description: The conditional compilation based on the lib's version wasn't working.
+--- a/device.swg
++++ b/device.swg
+@@ -20,6 +20,7 @@
+ /* See <cdio/device.h> for more extensive documentation. */
+ 
+ %include "device_const.swg"
++%include <cdio/version.h>
+ 
+ /* Set up to allow functions to return device lists of type "char
+    *". We'll use a typedef so we can make sure to isolate this. I
+--- a/perliso9660.swg
++++ b/perliso9660.swg
+@@ -35,6 +35,7 @@ equivalant standard is called ECMA-119."
+ #include <time.h>
+ #include <cdio/iso9660.h>
+ #include <cdio/version.h>
++%include <cdio/version.h>
+ 
+ /* Various libcdio constants and typedefs */
+ %include "types.swg"
+@@ -60,7 +61,7 @@ typedef uint8_t iso_extension_mask_t;
+ %constant long int RECORD               = ISO_RECORD;
+ 
+ /* When version 0.77 comes out, require it and fix this fix this. */
+-#if 0
++#if LIBCDIO_VERSION_NUM >= 77
+ %constant long int PROTECTION           = ISO_PROTECTION;
+ #else 
+ %constant long int PROTECTION           = 16;
+--- a/Build.PL
++++ b/Build.PL
+@@ -98,11 +98,12 @@ sub compile_swig {
+     } else {
+ 	@swig_flags = ();
+     }
++    my @include_dirs = map {"-I$_"} (@{$p->{include_dirs}});
+ 
+     my $blib_lib = File::Spec->catfile($self->blib, 'lib');
+ 
+     # print "+++swig -o $c_file -outdir $blib_lib -perl $file\n";
+-    $self->do_system(@swig, '-o', $c_file, '-outdir', $blib_lib,
++    $self->do_system(@swig, @include_dirs, '-o', $c_file, '-outdir', $blib_lib,
+ 		     '-perl', @swig_flags, $file)
+ 	or die "error building $c_file file from '$file'";
+     
+@@ -335,6 +336,7 @@ my $builder = $class->new( 
+     extra_linker_flags  => $ldflags,
+     extra_compiler_flags=> $ccflags,
+     swig_flags          => $swig_flags,
++    include_dirs        => [ '/usr/include' ],
+     swig_installed      => $swig_installed,
+     license             => 'gpl',
+     requires => {

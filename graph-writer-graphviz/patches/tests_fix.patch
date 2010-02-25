@@ -1,0 +1,32 @@
+Improve regexp for comparing the two results
+Author: Xavier Oswald <xoswald@debian.org>
+Index: libgraph-writer-graphviz-perl/t/1.simple.t
+===================================================================
+--- libgraph-writer-graphviz-perl.orig/t/1.simple.t	2009-08-21 09:44:45.000000000 +0200
++++ libgraph-writer-graphviz-perl/t/1.simple.t	2009-08-21 09:45:19.000000000 +0200
+@@ -18,8 +18,8 @@
+ my $g1 = <DATA>;
+ my $g2 = io('t/graph.simple.dot')->slurp;
+ # Ignore font-sizes, it's system-dependant
+-$g1 =~ s/\d/0/g;
+-$g2 =~ s/\d/0/g;
++$g1 =~ s/\d+/0/g;
++$g2 =~ s/\d+/0/g;
+ ok($g1 eq $g2);
+ unlink('t/graph.simple.dot');
+ 
+Index: libgraph-writer-graphviz-perl/t/2.ioall.t
+===================================================================
+--- libgraph-writer-graphviz-perl.orig/t/2.ioall.t	2009-08-21 09:45:26.000000000 +0200
++++ libgraph-writer-graphviz-perl/t/2.ioall.t	2009-08-21 09:45:35.000000000 +0200
+@@ -26,8 +26,8 @@
+ 
+ ok(-f 't/graph.ioall.dot');
+ # Ignore font-sizes, it's system-dependant
+-$g1 =~ s/\d/0/g;
+-$g2 =~ s/\d/0/g;
++$g1 =~ s/\d+/0/g;
++$g2 =~ s/\d+/0/g;
+ ok($g1 eq $g2);
+ $io->unlink;
+ 

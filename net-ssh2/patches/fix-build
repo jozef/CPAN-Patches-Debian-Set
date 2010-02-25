@@ -1,0 +1,33 @@
+Description: hack around some bug in the library detection
+Origin: vendor
+Forwarded: no
+Author: Ryan Niebur <ryanryan52@gmail.com>
+Last-Update: 2009-08-15
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -40,22 +40,12 @@
+ 
+ checklibs
+     lib => 'ssh2',
+-    header => 'libssh2.h',
+-    libpath => [@search_libs, $lib ? $lib : ()],
+-    incpath => [@search_incs, $inc ? $inc : ()],
+-;
+-
+-if (!$lib && !$inc) {
+-    $lib = (join ' ', map "-L$_", @search_libs) . " -lssh2 $extra_libs";
+-    $inc =  join ' ', map "-I$_", @search_incs;
+-} else {
+-    $lib = "-L$lib -lssh2 $extra_libs" if $lib;
+-    $inc = "-I$inc" if $inc;
+-}
++    header => 'libssh2.h';
++
++my $lib = '-lssh2 $extra_libs';
+ 
+ auto_provides;
+ libs $lib;
+-inc "$inc -I.";
+ realclean_files qw/const-c.inc const-xs.inc/;
+ makemaker_args @define;
+ 

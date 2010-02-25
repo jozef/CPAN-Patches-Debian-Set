@@ -1,0 +1,14 @@
+Author: Florian Ragwitz <florian.ragwitz@s2004.tu-chemnitz.de>
+Description: Look for swish-e in the default path first.
+This should speed up looking for swish-e in the default case.
+--- a/lib/SWISH/API/Common.pm
++++ b/lib/SWISH/API/Common.pm
+@@ -11,7 +11,7 @@
+ 
+ our $VERSION         = "0.04";
+ our $SWISH_EXE       = "swish-e";
+-our @SWISH_EXE_PATHS = qw(/usr/local/bin);
++our @SWISH_EXE_PATHS = qw(/usr/bin/ /usr/local/bin);
+ 
+ use SWISH::API;
+ use File::Path;

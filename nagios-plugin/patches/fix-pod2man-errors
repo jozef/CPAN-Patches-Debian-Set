@@ -1,0 +1,13 @@
+manpage-has-errors-from-pod2man
+
+--- a/lib/Nagios/Plugin/Functions.pm
++++ b/lib/Nagios/Plugin/Functions.pm
+@@ -388,6 +388,8 @@
+ join the resultant critical, warning, and ok messages together i.e.
+ all messages are joined and returned.
+ 
++=back
++
+ =item get_shortname
+ 
+ Return the default shortname used for this plugin i.e. the first

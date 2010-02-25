@@ -1,0 +1,23 @@
+Description: Skip a test depending on a non-free input file (testfiles/xmltest.xml).
+Bugs: #452872
+
+--- a/t/16large.t
++++ b/t/16large.t
+@@ -1,4 +1,4 @@
+-use Test;
++use Test::More;
+ BEGIN { plan tests => 3 }
+ use XML::SAX::PurePerl;
+ use XML::SAX::PurePerl::DebugHandler;
+@@ -9,8 +9,10 @@
+ my $parser = XML::SAX::PurePerl->new(Handler => $handler);
+ ok($parser);
+ 
++SKIP: {
++skip "Non-free test input is not present in the Debian version", 1;
+ my $time = time;
+ $parser->parse_uri("testfiles/xmltest.xml");
+ warn("parsed ", -s "testfiles/xmltest.xml", " bytes in ", time - $time, " seconds\n");
+ ok(1);
+-
++} # SKIP

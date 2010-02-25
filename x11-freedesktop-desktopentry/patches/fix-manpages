@@ -1,0 +1,12 @@
+fix pod2man errors
+
+--- a/lib/X11/FreeDesktop/DesktopEntry.pm
++++ b/lib/X11/FreeDesktop/DesktopEntry.pm
+@@ -151,6 +151,7 @@
+ }
+ 
+ =pod
++
+ 	my @groups = $entry->groups;
+ 
+ This returns an array of scalars containing the I<group names> included in the

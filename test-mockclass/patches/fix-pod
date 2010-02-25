@@ -1,0 +1,30 @@
+fix POD syntax problems
+
+--- a/lib/Test/MockClass.pm
++++ b/lib/Test/MockClass.pm
+@@ -3,7 +3,7 @@
+ 
+ =head1 NAME
+ 
+-    Test::MockClass - A module to provide mock classes and mock objects for testing
++Test::MockClass - A module to provide mock classes and mock objects for testing
+ 
+ =head1 SYNOPSIS
+ 
+@@ -244,12 +244,16 @@
+ 
+ =head1 SEE ALSO
+ 
++=over 4
++
+ =item Alternatives: L<Test::MockObject>, L<Test::MockMethod>
+ 
+ =item Testing systems: L<Test::Simple>, L<Test::More>, L<Test::Builder>, L<Test::Harness>
+ 
+ =item xUnit testing: L<Test::SimpleUnit>, L<Test::Unit>, L<Test::Class>
+ 
++=back
++
+ =head1 AUTHOR
+ 
+ Jeremiah Jordan E<lt>jjordan@perlreason.comE<gt>

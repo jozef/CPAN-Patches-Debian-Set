@@ -1,0 +1,35 @@
+Add missing descriptions in the NAME documentation section.
+
+--- a/lib/HTML/Template/Compiled/Expression.pm
++++ b/lib/HTML/Template/Compiled/Expression.pm
+@@ -154,7 +154,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::Template::Compiled::Expression
++HTML::Template::Compiled::Expression - a compiled HTML template expression
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/HTML/Template/Compiled/Token.pm
++++ b/lib/HTML/Template/Compiled/Token.pm
+@@ -85,7 +85,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::Template::Compiled::Token
++HTML::Template::Compiled::Token - a compiled HTML template token
+ 
+ =cut
+ 
+--- a/lib/HTML/Template/Compiled/Reference.pod
++++ b/lib/HTML/Template/Compiled/Reference.pod
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::Template::Compiled::Reference
++HTML::Template::Compiled::Reference - documentation for the HTML::Template::Compiled distribution
+ 
+ =head1 TAGSTYLES
+ 

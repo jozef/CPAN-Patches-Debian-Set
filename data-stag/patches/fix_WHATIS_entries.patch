@@ -1,0 +1,203 @@
+Author: David Paleino <d.paleino@gmail.com>
+Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=37218
+Description: adds missing WHATIS entries (the comment after the name).
+ This patch is referenced in Debian bug #488614
+License: Same as Data::Stag itself
+--- a/Data/Stag/DTDWriter.pm
++++ b/Data/Stag/DTDWriter.pm
+@@ -2,7 +2,7 @@ package Data::Stag::DTDWriter;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::DTDWriter
++  Data::Stag::DTDWriter - DTD Writer
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/GraphHandler.pm
++++ b/Data/Stag/GraphHandler.pm
+@@ -2,7 +2,7 @@ package Data::Stag::GraphHandler;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::GraphHandler
++  Data::Stag::GraphHandler - Graph Handler
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/PerlWriter.pm
++++ b/Data/Stag/PerlWriter.pm
+@@ -2,7 +2,7 @@ package Data::Stag::PerlWriter;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::PerlWriter
++  Data::Stag::PerlWriter - writes stag events into perl POD documentation
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/XMLWriter.pm
++++ b/Data/Stag/XMLWriter.pm
+@@ -2,7 +2,7 @@ package Data::Stag::XMLWriter;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::XMLWriter
++  Data::Stag::XMLWriter - writes stag events into XML files
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/XSLHandler.pm
++++ b/Data/Stag/XSLHandler.pm
+@@ -9,7 +9,7 @@
+ 
+ =head1 NAME
+ 
+-  Data::Stag::XSLHandler     - 
++  Data::Stag::XSLHandler - XSL Handler
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/XSLTHandler.pm
++++ b/Data/Stag/XSLTHandler.pm
+@@ -9,7 +9,7 @@
+ 
+ =head1 NAME
+ 
+-  Data::Stag::XSLTHandler     - 
++  Data::Stag::XSLTHandler - XSLT Handler
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/Arr2HTML.pm
++++ b/Data/Stag/Arr2HTML.pm
+@@ -2,7 +2,7 @@ package Data::Stag::Arr2HTML;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::Arr2HTML
++  Data::Stag::Arr2HTML - Array to HTML handler
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/null.pm
++++ b/Data/Stag/null.pm
+@@ -2,7 +2,7 @@ package Data::Stag::null;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::Arr2HTML
++  Data::Stag::Arr2HTML - null
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/ChainHandler.pm
++++ b/Data/Stag/ChainHandler.pm
+@@ -2,7 +2,7 @@ package Data::Stag::ChainHandler;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::ChainHandler
++  Data::Stag::ChainHandler - Chain Handler
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/IndentWriter.pm
++++ b/Data/Stag/IndentWriter.pm
+@@ -2,7 +2,7 @@ package Data::Stag::IndentWriter;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::IndentWriter
++  Data::Stag::IndentWriter - writes stag events into stag indent format
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/HashDB.pm
++++ b/Data/Stag/HashDB.pm
+@@ -2,7 +2,7 @@ package Data::Stag::HashDB;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::HashDB
++  Data::Stag::HashDB - build indexes over Stag files or objects
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/SAX2Stag.pm
++++ b/Data/Stag/SAX2Stag.pm
+@@ -2,7 +2,7 @@ package Data::Stag::SAX2Stag;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::SAX2Stag
++  Data::Stag::SAX2Stag - converts SAX events into Stag events
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/StagImpl.pm
++++ b/Data/Stag/StagImpl.pm
+@@ -8,7 +8,7 @@ package Data::Stag::StagImpl;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::StagImpl
++  Data::Stag::StagImpl - default implementation for Data::Stag
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/SxprWriter.pm
++++ b/Data/Stag/SxprWriter.pm
+@@ -2,7 +2,7 @@ package Data::Stag::SxprWriter;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::SxprWriter
++  Data::Stag::SxprWriter - writes Stag S-expression format
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/Writer.pm
++++ b/Data/Stag/Writer.pm
+@@ -2,7 +2,7 @@ package Data::Stag::Writer;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::Writer
++  Data::Stag::Writer - base class for all Writers
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/ITextWriter.pm
++++ b/Data/Stag/ITextWriter.pm
+@@ -2,7 +2,7 @@ package Data::Stag::ITextWriter;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::ITextWriter
++  Data::Stag::ITextWriter - writes stag events into stag IText format
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Data/Stag/Simple.pm
++++ b/Data/Stag/Simple.pm
+@@ -2,7 +2,7 @@ package Data::Stag::Simple;
+ 
+ =head1 NAME
+ 
+-  Data::Stag::Simple
++  Data::Stag::Simple - Simple
+ 
+ =head1 SYNOPSIS
+ 
+--- a/scripts/stag-merge.pl
++++ b/scripts/stag-merge.pl
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME 
+ 
+-stag-merge.pl
++stag-merge.pl - script wrapper for the Data::Stag modules
+ 
+ =head1 SYNOPSIS
+ 

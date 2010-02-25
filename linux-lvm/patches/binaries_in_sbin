@@ -1,0 +1,39 @@
+Author: David Bremner <bremner@unb.ca>
+Created: 28 Aug 2008, for Debian version 0.14-1
+Description: Check for lvm utilities in /sbin, matching current lvm2 packages
+Forwarded Upstream: http://rt.cpan.org/Ticket/Display.html?id=38889
+--- liblinux-lvm-perl.orig/LVM.pm
++++ liblinux-lvm-perl/LVM.pm
+@@ -151,8 +151,8 @@
+     my $lvn;
+     my $pvn;
+ 
+-    if( ! -e "/usr/sbin/vgdisplay" ) { die("LVM utilities not installed in /sbin"); }
+-    my @vginfo = `/usr/sbin/vgdisplay -v`;
++    if( ! -e "/sbin/vgdisplay" ) { die("LVM utilities not installed in /sbin"); }
++    my @vginfo = `/sbin/vgdisplay -v`;
+ 
+     VGINF: foreach(@vginfo) {
+         chomp;
+@@ -361,8 +361,8 @@
+     my %pvhash;
+ 
+     if( ! -e "$pvname" ) { die("Physical Disk: $pvname does not exist."); }
+-    if( ! -e "/usr/sbin/pvdisplay" ) { die("LVM utilities not installed in /sbin"); }
+-    my @pvinfo = `/usr/sbin/pvdisplay $pvname`;
++    if( ! -e "/sbin/pvdisplay" ) { die("LVM utilities not installed in /sbin"); }
++    my @pvinfo = `/sbin/pvdisplay $pvname`;
+ 
+     PVINF: foreach(@pvinfo) {
+         # Get the name of the physical volume.
+@@ -445,8 +445,8 @@
+     my $lvname = $_[0];
+     my %lvhash;
+     if( ! -e "$lvname" ) { die("Logical Disk: $lvname does not exist."); }
+-    if( ! -e "/usr/sbin/lvdisplay" ) { die("LVM utilities not installed in /sbin"); }
+-    my @lvinfo = `/usr/sbin/lvdisplay $lvname`;
++    if( ! -e "/sbin/lvdisplay" ) { die("LVM utilities not installed in /sbin"); }
++    my @lvinfo = `/sbin/lvdisplay $lvname`;
+ 
+     LVINF: foreach(@lvinfo) {
+ 

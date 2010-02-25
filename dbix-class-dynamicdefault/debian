@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdbicx-testdatabase-perl, libdbix-class-perl (>= 0.08009), libparent-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libdbix-class-perl (>= 0.08009), libparent-perl
+X: 0

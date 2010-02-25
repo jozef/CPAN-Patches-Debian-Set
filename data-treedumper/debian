@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libcheck-isa-perl, libdevel-size-perl (>= 0.58), libsort-naturally-perl, libterm-size-perl (>= 0.2), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcheck-isa-perl, libdevel-size-perl (>= 0.58), libsort-naturally-perl, libterm-size-perl (>= 0.2)
+X: 0

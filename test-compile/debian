@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libuniversal-require-perl, liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libuniversal-require-perl
+X: 0

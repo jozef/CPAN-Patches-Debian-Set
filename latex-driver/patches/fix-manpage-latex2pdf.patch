@@ -1,0 +1,53 @@
+Description: Remove the TO BE EXPANDED sentence from manpage and empty 
+ section SEE ALSO. Add the OPTIONS section.
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Status of the patch: First integrated in liblatex-driver-perl 0.08-1
+--- a/scripts/latex2pdf
++++ b/scripts/latex2pdf
+@@ -46,8 +46,35 @@
+ C<latex2pdf> is a simple script to invoke the C<LaTeX::Driver> module
+ to convert a LaTeX file to PDF.
+ 
+-TO BE EXPANDED
++=head1 OPTIONS
+ 
++=over 4
++
++=item C<-output=FILE>
++
++specifies that the formatted file should be written to C<FILE>.  If
++this option is not specified, or is specified as "C<->" then the file
++will be written to standard output, otherwise if an input file is
++specified then the it will be formatted in place and the output file
++will have the same name as the input file, but with the original
++extension replaced with C<.dvi>.
++
++
++=item C<-tt2>
++
++specifies that the source document should be taken to be a Template
++Toolkit template and processed through that before being fed to the
++C<LaTeX::Driver> module for latex formatting.
++
++
++=item C<-define=I<NAME>=I<VALUE>>
++
++defines the template variable I<NAME> to have the value I<VALUE>.
++Multiple template variables may be defined and these are passed to the
++Template Toolkit processing stage (they are ignored if the C<-tt2>
++option is not specified).
++
++=back
+ 
+ =head1 AUTHOR
+ 
+@@ -61,9 +88,6 @@
+ This module is free software; you can redistribute it and/or
+ modify it under the same terms as Perl itself.
+ 
+-=head1 SEE ALSO
+-
+-
+ =cut
+ 
+ # Local Variables:

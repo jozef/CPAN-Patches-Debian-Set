@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libmoose-perl (>= 0.79), libmoosex-declare-perl, libmoosex-types-perl, libmoosex-types-set-object-perl, libmoosex-types-structured-perl, libpoe-api-peek-perl (>= 1.3400), libpoe-perl (>= 1.005), libpoex-role-sessioninstantiation-perl, libsignatures-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.79), libmoosex-declare-perl, libmoosex-types-perl, libmoosex-types-set-object-perl, libmoosex-types-structured-perl, libpoe-api-peek-perl (>= 1.3400), libpoe-perl (>= 1.005), libpoex-role-sessioninstantiation-perl, libsignatures-perl
+X: 0

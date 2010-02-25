@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libapp-options-perl, libclass-field-perl, libipc-run-perl, libjson-xs-perl (>= 2.1), libreadonly-perl, libtest-mock-lwp-perl (>= 0.05), liburi-perl (>= 1.31), libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libapp-options-perl, libclass-field-perl, libipc-run-perl, libjson-xs-perl (>= 2.1), libreadonly-perl, libtest-mock-lwp-perl (>= 0.05), liburi-perl (>= 1.31), libwww-perl
+X: 0

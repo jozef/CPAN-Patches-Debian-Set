@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0)
+Build-Depends-Indep: libdigest-hmac-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

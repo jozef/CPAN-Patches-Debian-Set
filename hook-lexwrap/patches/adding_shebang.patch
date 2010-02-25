@@ -1,0 +1,17 @@
+Author: Rene Mayorga <rmayorga@debian.org.sv>
+Description: add shebang to example scripts
+
+--- libhook-lexwrap-perl.orig/demo/demo_memo.pl
++++ libhook-lexwrap-perl/demo/demo_memo.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use Hook::LexWrap;
+ 
+ sub fibonacci {
+--- libhook-lexwrap-perl.orig/demo/demo_temp.pl
++++ libhook-lexwrap-perl/demo/demo_temp.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use Hook::LexWrap;
+ 
+ my $temp;

@@ -1,0 +1,36 @@
+Author: Jonathan Yu <frequency@cpan.org>
+Origin: vendor
+Bug-CPAN: https://rt.cpan.org/Ticket/Display.html?id=47957
+Forwarded: yes
+Description: Fix errors with pod2man
+--- a/lib/XML/Filter/Distributor.pm
++++ b/lib/XML/Filter/Distributor.pm
+@@ -250,6 +250,7 @@
+ }
+ TPL_END
+ 
++=back
+ 
+ =head1 LIMITATIONS
+ 
+--- a/lib/XML/Filter/DocSplitter.pm
++++ b/lib/XML/Filter/DocSplitter.pm
+@@ -280,6 +280,7 @@
+ }
+ TPL_END
+ 
++=back
+ 
+ =head1 LIMITATIONS
+ 
+--- a/lib/XML/Filter/Merger.pm
++++ b/lib/XML/Filter/Merger.pm
+@@ -416,6 +416,8 @@
+ }
+ TEMPLATE_END
+ 
++=back
++
+ =head1 Additional Methods
+ 
+ These are provided to make it easy for subclasses to find out roughly

@@ -1,0 +1,42 @@
+Debian puts perl at /usr/bin/perl
+
+--- a/Gnu/XS.pm
++++ b/Gnu/XS.pm
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #	XS.pm : perl function definition for Term::ReadLine::Gnu
+ #
+--- a/eg/fileman
++++ b/eg/fileman
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # $Id: fileman,v 1.1 1998-02-28 19:01:24+09 hayashi Exp $
+ #
+--- a/eg/perlsh
++++ b/eg/perlsh
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #	$Id: perlsh,v 1.24 2001-10-27 22:59:15-05 hayashi Exp $	
+ #
+--- a/eg/pftp
++++ b/eg/pftp
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #	$Id: pftp,v 1.9 1999-03-20 02:46:02+09 hayashi Exp $
+ #
+--- a/eg/ptksh+
++++ b/eg/ptksh+
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ #
+ # $Id: ptksh+,v 1.5 1997/04/01 17:15:34 ach Exp ach $
+ #

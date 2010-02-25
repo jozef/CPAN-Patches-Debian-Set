@@ -1,0 +1,62 @@
+Author: Thijs Kinkhorst <thijs@debian.org>
+Description: Disable tests that require network access.
+
+--- libcgi-ssi-perl-0.88.orig/test.pl
++++ libcgi-ssi-perl-0.88/test.pl
+@@ -101,10 +101,12 @@
+ # include file - with many types of input
+ # include virtual - with different types of input
+ 
+-{
+-    my $ssi = CGI::SSI->new();
+-    my $html = $ssi->process(q[<!--#include virtual="http://www.yahoo.com" -->]);
+-    ok($html =~ /yahoo/i && $html =~ /mail/i,'include virtual 1');
++SKIP: {
++# Thijs Kinkhorst: disable tests that require network access
++#    my $ssi = CGI::SSI->new();
++#    my $html = $ssi->process(q[<!--#include virtual="http://www.yahoo.com" -->]);
++#    ok($html =~ /yahoo/i && $html =~ /mail/i,'include virtual 1');
++    skip("skipping include virtual 1, remote test",1);
+ }
+ 
+     # tough to do these well, without more info...
+@@ -119,10 +121,12 @@
+ 
+ # exec cgi - with different input
+ 
+-{
+-    my $ssi = CGI::SSI->new();
+-    my $html = $ssi->process(q[<!--#exec cgi="http://www.yahoo.com/" -->]);
+-    ok($html =~ /yahoo/i,'exec cgi');
++SKIP: {
++# Thijs Kinkhorst: disable tests that require network access
++#    my $ssi = CGI::SSI->new();
++#    my $html = $ssi->process(q[<!--#exec cgi="http://www.yahoo.com/" -->]);
++#    ok($html =~ /yahoo/i,'exec cgi');
++    skip("skipping exec cgi, remote test",1);
+ }
+ 
+ # exec cmd - with different input
+@@ -267,13 +271,15 @@
+ 
+ # test cookie support
+ SKIP: {
+-	eval "use HTTP::Cookies; 1" or skip("HTTP::Cookies not installed", 1);
+-	my $jar = HTTP::Cookies->new({});
+-	$jar->set_cookie(1,'mycookie','COOKIEVAL','/','www.bitperfect.com',80,0,0,100);
+-
+-	my $ssi = CGI::SSI->new(COOKIE_JAR => $jar);
+-	my $html = $ssi->process(qq[<!--#include virtual="http://www.bitperfect.com/cgi-bin/cgi-ssi/cookietest.cgi"-->]);
+-	ok($html =~ m'COOKIEVAL', "cookie support");
++# Thijs Kinkhorst: disable tests that require network access
++#	eval "use HTTP::Cookies; 1" or skip("HTTP::Cookies not installed", 1);
++#	my $jar = HTTP::Cookies->new({});
++#	$jar->set_cookie(1,'mycookie','COOKIEVAL','/','www.bitperfect.com',80,0,0,100);
++#
++#	my $ssi = CGI::SSI->new(COOKIE_JAR => $jar);
++#	my $html = $ssi->process(qq[<!--#include virtual="http://www.bitperfect.com/cgi-bin/cgi-ssi/cookietest.cgi"-->]);
++#	ok($html =~ m'COOKIEVAL', "cookie support");
++	skip("skipping cookie test, remote test", 1);
+ }
+ 
+ SKIP: {

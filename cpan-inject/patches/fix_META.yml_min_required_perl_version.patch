@@ -1,0 +1,16 @@
+Description: libcpan-inject-perl FTBFS with Perl::MinimumVersion 
+ >= 1.22. libcpan-inject-perl uses functions which requires 
+ Perl >= 5.6 in tests. Bump required version of Perl in META.yml.
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=52697
+Bug-Debian: http://bugs.debian.org/560647
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+--- a/META.yml
++++ b/META.yml
+@@ -27,5 +27,5 @@
+   File::chmod: 0.30
+   File::stat: 1.00
+   Params::Util: 0.21
+-  perl: 5.005
++  perl: 5.006
+ version: 0.11

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), quilt
+Build-Depends-Indep: libspoon-perl (>= 0.22), perl (>= 5.6.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libspoon-perl (>= 0.22)
+X: 0

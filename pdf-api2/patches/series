@@ -1,0 +1,4 @@
+createmanpages.diff
+fix_manpage_NAMEs.patch
+fix_unmatched_back.patch
+fix_typo_in_manpage.patch

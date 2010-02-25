@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libpoe-api-peek-perl (>= 1.3000), libpoe-perl (>= 2:1.2860), libtest-distribution-perl, libtest-pod-coverage-perl, libtest-pod-perl, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libpoe-api-peek-perl (>= 1.300), libpoe-perl (>= 2:1.2860)
+X: 0

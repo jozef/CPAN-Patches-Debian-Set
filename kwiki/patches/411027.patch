@@ -1,0 +1,10 @@
+--- a/lib/Kwiki/Command.pm
++++ b/lib/Kwiki/Command.pm
+@@ -19,6 +19,7 @@ sub handle_new {
+     $self->install('widgets');
+     io('plugin')->mkdir;
+     $self->set_permissions;
++    $self->handle_update_all;
+     warn "\nKwiki software installed! Point your browser at this location.\n\n";
+ }
+ 

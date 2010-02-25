@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libdevel-declare-perl (>= 0.005011), libmoose-perl (>= 0.90), libmoosex-method-signatures-perl (>= 0.30), libmoosex-role-parameterized-perl (>= 0.12), libmoosex-types-perl, libnamespace-autoclean-perl (>= 0.09), libnamespace-clean-perl (>= 0.11), libtest-compile-perl, libtest-exception-perl, libtest-nowarnings-perl, libtest-simple-perl (>= 0.88), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-declare-perl (>= 0.005011), liblist-moreutils-perl, libmoose-perl (>= 0.90), libmoosex-method-signatures-perl (>= 0.30), libmoosex-role-parameterized-perl (>= 0.12), libmoosex-types-perl, libnamespace-autoclean-perl (>= 0.09), libnamespace-clean-perl (>= 0.11)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl, libdatetime-format-mail-perl, libdatetime-format-w3cdtf-perl, libtest-differences-perl, libtest-exception-perl, libtest-warn-perl, libuniversal-require-perl, libxml-libxml-perl (>= 1.66), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libdatetime-format-mail-perl, libdatetime-format-w3cdtf-perl, libuniversal-require-perl, libxml-libxml-perl (>= 1.66)
+X: 0

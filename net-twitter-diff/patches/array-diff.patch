@@ -1,0 +1,17 @@
+Author: Jonathan Yu <frequency@cpan.org>
+Debian-Specific: no
+Description: Sort the array references before taking a diff of them,
+ to ensure that transposed order (due to out-of-order replies from
+ Twitter) don't matter.
+Fixes: https://rt.cpan.org/Public/Bug/Display.html?id=43699
+--- a/lib/Net/Twitter/Diff.pm
++++ b/lib/Net/Twitter/Diff.pm
+@@ -78,7 +78,7 @@
+         push @{ $followers } , $item->{screen_name};
+     }
+ 
+-    my $diff = Array::Diff->diff( $followers , $followings );
++    my $diff = Array::Diff->diff([ sort @{$followers} ], [ sort @{$followings} ]);
+ 
+     $res->{not_following} = $diff->deleted; 
+     $res->{not_followed}  = $diff->added; 

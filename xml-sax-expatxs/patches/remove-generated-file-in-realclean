@@ -1,0 +1,14 @@
+# make sure the created lib/XML/SAX/ExpatXS/Preload.pm is removed in realclean
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -96,7 +96,8 @@
+ 		    'XML::SAX' => 0.13,
+ 		   },
+     LIBS => $libs,
+-    @extras
++    @extras,
++    clean => { FILES => 'lib/XML/SAX/ExpatXS/Preload.pm' },
+ );
+ 
+ 

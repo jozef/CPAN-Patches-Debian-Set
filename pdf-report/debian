@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt (>= 0.40)
+Build-Depends-Indep: libpdf-api2-perl (>= 0.40.00), libtest-pod-perl, perl (>= 5.8.0)
+Depends: ${misc:Depends}, libpdf-api2-perl (>= 0.40.00), libtext-roman-perl (>= 3.02), perl (>= 5.8.0)
+X: 0

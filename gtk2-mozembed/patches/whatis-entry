@@ -1,0 +1,13 @@
+add a useful whatis entry to the generated man page
+
+--- a/xs/GtkMozEmbed.xs
++++ b/xs/GtkMozEmbed.xs
+@@ -567,7 +567,7 @@
+ 
+ # --------------------------------------------------------------------------- #
+ 
+-=for object Gtk2::MozEmbed::main
++=for object Gtk2::MozEmbed::main - Perl interface to the Mozilla embedding widget
+ 
+ =head1 SIGNALS
+ 

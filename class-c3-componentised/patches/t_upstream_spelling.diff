@@ -1,0 +1,27 @@
+From: Franck Joncourt <franck@debian.org>
+Origin: vendor
+Forwarded: no
+Subject: Fixed Spelling error
+ Fixed a spelling error in Componentised.pm found by lintian.
+
+Signed-off-by: Franck Joncourt <franck.mail@dthconnex.com>
+
+---
+ lib/Class/C3/Componentised.pm |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/lib/Class/C3/Componentised.pm b/lib/Class/C3/Componentised.pm
+index ea2bb81..fd5d219 100755
+--- a/lib/Class/C3/Componentised.pm
++++ b/lib/Class/C3/Componentised.pm
+@@ -210,7 +210,7 @@ sub load_optional_class {
+ 
+ Matt S. Trout and the DBIx::Class team
+ 
+-Pulled out into seperate module by Ash Berlin C<< <ash@cpan.org> >>
++Pulled out into separate module by Ash Berlin C<< <ash@cpan.org> >>
+ 
+ =head1 LICENSE
+ 
+-- 
+tg: (a731597..) t/upstream/spelling (depends on: master)

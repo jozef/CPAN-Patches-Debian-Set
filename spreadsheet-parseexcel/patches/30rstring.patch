@@ -1,0 +1,53 @@
+Author: Niko Tyni <ntyni@iki.fi>
+Description: Handle BIFF8 UTF16 strings in the 'RSTRING' opcode too, just
+like 'STRING'. (#299870)
+--- a/lib/Spreadsheet/ParseExcel.pm
++++ b/lib/Spreadsheet/ParseExcel.pm
+@@ -580,10 +580,23 @@
+     my ( $oBook, $bOp, $bLen, $sWk ) = @_;
+     my ( $iR, $iC, $iF, $iL, $sTxt );
+     ( $iR, $iC, $iF, $iL ) = unpack( "v4", $sWk );
+-    $sTxt = substr( $sWk, 8, $iL );
++    my $bver = $oBook->{BIFFVersion};
++    my ( $rich, $sCode );
++    if ( $bver == verBIFF8 ) {
++        my ( $raBuff, @rest ) =
++          _convBIFF8String( $oBook, substr( $sWk, 6 ), 1 );
++        $sTxt  = $raBuff->[0];
++        $sCode = ( $raBuff->[1] ) ? 'ucs2' : undef;
++        $rich  = $raBuff->[2];
++    }
++    else {
++        $sTxt  = substr( $sWk, 8, $iL );
++        $sCode = '_native_';
++        $rich  = substr( $sWk, ( 8 + $iL ) + 1 )
++          if ( length($sWk) > ( 8 + $iL ) );
++    }
+ 
+-    #Has STRUN
+-    if ( length($sWk) > ( 8 + $iL ) ) {
++    if ($rich) {
+         _NewCell(
+             $oBook, $iR, $iC,
+             Kind     => 'RString',
+@@ -591,9 +604,9 @@
+             FormatNo => $iF,
+             Format   => $oBook->{Format}[$iF],
+             Numeric  => 0,
+-            Code     => '_native_',                        #undef,
++            Code     => $sCode,
+             Book     => $oBook,
+-            Rich     => substr( $sWk, ( 8 + $iL ) + 1 ),
++            Rich     => $rich,
+         );
+     }
+     else {
+@@ -604,7 +617,7 @@
+             FormatNo => $iF,
+             Format   => $oBook->{Format}[$iF],
+             Numeric  => 0,
+-            Code     => '_native_',
++            Code     => $sCode,
+             Book     => $oBook,
+         );
+     }

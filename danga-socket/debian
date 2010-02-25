@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libsys-syscall-perl, netbase, perl (>= 5.8)
+Depends: ${misc:Depends}, ${perl:Depends}, libsys-syscall-perl
+X: 0

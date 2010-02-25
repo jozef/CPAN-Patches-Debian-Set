@@ -1,0 +1,19 @@
+Description: Fix POD errors
+ Remove S<> stuff completely, as parsing this confuses some
+ parsers.
+Origin: vendor
+Forwarded: no
+Author: Jonathan Yu <frequency@cpan.org>
+--- a/Random.pm
++++ b/Random.pm
+@@ -616,8 +616,8 @@
+ =item C<random_permuted_index($n)>
+ 
+ Returns  an array  of  array indices, randomly  permuted.  The indices
+-used are S<(0, ... ,>(I<$n>S< -  >1)).  This produces the indices used
+-by C<random_permutation> for a given seed, without passing arrays.
++used are (0, ... , $n-1).  This produces the indices used by
++C<random_permutation> for a given seed, without passing arrays.
+ 
+ B<Note:> the following are equivalent:
+ 

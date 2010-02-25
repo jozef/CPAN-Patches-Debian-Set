@@ -1,0 +1,15 @@
+Description: missing short description in pod name
+Author: yvesago-guest <agostini@univ-metz.fr>
+Origin: commit:7633
+Last-Update: 2009-11-26
+--- a/lib/Jifty/Plugin/AdminUI/View.pm
++++ b/lib/Jifty/Plugin/AdminUI/View.pm
+@@ -15,7 +15,7 @@
+ 
+ =head1 NAME
+ 
+-Jifty::Plugin::AdminUI::View
++Jifty::Plugin::AdminUI::View - CRUD views for AdminUI
+ 
+ =head1 DESCRIPTION
+ 

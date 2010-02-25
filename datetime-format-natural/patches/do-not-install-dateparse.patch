@@ -1,0 +1,30 @@
+Description: do not install dateparse into /usr/bin
+Origin: vendor
+Author: Ansgar Burchardt <ansgar@43-1.org>
+Last-Updated: 2009-08-07
+--- a/Build.PL
++++ b/Build.PL
+@@ -30,7 +30,7 @@
+                    'Test::Pod' => '1.14',
+                    'Test::Pod::Coverage' => '1.04',
+                  },
+-   script_files => [ 'scripts/dateparse' ],
++#   script_files => [ 'scripts/dateparse' ],
+    license => 'perl',
+    create_readme => 1,
+    create_makefile_pl => 'traditional',
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -5,9 +5,9 @@
+           'PL_FILES' => {},
+           'INSTALLDIRS' => 'site',
+           'NAME' => 'DateTime::Format::Natural',
+-          'EXE_FILES' => [
+-                           'scripts/dateparse'
+-                         ],
++#          'EXE_FILES' => [
++#                           'scripts/dateparse'
++#                         ],
+           'VERSION_FROM' => 'lib/DateTime/Format/Natural.pm',
+           'PREREQ_PM' => {
+                            'Scalar::Util' => 0,

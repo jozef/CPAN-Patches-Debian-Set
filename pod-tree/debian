@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libhtml-stream-perl, libio-string-perl, libtext-template-perl, perl (>= 5.6.10-12), perl-modules
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-stream-perl, libio-string-perl, libtext-template-perl, perl-modules
+X: 0

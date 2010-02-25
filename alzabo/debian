@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), libmodule-build-perl
+Build-Depends-Indep: libclass-factory-util-perl, libdbd-mysql-perl, libdbd-pg-perl, libdbi-perl, libexception-class-perl, libfile-find-rule-perl, libparams-validate-perl, libtest-pod-perl, libtie-ixhash-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-factory-util-perl, libdbd-mysql-perl, libdbd-pg-perl, libdbi-perl, libexception-class-perl, libparams-validate-perl, libtie-ixhash-perl
+X: 0

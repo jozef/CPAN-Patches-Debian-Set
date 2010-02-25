@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libdevel-partialdump-perl (>= 0.10), libmoose-perl (>= 0.63), libmoosex-types-datetime-perl, libmoosex-types-perl, libsub-exporter-perl (>= 0.981), libtest-exception-perl (>= 0.27), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-partialdump-perl (>= 0.10), libmoose-perl (>= 0.63), libmoosex-types-perl, libsub-exporter-perl (>= 0.981)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libtest-pod-coverage-perl, libtest-pod-perl, libthreads-shared-perl (>= 1.21), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libthreads-shared-perl (>= 1.21)
+X: 0

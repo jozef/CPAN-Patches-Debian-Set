@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libexpect-perl, libnet-ipv6addr-perl, libterm-readpassword-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libexpect-perl, libnet-ipv6addr-perl, libterm-readpassword-perl
+X: 0

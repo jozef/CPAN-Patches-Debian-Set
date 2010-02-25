@@ -1,0 +1,16 @@
+Author: Alex Muntada <alexm@alexm.org>
+Description: Fixes dubious test when network is unavailable
+    Already merged upstream in
+    http://gitorious.org/projects/flickrupload/repos/mainline/commits/687838e8b1f5a8d1d533ae10a04b7aa72be4b539
+
+--- a/Upload.pm
++++ b/Upload.pm
+@@ -270,6 +270,8 @@
+ 
+ 	my $res = $self->request( $req );
+ 
++	return () unless defined $res;
++
+ 	my $tree = XML::Parser::Lite::Tree::instance()->parse($res->decoded_content());
+ 	return () unless defined $tree;
+ 

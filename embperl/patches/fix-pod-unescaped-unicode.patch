@@ -1,0 +1,18 @@
+Description: remove strange Unicode files from Validate.pm
+ this corrects a Lintian warning because there is unescaped
+ Unicode content in the POD.
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/Embperl/Form/Validate.pm
++++ b/Embperl/Form/Validate.pm
+@@ -804,9 +804,6 @@
+          
+ 	-msg => 'The E-Mail address must contain at least one period.',
+ 	must_contain_one_of => '.',
+-        
+-	-msg => 'The E-Mail-Address is invalid. It must only not contain any special charaters.',
+-	must_not_contain => '¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõö÷øùúûüışÿ',
+        ],
+ 
+ 

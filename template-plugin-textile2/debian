@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), libmodule-build-perl
+Build-Depends-Indep: libtemplate-perl (>= 2.15), libtext-textile-perl (>= 2.03), perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libtemplate-perl (>= 2.15), libtext-textile-perl (>= 2.03)
+X: 0

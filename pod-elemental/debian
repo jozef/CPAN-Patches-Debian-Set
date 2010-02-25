@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libmixin-linewise-perl, libmoose-autobox-perl, libmoose-perl, libmoosex-types-perl, libnamespace-autoclean-perl, libpod-eventual-perl, libstring-rewriteprefix-perl, libstring-truncate-perl, libsub-exporter-formethods-perl, libtest-deep-perl, libtest-differences-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmixin-linewise-perl, libmoose-autobox-perl, libmoose-perl, libmoosex-types-perl, libnamespace-autoclean-perl, libpod-eventual-perl, libstring-rewriteprefix-perl, libstring-truncate-perl, libsub-exporter-formethods-perl, libtest-deep-perl, libtest-differences-perl
+X: 0

@@ -1,0 +1,15 @@
+Description: Correct POD errors
+Origin: vendor
+Forwarded: no
+Author: Jonathan Yu <frequency@cpan.org>
+--- a/JobQueue.pm
++++ b/JobQueue.pm
+@@ -495,6 +495,8 @@
+ 
+ The C<Passive> block takes up to one parameter.
+ 
++=back
++
+ =over 2
+ 
+ =item Prioritizer => \&prioritizer_function

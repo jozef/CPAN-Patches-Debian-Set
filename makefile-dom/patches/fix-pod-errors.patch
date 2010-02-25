@@ -1,0 +1,24 @@
+This patch fixes POD syntax error in Makefile::DOM.
+
+Status: to be sent upstream.
+
+--- a/lib/Makefile/DOM.pm
++++ b/lib/Makefile/DOM.pm
+@@ -160,6 +160,8 @@
+ 
+ It can be observed that the MDOM representation for the makefile's lexical elements is rather loose. It only provides very limited structural representation instead of making a bad guess.
+ 
++=back
++
+ =head1 OPERATIONS FOR MDOM TREES
+ 
+ Generating an MDOM tree from a GNU makefile only requires two lines of Perl code:
+@@ -188,8 +190,6 @@
+ 
+ The current implemenation of the L<MDOM::Document::Gmake> lexer is based on a hand-written state machie. Although the efficiency of the engine is not bad, the code is rather complicated and messy, which hurts both extensibility and maintanabilty. So it's expected to rewrite the parser using some grammatical tools like the Perl 6 regex engine L<Pugs::Compiler::Rule> or a yacc-style one like L<Parse::Yapp>.
+ 
+-=back
+-
+ =head1 AUTHOR
+ 
+ Agent Zhang E<lt>agentzh@gmail.comE<gt>

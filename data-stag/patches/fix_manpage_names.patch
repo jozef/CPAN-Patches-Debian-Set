@@ -1,0 +1,437 @@
+Author: David Paleino <d.paleino@gmail.com>
+Forwarded: no
+ This patch is Debian-specific and only removes the .pl extension of the names.
+ However, the upstream author has been informed that this patch is applied.
+Description: removes .pl extensions to match the modified program names in /usr/bin
+License: same as Data::Stag
+--- a/scripts/stag-autoschema.pl
++++ b/scripts/stag-autoschema.pl
+@@ -92,13 +92,13 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-autoschema.pl - writes the implicit stag-schema for a stag file
++stag-autoschema - writes the implicit stag-schema for a stag file
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-autoschema.pl -w sxpr sample-data.xml
++  stag-autoschema -w sxpr sample-data.xml
+ 
+-  stag-autoschema.pl -dtd sample-data.xml
++  stag-autoschema -dtd sample-data.xml
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-db.pl
++++ b/scripts/stag-db.pl
+@@ -118,12 +118,12 @@ if (@query) {
+ 
+ =head1 NAME 
+ 
+-stag-db.pl - persistent storage and retrieval for stag data (xml, sxpr, itext)
++stag-db - persistent storage and retrieval for stag data (xml, sxpr, itext)
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-db.pl -r person -k social_security_no -i ./person-idx myrecords.xml
+-  stag-db.pl -i ./person-idx -q 999-9999-9999 -q 888-8888-8888
++  stag-db -r person -k social_security_no -i ./person-idx myrecords.xml
++  stag-db -i ./person-idx -q 999-9999-9999 -q 888-8888-8888
+ 
+ =head1 DESCRIPTION
+ 
+@@ -138,25 +138,25 @@ B<social_security_no>, which is a direct
+ The first thing to do is to build an index file, which will be stored
+ in your current directory:
+ 
+-  stag-db.pl -r person -k social_security_no -i ./person-idx myrecords.xml
++  stag-db -r person -k social_security_no -i ./person-idx myrecords.xml
+ 
+ You can then use the index "person-idx" to retrieve B<person> nodes by
+ their social security number
+ 
+-  stag-db.pl -i ./person-idx -q 999-9999-9999 > some-person.xml
++  stag-db -i ./person-idx -q 999-9999-9999 > some-person.xml
+ 
+ You can export using different stag formats
+ 
+-  stag-db.pl -i ./person-idx -q 999-9999-9999 -w sxpr > some-person.xml
++  stag-db -i ./person-idx -q 999-9999-9999 -w sxpr > some-person.xml
+ 
+ You can retrieve multiple nodes (although these need to be rooted to
+ make a valid file)
+ 
+-  stag-db.pl -i ./person-idx -q 999-9999-9999 -q 888-8888-8888 -top personset
++  stag-db -i ./person-idx -q 999-9999-9999 -q 888-8888-8888 -top personset
+ 
+ Or you can use a list of IDs from a file (newline delimited)
+ 
+-  stag-db.pl -i ./person-idx -qf my_ss_nmbrs.txt -top personset
++  stag-db -i ./person-idx -qf my_ss_nmbrs.txt -top personset
+ 
+ =head2 ARGUMENTS
+ 
+@@ -246,7 +246,7 @@ L<Data::Stag>
+ For more complex stag to database mapping, see L<DBIx::DBStag> and the
+ scripts
+ 
+-L<stag-storenode.pl>
++L<stag-storenode>
+ 
+ L<selectall_xml>
+ 
+--- a/scripts/stag-diff.pl
++++ b/scripts/stag-diff.pl
+@@ -175,11 +175,11 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-diff.pl - finds the difference between two stag files
++stag-diff - finds the difference between two stag files
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-diff.pl -ignore foo-id -ignore bar-id file1.xml file2.xml
++  stag-diff -ignore foo-id -ignore bar-id file1.xml file2.xml
+ 
+ =head1 DESCRIPTION
+ 
+@@ -251,7 +251,7 @@ exactly how trees do not match. To inves
+ use the B<-r> and B<-v> options. For the above output, I would
+ recommend using
+ 
+-  stag-diff.pl -r feature_span -v
++  stag-diff -r feature_span -v
+ 
+ =head2 ALGORITHM
+ 
+--- a/scripts/stag-drawtree.pl
++++ b/scripts/stag-drawtree.pl
+@@ -138,13 +138,13 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-drawtree.pl - draws a stag file (xml, itext, sxpr) as a PNG diagram
++stag-drawtree - draws a stag file (xml, itext, sxpr) as a PNG diagram
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-drawtree.pl -o my.png myfile.xml
++  stag-drawtree -o my.png myfile.xml
+ 
+-  stag-drawtree.pl -p My::MyFormatParser -o my.png myfile.myfmt
++  stag-drawtree -p My::MyFormatParser -o my.png myfile.myfmt
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-elcount.pl
++++ b/scripts/stag-elcount.pl
+@@ -48,11 +48,11 @@ __END__
+ 
+ =head1 NAME
+ 
+-  stag-elcount.pl
++  stag-elcount
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-elcount.pl person/name myfile.xml
++  stag-elcount person/name myfile.xml
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-eval.pl
++++ b/scripts/stag-eval.pl
+@@ -3,11 +3,11 @@
+ 
+ =head1 NAME 
+ 
+-stag-eval.pl
++stag-eval
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-eval.pl '' file2.xml
++  stag-eval '' file2.xml
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-filter.pl
++++ b/scripts/stag-filter.pl
+@@ -144,23 +144,23 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-filter.pl - filters a stag file (xml, itext, sxpr) for nodes of interest
++stag-filter - filters a stag file (xml, itext, sxpr) for nodes of interest
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-filter.pl person -q name=fred file1.xml
++  stag-filter person -q name=fred file1.xml
+ 
+-  stag-filter.pl person 'sub {shift->get_name =~ /^A*/}' file1.xml
++  stag-filter person 'sub {shift->get_name =~ /^A*/}' file1.xml
+ 
+-  stag-filter.pl -p My::Foo -w sxpr record 'sub{..}' file2
++  stag-filter -p My::Foo -w sxpr record 'sub{..}' file2
+ 
+ =head1 USAGE
+ 
+-  stag-filter.pl [-p|parser PARSER] [-w|writer WRITER] NODE -q tag=val FILE
++  stag-filter [-p|parser PARSER] [-w|writer WRITER] NODE -q tag=val FILE
+ 
+-  stag-filter.pl [-p|parser PARSER] [-w|writer WRITER] NODE SUB FILE
++  stag-filter [-p|parser PARSER] [-w|writer WRITER] NODE SUB FILE
+ 
+-  stag-filter.pl [-p|parser PARSER] [-w|writer WRITER]  NODE -f PERLFILE FILE
++  stag-filter [-p|parser PARSER] [-w|writer WRITER]  NODE -f PERLFILE FILE
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-findsubtree.pl
++++ b/scripts/stag-findsubtree.pl
+@@ -60,11 +60,11 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-findsubtree.pl - finds nodes in a stag file
++stag-findsubtree - finds nodes in a stag file
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-findsubtree.pl 'person/name' file.xml
++  stag-findsubtree 'person/name' file.xml
+ 
+ =head1 DESCRIPTION
+ 
+@@ -72,7 +72,7 @@ parses in an input file and writes out s
+ 
+ =head1 USAGE
+ 
+-  stag-findsubtree.pl [-p PARSER] [-w WRITER] NODE FILE
++  stag-findsubtree [-p PARSER] [-w WRITER] NODE FILE
+ 
+ =head1 ARGUMENTS
+ 
+--- a/scripts/stag-flatten.pl
++++ b/scripts/stag-flatten.pl
+@@ -122,11 +122,11 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-flatten.pl - turns stag data into a flat table
++stag-flatten - turns stag data into a flat table
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-flatten.pl -c name -c person/name dept MyFile.xml
++  stag-flatten -c name -c person/name dept MyFile.xml
+ 
+ =head1 DESCRIPTION
+ 
+@@ -153,7 +153,7 @@ cartesian product will be calculated
+ 
+ =head1 USAGE
+ 
+-  stag-flatten.pl [-p PARSER] [-c COLS] [-c COLS] NODE <file>
++  stag-flatten [-p PARSER] [-c COLS] [-c COLS] NODE <file>
+ 
+ =head1 ARGUMENTS
+ 
+--- a/scripts/stag-grep.pl
++++ b/scripts/stag-grep.pl
+@@ -139,23 +139,23 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-grep.pl - filters a stag file (xml, itext, sxpr) for nodes of interest
++stag-grep - filters a stag file (xml, itext, sxpr) for nodes of interest
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-grep.pl person -q name=fred file1.xml
++  stag-grep person -q name=fred file1.xml
+ 
+-  stag-grep.pl person 'sub {shift->get_name =~ /^A*/}' file1.xml
++  stag-grep person 'sub {shift->get_name =~ /^A*/}' file1.xml
+ 
+-  stag-grep.pl -p My::Foo -w sxpr record 'sub{..}' file2
++  stag-grep -p My::Foo -w sxpr record 'sub{..}' file2
+ 
+ =head1 USAGE
+ 
+-  stag-grep.pl [-p|parser PARSER] [-w|writer WRITER] NODE -q tag=val FILE
++  stag-grep [-p|parser PARSER] [-w|writer WRITER] NODE -q tag=val FILE
+ 
+-  stag-grep.pl [-p|parser PARSER] [-w|writer WRITER] NODE SUB FILE
++  stag-grep [-p|parser PARSER] [-w|writer WRITER] NODE SUB FILE
+ 
+-  stag-grep.pl [-p|parser PARSER] [-w|writer WRITER]  NODE -f PERLFILE FILE
++  stag-grep [-p|parser PARSER] [-w|writer WRITER]  NODE -f PERLFILE FILE
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-handle.pl
++++ b/scripts/stag-handle.pl
+@@ -123,12 +123,12 @@ __END__
+ 
+ =head1 NAME
+ 
+-stag-handle.pl - streams a stag file through a handler into a writer
++stag-handle - streams a stag file through a handler into a writer
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-handle.pl -w itext -c my-handler.pl myfile.xml > processed.itext
+-  stag-handle.pl -w itext -p My::Parser -m My::Handler myfile.xml > processed.itext
++  stag-handle -w itext -c my-handler.pl myfile.xml > processed.itext
++  stag-handle -w itext -p My::Parser -m My::Handler myfile.xml > processed.itext
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-join.pl
++++ b/scripts/stag-join.pl
+@@ -89,13 +89,13 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-join.pl - joins two stag files together based around common key
++stag-join - joins two stag files together based around common key
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-join.pl  -w xml country/city_id=capital/capital_id countries.xml capitals.xml
++  stag-join  -w xml country/city_id=capital/capital_id countries.xml capitals.xml
+ 
+-  stag-join.pl  -w itext gene/tax_id=species/tax_id genedb.itext speciesdb.itext
++  stag-join  -w itext gene/tax_id=species/tax_id genedb.itext speciesdb.itext
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-merge.pl
++++ b/scripts/stag-merge.pl
+@@ -2,11 +2,11 @@
+ 
+ =head1 NAME 
+ 
+-stag-merge.pl - script wrapper for the Data::Stag modules
++stag-merge - script wrapper for the Data::Stag modules
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-merge.pl  -xml file1.xml file2.xml
++  stag-merge  -xml file1.xml file2.xml
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-mogrify.pl
++++ b/scripts/stag-mogrify.pl
+@@ -2,11 +2,11 @@
+ 
+ =head1 NAME 
+ 
+-stag-mogrify.pl  - mangle stag files
++stag-mogrify  - mangle stag files
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-mogrify.pl  -w itext file1.xml file2.xml
++  stag-mogrify  -w itext file1.xml file2.xml
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-parse.pl
++++ b/scripts/stag-parse.pl
+@@ -96,15 +96,15 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-parse.pl - parses a file and fires events (e.g. sxpr to xml)
++stag-parse - parses a file and fires events (e.g. sxpr to xml)
+ 
+ =head1 SYNOPSIS
+ 
+   # convert XML to IText
+-  stag-parse.pl -p xml -w itext file1.xml file2.xml
++  stag-parse -p xml -w itext file1.xml file2.xml
+ 
+   # use a custom parser/generator and a custom writer/generator
+-  stag-parse.pl -p MyMod::MyParser -w MyMod::MyWriter file.txt
++  stag-parse -p MyMod::MyParser -w MyMod::MyWriter file.txt
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-query.pl
++++ b/scripts/stag-query.pl
+@@ -95,15 +95,15 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-query.pl - aggregare queries
++stag-query - aggregare queries
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-query.pl avg person/age file.xml
++  stag-query avg person/age file.xml
+ 
+-  stag-query.pl sum person/salary file.xml
++  stag-query sum person/salary file.xml
+ 
+-  stag-query.pl 'sub { $agg .= ", ".shift }' person/name file.xml
++  stag-query 'sub { $agg .= ", ".shift }' person/name file.xml
+ 
+ =head1 DESCRIPTION
+ 
+--- a/scripts/stag-splitter.pl
++++ b/scripts/stag-splitter.pl
+@@ -134,11 +134,11 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-splitter.pl - splits a stag file into multiple files
++stag-splitter - splits a stag file into multiple files
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-splitter.pl -split person -name social_security_no file.xml
++  stag-splitter -split person -name social_security_no file.xml
+ 
+ =head1 DESCRIPTION
+ 
+@@ -168,7 +168,7 @@ eg; if we have
+ 
+ if we run
+ 
+-  stag-splitter.pl -split a -name b
++  stag-splitter -split a -name b
+ 
+ it will generate two files, "foo.xml" and "bar.xml"
+ 
+@@ -183,7 +183,7 @@ files go in the current directory, but t
+ 
+ =head1 USAGE
+ 
+-   stag-splitter.pl [-split <ELEMENT-NAME>] [-name <ELEMENT-NAME>] [-dir <DIR>] [-format <INPUT-FORMAT>] [-outformat <OUTPUT-FORMAT>] <FILENAMES>
++   stag-splitter [-split <ELEMENT-NAME>] [-name <ELEMENT-NAME>] [-dir <DIR>] [-format <INPUT-FORMAT>] [-outformat <OUTPUT-FORMAT>] <FILENAMES>
+ 
+ =over
+ 
+--- a/scripts/stag-view.pl
++++ b/scripts/stag-view.pl
+@@ -90,11 +90,11 @@ __END__
+ 
+ =head1 NAME 
+ 
+-stag-view.pl - draws an expandable Tk tree diagram showing stag data
++stag-view - draws an expandable Tk tree diagram showing stag data
+ 
+ =head1 SYNOPSIS
+ 
+-  stag-view.pl  file1.xml
++  stag-view  file1.xml
+ 
+ =head1 DESCRIPTION
+ 

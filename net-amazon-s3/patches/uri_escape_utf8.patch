@@ -1,0 +1,14 @@
+Author: gregor herrmann <gregoa@debian.org>
+Bugs-Debian: #531652
+Description: add missing URI::Escape, since uri_escape_utf8 is used
+
+--- a/lib/Net/Amazon/S3/HTTPRequest.pm
++++ b/lib/Net/Amazon/S3/HTTPRequest.pm
+@@ -4,6 +4,7 @@
+ use HTTP::Date;
+ use MIME::Base64 qw(encode_base64);
+ use Moose::Util::TypeConstraints;
++use URI::Escape qw(uri_escape_utf8);
+ use URI::QueryParam;
+ 
+ my $METADATA_PREFIX      = 'x-amz-meta-';

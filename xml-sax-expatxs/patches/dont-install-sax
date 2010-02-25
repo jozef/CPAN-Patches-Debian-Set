@@ -1,0 +1,13 @@
+# the update-perl-sax-parsers command is used in postinst instead
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -108,7 +108,7 @@
+         $script .= <<"INSTALL";
+ 
+ install_expat_xs :
+-\t\@\$(PERL) -MXML::SAX -e "XML::SAX->add_parser(q(XML::SAX::ExpatXS))->save_parsers()"
++#\t\@\$(PERL) -MXML::SAX -e "XML::SAX->add_parser(q(XML::SAX::ExpatXS))->save_parsers()"
+ 
+ INSTALL
+ 

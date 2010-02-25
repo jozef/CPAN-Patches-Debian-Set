@@ -1,0 +1,24 @@
+Description: Remove =begin pod
+ Upstream perldoc has =begin pod and =end pod lines
+ which result in no POD being output at all.
+Origin: vendor
+Forwarded: no
+Author: Christine Spang <christine@debian.org>
+Reviewed-by: Jonathan Yu <frequency@cpan.org>
+--- a/lib/Text/Greeking.pm
++++ b/lib/Text/Greeking.pm
+@@ -116,8 +116,6 @@
+ 
+ __END__
+ 
+-=begin pod
+-
+ =head1 NAME
+ 
+ Text::Greeking - a module for generating meaningless text
+@@ -241,5 +239,3 @@
+ reserved.
+ 
+ =cut
+-
+-=end pod

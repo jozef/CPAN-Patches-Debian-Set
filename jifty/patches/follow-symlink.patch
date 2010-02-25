@@ -1,0 +1,16 @@
+Description: debian use symlink to not have duplicate files, 
+ now only used in OnlineDocs plugin for prototype.js
+Author: yvesago-guest <agostini@univ-metz.fr>
+Forwarded: not-needed
+Last-Update: 2009-11-26
+--- a/share/plugins/Jifty/Plugin/OnlineDocs/web/templates/__jifty/online_docs/toc.html
++++ b/share/plugins/Jifty/Plugin/OnlineDocs/web/templates/__jifty/online_docs/toc.html
+@@ -22,7 +22,7 @@
+         $name =~ s!\.(?:pm|pod)!!i;
+         $name =~ s!\W!::!g;
+         push @found, $name;
+-    },follow => ($^O ne 'MSWin32') },
++    },follow => ($^O ne 'MSWin32', follow_skip => 2 ) },
+     Jifty::Util->app_root ."/lib",
+ );
+ 

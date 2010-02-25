@@ -1,0 +1,6 @@
+10manpages.diff
+20do_one_loop.diff
+30irctest.diff
+40handler.diff
+50fix_next_outside_loop_with_return.diff
+60warnings_from_unknown_event.diff

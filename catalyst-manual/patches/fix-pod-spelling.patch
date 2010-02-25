@@ -1,0 +1,27 @@
+Description: fix some typos
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: not-needed
+X-Comment: fixed it upstream myself :)
+--- a/lib/Catalyst/Manual/Tutorial/03_MoreCatalystBasics.pod
++++ b/lib/Catalyst/Manual/Tutorial/03_MoreCatalystBasics.pod
+@@ -233,7 +233,7 @@
+ application, which is where logging output usually goes.
+ 
+ Make sure when adding new plugins you also include them as a new
+-dependancy within the Makefile.PL file. For example, after adding
++dependency within the Makefile.PL file. For example, after adding
+ the StackTrace plugin the Makefile.PL should include the following
+ line:
+ 
+--- a/lib/Catalyst/Manual/Tutorial/05_Authentication.pod
++++ b/lib/Catalyst/Manual/Tutorial/05_Authentication.pod
+@@ -738,7 +738,7 @@
+ 
+     $ DBIC_TRACE=1 perl -Ilib set_hashed_passwords.pl
+ 
+-We had to use the C<-Ilib> arguement to tell perl to look under the 
++We had to use the C<-Ilib> argument to tell perl to look under the 
+ C<lib> directory for our C<MyApp::Schema> model.
+ 
+ The DBIC_TRACE output should show that the update worked:

@@ -1,0 +1,30 @@
+--- a/samples/demo.pl
++++ b/samples/demo.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use Tie::iCal;
+ use Data::Dumper;
+ 
+@@ -84,4 +86,4 @@ $eventscopy{"A-UNIQUE-ID"} = [
+ print "hit Enter to test CLEAR..\n";
+ getc(STDIN);
+ print "CLEAR test..\n";
+-%eventscopy = ();
+\ No newline at end of file
++%eventscopy = ();
+--- a/samples/uniquify.pl
++++ b/samples/uniquify.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use Tie::iCal;
+ 
+ unlink "unique.ics", "nonunique.ics";
+@@ -71,4 +73,4 @@ SUMMARY:My Event
+ DTSTART;VALUE=DATE:20031225
+ DTEND;VALUE=DATE:20031226
+ END:VEVENT
+-END:VCALENDAR
+\ No newline at end of file
++END:VCALENDAR

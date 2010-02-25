@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libemail-date-perl, libemail-localdelivery-perl, libemail-simple-perl (>= 2.100) | libemail-simple-creator-perl, libhtml-parser-perl, libhtml-scrubber-perl, libwww-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-date-perl, libemail-localdelivery-perl, libemail-simple-perl, libhtml-scrubber-perl, libtime-piece-perl, libtimedate-perl, liburi-perl, libwww-perl
+X: 0

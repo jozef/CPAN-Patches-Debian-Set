@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libasa-perl, libmoose-perl (>= 0.52), libsub-exporter-perl, libtest-use-ok-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libsub-exporter-perl
+X: 0

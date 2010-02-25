@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), quilt (>= 0.40)
+Build-Depends-Indep: cvs, libclass-accessor-perl, libio-pty-perl, libipc-run-perl, perl (>= 5.8.4)
+Depends: ${misc:Depends}, cvs, libclass-accessor-perl, libio-pty-perl, libipc-run-perl, perl (>= 5.8.4)
+X: 0

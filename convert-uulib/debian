@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.39), debhelper (>= 7), devscripts (>= 2.10.7), dh-buildinfo, perl, quilt
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

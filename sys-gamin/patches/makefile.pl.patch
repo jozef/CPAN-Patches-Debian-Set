@@ -1,0 +1,9 @@
+Don't install the monitor script
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -17,5 +17,4 @@
+   VERSION => '0.1',
+   LIBS => [q[-lfam]],
+   NAME => q(Sys::Gamin),
+-  EXE_FILES => [qw(monitor)]
+ );

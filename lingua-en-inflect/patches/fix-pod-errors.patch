@@ -1,0 +1,14 @@
+Description: fix POD errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Lingua/EN/Inflect.pm
++++ b/lib/Lingua/EN/Inflect.pm
+@@ -2715,6 +2715,7 @@
+ The problem is that C<NUMWORDS> doesn't know any
+ words for number components bigger than "decillion".
+ 
++=back
+ 
+ =head1 OTHER ISSUES
+ 

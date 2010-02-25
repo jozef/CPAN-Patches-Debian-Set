@@ -1,0 +1,130 @@
+Description: The Debian way of handling ParserDetails.ini: use
+ update-perl-sax-parsers(8) instead.
+
+* SAX.pm: the meat of the modifications
+  + add XML::SAX->save_parsers_debian(), used by update-perl-sax-parsers
+  + disable XML::SAX->save_parsers() with a helpful error message for
+    users trying to install SAX parsers manually from CPAN
+* Makefile.PL: Don't try to modify ParserDetails.ini when building the package
+* t/01known.t, t/99cleanup.t: Skip tests related to XML::SAX->save_parsers()
+
+Author: Originally by Ardo van Rangelrooij <ardo@debian.org>
+Author: Cleanups and quilt conversion by Niko Tyni <ntyni@iki.fi>
+Author: Ansgar Burchardt <ansgar@43-1.org> (XML::SAX::Debian)
+
+--- a/t/01known.t
++++ b/t/01known.t
+@@ -1,6 +1,9 @@
+-use Test;
++use Test::More;
+ BEGIN { plan tests => 3 }
++SKIP: {
++skip 'Tests skipped due to Debian modifications', 3;
+ use XML::SAX;
+ ok(XML::SAX->save_parsers);
+ ok(XML::SAX->load_parsers);
+ ok(@{XML::SAX->parsers}, 0);
++}
+--- a/t/99cleanup.t
++++ b/t/99cleanup.t
+@@ -1,7 +1,7 @@
+ use Test;
+ BEGIN { plan tests => 1 }
+ use File::Spec;
+-ok(unlink(
++skip('Test skipped due to Debian modifications', unlink(
+     File::Spec->catdir(qw(blib lib XML SAX ParserDetails.ini))),
+     1,
+     'delete ParserDetails.ini'
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -16,6 +16,10 @@
+     package MY;
+     my $script = shift->SUPER::install(@_);
+ 
++    print STDERR "Debian build: won't modify ParserDetails.ini when installing.\n";
++    print STDERR "              (use update-perl-sax-parsers(8) instead.)\n";
++    return $script;
++
+     # Only modify existing ParserDetails.ini if user agrees
+ 
+     my $write_ini_ok = 0;
+--- a/SAX.pm
++++ b/SAX.pm
+@@ -179,6 +179,15 @@
+ sub save_parsers {
+     my $class = shift;
+     
++    ### DEBIAN MODIFICATION
++    print "\n";
++    print "Please use 'update-perl-sax-parsers(8) to register this parser.'\n";
++    print "See /usr/share/doc/libxml-sax-perl/README.Debian.gz for more info.\n";
++    print "\n";
++
++    return $class; # rest of the function is disabled on Debian.
++    ### END DEBIAN MODIFICATION
++
+     # get directory from wherever XML::SAX is installed
+     my $dir = $INC{'XML/SAX.pm'};
+     $dir = dirname($dir);
+@@ -212,6 +221,10 @@
+     warn(@_) unless $ENV{HARNESS_ACTIVE};
+ }
+ 
++sub _is_vendor_supplied {
++    1;
++}
++
+ 1;
+ __END__
+ 
+--- /dev/null
++++ b/SAX/Debian.pm
+@@ -0,0 +1,47 @@
++package XML::SAX::Debian;
++
++use strict;
++use warnings;
++
++use base "XML::SAX";
++
++use File::Spec ();
++
++sub save_parsers_debian {
++    my $class = shift;
++    my ($parser_module,$directory, $priority) = @_;
++
++    # add parser
++    {
++        # We do not want load_parsers to complain.
++        local $ENV{HARNESS_ACTIVE} = 1;
++        $class->load_parsers("/nonexistent");
++    }
++    $class->add_parser($parser_module);
++
++    # get parser's ParserDetails file
++    my $file = $parser_module;
++    $file = "${priority}-$file" if $priority != 0;
++    $file = File::Spec->catfile($directory, $file);
++    chmod 0644, $file;
++    unlink($file);
++
++    open(my $fh, ">$file") ||
++        die "Cannot write to $file: $!";
++
++    foreach my $p (@{ $class->parsers }) {
++        print $fh "[$p->{Name}]\n";
++        foreach my $key (keys %{$p->{Features}}) {
++            print $fh "$key = $p->{Features}{$key}\n";
++        }
++        print $fh "\n";
++    }
++
++    print $fh "\n";
++
++    close $fh;
++
++    return $class;
++}
++
++1;

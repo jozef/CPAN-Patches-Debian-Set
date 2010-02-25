@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdata-serializer-perl, libemail-mime-perl (>= 1.901) | libemail-mime-creator-perl, libfile-policy-perl, libfile-slurp-perl, libhtml-tagset-perl, libhtml-tokeparser-simple-perl, liblog-trace-perl, libmime-types-perl, libtest-assertions-perl, libtest-pod-coverage-perl, libtest-pod-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-serializer-perl, libemail-mime-perl (>= 1.901) | libemail-mime-creator-perl, libhtml-tagset-perl, libhtml-tokeparser-simple-perl, liblog-trace-perl, libmime-types-perl, libwww-perl
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: libcpan-checksums-perl, libfile-chmod-perl, libfile-remove-perl (>= 0.34), libparams-util-perl (>= 0.21), libtest-minimumversion-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-script-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcpan-checksums-perl, libfile-chmod-perl, libparams-util-perl (>= 0.21)
+X: 0

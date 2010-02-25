@@ -1,0 +1,5 @@
+App: perlindex
+Build-Depends: debhelper (>= 7.0.50~), po-debconf, quilt (>= 0.46-7)
+Build-Depends-Indep: perl
+Depends: ${misc:Depends}, ${perl:Depends}, libterm-readkey-perl, libtext-english-perl (= ${binary:Version})
+X: 0

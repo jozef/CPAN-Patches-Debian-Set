@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libaliased-perl, libcarp-clan-perl, libclass-inspector-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libaliased-perl, libcarp-clan-perl, libclass-inspector-perl
+X: 0

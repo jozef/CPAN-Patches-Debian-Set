@@ -1,0 +1,11 @@
+--- a/DCC.pm
++++ b/DCC.pm
+@@ -253,7 +253,7 @@
+ 
+     my $line = $self->_getline($_[0], 'BLOCKS');
+ 
+-    next unless defined $line;
++    return unless defined $line;
+     unless(print {$self->{_fh}} $line) {
+ 	carp ("Error writing to " . $self->{_filename} . ": $!");
+ 	close $self->{_fh};

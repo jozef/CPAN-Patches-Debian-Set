@@ -1,0 +1,40 @@
+rfc1320.txt is removed from the tarball so we need to ignore it in the test
+suite.
+
+--- a/t/files.t
++++ b/t/files.t
+@@ -5,7 +5,7 @@ BEGIN {
+         }
+ }
+ 
+-print "1..5\n";
++print "1..4\n";
+ 
+ use strict;
+ use Digest::MD4 qw(md4 md4_hex md4_base64);
+@@ -24,7 +24,6 @@ if (ord "A" == 193) { # EBCDIC
+ 0dbd12438619d37abe39c41e4584ebe0  README
+ 86dc1e88bf2f4c41bc4d365686604342  MD4.pm
+ 07995cc4bb36cba6306fded60ca69805  MD4.xs
+-f178f04d0d8305c328a3de281313d642  rfc1320.txt
+ EOT
+ } elsif ("\n" eq "\015") { # MacOS
+     $EXPECT = <<EOT;
+@@ -32,16 +31,14 @@ ed06361c6e9000bef1df740bcbad8622  Change
+ a64a8e41ca2fe973ffbb46aa66d70bd2  README
+ bfdcb4108a0aec528b1ac9c8407f3b3a  MD4.pm
+ 9db8b845da6b42d7f3cbaf690504dfb4  MD4.xs
+-2089ab664427233cd7043d91f0021ff8  rfc1320.txt
+ EOT
+ } else {
+-    # This is the output of: 'md4sum Changes README MD4.pm MD4.xs rfc1320.txt'
++    # This is the output of: 'md4sum Changes README MD4.pm MD4.xs'
+     $EXPECT = <<EOT;
+ ed06361c6e9000bef1df740bcbad8622  Changes
+ a64a8e41ca2fe973ffbb46aa66d70bd2  README
+ bfdcb4108a0aec528b1ac9c8407f3b3a  MD4.pm
+ 9db8b845da6b42d7f3cbaf690504dfb4  MD4.xs
+-2089ab664427233cd7043d91f0021ff8  rfc1320.txt
+ EOT
+ }
+ 

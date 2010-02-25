@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libbit-vector-perl (>= 7.1), libcarp-clan-perl (>= 6.02)
+Depends: ${misc:Depends}, ${perl:Depends}, libbit-vector-perl (>= 7.1), libcarp-clan-perl (>= 6.02)
+X: 0

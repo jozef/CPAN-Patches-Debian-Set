@@ -1,0 +1,22 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: Unicode::Map8 is patched in Debian ...
+
+--- a/t/utf8.t
++++ b/t/utf8.t
+@@ -45,11 +45,11 @@
+       {
+       skip 'Unicode::Map8 is not installed', 7 unless eval 'require Unicode::Map8';
+       # Unicode::Map8 aliases:
+-      is(umu8_charset_name('Windows-1-2-5-1'), 'cp1251', 'windows-1-2-5-1');
+-      is(umu8_charset_name('windows-1252'), 'cp1252', 'windows-1252 eq');
+-      is(umu8_charset_name('win-latin-1'), 'cp1252', 'win-latin-1');
+-      isnt(umu8_charset_name('windows-1252'), 'cp1253', 'windows-1252 ne');
+-      is(umu8_charset_name('windows-1253'), 'cp1253', 'windows-1253');
++      is(umu8_charset_name('Windows-1-2-5-1'), 'windows-1251', 'windows-1-2-5-1');
++      is(umu8_charset_name('windows-1252'), 'windows-1252', 'windows-1252 eq');
++      is(umu8_charset_name('win-latin-1'), 'windows-1252', 'win-latin-1');
++      isnt(umu8_charset_name('windows-1252'), 'windows-1253', 'windows-1252 ne');
++      is(umu8_charset_name('windows-1253'), 'windows-1253', 'windows-1253');
+       # Unicode::Map8 names with dummy mib:
+       my $sInput = 'Adobe Zapf Ding Bats';
+       my $sExpect = 'Adobe-Zapf-Dingbats';

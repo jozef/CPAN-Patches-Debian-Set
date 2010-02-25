@@ -1,0 +1,122 @@
+--- a/main.c
++++ b/main.c
+@@ -6,10 +6,12 @@
+ #include <stdarg.h>
+ #include <memory.h>
+ #include <errno.h>
++#include <pwd.h>
+ #include <sys/types.h>
+ #include <sys/wait.h>
+ #include <sys/socket.h>
+ #include <sys/un.h>
++#include <sys/file.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
+ #include <fcntl.h>
+@@ -45,6 +47,7 @@ int any_user = 0;
+ int prefork = 5;
+ int maxclients = 100;
+ int path_max;
++char* tmp_path;
+ int no_cleanup = 0;
+ FILE *log_fd = NULL;
+ 
+@@ -68,11 +71,55 @@ void Debug( const char * format, ...)
+     fflush(log_fd);
+ }
+ 
++static void *my_malloc(size_t);
++
++/* Set tmp_path to a user-specific path for the pperl control files. */
++static void
++setup_tmp_path(void)
++{
++    uid_t me = getuid();
++    struct passwd *pw = getpwuid(me);
++
++    tmp_path = my_malloc(path_max);
++    if (pw) {
++        snprintf(tmp_path, path_max, "%s/.pperl", pw->pw_dir);
++        mkdir(tmp_path, 0700);  /* ignore failure */
++    } else {
++        snprintf(tmp_path, path_max, "%s/pperl.%u",
++                 P_tmpdir, (unsigned)pw->pw_uid);
++        if (mkdir(tmp_path, 0600) == -1) {
++            /* The directory already exists.  Check ownership and
++               permissions. */
++            struct stat buf;
++            if (lstat(tmp_path, &buf) == -1) {
++                fprintf(stderr, "could not stat %s: %s\n",
++                        tmp_path, strerror(errno));
++                exit(1);
++            }
++            if (!S_ISDIR(buf.st_mode)) {
++                fprintf(stderr, "%s: not a directory\n",
++                        tmp_path);
++                exit(1);
++            }
++            if (buf.st_uid != me) {
++                fprintf(stderr, "%s: wrong directory ownership\n",
++                        tmp_path);
++                exit(1);
++            }
++            if ((buf.st_mode & 0777) != 0700) {
++                fprintf(stderr, "%s: wrong directory mode\n",
++                        tmp_path);
++                exit(1);
++            }
++        }
++    }
++}
++
+ 
+ int main( int argc, char **argv )
+ {
+     int i;
+-    char *pArg;
++    char *pArg = 0;
+     int pperl_section = 0;
+     int return_code = 0;
+ 
+@@ -88,6 +135,10 @@ int main( int argc, char **argv )
+     }
+ #endif
+ 
++    tmp_path = getenv("PPERL_TMP_PATH");
++    if (!tmp_path)
++        setup_tmp_path();
++
+     pperl_section = 0;
+     for ( i = 1; i < argc; i++ ) {
+         pArg = argv[i];
+@@ -230,10 +281,10 @@ MakeSockName(char * scriptname )
+     }
+     Dx(Debug("realpath returned: %s\n", fullpath));
+     /* Ugh. I am a terrible C programmer! */
+-    sockname = my_malloc(strlen(P_tmpdir) + strlen(fullpath) + 3);
++    sockname = my_malloc(strlen(tmp_path) + strlen(fullpath) + 3);
+     save = sockname;
+-    sprintf(sockname, "%s/", P_tmpdir);
+-    sockname += strlen(P_tmpdir) + 1;
++    sprintf(sockname, "%s/", tmp_path);
++    sockname += strlen(tmp_path) + 1;
+     while (fullpath[i] != '\0') {
+         if (fullpath[i] == '/') {
+             *sockname = '_';
+@@ -264,7 +315,6 @@ static int handle_socket(int sd, int arg
+ static int DispatchCall( char *scriptname, int argc, char **argv )
+ {
+     register int i, sd, len;
+-    int error_number;
+     ssize_t readlen;
+     struct sockaddr_un saun;
+     struct stat stat_buf;
+@@ -446,7 +496,7 @@ static int DispatchCall( char *scriptnam
+             goto cleanup;
+         }
+ 
+-        snprintf(temp_file, BUF_SIZE, "%s/%s", P_tmpdir, "pperlXXXXXX");
++        snprintf(temp_file, BUF_SIZE, "%s/%s", tmp_path, "pperlXXXXXX");
+         tmp_fd = mkstemp(temp_file);
+         if (tmp_fd == -1) {
+             perror("pperl: Cannot create temporary file");

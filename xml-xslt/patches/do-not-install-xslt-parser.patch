@@ -1,0 +1,17 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Subject: Do not install xslt-parser
+Date: Tue, 28 Jul 2009 00:16:33 +0200
+Forwarded: not-needed
+
+Debian ships xslt-parser only as an example in /usr/share/doc/libxml-xslt-perl,
+so do not install the script in /usr/bin.
+--- libxml-xslt-perl.orig/Makefile.PL
++++ libxml-xslt-perl/Makefile.PL
+@@ -13,6 +13,6 @@
+               PREREQ_PM     => { XML::Parser => '2.23',
+ 				                     XML::DOM    => '1.25',
+                                  Test::More  => '0.33' },
+-	      EXE_FILES      => ['xslt-parser'],
++#	      EXE_FILES      => ['xslt-parser'],
+              );
+ 

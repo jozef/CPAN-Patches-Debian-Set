@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: libarchive-zip-perl, libfile-temp-perl, libpar-dist-perl (>= 0.32), libtest-pod-perl, perl (>= 5.10) | libio-compress-perl | libcompress-zlib-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libarchive-zip-perl, libdigest-sha1-perl, libfile-temp-perl, libpar-dist-perl (>= 0.32), perl (>= 5.10) | libio-compress-perl | libcompress-zlib-perl
+X: 0

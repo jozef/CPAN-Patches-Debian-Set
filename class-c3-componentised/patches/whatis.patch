@@ -1,0 +1,16 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: add a whatis entry to the POD/manpage
+Origin: vendor
+Forwarded: no
+
+--- a/lib/Class/C3/Componentised.pm
++++ b/lib/Class/C3/Componentised.pm
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME
+ 
+-Class::C3::Componentised
++Class::C3::Componentised - load mix-ins or components to your C3-based class
+ 
+ =head1 DESCRIPTION
+ 

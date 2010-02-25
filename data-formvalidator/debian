@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), perl (>= 5.10) | libmodule-build-perl, quilt (>= 0.46-7)
+Build-Depends-Indep: libcgi-pm-perl (>= 3.48), libcgi-simple-perl, libdate-calc-perl, libemail-valid-perl, libfile-mmagic-perl, libimage-size-perl, libmime-types-perl, libperl6-junction-perl, libregexp-common-perl, libtemplate-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdate-calc-perl, libemail-valid-perl, libfile-mmagic-perl, libimage-size-perl, libmime-types-perl, libperl6-junction-perl, libregexp-common-perl
+X: 0

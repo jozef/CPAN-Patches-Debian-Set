@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libuniversal-require-perl, perl (>= 5.10) | libmodule-pluggable-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libuniversal-require-perl, perl (>= 5.10) | libmodule-pluggable-perl
+X: 0

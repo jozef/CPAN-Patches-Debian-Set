@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdirectory-scratch-perl, libfile-nfslock-perl, libmoose-perl (>= 0.87), libmoosex-types-path-class-perl (>= 0.05), libnamespace-clean-perl (>= 0.08), libpath-class-perl, libsub-exporter-perl, libtest-use-ok-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-nfslock-perl, libmoose-perl (>= 0.87), libmoosex-types-path-class-perl (>= 0.05), libnamespace-clean-perl (>= 0.08), libpath-class-perl, libsub-exporter-perl
+X: 0

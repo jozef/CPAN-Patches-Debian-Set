@@ -1,0 +1,28 @@
+Author: Jonathan Yu <frequency@cpan.org>
+Debian-Specific: no
+Description: Move code around so that the return value will depend
+ appropriately on the calling context; sort may return different things
+ depending on its calling context, so we have to copy its results to an
+ array and return that array - which might be coerced into something else
+ depending on wantarray.
+Fixes: https://rt.cpan.org/Public/Bug/Display.html?id=43353
+--- a/lib/Syntax/Highlight/Engine/Simple.pm
++++ b/lib/Syntax/Highlight/Engine/Simple.pm
+@@ -354,13 +354,15 @@
+             [$$map_ref[$i]->[1]]
+         );
+     }
+-    
+-    return
++
++    @out_array =
+         sort {
+             $$a[0] <=> $$b[0]
+             #or
+             #(defined $$a[1]) <=> (defined $$b[1])
+         } @out_array;
++
++    return @out_array;
+ }
+ 
+ ### ----------------------------------------------------------------------------

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libsub-exporter-perl, libvariable-magic-perl (>= 0.34), perl (>= 5.8.0)
+Depends: ${misc:Depends}, libsub-exporter-perl, libvariable-magic-perl (>= 0.34), perl (>= 5.8.0)
+X: 0

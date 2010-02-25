@@ -1,0 +1,13 @@
+manpage-has-bad-whatis-entry lintian warning
+
+--- a/lib/MooseX/Declare/Syntax/EmptyBlockIfMissing.pm
++++ b/lib/MooseX/Declare/Syntax/EmptyBlockIfMissing.pm
+@@ -17,7 +17,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::Declare::Syntax::EmptyBlockIfMissing
++MooseX::Declare::Syntax::EmptyBlockIfMissing - require that the consumer handles non-existant blocks
+ 
+ =head1 DESCRIPTION
+ 

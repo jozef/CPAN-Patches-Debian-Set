@@ -1,0 +1,28 @@
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -1,4 +1,5 @@
+ use ExtUtils::MakeMaker;
++use ExtUtils::Embed;
+ use Config;
+ # See lib/ExtUtils/MakeMaker.pm for details of how to influence
+ # the contents of the Makefile that is written.
+@@ -59,6 +60,10 @@ WriteMakefile(
+ 
+ 
+ sub MY::postamble {
++    my $ccopts = ccopts;
++    chomp $ccopts;
++    my $ldopts = ldopts;
++    chomp $ldopts;
+     "
+ # just hacking around
+ $hacking
+@@ -69,7 +74,7 @@ pperl.h: pperl.h.header PPerl.pm
+ main.o: Makefile main.c pperl.h
+ 
+ pperl: main.o pass_fd.o
+-\t\$(CC) \$(CFLAGS) \$(LDFLAGS) \$(DEFINE) -o pperl main.o pass_fd.o $Config{libs}
++\t\$(CC) \$(DEFINE) -o pperl main.o pass_fd.o
+ 
+ pass_fd.c: pass_fd.h
+ 

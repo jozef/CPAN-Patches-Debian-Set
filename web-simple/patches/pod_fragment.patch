@@ -1,0 +1,36 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: remove POD fragment
+
+--- a/lib/Web/Simple/HackedPlack.pm
++++ b/lib/Web/Simple/HackedPlack.pm
+@@ -66,30 +66,3 @@
+ }
+ 
+ 1;
+-__END__
+-
+-=head1 SYNOPSIS
+-
+-    ## in your .cgi
+-    #!/usr/bin/perl
+-    use Plack::Server::CGI;
+-
+-    # or Plack::Util::load_psgi("/path/to/app.psgi");
+-    my $app = sub {
+-        my $env = shift;
+-        return [
+-            200,
+-            [ 'Content-Type' => 'text/plain', 'Content-Length' => 13 ],
+-            'Hello, world!',
+-        ];
+-    };
+-
+-    Plack::Server::CGI->new->run($app);
+-
+-=head1 SEE ALSO
+-
+-L<Plack::Server::Base>
+-
+-=cut
+-
+-

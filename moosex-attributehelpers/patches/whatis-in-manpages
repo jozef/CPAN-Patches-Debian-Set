@@ -1,0 +1,310 @@
+manpage-has-bad-whatis-entry
+
+--- a/lib/MooseX/AttributeHelpers/Bool.pm
++++ b/lib/MooseX/AttributeHelpers/Bool.pm
+@@ -23,7 +23,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Bool
++MooseX::AttributeHelpers::Bool - boolean attribute type
+ 
+ =head1 METHODS
+ 
+--- a/lib/MooseX/AttributeHelpers/Collection/Array.pm
++++ b/lib/MooseX/AttributeHelpers/Collection/Array.pm
+@@ -25,7 +25,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::Array
++MooseX::AttributeHelpers::Collection::Array - array attribute type
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Collection/Bag.pm
++++ b/lib/MooseX/AttributeHelpers/Collection/Bag.pm
+@@ -24,7 +24,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::Bag
++MooseX::AttributeHelpers::Collection::Bag - bag attribute type
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Collection/Hash.pm
++++ b/lib/MooseX/AttributeHelpers/Collection/Hash.pm
+@@ -25,7 +25,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::Hash
++MooseX::AttributeHelpers::Collection::Hash - hash attribute type
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Collection/ImmutableHash.pm
++++ b/lib/MooseX/AttributeHelpers/Collection/ImmutableHash.pm
+@@ -25,7 +25,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::ImmutableHash
++MooseX::AttributeHelpers::Collection::ImmutableHash - immutable HashRef attribute type
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Collection/List.pm
++++ b/lib/MooseX/AttributeHelpers/Collection/List.pm
+@@ -25,7 +25,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::List
++MooseX::AttributeHelpers::Collection::List - list attribute type
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Counter.pm
++++ b/lib/MooseX/AttributeHelpers/Counter.pm
+@@ -24,7 +24,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Counter
++MooseX::AttributeHelpers::Counter - counter attribute type
+ 
+ =head1 METHODS
+ 
+--- a/lib/MooseX/AttributeHelpers/MethodProvider/Array.pm
++++ b/lib/MooseX/AttributeHelpers/MethodProvider/Array.pm
+@@ -202,7 +202,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::MethodProvider::Array
++MooseX::AttributeHelpers::MethodProvider::Array - method generator for MooseX::AttributeHelpers::Collection::Array
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/MethodProvider/Bag.pm
++++ b/lib/MooseX/AttributeHelpers/MethodProvider/Bag.pm
+@@ -30,7 +30,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::MethodProvider::Bag
++MooseX::AttributeHelpers::MethodProvider::Bag - method generator for MooseX::AttributeHelpers::Collection::Bag
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/MethodProvider/Bool.pm
++++ b/lib/MooseX/AttributeHelpers/MethodProvider/Bool.pm
+@@ -34,7 +34,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::MethodProvider::Bool
++MooseX::AttributeHelpers::MethodProvider::Bool - method generator for MooseX::AttributeHelpers::Bool
+   
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/MethodProvider/Counter.pm
++++ b/lib/MooseX/AttributeHelpers/MethodProvider/Counter.pm
+@@ -34,7 +34,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::MethodProvider::Counter
++MooseX::AttributeHelpers::MethodProvider::Counter - method generator for MooseX::AttributeHelpers::Counter
+   
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/MethodProvider/Hash.pm
++++ b/lib/MooseX/AttributeHelpers/MethodProvider/Hash.pm
+@@ -109,7 +109,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::MethodProvider::Hash
++MooseX::AttributeHelpers::MethodProvider::Hash - method generator for MooseX::AttributeHelpers::Collection::Hash
+   
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/MethodProvider/ImmutableHash.pm
++++ b/lib/MooseX/AttributeHelpers/MethodProvider/ImmutableHash.pm
+@@ -75,7 +75,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::MethodProvider::ImmutableHash
++MooseX::AttributeHelpers::MethodProvider::ImmutableHash - method generator for MooseX::AttributeHelpers::Collection::ImmutableHash
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/MethodProvider/List.pm
++++ b/lib/MooseX/AttributeHelpers/MethodProvider/List.pm
+@@ -107,7 +107,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::MethodProvider::List
++MooseX::AttributeHelpers::MethodProvider::List - method generator for MooseX::AttributeHelpers::Collection::List
+ 
+ =head1 SYNOPSIS
+     
+--- a/lib/MooseX/AttributeHelpers/MethodProvider/String.pm
++++ b/lib/MooseX/AttributeHelpers/MethodProvider/String.pm
+@@ -111,7 +111,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::MethodProvider::String
++MooseX::AttributeHelpers::MethodProvider::String - method generator for MooseX::AttributeHelpers::String
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/Number.pm
++++ b/lib/MooseX/AttributeHelpers/Number.pm
+@@ -21,7 +21,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Number
++MooseX::AttributeHelpers::Number - numerical attribute type
+ 
+ =head1 SYNOPSIS
+   
+--- a/lib/MooseX/AttributeHelpers/String.pm
++++ b/lib/MooseX/AttributeHelpers/String.pm
+@@ -24,7 +24,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::String
++MooseX::AttributeHelpers::String - string attribute type
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Meta/Method/Curried.pm
++++ b/lib/MooseX/AttributeHelpers/Meta/Method/Curried.pm
+@@ -16,7 +16,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Meta::Method::Curried
++MooseX::AttributeHelpers::Meta::Method::Curried - curried methods for Moose::Meta::Method
+   
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/Meta/Method/Provided.pm
++++ b/lib/MooseX/AttributeHelpers/Meta/Method/Provided.pm
+@@ -16,7 +16,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Meta::Method::Provided
++MooseX::AttributeHelpers::Meta::Method::Provided - provided methods for Moose::Meta::Method
+   
+ =head1 DESCRIPTION
+ 
+--- a/lib/MooseX/AttributeHelpers/Trait/Bool.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/Bool.pm
+@@ -40,7 +40,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Bool
++MooseX::AttributeHelpers::Bool - simple boolean attribute
+ 
+ =head1 SYNOPSIS
+   
+--- a/lib/MooseX/AttributeHelpers/Trait/Counter.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/Counter.pm
+@@ -55,7 +55,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Counter
++MooseX::AttributeHelpers::Counter - simple counter attribute
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Trait/Number.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/Number.pm
+@@ -61,7 +61,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Number
++MooseX::AttributeHelpers::Number - simple numeric attribute
+ 
+ =head1 SYNOPSIS
+   
+--- a/lib/MooseX/AttributeHelpers/Trait/String.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/String.pm
+@@ -55,7 +55,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::String
++MooseX::AttributeHelpers::String - simple string attribute
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Trait/Collection/Array.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/Collection/Array.pm
+@@ -29,7 +29,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::Array
++MooseX::AttributeHelpers::Collection::Array - Array attribute
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Trait/Collection/Bag.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/Collection/Bag.pm
+@@ -44,7 +44,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::Bag
++MooseX::AttributeHelpers::Collection::Bag - Bag attribute
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Trait/Collection/Hash.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/Collection/Hash.pm
+@@ -29,7 +29,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::Hash
++MooseX::AttributeHelpers::Collection::Hash - Hash attribute
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Trait/Collection/ImmutableHash.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/Collection/ImmutableHash.pm
+@@ -29,7 +29,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::ImmutableHash
++MooseX::AttributeHelpers::Collection::ImmutableHash - immutable HashRef attribute
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/MooseX/AttributeHelpers/Trait/Collection/List.pm
++++ b/lib/MooseX/AttributeHelpers/Trait/Collection/List.pm
+@@ -29,7 +29,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::AttributeHelpers::Collection::List
++MooseX::AttributeHelpers::Collection::List - List attribute
+ 
+ =head1 SYNOPSIS
+ 

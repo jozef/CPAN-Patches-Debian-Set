@@ -1,0 +1,14 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: small error in POD
+
+--- a/lib/Time/Duration/Parse.pm
++++ b/lib/Time/Duration/Parse.pm
+@@ -88,6 +88,8 @@ Parses duration string and returns secon
+ error in a given string, it dies an exception saying "Unknown
+ timespec: blah blah blah". This function is exported by default.
+ 
++=back
++
+ =head1 AUTHOR
+ 
+ Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>

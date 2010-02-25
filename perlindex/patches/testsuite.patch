@@ -1,0 +1,22 @@
+Author: Florian Ragwitz <rafl@debian.org>
+Author: Ignace Mouzannar <mouzannar@gmail.com>
+Last-Update: 2009-10-18
+Description: Use the config file in the test suite
+--- a/t/basic.t
++++ b/t/basic.t
+@@ -42,13 +42,13 @@
+ 
+ ok(
+    run(
+-       "-Mblib ./perlindex -idir $tmp --index $cwd/README $cwd/MANIFEST $cwd/perlindex.PL",
++       "-Mblib ./perlindex -conf debian/config/config -idir $tmp --index $cwd/README $cwd/MANIFEST $cwd/perlindex.PL",
+        sub { print "[[$_[0]]]\n"; $_[0] =~ /MANIFEST/ }
+       )
+   );
+ ok(
+    run(
+-       "-Mblib ./perlindex -idir $tmp --nomenu index",
++       "-Mblib ./perlindex -conf debian/config/config -idir $tmp --nomenu index",
+        sub { print "[[$_[0]]]\n"; $_[0] =~ /perlindex.PL/ }
+       )
+   );

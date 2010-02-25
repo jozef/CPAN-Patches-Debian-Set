@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 4.0.2)
+Build-Depends-Indep: libkwiki-perl (>= 0.34), perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libkwiki-perl (>= 0.34)
+X: 0

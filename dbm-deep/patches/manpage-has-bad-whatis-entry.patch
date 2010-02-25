@@ -1,0 +1,21 @@
+# fix some missing pod entries
+--- a/lib/DBM/Deep/Cookbook.pod
++++ b/lib/DBM/Deep/Cookbook.pod
+@@ -1,6 +1,6 @@
+ =head1 NAME
+ 
+-DBM::Deep::Cookbook
++DBM::Deep::Cookbook - Cookbook for DBM::Deep 
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/DBM/Deep/Internals.pod
++++ b/lib/DBM/Deep/Internals.pod
+@@ -1,6 +1,6 @@
+ =head1 NAME
+ 
+-DBM::Deep::Internals
++DBM::Deep::Internals - Out of date documentation on DBM::Deep internals
+ 
+ =head1 DESCRIPTION
+ 

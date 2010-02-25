@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libfile-find-rule-perl (>= 0.03), libfile-spec-perl, libpod-coverage-perl (>= 0.17), libtest-pod-coverage-perl, libtest-pod-perl (>= 0.95), perl (>= 5.10) | libmodule-corelist-perl (>= 1.93)
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-find-rule-perl (>= 0.03), libfile-spec-perl, libpod-coverage-perl (>= 0.17), libtest-pod-coverage-perl, libtest-pod-perl (>= 0.95), perl (>= 5.10) | libmodule-corelist-perl (>= 1.93)
+X: 0

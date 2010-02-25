@@ -1,0 +1,44 @@
+Description: fix POD spelling
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/DBD/SQLite.pm
++++ b/lib/DBD/SQLite.pm
+@@ -914,7 +914,7 @@
+ Returns all tables and schemas (databases) as specified in L<DBI/table_info>.
+ The schema and table arguments will do a C<LIKE> search. You can specify an
+ ESCAPE character by including an 'Escape' attribute in \%attr. The C<$type>
+-argument accepts a comma seperated list of the following types 'TABLE',
++argument accepts a comma separated list of the following types 'TABLE',
+ 'VIEW', 'LOCAL TEMPORARY' and 'SYSTEM TABLE' (by default all are returned).
+ Note that a statement handle is returned, and not a direct list of tables.
+ 
+@@ -966,7 +966,7 @@
+ 
+ =head2 $dbh->sqlite_create_function( $name, $argc, $code_ref )
+ 
+-This method will register a new function which will be useable in an SQL
++This method will register a new function which will be usable in an SQL
+ query. The method's parameters are:
+ 
+ =over
+@@ -1018,7 +1018,7 @@
+ 
+ =head2 $dbh->sqlite_create_collation( $name, $code_ref )
+ 
+-This method manually registers a new function which will be useable in an SQL
++This method manually registers a new function which will be usable in an SQL
+ query as a COLLATE option for sorting. Such functions can also be registered
+ automatically on demand: see section L</"COLLATION FUNCTIONS"> below.
+ 
+--- a/lib/DBD/SQLite/Cookbook.pod
++++ b/lib/DBD/SQLite/Cookbook.pod
+@@ -149,7 +149,7 @@
+ =head1 TO DO
+ 
+ * Add more and varied cookbook recipes, until we have enough to
+-turn them into a seperate CPAN distribution.
++turn them into a separate CPAN distribution.
+ 
+ * Create a series of tests scripts that validate the cookbook recipies.
+ 

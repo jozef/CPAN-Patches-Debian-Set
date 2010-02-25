@@ -1,0 +1,39 @@
+fix several pod errors
+
+--- a/MicroMason/Docs/Changes.pod
++++ b/MicroMason/Docs/Changes.pod
+@@ -137,6 +137,8 @@
+ 
+ Bump version to 2.0
+ 
++=back
++
+ =head2 Version 1.993_01
+ 
+ =over 4
+--- a/MicroMason/HasParams.pm
++++ b/MicroMason/HasParams.pm
+@@ -72,6 +72,10 @@
+ 
+ ######################################################################
+ 
++=head1 NAME
++
++Text::MicroMason::HasParams - mixin class intended for use with Text::MicroMason::Base
++
+ =head1 DESCRIPTION
+ 
+ This mixin class ...
+--- a/MicroMason/StoreOne.pm
++++ b/MicroMason/StoreOne.pm
+@@ -36,6 +36,10 @@
+ 
+ ######################################################################
+ 
++=head1 NAME
++
++Text::MicroMason::StoreOne - mixin class intended for use with Text::MicroMason::Base
++
+ =head1 DESCRIPTION
+ 
+ This mixin class ...

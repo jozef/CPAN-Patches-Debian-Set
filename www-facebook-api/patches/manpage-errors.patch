@@ -1,0 +1,14 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: avoid manpage-has-errors-from-man: "can't break line" error
+
+--- a/lib/WWW/Facebook/API/Feed.pm
++++ b/lib/WWW/Facebook/API/Feed.pm
+@@ -92,7 +92,7 @@
+         full_story_template      => 'JSON',
+     );
+ 
+-The formats for C<one_line_story_templates>,C<short_story_templates>,C<full_story_template> are
++The formats for C<one_line_story_templates>, C<short_story_templates>, C<full_story_template> are
+ described on the developer wiki:
+ http://wiki.developers.facebook.com/index.php/Feed.registerTemplateBundle
+ 

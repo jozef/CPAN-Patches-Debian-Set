@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libdatetime-locale-perl (>= 0.4001), libdatetime-perl (>= 0.4302), libdatetime-timezone-perl (>= 0.95), libmoose-perl (>= 0.41), libmoosex-types-perl (>= 0.19), libnamespace-clean-perl (>= 0.08), libtest-exception-perl (>= 0.27), libtest-use-ok-perl (>= 0.02), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-locale-perl (>= 0.4001), libdatetime-perl (>= 0.4302), libdatetime-timezone-perl (>= 0.95), libmoose-perl (>= 0.41), libmoosex-types-perl (>= 0.19), libnamespace-clean-perl (>= 0.08), libtest-exception-perl (>= 0.27), libtest-use-ok-perl (>= 0.02)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), quilt (>= 0.40)
+Build-Depends-Indep: perl (>= 5.8.1)
+Depends: ${misc:Depends}, ${perl:Depends}, perl (>= 5.8.1)
+X: 0

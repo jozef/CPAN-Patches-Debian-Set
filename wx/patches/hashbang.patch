@@ -1,0 +1,30 @@
+# Description: add #! in example scripts
+# Author: Gregor Herrmann <gregoa@debian.org>
+--- a/samples/socket/wxSocketClient.pl
++++ b/samples/socket/wxSocketClient.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl -w
+ #############################################################################
+ ## Name:        samples/socket/wxSocketClient.pl
+ ## Purpose:     wxSocketClient minimal demo
+--- a/samples/socket/wxSocketClientDatagram.pl
++++ b/samples/socket/wxSocketClientDatagram.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl -w
+ #############################################################################
+ ## Name:        samples/socket/wxSocketClientDatagram.pl
+ ## Purpose:     wxDatagramSocket minimal demo
+--- a/samples/socket/wxSocketServer.pl
++++ b/samples/socket/wxSocketServer.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl -w
+ #############################################################################
+ ## Name:        samples/socket/wxSocketServer.pl
+ ## Purpose:     wxSocketServer minimal demo
+--- a/samples/socket/wxSocketServerDatagram.pl
++++ b/samples/socket/wxSocketServerDatagram.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl -w
+ #############################################################################
+ ## Name:        samples/socket/wxSocketServerDatagram.pl
+ ## Purpose:     wxDatagramSocket demo

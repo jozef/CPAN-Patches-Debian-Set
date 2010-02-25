@@ -1,0 +1,65 @@
+Author: Florian Ragwitz <rafl@debian.org>
+Description: Use a config file instead of hardcoded paths to determine @perllib
+--- a/perlindex.PL
++++ b/perlindex.PL
+@@ -82,6 +82,7 @@
+ $index_dir = $Config{'man1direxp'};
+ $index_dir =~ s:/[^/]*$::;
+ $index_dir = $ENV{'INDEXDIR'} if $ENV{'INDEXDIR'};
++$conffile  = $ENV{'CONFFILE'} || '/etc/perlindex/config';
+ 
+ print OUT <<"EOC";
+ \$nroff      = \'$Config{'nroff'}\' || \'nroff\';
+@@ -89,6 +90,7 @@
+ \$man3direxp = \'$Config{'man3direxp'}\';
+ \$IDIR       = \'$index_dir\';
+ \$prefix     = \'$Config{'prefix'}\';
++\$conffile   = \'$conffile\';
+ EOC
+ ;
+ 
+@@ -139,8 +141,13 @@
+             'verbose',
+             'dict:i',
+             'idir=s',
++            'conf=s',
+             ) || die "Usage: $0 [-index] [words ...]\n";
+ 
++if (defined $opt_conf) {
++    $conffile = $opt_conf;
++}
++
+ if (defined $opt_idir) {
+     $IDIR = $opt_idir;          # avoid to many changes below.
+ }
+@@ -182,10 +189,15 @@
+ 
+     require "find.pl";
+ 
++    open (CONFIG, "<$conffile") || die "Can't open config file $conffile: $!";
++    my @config_perllib = <CONFIG>;
++    chomp @config_perllib;
++
+     unless (@ARGV) {            # breaks compatibility :-(
+         my %seen;
+         my @perllib = grep(length && -d && !$seen{$_}++,
+             @Config{qw(installprivlib installarchlib installsitelib installvendorlib installscript installsitearch)});
++        push @perllib, @config_perllib;
+ 
+         for $dir (@perllib) {
+             print "Scanning $dir ... \n";
+@@ -630,6 +642,14 @@
+ Generates additional information which query words have been not found
+ in the database and which words of the query are stopwords.
+ 
++=item B<-conf>
++
++!NO!SUBS!
++
++print OUT "Use another config than the default config ($conffile).\n";
++
++print OUT <<'!NO!SUBS!';
++
+ =back
+ 
+ =head1 EXAMPLE

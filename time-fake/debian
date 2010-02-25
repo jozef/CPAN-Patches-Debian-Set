@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: cdbs, debhelper (>= 6)
+Build-Depends-Indep: perl
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

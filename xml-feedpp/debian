@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libxml-treepp-perl (>= 0.39), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-treepp-perl (>= 0.39)
+X: 0

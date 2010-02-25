@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libmodule-build-perl (>= 0.360100)
+Build-Depends-Indep: libaudio-mpd-common-perl, libmoose-perl, libmoosex-has-sugar-perl, libmoosex-semiaffordanceaccessor-perl, libpod-coverage-trustpod-perl, libtest-corpus-audio-mpd-perl (>= 1.092920), libtest-cpan-meta-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libaudio-mpd-common-perl, libmoose-perl, libmoosex-has-sugar-perl, libmoosex-semiaffordanceaccessor-perl
+X: 0

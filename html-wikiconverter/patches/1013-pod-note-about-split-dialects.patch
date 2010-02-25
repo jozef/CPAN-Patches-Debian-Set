@@ -1,0 +1,12 @@
+--- a/lib/HTML/WikiConverter.pm
++++ b/lib/HTML/WikiConverter.pm
+@@ -67,6 +67,9 @@ dialects' documentation for details of s
+ for improvements, especially in the form of patches, are very much
+ appreciated.
+ 
++Since 0.50 version all dialects was separated from HTML:WikiConverter
++Please install the independ dialect modules as you need.
++
+ =head1 METHODS
+ 
+ =head2 new

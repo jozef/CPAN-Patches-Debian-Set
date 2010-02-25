@@ -1,0 +1,19 @@
+Description: Fix attribute value parsing
+ Without this patch it can't parse stuff like
+ <job src="BASE64DATA===" id="toto" attrib="toto" />
+ and <job src="" id="toto" attrib="toto" />
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?msg=5;filename=libxml-mini.patch;att=1;bug=278669
+Bug-Debian: http://bugs.debian.org/278669
+Author: Eric Bollengier <eric@eb.homelinux.org>
+
+--- a/lib/XML/Mini/Document.pm
++++ b/lib/XML/Mini/Document.pm
+@@ -837,7 +837,7 @@ sub _extractAttributesFromString
+     
+     return undef unless (defined $attrString);
+     my $count = 0;
+-    while ($attrString =~ /([^\s]+)\s*=\s*(['"])([^\2]*?)\2/g)
++    while ($attrString =~ /([^\s=]+)\s*=\s*(['"])([^\2]*?)\2/g)
+     {
+ 	my $attrname = $1;
+ 	my $attrval = $3;

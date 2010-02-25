@@ -1,0 +1,12 @@
+cgi_pm.patch
+perl5.10.patch
+german.patch
+new_process_group.patch
+delay.patch
+modperl.patch
+utf8.patch
+Makefile.PL.patch
+fix-pod-errors.patch
+fix-whatis.patch
+fix-string-typo.patch
+fix-pod-unescaped-unicode.patch

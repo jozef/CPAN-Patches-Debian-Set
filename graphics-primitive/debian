@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libforest-perl, libgeometry-primitive-perl, libgraphics-color-perl, libjson-any-perl (>= 1.22), libmoose-perl (>= 0.79), libmoosex-attributehelpers-perl, libmoosex-clone-perl, libmoosex-storage-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libforest-perl, libgeometry-primitive-perl, libgraphics-color-perl, libjson-any-perl (>= 1.22), libmoose-perl (>= 0.79), libmoosex-attributehelpers-perl, libmoosex-clone-perl, libmoosex-storage-perl
+X: 0

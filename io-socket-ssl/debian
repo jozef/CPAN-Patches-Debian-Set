@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libio-socket-inet6-perl, libnet-libidn-perl, libnet-ssleay-perl (>= 1.35), netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-ssleay-perl (>= 1.35), netbase
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.27), debhelper (>= 5.0.0), patchutils (>= 0.2.25), quilt, sharutils
+Build-Depends-Indep: libgd-gd2-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

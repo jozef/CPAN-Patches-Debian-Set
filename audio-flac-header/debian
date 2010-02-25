@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libflac-dev (>= 1.1.2), libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.4)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

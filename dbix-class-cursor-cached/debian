@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcache-cache-perl, libdbd-sqlite3-perl, libdbix-class-perl (>= 0.08004), libdigest-sha1-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbix-class-perl (>= 0.08004), libdigest-sha1-perl
+X: 0

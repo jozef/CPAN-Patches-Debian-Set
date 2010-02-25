@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmodule-build-perl (>= 0.3601)
+Build-Depends-Indep: libfile-sharedir-perl, libmodule-util-perl, libpath-class-perl, libreadonly-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-sharedir-perl, libmodule-util-perl, libpath-class-perl, libreadonly-perl
+X: 0

@@ -1,0 +1,53 @@
+Patch that provides a more meaningful test for Sys::Gamin
+--- a/t/gamin.t
++++ b/t/gamin.t
+@@ -1,6 +1,45 @@
+-use Test;
+-use SGI::FAM;
++use strict;
++use Test::More tests => 13;
++use File::Temp qw( tempfile );
+ 
+-plan tests => 1;
++BEGIN { use_ok('Sys::Gamin'); }
+ 
+-ok (SGI::FAM::FAMChanged != SGI::FAM::FAMDeleted);
++my $tmpdir = $ENV{TMP};
++if (! defined $tmpdir) { $tmpdir = '/tmp'; }
++
++my $fm = new Sys::Gamin;
++ok( defined $fm,                'new connection test' );
++
++$fm->monitor($tmpdir);
++my $event = $fm->next_event;
++ok( defined $event,             'next_event() test' );
++ok( defined $event->filename,   'event pathname() test' );
++ok( defined $event->type,       'event type() test' );
++
++SKIP: {
++    my $host = $event->hostname;
++    skip "event hostname() doesn't seem to be supported", 1 if ! $host;
++    ok( defined $host,          'event hostname() test' );
++}
++
++my ($fh, $file) = tempfile( UNLINK => 1, DIR => $tmpdir );
++ok( defined $fm->pending,       'pending() test' );
++my @monitored = $fm->monitored;
++ok( @monitored,             'monitored() test');
++ok( defined $fm->which($event), 'which() test');
++
++SKIP: {
++    eval { $fm->suspend };
++    my $reason = "suspend() is unsupported, in which case suspended() and ";
++    $reason .= "resume() will have no purpose.";
++    skip $reason, 3 if $@;
++    ok( ! $@,               'suspend() test' );
++    my @suspended = $fm->suspended;
++    ok( @suspended,         'suspended() test' );
++    eval { $fm->resume };
++    ok( ! $@,               'resume() test' );
++}
++
++$fm->cancel($tmpdir);
++@monitored = $fm->monitored;
++ok( ! @monitored,           'cancel() test' );

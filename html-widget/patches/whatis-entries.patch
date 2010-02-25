@@ -1,0 +1,14 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Subject: Fix whatis entries in POD documentation
+Date: Mon, 20 Jul 2009 15:06:36 +0200
+
+--- libhtml-widget-perl.orig/lib/HTML/Widget/Manual/Developer.pod
++++ libhtml-widget-perl/lib/HTML/Widget/Manual/Developer.pod
+@@ -1,6 +1,6 @@
+ =head1 NAME
+ 
+-HTML::Widget::Manual::Developer
++HTML::Widget::Manual::Developer - information for developers
+ 
+ =head1 perltidy
+ 

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), netbase, perl (>= 5.10) | libmodule-build-perl, quilt (>= 0.46-7)
+Build-Depends-Indep: libio-interface-perl (>= 1.01), libio-socket-inet6-perl, libsocket-multicast6-perl, libsocket6-perl, perl (>= 5.9.4)
+Depends: ${misc:Depends}, ${perl:Depends}, libio-interface-perl (>= 1.01), libio-socket-inet6-perl, libsocket-multicast6-perl, libsocket6-perl
+X: 0

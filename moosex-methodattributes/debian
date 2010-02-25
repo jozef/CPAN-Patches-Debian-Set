@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmoose-perl (>= 0.97), libmoosex-role-parameterized-perl, libmoosex-types-perl, libnamespace-autoclean-perl, libnamespace-clean-perl (>= 0.10), libtest-exception-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.97), libmoosex-types-perl, libnamespace-autoclean-perl, libnamespace-clean-perl (>= 0.10)
+X: 0

@@ -1,0 +1,14 @@
+Author: Damyan Ivanov <dmn@debian.org>
+Description: fix section of manpage
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -18,7 +18,7 @@
+ 		},
+                          
+ 	'MAN3PODS'		 => {
+-		'Data.pm' => '$(INST_MAN3DIR)/Business::ISBN::Data.3',
++		'Data.pm' => '$(INST_MAN3DIR)/Business::ISBN::Data.3pm',
+ 			},
+ 
+ 	clean => { FILES => 'Business-ISBN-Data*' },

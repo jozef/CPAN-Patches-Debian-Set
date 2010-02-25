@@ -1,0 +1,28 @@
+Subject: Do not check value of $tt->error
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Mon, 09 Mar 2009 02:02:22 +0100
+
+We already check if $tt->process returns an error, so do not check the value
+of $tt->error as well. The value of the latter is undocumented in case there is
+no error and has changed from undef to '' in Template::Toolkit 2.20.
+
+See http://bugs.debian.org/518859
+
+--- libtemplate-plugin-class-perl.orig/t/class.t
++++ libtemplate-plugin-class-perl/t/class.t
+@@ -1,13 +1,13 @@
+ #!perl -w
+ use strict;
+-use Test::More tests => 3;
++use Test::More tests => 2;
+ use Template;
+ my $tt = Template->new;
+ 
+ my $template = "[% USE foo=Class('Foo') %][% foo.bar %]";
+ my $out;
+ ok( $tt->process(\$template, {}, \$out), "processed ok" );
+-is( $tt->error, undef, "no error" );
++#is( $tt->error, undef, "no error" );
+ 
+ is( $out, Foo->bar, "method was called" );
+ 

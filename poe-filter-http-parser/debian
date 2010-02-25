@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhttp-parser-perl, libpoe-perl (>= 2:1.003), libtest-pod-coverage-perl, libtest-pod-perl, libtest-poe-client-tcp-perl, libtest-poe-server-tcp-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhttp-parser-perl, libpoe-perl (>= 2:1.003), libwww-perl
+X: 0

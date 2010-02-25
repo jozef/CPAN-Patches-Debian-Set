@@ -1,0 +1,14 @@
+Patch from http://rt.cpan.org/Public/Bug/Display.html?id=18960 to avoid
+a warning on calling ->running if the pidfile doesn't exist.
+
+--- a/lib/File/Pid.pm
++++ b/lib/File/Pid.pm
+@@ -119,7 +119,7 @@ C<undef> is returned.
+ 
+ sub running {
+     my $self = shift;
+-    my $pid  = $self->_get_pid_from_file;
++    my $pid  = $self->_get_pid_from_file or return undef;
+ 
+     return   kill(0, $pid)
+            ? $pid

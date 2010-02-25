@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libany-moose-perl, libdatetime-perl, liblingua-en-inflect-perl, libparams-validate-perl, libtest-pod-perl, libtext-csv-perl, liburi-perl, libwww-mechanize-perl (>= 1.52), libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl, libdatetime-perl, liblingua-en-inflect-perl, libparams-validate-perl, libtext-csv-perl, liburi-perl, libwww-mechanize-perl (>= 1.52), libwww-perl
+X: 0

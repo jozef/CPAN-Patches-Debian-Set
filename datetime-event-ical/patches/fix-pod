@@ -1,0 +1,13 @@
+fix pod2man errors
+
+--- a/lib/DateTime/Event/ICal.pm
++++ b/lib/DateTime/Event/ICal.pm
+@@ -828,6 +828,8 @@
+ 
+ =back
+ 
++=back
++
+ =head1 AUTHOR
+ 
+ Flavio Soibelmann Glock

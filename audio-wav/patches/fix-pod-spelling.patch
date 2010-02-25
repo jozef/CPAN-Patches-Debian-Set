@@ -1,0 +1,24 @@
+Description: fix POD spelling
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/Wav.pm
++++ b/Wav.pm
+@@ -47,7 +47,7 @@
+     $write -> finish();
+ 
+ 
+-    # splitting a multi-channel file to seperate mono files (slowly!);
++    # splitting a multi-channel file to separate mono files (slowly!);
+     use Audio::Wav;
+     my $read = $wav -> read( '4ch.wav' );
+     my $details = $read -> details();
+@@ -67,7 +67,7 @@
+         }
+     }
+ 
+-    # not entirely neccessary as finish is done in DESTROY now (if the file hasn't been finished already).
++    # not entirely necessary as finish is done in DESTROY now (if the file hasn't been finished already).
+     foreach my $write ( @out_files ) {
+         $write -> finish();
+     }

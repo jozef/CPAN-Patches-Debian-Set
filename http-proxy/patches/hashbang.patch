@@ -1,0 +1,25 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: add/fix hashbangs in example scripts
+
+--- a/eg/flv.pl
++++ b/eg/flv.pl
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ use strict;
+ use warnings;
+ use HTTP::Proxy;
+--- a/eg/js.pl
++++ b/eg/js.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl -w
+ use HTTP::Proxy;
+ use HTTP::Proxy::BodyFilter::save;
+ 
+--- a/eg/rfc.pl
++++ b/eg/rfc.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl -w
+ use HTTP::Proxy;
+ use HTTP::Proxy::BodyFilter::save;
+ 

@@ -1,0 +1,91 @@
+--- a/scripts/pdfbklt
++++ b/scripts/pdfbklt
+@@ -1,5 +1,36 @@
+ #!/usr/bin/perl
+ 
++=head1 NAME
++
++pdfbklt.plx - Turns documents into booklets
++
++=head1 DESCRIPTION
++
++Converts a PDF file into a booklet. It edits the pdffile to add the
++    modifications at the end.
++
++=head1 SYNOPSIS
++
++    PDFBKLT [-b num/size] [-p num] [-q] [-r] [-s size] pdffile
++
++  -b num/size    Specifies which page contains the output page size details [1]
++            or gives the dimensions of the page in pts (x;y) or A4,ltr,lgl,A5
++  -l        Flag to indicate linear scaling
++  -p num    Specifies the number of pages on the output page (1, 2, 4) [2]
++            If 4, can be 4s to flip on short edge
++  -q        Quiet (no on screen messages)
++  -r        Rotates the output (-p 2 rotates automatically, -r rotates back)
++  -s size   Specifies the the location of the actual text on a page:
++                2   half page right and left (big gutter)
++                2r  half page always on right
++                2l  half page always on left
++                4   1/4 page right and left bottom (very big gutter)
++                4t  1/4 page right and left top (very big gutter)
++                4r/4l/4rt/4lt   1/4 page always on right or left bottom or top
++                location as a single string: minx,miny,maxx,maxy in pts
++
++=cut
++
+ use Text::PDF::File;
+ use Text::PDF::Utils;
+ use Getopt::Std;
+--- a/scripts/pdfrevert
++++ b/scripts/pdfrevert
+@@ -1,5 +1,20 @@
+ #!/usr/bin/perl
+ 
++=head1 NAME
++
++pdfrevert.plx - Removes one layer of edits from a PDF file
++
++=head1 DESCRIPTION
++
++Removes one layer of changes to a PDF file, trying to maximise the
++    size of the output file (to account for linearised PDF).
++
++=head1 SYNOPSIS
++
++    PDFREVERT infile
++
++=cut
++
+ use Text::PDF::File;
+ 
+ unless (defined $ARGV[0])
+--- a/scripts/pdfstamp
++++ b/scripts/pdfstamp
+@@ -1,5 +1,26 @@
+ #!/usr/bin/perl
+ 
++=head1 NAME
++
++pdfstamp.plx - Adds the given text in a given fonts, size to all pages
++    at given location
++
++=head1 DESCRIPTION
++
++Adds the given string to the infile .pdf file at the given location,
++    font and size.
++
++=head1 SYNOPSIS
++
++    pdfstamp [-f font] [-l locx,locy] [-s size] infile string
++
++    -f font     Font name from the standard fonts [Helvetica]
++    -l locx,locy    Location in points from bottom left of page [0,0]
++    -s size     Font size to print at             [11]
++    -t ttfile   TrueType font file to use (instead of -f)
++
++=cut
++
+ use Text::PDF::File;
+ use Text::PDF::SFont;
+ use Text::PDF::Utils;

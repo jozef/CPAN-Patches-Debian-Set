@@ -1,0 +1,27 @@
+Description: Fix manpage-has-bad-whatis-entry lintian for 
+ * usr/share/man/man3/LaTeX::Driver::FilterProgram.3pm.gz 
+ * usr/share/man/man3/LaTeX::Driver::Paths.3pm.gz
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Status of the patch: First integrated in liblatex-driver-perl 0.08-1
+--- a/lib/LaTeX/Driver/FilterProgram.pm
++++ b/lib/LaTeX/Driver/FilterProgram.pm
+@@ -101,7 +101,7 @@
+ 
+ =head1 NAME
+ 
+-LaTeX::Driver::FilterProgram
++LaTeX::Driver::FilterProgram - LaTeX Driver (FilterProgram)
+ 
+ =head1 VERSION
+ 
+--- a/lib/LaTeX/Driver/Paths.pm
++++ b/lib/LaTeX/Driver/Paths.pm
+@@ -45,7 +45,7 @@
+ 
+ =head1 NAME
+ 
+-LaTeX::Driver::Paths
++LaTeX::Driver::Paths - LaTeX Driver (Paths)
+ 
+ =head1 SYNOPSIS
+ 

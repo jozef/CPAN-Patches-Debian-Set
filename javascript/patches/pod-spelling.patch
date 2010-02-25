@@ -1,0 +1,32 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: spelling mistakes
+
+--- a/lib/JavaScript.pm
++++ b/lib/JavaScript.pm
+@@ -50,7 +50,7 @@
+     return js_does_support_utf8();
+     
+ }
+-# Alias to not break backwards compability
++# Alias to not break backwards compatibility
+ *does_handle_utf8 = \&does_support_utf8;
+ 
+ sub does_support_e4x {
+@@ -125,7 +125,7 @@
+ code-reference from Perl.
+ 
+ JavaScript is a great as an embedded language because it has no I/O, no IPC and pretty much
+-anything else that can interfer with the system. It's also an easy yet powerfull language
++anything else that can interfer with the system. It's also an easy yet powerful language
+ that zillions of developers worldwide knows.
+ 
+ Note that this module is not a JavaScript compiler/interpreter written in Perl but an interface
+@@ -152,7 +152,7 @@
+ =item does_handle_utf8
+ 
+ Returns a true value if SpiderMonkey is compiled with support for UTF8 strings and if we're using it.
+-B<does_handle_utf8> is also supported for backwards compability.
++B<does_handle_utf8> is also supported for backwards compatibility.
+ 
+ =item does_support_e4x
+ 

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libautobox-perl (>= 2.23), libmoose-perl (>= 0.42), libperl6-junction-perl (>= 1.40000), libtest-exception-perl (>= 0.21), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libautobox-perl (>= 2.23), libmoose-perl (>= 0.42), libperl6-junction-perl (>= 1.40000)
+X: 0

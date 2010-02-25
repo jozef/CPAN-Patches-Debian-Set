@@ -1,0 +1,24 @@
+Author: Florian Ragwitz <rafl@debian.org>
+Description: Disable tests which require a network connection
+--- a/t/2_client_jabberd1.4.t
++++ b/t/2_client_jabberd1.4.t
+@@ -1,5 +1,7 @@
+ use lib "t/lib";
+-use Test::More tests=>5;
++use Test::More;
++
++plan skip_all => 'Disabled for the Debian build';
+ 
+ BEGIN{ use_ok( "Net::XMPP" ); }
+ 
+--- a/t/3_client_jabberd2.t
++++ b/t/3_client_jabberd2.t
+@@ -1,5 +1,7 @@
+ use lib "t/lib";
+-use Test::More tests=>5;
++use Test::More;
++
++plan skip_all => 'Disabled for the Debian build';
+ 
+ BEGIN{ use_ok( "Net::XMPP" ); }
+ 

@@ -1,0 +1,16 @@
+Only install the actual Perl module, not all the support scripts.
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -19,6 +19,11 @@
+ 	$prerequisits->{'Win32::Console'} = 0
+ 	}
+ 
++sub MY::libscan
++{
++	return $_[1] =~ /\.pm$/? $_[1]: '';
++}
++
+ WriteMakefile(
+     'NAME'		=> 'Data::TreeDumper',
+     'VERSION_FROM'	=> 'TreeDumper.pm', # finds $VERSION

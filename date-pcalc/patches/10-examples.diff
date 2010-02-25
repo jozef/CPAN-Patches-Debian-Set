@@ -1,0 +1,124 @@
+Description: Corrects perl interpreter path in examples
+Author: Ignace Mouzannar <mouzannar@gmail.com>
+Last-Update: 2009-10-12
+
+--- a/examples/age_in_days_eu.pl
++++ b/examples/age_in_days_eu.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/age_in_days_us.pl
++++ b/examples/age_in_days_us.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/anniversaries.pl
++++ b/examples/anniversaries.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/calendar.pl
++++ b/examples/calendar.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/datecalc.pl
++++ b/examples/datecalc.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/delta.pl
++++ b/examples/delta.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/holidays.pl
++++ b/examples/holidays.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/income.pl
++++ b/examples/income.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/linearcal.pl
++++ b/examples/linearcal.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/nth_weekday.pl
++++ b/examples/nth_weekday.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/time.pl
++++ b/examples/time.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/vacation.pl
++++ b/examples/vacation.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/weiberfastnacht.pl
++++ b/examples/weiberfastnacht.pl
+@@ -1,4 +1,4 @@
+-#!perl -w
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/tools/compile.pl
++++ b/tools/compile.pl
+@@ -1,4 +1,4 @@
+-#!perl
++#!/usr/bin/perl -w
+ 
+ ###############################################################################
+ ##                                                                           ##
+--- a/examples/bug.pl
++++ b/examples/bug.pl
+@@ -1,4 +1,4 @@
+-#!perl
++#!/usr/bin/perl -w
+ 
+ BEGIN { eval { require bytes; }; }
+ use strict;

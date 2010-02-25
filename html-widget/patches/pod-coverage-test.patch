@@ -1,0 +1,13 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: use a separate variable to en/disable pod coverage tests
+
+--- a/t/03podcoverage.t
++++ b/t/03podcoverage.t
+@@ -5,6 +5,6 @@
+ 
+ eval "use Test::Pod::Coverage 1.04";
+ plan skip_all => 'Test::Pod::Coverage 1.04 required' if $@;
+-plan skip_all => 'set TEST_POD to enable this test' unless $ENV{TEST_POD};
++plan skip_all => 'set TEST_POD_COVERAGE to enable this test' unless $ENV{TEST_POD_COVERAGE};
+ 
+ all_pod_coverage_ok();

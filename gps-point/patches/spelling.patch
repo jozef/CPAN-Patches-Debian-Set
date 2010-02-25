@@ -1,0 +1,25 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: spelling mistake
+Origin: vendor
+Forwarded: no
+
+--- a/lib/GPS/Point.pm
++++ b/lib/GPS/Point.pm
+@@ -583,7 +583,7 @@
+   my $new_point=$point->track($seconds); #default $point->heading
+   my $new_point=$point->track($seconds => $heading);
+ 
+-At a minimum this method requires lat and lon to be set. It might be very usefull to have speed, heading and time set although they all default to zero.
++At a minimum this method requires lat and lon to be set. It might be very useful to have speed, heading and time set although they all default to zero.
+ 
+ =cut
+ 
+@@ -606,7 +606,7 @@
+   my $point=$point->forward($dist);             #default $point->heading
+   my $point=$point->forward($dist => $heading); #meters => degrees
+ 
+-At a minimum this method requires lat and lon to be set. It might be usefull to have heading set although the default is zero.
++At a minimum this method requires lat and lon to be set. It might be useful to have heading set although the default is zero.
+ 
+ =cut
+ 

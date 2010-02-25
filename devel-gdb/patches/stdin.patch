@@ -1,0 +1,22 @@
+--- a/t/with-threads.t
++++ b/t/with-threads.t
+@@ -9,7 +9,7 @@ eval "use threads; 1" or
+ plan tests => 4 ;
+ 
+ use_ok('Devel::GDB') ;
+-my $gdb = new Devel::GDB ( '-params' => '-q' ) ;
++my $gdb = new Devel::GDB ( '-params' => '-q', '-use-tty' => '/dev/pts/123' ) ;
+ ok($gdb) ;
+ ok($gdb->{'-use-threads'}) ;
+ ok($gdb -> get( 'help')) ;
+--- a/t/without-threads.t
++++ b/t/without-threads.t
+@@ -6,7 +6,7 @@ qx/gdb -v/ or
+ plan tests => 4 ;
+ 
+ use_ok('Devel::GDB') ;
+-my $gdb = new Devel::GDB ( '-params' => '-q' ) ;
++my $gdb = new Devel::GDB ( '-params' => '-q', '-use-tty' => '/dev/pts/123' ) ;
+ ok($gdb) ;
+ ok(!$gdb->{'-use-threads'}) ;
+ ok($gdb -> get( 'help')) ;

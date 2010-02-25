@@ -1,0 +1,21 @@
+Author: Mathieu Alorent <malorent at echo.fr>
+Origin: https://lists.uni-koeln.de/pipermail/linux-fai/2009-September/007285.html
+Description: vgdisplay prints no units with 0 size allocations
+Bug-Debian: http://bugs.debian.org/551083
+Forwarded: no
+
+--- a/LVM.pm
++++ b/LVM.pm
+@@ -240,10 +240,10 @@
+             next VGINF; }
+ 
+         # Parse the number of allocated physical extents from the volume group.
+-        elsif( m/Alloc PE \/ Size\s+(\S+) \/ (\S+) (\S+)/ ) {
++        elsif( m/Alloc PE \/ Size\s+(\S+) \/ (\S+)(?:\s+(\S+))?/ ) {
+             $vghash{$vgn}->{alloc_pe} = $1;
+             $vghash{$vgn}->{alloc_pe_size} = $2;
+-            $vghash{$vgn}->{alloc_pe_size_unit} = $3; 
++            $vghash{$vgn}->{alloc_pe_size_unit} = $3 || "B";
+             next VGINF; }
+ 
+         # Parse the volume group name.

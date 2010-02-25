@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), help2man, libtest-pod-coverage-perl, libtest-pod-perl, libtidy-dev, perl, quilt (>= 0.46-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

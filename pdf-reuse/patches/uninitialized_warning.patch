@@ -1,0 +1,20 @@
+Author: Patrick Matthäi <patrick.matthaei@web.de>
+Description: avoid warnings about
+             "Use of uninitialized value $string in unpack ..."
+Bug: #506214
+             
+--- a/Reuse.pm
++++ b/Reuse.pm
+@@ -1281,8 +1281,10 @@
+   
+    if (ref($PDF::Reuse::Util::font_widths{$Font}) eq 'ARRAY')
+    {   my @font_table = @{ $PDF::Reuse::Util::font_widths{$Font} };
+-       for (unpack ("C*", $string)) 
+-       {  $w += $font_table[$_];	
++       if (defined $string) {
++           for (unpack ("C*", $string)) 
++           {  $w += $font_table[$_];	
++           }
+        }
+    }
+    else

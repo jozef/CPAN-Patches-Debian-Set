@@ -1,0 +1,70 @@
+Index: libkiokudb-perl/META.yml
+===================================================================
+--- libkiokudb-perl.orig/META.yml	2009-06-29 21:08:52.000000000 +0200
++++ libkiokudb-perl/META.yml	2009-06-29 21:09:03.000000000 +0200
+@@ -13,7 +13,7 @@
+     Data::Stream::Bulk:   0.03
+     Data::UUID::LibUUID:  0
+     Data::Visitor:        0.24
+-    Hash::Util::FieldHash::Compat:  0
++    Hash::Util::FieldHash:  0
+     IO:                   1.23
+     JSON:                 2.12
+     JSON::XS:             2.231
+Index: libkiokudb-perl/Makefile.PL
+===================================================================
+--- libkiokudb-perl.orig/Makefile.PL	2009-06-29 21:09:10.000000000 +0200
++++ libkiokudb-perl/Makefile.PL	2009-06-29 21:09:40.000000000 +0200
+@@ -49,12 +49,7 @@
+         'Data::Stream::Bulk' => "0.03",
+ 
+         # live objects
+-        'Hash::Util::FieldHash::Compat' => 0,
+-        ( eval { require Hash::Util::FieldHash } ? () : (
+-            # for 5.8 we need some specific versions of fieldhash deps
+-            'Tie::RefHash::Weak' => '0.09',
+-            'Variable::Magic'    => '0.24',
+-        )),
++        'Hash::Util::FieldHash' => 0,
+         'Scope::Guard' => 0,
+ 
+         'Set::Object' => '1.26',
+Index: libkiokudb-perl/lib/KiokuDB.pm
+===================================================================
+--- libkiokudb-perl.orig/lib/KiokuDB.pm	2009-06-29 21:10:24.000000000 +0200
++++ libkiokudb-perl/lib/KiokuDB.pm	2009-06-29 21:10:32.000000000 +0200
+@@ -16,7 +16,7 @@
+ use KiokuDB::TypeMap::Resolver;
+ use KiokuDB::Stream::Objects;
+ 
+-use Hash::Util::FieldHash::Compat qw(idhash);
++use Hash::Util::FieldHash qw(idhash);
+ use Carp qw(croak);
+ 
+ use namespace::clean -except => [qw(meta SERIAL_IDS)];
+Index: libkiokudb-perl/lib/KiokuDB/Collapser/Buffer.pm
+===================================================================
+--- libkiokudb-perl.orig/lib/KiokuDB/Collapser/Buffer.pm	2009-06-29 21:09:51.000000000 +0200
++++ libkiokudb-perl/lib/KiokuDB/Collapser/Buffer.pm	2009-06-29 21:09:57.000000000 +0200
+@@ -1,7 +1,7 @@
+ package KiokuDB::Collapser::Buffer;
+ use Moose;
+ 
+-use Hash::Util::FieldHash::Compat qw(idhash);
++use Hash::Util::FieldHash qw(idhash);
+ use Set::Object;
+ 
+ use namespace::clean -except => 'meta';
+Index: libkiokudb-perl/lib/KiokuDB/LiveObjects.pm
+===================================================================
+--- libkiokudb-perl.orig/lib/KiokuDB/LiveObjects.pm	2009-06-29 21:10:08.000000000 +0200
++++ libkiokudb-perl/lib/KiokuDB/LiveObjects.pm	2009-06-29 21:10:14.000000000 +0200
+@@ -5,7 +5,7 @@
+ 
+ use Scalar::Util qw(weaken);
+ use KiokuDB::LiveObjects::Guard;
+-use Hash::Util::FieldHash::Compat qw(fieldhash);
++use Hash::Util::FieldHash qw(fieldhash);
+ use Carp qw(croak);
+ BEGIN { local $@; eval 'use Devel::PartialDump qw(croak)' };
+ use Set::Object;
