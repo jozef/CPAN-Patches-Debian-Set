@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: libglib-perl, libextutils-depends-perl, libextutils-pkgconfig-perl, xvfb, xauth, libgtksourceview2.0-dev
+Build-Depends-Indep:
+Depends: libgtksourceview2.0-0
+X: 1
