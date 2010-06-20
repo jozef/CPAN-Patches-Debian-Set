@@ -1,0 +1,43 @@
+--- a/Password.pm
++++ b/Password.pm
+@@ -25,7 +25,9 @@ $GROUPS = 2;
+ 
+ $MINLEN = 6;
+ $MAXLEN = 8;
+-@DICTIONARIES = qw(/usr/dict/web2 /usr/dict/words /usr/share/dict/words /usr/share/dict/linux.words);
++# Modified for Debian FHS from /usr/dict/* to /usr/share/dict/*
++#@DICTIONARIES = qw(/usr/dict/web2 /usr/dict/words /usr/share/dict/words /usr/share/dict/linux.words);
++@DICTIONARIES = qw(/usr/share/dict/web2 /usr/share/dict/words /usr/share/dict/linux.words);
+ 
+ sub OpenDictionary {
+ 	foreach my $sym (@DICTIONARIES) {
+@@ -248,11 +250,11 @@ set this variable if you are using not *
+ 
+ =item *
+ 
+-/usr/dict/web2
++/usr/share/dict/web2
+ 
+ =item *
+ 
+-/usr/dict/words
++/usr/share/dict/words
+ 
+ =item *
+ 
+--- a/README
++++ b/README
+@@ -71,9 +71,11 @@ VARIABLES
+         set this variable if you are using not *NIX like operating system.
+ 
+ FILES
+-    *   /usr/dict/web2
++    (Modified for Debian FHS from /usr/dict/* to /usr/share/dict/*)
+ 
+-    *   /usr/dict/words
++    *   /usr/share/dict/web2
++
++    *   /usr/share/dict/words
+ 
+     *   /etc/passwd
+ 

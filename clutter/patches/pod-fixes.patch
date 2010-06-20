@@ -1,0 +1,49 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: fix various POD issues
+Forwarded: not-yet
+Origin: vendor
+
+--- a/xs/ClutterBackend.xs
++++ b/xs/ClutterBackend.xs
+@@ -37,7 +37,7 @@
+ Clutter can be compiled against different backends. Each backend
+ has to implement a set of functions, in order to be used by Clutter.
+ 
+-B<Clutter::Backend is the base class abstracting the various implementation;
++B<Clutter::Backend> is the base class abstracting the various implementation;
+ it provides a basic API to query the backend for generic information
+ and settings.
+ 
+--- a/xs/ClutterBehaviourDepth.xs
++++ b/xs/ClutterBehaviourDepth.xs
+@@ -20,7 +20,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-B<Clutter::Behaviour::Depth is a simple L<Clutter::Behaviour> controlling
++B<Clutter::Behaviour::Depth> is a simple L<Clutter::Behaviour> controlling
+ the depth of a set of actors between a start and end value.
+ 
+ =cut
+--- a/xs/ClutterModel.xs
++++ b/xs/ClutterModel.xs
+@@ -306,6 +306,8 @@
+ 
+ =item B<< iterator = GET_ITER_AT_ROW ($model, $position) >>
+ 
++=back
++
+ =head2 ITERATORS
+ 
+   package MyModel::Iter;
+--- a/xs/ClutterScore.xs
++++ b/xs/ClutterScore.xs
+@@ -45,7 +45,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-B<Clutter::Score is a base class for sequencing multiple timelines in order.
++B<Clutter::Score> is a base class for sequencing multiple timelines in order.
+ 
+ Using Clutter::Score it is possible to start multiple timelines at the
+ same time or launch multiple timelines when a particular timeline has

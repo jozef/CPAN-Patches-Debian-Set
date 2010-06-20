@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), libclass-methodmaker-perl, libdbi-perl, libpoe-perl
+Build-Depends-Indep: perl (>= 5.8.8)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-methodmaker-perl, libpoe-perl
+X: 0

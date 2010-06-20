@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libpar-packer-perl, libssl-dev, libtest-pod-perl, openssl, perl (>= 5.8.9), perl-doc
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

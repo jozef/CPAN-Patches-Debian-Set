@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 6), libbluetooth-dev, perl ( >=5.6.0-16), quilt
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

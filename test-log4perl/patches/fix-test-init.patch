@@ -1,0 +1,18 @@
+Author: Tim Retout <tim@retout.co.uk>
+Description: Initialize logger object in basic test.
+ This is required from Log::Log4perl 0.22 onwards.
+
+Index: libtest-log4perl-perl/t/01basic.t
+===================================================================
+--- libtest-log4perl-perl.orig/t/01basic.t	2009-08-09 16:13:57.000000000 +0100
++++ libtest-log4perl-perl/t/01basic.t	2009-08-09 16:14:15.000000000 +0100
+@@ -3,7 +3,8 @@
+ use strict;
+ use warnings;
+ 
+-use Log::Log4perl;
++use Log::Log4perl qw(:easy);
++Log::Log4perl->easy_init($DEBUG);
+ # do some setup here...honest guv
+ 
+ use Test::More tests => 9;

@@ -1,0 +1,10 @@
+--- a/lib/RunApp/Cron.pm
++++ b/lib/RunApp/Cron.pm
+@@ -1,6 +1,6 @@
+ =head1 NAME
+ 
+-RunApp::Cron
++RunApp::Cron - build and install/remove a crontab
+ 
+ =head1 DESCRIPTION
+ 

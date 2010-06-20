@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), quilt (>= 0.40)
+Build-Depends-Indep: libclass-accessor-perl (>= 0.19), perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl (>= 0.19)
+X: 0

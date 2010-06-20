@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), quilt
+Build-Depends-Indep: libtie-ixhash-perl, perl (>= 5.8.8-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libtie-ixhash-perl
+X: 0

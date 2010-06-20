@@ -1,0 +1,25 @@
+Description: Change name in POD for installed script
+ MultiMarkdown.pl as provided upstream is installed as markdown
+ (due to policy prohibiting installation of .pl files in bin).
+Author: Jonathan Yu <frequency@cpan.org>
+Forwarded: not-needed
+Origin: vendor
+--- a/script/MultiMarkdown.pl
++++ b/script/MultiMarkdown.pl
+@@ -5,14 +5,14 @@
+ 
+ =head1 NAME
+ 
+-MultiMarkdown.pl - Convert MultiMarkdown syntax to (X)HTML
++multimarkdown - Convert MultiMarkdown syntax to (X)HTML
+ 
+ =head1 DESCRIPTION
+ 
+ This program is distributed as part of Perl's Text::MultiMarkdown module,
+ illustrating sample usage.
+ 
+-MultiMarkdown.pl can be invoked on any file containing MultiMarkdown-syntax, and
++multimarkdown can be invoked on any file containing MultiMarkdown-syntax, and
+ will produce the corresponding (X)HTML on STDOUT:
+ 
+     $ cat file.txt

@@ -1,0 +1,11 @@
+--- a/lib/Net/SNPP/Server.pm
++++ b/lib/Net/SNPP/Server.pm
+@@ -12,7 +12,7 @@ $counter = 0;
+ 
+ =head1 NAME
+ 
+-Net::SNPP::Server
++Net::SNPP::Server - SNPP server library
+ 
+ =head1 DESCRIPTION
+ 

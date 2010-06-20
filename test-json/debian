@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libjson-any-perl (>= 1.20), libtest-differences-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-tester-perl (>= 0.107), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libjson-any-perl (>= 1.20), libtest-differences-perl, libtest-tester-perl (>= 0.107)
+X: 0

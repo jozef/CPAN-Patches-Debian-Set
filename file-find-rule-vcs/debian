@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libfile-find-rule-perl (>= 0.20), libpod-simple-perl (>= 3.07), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl, libtext-glob-perl (>= 0.08), perl (>= 5.005)
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-find-rule-perl (>= 0.20), libtext-glob-perl (>= 0.08)
+X: 0

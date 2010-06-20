@@ -1,0 +1,8 @@
+--- a/lib/Data/Walk.pm
++++ b/lib/Data/Walk.pm
+@@ -1,5 +1,3 @@
+-#! /bin/false
+-
+ # $Id: Walk.pm,v 1.15 2006/05/11 14:10:54 guido Exp $
+ 
+ # Traverse Perl data structures.

@@ -1,0 +1,278 @@
+Description: link to xulrunner the right way by using the insane glue code
+Author: Ryan Niebur
+the actual code part (in the BOOT: section of the xs) was stolen from
+the gnome-python-extras package, who stole it from Ubuntu. :)
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -42,17 +42,9 @@
+   exit 1; # not reached
+ }
+ 
+-# Check if Mozilla::DOM is installed. (could use an ENABLE_DOM option)
+-my $use_dom = 1;
+-unless (eval "use Mozilla::DOM '$build_reqs{'perl-Mozilla-DOM'}'; 1") {
+-  $use_dom = 0;
+-}
++my $use_dom = 0;
+ 
+-my %pkgcfg = ExtUtils::PkgConfig->find(
+-	"xulrunner-gtkmozembed >= $build_reqs{'XULRunner'}",
+-	"mozilla-gtkmozembed >= $build_reqs{'Mozilla'}",
+-	"firefox-gtkmozembed >= $build_reqs{'Firefox'}",
+-	"mozilla-firefox-gtkmozembed >= $build_reqs{'Firefox'}");
++my %pkgcfg = ExtUtils::PkgConfig->find("mozilla-gtkmozembed-embedding >= $build_reqs{'XULRunner'}");
+ 
+ mkdir 'build', 0777;
+ 
+@@ -81,6 +73,8 @@
+ 	      . qq("\\"/usr/lib/xulrunner-$1\\"" );
+ }
+ 
++$libs .= " -lstdc++ ";
++
+ my $mozembed = ExtUtils::Depends->new('Gtk2::MozEmbed', 'Gtk2',
+                                       ($use_dom ? ('Mozilla::DOM') : ()));
+ 
+@@ -107,7 +101,7 @@
+   XSPROTOARG    => '-noprototypes',
+   MAN3PODS      => \%pod_files,
+ 
+-  ($use_dom ? (CC => 'c++', XSOPT => '-C++') : ()),
++  CC => 'c++', XSOPT => '-C++',
+ 
+   $mozembed->get_makefile_vars,
+ 
+--- a/xs/GtkMozEmbed.xs
++++ b/xs/GtkMozEmbed.xs
+@@ -20,6 +20,7 @@
+ 
+ #include "gtkmozembed2perl.h"
+ #include "gperl_marshal.h"
++#include "gtkmozembed_glue.cpp"
+ 
+ /* ------------------------------------------------------------------------- */
+ 
+@@ -134,143 +135,50 @@
+ 
+ /* gint (* dom_key_press) (GtkMozEmbed *embed, gpointer dom_event); */
+ 
+-#ifdef __cplusplus  /* implies Mozilla::DOM is installed */
+-
+-static void
+-gtk2perl_moz_embed_dom_key_marshal (GClosure *closure,
+-                                    GValue *return_value,
+-                                    guint n_param_values,
+-                                    const GValue *param_values,
+-                                    gpointer invocation_hint,
+-                                    gpointer marshal_data)
+-{
+-	dGPERL_CLOSURE_MARSHAL_ARGS;
+-
+-	GPERL_CLOSURE_MARSHAL_INIT (closure, marshal_data);
+-
+-	ENTER;
+-	SAVETMPS;
+-
+-	PUSHMARK (SP);
+-
+-	GPERL_CLOSURE_MARSHAL_PUSH_INSTANCE (param_values);
+-
+-	/* param_values + 1 is the `gpointer dom_event' */
+-	XPUSHs (sv_2mortal (newSVnsIDOMKeyEvent ((nsIDOMKeyEvent *)
+-                              g_value_get_pointer (param_values + 1))));
+-
+-
+-	GPERL_CLOSURE_MARSHAL_PUSH_DATA;
+-
+-	PUTBACK;
+-
+-	GPERL_CLOSURE_MARSHAL_CALL (G_SCALAR);
+-
+-	SPAGAIN;
+-
+-	if (count != 1)
+-		croak ("signal handlers for `dom_key_*' are supposed to "
+-		       "return an integer");
+-
+-	gperl_value_from_sv (return_value, POPs);
+-
+-	PUTBACK;
+-
+-	FREETMPS;
+-	LEAVE;
+-}
+-
+-static void
+-gtk2perl_moz_embed_dom_mouse_marshal (GClosure *closure,
+-                                      GValue *return_value,
+-                                      guint n_param_values,
+-                                      const GValue *param_values,
+-                                      gpointer invocation_hint,
+-                                      gpointer marshal_data)
+-{
+-	dGPERL_CLOSURE_MARSHAL_ARGS;
+-
+-	GPERL_CLOSURE_MARSHAL_INIT (closure, marshal_data);
+-
+-	ENTER;
+-	SAVETMPS;
+-
+-	PUSHMARK (SP);
+-
+-	GPERL_CLOSURE_MARSHAL_PUSH_INSTANCE (param_values);
+-
+-	/* param_values + 1 is the `gpointer dom_event' */
+-	XPUSHs (sv_2mortal (newSVnsIDOMMouseEvent ((nsIDOMMouseEvent *)
+-                              g_value_get_pointer (param_values + 1))));
+-
+-
+-	GPERL_CLOSURE_MARSHAL_PUSH_DATA;
+-
+-	PUTBACK;
+-
+-	GPERL_CLOSURE_MARSHAL_CALL (G_SCALAR);
+-
+-	SPAGAIN;
+-
+-	if (count != 1)
+-		croak ("signal handlers for `dom_mouse_*' are supposed to "
+-		       "return an integer");
+-
+-	gperl_value_from_sv (return_value, POPs);
+-
+-	PUTBACK;
+-
+-	FREETMPS;
+-	LEAVE;
+-}
+-
+-#endif   /* ifdef __cplusplus */
+-
+ /* ------------------------------------------------------------------------- */
+ 
+ MODULE = Gtk2::MozEmbed	PACKAGE = Gtk2::MozEmbed	PREFIX = gtk_moz_embed_
+ 
+ BOOT:
+-#include "register.xsh"
+-#include "boot.xsh"
+-#ifdef GTK_MOZ_EMBED_PERL_XULRUNNER_PATH
+-	gtk_moz_embed_set_path (GTK_MOZ_EMBED_PERL_XULRUNNER_PATH);
+-#endif /* GTK_MOZ_EMBED_PERL_XULRUNNER_PATH */
++
++     /* copied from the gnome-python-extras package's patch */
++     static const GREVersionRange greVersion = {
++     "1.9.1", PR_TRUE,
++     "1.9.2", PR_FALSE
++     };
++     char xpcomLocation[4096];
++     nsresult rv = GRE_GetGREPathWithProperties(&greVersion, 1, nsnull, 0, xpcomLocation, 4096);
++     if (NS_FAILED(rv)) {
++       croak("failed 1");
++     };
++
++     // Startup the XPCOM Glue that links us up with XPCOM.
++     XPCOMGlueStartup(xpcomLocation);
++     if (NS_FAILED(rv)) {
++         croak("failed 2");
++     }
++
++     rv = GTKEmbedGlueStartup();
++     if (NS_FAILED(rv)) {
++         croak("failed 3");
++     }
++
++     /* gtk_moz_embed_set_comp_path(xpcomLocation); */
++
++     char *lastSlash = strrchr(xpcomLocation, '/');
++     if (lastSlash)
++       *lastSlash = '\0';
++
++     gtk_moz_embed_set_path(xpcomLocation);
++
+ 	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+ 	                                 "new_window",
+ 	                                 gtk2perl_moz_embed_new_window_marshal);
+ 	/* gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED_SINGLE,
+ 	                                 "new_window_orphan",
+ 	                                 gtk2perl_moz_embed_new_window_marshal); */
+-#ifdef __cplusplus
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_key_down",
+-	                                 gtk2perl_moz_embed_dom_key_marshal);
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_key_press",
+-	                                 gtk2perl_moz_embed_dom_key_marshal);
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_key_up",
+-	                                 gtk2perl_moz_embed_dom_key_marshal);
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_mouse_down",
+-	                                 gtk2perl_moz_embed_dom_mouse_marshal);
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_mouse_up",
+-	                                 gtk2perl_moz_embed_dom_mouse_marshal);
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_mouse_click",
+-	                                 gtk2perl_moz_embed_dom_mouse_marshal);
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_mouse_dbl_click",
+-	                                 gtk2perl_moz_embed_dom_mouse_marshal);
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_mouse_over",
+-	                                 gtk2perl_moz_embed_dom_mouse_marshal);
+-	gperl_signal_set_marshaller_for (GTK_TYPE_MOZ_EMBED,
+-	                                 "dom_mouse_out",
+-	                                 gtk2perl_moz_embed_dom_mouse_marshal);
+-#endif  /* ifdef __cplusplus */
++#include "register.xsh"
++#include "boot.xsh"
+ 
+ =for object Gtk2::MozEmbed::main
+ 
+@@ -539,31 +447,6 @@
+     OUTPUT:
+ 	RETVAL
+ 
+-#ifdef __cplusplus   /* implies Mozilla::DOM is installed */
+-
+-=for apidoc
+-
+-This method gets the nsIWebBrowser for this window.
+-It is only available if Mozilla::DOM was installed
+-before building Gtk2::MozEmbed.
+-
+-Note: it seems that this will return NULL before you've called `show_all'
+-on your Gtk2::Window object, so check if this returns undef.
+-
+-=cut
+-##  void gtk_moz_embed_get_nsIWebBrowser (GtkMozEmbed *embed, nsIWebBrowser **retval)
+-nsIWebBrowser *
+-gtk_moz_embed_get_nsIWebBrowser (embed)
+-	GtkMozEmbed *embed
+-    PREINIT:
+-	nsIWebBrowser *browser;
+-    CODE:
+-	gtk_moz_embed_get_nsIWebBrowser (embed, &browser);
+-	RETVAL = browser;
+-    OUTPUT:
+-	RETVAL
+-
+-#endif
+ 
+ # --------------------------------------------------------------------------- #
+ 
+--- a/gtkmozembed2perl.h
++++ b/gtkmozembed2perl.h
+@@ -33,11 +33,6 @@
+ 
+ #include <gtkmozembed.h>
+ 
+-#ifdef __cplusplus /* implies Mozilla::DOM is installed */
+-#include <gtkmozembed_internal.h>
+-#include <mozilladom2perl.h>
+-#endif
+-
+ #include "gtkmozembed2perl-version.h"
+ 
+ #if 1 /* FIXME: !GTK_MOZ_EMBED_CHECK_VERSION (x, y, z) */

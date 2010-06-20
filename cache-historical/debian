@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdbd-sqlite3-perl (>= 1.14), libdbi-perl, liblog-log4perl-perl, librose-db-object-perl (>= 1:0.785), librose-db-perl (>= 0.756), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbd-sqlite3-perl (>= 1.14), libdbi-perl, liblog-log4perl-perl, librose-db-object-perl (>= 1:0.785), librose-db-perl (>= 0.756)
+X: 0

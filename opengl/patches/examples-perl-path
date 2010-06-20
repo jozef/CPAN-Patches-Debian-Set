@@ -1,0 +1,130 @@
+fix path to perl
+
+--- a/examples/clip
++++ b/examples/clip
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #     clip
+ #
+--- a/examples/cube
++++ b/examples/cube
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #       cube
+ #
+--- a/examples/depth
++++ b/examples/depth
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #         depth
+ #
+--- a/examples/double
++++ b/examples/double
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #           double
+ #
+--- a/examples/fun
++++ b/examples/fun
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl 
++#!/usr/bin/perl
+ #
+ #       object oriented programming example
+ #
+--- a/examples/glu_test
++++ b/examples/glu_test
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #       glu_test
+ #
+--- a/examples/light
++++ b/examples/light
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #          light
+ #
+--- a/examples/plane
++++ b/examples/plane
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #           plane
+ # This program demonstrates the use of local versus 
+--- a/examples/quest
++++ b/examples/quest
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl 
++#!/usr/bin/perl
+ 
+ # simple maze thingy
+ 
+--- a/examples/simple
++++ b/examples/simple
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # simple example taken from listing 1-1 (or 1-2) from OpenGL book
+ #
+--- a/examples/smooth
++++ b/examples/smooth
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #            smooth
+ #
+--- a/examples/texhack
++++ b/examples/texhack
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #          texhack
+ #
+--- a/examples/texture
++++ b/examples/texture
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ #          texture
+ #
+--- a/examples/tk_demo
++++ b/examples/tk_demo
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl 
++#!/usr/bin/perl
+ #
+ # This is an example of combining the tk module and opengl
+ # You have to have TK installed for this to work.
+--- a/examples/tk_steal
++++ b/examples/tk_steal
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl 
++#!/usr/bin/perl
+ #
+ # This is an example of combining the tk module and opengl
+ # You have to have TK installed for this to work.
+--- a/examples/try
++++ b/examples/try
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ #
+ # simple example that opens up a window then goes into interpretor mode
+ #

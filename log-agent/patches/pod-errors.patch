@@ -1,0 +1,35 @@
+Subject: Fix POD errors
+Date: Thu, 23 Jul 2009 13:42:24 +0200
+From: Ansgar Burchardt <ansgar@43-1.org>
+
+This patch fixes the following POD errors:
+
+  Log::Agent::Driver::Default:
+  Around line 194:
+    You forgot a ’=back’ before ’=head1’
+
+  Log::Agent::Driver::Fork:
+  Around line 322:
+    You forgot a ’=back’ before ’=head1’
+--- liblog-agent-perl.orig/Agent/Driver/Default.pm
++++ liblog-agent-perl/Agent/Driver/Default.pm
+@@ -191,6 +191,8 @@
+ $prefix. When no prefix is configured, the first letter of each logged
+ string will be uppercased.
+ 
++=back
++
+ =head1 CHANNELS
+ 
+ The C<error>, C<output> and C<debug> channels all go to STDERR.
+--- liblog-agent-perl.orig/Agent/Driver/Fork.pm
++++ liblog-agent-perl/Agent/Driver/Fork.pm
+@@ -319,6 +319,8 @@
+ distributes them to the drivers in @drivers.  The arguments must be the return
+ value of the make() call for the client drivers.
+ 
++=back
++
+ =head1 NOTES
+ 
+ Many thanks go to Daniel Lundin and Jason May who proposed this module

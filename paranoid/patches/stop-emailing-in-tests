@@ -1,0 +1,15 @@
+don't email us during the tests
+
+--- a/t/10_log_email.t
++++ b/t/10_log_email.t
+@@ -14,9 +14,7 @@
+ my $rv;
+ 
+ SKIP: {
+-    skip( 'Net::SMTP not found', 14 )
+-        unless loadModule('Paranoid::Log::Email')
+-            and exists $ENV{USER};
++    skip( 'Not running mailing tests', 14 );
+ 
+     # Bad mailhost, should fail
+     ok( enableFacility(

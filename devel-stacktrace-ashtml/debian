@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdevel-stacktrace-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-stacktrace-perl
+X: 0

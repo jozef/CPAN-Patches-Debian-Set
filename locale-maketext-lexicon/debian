@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liblocale-maketext-perl, libppi-perl (>= 1.203), libtemplate-perl, libtest-pod-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblocale-maketext-perl
+X: 0

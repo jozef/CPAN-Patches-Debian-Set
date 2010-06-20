@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libcontextual-return-perl, libdevel-symdump-perl, libperl-minimumversion-perl (>= 1.20), libtest-cpan-meta-perl (>= 0.12), libtest-exception-perl (>= 0.25), libtest-minimumversion-perl (>= 0.008), libtest-pod-perl (>= 1.26), libtest-simple-perl (>= 0.78), perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-symdump-perl, libtest-exception-perl (>= 0.25), libtest-simple-perl (>= 0.78)
+X: 0

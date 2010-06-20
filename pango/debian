@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libcairo-perl (>= 1.000), libextutils-depends-perl (>= 0.300), libextutils-pkgconfig-perl, libglib-perl (>= 1:1.220), libpango1.0-dev, perl, quilt, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libcairo-perl (>= 1.000), libglib-perl (>= 1.220)
+X: 1

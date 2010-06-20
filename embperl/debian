@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: apache2-mpm-prefork, apache2-prefork-dev, debhelper (>= 5), libapache-sessionx-perl, libapache2-mod-perl2, libwww-perl, libxslt1-dev, netbase, perl, quilt
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libwww-perl
+X: 0

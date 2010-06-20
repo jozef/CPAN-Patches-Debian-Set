@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), quilt (>= 0.40)
+Build-Depends-Indep: libclass-inner-perl, libdevel-symdump-perl, liberror-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-inner-perl, libdevel-symdump-perl, liberror-perl
+X: 0

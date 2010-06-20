@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libasa-perl, libsub-exporter-perl, libtest-use-ok-perl, perl, uuid-dev
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libasa-perl, libsub-exporter-perl
+X: 0

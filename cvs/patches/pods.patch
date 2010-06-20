@@ -1,0 +1,14 @@
+Author: Ivo Marino <eim@mentors.debian.net>
+Description: Defined MAN3PODS in order to build only the Cvs man page.
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -17,4 +17,8 @@ WriteMakefile
+         'Cwd'             => '2.04',
+     },
+     AUTHOR          => 'Olivier Poitrey <rs@rhapsodyk.net>',
++    MAN3PODS        =>
++    {
++        'lib/Cvs.pm' => 'blib/man3/Cvs.3pm',
++    },
+ );

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdbd-pg-perl (>= 1.49), libdbi-perl (>= 1.49), libmodule-signature-perl (>= 0.50), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbi-perl (>= 1.49)
+X: 0

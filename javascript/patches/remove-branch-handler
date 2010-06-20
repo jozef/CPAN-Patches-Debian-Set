@@ -1,0 +1,149 @@
+Description: Remove branch handling broken by Xulrunner API changes.
+Author: Tim Retout <tim@retout.co.uk>
+Bug-Debian: http://bugs.debian.org/551251
+
+--- a/JavaScript.xs
++++ b/JavaScript.xs
+@@ -153,6 +153,7 @@
+     CODE:
+         JS_SetVersion(PJS_GetJSContext(cx), JS_StringToVersion(version));
+         
++#if 0
+ void
+ jsc_set_branch_handler(cx, handler)
+     JavaScript::Context cx;
+@@ -176,6 +177,8 @@
+             JS_SetBranchCallback(PJS_GetJSContext(cx), PJS_branch_handler);
+         }
+ 
++#endif
++
+ void
+ jsc_bind_function(cx, name, callback)
+     JavaScript::Context cx;
+--- a/lib/JavaScript/Context.pm
++++ b/lib/JavaScript/Context.pm
+@@ -304,14 +304,6 @@
+     jsc_unbind_value($self, $parent, $name);
+ }
+ 
+-sub set_branch_handler {
+-    my ($self, $handler) = @_;
+-
+-    $handler = _resolve_method($handler, 1);
+-
+-    jsc_set_branch_handler($self, $handler);
+-}
+-
+ sub compile {
+     my $self = shift;
+     my $source = shift;
+@@ -551,14 +543,6 @@
+ 
+ Returns the C<JavaScript::Context>-object associated with a given native context.
+ 
+-=item set_branch_handler ( $handler )
+-
+-Attaches an branch callback handler (a function that is called when a branch is performed) to the context. The argument I<$handler> may be a code-reference or the name of a subroutine.
+-
+-To remove the handler call this method with an undefined argument.
+-
+-The handler is called when a script branches backwards during execution, when a function returns and the end of the script. To continue execution the handler must return a true value. To abort execution either throw an exception or return a false value.
+-
+ =item get_version ( )
+ 
+ Returns the runtime version of the context as a string, for exmaple C<1.7> or or C<ECMAv3>.
+@@ -662,10 +646,6 @@
+ 
+ Removes a new named property in I<parent>.
+ 
+-=item jsc_set_branch_handler ( PJS_Context *context, SV *handler )
+-
+-Attaches a branch handler to the context. No check is made to see if I<handler> is a valid SVt_PVCV.
+-
+ =item jsc_get_version ( PJS_Context *context )
+ 
+ Returns the version of the context as a string, for example "1.7"
+--- a/t/21-branch-handler.t
++++ /dev/null
+@@ -1,30 +0,0 @@
+-#!perl
+-
+-use Test::More tests => 3;
+-
+-use strict;
+-use warnings;
+-
+-use JavaScript;
+-
+-my $called = 0;
+-sub branch_handler {
+-    $called++;
+-    return 1;
+-}
+-
+-my $rt1 = JavaScript::Runtime->new();
+-my $cx1 = $rt1->create_context();
+-
+-$cx1->eval("for(i = 0; i < 10; i++) {}");
+-is($called, 0);
+-
+-$cx1->set_branch_handler(\&branch_handler);
+-$cx1->eval("for(i = 0; i < 10; i++) {}");
+-is($called, 10);
+-
+-$cx1->set_branch_handler(undef);
+-$called = 0;
+-$cx1->eval("for(i = 0; i < 10; i++) {}");
+-is($called, 0);
+-
+--- a/PJS_Context.h
++++ b/PJS_Context.h
+@@ -35,9 +35,6 @@
+     PJS_Context *next;      /* Pointer to the next created context */
+     PJS_Runtime *rt;
+ 
+-    /* Set to a SVt_PVCV if we have an branch handler */
+-    SV *branch_handler;
+-    
+     /* Flags */
+     U32 flags;
+ };
+@@ -69,9 +66,6 @@
+ PJS_EXTERN PJS_Context *
+ PJS_CreateContext(PJS_Runtime *runtime);
+ 
+-PJS_EXTERN JSBool
+-PJS_branch_handler(JSContext *, JSScript *);
+-
+ /*! @functiongroup Querying contexts */
+ 
+ /*! @function PJS_GetFunctionByName
+--- a/MANIFEST
++++ b/MANIFEST
+@@ -75,7 +75,6 @@
+ t/18-interrupt-handler.t
+ t/19-engine-version.t
+ t/20-bind-class.t
+-t/21-branch-handler.t
+ t/22-string-attributes.t
+ t/23-unicode.t
+ t/24-c-level-interrupt-handler.t
+--- a/PJS_Context.c
++++ b/PJS_Context.c
+@@ -198,6 +198,7 @@
+     return function;
+ }
+ 
++#if 0
+ /* Called by context when a branch occurs */
+ JSBool PJS_branch_handler(JSContext *cx, JSScript *script) {
+     dSP;
+@@ -238,6 +239,7 @@
+ 
+     return status;
+ }
++#endif
+ 
+ /*JSContext *
+ PJS_GetJSContext(PJS_Context *fromContext) {

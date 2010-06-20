@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libexception-class-perl, libmodule-build-perl, libtest-pod-coverage-perl (>= 1.08), libtest-pod-perl (>= 1.22)
+Build-Depends-Indep: perl (>= 5.005)
+Depends: ${misc:Depends}, libexception-class-perl (>= 1.2), perl (>= 5.005)
+X: 0

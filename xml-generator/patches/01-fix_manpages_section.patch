@@ -1,0 +1,12 @@
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -5,7 +5,7 @@ WriteMakefile(
+     'NAME'	=> 'XML::Generator',
+     'PM'	=> { 'Generator.pm' => '$(INST_LIBDIR)/Generator.pm',
+ 		     'DOM.pm'       => '$(INST_LIBDIR)/Generator/DOM.pm' },
+-    'MAN3PODS'  => { 'Generator.pm' => '$(INST_MAN3DIR)/XML::Generator.3',
+-		     'DOM.pm'       => '$(INST_MAN3DIR)/XML::Generator::DOM.3' },
++    'MAN3PODS'  => { 'Generator.pm' => '$(INST_MAN3DIR)/XML::Generator.3pm',
++		     'DOM.pm'       => '$(INST_MAN3DIR)/XML::Generator::DOM.3pm' },
+     'VERSION_FROM' => 'Generator.pm', # finds $VERSION
+ );

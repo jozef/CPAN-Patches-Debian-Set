@@ -1,0 +1,25 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: fix spelling errors in POD
+Origin: vendor
+Forwarded: no
+
+--- a/SAX/Intro.pod
++++ b/SAX/Intro.pod
+@@ -82,7 +82,7 @@
+ 
+ SAX works very similarly to XML::Parser's default callback method,
+ except it has one major difference: rather than setting individual
+-callbacks, you create a new class in which to recieve the callbacks.
++callbacks, you create a new class in which to receive the callbacks.
+ Each callback is called as a method call on an instance of that handler
+ class. An example will best demonstrate this:
+ 
+@@ -242,7 +242,7 @@
+ 
+ =head2 characters
+ 
+-The characters callback may be called in serveral circumstances. The
++The characters callback may be called in several circumstances. The
+ most obvious one is when seeing ordinary character data in the markup.
+ But it is also called for text in a CDATA section, and is also called
+ in other situations. A SAX parser has to make no guarantees whatsoever

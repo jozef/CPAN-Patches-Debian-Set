@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liblingua-en-inflect-perl, perl (>= 5.8.3)
+Depends: ${misc:Depends}, ${perl:Depends}, liblingua-en-inflect-perl
+X: 0

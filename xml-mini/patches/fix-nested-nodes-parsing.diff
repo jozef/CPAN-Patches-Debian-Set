@@ -1,0 +1,18 @@
+Description: Fix nested node parsing
+Origin: vendor, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=292987#8
+Bug-Debian: http://bugs.debian.org/292987
+Author: Raphaël Hertzog <hertzog@debian.org>
+
+--- a/lib/XML/Mini/Document.pm
++++ b/lib/XML/Mini/Document.pm
+@@ -532,7 +532,9 @@ sub fromSubStringBT {
+ 	} else {
+ 	
+ 		$XMLString =~ s/>\s*\n/>/gsm;
+-		if ($XMLString =~ m/^\s*<\s*([^\s>]+)([^>]*>).*<\s*\/\1\s*>/osm)
++		# Removed the "m" switch here otherwise having text lines
++		# before the first tag was causing an infinite loop
++		if ($XMLString =~ m/^\s*<\s*([^\s>]+)([^>]*>).*<\s*\/\1\s*>/os)
+ 		{
+ 			# starts with a normal <tag> ... </tag> but has some ?? in it
+ 			

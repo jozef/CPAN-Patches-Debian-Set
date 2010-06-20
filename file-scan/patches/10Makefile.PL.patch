@@ -1,0 +1,45 @@
+Author: Florian Ragwitz <florian@mookooh.org>
+Description: Seperate virus-definitions from Scan.pm
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -10,6 +10,7 @@ my $bufflen = 1024;
+ my $min_txt_size = 0;
+ my $signs = "files/signatures.txt";
+ my $susp = "files/suspicious.txt";
++my $data_path = "/var/lib/libfile-scan-perl/";
+ 
+ my @html_scripting = ("HTMLVBS", "HTMLJS");
+ my $script_lang = {
+@@ -74,6 +75,7 @@ WriteMakefile(
+ 	'DISTNAME'     => 'File-Scan',
+ 	'VERSION_FROM' => 'Scan.pm', # finds $VERSION
+ 	'PREREQ_PM'    => {}, # e.g., Module::Name => 1.1
++	'clean'        => { 'FILES' => "Scan.pm virus-definitions.pm" },
+ 	'dist'         => { 'COMPRESS' => 'gzip -9f', 'SUFFIX' => 'gz', },
+ 	@ppd,
+ );
+@@ -140,13 +142,23 @@ sub make_module {
+ 	open(PMFILE, ">Scan.pm") or die("Can't open Scan.pm: $!");
+ 	while(<BASEFILE>) {
+ 		s/\$min_txt_size/$min_txt_size/;
++		s/\@data_path\@/$data_path/;
+ 		print PMFILE $_;
+ 		if(/^__DATA__/) {
+-			print PMFILE $code;
++			print PMFILE <<DEBIAN;
++This version of File::Scan has been modified for the Debian GNU/Linux
++distribution. The virus definitions have been moved $data_path.
++See README.Debian for details.
++DEBIAN
+ 		}
+ 	}
+ 	close(PMFILE);
+ 	close(BASEFILE);
++
++	open(DATAFILE, ">virus-definitions.pm") or die("Can't open virus-definitions.pm: $!");
++	print DATAFILE $code;
++	print DATAFILE "1;";
++	close(DATAFILE);
+ }
+ 
+ sub get_code {

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libnet-ipv6addr-perl, libnet-netmask-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-ipv6addr-perl, libnet-netmask-perl
+X: 0

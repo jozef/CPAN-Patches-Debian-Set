@@ -1,0 +1,19 @@
+Author: Niko Tyni <ntyni@iki.fi>
+Description: Fix segfault when fetchrow() is called again after it has
+returned an empty list once. (#317453)
+If there is a reason upstream has commented out the check
+for an active handle, he's not telling it. (CPAN #16451)
+--- a/dbdimp.c
++++ b/dbdimp.c
+@@ -473,11 +473,9 @@ sqlite2_st_fetch (SV *sth, imp_sth_t *im
+     /* warn("current_entry == %d\nnumFields == %d\nnrow == %d",
+         current_entry, numFields, imp_sth->nrow); */
+ 
+-    /*
+     if (!DBIc_ACTIVE(imp_sth)) {
+         return Nullav;
+     }
+-    */
+     
+     if ((imp_sth->retval == SQLITE_DONE) || (imp_sth->retval == SQLITE_ERROR)) {
+         sqlite2_st_finish(sth, imp_sth);

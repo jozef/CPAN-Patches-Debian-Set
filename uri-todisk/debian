@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libclone-perl (>= 0.21), libparams-util-perl, libtest-minimumversion-perl, libtest-pod-perl, liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclone-perl (>= 0.21), libparams-util-perl, liburi-perl
+X: 0

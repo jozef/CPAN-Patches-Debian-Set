@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libtest-longstring-perl, libtest-pod-coverage-perl, libtest-pod-perl, libxml-libxml-perl (>= 1.70~), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtest-longstring-perl, libxml-libxml-perl
+X: 0

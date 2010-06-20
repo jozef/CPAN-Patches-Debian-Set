@@ -1,0 +1,23 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: fix pod error
+
+--- a/lib/Biblio/Citation/Parser/Citebase.pm
++++ b/lib/Biblio/Citation/Parser/Citebase.pm
+@@ -63,6 +63,8 @@
+ 
+ =pod
+ 
++=over
++
+ =item $p = new Biblio::Citation::Parser::Citebase([$citation],[$source_identifier]);
+ 
+ Create a new citation parser, optionally parsing $citation with $source_identifier. If a citation is given the return blessed hash will contain the structured data.
+@@ -105,6 +107,8 @@
+ 
+ Parses a string, $citation, and returns a blessed hash of the structured data.
+ 
++=back
++
+ =cut
+ 
+ # This is a very nasty hack to allow this method

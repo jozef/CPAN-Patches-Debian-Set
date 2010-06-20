@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 6), perl (>= 5.10.0) | libmodule-build-perl (>= 0.2805)
+Build-Depends-Indep: libsvn-notify-perl (>= 2.70), libyaml-perl (>= 0.62), perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libsvn-notify-perl (>= 2.70), libyaml-perl (>= 0.62)
+X: 0

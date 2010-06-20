@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt
+Build-Depends-Indep: perl (>= 5.10) | libio-compress-perl | libcompress-zlib-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcompress-zlib-perl, ttf-dejavu
+X: 0

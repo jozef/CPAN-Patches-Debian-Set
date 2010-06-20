@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmoose-perl, libnamespace-clean-perl (>= 0.08), libsub-exporter-perl, libtest-use-ok-perl, libtest-warn-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libnamespace-clean-perl (>= 0.08), libsub-exporter-perl
+X: 0

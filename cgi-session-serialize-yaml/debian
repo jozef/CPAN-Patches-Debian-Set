@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcgi-session-perl (>= 4.30), libtest-pod-perl, libyaml-perl, libyaml-syck-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-session-perl (>= 4.30), libyaml-syck-perl | libyaml-perl
+X: 0

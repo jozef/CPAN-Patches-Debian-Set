@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmodule-build-perl
+Build-Depends-Indep: libarchive-zip-perl (>= 1.07), libfile-mmagic-perl (>= 1.27), libmime-types-perl (>= 1.16), libmodule-find-perl (>= 0.05), libtest-pod-coverage-perl, libtest-pod-perl, libtest-warn-perl, perl (>= 5.10)
+Depends: ${misc:Depends}, ${perl:Depends}, libarchive-zip-perl (>= 1.07), libfile-mmagic-perl (>= 1.27), libmime-types-perl (>= 1.16), libmodule-find-perl (>= 0.05), perl (>= 5.10)
+X: 0

@@ -1,0 +1,19 @@
+Description: Disable PodSpelling tests
+ If File::Which, Text::ParseWords, Pod::Spell, aspell and aspell's
+ English dictionary are installed, then the PodSpelling policy causes
+ test failures.
+Origin: vendor
+Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=538116
+Author: Jonathan Yu <frequency@cpan.org>
+--- a/t/01perlcritic.t
++++ b/t/01perlcritic.t
+@@ -18,7 +18,8 @@
+             $format .= "%p\n%d\n";
+         }
+         require Test::Perl::Critic;
+-        Test::Perl::Critic->import( -format => $format, -severity => 1 );
++        Test::Perl::Critic->import( -format => $format, -severity => 1,
++          -exclude => ['PodSpelling'] );
+     };
+     if ($EVAL_ERROR) {
+         plan skip_all =>

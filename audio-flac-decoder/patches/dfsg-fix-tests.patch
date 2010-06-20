@@ -1,0 +1,37 @@
+Author: Riku Voipio <riku.voipio@iki.fi>
+Description: Adjust tests to match new dfsg test.flac.
+Bug-Debian: http://bugs.debian.org/501301
+
+--- libaudio-flac-decoder-perl-0.3.dfsg.orig/t/decoder.t
++++ libaudio-flac-decoder-perl-0.3.dfsg/t/decoder.t
+@@ -13,14 +13,14 @@
+ my $buffer;
+ ok($flac->sysread($buffer));
+ ok($flac->bits_per_sample == 16);
+-ok($flac->channels == 2);
+-ok($flac->sample_rate == 44100);
++ok($flac->channels == 1);
++ok($flac->sample_rate == 8000);
+ 
+ #ok($flac->raw_total);
+ #ok($flac->pcm_total);
+ #ok($flac->time_total);
+ 
+-ok($flac->raw_tell(), 14403);
++ok($flac->raw_tell(), 10800);
+ 
+ #ok($flac->time_tell);
+ 
+@@ -31,10 +31,10 @@
+ # seek 5 seconds in.
+ # Windows seems to be off by 1 byte. Why?
+ if ($^O !~ /win32/i) {
+-	ok($flac->time_seek(5), 437488);
++	ok($flac->time_seek(4), 10800);
+ 
+ 	# XXX - should check time_tell
+-	ok($flac->raw_tell(), 437488);
++	ok($flac->raw_tell(), 142501);
+ }
+ 
+ # test opening from a glob

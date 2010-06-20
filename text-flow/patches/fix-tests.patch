@@ -1,0 +1,78 @@
+Description: patches pass a parameter to no_plan
+ Test::More's no_plan doesn't require parameters, and warns
+ if it receives any
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/t/010_basic_ascii_word_wrap.t
++++ b/t/010_basic_ascii_word_wrap.t
+@@ -3,7 +3,7 @@
+ use strict;
+ use warnings;
+ 
+-use Test::More no_plan => 1;
++use Test::More 'no_plan';
+ use Test::LongString;
+ 
+ BEGIN {
+@@ -109,4 +109,4 @@
+ 
+ 
+ __DATA__
+-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis lobortis nisl in ante. Vestibulum dignissim facilisis turpis. Nunc rutrum sapien sed eros. Donec facilisis placerat dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean convallis, urna eget mattis accumsan, dolor augue condimentum est, id aliquam pede eros eget metus. Proin felis. Nam hendrerit velit et lorem. Nulla ac mauris in nibh ornare porta. Fusce sodales porta orci. Aenean dolor. Proin nec ligula non eros tristique interdum. Sed aliquet ipsum vel leo. Cras a urna vel tortor molestie tincidunt. Aenean risus. Quisque luctus ipsum sit amet massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam lacus mauris, sagittis volutpat, rutrum eget, commodo non, elit.
+\ No newline at end of file
++Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis lobortis nisl in ante. Vestibulum dignissim facilisis turpis. Nunc rutrum sapien sed eros. Donec facilisis placerat dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean convallis, urna eget mattis accumsan, dolor augue condimentum est, id aliquam pede eros eget metus. Proin felis. Nam hendrerit velit et lorem. Nulla ac mauris in nibh ornare porta. Fusce sodales porta orci. Aenean dolor. Proin nec ligula non eros tristique interdum. Sed aliquet ipsum vel leo. Cras a urna vel tortor molestie tincidunt. Aenean risus. Quisque luctus ipsum sit amet massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam lacus mauris, sagittis volutpat, rutrum eget, commodo non, elit.
+--- a/t/011_ascii_word_wrap_w_para.t
++++ b/t/011_ascii_word_wrap_w_para.t
+@@ -3,7 +3,7 @@
+ use strict;
+ use warnings;
+ 
+-use Test::More no_plan => 1;
++use Test::More 'no_plan';
+ use Test::LongString;
+ 
+ BEGIN {
+@@ -119,4 +119,4 @@
+ __DATA__
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis lobortis nisl in ante. Vestibulum dignissim facilisis turpis. Nunc rutrum sapien sed eros. Donec facilisis placerat dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean convallis, urna eget mattis accumsan, dolor augue condimentum est, id aliquam pede eros eget metus. 
+ Proin felis. Nam hendrerit velit et lorem. Nulla ac mauris in nibh ornare porta. Fusce sodales porta orci. Aenean dolor. Proin nec ligula non eros tristique interdum. Sed aliquet ipsum vel leo. 
+-Cras a urna vel tortor molestie tincidunt. Aenean risus. Quisque luctus ipsum sit amet massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam lacus mauris, sagittis volutpat, rutrum eget, commodo non, elit.
+\ No newline at end of file
++Cras a urna vel tortor molestie tincidunt. Aenean risus. Quisque luctus ipsum sit amet massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam lacus mauris, sagittis volutpat, rutrum eget, commodo non, elit.
+--- a/t/002_ascii_text_flow_w_para.t
++++ b/t/002_ascii_text_flow_w_para.t
+@@ -3,7 +3,7 @@
+ use strict;
+ use warnings;
+ 
+-use Test::More no_plan => 1;
++use Test::More 'no_plan';
+ use Test::LongString;
+ 
+ use List::Util 'sum';
+@@ -94,4 +94,4 @@
+ __DATA__
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis lobortis nisl in ante. Vestibulum dignissim facilisis turpis. Nunc rutrum sapien sed eros. Donec facilisis placerat dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean convallis, urna eget mattis accumsan, dolor augue condimentum est, id aliquam pede eros eget metus. 
+ Proin felis. Nam hendrerit velit et lorem. Nulla ac mauris in nibh ornare porta. Fusce sodales porta orci. Aenean dolor. Proin nec ligula non eros tristique interdum. Sed aliquet ipsum vel leo. 
+-Cras a urna vel tortor molestie tincidunt. Aenean risus. Quisque luctus ipsum sit amet massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam lacus mauris, sagittis volutpat, rutrum eget, commodo non, elit.
+\ No newline at end of file
++Cras a urna vel tortor molestie tincidunt. Aenean risus. Quisque luctus ipsum sit amet massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam lacus mauris, sagittis volutpat, rutrum eget, commodo non, elit.
+--- a/t/001_basic_ascii_text_flow.t
++++ b/t/001_basic_ascii_text_flow.t
+@@ -3,7 +3,7 @@
+ use strict;
+ use warnings;
+ 
+-use Test::More no_plan => 1;
++use Test::More 'no_plan';
+ use Test::LongString;
+ 
+ use List::Util 'sum';
+@@ -86,4 +86,4 @@
+ }
+ 
+ __DATA__
+-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis lobortis nisl in ante. Vestibulum dignissim facilisis turpis. Nunc rutrum sapien sed eros. Donec facilisis placerat dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean convallis, urna eget mattis accumsan, dolor augue condimentum est, id aliquam pede eros eget metus. Proin felis. Nam hendrerit velit et lorem. Nulla ac mauris in nibh ornare porta. Fusce sodales porta orci. Aenean dolor. Proin nec ligula non eros tristique interdum. Sed aliquet ipsum vel leo. Cras a urna vel tortor molestie tincidunt. Aenean risus. Quisque luctus ipsum sit amet massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam lacus mauris, sagittis volutpat, rutrum eget, commodo non, elit.
+\ No newline at end of file
++Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis lobortis nisl in ante. Vestibulum dignissim facilisis turpis. Nunc rutrum sapien sed eros. Donec facilisis placerat dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean convallis, urna eget mattis accumsan, dolor augue condimentum est, id aliquam pede eros eget metus. Proin felis. Nam hendrerit velit et lorem. Nulla ac mauris in nibh ornare porta. Fusce sodales porta orci. Aenean dolor. Proin nec ligula non eros tristique interdum. Sed aliquet ipsum vel leo. Cras a urna vel tortor molestie tincidunt. Aenean risus. Quisque luctus ipsum sit amet massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam lacus mauris, sagittis volutpat, rutrum eget, commodo non, elit.

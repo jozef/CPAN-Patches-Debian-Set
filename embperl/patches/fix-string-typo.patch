@@ -1,0 +1,18 @@
+Description: fix string typos
+ There is a typo in epmain.c in a constant string, which
+ results in lintian errors. This patch simply corrects
+ the typo in the source file.
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/epmain.c
++++ b/epmain.c
+@@ -176,7 +176,7 @@
+         case rcRefcntNotOne:            msg ="[%d]ERR:  %d: %s There is still %s reference(s) to the %s object, while there shouldn't be any." ; break ; 
+         case rcApacheErr:               msg ="[%d]ERR:  %d: %s Apache returns Error: %s %s" ; break ; 
+         case rcTooDeepNested:           msg ="[%d]ERR:  %d: %s Source data is too deep nested %s %s" ; break ; 
+-        case rcUnknownOption:           msg ="[%d]ERR:  %d: %s Unkown option '%s' in configuration directive '%s'" ; break ; 
++        case rcUnknownOption:           msg ="[%d]ERR:  %d: %s Unknown option '%s' in configuration directive '%s'" ; break ; 
+         case rcTimeFormatErr:           msg ="[%d]ERR:  %d: %s Format error in %s = %s" ; break ;
+         case rcSubCallNotRequest:       msg ="[%d]ERR:  %d: %s A Embperl sub is called and no Embperl request is running  %s %s" ; break ;
+ 

@@ -1,0 +1,30 @@
+Subject: Do not fail tests if not connected to the network
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sun, 21 Jun 2009 19:24:30 +0200
+
+--- libnet-mac-vendor-perl.orig/t/fetch_oui.t
++++ libnet-mac-vendor-perl/t/fetch_oui.t
+@@ -1,6 +1,6 @@
+ # $Id: fetch_oui.t 1879 2006-06-26 02:05:08Z comdog $
+ 
+-use Test::More tests => 12;
++use Test::More tests => 11;
+ 
+ use LWP::Simple qw(head);
+ 
+@@ -14,7 +14,7 @@
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ my $connected = head( 'http://standards.ieee.org/regauth/oui/oui.txt' );
+ 
+-ok( defined $connected, "Am connected to network" );
++#ok( defined $connected, "Am connected to network" );
+ 
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+@@ -87,4 +87,4 @@
+ 
+ unlink( 'mac_oui.db' );
+ ok( ! -e 'mac_oui.db', "Cache file has been unlinked" );
+-}
+\ No newline at end of file
++}

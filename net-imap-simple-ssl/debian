@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libio-socket-ssl-perl, libnet-imap-simple-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libio-socket-ssl-perl, libnet-imap-simple-perl
+X: 0

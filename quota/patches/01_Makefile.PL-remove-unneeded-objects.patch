@@ -1,0 +1,21 @@
+Author: Elie Rosenblum <fnord@debian.org>
+Description: Remove Makefile.PL code to compile some stuff without -fPIC
+Bug: #229396
+   
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -102,14 +102,6 @@
+ "
+     }
+ 
+-    # objects that must not be compiled with the CCCDL arguments
+-
+-    if (defined $extraobj) {
+-        ($extrac = $extraobj) =~ s/\.o(\s+|$)/.c/g;
+-        $ret .= "\n$extraobj :\n\t".
+-                '$(CC) -c $(INC) $(CCFLAGS) $(OPTIMIZE) '."$extrac\n\n";
+-    }
+-
+     # extract objects from a library to link them in statically
+     # for lame OSes that have problems with LD_PATH recording in DLOs
+ 

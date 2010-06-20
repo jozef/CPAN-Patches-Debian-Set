@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libmath-calculus-differentiate-perl, libmath-calculus-expression-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libmath-calculus-differentiate-perl, libmath-calculus-expression-perl
+X: 0

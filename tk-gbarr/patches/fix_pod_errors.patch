@@ -1,0 +1,25 @@
+--- libtk-gbarr-perl.orig/NumEntryPlain.pm
++++ libtk-gbarr-perl/NumEntryPlain.pm
+@@ -202,7 +202,7 @@
+ 
+ =head1 SYNOPSIS
+ 
+-S<    >B<use Tk::NumEntryPlain>;
++B<use Tk::NumEntryPlain;>
+ 
+ =head1 DESCRIPTION
+ 
+--- libtk-gbarr-perl.orig/NumEntry.pm
++++ libtk-gbarr-perl/NumEntry.pm
+@@ -134,9 +134,9 @@
+ 
+ =head1 SYNOPSIS
+ 
+-S<    >B<use Tk::NumEntry;>
++B<use Tk::NumEntry;>
+ 
+-S<    >I<$parent>-E<gt>B<NumEntry>(?I<-option>=E<gt>I<value>, ...?);
++I<$parent>-E<gt>B<NumEntry>(?I<-option>=E<gt>I<value>, ...?);
+ 
+ =head1 DESCRIPTION
+ 

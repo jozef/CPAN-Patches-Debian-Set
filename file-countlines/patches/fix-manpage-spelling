@@ -1,0 +1,14 @@
+Description: Fix manpage spelling
+Author: Maximilian Gass <mxey@cloudconnected.org>
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=54230
+--- a/lib/File/CountLines.pm
++++ b/lib/File/CountLines.pm
+@@ -185,7 +185,7 @@
+ 
+ You can add your own EOL styles by adding them to the
+ C<%File::CountLines::StyleMap> hash, with the name of the style as hash key
+-and the seperator as the value.
++and the separator as the value.
+ 
+ =head1 AUTHOR
+ 

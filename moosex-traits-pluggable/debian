@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libclass-mop-perl (>= 0.84), liblist-moreutils-perl, libmoose-perl, libnamespace-autoclean-perl, libtest-exception-perl, perl (>= 5.8.9)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-mop-perl (>= 0.84), liblist-moreutils-perl, libmoose-perl, libnamespace-autoclean-perl
+X: 0

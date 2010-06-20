@@ -1,0 +1,65 @@
+Description: Fixed some manpages including invalid troff characters (usually
+ german letters or such)
+Author: Gunnar Wolf <gwolf@debian.org>
+
+--- a/Config.pod
++++ b/Config.pod
+@@ -3660,10 +3660,10 @@
+         (
+         'de' =>
+             {
+-            'addsel1' => 'Klicken Sie auf die Kategorie zu der Sie etwas hinzufügen möchten:',
+-            'addsel2' => 'oder fügen Sie eine neue Kategorie hinzu. Bitte geben Sie die Beschreibung in so vielen Sprachen wie Ihnen möglich ein.',
+-            'addsel3' => 'Falls Sie die Übersetzung nicht wissen, lassen Sie das entsprechende Eingabefeld leer.',
+-            'addsel4' => 'Kategorie hinzufügen',
++            'addsel1' => 'Klicken Sie auf die Kategorie zu der Sie etwas hinzuf\[:u]gen m\[:o]chten:',
++            'addsel2' => 'oder f\[:u]gen Sie eine neue Kategorie hinzu. Bitte geben Sie die Beschreibung in so vielen Sprachen wie Ihnen m\[:o]glich ein.',
++            'addsel3' => 'Falls Sie die \[:U]bersetzung nicht wissen, lassen Sie das entsprechende Eingabefeld leer.',
++            'addsel4' => 'Kategorie hinzuf\[:u]gen',
+             },
+          'en' =>
+             {
+--- a/Embperl.pod
++++ b/Embperl.pod
+@@ -569,7 +569,7 @@
+ 
+     This is the same as using the Apache function
+ 
+-    [- $req_rec -> header_out("Language" => "DE"); -]
++    [- $req_rec -> header_out("Language" => "DE"); -]
+ 
+ 
+ =item B<A>, B<EMBED>, B<IMG>, B<IFRAME>, B<FRAME>, B<LAYER>
+@@ -1410,7 +1410,7 @@
+         (
+         'de' =>
+             {
+-            'heading' => 'Überschrift',
++            'heading' => '\[:U]berschrift',
+             'bar'     => 'Absenden',
+             },
+         'en' =>
+--- a/TipsAndTricks.pod
++++ b/TipsAndTricks.pod
+@@ -25,6 +25,9 @@
+ 
+ =back
+ 
++=head1 NAME
++
++Embperl::TipsAndTricks - Embperl Tips and Tricks
+ 
+ =head1 Tips and Tricks
+ 
+--- a/FeaturesD.pod
++++ b/FeaturesD.pod
+@@ -1,5 +1,9 @@
+ =pod
+ 
++=head1 NAME
++
++Embperl::Features - Features von Embperl 2.0
++
+ =head1 Features von Embperl 2.0
+ 
+ =over 4

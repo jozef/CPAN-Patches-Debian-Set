@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: libjcode-pm-perl, libole-storage-lite-perl (>= 0.19), libspreadsheet-writeexcel-perl, libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl (>= 1.26), libunicode-map-perl, perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
+Depends: ${misc:Depends}, ${perl:Depends}, libjcode-pm-perl, libole-storage-lite-perl (>= 0.19), libspreadsheet-writeexcel-perl, libunicode-map-perl
+X: 0

@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Pod/Abstract/Filter/clear_podcmds.pm
++++ b/lib/Pod/Abstract/Filter/clear_podcmds.pm
+@@ -8,7 +8,7 @@
+ =head1 NAME
+ 
+ Pod::Abstract::Filter::clear_podcmds - paf command to remove =pod commands
+-from the begining of Pod blocks.
++from the beginning of Pod blocks.
+ 
+ =cut
+ 

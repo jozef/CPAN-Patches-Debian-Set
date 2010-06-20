@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcheck-isa-perl, libjson-any-perl (>= 1.22), libmoose-perl (>= 0.92), libmoosex-clone-perl, libmoosex-storage-perl, perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libcheck-isa-perl, libmoose-perl (>= 0.92), libmoosex-clone-perl, libmoosex-storage-perl, perl (>= 5.10.1)
+X: 0

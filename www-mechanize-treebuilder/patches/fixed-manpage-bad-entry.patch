@@ -1,0 +1,15 @@
+patch that fix lintian warning (bad entry in manpage). Author: Alejandro Garrido Mota
+garridomota@gmail.com. 
+Index: libwww-mechanize-treebuilder-perl-1.1/lib/WWW/Mechanize/TreeBuilder.pm
+===================================================================
+--- libwww-mechanize-treebuilder-perl-1.1.orig/lib/WWW/Mechanize/TreeBuilder.pm	2009-05-12 01:33:29.000000000 -0430
++++ libwww-mechanize-treebuilder-perl-1.1/lib/WWW/Mechanize/TreeBuilder.pm	2009-05-12 01:35:02.000000000 -0430
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME
+ 
+-WWW::Mechanize::TreeBuilder
++WWW::Mechanize::TreeBuilder - Module to optimize WWW::Mechanize and HTML::TreeBuilder use
+ 
+ =head1 SYNOPSIS
+ 

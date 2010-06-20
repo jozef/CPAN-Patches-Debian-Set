@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), quilt
+Build-Depends-Indep: netbase, perl (>= 5.8)
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

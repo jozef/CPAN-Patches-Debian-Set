@@ -1,0 +1,32 @@
+Author: Florian Ragwitz <rafl@debian.org>
+Description: Add '>:encoding(EncodeTo)' line discipline to FileConsumer to defeat 
+perl's automatic charset conversion.
+Index: libxml-sax-writer-perl/lib/XML/SAX/Writer.pm
+===================================================================
+--- libxml-sax-writer-perl.orig/lib/XML/SAX/Writer.pm	2009-02-25 23:04:43.000000000 +0000
++++ libxml-sax-writer-perl/lib/XML/SAX/Writer.pm	2009-02-25 23:08:16.000000000 +0000
+@@ -334,7 +334,10 @@
+ # new
+ #-------------------------------------------------------------------#
+ sub new {
+-    my ( $proto, $file ) = ( shift, shift );
++    my ( $proto, $file, $opt ) = @_;
++    my $enc_to = (defined $opt and ref $opt eq 'HASH'
++                  and defined $opt->{EncodeTo}) ? $opt->{EncodeTo}
++                                                : 'utf-8';
+ 
+     XML::SAX::Writer::Exception->throw(
+         Message => "No filename provided to " . ref( $proto || $proto )
+@@ -342,9 +345,10 @@
+ 
+     local *XFH;
+ 
+-    open XFH, ">$file" or XML::SAX::Writer::Exception->throw(
++    open XFH, ">:encoding($enc_to)", $file
++      or XML::SAX::Writer::Exception->throw(
+         Message => "Error opening file $file: $!"
+-    );
++      );
+ 
+     return $proto->SUPER::new( *{XFH}{IO}, @_ );
+ }

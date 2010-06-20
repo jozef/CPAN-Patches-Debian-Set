@@ -1,0 +1,48 @@
+Description: Remove empty sections without description in the pod part
+ of the script and the TO BE EXPANDED sentence.
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Status of the patch: First integrated in liblatex-driver-perl 0.08-1
+--- a/scripts/latex2dvi
++++ b/scripts/latex2dvi
+@@ -46,10 +46,6 @@
+ C<latex2dvi> is a simple script to invoke the C<LaTeX::Driver> module
+ to convert a LaTeX file to DVI (TeX's device independent output format).
+ 
+-TO BE EXPANDED
+-
+-=head1 REQUIRED ARGUMENTS
+-
+ =head1 OPTIONS
+ 
+ =over 4
+@@ -80,20 +76,6 @@
+ 
+ =back
+ 
+-=head1 DIAGNOSTICS
+-
+-=head1 EXIT STATUS
+-
+-=head1 CONFIGURATION
+-
+-=head1 DEPENDENCIES
+-
+-=head1 INCOMPATIBILITIES
+-
+-=head1 BUGS AND LIMITATIONS
+-
+-=head1 AUTHOR
+-
+ Andrew Ford E<lt>A.Ford@ford-mason.co.ukE<gt>
+ 
+ 
+@@ -104,9 +86,6 @@
+ This module is free software; you can redistribute it and/or
+ modify it under the same terms as Perl itself.
+ 
+-=head1 SEE ALSO
+-
+-
+ =cut
+ 
+ # Local Variables:

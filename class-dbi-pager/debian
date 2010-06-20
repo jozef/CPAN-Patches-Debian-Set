@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-dbi-perl (>= 0.90), libclass-dbi-sqlite-perl, libdata-page-perl (>= 0.13), libdbd-sqlite3-perl, libexporter-lite-perl (>= 0.01), libtest-simple-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-dbi-perl (>= 0.90), libdata-page-perl (>= 0.13), libexporter-lite-perl (>= 0.01)
+X: 0

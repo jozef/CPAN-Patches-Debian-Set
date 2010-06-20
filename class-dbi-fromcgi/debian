@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcgi-untaint-perl (>= 0.8), libclass-dbi-perl (>= 0.93), libclass-dbi-sqlite-perl, libdbd-sqlite3-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-untaint-perl (>= 0.8), libclass-dbi-perl (>= 0.93)
+X: 0

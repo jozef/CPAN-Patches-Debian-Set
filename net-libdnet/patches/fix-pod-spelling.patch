@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Net/Libdnet.pm
++++ b/lib/Net/Libdnet.pm
+@@ -333,7 +333,7 @@
+ 
+ All the original and obsolete functions return I<undef> and print a warning message to the standard error when a problem occurs. The obsolete functions are: B<addr_cmp>, B<addr_bcast>, B<addr_net>, B<arp_add>, B<arp_delete>, B<arp_get>, B<intf_get>, B<intf_get_src>, B<intf_get_dst>, B<route_add>, B<route_delete>, B<route_get>.
+ 
+-These osbsolete functions will continue to work, to keep backward compatibility, but should not be used anymore. The new APIs should be prefered. There are two new APIs, one is the low-level one, matching libdnet functions, and the other one is a high-level API, matching a more Perl object oriented programming. This latest one is highly prefered.
++These osbsolete functions will continue to work, to keep backward compatibility, but should not be used anymore. The new APIs should be preferred. There are two new APIs, one is the low-level one, matching libdnet functions, and the other one is a high-level API, matching a more Perl object oriented programming. This latest one is highly preferred.
+ 
+ Net::Libdnet module implements the low-level API. The high-level API is accessible by using the following modules: B<Net::Libdnet::Intf>, B<Net::Libdnet::Route>, B<Net::Libdnet::Fw>, B<Net::Libdnet::Arp>, B<Net::Libdnet::Eth>, B<Net::Libdnet::Ip> and B<Net::Libdnet::Tun>.
+ 

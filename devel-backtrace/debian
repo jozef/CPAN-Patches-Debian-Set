@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl, libstring-escape-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.7)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libstring-escape-perl
+X: 0

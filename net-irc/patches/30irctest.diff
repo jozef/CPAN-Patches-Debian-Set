@@ -1,0 +1,24 @@
+--- a/irctest
++++ b/irctest
+@@ -14,6 +14,21 @@
+ 
+ my $irc = new Net::IRC;
+ 
++print << 'INIT_WARN';
+++------------------------------------------------------------
++| IMPORTANT NOTE
++|
++| Running this script might constitute a severe security risk
++| This script will send ANY FILE it is requested as a response
++| to the message 'Send me <filename>'
++|
++| You have been warned.
+++------------------------------------------------------------
++(sleeping for two seconds)
++INIT_WARN
++
++sleep 2;
++
+ print "Creating connection to IRC server...\n";
+ 
+ my $conn = $irc->newconn(Server   => ($ARGV[0]  ||  'irc.prison.net'),

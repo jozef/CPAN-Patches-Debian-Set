@@ -1,0 +1,42 @@
+Description: Use filetest 'access'. filetest 'access' is slower, but works
+ correctly if we have a filesystem with ACLs
+Origin: vendor
+Author: Damyan Ivanov <dmn@debian.org>
+--- a/lib/Mail/Box/Dir.pm
++++ b/lib/Mail/Box/Dir.pm
+@@ -59,9 +59,13 @@
+ 
+     # Check if we can write to the folder, if we need to.
+ 
+-    if($self->writable && -e $directory && ! -w $directory)
+-    {   $self->log(WARNING=> "Folder directory $directory is write-protected.");
+-        $self->{MB_access} = 'r';
++    {   # filetest 'access' is slower, but works correctly if we have a
++	# filesystem with ACLs
++	use filetest 'access';
++	if($self->writable && -e $directory && ! -w $directory)
++	{   $self->log(WARNING=> "Folder directory $directory is write-protected.");
++	    $self->{MB_access} = 'r';
++	}
+     }
+ 
+     $self;
+--- a/lib/Mail/Box/File.pm
++++ b/lib/Mail/Box/File.pm
+@@ -89,9 +89,13 @@
+ 
+     # Check if we can write to the folder, if we need to.
+ 
+-    if($self->writable && ! -w $filename)
+-    {   $self->log(WARNING => "Folder $self file $filename is write-protected.");
+-        $self->{MB_access} = 'r';
++    {   # filetest 'access' is slower, but works correctly if we have a
++	# filesystem with ACLs
++	use filetest 'access';
++	if($self->writable && ! -w $filename)
++	{   $self->log(WARNING => "Folder $self file $filename is write-protected.");
++	    $self->{MB_access} = 'r';
++	}
+     }
+ 
+     # Start parser if reading is required.

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libjson-perl (>= 2), libpcre3-dev, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libjson-perl (>= 2)
+X: 0

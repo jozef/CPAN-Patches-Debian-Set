@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.2), libextutils-depends-perl (>= 0.200), libextutils-pkgconfig-perl (>= 1.03), libgtk2-perl, libgtkimageview-dev (>= 1.6.0), libtest-pod-perl, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, base-files (>= 4.0.1), libgtk2-perl, libgtkimageview0 (>= 1.6.0)
+X: 1

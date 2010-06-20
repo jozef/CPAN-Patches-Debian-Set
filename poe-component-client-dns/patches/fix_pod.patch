@@ -1,0 +1,14 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: fix POD error
+
+--- a/lib/POE/Component/Client/DNS.pm
++++ b/lib/POE/Component/Client/DNS.pm
+@@ -713,6 +713,8 @@
+ 
+   $poco_client_dns->resolver()->port(1153);
+ 
++=back
++
+ =head1 RESPONSE MESSAGES
+ 
+ POE::Component::Client::DNS responds in one of two ways.  Its

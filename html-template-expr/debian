@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-template-perl, libparse-recdescent-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-template-perl, libparse-recdescent-perl
+X: 0

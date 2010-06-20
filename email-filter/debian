@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-trigger-perl (>= 0.08), libemail-localdelivery-perl (>= 0.07), libemail-simple-perl (>= 1.91), libipc-run-perl (>= 0.77), libtest-pod-coverage-perl (>= 1.08), libtest-pod-perl (>= 1.14), perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-trigger-perl, libemail-localdelivery-perl, libemail-simple-perl, libipc-run-perl
+X: 0

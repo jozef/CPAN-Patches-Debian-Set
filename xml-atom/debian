@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-data-inheritable-perl, libdatetime-perl, libdigest-sha1-perl, libhtml-parser-perl, liblwp-authen-wsse-perl, liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.69), libxml-libxslt-perl, libxml-xpath-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-data-inheritable-perl, libdatetime-perl, libdigest-sha1-perl, libhtml-parser-perl, liblwp-authen-wsse-perl, liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.69), libxml-libxslt-perl, libxml-xpath-perl
+X: 0

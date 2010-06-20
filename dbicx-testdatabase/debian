@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libdbd-sqlite3-perl, libdbix-class-perl, libsql-translator-perl, libtest-use-ok-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libdbd-sqlite3-perl, libsql-translator-perl
+X: 0

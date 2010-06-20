@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libio-capture-perl, libio-string-perl, libtest-pod-coverage-perl, libtest-pod-perl, libunicode-map-perl, libunicode-maputf8-perl (>= 0.13+dfsg-2), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libio-string-perl
+X: 0

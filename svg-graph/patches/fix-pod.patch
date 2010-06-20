@@ -1,0 +1,344 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: add missing NAME sections to POD
+
+--- a/Frame.pm
++++ b/Frame.pm
+@@ -4,6 +4,12 @@
+ use strict;
+ use Data::Dumper;
+ 
++=head1 NAME
++
++SVG::Frame - SVG::Frame object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph/Data.pm
++++ b/Graph/Data.pm
+@@ -4,6 +4,12 @@
+ use Statistics::Descriptive;
+ use Data::Dumper;
+ 
++=head1 NAME
++
++SVG::Graph::Data - SVG::Graph::Data object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph/Data/Datum.pm
++++ b/Graph/Data/Datum.pm
+@@ -10,6 +10,12 @@
+ #  '/'   => sub { my($x,$y) = &check; $x/$y     },
+ #  ;
+ 
++=head1 NAME
++
++SVG::Graph::Data::Datum - SVG::Graph::Data::Datum object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph/Data/Node.pm
++++ b/Graph/Data/Node.pm
+@@ -3,6 +3,12 @@
+ use strict;
+ use base qw(Tree::DAG_Node);
+ 
++=head1 NAME
++
++SVG::Graph::Data::Node - SVG::Graph::Data::Node object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph/Data/Tree.pm
++++ b/Graph/Data/Tree.pm
+@@ -3,6 +3,12 @@
+ use strict;
+ use SVG::Graph::Data::Node;
+ 
++=head1 NAME
++
++SVG::Graph::Data::Tree - SVG::Graph::Data::Tree object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph/File.pm
++++ b/Graph/File.pm
+@@ -2,6 +2,12 @@
+ 
+ use strict;
+ 
++=head1 NAME
++
++SVG::Graph::File - SVG::Graph::File object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph/Frame.pm
++++ b/Graph/Frame.pm
+@@ -4,6 +4,12 @@
+ use strict;
+ use Data::Dumper;
+ 
++=head1 NAME
++
++SVG::Graph::Frame - SVG::Graph::Frame object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph/Glyph.pm
++++ b/Graph/Glyph.pm
+@@ -3,6 +3,12 @@
+ use strict;
+ use Data::Dumper;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph - SVG::Graph::Glyph object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph/Glyph/axis.pm
++++ b/Graph/Glyph/axis.pm
+@@ -3,6 +3,12 @@
+ use base SVG::Graph::Glyph;
+ use strict;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::axis - SVG::Graph::Glyph::axis object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/bar.pm
++++ b/Graph/Glyph/bar.pm
+@@ -6,6 +6,12 @@
+ 
+ our @lifts;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::bar - SVG::Graph::Glyph::bar object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/barflex.pm
++++ b/Graph/Glyph/barflex.pm
+@@ -3,6 +3,12 @@
+ use base SVG::Graph::Glyph;
+ use strict;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::barflex - SVG::Graph::Glyph::barflex object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/bezier.pm
++++ b/Graph/Glyph/bezier.pm
+@@ -4,6 +4,12 @@
+ use strict;
+ use Math::Spline;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::bezier - SVG::Graph::Glyph::bezier object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/bubble.pm
++++ b/Graph/Glyph/bubble.pm
+@@ -3,6 +3,12 @@
+ use base SVG::Graph::Glyph;
+ use strict;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::bubble - SVG::Graph::Glyph::bubble object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/heatmap.pm
++++ b/Graph/Glyph/heatmap.pm
+@@ -3,6 +3,12 @@
+ use base SVG::Graph::Glyph;
+ use strict;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::heatmap - SVG::Graph::Glyph::heatmap object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/line.pm
++++ b/Graph/Glyph/line.pm
+@@ -3,6 +3,12 @@
+ use base SVG::Graph::Glyph;
+ use strict;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::line - SVG::Graph::Glyph::line object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/pictogram.pm
++++ b/Graph/Glyph/pictogram.pm
+@@ -6,6 +6,12 @@
+ 
+ our @lifts;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::pictogram - SVG::Graph::Glyph::pictogram object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/scatter.pm
++++ b/Graph/Glyph/scatter.pm
+@@ -3,6 +3,12 @@
+ use base SVG::Graph::Glyph;
+ use strict;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::scatter - SVG::Graph::Glyph::scatter object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/tree.pm
++++ b/Graph/Glyph/tree.pm
+@@ -4,6 +4,12 @@
+ use Data::Dumper;
+ use strict;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::tree - SVG::Graph::Glyph::tree object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Graph/Glyph/wedge.pm
++++ b/Graph/Glyph/wedge.pm
+@@ -4,6 +4,12 @@
+ use strict;
+ use constant PI => 3.14159;
+ 
++=head1 NAME
++
++SVG::Graph::Glyph::wedge - SVG::Graph::Glyph::wedge object
++
++=head1 METHODS
++
+ =head2 draw
+ 
+  Title   : draw
+--- a/Data/Datum.pm
++++ b/Data/Datum.pm
+@@ -10,6 +10,12 @@
+ #  '/'   => sub { my($x,$y) = &check; $x/$y     },
+ #  ;
+ 
++=head1 NAME
++
++SVG::Graph::Data::Datum - SVG::Graph::Data::Datum object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Data/Node.pm
++++ b/Data/Node.pm
+@@ -3,6 +3,12 @@
+ use strict;
+ use base qw(Tree::DAG_Node);
+ 
++=head1 NAME
++
++SVG::Graph::Data::Node - SVG::Graph::Data::Node object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Data/Tree.pm
++++ b/Data/Tree.pm
+@@ -4,6 +4,12 @@
+ use SVG::Graph::File::Tree;
+ use SVG::Graph::Data::Node;
+ 
++=head1 NAME
++
++SVG::Graph::Data::Tree - SVG::Graph::Data::Tree object
++
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new
+--- a/Graph.pm
++++ b/Graph.pm
+@@ -140,6 +140,8 @@
+ use strict;
+ our $VERSION = '0.02';
+ 
++=head1 METHODS
++
+ =head2 new
+ 
+  Title   : new

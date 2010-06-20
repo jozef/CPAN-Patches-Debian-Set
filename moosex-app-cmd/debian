@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libapp-cmd-perl (>= 0.3), libgetopt-long-descriptive-perl, libmoose-perl (>= 0.86), libmoosex-getopt-perl (>= 0.18), libtest-output-perl, libtest-use-ok-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libapp-cmd-perl (>= 0.3), libgetopt-long-descriptive-perl, libmoose-perl (>= 0.86), libmoosex-getopt-perl (>= 0.18)
+X: 0

@@ -1,0 +1,23 @@
+Author: Florian Ragwitz <florian@mookooh.org>
+Description: Use external virus-definitions istead of SelfLoader.
+--- a/files/Scan.base
++++ b/files/Scan.base
+@@ -14,7 +14,6 @@ use strict;
+ 
+ require Exporter;
+ use File::Copy;
+-use SelfLoader;
+ 
+ use vars qw($VERSION @ISA @EXPORT $ERROR $SKIPPED $SUSPICIOUS $CALLBACK);
+ 
+@@ -23,7 +22,9 @@ $VERSION = '1.43';
+ 
+ ($ERROR, $SKIPPED, $SUSPICIOUS, $CALLBACK) = ("", 0, 0, "");
+ 
+-SelfLoader->load_stubs();
++my $data_path = "@data_path@";
++
++do "$data_path/virus-definitions.pm";
+ 
+ sub new {
+ 	my $proto = shift;

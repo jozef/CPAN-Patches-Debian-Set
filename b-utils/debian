@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), libextutils-depends-perl (>= 0.301), libtask-weaken-perl, perl, quilt (>= 0.46-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libtask-weaken-perl
+X: 0

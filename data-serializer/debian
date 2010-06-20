@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmodule-build-perl
+Build-Depends-Indep: libcompress-zlib-perl, libconfig-general-perl, libcrypt-blowfish-perl, libcrypt-cbc-perl, libdigest-sha-perl, libdigest-sha1-perl, libfreezethaw-perl, libjson-perl, libphp-serialization-perl, libtest-pod-coverage-perl, libtest-pod-perl, libxml-dumper-perl, libxml-simple-perl, libyaml-perl, libyaml-syck-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libdigest-sha-perl
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdate-calc-perl, libtest-mockobject-perl, libwww-mechanize-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdate-calc-perl, libwww-mechanize-perl
+X: 0

@@ -1,0 +1,27 @@
+Author: Niko Tyni <ntyni@iki.fi>
+Description: Allow IO::File/Handle/Wrap objects to be passed in.
+(#112130, patch by Gunnar Wolf)
+--- a/lib/Spreadsheet/ParseExcel.pm
++++ b/lib/Spreadsheet/ParseExcel.pm
+@@ -320,12 +320,21 @@
+     # Reset the error status in case method is called more than once.
+     $self->{_error_status} = ErrorNone;
+ 
++    my $ref = ref($source);
+     if ( ref($source) eq "SCALAR" ) {
+ 
+         # Specified by a scalar buffer.
+         ( $biff_data, $data_length ) = $self->{GetContent}->($source);
+ 
+     }
++    elsif ( grep { $ref eq $_ } qw(IO::File IO::Handle IO::Wrap) ) {
++
++        # Specified by IO::File/Handle/Wrap object
++        $workbook->{File} = undef;
++        my $sBuff = join( '', $source->getlines );
++        my ( $sBIFF, $iLen ) = $self->{GetContent}->( \$sBuff );
++        return $sBIFF ? ( $sBIFF, $iLen ) : (undef);
++    }
+     elsif (( ref($source) =~ /GLOB/ ) || ( ref($source) eq 'Fh' ) ) {
+ 
+         # For CGI.pm (Light FileHandle)

@@ -1,0 +1,74 @@
+Description: Fix XML header creation and sorting of attributes in XML headers
+ The patch has been updated for the version 1.38.
+Origin: other, http://bugs.debian.org/cgi-bin/bugreport.cgi?msg=5;filename=fix1.patch;att=2;bug=335841 and http://bugs.debian.org/cgi-bin/bugreport.cgi?msg=5;filename=fix2.patch;att=2;bug=335846
+Bug-Debian: http://bugs.debian.org/335841
+Bug-Debian: http://bugs.debian.org/335846
+Author: Marc Laue <marc.laue@schlund.de>
+
+--- a/lib/XML/Mini/Element/Header.pm
++++ b/lib/XML/Mini/Element/Header.pm
+@@ -39,17 +39,27 @@ sub toString
+     
+     my $retString = "$spaces<?". $self->name() ;
+     
+-    my $attribString;
++    my $attribString = '';
+     
+-    # make sure version is always first
++    # make sure version/encoding/standalone is always first
+     if (exists $self->{'_attributes'}->{'version'})
+     {
+-    	$attribString = ' version="' . $self->{'_attributes'}->{'version'} . '"';
+-	delete $self->{'_attributes'}->{'version'};
++    	$attribString .= ' version="' . $self->{'_attributes'}->{'version'} . '"';
+     }
+     
++    if (exists $self->{'_attributes'}->{'encoding'})
++    {
++    	$attribString .= ' encoding="' . $self->{'_attributes'}->{'encoding'} . '"';
++    }
++
++    if (exists $self->{'_attributes'}->{'standalone'})
++    {
++    	$attribString .= ' standalone="' .  $self->{'_attributes'}->{'standalone'} . '"';
++    }
++
+     foreach my $atName (sort keys %{$self->{'_attributes'}})
+     {
++	next if $atName =~ /^(?:version|encoding|standalone)$/;
+ 	$attribString .= qq| $atName="$self->{'_attributes'}->{$atName}"|;
+     }
+     
+@@ -70,11 +80,29 @@ sub toStringNoWhiteSpaces
+ {
+     my $self = shift;
+     
+-    my $retString = '<? ' . $self->name();
+-    my $attribString;
++    my $retString = '<?' . $self->name();
++    my $attribString = '';
++
++    # make sure version/encoding/standalone is always first
++    if (exists $self->{'_attributes'}->{'version'})
++    {
++    	$attribString .= ' version="' . $self->{'_attributes'}->{'version'} . '"';
++    }
++
++    if (exists $self->{'_attributes'}->{'encoding'})
++    {
++    	$attribString .= ' encoding="' . $self->{'_attributes'}->{'encoding'} . '"';
++    }
++
++    if (exists $self->{'_attributes'}->{'standalone'})
++    {
++    	$attribString .= ' standalone="' .  $self->{'_attributes'}->{'standalone'} . '"';
++    }
++
+     foreach my $atName (sort keys %{$self->{'_attributes'}})
+     {
+-	$attribString .= qq|$atName="$self->{'_attributes'}->{$atName}" |;
++	next if $atName =~ /^(?:version|encoding|standalone)$/;
++	$attribString .= qq| $atName="$self->{'_attributes'}->{$atName}"|;
+     } 
+     if (defined $attribString && $attribString =~ m|\S|)
+     {

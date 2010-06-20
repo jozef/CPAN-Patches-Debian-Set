@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libbusiness-isbn-data-perl (>= 20081208), libgd-barcode-perl, libtest-pod-coverage-perl, libtest-pod-perl, libwww-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libbusiness-isbn-data-perl (>= 20081208)
+X: 0

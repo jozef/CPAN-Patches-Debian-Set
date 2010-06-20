@@ -1,0 +1,17 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: disable internet tests if NOINTERNET is set.
+
+--- a/t/57_pravus_progress.t
++++ b/t/57_pravus_progress.t
+@@ -4,6 +4,11 @@
+ use warnings;
+ use strict;
+ 
++if ($ENV{NOINTERNET} ) {
++  use Test::More skip_all => "Tests disabled that need internet access.";
++}
++
++
+ use Test::More tests => 2;
+ use HTTP::Request::Common qw(GET);
+ use POE;

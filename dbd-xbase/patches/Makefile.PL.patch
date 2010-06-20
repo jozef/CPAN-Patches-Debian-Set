@@ -1,0 +1,11 @@
+# Description: add more files to the clean target
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -46,6 +46,6 @@ WriteMakefile(
+ 	'EXE_FILES'	=> [ 'bin/dbfdump', ' bin/indexdump' ],
+         'dist'		=> { COMPRESS => 'gzip -9f', SUFFIX => 'gz',
+ 		POSTOP => 'mv $(DISTNAME)-$(VERSION).tar.gz ../' },
+-	'clean'		=> { FILES => 'bin/dbfdump bin/indexdump t/newtable.dbf t/newtable.dbt t/write.dbf t/write.dbt t/rooms1.dbf t/rooms1.cdx '},	
++	'clean'		=> { FILES => 'bin/dbfdump bin/indexdump t/newtable.dbf t/newtable.dbt t/write.dbf t/write.dbt t/rooms1.dbf t/rooms1.cdx t/rooms.sdbm1.dir t/rooms.sdbm1.pag t/rooms.sdbmd.dir t/rooms.sdbmd.pag t/tstidx.dbf t/tstidxid.idx t/tstidxname.idx t/write1.dbf t/write1.FPT'},
+ 	);
+ 

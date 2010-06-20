@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdata-page-perl, libdata-pageset-perl, libjson-xs-perl, libmoose-perl, libtest-mock-lwp-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl (>= 1.28), libwww-perl, libxml-generator-perl (>= 0.94), libxml-simple-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-page-perl, libdata-pageset-perl, libjson-xs-perl, libmoose-perl, liburi-perl (>= 1.28), libwww-perl, libxml-generator-perl (>= 0.94), perl (>= 5.8.0)
+X: 0

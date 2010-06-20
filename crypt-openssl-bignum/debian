@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libssl-dev
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

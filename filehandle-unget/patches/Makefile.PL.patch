@@ -1,0 +1,13 @@
+Author: Joey Hess <joeyh@debian.org>
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -6,7 +6,7 @@
+ all_from        ('lib/FileHandle/Unget.pm');
+ 
+ requires        (
+-                  'Scalar::Util' => '1.14',
++                  'Scalar::Util' => '1.13',
+                 );
+ 
+ test_requires   (

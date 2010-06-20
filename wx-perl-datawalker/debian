@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-xsaccessor-perl (>= 0.06), libdevel-size-perl (>= 0.71), libwx-perl (>= 0.88), libyaml-libyaml-perl (>= 0.32), perl, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-xsaccessor-perl (>= 0.06), libdevel-size-perl (>= 0.71), libwx-perl (>= 0.88), libyaml-libyaml-perl (>= 0.32)
+X: 1

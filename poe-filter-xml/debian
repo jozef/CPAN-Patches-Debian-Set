@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libpoe-perl (>= 1.003), libxml-libxml-perl (>= 1.69), libxml-sax-perl (>= 0.16), perl (>= 5.8.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libpoe-perl (>= 1.003), libxml-libxml-perl (>= 1.69), libxml-sax-perl (>= 0.16)
+X: 0

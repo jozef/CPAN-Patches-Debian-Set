@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~), libfribidi-dev (>= 0.19), libtest-pod-perl, swig
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

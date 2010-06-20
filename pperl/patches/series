@@ -1,0 +1,7 @@
+287119_no-umask0.patch
+no-extra-libs.patch
+pass_fd.c.patch
+pass_PPERL_TMP_PATH.patch
+pperl-man.patch
+safe-socket-path.patch
+unclean-name-checks.patch

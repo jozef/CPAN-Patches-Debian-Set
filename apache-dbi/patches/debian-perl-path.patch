@@ -1,0 +1,10 @@
+# Description: fix the perl interpreter path to the one tyipally found on
+#  Debian
+--- a/eg/startup.pl
++++ b/eg/startup.pl
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ 
+ # to load this file when the server starts, add this to httpd.conf:
+ # PerlRequire /path/to/startup.pl

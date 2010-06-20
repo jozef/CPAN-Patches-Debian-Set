@@ -1,0 +1,26 @@
+Subject: Add missing whatis entries
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Fri, 23 Jan 2009 19:55:00 +0100
+
+--- libparse-cpan-packages-perl.orig/lib/Parse/CPAN/Packages/Distribution.pm
++++ libparse-cpan-packages-perl/lib/Parse/CPAN/Packages/Distribution.pm
+@@ -28,7 +28,7 @@
+ 
+ =head1 NAME
+ 
+-Parse::CPAN::Packages::Distribution
++Parse::CPAN::Packages::Distribution - represents a CPAN distribution
+ 
+ =head1 DESCRIPTION
+ 
+--- libparse-cpan-packages-perl.orig/lib/Parse/CPAN/Packages/Package.pm
++++ libparse-cpan-packages-perl/lib/Parse/CPAN/Packages/Package.pm
+@@ -15,7 +15,7 @@
+ 
+ =head1 NAME
+ 
+-Parse::CPAN::Packages::Package
++Parse::CPAN::Packages::Package - represents a CPAN package
+ 
+ =head1 DESCRIPTION
+ 

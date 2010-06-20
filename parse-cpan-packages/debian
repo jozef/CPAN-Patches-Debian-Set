@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt
+Build-Depends-Indep: libcpan-distnameinfo-perl (>= 0.03), libmoose-perl, libtest-pod-coverage-perl (>= 1.00), libtest-pod-perl (>= 1.14), perl (>= 5.10) | libio-compress-perl | libcompress-zlib-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcpan-distnameinfo-perl (>= 0.03), libmoose-perl, perl (>= 5.10) | libio-compress-perl | libcompress-zlib-perl
+X: 0

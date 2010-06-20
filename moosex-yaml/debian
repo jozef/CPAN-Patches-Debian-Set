@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmoosex-blessed-reconstruct-perl (>= 0.02), libnamespace-clean-perl, libsub-exporter-perl (>= 0.981), libtest-use-ok-perl, libyaml-perl, libyaml-syck-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoosex-blessed-reconstruct-perl (>= 0.02), libnamespace-clean-perl, libsub-exporter-perl (>= 0.981), libyaml-perl | libyaml-syck-perl
+X: 0

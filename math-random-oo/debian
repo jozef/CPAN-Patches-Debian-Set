@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libclass-accessor-perl (>= 0.18), libparams-validate-perl (>= 0.76), libtest-mockrandom-perl (>= 0.95), libtest-number-delta-perl (>= 0.14), libtest-pod-coverage-perl (>= 1.08), libtest-pod-perl (>= 1.22), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl (>= 0.18), libparams-validate-perl (>= 0.76), libtest-mockrandom-perl (>= 0.95), libtest-number-delta-perl (>= 0.14)
+X: 0

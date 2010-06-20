@@ -1,0 +1,19 @@
+From: Angus Lees <gus@debian.org>
+Date: Mon, 10 Mar 2003 22:47:03 +1100
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=54387
+Subject: use C type instead of mapped perl type for return declarations
+
+Patch WrapXS::get_function to use C type instead of mapped perl type for
+return declarations.
+--- libextutils-xsbuilder-perl.orig/XSBuilder/WrapXS.pm
++++ libextutils-xsbuilder-perl/XSBuilder/WrapXS.pm
+@@ -557,7 +557,8 @@
+       $name =~ /^DESTROY$/ ? 'void' : $func->{return_type};
+ 
+     my $retdecl = @$retargs?(join "\n",
+-      (map { my $type = $self -> cname($_->{class}) ; $type =~ s/\*$//; '    ' . $type . " $_->{name};"} @$retargs), 
++      # TypeMap->map_args has already stripped a * from retargs
++      (map { my $type = $_->{rtype} ; $type =~ s/^const\s+//; '    ' . $type . " $_->{name};"} @$retargs),
+       #'    ' . $self -> cname($return_type) . ' RETVAL',
+       ''):'';
+ 

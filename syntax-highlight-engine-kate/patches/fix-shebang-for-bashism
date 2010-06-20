@@ -1,0 +1,12 @@
+Author: Ryan Niebur <ryanryan52@gmail.com>
+Description: fix bashisms in sample script
+Bug: #530124
+
+--- a/samples/highlight.sh
++++ b/samples/highlight.sh
+@@ -1,4 +1,4 @@
+-#! /bin/sh
++#! /bin/bash
+ # This is a test script for the Katepart Bash Syntax Highlighting by
+ #	Wilbert Berendsen.  This is not runnable !!!
+ 

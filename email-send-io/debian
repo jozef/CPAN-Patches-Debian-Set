@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libemail-send-perl, libreturn-value-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.8-9)
+Depends: ${misc:Depends}, ${perl:Depends}, libio-all-perl (>= 0.32), libreturn-value-perl
+X: 0

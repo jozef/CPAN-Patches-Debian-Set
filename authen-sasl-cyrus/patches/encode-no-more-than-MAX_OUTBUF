@@ -1,0 +1,36 @@
+SASL may impose limitations on the maximum buffer size that can be
+encoded using the SASL privacy layer.  Honor that properly and encode
+data in chunks of at most SASL_MAXOUTBUF in length.
+
+--- a/lib/Authen/SASL/Cyrus/Security.pm
++++ b/lib/Authen/SASL/Cyrus/Security.pm
+@@ -73,11 +73,27 @@ sub READ {
+ # all the data to be encrypted is immediately available
+ sub WRITE {
+   my($ref,$string,$len) = @_;
+-  my($fh, $clearbuf, $cryptbuf);
++  my($fh, $clearbuf, $cryptbuf, $maxbuf);
+ 
+   $fh = $ref->{fh};
+   $clearbuf = substr($string, 0, $len);
+-  $cryptbuf = $ref->{conn}->encode($clearbuf);
++  $maxbuf = $ref->{conn}->property("maxout");
++  if ($len < $maxbuf) {
++    $cryptbuf = $ref->{conn}->encode($clearbuf);
++    return(-1) if not defined ($cryptbuf);
++  } else {
++    my ($partial, $chunk, $chunksize);
++    my $offset = 0;
++    $cryptbuf = '';
++    while ($offset < $len) {
++      $chunksize = (($offset + $maxbuf) > $len) ? $len - $offset : $maxbuf;
++      $chunk = substr($clearbuf, $offset, $chunksize);
++      $partial = $ref->{conn}->encode($chunk);
++      return(-1) if not defined ($partial);
++      $cryptbuf .= $partial;
++      $offset += $chunksize;
++    }
++  }
+   print $fh $cryptbuf;
+ }
+ 

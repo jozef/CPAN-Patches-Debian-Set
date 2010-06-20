@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libgraphics-colornames-perl, libtest-nowarnings-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libgraphics-colornames-perl
+X: 0

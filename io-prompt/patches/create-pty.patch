@@ -1,0 +1,21 @@
+Description: Use IO:Pty to create a slave pseudo tty for running the 
+ 01.dependency.t test which otherwise causes FTBFS on environments 
+ with no ttys.
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=54807
+Forwarded: yes
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+--- a/t/01.dependencies.t
++++ b/t/01.dependencies.t
+@@ -1,5 +1,8 @@
+ use Test::More tests => 2;
++use IO::Pty;
+ 
+-# Depends on hardcoded /dev/tty access
+-ok( open(my $OUT, ">/dev/tty"), "Output to /dev/tty");
+-ok( open(my $IN, "</dev/tty"), "Input from /dev/tty");
++$pty = new IO::Pty;
++$tty = $pty->ttyname();
++
++ok( open(my $OUT, ">$tty"), "Output to $tty");
++ok( open(my $IN, "<$tty"), "Input from $tty");

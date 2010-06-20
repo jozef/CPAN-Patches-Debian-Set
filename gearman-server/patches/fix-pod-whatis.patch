@@ -1,0 +1,15 @@
+Description: add a POD whatis entry
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Gearman/Server/Client.pm
++++ b/lib/Gearman/Server/Client.pm
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME
+ 
+-Gearman::Server::Client
++Gearman::Server::Client - client for gearmand
+ 
+ =head1 NAME
+ 

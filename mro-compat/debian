@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-c3-perl (>= 0.20), libclass-c3-xs-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libclass-c3-perl (>= 0.20)
+X: 0

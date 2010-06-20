@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libfont-afm-perl (>= 1.17), libhtml-tree-perl (>= 3.15), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfont-afm-perl (>= 1.17), libhtml-tree-perl (>= 3.15)
+X: 0

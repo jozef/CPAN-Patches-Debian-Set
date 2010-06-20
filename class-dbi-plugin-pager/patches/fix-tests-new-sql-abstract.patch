@@ -1,0 +1,26 @@
+Author: Tim Retout <tim@retout.co.uk>
+Description: SQL::Abstract 1.55 outputs cleaner SQL, so update 02main.t
+ to expect it.
+
+Index: libclass-dbi-plugin-pager-perl/t/02.main.t
+===================================================================
+--- libclass-dbi-plugin-pager-perl.orig/t/02.main.t	2009-08-04 23:46:27.000000000 +0100
++++ libclass-dbi-plugin-pager-perl/t/02.main.t	2009-08-04 23:58:39.000000000 +0100
+@@ -116,7 +116,7 @@
+ lives_ok { @results = $pager->search_where } 'search_where';
+ is_deeply( \@results, [ @dataset, 
+ 			'TestApp', 
+-			'( ( age <= ? ) AND ( age => ? ) AND ( city = ? ) ) ORDER BY fig LIMIT 10, 5',
++			'( ( age <= ? AND age => ? AND city = ? ) ) ORDER BY fig LIMIT 10, 5',
+ 			'80', '20', 'Jerusalem',
+ 			], 
+ 			'arrayref where (named args) results' );
+@@ -142,7 +142,7 @@
+ lives_ok { @results = $pager->search_where } 'search_where';
+ is_deeply( \@results, [ @dataset, 
+ 			'TestApp', 
+-			'( ( age <= ? ) AND ( age => ? ) AND ( city = ? ) ) ORDER BY fig ROWS 10 TO 15',
++			'( ( age <= ? AND age => ? AND city = ? ) ) ORDER BY fig ROWS 10 TO 15',
+ 			'80', '20', 'Jerusalem',
+ 			], 
+ 			'arrayref where (positional args) results' );

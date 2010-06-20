@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt (>= 0.40)
+Build-Depends-Indep: libmath-derivative-perl, libmath-spline-perl, libstatistics-descriptive-perl, libsvg-perl, libtree-dagnode-perl, perl (>= 5.8)
+Depends: ${misc:Depends}, ${perl:Depends}, libmath-derivative-perl, libmath-spline-perl, libstatistics-descriptive-perl, libsvg-perl, libtree-dagnode-perl
+X: 0

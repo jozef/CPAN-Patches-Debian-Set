@@ -1,0 +1,61 @@
+Author: <gregor+debian@comodo.priv.at>
+Description: Fix Build.PL to work with newer Module::Build which doesn't use
+%Config automatically anymore.
+--- a/Build.PL
++++ b/Build.PL
+@@ -40,7 +40,7 @@ sub process_swig_files {
+ 
+ sub process_swig {
+   my ($self, $main_swig_file, $deps_ref) = @_;
+-  my ($cf, $p) = ($self->{config}, $self->{properties}); # For convenience
++  my ($cf, $p) = ($self->{config}->{values}, $self->{properties}); # For convenience
+ 
+   # File name. e.g, perlcdio.swg -> perlcdio_wrap.c
+   (my $file_base = $main_swig_file) =~ s/\.[^.]+$//;
+@@ -82,7 +82,7 @@ sub process_swig {
+ # Invoke swig with -perl -outdir and other options.
+ sub compile_swig {
+     my ($self, $file, $c_file) = @_;
+-    my ($cf, $p) = ($self->{config}, $self->{properties}); # For convenience
++    my ($cf, $p) = ($self->{config}->{values}, $self->{properties}); # For convenience
+     
+     # File name, minus the suffix
+     (my $file_base = $file) =~ s/\.[^.]+$//;
+@@ -124,7 +124,7 @@ sub compile_swig {
+ # Also we modified the die to report the full file name.
+ sub link_c {
+   my ($self, $to, $file_base, $obj_file) = @_;
+-  my ($cf, $p) = ($self->{config}, $self->{properties}); # For convenience
++  my ($cf, $p) = ($self->{config}->{values}, $self->{properties}); # For convenience
+ 
+   my $lib_file = File::Spec->catfile($to, File::Basename::basename("$file_base.$cf->{dlext}"));
+ 
+@@ -149,7 +149,7 @@ sub link_c {
+ 
+ sub compile_c {
+   my ($self, $file) = @_;
+-  my ($cf, $p) = ($self->{config}, $self->{properties}); # For convenience
++  my ($cf, $p) = ($self->{config}->{values}, $self->{properties}); # For convenience
+   
+   # File name, minus the suffix
+   (my $file_base = $file) =~ s/\.[^.]+$//;
+@@ -356,4 +356,19 @@ my $builder = $class->new( 
+ 			   );
+ 
+ $builder->add_build_element('swig');
++my @confvars = (
++	"dlext",
++	"lddlflags",
++	"shrpenv",
++	"ld",
++	"obj_ext",
++	"installarchlib",
++	"cccdlflags",
++	"ccflags",
++	"optimize",
++	"cc",
++);
++foreach my $confvar(@confvars) {
++	$builder->config($confvar, $Config{$confvar});
++}
+ $builder->create_build_script();

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0)
+Build-Depends-Indep: libclass-accessor-chained-perl, libexpect-simple-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-chained-perl, libexpect-simple-perl
+X: 0

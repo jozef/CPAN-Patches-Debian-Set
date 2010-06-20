@@ -1,0 +1,25 @@
+This patch contains the modifications needed to build with libhtml-tree-perl (>= 3.23-1).
+Patch by Niko Tyni <ntyni@iki.fi>, thanks.  See bug #414745 for details.
+
+--- libclass-dbi-asform-perl-2.42.orig/t/01.t
++++ libclass-dbi-asform-perl-2.42/t/01.t
+@@ -40,15 +40,15 @@
+     "Ordinary text field OK");
+ 
+ Foo->has_a(bar => Bar);
+-is(Foo->to_field("bar"), "<select name=\"bar\"><option value=1>Hi</option></select>\n",
++is(Foo->to_field("bar"), "<select name=\"bar\"><option value=\"1\">Hi</option></select>\n",
+     "Select OK");
+ 
+ my $x = bless({id => 1, bar => Bar->retrieve_all(), baz => "Hello there"}, "Foo");
+-my %cgi = ( id => '<input name="id" type="text" value=1>
++my %cgi = ( id => '<input name="id" type="text" value="1" />
+ ',
+-    bar => '<select name="bar"><option selected value=1>Hi</option></select>
++    bar => '<select name="bar"><option selected value="1">Hi</option></select>
+ ',
+-            baz => '<input name="baz" type="text" value="Hello there">
++            baz => '<input name="baz" type="text" value="Hello there" />
+ '
+           );
+ is_deeply({$x->to_cgi}, \%cgi, "All correct as an object method");

@@ -1,0 +1,12 @@
+# Forwarded to http://rt.cpan.org/Public/Bug/Display.html?id=32613
+--- a/Libplot.pm
++++ b/Libplot.pm
+@@ -237,7 +237,7 @@
+ =head1 EXAMPLES
+ 
+ There are additional examples included in the source distribution. 
+-(They are in /usr/doc/libplot-perl/examples on debian systems.)
++(They are in /usr/share/doc/libgraphics-plot-perl/examples on debian systems.)
+ This example draws a spiraling box pattern.
+ 
+  use Graphics::Libplot ':ALL';

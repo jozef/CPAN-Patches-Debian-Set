@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libxml-namespacesupport-perl, libxml-sax-perl, libxml2-dev (>= 2.7.6), perl, quilt (>= 0.46-7), zlib1g-dev
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libxml-namespacesupport-perl, libxml-sax-perl
+X: 0

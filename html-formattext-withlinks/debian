@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-format-perl, libhtml-tree-perl, libtest-mockobject-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-format-perl, libhtml-tree-perl, liburi-perl
+X: 0

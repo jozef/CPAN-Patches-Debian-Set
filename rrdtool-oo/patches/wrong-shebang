@@ -1,0 +1,19 @@
+Description: Wrong path to perl
+From: Fabien Wernli <debian@faxm0dem.org>
+
+--- a/eg/dt
++++ b/eg/dt
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ ############################################################
+ # Create a sample graph
+ # Mike Schilli <mschilli1@aol.com>, 2004
+--- a/eg/graph.pl
++++ b/eg/graph.pl
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ ############################################################
+ # Create a sample graph
+ # Mike Schilli <mschilli1@aol.com>, 2004

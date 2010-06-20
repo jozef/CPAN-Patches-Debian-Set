@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libemail-messageid-perl, libemail-mime-contenttype-perl, libemail-mime-encodings-perl (>= 1.313), libemail-simple-perl (>= 2.100) | libemail-simple-creator-perl, libmime-types-perl, libtest-minimumversion-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-messageid-perl, libemail-mime-contenttype-perl, libemail-mime-encodings-perl (>= 1.313), libemail-mime-perl (>= 1.901), libemail-simple-perl (>= 2.100) | libemail-simple-creator-perl, libmime-types-perl
+X: 0

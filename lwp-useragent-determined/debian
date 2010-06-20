@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.2), libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libwww-perl
+X: 0

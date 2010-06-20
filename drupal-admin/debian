@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libfile-type-perl, liblog-log4perl-perl, libmoose-perl, libmoosex-log-log4perl-perl, libtest-pod-coverage-perl, libtest-pod-perl, libwww-mechanize-perl, libwww-mechanize-treebuilder-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-type-perl, liblog-log4perl-perl, libmoose-perl, libmoosex-log-log4perl-perl, libwww-mechanize-perl, libwww-mechanize-treebuilder-perl
+X: 0

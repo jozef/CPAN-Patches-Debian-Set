@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libclass-dbi-perl (>= 0.93), libdbd-sqlite3-perl, libsql-abstract-limit-perl (>= 0.1), libsql-abstract-perl (>= 1.20), perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-dbi-perl (>= 0.93), libsql-abstract-limit-perl (>= 0.1), libsql-abstract-perl (>= 1.20)
+X: 0

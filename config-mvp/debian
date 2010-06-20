@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libmoose-perl, libtest-pod-perl, libtie-ixhash-perl, perl (>= 5.8.9) | libmodule-pluggable-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libtie-ixhash-perl, perl (>= 5.8.9) | libmodule-pluggable-perl
+X: 0

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libdata-float-perl (>= 0.005), libdata-integer-perl, libparent-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdata-float-perl (>= 0.005), libdata-integer-perl, libparent-perl
+X: 0

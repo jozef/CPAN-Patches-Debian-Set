@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libaugeas-dev (>= 0.3.5), libconfig-augeas-perl (>= 0.303), libconfig-model-perl (>= 0.636), libexception-class-perl, liblog-log4perl-perl (>= 1.11), libtest-exception-perl, libtest-pod-perl, libtest-warn-perl (>= 0.11), perl (>= 5.8.8-12), pkg-config
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-augeas-perl (>= 0.303), libconfig-model-perl (>= 0.636), libexception-class-perl, liblog-log4perl-perl (>= 1.11)
+X: 0

@@ -1,0 +1,22 @@
+Author: Florian Ragwitz <florian.ragwitz@s2004.tu-chemnitz.de>
+Description: Add all installvendorlib and installvendorarch to the search directories
+Don't die if we can't chdir to a directory which does not exist
+--- a/lib/Perldoc/Search.pm
++++ b/lib/Perldoc/Search.pm
+@@ -21,6 +21,8 @@ sub new {
+                  $Config{installsitelib},
+                  $Config{installarchlib},
+                  $Config{installprivlib},
++                 $Config{installvendorlib},
++                 $Config{installvendorarch}
+                 ],
+         swish_options => {
+             swish_adm_dir => "$ENV{HOME}/.perldig",
+@@ -32,6 +34,7 @@ sub new {
+         # will figure out the real paths
+     for(@{$self->{dirs}}) {
+         my $cwd = cwd();
++        next unless -e;
+         chdir $_ or die "Cannot cwd to $_";
+         $_ = File::Spec->rel2abs(".");
+         chdir $cwd;

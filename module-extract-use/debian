@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libppi-perl (>= 1.203), libtest-manifest-perl (>= 1.21), libtest-output-perl (>= 0.12), libtest-pod-coverage-perl (>= 1.08), libtest-pod-perl (>= 1.26), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libppi-perl (>= 1.203)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmodule-build-perl
+Build-Depends-Indep: libauthen-bitcard-perl, libjifty-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libauthen-bitcard-perl, libjifty-perl
+X: 0

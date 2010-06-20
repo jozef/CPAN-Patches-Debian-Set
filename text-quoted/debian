@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 6)
+Build-Depends-Indep: libtext-autoformat-perl, libversion-perl, perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libtext-autoformat-perl
+X: 0

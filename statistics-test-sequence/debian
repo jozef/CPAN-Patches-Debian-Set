@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libparams-util-perl, libperl-critic-perl (>= 1.098), libtest-minimumversion-perl (>= 0.008), libtest-nowarnings-perl (>= 0.084), libtest-perl-critic-perl (>= 1.01), libtest-pod-coverage-perl (>= 1.04), libtest-pod-perl (>= 1.14), libtest-yaml-meta-perl (>= 0.11), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libparams-util-perl
+X: 0

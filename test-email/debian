@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmail-sendmail-perl (>= 0.79), libmime-tools-perl (>= 5.4), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmime-tools-perl (>= 5.4)
+X: 0

@@ -1,0 +1,11 @@
+--- a/lib/Cache/Simple/TimedExpiry.pm
++++ b/lib/Cache/Simple/TimedExpiry.pm
+@@ -8,7 +8,7 @@ $VERSION = '0.27';
+ 
+ =head1 NAME
+ 
+-Cache::Simple::TimedExpiry
++Cache::Simple::TimedExpiry - simple, time-expiring cache
+ 
+ =head2 EXAMPLE 
+ 

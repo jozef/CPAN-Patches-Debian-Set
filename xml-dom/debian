@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>=6), quilt
+Build-Depends-Indep: libwww-perl, libxml-parser-perl (>= 2.34), libxml-perl, libxml-regexp-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libwww-perl, libxml-parser-perl (>= 2.34), libxml-perl, libxml-regexp-perl
+X: 0

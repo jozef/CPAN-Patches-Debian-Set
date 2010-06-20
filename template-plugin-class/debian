@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl, quilt
+Build-Depends-Indep: libtemplate-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtemplate-perl
+X: 0

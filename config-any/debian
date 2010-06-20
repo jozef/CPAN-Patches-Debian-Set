@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libconfig-general-perl, libconfig-tiny-perl, libjson-perl, libmodule-pluggable-perl, libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, libxml-simple-perl, libyaml-libyaml-perl | libyaml-syck-perl (>= 0.70) | libyaml-perl, perl (>= 5.10.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libmodule-pluggable-perl, perl (>= 5.10.0)
+X: 0

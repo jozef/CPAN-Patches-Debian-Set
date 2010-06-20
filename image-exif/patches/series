@@ -1,0 +1,3 @@
+EXIF_T_GPSIFD.patch
+hashbang.patch
+do-not-link-with-libexif.patch

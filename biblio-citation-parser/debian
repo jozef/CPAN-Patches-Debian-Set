@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), perl (>= 5.10) | libmodule-build-perl, quilt (>= 0.46-7)
+Build-Depends-Indep: libtext-unidecode-perl, liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtext-unidecode-perl, liburi-perl
+X: 0

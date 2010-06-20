@@ -1,0 +1,19 @@
+Description: Fix Perl::Critic violation:
+ # Perl::Critic found these violations in "blib/lib/Statistics/Basic.pm":
+ # [Objects::ProhibitIndirectSyntax] Subroutine "new" called using indirect syntax at line 11, column 12.  (Severity: 4)
+ # Looks like you failed 1 test of 13.
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=49641
+Bug-Debian: http://bugs.debian.org/546227
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+--- a/Basic.pm
++++ b/Basic.pm
+@@ -8,7 +8,7 @@
+ use Number::Format;
+ 
+ our $VERSION = '1.6601';
+-our $fmt = new Number::Format;
++our $fmt = Number::Format->new;
+ 
+ our( $NOFILL, $DEBUG, $IPRES, $TOLER, $UNBIAS );
+ 

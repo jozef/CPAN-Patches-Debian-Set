@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: liberror-perl, libparse-recdescent-perl (>= 1.94), libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, liberror-perl, libparse-recdescent-perl (>= 1.94)
+X: 0

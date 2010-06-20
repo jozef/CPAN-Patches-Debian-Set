@@ -1,0 +1,13 @@
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -738,7 +738,9 @@ sub MY::install {
+     ModPerl::MM::add_dep_after(\$string, qw(install doc_install modperl_banner));
+ 
+     # glue_pods target must come first
+-    ModPerl::MM::add_dep(\$string, pure_install => 'glue_pods');
++    ModPerl::MM::add_dep(\$string, pure_perl_install => 'glue_pods');
++    ModPerl::MM::add_dep(\$string, pure_site_install => 'glue_pods');
++    ModPerl::MM::add_dep(\$string, pure_vendor_install => 'glue_pods');
+ 
+     $string;
+ }

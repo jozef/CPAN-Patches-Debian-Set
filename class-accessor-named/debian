@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl, libhook-lexwrap-perl, libsub-name-perl, libtest-pod-coverage-perl, libtest-pod-perl, libuniversal-require-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libhook-lexwrap-perl, libsub-name-perl, libuniversal-require-perl
+X: 0

@@ -1,0 +1,17 @@
+Description: Fix wrong module name in NAME section of the module
+ pod.
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=53249
+Forwarded: yes
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+--- a/lib/App/Nopaste/Service/SSH.pm
++++ b/lib/App/Nopaste/Service/SSH.pm
+@@ -30,7 +30,7 @@
+ 
+ =head1 NAME
+ 
+-App::Nopaste::Service::ssh - copies files to your server using scp
++App::Nopaste::Service::SSH - copies files to your server using scp
+ 
+ =head1 AUTHOR
+ 

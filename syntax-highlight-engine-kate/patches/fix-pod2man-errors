@@ -1,0 +1,13 @@
+fix a POD error
+
+--- a/lib/Syntax/Highlight/Engine/Kate/Template.pm
++++ b/lib/Syntax/Highlight/Engine/Kate/Template.pm
+@@ -914,8 +914,6 @@
+ 
+ __END__
+ 
+-=cut
+-
+ =head1 NAME
+ 
+ Syntax::Highlight::Engine::Kate::Template - a template for syntax highlighting plugins

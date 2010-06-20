@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.10), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libdatetime-perl, libdbd-sqlite3-perl (>= 1.20), libdbi-perl, libpod-simple-perl (>= 3.07), libtest-cpan-meta-perl, libtest-distmanifest-perl, libtest-kwalitee-perl, libtest-minimumversion-perl, libtest-nowarnings-perl (>= 0.084), libtest-pod-coverage-perl, libtest-pod-perl, libtest-portability-files-perl, libtest-without-module-perl (>= 0.17), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libdbd-sqlite3-perl (>= 1.20), libdbi-perl
+X: 0

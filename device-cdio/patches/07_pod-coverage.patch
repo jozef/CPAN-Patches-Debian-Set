@@ -1,0 +1,24 @@
+Author: <gregor+debian@comodo.priv.at>
+Description: Only test pod coverage for modules in lib/Device.
+Seems to have been the author's intention, and closes #456845
+--- a/t/01.pod-coverage.t
++++ b/t/01.pod-coverage.t
+@@ -11,7 +11,7 @@ use Test::More;
+ eval "use Test::Pod::Coverage 1.04";
+ plan skip_all => "Test::Pod::Coverage 1.04 required for testing POD coverage" if $@;
+ 
+-all_pod_coverage_ok();
++# all_pod_coverage_ok();
+ 
+ # Don't know how to get this from perlcdio ignored.
+ #all_pod_coverage_ok(
+@@ -19,3 +19,9 @@ all_pod_coverage_ok();
+ #		    { also_private => [ qr/this$/ ] },
+ #		    "perlcdio, 'this' routine"
+ #		    );
++
++my @modules = all_modules('blib/lib/Device');
++plan tests => $#modules + 1;
++foreach (@modules) {
++    pod_coverage_ok($_);
++}

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libextutils-depends-perl, libextutils-pkgconfig-perl, libgtk2-perl (>= 1.161), libunique-dev, perl, quilt (>= 0.46-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libgtk2-perl (>= 1.161)
+X: 0

@@ -1,0 +1,13 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: add missing empty line to POD to avoid errors from pod2man
+
+--- a/Reuse.pm
++++ b/Reuse.pm
+@@ -1612,6 +1612,7 @@
+ To write a program with PDF::Reuse, you need these components:
+ 
+ =begin html
++
+ <style>
+  pre span.comment {
+   color:AA0000 ;

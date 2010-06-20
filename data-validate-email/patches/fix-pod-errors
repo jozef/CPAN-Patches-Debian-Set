@@ -1,0 +1,39 @@
+remove some errors from pod to make lintian happy
+
+--- a/Email.pm
++++ b/Email.pm
+@@ -40,7 +40,7 @@
+ =head1 SYNOPSIS
+ 
+   use Data::Validate::Email qw(is_email is_email_rfc822);
+-  
++
+   if(is_email($suspect)){
+   	print "Looks like an email address\n";
+   } elsif(is_email_rfc822($suspect)){
+@@ -51,7 +51,7 @@
+ 
+   # or as an object
+   my $v = Data::Validate::Email->new();
+-  
++
+   die "not an email" unless ($v->is_email('foo'));
+ 
+ =head1 DESCRIPTION
+@@ -67,14 +67,14 @@
+ 
+ =head1 FUNCTIONS
+ 
+-=over 4
+-
+ =cut
+ 
+ # -------------------------------------------------------------------------------
+ 
+ =pod
+ 
++=over 4
++
+ =item B<new> - constructor for OO usage
+ 
+   new([\%opts]);

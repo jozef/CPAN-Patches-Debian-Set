@@ -1,0 +1,20 @@
+Description: Correct minor POD issues in CpantsErrors.pm
+Origin: vendor
+Author: Jonathan Yu <frequency@cpan.org>
+Forwarded: no
+--- a/lib/Module/CPANTS/Kwalitee/CpantsErrors.pm
++++ b/lib/Module/CPANTS/Kwalitee/CpantsErrors.pm
+@@ -50,11 +50,11 @@
+ 
+ =head1 NAME
+ 
+-Module::CPANTS::Kwalitee::CpantsErrors
++Module::CPANTS::Kwalitee::CpantsErrors - Check for CPANTS testing errors
+ 
+ =head1 SYNOPSIS
+ 
+-Checks if something strange happend during testing
++Checks if something strange happened during testing.
+ 
+ =head1 DESCRIPTION
+ 

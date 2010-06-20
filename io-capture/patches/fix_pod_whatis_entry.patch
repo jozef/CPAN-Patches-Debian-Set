@@ -1,0 +1,21 @@
+--- a/lib/IO/Capture/Overview.pod
++++ b/lib/IO/Capture/Overview.pod
+@@ -1,6 +1,6 @@
+ =head1 NAME
+ 
+-Overview of C<IO::Capture> Module, and classes derived from it. 
++IO::Capture -- Overview of C<IO::Capture> Module, and classes derived from it.
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/IO/Capture/Tie_STDx.pm
++++ b/lib/IO/Capture/Tie_STDx.pm
+@@ -28,7 +28,7 @@ sub CLOSE {
+ 
+ =head1 NAME
+ 
+-IO::Capture::Tie_STDx;
++IO::Capture::Tie_STDx -- tie STDOUT or STDERR;
+ 
+ =head1 SYNOPSIS
+ 

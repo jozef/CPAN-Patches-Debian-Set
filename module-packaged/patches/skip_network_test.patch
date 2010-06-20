@@ -1,0 +1,21 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: tests need network access (and have version numbers hard coded)
+
+--- a/t/simple.t
++++ b/t/simple.t
+@@ -4,6 +4,9 @@
+ use Test::More tests => 4;
+ use_ok('Module::Packaged');
+ 
++SKIP: {
++skip "Tests disabled on Debian because they need network access.", 3;
++
+ warn "\n# These tests take a while to run as we need to mirror a large\n";
+ warn "# file from the web. Please be patient.\n";
+ 
+@@ -38,4 +41,4 @@
+   suse     => '1.50',
+ }, 'DBI');
+ 
+-
++} # SKIP

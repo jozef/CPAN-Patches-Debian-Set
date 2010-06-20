@@ -1,0 +1,18 @@
+# Description: add spacing to SEE ALSO lists so that man can wrap the text
+#              otherwise man complains, not to mention that the links and
+#              wrapped
+# Author: Damyan Ivanov <dmn@debian.org>
+# Upstream-Bug: http://rt.cpan.org/Ticket/Display.html?id=45276
+--- a/lib/WWW/Mechanize/FormFiller/Value.pm
++++ b/lib/WWW/Mechanize/FormFiller/Value.pm
+@@ -75,5 +75,8 @@ Please contact me if you find bugs or ot
+ 
+ =head1 SEE ALSO
+ 
+-L<WWW::Mechanize>,L<WWW::Mechanize::Shell>,L<WWW::Mechanize::FormFiller>,L<WWW::Mechanize::FormFiller::Value::Fixed>,
+-L<WWW::Mechanize::FormFiller::Value::Default>,L<WWW::Mechanize::FormFiller::Value::Random>,L<WWW::Mechanize::FormFiller::Value::Interactive>
++L<WWW::Mechanize>, L<WWW::Mechanize::Shell>, L<WWW::Mechanize::FormFiller>,
++L<WWW::Mechanize::FormFiller::Value::Fixed>,
++L<WWW::Mechanize::FormFiller::Value::Default>,
++L<WWW::Mechanize::FormFiller::Value::Random>,
++L<WWW::Mechanize::FormFiller::Value::Interactive>

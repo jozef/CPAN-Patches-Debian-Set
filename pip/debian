@@ -1,0 +1,5 @@
+App: pip
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libcpan-inject-perl, libfile-pushd-perl, libfile-which-perl (>= 1.08), libparams-util-perl (>= 0.21), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl, libtest-script-perl, liburi-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libarchive-zip-perl (>= 1.29), libcpan-inject-perl, libfile-pushd-perl, libfile-which-perl (>= 1.08), libpar-dist-perl (>= 0.25), libparams-util-perl (>= 0.21), liburi-perl, libwww-perl
+X: 0

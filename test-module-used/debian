@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liblist-moreutils-perl, libmodule-used-perl, libppi-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libmodule-used-perl, libppi-perl, libyaml-perl
+X: 0

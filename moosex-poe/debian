@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libmoose-perl (>= 0.73), libmoosex-async-perl, libpoe-perl (>= 1.004), libsub-name-perl (>= 0.04), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.73), libmoosex-async-perl, libpoe-perl (>= 1.004), libsub-name-perl (>= 0.04)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libcss-tiny-perl, libparams-util-perl, libperl-minimumversion-perl, libppi-perl, libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl (>= 1.26), perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
+Depends: ${misc:Depends}, ${perl:Depends}, libcss-tiny-perl, libfile-slurp-perl, libparams-util-perl, libppi-perl
+X: 0

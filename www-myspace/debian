@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libconfig-general-perl, libcontextual-return-perl, libcrypt-ssleay-perl (>= 0.53), liblocale-subcountry-perl (>= 1.38), libparams-validate-perl, libspiffy-perl (>= 0.24), libtest-pod-coverage-perl, libtest-pod-perl, libtime-modules-perl, liburi-perl, libwww-mechanize-perl, libyaml-perl (>= 0.39), perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-general-perl, libcontextual-return-perl, libcrypt-ssleay-perl (>= 0.53), liblocale-subcountry-perl (>= 1.38), libparams-validate-perl, libspiffy-perl (>= 0.24), libtime-modules-perl, liburi-perl, libwww-mechanize-perl, libyaml-perl (>= 0.39)
+X: 0

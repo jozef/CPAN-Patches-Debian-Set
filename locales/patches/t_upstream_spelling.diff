@@ -1,0 +1,32 @@
+From: Franck Joncourt <franck@debian.org>
+Subject: [PATCH] t/upstream/spelling
+
+This patch fixes some typos in the documentation.
+
+Signed-off-by: Franck Joncourt <franck@debian.org>
+
+---
+ lib/Locales.pm |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lib/Locales.pm b/lib/Locales.pm
+index c91015b..ae98b29 100644
+--- a/lib/Locales.pm
++++ b/lib/Locales.pm
+@@ -401,11 +401,11 @@ Returns the territory portion of the object's locale if any (e.g. 'en_au'), unde
+ 
+ Takes one optional boolean argument.
+ 
+-Returns 1 if the object's locale's number format is comma for thousand seperator, period for decimal.
++Returns 1 if the object's locale's number format is comma for thousand separator, period for decimal.
+ 
+-Return 2  if the object's locale's number format is period for thousand seperator, comma for decimal.
++Return 2  if the object's locale's number format is period for thousand separator, comma for decimal.
+ 
+-Otherwise it returns a 3 element array containing this CLDR data: number format, seperator character, decimal character.
++Otherwise it returns a 3 element array containing this CLDR data: number format, separator character, decimal character.
+ 
+ The boolean argument, when true will do it's best to determine and return a 1 or a 2.
+ 
+-- 
+tg: (82710f6..) t/upstream/spelling (depends on: master)

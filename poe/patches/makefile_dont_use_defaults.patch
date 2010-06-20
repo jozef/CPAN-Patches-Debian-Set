@@ -1,0 +1,29 @@
+so that the network tests are ran
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -6,15 +6,15 @@
+ 
+ # Switch to default behavior if STDIN isn't a tty.
+ 
+-unless (-t STDIN) {
+-  warn(
+-    "\n",
+-    "=============================================\n\n",
+-    "STDIN is not a terminal.  Assuming --default.\n\n",
+-    "=============================================\n\n",
+-  );
+-  push @ARGV, "--default";
+-}
++#unless (-t STDIN) {
++#  warn(
++#    "\n",
++#    "=============================================\n\n",
++#    "STDIN is not a terminal.  Assuming --default.\n\n",
++#    "=============================================\n\n",
++#  );
++#  push @ARGV, "--default";
++#}
+ 
+ # Remind the user she can use --default.
+ 

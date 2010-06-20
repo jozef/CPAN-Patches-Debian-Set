@@ -1,0 +1,20 @@
+Description: enable UTF8 for tests
+ This prevents warnings due to wide characters (UTF-8 encoded)
+ being detected in test output
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Reviewed-by: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+
+--- a/t/iri.t
++++ b/t/iri.t
+@@ -9,6 +9,9 @@
+ 
+ my $u;
+ 
++binmode Test::More->builder->output, ":utf8";
++binmode Test::More->builder->failure_output, ":utf8";
++
+ $u = URI->new("http://Bücher.ch");
+ is $u, "http://xn--bcher-kva.ch";
+ is $u->host, "xn--bcher-kva.ch";

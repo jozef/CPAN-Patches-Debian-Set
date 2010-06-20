@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 5), perl (>= 5.8)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libapache2-mod-perl2 (>= 1.999.22)
+X: 0

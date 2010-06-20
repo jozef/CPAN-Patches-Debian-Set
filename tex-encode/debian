@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-parser-perl (>= 3.35), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl (>= 3.35)
+X: 0

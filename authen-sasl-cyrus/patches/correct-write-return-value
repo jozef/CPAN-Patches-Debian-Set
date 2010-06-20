@@ -1,0 +1,28 @@
+Perl's print function returns true, not the number of octets printed,
+but when overloading WRITE in a tied file handle, we must return the
+number of octets written or -1 on error.  Adjust the return value of
+WRITE accordingly.
+
+Patch from Sergio Gelato <Sergio.Gelato@astro.su.se>
+
+Debian Bug#486698.
+
+--- libauthen-sasl-cyrus-perl.orig/lib/Authen/SASL/Cyrus/Security.pm
++++ libauthen-sasl-cyrus-perl/lib/Authen/SASL/Cyrus/Security.pm
+@@ -77,6 +77,7 @@
+ 
+   $fh = $ref->{fh};
+   $clearbuf = substr($string, 0, $len);
++  $len = length($clearbuf);
+   $maxbuf = $ref->{conn}->property("maxout");
+   if ($len < $maxbuf) {
+     $cryptbuf = $ref->{conn}->encode($clearbuf);
+@@ -94,7 +95,7 @@
+       $offset += $chunksize;
+     }
+   }
+-  print $fh $cryptbuf;
++  return (print $fh $cryptbuf) ? $len : -1;
+ }
+ 
+ # Given a GLOB ref, tie the filehandle of the GLOB to this class

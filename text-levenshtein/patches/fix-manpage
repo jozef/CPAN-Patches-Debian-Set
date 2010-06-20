@@ -1,0 +1,15 @@
+Author: Ryan Niebur <ryanryan52@gmail.com>
+Description: remove the extra & in the POD
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=42535
+
+--- a/Levenshtein.pm
++++ b/Levenshtein.pm
+@@ -125,7 +125,7 @@
+ When two strings have distance 0, they are the same.
+ A good point to start is: <http://www.merriampark.com/ld.htm>
+ 
+-&fastdistance can be called with two scalars and is faster in most cases.
++C<fastdistance> can be called with two scalars and is faster in most cases.
+ 
+ See also Text::LevenshteinXS on CPAN if you do not require a perl-only implementation.  It
+ is extremely faster in nearly all cases.

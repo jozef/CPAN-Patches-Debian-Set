@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: libclass-accessor-chained-perl, libclass-accessor-perl, libclass-data-accessor-perl, libdate-calc-perl, libemail-valid-perl, libhtml-scrubber-perl, libhtml-tree-perl, libmodule-install-perl, libmodule-pluggable-fast-perl, libtest-mockobject-perl, libtest-nowarnings-perl, libtest-pod-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-chained-perl, libclass-accessor-perl, libclass-data-accessor-perl, libdate-calc-perl, libemail-valid-perl, libhtml-scrubber-perl, libhtml-tree-perl, libmodule-pluggable-fast-perl, libtest-mockobject-perl
+X: 0

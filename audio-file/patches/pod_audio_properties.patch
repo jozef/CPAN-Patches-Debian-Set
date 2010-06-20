@@ -1,0 +1,15 @@
+Author: gregor herrmann <gregoa@debian.org>
+Bug-Debian: #524739
+Description: fix example in POD
+
+--- a/lib/Audio/File.pm
++++ b/lib/Audio/File.pm
+@@ -15,7 +15,7 @@
+   my $file = Audio::File->new( "foo.bar" );
+ 
+   print "The ". $file->type() ."-file ". $file->name
+-  		." is ". int $file->length() ." seconds long.\n";
++  		." is ". int $file->audio_properties->length() ." seconds long.\n";
+ 
+   print "It's interpreted by ". $file->tag->artist()
+   		." and called ". $file->tag->title() ".\n";

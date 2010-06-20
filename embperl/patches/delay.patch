@@ -1,0 +1,43 @@
+Description: Add additional delay loop to test.pl, for ridiculously slow machines
+ (like heavily loaded m68k/arm buildds)
+Author: Angus Lees <gus@debian.org>
+
+--- a/test.pl
++++ b/test.pl
+@@ -2685,6 +2685,7 @@
+ 	    }
+ 
+         my $tries = ($opt_gdb || $opt_ddd)?30:15 ;
++	my $delay = 1 ;
+         $httpdpid = 0 ;
+         my $herr = 0 ;
+ 
+@@ -2708,7 +2709,7 @@
+                     }
+                 }
+ 
+-            sleep (1) ;
++            sleep ($delay++) ;
+             }
+         close HERR if ($herr) ;
+ 
+@@ -2717,6 +2718,19 @@
+ 
+         print "pid = $httpdpid  ok\n" ;
+ 
++	# additional delay step for really slow machines (m68k/arm)
++	$tries = 0 ;
++	while ($tries++ < 8)
++	  {
++	    use IO::Socket::INET;
++	    my $sock = new IO::Socket::INET
++	      PeerAddr => $host,
++	      PeerPort => $port,
++	      Timeout => 10;
++	    last if $sock;	# connected successfully
++	    sleep(1.5**$tries);
++	  }
++
+ 	close ERR ;
+ 	if (!open (ERR, "$httpderr"))
+             {

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libtie-ixhash-perl, libxml-libxml-perl | libxml-sax-expat-perl, libxml-namespacesupport-perl (>= 1.04), libxml-parser-perl, libxml-sax-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-libxml-perl | libxml-sax-expat-perl, libxml-namespacesupport-perl (>= 1.04), libxml-sax-perl
+X: 0

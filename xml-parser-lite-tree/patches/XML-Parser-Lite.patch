@@ -1,0 +1,23 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: we use the real XML::Parser::Lite instead of the embedded copy
+
+--- a/lib/XML/Parser/Lite/Tree.pm
++++ b/lib/XML/Parser/Lite/Tree.pm
+@@ -3,7 +3,7 @@
+ use 5.006;
+ use strict;
+ use warnings;
+-use XML::Parser::LiteCopy;
++use XML::Parser::Lite;
+ 
+ our $VERSION = '0.12';
+ 
+@@ -21,7 +21,7 @@
+ 	my %opts = (ref $_[0]) ? ((ref $_[0] eq 'HASH') ? %{$_[0]} : () ) : @_;
+ 	$self->{opts} = \%opts;
+ 
+-	$self->{__parser} = new XML::Parser::LiteCopy
++	$self->{__parser} = new XML::Parser::Lite
+ 		Handlers => {
+ 			Start	=> sub { $self->_start_tag(@_); },
+ 			Char	=> sub { $self->_do_char(@_); },

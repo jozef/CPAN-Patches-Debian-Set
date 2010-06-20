@@ -1,0 +1,15 @@
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -45,6 +45,12 @@
+                   'IO::Socket'    => 0,
+                   'Sys::Hostname' => 0,
+               },
++	      'MAN3PODS' => {
++		  'IRC.pm' => 'blib/man3/Net::IRC.3pm',
++		  'Connection.pm' => 'blib/man3/Net::IRC::Connection.3pm',
++		  'DCC.pm' => 'blib/man3/Net::IRC::DCC.3pm',
++		  'Event.pm' => 'blib/man3/Net::IRC::Event.3pm',
++	      },
+ 	      'VERSION_FROM' => 'IRC.pm', # finds $VERSION
+               'dist' => { 'COMPRESS' => 'gzip --best' },
+ );

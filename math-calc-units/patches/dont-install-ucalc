@@ -1,0 +1,13 @@
+has no documentation, and I don't think it's useful enough for me to
+spend time writing documentation.
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -3,7 +3,6 @@
+ WriteMakefile(
+     'NAME'	=> 'Math::Calc::Units',
+     'VERSION_FROM' => 'Units.pm', # finds $VERSION
+-    'EXE_FILES' => [ 'script/ucalc' ],
+     'XS' => {},
+ );
+ 

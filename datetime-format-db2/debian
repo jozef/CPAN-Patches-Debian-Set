@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0)
+Build-Depends-Indep: libdatetime-format-builder-perl, libdatetime-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-format-builder-perl, libdatetime-perl
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libconfig-any-perl (>= 0.10), libmoose-perl (>= 0.35), libmoosex-configfromfile-perl (>= 0.02), perl (>= 5.8.9)
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-any-perl (>= 0.10), libmoose-perl (>= 0.35), libmoosex-configfromfile-perl (>= 0.02)
+X: 0

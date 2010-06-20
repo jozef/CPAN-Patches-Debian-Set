@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-inspector-perl (>= 1.12), libfile-sharedir-perl (>= 1.0), libpar-perl (>= 0.989), libparams-util-perl (>= 0.07), perl (>= 5.005)
+Depends: ${misc:Depends}, libclass-inspector-perl (>= 1.12), libfile-sharedir-perl (>= 1.0), libparams-util-perl (>= 0.07), perl (>= 5.005)
+X: 0

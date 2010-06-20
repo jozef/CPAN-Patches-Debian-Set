@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.10), libpod-simple-perl (>= 3.07), libppi-perl (>= 0.845), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libppi-perl (>= 0.845)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt (>= 0.40)
+Build-Depends-Indep: libflickr-api-perl (>= 0.07), libwww-perl (>= 1), libxml-parser-lite-tree-perl (>= 0.03), perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libflickr-api-perl (>= 0.07), libwww-perl (>= 1), libxml-parser-lite-tree-perl (>= 0.03)
+X: 0

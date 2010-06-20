@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdata-dump-perl, libtest-tester-perl (>= 0.107), perl (>= 5.10) | libversion-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-dump-perl, libtest-tester-perl (>= 0.107), perl (>= 5.10) | libversion-perl
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libbit-vector-perl, libclone-perl (>= 0.29), libdatetime-perl, libdbd-sqlite3-perl, libdbi-perl, liblist-moreutils-perl, librose-db-perl (>= 0.757), librose-object-perl (>= 0.854), libtest-memory-cycle-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libbit-vector-perl, libclone-perl (>= 0.29), libdatetime-perl, libdbi-perl, liblist-moreutils-perl, librose-db-perl (>= 0.757), librose-object-perl (>= 0.854)
+X: 0

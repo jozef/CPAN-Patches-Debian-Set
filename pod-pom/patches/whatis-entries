@@ -1,0 +1,57 @@
+add whatis entries to all of the man pages
+
+--- a/lib/Pod/POM/Constants.pm
++++ b/lib/Pod/POM/Constants.pm
+@@ -55,7 +55,7 @@
+ 
+ =head1 NAME
+ 
+-Pod::POM::Constants
++Pod::POM::Constants - constants used for Pod::POM
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/Pod/POM/View.pm
++++ b/lib/Pod/POM/View.pm
+@@ -126,7 +126,7 @@
+ 
+ =head1 NAME
+ 
+-Pod::POM::View
++Pod::POM::View - view POM objects
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/Pod/POM/View/HTML.pm
++++ b/lib/Pod/POM/View/HTML.pm
+@@ -406,7 +406,7 @@
+ 
+ =head1 NAME
+ 
+-Pod::POM::View::HTML
++Pod::POM::View::HTML - create HTML views of POM objects
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/Pod/POM/View/Pod.pm
++++ b/lib/Pod/POM/View/Pod.pm
+@@ -190,7 +190,7 @@
+ 
+ =head1 NAME
+ 
+-Pod::POM::View::Pod
++Pod::POM::View::Pod - create a Pod view of a POM object
+ 
+ =head1 DESCRIPTION
+ 
+--- a/lib/Pod/POM/View/Text.pm
++++ b/lib/Pod/POM/View/Text.pm
+@@ -267,7 +267,7 @@
+ 
+ =head1 NAME
+ 
+-Pod::POM::View::Text
++Pod::POM::View::Text - create text views of POM objects
+ 
+ =head1 DESCRIPTION
+ 

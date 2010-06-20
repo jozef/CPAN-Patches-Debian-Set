@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcarp-clan-perl (>= 6), libclass-mop-perl, libmoose-perl (>= 0.93), libnamespace-clean-perl, libsub-exporter-perl, libsub-install-perl (>= 0.924), libsub-name-perl, libtest-exception-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.80)
+Depends: ${misc:Depends}, ${perl:Depends}, libcarp-clan-perl (>= 6), libclass-mop-perl, libmoose-perl (>= 0.93), libnamespace-clean-perl, libsub-exporter-perl, libsub-install-perl (>= 0.924), libsub-name-perl
+X: 0

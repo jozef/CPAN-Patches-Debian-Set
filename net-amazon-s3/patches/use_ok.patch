@@ -1,0 +1,12 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: Additional test that just "use"es the module.
+ The other tests are skipped unfortunately, so lets do it separately.
+--- /dev/null
++++ b/t/00use.t
+@@ -0,0 +1,6 @@
++use warnings;
++use strict;
++use lib 'lib';
++use Test::More tests => 1;
++
++use_ok('Net::Amazon::S3');

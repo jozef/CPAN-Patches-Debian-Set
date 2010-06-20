@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libgamin-dev, quilt (>= 0.40)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libgamin0
+X: 0

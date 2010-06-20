@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), libmodule-build-perl
+Build-Depends-Indep: libclass-factory-util-perl, libdatetime-format-mail-perl, libdatetime-format-strptime-perl, libdatetime-perl, libparams-validate-perl, libtest-pod-perl, perl (>= 5)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-factory-util-perl, libdatetime-format-strptime-perl, libdatetime-perl, libparams-validate-perl
+X: 0

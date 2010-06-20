@@ -1,0 +1,13 @@
+t/lib/EditorJunk/Plugin/Bar.pm~ gets removed by build tools, and then the
+test suite fails
+
+--- a/MANIFEST
++++ b/MANIFEST
+@@ -50,7 +50,6 @@
+ t/lib/EditorJunk/Plugin/Bar.pm
+ t/lib/EditorJunk/Plugin/Bar.pm.swo
+ t/lib/EditorJunk/Plugin/Bar.pm.swp
+-t/lib/EditorJunk/Plugin/Bar.pm~
+ t/lib/EditorJunk/Plugin/Foo.pm
+ t/lib/ExtTest/Plugin/Bar.plugin
+ t/lib/ExtTest/Plugin/Foo.plugin

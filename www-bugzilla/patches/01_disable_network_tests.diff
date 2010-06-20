@@ -1,0 +1,33 @@
+Description: disable tests requiring Internet
+ This disables tests requiring Internet. It was inspired by
+ previous work by Bart Martens, including a patch to accomplish
+ something similar.
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/t/search.t
++++ b/t/search.t
+@@ -9,6 +9,10 @@
+ my $email    = 'bmc@shmoo.com';
+ my $password = 'pileofcrap';
+ 
++unless ($ENV{HAS_INTERNET}) {
++  plan skip_all => 'Set HAS_INTERNET to enable tests requiring Internet';
++}
++
+ verify_host($server);
+ 
+ plan tests => 22;
+--- a/t/www_bugzilla.t
++++ b/t/www_bugzilla.t
+@@ -7,6 +7,10 @@
+ 
+ my $server = 'landfill.bugzilla.org/bugzilla-3.4-branch';
+ 
++unless ($ENV{HAS_INTERNET}) {
++  plan skip_all => 'Set HAS_INTERNET to enable tests requiring Internet';
++}
++
+ verify_host($server);
+ plan(tests => 35);
+ 

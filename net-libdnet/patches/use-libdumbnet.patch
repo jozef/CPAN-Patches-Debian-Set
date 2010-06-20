@@ -1,0 +1,17 @@
+Description: use dumbnet.h instead of dnet.h
+ On Debian, libdnet was renamed to libdumbnet, for historical
+ reasons: libdnet is the DECnet library
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: not-needed
+--- a/Libdnet.xs
++++ b/Libdnet.xs
+@@ -34,7 +34,7 @@
+ #include "XSUB.h"
+ 
+ #include <stdio.h>
+-#include <dnet.h>
++#include <dumbnet.h>
+ 
+ typedef blob_t              Blob;
+ typedef eth_addr_t          EthAddr;

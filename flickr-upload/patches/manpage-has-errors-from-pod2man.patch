@@ -1,0 +1,38 @@
+Author: Alex Muntada <alexm@alexm.org>
+Description: fixes issues with =back in flickr_upload POD
+    Already merged upstream in
+    http://gitorious.org/projects/flickrupload/repos/mainline/commits/36f2a4434770d8cbdcdbceee985fc19d4bc3f9f9
+
+--- a/flickr_upload
++++ b/flickr_upload
+@@ -357,6 +357,10 @@
+ Set to 1 to keep the photo in global search results, 2 to hide from public
+ earches.
+ 
++=back
++
++Note that options unknown to Flickr will result in undefined behaviour.
++
+ =item --check
+ 
+ Checks the authentication token via the flickr.auth.checkToken API call.
+@@ -368,10 +372,6 @@
+ Display a progress bar for each upload with L<Term::ProgressBar>. That
+ optional module will have to be installed on the system.
+ 
+-=back 4
+-
+-Note that options unknown to Flickr will result in undefined behaviour.
+-
+ =item --key <api_key>
+ 
+ =item --secret <secret>
+@@ -399,6 +399,8 @@
+ wait around for that to complete, but be aware that delays of upwards
+ of thirty minutes have (rarely) been know to occur.
+ 
++=back
++
+ =head1 EXAMPLES
+ 
+ First, you need to get an authentication token. This is a requirement

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends-Indep: liblog-log4perl-perl, libterm-readkey-perl, libwww-perl, perl (>= 5.10) | libarchive-tar-perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblog-log4perl-perl, libterm-readkey-perl, libwww-perl
+X: 0

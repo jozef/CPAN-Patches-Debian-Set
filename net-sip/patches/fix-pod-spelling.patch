@@ -1,0 +1,61 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Net/SIP/Endpoint.pod
++++ b/lib/Net/SIP/Endpoint.pod
+@@ -133,7 +133,7 @@
+ 
+ =item from
+ 
+-The adress to register at the registrar. Mandatory.
++The address to register at the registrar. Mandatory.
+ 
+ =item contact
+ 
+--- a/lib/Net/SIP/Leg.pod
++++ b/lib/Net/SIP/Leg.pod
+@@ -111,7 +111,7 @@
+ ADDR is a hostname which can be prefixed by the protocol ( e.g. C<udp:host> )
+ and postfixed by the port ( C<host:port>, C<tcp:host:port>,... ).
+ 
+-If the caller has 'proto','addr' and 'port' already as seperate items
++If the caller has 'proto','addr' and 'port' already as separate items
+ it can call the method with %SPEC instead.
+ 
+ Right now it has now way to check if the leg can deliver to a specific
+--- a/lib/Net/SIP/Request.pod
++++ b/lib/Net/SIP/Request.pod
+@@ -77,7 +77,7 @@
+ 
+ Returns Net::SIP::Response packet for the received request C<$self> with
+ numerical code CODE and text message MSG. Header for the response will
+-be based on the request, but can be added or overriden using \%HEADER.
++be based on the request, but can be added or overridden using \%HEADER.
+ 
+ For details to \%HEADER and BODY see B<new_from_parts> in L<Net::SIP::Packet>.
+ 
+--- a/lib/Net/SIP/Simple.pod
++++ b/lib/Net/SIP/Simple.pod
+@@ -67,8 +67,8 @@
+ \@List of legs or single leg. Leg can be an existing L<Net::SIP::Leg> (or derived)
+ object, an L<IO::Handle> (existing socket), a hash reference which can be used
+ in the constructor of L<Net::SIP::Leg> or a string of C<< "proto:ip:port" >>.
+-In the latter case C<proto> can be ommitted (including the colon) and defaults
+-to 'udp' and C<port> can be ommitted to (including the colon) defaulting to 5060.
++In the latter case C<proto> can be omitted (including the colon) and defaults
++to 'udp' and C<port> can be omitted to (including the colon) defaulting to 5060.
+ 
+ Either B<legs> or B<outgoing_proxy> has to be provided, e.g. it needs at least one
+ leg.
+--- a/lib/Net/SIP/Simple/Call.pod
++++ b/lib/Net/SIP/Simple/Call.pod
+@@ -159,7 +159,7 @@
+ 
+ =item ...
+ 
+-More parameters may be specified and are accessable from the callbacks.
++More parameters may be specified and are accessible from the callbacks.
+ For instance B<media_send_recv> in L<Net::SIP::Simple::RTP> uses a parameter
+ B<cb_rtp_done>. See there.
+ 

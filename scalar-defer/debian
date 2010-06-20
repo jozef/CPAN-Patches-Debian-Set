@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libclass-insideout-perl, libexporter-lite-perl, libio-capture-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-insideout-perl, libexporter-lite-perl
+X: 0

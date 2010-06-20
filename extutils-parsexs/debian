@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libextutils-cbuilder-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libextutils-cbuilder-perl
+X: 0

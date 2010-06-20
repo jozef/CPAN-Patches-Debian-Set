@@ -1,0 +1,21 @@
+Description: Embperl_BS: Make string compare mod_perl version number deal with
+ '1.999.20'
+Author: Angus Lees <gus@debian.org>
+
+--- a/Embperl_BS
++++ b/Embperl_BS
+@@ -7,8 +7,12 @@
+     my $nafile = $file ;
+     $nafile =~ s/(.*)\./$1.NoApache./ ;
+     $file = $nafile if (-f $nafile) ;
+-    #print STDERR "\n*** bs load file = $file ***\n" ;
++    }
++elsif ($ENV{MOD_PERL} =~ m,mod_perl/([\d.]+), and $1 lt '1.99')
++    {
++    $file =~ s/(.*)\./$1-13./ ;
+     }
+ 
+-] ;
++    #print STDERR "\n*** bs load file = $file ***\n" ;
+ 
++] ;

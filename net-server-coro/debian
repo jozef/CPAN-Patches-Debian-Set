@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcoro-perl, libev-perl, libnet-server-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcoro-perl, libev-perl, libnet-server-perl
+X: 0

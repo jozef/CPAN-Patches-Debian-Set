@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libclass-mop-perl (>= 0.98), libdata-optlist-perl, libdatetime-format-mysql-perl, libdbm-deep-perl, libio-string-perl, liblist-moreutils-perl (>= 0.12), liblocale-us-perl, libmodule-refresh-perl, libregexp-common-perl, libsub-exporter-perl (>= 0.980), libsub-name-perl (>= 0.02), libtest-deep-perl, libtest-exception-perl (>= 0.27), libtest-output-perl (>= 0.09), libtest-pod-coverage-perl, libtest-pod-perl, libtest-warn-perl, libtry-tiny-perl, liburi-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libclass-mop-perl (>= 0.98), libdata-optlist-perl, liblist-moreutils-perl (>= 0.12), libsub-exporter-perl (>= 0.980), libsub-name-perl (>= 0.02), libtry-tiny-perl
+X: 0

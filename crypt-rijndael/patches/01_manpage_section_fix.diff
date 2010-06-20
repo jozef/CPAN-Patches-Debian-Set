@@ -1,0 +1,14 @@
+Description: install .3 as .3pm
+Author: Martín Ferrari <martin.ferrari@gmail.com>
+Reviewed-By: Jonathan Yu <jawnsy@cpan.org>
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -20,7 +20,7 @@
+ 
+ 
+ 	'MAN3PODS'     => {
+-			'Rijndael.pm' => '$(INST_MAN3DIR)/Crypt::Rijndael.3',
++			'Rijndael.pm' => '$(INST_MAN3DIR)/Crypt::Rijndael.3pm',
+ 			},
+ 
+ 	clean          => { FILES    => q|*.bak *.old Crypt-*| },

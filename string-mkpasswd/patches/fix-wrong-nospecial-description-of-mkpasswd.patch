@@ -1,0 +1,17 @@
+Description: Fix wrong documentation for the --nospecial flag
+ of the mkpasswd.pl Perl script provided.
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=50183
+Bug-Debian: http://bugs.debian.org/549494
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+--- a/bin/mkpasswd.pl
++++ b/bin/mkpasswd.pl
+@@ -93,7 +93,7 @@
+ 	--nodigits          alias for --digits=0
+ 	--nolower           alias for --lower=0
+ 	--noupper           alias for --upper=0
+-	--nospecial         alias for --upper=0
++	--nospecial         alias for --special=0
+ EOF
+ }
+ 

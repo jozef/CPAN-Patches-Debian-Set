@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libextutils-depends-perl, libparent-perl, perl (>= 5.8.1)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libparent-perl, perl (>= 5.8.1)
+X: 0

@@ -1,0 +1,73 @@
+Description: add aliases for common code page names
+Author: Jaldhar H. Vyas <jaldhar@debian.org>
+Reviewed-by: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: yes
+Bug-CPAN: http://rt.cpan.org/Ticket/Display.html?id=18802
+--- a/Map8/maps/aliases
++++ b/Map8/maps/aliases
+@@ -75,11 +75,17 @@
+ ISO_8859-4 8859-4 ISO-8859-4 ISO_8859-4:1988 iso-ir-110 iso8859-4 l4 latin4
+ ISO_8859-5 8859-5 ISO-8859-5 ISO_8859-5:1988 cyrillic iso-ir-144 iso8859-5
+ ISO_8859-6 8859-6 ASMO-708 ECMA-114 ISO-8859-6 ISO_8859-6:1987 arabic iso-ir-127 iso8859-6
++ISO_8859-6-i ISO-8859-6-i
++ISO_8859-6-e ISO-8859-6-e
+ ISO_8859-7 8859-7 ECMA-118 ELOT_928 ISO-8859-7 ISO_8859-7:1987 greek greek8 iso-ir-126 iso8859-7
+ ISO_8859-8 8859-8 ISO-8859-8 ISO_8859-8:1988 hebrew iso-ir-138 iso8859-8
++ISO_8859-8-i ISO-8859-8-i
++ISO_8859-8-e ISO-8859-8-e
+ ISO_8859-9 8859-9 ISO-8859-9 ISO_8859-9:1989 iso-ir-148 iso8859-9 l5 latin5
+-ISO_8859-13 8859-13 ISO-8859-13 iso8859-13 latin13
+-ISO_8859-15 8859-15 ISO-8859-15 iso8859-15 latin15
++ISO-8859-10 8859-10 ISO_8859-10 ISO_8859-10:1993 iso8859-10 iso-ir-157 l6 latin6
++ISO_8859-13 8859-13 ISO-8859-13 ISO_8859-13:1998 iso8859-13 l7 latin7
++ISO-8859-14 8859-14 ISO_8859-14 ISO_8859-14:1998 iso8859-14 l8 latin8
++ISO_8859-15 8859-15 ISO-8859-15 iso8859-15 ISO_8859-15:1998 l9 latin9 l0 latin0
+ ISO_8859-supp iso-ir-154 latin1-2-5
+ IT ISO646-IT iso-ir-15
+ JIS_C6220-1969-jp JIS_C6220-1969 iso-ir-13 katakana x0201-7
+@@ -112,6 +118,10 @@
+ T.101-G2 iso-ir-128
+ T.61-7bit iso-ir-102
+ T.61-8bit T.61 iso-ir-103
++TCVN-5712 x-viet-tcvn viet-tcvn VN-1 TCVN-5712:1993
++TIS-620 TIS_620-2553 TIS_620-2553:1990
++VISCII csVISCII
++VPS x-viet-vps viet-vps
+ cp037 IBMUSCanada
+ cp10000 MacRoman
+ cp10006 MacGreek
+@@ -120,15 +130,15 @@
+ cp10079 MacIcelandic
+ cp10081 MacTurkish
+ cp1026 IBMLatin5Turkish
+-cp1250 WinLatin2
+-cp1251 WinCyrillic
+-cp1252 WinLatin1
+-cp1253 WinGreek
+-cp1254 WinTurkish
+-cp1255 WinHebrew
+-cp1256 WinArabic
+-cp1257 WinBaltic
+-cp1258 WinVietnamese
++cp1250 WinLatin2 windows-1250
++cp1251 WinCyrillic windows-1251
++cp1252 WinLatin1 windows-1252 ISO-8859-1-Windows-3.1-Latin-1 csWindows31Latin1
++cp1253 WinGreek windows-1253
++cp1254 WinTurkish windows-1254
++cp1255 WinHebrew windows-1255
++cp1256 WinArabic windows-1256
++cp1257 WinBaltic windows-1257
++cp1258 WinVietnamese windows-1258
+ cp437 DOSLatinUS
+ cp500 IBMInternational
+ cp737 DOSGreek
+@@ -151,6 +161,8 @@
+ greek7 iso-ir-88
+ greek7-old iso-ir-18
+ hp-roman8 r8 roman8
++koi8-r csKOI8R KOI8-R
++koi8-u KOI8-U
+ latin-greek iso-ir-19
+ latin-lap iso-ir-158 lap
+ latin6 iso-ir-157 l6

@@ -1,0 +1,14 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: Fix spelling in the pod documentation.
+
+--- a/lib/HTTP/Proxy/BodyFilter/save.pm
++++ b/lib/HTTP/Proxy/BodyFilter/save.pm
+@@ -292,7 +292,7 @@ but a relative path is accepted).
+ Returning C<""> or C<undef> will prevent the creation of the file.
+ This lets a filter decide even more precisely what to save or not,
+ even though this should be done in the match subroutine (see
+-HTTP::Proxy's C<pushè_filte()> method).
++HTTP::Proxy's C<push_filter()> method).
+ 
+ =back
+ 

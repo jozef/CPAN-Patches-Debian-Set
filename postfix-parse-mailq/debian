@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmixin-linewise-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmixin-linewise-perl
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libio-async-perl (>= 0.24), libio-epoll-perl (>= 0.02), libtest-exception-perl, libtest-refcount-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libio-async-perl (>= 0.24), libio-epoll-perl (>= 0.02)
+X: 0

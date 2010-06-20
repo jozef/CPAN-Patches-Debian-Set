@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmime-charset-perl (>= 1.007), libtest-pod-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmime-charset-perl (>= 1.007)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmodule-build-perl
+Build-Depends-Indep: libnet-dbus-perl (>= 0.33.2), libnet-rendezvous-publish-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-dbus-perl (>= 0.33.2), libnet-rendezvous-publish-perl
+X: 0

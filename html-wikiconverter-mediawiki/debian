@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-parser-perl, libhtml-wikiconverter-perl (>= 0.63), libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, perl (>= 5.8.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-wikiconverter-perl (>=0.63)
+X: 0

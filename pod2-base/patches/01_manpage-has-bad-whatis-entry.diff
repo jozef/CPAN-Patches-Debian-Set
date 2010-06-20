@@ -1,0 +1,13 @@
+# Description: A patch to avoid lintian warnings about manpage-has-bad-whatis-entry
+# Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=51794
+--- a/lib/POD2/PT/POD2/Base.pod
++++ b/lib/POD2/PT/POD2/Base.pod
+@@ -1,7 +1,7 @@
+ 
+ =encoding utf8
+ 
+-=head1 NAME/NOME
++=head1 NOME
+ 
+ POD2::Base~[pt] - Módulo básico para traduções de documentação Perl
+ 

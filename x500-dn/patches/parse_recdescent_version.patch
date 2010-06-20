@@ -1,0 +1,15 @@
+Author: Anibal Monsalve Salazar <anibal@debian.org>
+Description: Fix dependency problem with libparse-recdescent-perl.
+Bugs-Debian: #482125
+
+--- a/DN.pm
++++ b/DN.pm
+@@ -7,7 +7,7 @@
+ use 5.6.1; # the "our" keyword below needs it
+ use strict;
+ use Carp;
+-use Parse::RecDescent 1.80;
++use Parse::RecDescent;
+ use X500::RDN;
+ 
+ our $VERSION = '0.29';

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-dbi-perl (>= 0.95), libclass-dbi-plugin-perl (>= 0.02), libsql-abstract-perl (>= 1.50), libtest-deep-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.8)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-dbi-perl (>= 0.95), libclass-dbi-plugin-perl (>= 0.02), libsql-abstract-perl (>= 1.50)
+X: 0

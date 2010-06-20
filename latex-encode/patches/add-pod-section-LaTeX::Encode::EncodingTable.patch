@@ -1,0 +1,68 @@
+Description: Add a short POD section to the LaTeX::Encode::EncodingTable
+ module to not fail on POD-Coverage test on build.
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Status of the patch: Integrated in liblatex-encode-perl 0.03-1
+--- a/lib/LaTeX/Encode/EncodingTable.pm
++++ b/lib/LaTeX/Encode/EncodingTable.pm
+@@ -266,3 +266,61 @@
+ $encoded_char_re = qr{ [$encoded_char_re] }x;
+ 
+ 1;
++__END__
++
++=head1 NAME
++
++LaTeX::Encode::EncodingTable - Encoding table for characters for LaTeX formatting
++
++=head1 SYNOPSIS
++
++  use LaTeX::Encode::EncodingTable;
++
++=head1 VERSION
++
++This manual page describes version 0.03 of the C<LaTeX::Encode::EncodingTable> module.
++
++
++=head1 DESCRIPTION
++
++This module provides the encoding table for characters for LaTeX formatting.
++
++=head1 DEPENDENCIES
++
++The C<HTML::Entities> and C<Pod::LaTeX> modules were used for building
++the encoding table in C<LaTeX::Encode::EncodingTable>, but this is not
++rebuilt at installation time.  The C<LaTeX::Driver> module is used for
++formatting the character encodings reference document.
++
++=head1 BUGS AND LIMITATIONS
++
++Not all LaTeX special characters are included in the encoding tables
++(more may be added when I track down the definitions).
++
++The C<use_textcomp> option is not implemented.
++
++=head1 AUTHOR
++
++Andrew Ford E<lt>a.ford@ford-mason.co.ukE<gt>
++
++=head1 LICENSE AND COPYRIGHT
++
++Copyright (C) 2007 Andrew Ford.  All Rights Reserved.
++
++This module is free software; you can redistribute it and/or
++modify it under the same terms as Perl itself.
++
++This software is distributed in the hope that it will be useful, but
++WITHOUT ANY WARRANTY; without even the implied warranty of
++MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
++
++=head1 SEE ALSO
++
++L<Template::Plugin::Latex>
++
++=head1 NOTES ON MANPAGE
++
++This manual page was written for the Debian GNU/Linux distribution 
++because the original module does not have a manual page.
++
++=cut

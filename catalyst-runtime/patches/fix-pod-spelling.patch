@@ -1,0 +1,35 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=54335
+
+--- a/lib/Catalyst/Engine.pm
++++ b/lib/Catalyst/Engine.pm
+@@ -705,13 +705,13 @@
+ 
+ =head2 $self->env
+ 
+-Hash containing enviroment variables including many special variables inserted
++Hash containing environment variables including many special variables inserted
+ by WWW server - like SERVER_*, REMOTE_*, HTTP_* ...
+ 
+-Before accesing enviroment variables consider whether the same information is
++Before accessing environment variables consider whether the same information is
+ not directly available via Catalyst objects $c->request, $c->engine ...
+ 
+-BEWARE: If you really need to access some enviroment variable from your Catalyst
++BEWARE: If you really need to access some environment variable from your Catalyst
+ application you should use $c->engine->env->{VARNAME} instead of $ENV{VARNAME},
+ as in some enviroments the %ENV hash does not contain what you would expect.
+ 
+--- a/script/catalyst.pl
++++ b/script/catalyst.pl
+@@ -142,7 +142,7 @@
+ 
+ =item C<myapp_test.pl>
+ 
+-runs an action of the generated application from the comand line.
++runs an action of the generated application from the command line.
+ 
+ =back
+ 

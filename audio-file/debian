@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libaudio-flac-header-perl, libmp3-info-perl, libmp3-tag-perl, libogg-vorbis-header-pureperl-perl (>= 1.0-2), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libaudio-flac-header-perl, libmp3-info-perl, libmp3-tag-perl, libogg-vorbis-header-pureperl-perl (>= 1.0-2)
+X: 0

@@ -1,0 +1,20 @@
+remove libscan() to make the Makefile arch-independent
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -17,6 +17,16 @@
+   'Test::POE::Server::TCP' => 0,
+ );
+ 
++# MakeMaker doesn't know about arch :(
++sub MY::libscan {
++  my ($self, $path) = @_;
++  my ($dirs,$file) = ($self->splitpath($path))[1,2];
++  return '' if grep /^(?:\.arch-ids|{arch}|,,.*|\+\+.*)$/,
++    $self->splitdir($dirs), $file;
++
++  return $self->MM::libscan($path);
++}
++
+ # Write that makefile.
+ WriteMakefile(
+   NAME         => 'POE::Component::Client::HTTP',

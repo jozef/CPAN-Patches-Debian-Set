@@ -1,0 +1,11 @@
+--- libchemistry-elements-perl.orig/Makefile.PL
++++ libchemistry-elements-perl/Makefile.PL
+@@ -21,7 +21,7 @@
+ 		},
+ 		
+ 	'MAN3PODS'		=> {
+-		'Elements.pm' => '$(INST_MAN3DIR)/Chemistry::Elements.3',
++		'Elements.pm' => '$(INST_MAN3DIR)/Chemistry::Elements.3pm',
+ 		},
+ 
+ 	clean  => { FILES    => q|Chemistry-Elements-*| },

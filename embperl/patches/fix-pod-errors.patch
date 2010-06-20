@@ -1,0 +1,130 @@
+Description: fix POD errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/Embperl/Syntax.pm
++++ b/Embperl/Syntax.pm
+@@ -806,24 +806,24 @@
+ 
+ Remove next node if it consists of only white spaces and optKeepSpaces isn't set.
+ 
+-=item 4
++=item 3
+ 
+ Replace next node with one space if next node consists only of white spaces and
+ optKeepSpaces isn't set.
+ 
+-=item 8
++=item 4
+ 
+ Set this node to ignore for output.
+ 
+-=item 16
++=item 5
+ 
+ Remove all child nodes
+ 
+-=item 32
++=item 6
+ 
+ Set all child nodes to ignore for output.
+ 
+-=item 64
++=item 7
+ 
+ Calculate Attributes values of this node also for nodes that are set to ignore for output
+ (makes only sense if 8 is also set).
+@@ -845,23 +845,23 @@
+ 
+ Remove all white spaces after tag
+ 
+-=item 4
++=item 3
+ 
+ Remove spaces and tabs before tag
+ 
+-=item 8
++=item 4
+ 
+ Remove spaces and tabs after tag
+ 
+-=item 16
++=item 5
+ 
+ Remove all spaces and tabs but one before tag
+ 
+-=item 32
++=item 6
+ 
+ Remove all whihe space after text inside of tag
+ 
+-=item 64
++=item 7
+ 
+ Remove spaces and tabs  after text inside of tag
+ 
+--- a/Embperl/Syntax/RTF.pm
++++ b/Embperl/Syntax/RTF.pm
+@@ -429,6 +429,9 @@
+ 
+ 
+ =pod
++
++=begin comment
++
+     'RTF first paragraph' => {
+ 	'text' => '\pard',
+ 	'end'  => '}',
+@@ -444,6 +447,8 @@
+             },
+         },
+ 
++=end comment
++
+ =cut
+ 
+ # Finds the first paragraph
+@@ -630,6 +635,9 @@
+ 
+ 1;
+ =pod
++
++=begin comment
++
+                             #$Embperl::req -> component -> code ($_ep_rtf_code) ;
+ 
+                             my $x = $Embperl::req -> component -> code ;
+@@ -650,6 +658,9 @@
+                             print "result=$_ep_rtf_code\n" ;
+                             
+                             warn "RTF IF syntax error. Missing operator" if (!$op) ;
++
++=end comment
++
+ =cut
+ 
+ 
+--- a/embpexec.pl.templ
++++ b/embpexec.pl.templ
+@@ -82,5 +82,3 @@
+ 
+ G. Richter (richter@dev.ecos.de)
+ 
+-=end
+-
+--- a/embpmsgid.pl.templ
++++ b/embpmsgid.pl.templ
+@@ -184,13 +184,3 @@
+ 
+ G. Richter (richter@dev.ecos.de)
+ 
+-=end
+-
+-
+-
+-
+-
+-
+-
+-
+-

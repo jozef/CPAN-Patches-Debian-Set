@@ -1,0 +1,235 @@
+Description: fix manpage whatis entries
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/Config.pod
++++ b/Config.pod
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME
+ 
+-Configuration and calling
++Embperl::Config - Configuration and calling
+ 
+ =head1 Operating-Modes
+ 
+--- a/Embperl/App.pm
++++ b/Embperl/App.pm
+@@ -295,7 +295,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl base class for application objects
++Embperl::App - Embperl base class for application objects
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Faq.pod
++++ b/Faq.pod
+@@ -4,7 +4,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl FAQ - embed Perl code in your HTML docs
++Embperl::Faq - How to embed Perl code in your HTML docs
+ 
+ =head1 CONTENTS
+ 
+--- a/Embperl/Recipe.pm
++++ b/Embperl/Recipe.pm
+@@ -65,7 +65,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl base class for defining custom recipes
++Embperl::Recipe - base class for defining custom recipes
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Recipe/Embperl.pm
++++ b/Embperl/Recipe/Embperl.pm
+@@ -62,7 +62,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Recipe::Embperl
++Embperl::Recipe::Embperl - the default Embperl recipe
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Recipe/EmbperlXSLT.pm
++++ b/Embperl/Recipe/EmbperlXSLT.pm
+@@ -68,7 +68,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Recipe::EmbperlXSLT
++Embperl::Recipe::EmbperlXSLT - recipe to perform an XSLT transformation last
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Recipe/XSLT.pm
++++ b/Embperl/Recipe/XSLT.pm
+@@ -72,7 +72,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Recipe::XSLT
++Embperl::Recipe::XSLT - recipe for performing an XSLT transformation
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Session.pm
++++ b/Embperl/Session.pm
+@@ -10,7 +10,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::Embperl::Session 
++HTML::Embperl::Session - adaptation of Apache::Session to work with HTML::Embperl
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Embperl/Syntax.pm
++++ b/Embperl/Syntax.pm
+@@ -395,7 +395,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl base class for defining custom syntaxes
++Embperl::Syntax - base class for defining custom syntaxes
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/ASP.pm
++++ b/Embperl/Syntax/ASP.pm
+@@ -250,7 +250,7 @@
+ 
+ =head1 NAME
+ 
+-ASP syntax module for Embperl 
++Embperl::Syntax::ASP - ASP syntax module for Embperl 
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/Embperl.pm
++++ b/Embperl/Syntax/Embperl.pm
+@@ -56,7 +56,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl syntax module for Embperl. 
++Embperl::Syntax::Embperl - Embperl syntax module for Embperl. 
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/EmbperlBlocks.pm
++++ b/Embperl/Syntax/EmbperlBlocks.pm
+@@ -602,7 +602,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Syntax::EmbperlBlocks
++Embperl::Syntax::EmbperlBlocks - syntax for Embperl Blocks and metacommands
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/EmbperlHTML.pm
++++ b/Embperl/Syntax/EmbperlHTML.pm
+@@ -180,7 +180,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Syntax::EmbperlHTML
++Embperl::Syntax::EmbperlHTML - syntax for HTML tags that Embperl processes
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/HTML.pm
++++ b/Embperl/Syntax/HTML.pm
+@@ -413,7 +413,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Syntax::HTML
++Embperl::Syntax::HTML - define the syntax for HTML
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/Mail.pm
++++ b/Embperl/Syntax/Mail.pm
+@@ -126,7 +126,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl Taglib for sending mail
++Embperl::Syntax::Mail - tag library for sending mail
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/MsgIdExtract.pm
++++ b/Embperl/Syntax/MsgIdExtract.pm
+@@ -151,7 +151,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Syntax::MsgIdExtract
++Embperl::Syntax::MsgIdExtract - define syntax for i18n using Embperl blocks
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/POD.pm
++++ b/Embperl/Syntax/POD.pm
+@@ -732,7 +732,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Syntax::POD
++Embperl::Syntax::POD - convert POD to XML on-the-fly
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/Perl.pm
++++ b/Embperl/Syntax/Perl.pm
+@@ -72,7 +72,7 @@
+ 
+ =head1 NAME
+ 
+-Perl syntax module for Embperl 
++Embperl::Syntax::Perl - define Perl syntax for Embperl
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/RTF.pm
++++ b/Embperl/Syntax/RTF.pm
+@@ -671,7 +671,7 @@
+ 
+ =head1 NAME
+ 
+-Embperl::Syntax::RTF
++Embperl::Syntax::RTF - define syntax for RTF files
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/SSI.pm
++++ b/Embperl/Syntax/SSI.pm
+@@ -432,7 +432,7 @@
+ 
+ =head1 NAME
+ 
+-SSI syntax module for Embperl 
++Embperl::Syntax::SSI - define SSI syntax for Embperl 
+ 
+ =head1 SYNOPSIS
+ 
+--- a/Embperl/Syntax/Text.pm
++++ b/Embperl/Syntax/Text.pm
+@@ -59,7 +59,7 @@
+ 
+ =head1 NAME
+ 
+-Text syntax module for Embperl 
++Embperl::Syntax::Text - define text syntax for Embperl
+ 
+ =head1 SYNOPSIS
+ 

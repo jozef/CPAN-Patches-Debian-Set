@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libclass-accessor-perl, libclass-returnvalue-perl, libtest-longstring-perl, libtest-nowarnings-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-simple-perl, libtest-warn-perl, libtext-vfile-asdata-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libclass-returnvalue-perl, libtext-vfile-asdata-perl
+X: 0

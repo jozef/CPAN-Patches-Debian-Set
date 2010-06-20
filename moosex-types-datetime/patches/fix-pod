@@ -1,0 +1,22 @@
+fix missing =backs
+
+--- a/lib/MooseX/Types/DateTime.pm
++++ b/lib/MooseX/Types/DateTime.pm
+@@ -171,6 +171,8 @@
+ 
+ The C<Locale::Maketext/language_tag> attribute will be used with L<DateTime::Locale/load>.
+ 
++=back
++
+ =item L<DateTime::TimeZone>
+ 
+ A class type for L<DateTime::TimeZone>.
+@@ -190,6 +192,8 @@
+ 
+ =back
+ 
++=back
++
+ =head1 SEE ALSO
+ 
+ L<MooseX::Types::DateTimeX>

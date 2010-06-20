@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libipc-run3-perl, libtest-exception-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libipc-run3-perl, libtest-exception-perl
+X: 0

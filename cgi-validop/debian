@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libhtml-parser-perl, libtest-exception-perl, libtest-taint-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl
+X: 0

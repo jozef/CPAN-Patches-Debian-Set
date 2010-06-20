@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 6)
+Build-Depends-Indep: libclass-accessor-perl, libemail-mime-contenttype-perl, libemail-mime-perl (>= 1.901) | libemail-mime-modifier-perl (>= 1.441), libwww-perl, perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libemail-mime-contenttype-perl, libemail-mime-perl (>= 1.901) | libemail-mime-modifier-perl (>= 1.441), libwww-perl
+X: 0

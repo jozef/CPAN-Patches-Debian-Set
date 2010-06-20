@@ -1,0 +1,15 @@
+Description: fix POD errors
+Forwarded: no
+Origin: vendor
+Author: Jonathan Yu <jawnsy@cpan.org>
+
+--- a/lib/Mail/Mbox/MessageParser/MetaInfo.pm
++++ b/lib/Mail/Mbox/MessageParser/MetaInfo.pm
+@@ -294,6 +294,7 @@
+ Returns a reference to a Mail::Mbox::MessageParser object, or a string
+ describing the error.
+ 
++=back
+ 
+ =head1 BUGS
+ 

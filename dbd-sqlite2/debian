@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 5), libdbi-perl (>= 1.03), perl (>= 5.8), quilt (>= 0.40)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdbi-perl (>= 1.03)
+X: 0

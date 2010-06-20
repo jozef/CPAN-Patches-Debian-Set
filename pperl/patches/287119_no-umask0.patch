@@ -1,0 +1,48 @@
+--- a/pperl.h.header
++++ b/pperl.h.header
+@@ -188,7 +188,6 @@ sub become_daemon {
+   open(STDOUT,">/dev/null");
+   open(STDERR, '>&STDOUT');
+   chdir '/';           # change working directory
+-  umask(0);            # forget file mode creation mask
+   $ENV{PATH} = '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin';
+   delete @ENV{'IFS', 'CDPATH', 'ENV', 'BASH_ENV'};
+   $SIG{CHLD} = \&reap_child;
+--- a/t/11autoclose.t
++++ b/t/11autoclose.t
+@@ -1,16 +1,26 @@
+ #!perl -w
+ use Test;
+-BEGIN { plan tests => 4 }
++use Fcntl ':mode';
++BEGIN { plan tests => 6 }
+ 
+ `./pperl --prefork=1 t/autoclose.plx`;
+ 
+ my $file = "foo.$$";
+ my $foo;
+ 
++# Regression test for Debian bug #287119.
++sub check_perm () {
++    my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,
++	$atime,$mtime,$ctime,$blksize,$blocks)
++	= stat($file);
++    ok(S_IMODE($mode), 0644);
++}
++
+ `$^X t/autoclose.plx $file foo`;
+ ok(`$^X t/cat.plx $file`, "foo\n");
+ `$^X t/autoclose.plx $file bar`;
+ ok(`$^X t/cat.plx $file`, "foo\nbar\n");
++check_perm;
+ 
+ unlink $file;
+ 
+@@ -18,6 +28,7 @@ unlink $file;
+ ok(`$^X t/cat.plx $file`, "foo\n");
+ `./pperl t/autoclose.plx $file bar`;
+ ok(`$^X t/cat.plx $file`, "foo\nbar\n");
++check_perm;
+ 
+ `./pperl -k t/autoclose.plx`;
+ `./pperl -k t/cat.plx`;

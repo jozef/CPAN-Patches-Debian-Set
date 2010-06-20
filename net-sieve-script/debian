@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl (>= 0.3), libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.6.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl (>= 0.3)
+X: 0

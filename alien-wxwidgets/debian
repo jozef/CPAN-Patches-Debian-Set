@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~), libmodule-pluggable-perl, libtest-pod-coverage-perl, libtest-pod-perl, libwxgtk2.8-dev (>= 2.8.10.1), perl (>= 5.10.1), quilt (>= 0.46-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libmodule-pluggable-perl, libwxgtk2.8-dev (<< ${wx:next})
+X: 0

@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/CSV_XS.pm
++++ b/CSV_XS.pm
+@@ -1470,7 +1470,7 @@
+ Requests for adding means (methods) that combine C<combine ()> and
+ C<string ()> in a single call will B<not> be honored. Likewise for
+ C<parse ()> and C<fields ()>. Given the trouble with embedded newlines,
+-Using C<getline ()> and C<print ()> instead is the prefered way to go.
++Using C<getline ()> and C<print ()> instead is the preferred way to go.
+ 
+ =item Parse the whole file at once
+ 

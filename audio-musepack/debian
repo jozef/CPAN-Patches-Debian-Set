@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmp3-info-perl (>= 1.20), libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libmp3-info-perl (>= 1.20)
+X: 0

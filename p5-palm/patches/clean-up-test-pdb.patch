@@ -1,0 +1,13 @@
+Author: Tim Retout
+Description: Remove t/Test.pdb when running 'make clean'.
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -29,6 +29,6 @@
+ 
+     'EXE_FILES'		=> [ 'examples/pdbdump' ],
+ 
+-	clean  => { FILES    => q|*.bak p5-*| },
++	clean  => { FILES    => q|*.bak p5-* t/Test.pdb| },
+ 
+ );

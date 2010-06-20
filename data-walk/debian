@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), libmodule-build-perl, quilt
+Build-Depends-Indep: libtest-unit-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: dbus-x11, debhelper (>= 7.2), libextutils-depends-perl (>= 0.200), libextutils-pkgconfig-perl (>= 1.03), libgconf2-dev (>= 2.0), libglib-perl (>= 1:1.120), perl (>= 5.8.0-7), quilt
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libglib-perl (>= 1:1.120)
+X: 0

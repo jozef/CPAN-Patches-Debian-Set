@@ -1,0 +1,20 @@
+Description: Disable signature test
+ Sometimes Module::Signature will try to retrieve signatures. It
+ fails on systems without Internet.
+Origin: vendor
+Forwarded: no
+Author: Jonathan Yu <frequency@cpan.org>
+--- a/t/00-signature.t
++++ b/t/00-signature.t
+@@ -2,6 +2,11 @@
+ use strict;
+ print "1..1\n";
+ 
++unless ($ENV{HAS_INTERNET}) {
++   print "ok 1 # skip Only perform test with internet access\n";
++   exit;
++}
++
+ if (!-s 'SIGNATURE') {
+    print "ok 1 # skip No signature file found\n";
+ }

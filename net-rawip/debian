@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libpcap-dev, libproc-processtable-perl, libtest-perl-critic-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8), quilt
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

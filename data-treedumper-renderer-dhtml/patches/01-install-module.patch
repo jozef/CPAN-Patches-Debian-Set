@@ -1,0 +1,17 @@
+Install only the Perl module, not the example script.
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -1,6 +1,12 @@
+ use ExtUtils::MakeMaker;
+ # See lib/ExtUtils/MakeMaker.pm for details of how to influence
+ # the contents of the Makefile that is written.
++
++sub MY::libscan
++{
++	return $_[1] =~ /\.pm$/? $_[1]: '';
++}
++
+ WriteMakefile(
+     'NAME'		=> 'Data::TreeDumper::Renderer::DHTML',
+     'VERSION_FROM'	=> 'DHTML.pm', # finds $VERSION

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), perl
+Build-Depends-Indep: libcgi-application-basic-plugin-bundle-perl, libcgi-application-perl, libhttp-server-simple-perl, libhttp-server-simple-static-perl, libio-capture-perl, libtest-exception-perl, libtest-http-server-simple-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-www-mechanize-perl, libwww-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-perl, libhttp-server-simple-perl (>= 0.18), libhttp-server-simple-static-perl, libio-capture-perl, libwww-perl
+X: 0

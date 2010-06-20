@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl, libclass-data-inheritable-perl, libdata-hasharray-perl, libfile-chdir-perl, liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.66), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libclass-data-inheritable-perl, libdata-hasharray-perl, libfile-chdir-perl, liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.66)
+X: 0

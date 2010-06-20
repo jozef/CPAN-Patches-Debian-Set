@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: libclass-dbi-fromcgi-perl, libdata-formvalidator-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-dbi-fromcgi-perl, libdata-formvalidator-perl
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl, libclass-data-accessor-perl, libclass-data-inheritable-perl, libclass-inspector-perl, libdate-calc-perl, libdatetime-format-strptime-perl, libemail-valid-loose-perl, liblist-moreutils-perl, libmailtools-perl, libtest-pod-perl, libtie-ixhash-perl, libuniversal-exports-perl, libyaml-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libclass-data-accessor-perl, libclass-data-inheritable-perl, libclass-inspector-perl, libdate-calc-perl, libdatetime-format-strptime-perl, libemail-valid-loose-perl, liblist-moreutils-perl, libmailtools-perl, libtie-ixhash-perl, libuniversal-exports-perl, libyaml-perl
+X: 0

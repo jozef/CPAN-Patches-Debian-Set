@@ -1,0 +1,12 @@
+to fix the path of the rc file in the manpage
+--- a/bin/prove
++++ b/bin/prove
+@@ -72,7 +72,7 @@
+ 
+ =head1 NOTES
+ 
+-=head2 .proverc
++=head2 F<~/.proverc> / F<./.proverc>
+ 
+ If F<~/.proverc> or F<./.proverc> exist they will be read and any
+ options they contain processed before the command line options. Options

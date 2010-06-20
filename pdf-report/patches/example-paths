@@ -1,0 +1,55 @@
+Fix example module paths for installation
+
+Originally by Gunnar Wolf <gwolf@debian.org>
+Updated by Nathan Handler <nhandler@ubuntu.com>
+and gregor herrmann <gregoa@debian.org>
+
+--- a/examples/barcode.pl
++++ b/examples/barcode.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use lib qw(../lib);
+ use PDF::Report;
+ 
+--- a/examples/footer.pl
++++ b/examples/footer.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use lib qw(../lib);
+ use PDF::Report;
+ 
+--- a/examples/image.pl
++++ b/examples/image.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use lib qw(../lib);
+ use PDF::Report;
+ 
+--- a/examples/paragraph.pl
++++ b/examples/paragraph.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use lib qw(../lib);
+ use PDF::Report;
+ 
+--- a/examples/piegraph.pl
++++ b/examples/piegraph.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use lib qw(../lib);
+ use PDF::Report;
+ 
+--- a/examples/rotate.pl
++++ b/examples/rotate.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use lib qw(../lib);
+ use PDF::Report;
+ 
+--- a/examples/openpdf.pl
++++ b/examples/openpdf.pl
+@@ -1,3 +1,4 @@
++#!/usr/bin/perl
+ use lib qw(../lib);
+ use PDF::Report;
+ 

@@ -1,0 +1,17 @@
+Description: use ExtUtils::Depends 0.301
+ EU::Depends 0.302 has changes only for Win32 + gcc, so on
+ Debian systems, version 0.301 is sufficient
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: not needed
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -1,7 +1,7 @@
+ #!perl
+ use 5.006;
+ use strict;
+-my $ExtUtils_Depends_required = 0.302; #minimum version that works on Win32+gcc
++my $ExtUtils_Depends_required = 0.301; #minimum version that works on Win32+gcc
+ eval {
+ 	require ExtUtils::Depends;
+ };

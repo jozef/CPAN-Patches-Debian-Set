@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libany-moose-perl, libdatetime-perl, libfile-mmagic-perl, libfile-slurp-perl, libhtml-tree-perl, libjson-perl, libmime-types-perl, libparams-validate-perl, libtest-mock-lwp-perl, libtest-mockmodule-perl, liburi-perl, libwww-mechanize-perl, libxml-feedpp-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl, libdatetime-perl, libfile-mmagic-perl, libhtml-tree-perl, libjson-perl, libmime-types-perl, libparams-validate-perl, liburi-perl, libwww-mechanize-perl
+X: 0

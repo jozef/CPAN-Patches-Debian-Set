@@ -1,0 +1,15 @@
+Description: use Hash::Util::FieldHash instead of ::Compat
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: not-needed
+--- a/lib/MooseX/Types/VariantTable.pm
++++ b/lib/MooseX/Types/VariantTable.pm
+@@ -3,7 +3,7 @@
+ package MooseX::Types::VariantTable;
+ use Moose;
+ 
+-use Hash::Util::FieldHash::Compat qw(idhash);
++use Hash::Util::FieldHash qw(idhash);
+ use Scalar::Util qw(refaddr);
+ 
+ use Moose::Util::TypeConstraints;

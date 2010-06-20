@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liberror-perl, libexception-class-perl, libparams-validate-perl, libtest-exception-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liberror-perl, libexception-class-perl, libparams-validate-perl, libtest-exception-perl, libwww-perl
+X: 0

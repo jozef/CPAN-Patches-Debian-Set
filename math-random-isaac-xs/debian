@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.10), libpod-simple-perl (>= 3.07), libstatistics-test-randomwalk-perl, libtest-cpan-meta-perl, libtest-distmanifest-perl, libtest-kwalitee-perl, libtest-leaktrace-perl, libtest-minimumversion-perl, libtest-nowarnings-perl (>= 0.084), libtest-pod-perl (>= 1.26), libtest-portability-files-perl, perl (>= 5.10) | libmodule-build-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

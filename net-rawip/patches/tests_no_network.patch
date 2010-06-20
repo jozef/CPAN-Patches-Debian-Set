@@ -1,0 +1,17 @@
+--- svn/t/iflist.t.orig	2008-11-02 01:48:02.000000000 -0430
++++ svn/t/iflist.t	2008-11-02 01:48:45.000000000 -0430
+@@ -6,8 +6,12 @@
+ use Test::More;
+ use Net::RawIP;
+ 
+-
+-plan tests => my $tests;
++my $tests;
++if ( $ENV{NONETWORK} ) {
++	plan skip_all => 'Network tests disabled';
++} else {
++	plan tests => $tests;
++}
+ 
+ my $loopback = undef;
+ 

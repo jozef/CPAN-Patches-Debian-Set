@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libpod-simple-perl (>= 3.06), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl, liburi-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liburi-perl, libwww-perl
+X: 0

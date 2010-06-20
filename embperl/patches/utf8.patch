@@ -1,0 +1,51 @@
+Author: Angus Lees <gus@debian.org>
+Description: UTF-8 input/output escaping (Closes: #154672)
+
+--- a/epinit.c
++++ b/epinit.c
+@@ -1124,7 +1124,7 @@
+ 			    { /* New Field -> store it */
+ 			    pSVV = newSVpv (pVal, nVal) ;
+ #ifdef UTF8_IS_START
+-			    if (mayutf8 && is_utf8_string(pVal, nVal))
++			    if (mayutf8 && is_utf8_string((U8*)pVal, nVal))
+ 			    	SvUTF8_on (pSVV) ;
+ #endif
+ 			    if (hv_store (pFormHash, pKey, nKey, pSVV, 0) == NULL)
+--- a/epdom.c
++++ b/epdom.c
+@@ -242,8 +242,8 @@
+     else
+         {
+         char buf[256] ;
+-        /*
+-        sprintf (buf, "%u bytes", n) ;
++	/*
++        sprintf (buf, "%zu bytes", n) ;
+         LogErrorParam (a, rcOutOfMemory, "str_malloc failed", buf) ;
+         */
+         sprintf (buf, "str_malloc: Out of memory (%u bytes)", n + sizeof (size_t)) ;
+@@ -274,7 +274,7 @@
+         {
+         char buf[256] ;
+ 	/*
+-        sprintf (buf, "%u bytes", n) ;
++        sprintf (buf, "%zu bytes", n) ;
+         LogErrorParam (a, rcOutOfMemory, "str_malloc_dbg failed", buf) ;
+         */
+         sprintf (buf, "str_malloc: Out of memory (%u bytes)", n + sizeof (size_t)) ;
+--- a/epmain.c
++++ b/epmain.c
+@@ -816,10 +816,12 @@
+         SPAGAIN ;
+ #ifdef APACHE
+ 	if (r -> pApacheReq)
++	    {
+ 	    if (rc >= 400)
+ 	        r -> pApacheReq -> status = rc ;
+             else
+                 r -> pApacheReq -> status = 500 ;
++	    }
+ #endif
+         
+ 	SetHashValueInt (r, r -> pThread -> pHeaderHash, "Content-Length", GetContentLength (r) ) ;

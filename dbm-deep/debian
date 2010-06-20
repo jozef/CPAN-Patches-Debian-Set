@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt (>= 0.40)
+Build-Depends-Indep: libfilehandle-fmode-perl, libio-stringy-perl, libtest-deep-perl (>= 0.095), libtest-exception-perl (>= 0.21), libtest-pod-coverage-perl, libtest-pod-perl, libtest-simple-perl, libtest-warn-perl, perl
+Depends: ${misc:Depends}, perl
+X: 0

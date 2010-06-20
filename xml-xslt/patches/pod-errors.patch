@@ -1,0 +1,41 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Tue, 28 Jul 2009 00:36:30 +0200
+Subject: Fix POD errors
+
+Move documentation for xsl_output_method method to the right place.  This fixes
+the following POD errors in lib/XML/XSLT.pm:
+
+   Around line 880:
+   ’=item’ outside of any ’=over’
+
+   Around line 3581:
+   You forgot a ’=back’ before ’=head1’
+
+--- libxml-xslt-perl.orig/lib/XML/XSLT.pm
++++ libxml-xslt-perl/lib/XML/XSLT.pm
+@@ -877,13 +877,6 @@
+     }
+ }
+ 
+-=item xsl_output_method
+-
+-Get or set the <xsl:output method= attribute.  Valid arguments are 'html',
+-'text' and 'xml'
+-
+-=cut
+-
+ sub xsl_output_method
+ {
+     my ( $self, $method) = @_;
+@@ -3739,6 +3732,11 @@
+ 
+ =back
+ 
++=item xsl_output_method
++
++Get or set the <xsl:output method= attribute.  Valid arguments are 'html',
++'text' and 'xml'
++
+ =item toString
+ 
+ Returns the result of transforming the XML with the stylesheet as a

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libexpat1-dev, libxml-sax-perl, perl, quilt
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libxml-sax-perl
+X: 0

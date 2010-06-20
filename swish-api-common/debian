@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt (>= 0.46-7)
+Build-Depends-Indep: liblog-log4perl-perl, libsysadm-install-perl, libwww-perl, perl, swish-e
+Depends: ${misc:Depends}, ${perl:Depends}, liblog-log4perl-perl, libsysadm-install-perl, libwww-perl, swish-e
+X: 0

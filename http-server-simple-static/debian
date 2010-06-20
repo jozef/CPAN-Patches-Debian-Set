@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), libmodule-build-perl
+Build-Depends-Indep: libfile-mmagic-perl, libhttp-server-simple-perl (>= 0.01), libmime-types-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-mmagic-perl, libhttp-server-simple-perl (>= 0.01), libmime-types-perl, liburi-perl
+X: 0

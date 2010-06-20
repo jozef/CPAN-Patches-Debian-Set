@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libyaml-dev, perl (>= 5.8.3)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl (>= 5.8.3)
+X: 0

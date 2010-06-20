@@ -1,0 +1,49 @@
+Fix lintian warning related with absolute path of the interpreter in module's examples
+--- a/tatoeba/000-basic.pl
++++ b/tatoeba/000-basic.pl
+@@ -1,4 +1,4 @@
+-#!perl -w -I../lib
++#!/usr/bin/perl -w -I../lib
+ use strict;
+ use warnings;
+ use Net::BitTorrent;
+--- a/tatoeba/001-torrent-info.pl
++++ b/tatoeba/001-torrent-info.pl
+@@ -1,4 +1,4 @@
+-#!perl -w -I../lib
++#!/usr/bin/perl -w -I../lib
+ use strict;
+ use warnings;
+ use Data::Dump;
+--- a/tatoeba/002-debug.pl
++++ b/tatoeba/002-debug.pl
+@@ -1,4 +1,4 @@
+-#!perl -w -I../lib
++#!/usr/bin/perl -w -I../lib
+ use strict;
+ use warnings;
+ use Net::BitTorrent;
+--- a/tatoeba/003-threads.pl
++++ b/tatoeba/003-threads.pl
+@@ -1,4 +1,4 @@
+-#!perl -w -I../lib
++#!/usr/bin/perl -w -I../lib
+ use strict;
+ use warnings;
+ use Time::HiRes qw[sleep];
+--- a/tatoeba/004-resume.pl
++++ b/tatoeba/004-resume.pl
+@@ -1,4 +1,4 @@
+-#!perl -w -I../lib
++#!/usr/bin/perl -w -I../lib
+ use strict;
+ use warnings;
+ use Time::HiRes qw[sleep];
+--- a/tatoeba/005-console.pl
++++ b/tatoeba/005-console.pl
+@@ -1,4 +1,4 @@
+-#!perl -w -I../lib
++#!/usr/bin/perl -w -I../lib
+ use strict;
+ use warnings;
+ use Getopt::Long;

@@ -1,0 +1,123 @@
+# Fix manpage-has-useless-whatis-entry lintian warning
+
+--- a/Schema/AttributeLibrary.pm
++++ b/Schema/AttributeLibrary.pm
+@@ -7,7 +7,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::AttributeLibrary
++XML::Validator::Schema::AttributeLibrary - internal module
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/AttributeNode.pm
++++ b/Schema/AttributeNode.pm
+@@ -8,7 +8,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::AttributeNode
++XML::Validator::Schema::AttributeNode - internal module
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/ComplexTypeNode.pm
++++ b/Schema/ComplexTypeNode.pm
+@@ -6,7 +6,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::ComplexTypeNode
++XML::Validator::Schema::ComplexTypeNode - complex types from xml schemas (internal module)
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/ElementLibrary.pm
++++ b/Schema/ElementLibrary.pm
+@@ -7,7 +7,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::ElementLibrary
++XML::Validator::Schema::ElementLibrary - internal module
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/Library.pm
++++ b/Schema/Library.pm
+@@ -7,7 +7,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::TypeLibrary
++XML::Validator::Schema::TypeLibrary - internal base class
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/ModelNode.pm
++++ b/Schema/ModelNode.pm
+@@ -9,7 +9,7 @@
+ 
+ =head1 NAME
+ 
+-XML:Validator::Schema::ModelNode
++XML:Validator::Schema::ModelNode - content model
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/Node.pm
++++ b/Schema/Node.pm
+@@ -3,7 +3,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::Node
++XML::Validator::Schema::Node - base class
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/SimpleType.pm
++++ b/Schema/SimpleType.pm
+@@ -5,7 +5,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::SimpleType
++XML::Validator::Schema::SimpleType - simple XML Schema types
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/SimpleTypeNode.pm
++++ b/Schema/SimpleTypeNode.pm
+@@ -8,7 +8,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::SimpleTypeNode
++XML::Validator::Schema::SimpleTypeNode - temporary node
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/TypeLibrary.pm
++++ b/Schema/TypeLibrary.pm
+@@ -8,7 +8,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::TypeLibrary
++XML::Validator::Schema::TypeLibrary - internal module
+ 
+ =head1 DESCRIPTION
+ 
+--- a/Schema/Util.pm
++++ b/Schema/Util.pm
+@@ -4,7 +4,7 @@
+ 
+ =head1 NAME
+ 
+-XML::Validator::Schema::Util
++XML::Validator::Schema::Util - internal module
+ 
+ =head1 DESCRIPTION
+ 

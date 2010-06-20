@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt
+Build-Depends-Indep: libfile-temp-perl, libmail-mbox-messageparser-perl, libmime-tools-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-temp-perl, libmime-tools-perl
+X: 0

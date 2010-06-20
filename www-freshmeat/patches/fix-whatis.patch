@@ -1,0 +1,16 @@
+Description: fix whatis entry
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/WWW/Freshmeat/Project.pm
++++ b/lib/WWW/Freshmeat/Project.pm
+@@ -334,6 +334,9 @@
+     }
+ }
+ 
++=head1 NAME
++
++WWW::Freshmeat::Project - retrieve project information
+ 
+ =head2 WWW::Freshmeat::Project methods
+ 

@@ -1,0 +1,54 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: L<$text|scheme:..> is no valid POD. fix it and add a pod test
+Forwarded: not-yet
+
+--- a/lib/Pod/Simple/HTML.pm
++++ b/lib/Pod/Simple/HTML.pm
+@@ -953,10 +953,10 @@
+ 
+ =head1 ACKNOWLEDGEMENTS
+ 
+-Thanks to L<Hurricane Electrict|http://he.net/> for permission to use its
+-L<Linux man pages online|http://man.he.net/> site for man page links.
++Thanks to Hurricane Electric L<http://he.net/> for permission to use its
++Linux man pages online L<http://man.he.net/> site for man page links.
+ 
+-Thanks to L<search.cpan.org|http://search.cpan.org/> for permission to use the
++Thanks to L<http://search.cpan.org/> for permission to use the
+ site for Perl module links.
+ 
+ =head1 AUTHOR
+--- a/lib/Pod/Simple/XHTML.pm
++++ b/lib/Pod/Simple/XHTML.pm
+@@ -571,7 +571,7 @@
+ 
+ Note that the first argument is required. The section number will be parsed
+ from it, and if it's missing will default to 1. The second argument is
+-currently ignored, as L<man.he.net|http://man.he.net> does not currently
++currently ignored, as L<http://man.he.net> does not currently
+ include linkable IDs or anchor names in its pages. Subclass to link to a
+ different man page HTTP server.
+ 
+@@ -689,10 +689,10 @@
+ 
+ =head1 ACKNOWLEDGEMENTS
+ 
+-Thanks to L<Hurricane Electrict|http://he.net/> for permission to use its
+-L<Linux man pages online|http://man.he.net/> site for man page links.
++Thanks to Hurricane Electric L<http://he.net/> for permission to use its
++Linux man pages online L<http://man.he.net/> site for man page links.
+ 
+-Thanks to L<search.cpan.org|http://search.cpan.org/> for permission to use the
++Thanks to L<http://search.cpan.org/> for permission to use the
+ site for Perl module links.
+ 
+ =head1 AUTHOR
+--- /dev/null
++++ b/t/99pod.t
+@@ -0,0 +1,6 @@
++use Test::More;
++
++eval "use Test::Pod 1.14";
++plan skip_all => 'Test::Pod 1.14 required' if $@;
++
++all_pod_files_ok();

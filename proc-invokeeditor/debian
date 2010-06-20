@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>> 5.0.0)
+Build-Depends-Indep: ed | nvi | editor, libcarp-assert-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcarp-assert-perl
+X: 0

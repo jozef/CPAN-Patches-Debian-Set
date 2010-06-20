@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libmoose-perl (>= 0.74), libmoosex-getopt-perl (>= 0.17), libwww-mechanize-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.74), libmoosex-getopt-perl (>= 0.17), libwww-mechanize-perl
+X: 0

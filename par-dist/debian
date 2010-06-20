@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libarchive-zip-perl, libtest-pod-coverage-perl, libtest-pod-perl, libyaml-syck-perl | libyaml-tiny-perl | libyaml-perl, perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

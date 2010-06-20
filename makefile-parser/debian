@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-perl, libclass-trigger-perl, libfile-slurp-perl, libipc-run3-perl, liblist-moreutils-perl, libmakefile-dom-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libclass-trigger-perl, libfile-slurp-perl, liblist-moreutils-perl, libmakefile-dom-perl
+X: 0

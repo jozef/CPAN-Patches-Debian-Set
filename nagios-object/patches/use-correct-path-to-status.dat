@@ -1,0 +1,14 @@
+fix the man page to show the path of where Debian's Nagios puts its
+status.dat
+
+--- a/lib/Nagios/StatusLog.pm
++++ b/lib/Nagios/StatusLog.pm
+@@ -129,7 +129,7 @@
+ 
+  # for Nagios v2.0
+  my $log = Nagios::StatusLog->new(
+-                Filename => "/var/opt/nagios/status.dat",
++                Filename => "/var/cache/nagios2/status.dat",
+                 Version  => 2.0
+            );
+ 

@@ -1,0 +1,53 @@
+--- /dev/null
++++ b/t/encodings.t
+@@ -0,0 +1,50 @@
++#!/usr/bin/perl
++use strict;
++use utf8; # for embedded strings
++#use Encode;
++use XML::DOM;
++use Test;
++use constant TMPFILE => "test_encoding.xml";
++
++BEGIN { plan tests => 15 }
++
++my $str =
++q(<?xml version="1.0" encoding="UTF-8"?>
++<blah>
++	<foo baz="">&#227;&#63720;</foo>
++	<bar>ﭾﭿ</bar>
++</blah>);
++
++# test 1 -- check for correct parsing of input string
++my $parser = new XML::DOM::Parser;
++my $doc = eval { $parser->parse($str); };
++ok((not $@) && defined $doc);
++
++try($doc);
++$doc->printToFile(TMPFILE);
++$doc->dispose;
++
++ok(system("xmllint", "--noout", TMPFILE) == 0);
++
++my $doc2 = eval { $parser->parsefile(TMPFILE) };
++ok((not $@) && defined $doc2);
++
++try($doc2);
++$doc2->dispose;
++unlink TMPFILE;
++
++sub try {
++	my $doc = shift;
++	my $foo = ${$doc->getDocumentElement->getElementsByTagName("foo")}[0];
++	my $bar = ${$doc->getDocumentElement->getElementsByTagName("bar")}[0];
++	my $baz = $foo->getAttribute("baz");
++	my $footext = $foo->getFirstChild->getData;
++	my $bartext = $bar->getFirstChild->getData;
++
++	ok(utf8::is_utf8($baz));
++	ok($baz, "\x{E4B6}\x{E4B7}");
++	ok(utf8::is_utf8($footext));
++	ok($footext, "\xE3\x{F8E8}");
++	ok(utf8::is_utf8($bartext));
++	ok($bartext, "\x{FB7E}\x{FB7F}\x{E4B5}\x{E4B6}\x{E4B7}\x{E4B8}\x{E4B9}\x{E4BA}\x{E4BB}\x{E4BC}\x{E4BD}\x{E4BE}");
++}

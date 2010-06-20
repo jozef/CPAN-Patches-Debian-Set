@@ -1,0 +1,18 @@
+The upstream author has been informed about this typo in a mail by
+Axel Beckert <abe@deuxchevaux.org> to Sean M. Burke <sburke@cpan.org>
+on Thu, 11 Feb 2010 22:20:48 +0100, but hasn't given any feedback yet
+(Tue, 16 Feb 2010 19:03:44 +0100), so we patch this using quilt.
+
+Index: libxml-rss-simplegen-perl/lib/XML/RSS/SimpleGen.pm
+===================================================================
+--- libxml-rss-simplegen-perl.orig/lib/XML/RSS/SimpleGen.pm	2010-02-16 18:49:40.000000000 +0100
++++ libxml-rss-simplegen-perl/lib/XML/RSS/SimpleGen.pm	2010-02-16 18:49:56.000000000 +0100
+@@ -1752,7 +1752,7 @@
+ 
+ (This element is somewhat obsolescent next to the newer and more
+ informative C<sy:update*> elements, but is included for backward
+-compatability.)
++compatibility.)
+ 
+ =item the accessor C<rss_allow_duplicates( I<boolean> )>
+ 

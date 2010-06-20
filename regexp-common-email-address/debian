@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 6)
+Build-Depends-Indep: libemail-address-perl (>= 1.80), libregexp-common-perl (>= 2.119), perl (>= 5.8.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-address-perl (>= 1.80), libregexp-common-perl (>= 2.119)
+X: 0

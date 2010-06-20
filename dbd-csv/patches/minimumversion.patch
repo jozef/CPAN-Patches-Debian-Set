@@ -1,0 +1,14 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: t/80_rt.t needs perl 5.6; without this change 
+ t/00_minimumversion.t fails.
+--- a/META.yml
++++ b/META.yml
+@@ -14,7 +14,7 @@
+         file:            lib/DBD/CSV.pm
+         version:         0.27
+ requires:     
+-    perl:                5.005003
++    perl:                5.006
+     DBI:                 1.00
+     DBD::File:           0.37
+     SQL::Statement:      1.23

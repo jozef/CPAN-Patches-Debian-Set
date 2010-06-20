@@ -1,0 +1,15 @@
+Description: fix POD spelling
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Alien/wxWidgets.pm
++++ b/lib/Alien/wxWidgets.pm
+@@ -236,7 +236,7 @@
+ 
+     my $config = Alien::wxWidgets->config;
+ 
+-Returns some miscellaneous configuration informations for wxWidgets
++Returns some miscellaneous configuration information for wxWidgets
+ in the form
+ 
+     { toolkit   => 'msw' | 'gtk' | 'motif' | 'x11' | 'cocoa' | 'mac',

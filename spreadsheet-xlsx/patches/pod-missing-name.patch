@@ -1,0 +1,16 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: add missing NAME section to POD
+
+--- a/lib/Spreadsheet/XLSX/Fmt2007.pm
++++ b/lib/Spreadsheet/XLSX/Fmt2007.pm
+@@ -157,6 +157,10 @@
+ 
+ __END__
+ 
++=head1 NAME
++
++Spreadsheet::XLSX::Fmt2007 - Formatting module for Spreadsheet::XLSX
++
+ =head1 SYNOPSIS
+ 
+ 		$cell = $myworkbook->worksheet->{Cells}[$row][$col]

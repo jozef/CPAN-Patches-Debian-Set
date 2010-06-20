@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libkwiki-cache-perl, libkwiki-perl (>= 0.38), libspoon-perl (>= 0.22), perl (>= 5.8.0-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libkwiki-cache-perl, libkwiki-perl (>= 0.38), libspoon-perl (>= 0.22)
+X: 0

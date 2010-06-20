@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), quilt
+Build-Depends-Indep: libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

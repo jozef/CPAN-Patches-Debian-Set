@@ -1,0 +1,15 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Subject: Correct spelling errors
+Bug: https://rt.cpan.org/Ticket/Display.html?id=54313
+
+--- libextutils-xsbuilder-perl.orig/XSBuilder.pod
++++ libextutils-xsbuilder-perl/XSBuilder.pod
+@@ -62,7 +62,7 @@
+ 
+ =head2 Create map files
+ 
+-XSBuilder will not automaticly create XS functions for all C functions and
++XSBuilder will not automatically create XS functions for all C functions and
+ structures. You must provide hints in order for the XS files to be created
+ properly. The map files are the mechanism to provide these hints. By default,
+ the map files are found under C<xs/maps>. There are four map types, C<types>,

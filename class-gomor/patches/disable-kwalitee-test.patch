@@ -1,0 +1,17 @@
+Description: disable Kwalitee tests
+ These probably aren't going to be useful, and will cause
+ build failures if the CPANTS analyser is changed.
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/t/04-test-kwalitee.t
++++ b/t/04-test-kwalitee.t
+@@ -1,3 +1,8 @@
+ use Test::More;
++
++unless ($ENV{RELEASE_TESTING}) {
++  plan skip_all => 'Kwalitee is an author test';
++}
++
+ eval { require Test::Kwalitee; Test::Kwalitee->import() };
+ plan( skip_all => 'Test::Kwalitee not installed; skipping' ) if $@;

@@ -1,0 +1,29 @@
+Description: Change name in POD for installed markdown script
+ Markdown.pl as provided upstream is installed as markdown (due
+ to policy prohibiting installation of .pl files in bin, and
+ also to provide a simple way of upgrading from the markdown
+ implementation).
+Author: Jonathan Yu <frequency@cpan.org>
+Forwarded: not-needed
+Origin: vendor
+
+--- a/script/Markdown.pl
++++ b/script/Markdown.pl
+@@ -5,7 +5,7 @@
+ 
+ =head1 NAME
+ 
+-Markdown.pl - Convert Markdown syntax to (X)HTML
++markdown - Convert Markdown syntax to (X)HTML
+ 
+ =head1 DESCRIPTION
+ 
+@@ -22,7 +22,7 @@
+ 
+     * test
+     * Yup, test.
+-    $ Markdown.pl file.txt
++    $ markdown file.txt
+     <p>This is a <em>test</em>.</p>
+ 
+     <p>Absolutely <em>nothing</em> to see here. <em>Just a <strong>test</strong></em>!</p>

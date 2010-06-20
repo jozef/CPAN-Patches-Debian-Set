@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 6)
+Build-Depends-Indep: libfile-tail-perl, libio-stringy-perl, locales-all, perl
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

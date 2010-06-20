@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.10), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libmodule-manifest-perl, libtest-cpan-meta-perl, libtest-kwalitee-perl, libtest-minimumversion-perl, libtest-nowarnings-perl (>= 0.084), libtest-pod-coverage-perl, libtest-pod-perl, libtest-portability-files-perl, libtest-signature-perl, perl (>= 5.10) | libtest-simple-perl (>= 0.72)
+Depends: ${misc:Depends}, ${perl:Depends}, libmodule-manifest-perl (>= 0.07), perl (>= 5.10) | libtest-simple-perl (>= 0.72)
+X: 0

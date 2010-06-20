@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 5.0.0), libio-interface-perl (>= 0.94), netbase, perl (>= 5.8)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libio-interface-perl (>= 0.94)
+X: 0

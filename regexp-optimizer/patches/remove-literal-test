@@ -1,0 +1,32 @@
+--- a/t/03-utf8.t
++++ b/t/03-utf8.t
+@@ -18,7 +18,8 @@
+ }
+ use strict;
+ use warnings;
+-use Test::More tests => 18;
++# Reduce number of tests by 3 (CUS 2008/07/27)
++use Test::More tests => 15;
+ use Regexp::Optimizer;
+ my $l = Regexp::List->new(lookahead => 0);
+ my $o = Regexp::Optimizer->new;
+@@ -37,7 +38,8 @@
+      $qq_utf8                       => qr/$qr_utf8_l/,
+      q/\x20|\x{3000}/               => qr/\\x(?:20|\{3000\})/,
+      q/\p{Kanji}|\P{Hiragana}/      => qr/\\(?:p\{Kanji|P\{Hiragana)\}/,
+-     q/\N{DIGIT ONE}|\N{DIGIT TWO}/ => qr/\\N\{DIGIT\ (?:ONE|TWO)\}/,
++# Remove this expression from the test due to Bug [perl #56444]
++#     q/\N{DIGIT ONE}|\N{DIGIT TWO}/ => qr/\\N\{DIGIT\ (?:ONE|TWO)\}/,
+      q/\C|\X/                       => qr/\\[CX]/,
+ );
+ 
+@@ -46,7 +48,8 @@
+      $qq_utf8                       => qr/$qr_utf8_o/,
+      q/\x20|\x{3000}/               => qr/[\x20\x{3000}]/,
+      q/\p{Kanji}|\P{Hiragana}/      => qr/[\p{Kanji}\P{Hiragana}]/,
+-     q/\N{DIGIT ONE}|\N{DIGIT TWO}/ => q/(?-xism:[\N{DIGIT ONE}\N{DIGIT TWO}])/,
++# Remove this expression from the test due to Bug [perl #56444]
++#     q/\N{DIGIT ONE}|\N{DIGIT TWO}/ => q/(?-xism:[\N{DIGIT ONE}\N{DIGIT TWO}])/,
+      q/\C|\X/                        => qr/(?:\C|\X)/,
+     );
+ 

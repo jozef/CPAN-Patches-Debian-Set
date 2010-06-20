@@ -1,0 +1,16 @@
+Description: disable the perlcritic test
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: not-needed
+--- a/t/05_critic.t
++++ b/t/05_critic.t
+@@ -1,5 +1,9 @@
+ #!/usr/bin/perl
+ 
++# disable the perlcritic test
++use Test::More;
++plan skip_all => "disable perlcritic test for distribution";
++
+ # Test that the module passes perlcritic
+ use strict;
+ BEGIN

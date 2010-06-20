@@ -1,0 +1,22 @@
+Description: Clarified documentation ambiguity
+Author: Gunnar Wolf <gwolf@debian.org>
+Bug-Debian: http://bugs.debian.org/548127
+Origin: vendor
+Forwarded: yes
+Last-Update: 2010-02-18
+
+Index: libhtml-tiny-perl/lib/HTML/Tiny.pm
+===================================================================
+--- libhtml-tiny-perl.orig/lib/HTML/Tiny.pm	2010-02-18 09:12:47.000000000 -0600
++++ libhtml-tiny-perl/lib/HTML/Tiny.pm	2010-02-18 09:14:05.000000000 -0600
+@@ -173,8 +173,8 @@
+ 
+ The [ and ] can be thought of as grouping a number of arguments.
+ 
+-Attributes may be supplied by including an anonymous hash in the
+-argument list:
++Attributes may be supplied by including an anonymous hash as the first element
++in the argument list (after the tag name):
+ 
+   print $h->tag('p', { class => 'normal' }, 'Foo');
+ 

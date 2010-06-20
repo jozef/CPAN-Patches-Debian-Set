@@ -1,0 +1,25 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: spelling
+Forwarded: no
+Origin: vendor
+
+--- a/lib/POE/Component/IRC/State.pm
++++ b/lib/POE/Component/IRC/State.pm
+@@ -1383,7 +1383,7 @@
+ 
+ =head2 Augmented events
+ 
+-New paramaters are added to the following
++New parameters are added to the following
+ L<POE::Component::IRC|POE::Component::IRC> events.
+ 
+ =head3 C<irc_quit>
+@@ -1391,7 +1391,7 @@
+ See also L<C<irc_quit>|POE::Component::IRC/"irc_quit"> in
+ L<POE::Component::IRC|POE::Component::IRC>.
+ 
+-Additional paramater C<ARG2> contains an arrayref of channel names that are
++Additional parameter C<ARG2> contains an arrayref of channel names that are
+ common to the quitting client and the component.
+ 
+ =head3 C<irc_nick>

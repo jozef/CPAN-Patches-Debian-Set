@@ -1,0 +1,14 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Subject: Remove unused "use Try::Tiny"
+Forwarded: http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=gitmo/MooseX-Types-Structured.git;a=commitdiff;h=382af4f1f4ac5d0e5861e90c308a53c5879665e4
+
+--- libmoosex-types-structured-perl.orig/t/04-map.t
++++ libmoosex-types-structured-perl/t/04-map.t
+@@ -4,7 +4,6 @@
+ 
+ use MooseX::Types::Moose qw(Int Num);
+ use MooseX::Types::Structured qw(Map);
+-use Try::Tiny;
+ 
+ my $type = Map[ Int, Num ];
+ 

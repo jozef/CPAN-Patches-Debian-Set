@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libhtml-tagset-perl, libhtml-tree-perl, libxml-parser-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-tagset-perl, libhtml-tree-perl, libxml-parser-perl
+X: 0

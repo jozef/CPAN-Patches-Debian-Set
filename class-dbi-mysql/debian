@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends-Indep: libclass-dbi-perl (>= 0.94), libdbd-mysql-perl, libtest-pod-coverage-perl (>= 1.00), libtest-pod-perl (>= 1.00), libtime-piece-mysql-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-dbi-perl (>= 0.94), libdbd-mysql-perl
+X: 0

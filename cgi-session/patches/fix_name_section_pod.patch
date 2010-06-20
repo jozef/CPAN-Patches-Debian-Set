@@ -1,0 +1,16 @@
+Author: Rene Mayorga <rmayorga@debian.org.sv
+Description: Fix POD's name section.
+--- libcgi-session-perl.orig/lib/CGI/Session/Test/Default.pm
++++ libcgi-session-perl/lib/CGI/Session/Test/Default.pm
+@@ -13,9 +13,9 @@
+ 
+ $CGI::Session::Test::Default::VERSION = '4.38';
+ 
+-=head1 CGI::Session::Test::Default
++=head1 NAME
+ 
+-Run a suite of tests for a given CGI::Session::Driver
++CGI::Session::Test::Default - Run a suite of tests for a given CGI::Session::Driver
+ 
+ =head2 new()
+ 

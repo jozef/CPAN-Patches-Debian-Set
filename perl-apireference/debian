@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libclass-xsaccessor-perl (>= 1.05), libpod-eventual-perl, perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-xsaccessor-perl (>= 1.05), libpod-eventual-perl, perl (>= 5.10.1)
+X: 0

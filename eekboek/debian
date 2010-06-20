@@ -1,0 +1,5 @@
+App: eekboek
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libarchive-zip-perl, libdbd-sqlite3-perl (>= 1.13), libdbi-perl (>= 1.40), libfile-homedir-perl, libhtml-parser-perl, libipc-run3-perl (>= 0.034), libterm-readline-gnu-perl, perl (>= 5.10.0) | libmodule-build-perl (>= 0.26)
+Depends: ${misc:Depends}, ${perl:Depends}, eekboek (= ${source:Version}), libarchive-zip-perl, libcarp-assert-perl, libdbd-pg-perl (>= 1.41), libdbd-sqlite3-perl (>= 1.13), libdbi-perl (>= 1.40), libfile-homedir-perl, libterm-readline-gnu-perl, libwx-perl, libwx-perl-processstream-perl
+X: 0

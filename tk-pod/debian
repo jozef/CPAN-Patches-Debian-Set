@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 6), quilt
+Build-Depends-Indep: libio-socket-ssl-perl, libpod-simple-perl, libtext-english-perl, libtk-histentry-perl, perl-doc, perl-tk, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libpod-simple-perl, perl-doc, perl-tk
+X: 1

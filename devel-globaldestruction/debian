@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libscope-guard-perl, libsub-exporter-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libscope-guard-perl, libsub-exporter-perl
+X: 0

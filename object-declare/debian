@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libsub-override-perl, perl (>= 5.6.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libsub-override-perl
+X: 0

@@ -1,0 +1,90 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/SQL/Translator/Filter/Names.pm
++++ b/lib/SQL/Translator/Filter/Names.pm
+@@ -125,7 +125,7 @@
+ 
+ =item Name Groups
+ 
+-Define a bunch of usefull groups to run the name filters over. e.g. all, fkeys,
++Define a bunch of useful groups to run the name filters over. e.g. all, fkeys,
+ pkeys etc.
+ 
+ =item More Functions
+--- a/lib/SQL/Translator/Producer/MySQL.pm
++++ b/lib/SQL/Translator/Producer/MySQL.pm
+@@ -81,9 +81,9 @@
+ automatically set for tables involved in foreign key constraints if it is
+ not already set explicitly. See L<"Table Types">.
+ 
+-Please note that the C<ENGINE> option is the prefered method of specifying
++Please note that the C<ENGINE> option is the preferred method of specifying
+ the MySQL storage engine to use, but this method still works for backwards
+-compatability.
++compatibility.
+ 
+ =item B<table.mysql_charset>, B<table.mysql_collate>
+ 
+--- a/lib/SQL/Translator/Producer/XML/SQLFairy.pm
++++ b/lib/SQL/Translator/Producer/XML/SQLFairy.pm
+@@ -53,12 +53,12 @@
+ elements.
+ 
+ List valued attributes (such as the list of fields in an index)
+-get mapped to comma seperated lists of values in the attribute.
++get mapped to comma separated lists of values in the attribute.
+ 
+ Child objects, such as a tables fields, get mapped to child tags wrapped in a
+ set of container tags using the plural of their contained classes name.
+ 
+-An objects's extra attribute (a hash of arbitary data) is
++An objects's extra attribute (a hash of arbitrary data) is
+ mapped to a tag called extra, with the hash of data as attributes, sorted into
+ alphabetical order.
+ 
+--- a/lib/SQL/Translator/Schema/Constraint.pm
++++ b/lib/SQL/Translator/Schema/Constraint.pm
+@@ -266,7 +266,7 @@
+ =head2 field_names
+ 
+ Read-only method to return a list or array ref of the field names. Returns undef
+-or an empty list if the constraint has no fields set. Usefull if you want to
++or an empty list if the constraint has no fields set. Useful if you want to
+ avoid the overload magic of the Field objects returned by the fields method.
+ 
+   my @names = $constraint->field_names;
+--- a/lib/SQL/Translator/Schema/Table.pm
++++ b/lib/SQL/Translator/Schema/Table.pm
+@@ -900,7 +900,7 @@
+ =head2 field_names
+ 
+ Read-only method to return a list or array ref of the field names. Returns undef
+-or an empty list if the table has no fields set. Usefull if you want to
++or an empty list if the table has no fields set. Useful if you want to
+ avoid the overload magic of the Field objects returned by the get_fields method.
+ 
+   my @names = $constraint->field_names;
+--- a/lib/Test/SQL/Translator.pm
++++ b/lib/Test/SQL/Translator.pm
+@@ -557,7 +557,7 @@
+ 
+ The data structures given to the test subs don't have to include all the
+ possible values, only the ones you expect to have changed. Any left out will be
+-tested to make sure they are still at their default value. This is a usefull
++tested to make sure they are still at their default value. This is a useful
+ check that you your parser hasn't accidentally set schema values you didn't
+ expect it to.
+ 
+--- a/lib/SQL/Translator/Manual.pod
++++ b/lib/SQL/Translator/Manual.pod
+@@ -530,7 +530,7 @@
+ 
+  $ sqlt -f YAML -t Custom-Foo --template foo.tt foo.yaml
+ 
+-This is usefull as you can set up a producer that adds a set of filters and
++This is useful as you can set up a producer that adds a set of filters and
+ variables that you can then use in templates given on the command line. (There
+ is also a tt_schema method to over ride if you need even finer control over the
+ source of your template). Note that if you leave out the DATA section all

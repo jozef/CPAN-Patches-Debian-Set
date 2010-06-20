@@ -1,0 +1,61 @@
+# Description: fix POD errors (as reported by pod2man)
+# Author: Damyan Ivanov <dmn@debian.org>
+# Forwarded: https://rt.cpan.org/Ticket/Display.html?id=54371
+--- a/lib/Apache/AuthDBI.pm
++++ b/lib/Apache/AuthDBI.pm
+@@ -1356,6 +1356,8 @@ section). The default is 0, which runs t
+ 
+ =head1 LIST OF TOKENS
+ 
++=over
++
+ =item * Auth_DBI_data_source (Authentication and Authorization)
+ 
+ The data_source value has the syntax 'dbi:driver:dsn'. This parameter is
+@@ -1470,6 +1472,8 @@ Default is 'off'.  When set 'on', the se
+ placeholder for the username.  This may result in improved performance for
+ databases supporting this method.
+ 
++=back
++
+ =head1 CONFIGURATION
+ 
+ The module should be loaded upon startup of the Apache daemon.
+@@ -1580,6 +1584,8 @@ L<Apache>, L<mod_perl>, L<DBI>
+ 
+ =head1 AUTHORS
+ 
++=over
++
+ =item *
+ Apache::AuthDBI by Edmund Mergl; now maintained and supported by the
+ modperl mailinglist, subscribe by sending mail to 
+@@ -1591,6 +1597,8 @@ mod_perl by Doug MacEachern.
+ =item *
+ DBI by Tim Bunce <dbi-users-subscribe@perl.org>
+ 
++=back
++
+ =head1 COPYRIGHT
+ 
+ The Apache::AuthDBI module is free software; you can redistribute it and/or
+--- a/lib/Apache/DBI.pm
++++ b/lib/Apache/DBI.pm
+@@ -537,6 +537,8 @@ L<Apache>, L<mod_perl>, L<DBI>
+ 
+ =head1 AUTHORS
+ 
++=over
++
+ =item *
+ Philip M. Gollucci <pgollucci@p6m7g8.com> is currently packaging new releases.
+ 
+@@ -553,6 +555,8 @@ mod_perl by Doug MacEachern.
+ =item *
+ DBI by Tim Bunce <dbi-users-subscribe@perl.org>
+ 
++=back
++
+ =head1 COPYRIGHT
+ 
+ The Apache::DBI module is free software; you can redistribute it and/or

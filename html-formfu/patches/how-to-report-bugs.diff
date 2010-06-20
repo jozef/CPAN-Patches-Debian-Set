@@ -1,0 +1,21 @@
+Author: Ansgar Burchardt <ansgar@43-1.org>
+Subject: Gives more specific information for bug reporting
+
+--- libhtml-formfu-perl.orig/lib/HTML/FormFu.pm
++++ libhtml-formfu-perl/lib/HTML/FormFu.pm
+@@ -3161,9 +3161,13 @@
+ 
+ =head1 BUGS
+ 
+-Please submit bugs / feature requests to
++Please submit bug reports to the Debian Bug Tracker. You can use
++L<reportbug(1)> to do so interactively. A list of reported bugs can be found
++at L<http://bugs.debian.org/libhtml-formfu-perl>.
++
++For upstream bug reports look at
+ L<http://code.google.com/p/html-formfu/issues/list> (preferred) or
+-L<http://rt.perl.org>.
++L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-FormFu>.
+ 
+ =head1 PATCHES
+ 

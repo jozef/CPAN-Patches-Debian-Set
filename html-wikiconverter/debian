@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.2), libclass-data-accessor-perl (>= 0.02), libcss-perl, libhtml-parser-perl, libhtml-tagset-perl, libhtml-tree-perl (>= 3.18), libparams-validate-perl (>= 0.77), libtest-pod-coverage-perl (>= 1.04), libtest-pod-perl (>= 1.14), libtest-simple-perl, liburi-perl (>= 1.35), perl, quilt
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-data-accessor-perl (>= 0.02), libcss-perl, libhtml-parser-perl, libhtml-tagset-perl, libhtml-tree-perl (>= 3.18), libparams-validate-perl (>= 0.77), liburi-perl (>= 1.35)
+X: 0

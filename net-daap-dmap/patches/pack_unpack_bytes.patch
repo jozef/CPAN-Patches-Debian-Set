@@ -1,0 +1,17 @@
+pack() and unpack() have changed in perl 5.10 regarding UTF-8 encoded data:
+http://search.cpan.org/dist/perl-5.10.0/pod/perl5100delta.pod#Packing_and_UTF-8_strings
+We add "use bytes;" to get the old behaviour.
+
+Closes: #467277
+
+-- gregor herrmann
+--- a/lib/Net/DAAP/DMAP.pm
++++ b/lib/Net/DAAP/DMAP.pm
+@@ -170,6 +170,7 @@ took over in July 2004.
+ use Exporter;
+ use Math::BigInt;
+ use Carp;
++use bytes; # un-/pack() changed in perl 5.10
+ 
+ our @ISA = qw(Exporter);
+ our @EXPORT_OK = qw(dmap_to_hash_ref dmap_to_array_ref update_content_codes

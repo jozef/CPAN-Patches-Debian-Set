@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libjson-perl (>= 2.16), libmoose-perl (>= 0.93), libtest-deep-perl (>= 0.095), libtest-pod-perl, perl (>= 5.10)
+Depends: ${misc:Depends}, ${perl:Depends}, libjson-perl (>= 2.16), libmoose-perl (>= 0.93), perl (>= 5.10)
+X: 0

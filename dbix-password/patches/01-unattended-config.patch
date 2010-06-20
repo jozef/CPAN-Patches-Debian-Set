@@ -1,0 +1,32 @@
+Do not ask any questions during the package configuration.
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -7,7 +7,8 @@
+ my $virtuals = {};
+ my $dumped;
+ 
+-if (-e '.cache') {
++#if (-e '.cache') {
++if (0) {
+ 	print "Oh, I can see that you have run me before, should I reuse these?(y or n)\n";
+ 	my $answer  = getLine();
+ 	if($answer eq 'y') {
+@@ -24,7 +25,8 @@
+ );
+ 
+ print "What is the name of the Virtual User?\n";
+-my $virtual  = getLine();
++#my $virtual  = getLine();
++my $virtual;
+ while ($virtual) {
+ 	print "What is the dbi driver? (AKA mysql)\n";
+ 	my $driver  = getLine();
+@@ -70,6 +72,7 @@
+ }
+ 
+ sub makeFile {
++	return 0;
+ 	open(FILEHANDLE, "Password.pm-orig"); 
+ 	my @file = <FILEHANDLE>;
+ 	close (FILEHANDLE);

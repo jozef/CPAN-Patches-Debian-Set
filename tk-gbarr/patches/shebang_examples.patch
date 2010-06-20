@@ -1,0 +1,45 @@
+--- libtk-gbarr-perl.orig/examples/cloth
++++ libtk-gbarr-perl/examples/cloth
+@@ -1,5 +1,5 @@
+ # Object-oriented Canvas.
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ use strict;
+ use Tk qw(Ev);
+ use Tk::Cloth;
+--- libtk-gbarr-perl.orig/examples/firebutton
++++ libtk-gbarr-perl/examples/firebutton
+@@ -1,5 +1,5 @@
+ # Button with "repeat" effect.
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ use strict;
+ use Tk;
+ use Tk::FireButton;
+--- libtk-gbarr-perl.orig/examples/numentry
++++ libtk-gbarr-perl/examples/numentry
+@@ -1,5 +1,5 @@
+ # Entry for entering numeric values.
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ use strict;
+ use Tk;
+ use Tk::NumEntry;
+--- libtk-gbarr-perl.orig/examples/numentryplain
++++ libtk-gbarr-perl/examples/numentryplain
+@@ -1,5 +1,5 @@
+ # Entry for entering numeric values, plain version.
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ use strict;
+ use Tk;
+ use Tk::NumEntryPlain;
+--- libtk-gbarr-perl.orig/examples/tframe
++++ libtk-gbarr-perl/examples/tframe
+@@ -1,5 +1,5 @@
+ # A Titled Frame widget.
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ use strict;
+ use Tk;
+ use Tk::TFrame;

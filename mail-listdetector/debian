@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libemail-abstract-perl (>= 3.001), libemail-valid-perl (>= 0.182), libmailtools-perl (>= 2.04), liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-abstract-perl (>= 3.001), libemail-valid-perl (>= 0.182), libmailtools-perl (>= 2.04), liburi-perl
+X: 0

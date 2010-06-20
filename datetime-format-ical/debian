@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.10), libmodule-build-perl
+Build-Depends-Indep: libdatetime-event-ical-perl (>= 0.03), libdatetime-perl (>= 0.17), libdatetime-set-perl (>= 0.1), libdatetime-timezone-perl (>= 0.22), libparams-validate-perl (>= 0.59), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-event-ical-perl (>= 0.03), libdatetime-perl (>= 0.17), libdatetime-set-perl (>= 0.1), libdatetime-timezone-perl (>= 0.22), libparams-validate-perl (>= 0.59)
+X: 0
