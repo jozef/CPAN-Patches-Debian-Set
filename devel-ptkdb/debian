@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 4.0.0)
-Build-Depends-Indep: perl, perl-tk (>= 800)
-Depends: ${misc:Depends}, ${perl:Depends}, perl-tk (>= 800)
-X: 0

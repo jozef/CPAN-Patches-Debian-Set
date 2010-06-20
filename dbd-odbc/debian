@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50), libdbi-perl, perl, unixodbc-dev
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdbi-perl
-X: 0

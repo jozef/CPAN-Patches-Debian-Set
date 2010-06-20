@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdatetime-format-sqlite-perl, libdatetime-perl (>= 0.1), libdbi-perl (>= 1.21), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl (>= 0.1), libdbi-perl (>= 1.21), perl
+X: 0

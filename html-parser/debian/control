@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libhtml-tagset-perl, libtest-pod-perl, liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libhtml-tagset-perl, liburi-perl
+X: 0

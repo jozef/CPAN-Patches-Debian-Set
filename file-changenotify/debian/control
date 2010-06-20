@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-mop-perl, liblinux-inotify2-perl (>= 1:1.2), libmoose-perl, libmoosex-params-validate-perl (>= 0.08), libmoosex-semiaffordanceaccessor-perl, libtest-exception-perl, libtest-without-module-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-mop-perl, liblist-moreutils-perl, libmoose-perl, libmoosex-params-validate-perl (>= 0.08), libmoosex-semiaffordanceaccessor-perl
+X: 0

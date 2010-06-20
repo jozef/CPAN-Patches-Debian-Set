@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libmoose-perl (>= 0.76), libmoose-policy-perl, libtemplate-perl, libtest-nowarnings-perl, libtest-perl-critic-perl, libtest-pod-coverage-perl (>= 1.04), libtest-pod-perl (>= 1.14), perl (>= 5.10.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libautodie-perl, liblatex-driver-perl, liblatex-encode-perl, libmoose-perl (>= 0.76), libmoose-policy-perl, libnumber-format-perl, libreadonly-perl, libtemplate-perl, libtext-csv-perl, perl (>= 5.10.0)
-X: 0

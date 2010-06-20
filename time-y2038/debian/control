@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libjson-perl (>= 2.17), libmodule-build-perl (>= 0.360000), libtest-exception-perl (>= 0.27), libtest-warn-perl (>= 0.11), perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 5), libmodule-build-perl
+Build-Depends-Indep: libparams-classify-perl, perl (>= 5.8.4-8)
+Depends: ${misc:Depends}, ${perl:Depends}, libparams-classify-perl
+X: 0

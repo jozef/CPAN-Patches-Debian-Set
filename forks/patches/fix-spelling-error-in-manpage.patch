@@ -1,0 +1,18 @@
+Description: Fix spelling error in manpage.
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=58408
+Forwarded: yes
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Last-Update: 2010-06-15
+
+--- a/lib/forks/Devel/Symdump.pm
++++ b/lib/forks/Devel/Symdump.pm
+@@ -461,7 +461,7 @@
+ =head1 COPYRIGHT, LICENSE
+ 
+ This is a modified version of Devel::Symdump 2.08.  It includes custom patches for
+-Perl 5.10 compatibiliy.
++Perl 5.10 compatibility.
+ 
+ Original module is
+ 

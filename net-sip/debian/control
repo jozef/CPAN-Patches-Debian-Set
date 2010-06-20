@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libnet-dns-perl, net-tools, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-dns-perl
+X: 0

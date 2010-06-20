@@ -1,0 +1,64 @@
+Description: syntax and spelling Pod fixes
+Bug: http://code.google.com/p/xacobeo/issues/detail?id=49
+Forwarded: yes
+Author: jkutej@cpan.org
+Acked-by: potyl@cpan.org
+Last-Update: 2010-04-15
+
+diff --git a/lib/Xacobeo/Error.pm b/lib/Xacobeo/Error.pm
+index 52220dd..73fdb92 100644
+--- a/lib/Xacobeo/Error.pm
++++ b/lib/Xacobeo/Error.pm
+@@ -17,7 +17,7 @@ Xacobeo::Error - A simple wrapper over an error.
+ =head1 DESCRIPTION
+ 
+ This package provides a very simple, perhpaps too simple, error wrapper. This
+-errors are ment to be used as exceptions.
++errors are meant to be used as exceptions.
+ 
+ =head1 METHODS
+ 
+diff --git a/lib/Xacobeo/UI/Window.pm b/lib/Xacobeo/UI/Window.pm
+index 2bf74a7..1fa2245 100644
+--- a/lib/Xacobeo/UI/Window.pm
++++ b/lib/Xacobeo/UI/Window.pm
+@@ -40,7 +40,7 @@ The widget displaying the namespaces of the current document.
+ 
+ =head2 xpath-entry
+ 
+-The entry where the XPath expresion will be edited.
++The entry where the XPath expression will be edited.
+ 
+ =head2 statusbar
+ 
+diff --git a/lib/Xacobeo/XS.pm b/lib/Xacobeo/XS.pm
+index 9c8925e..d1abd12 100644
+--- a/lib/Xacobeo/XS.pm
++++ b/lib/Xacobeo/XS.pm
+@@ -61,7 +61,7 @@ The text buffer to fill. Must be an instance of L<Gtk2::TextBuffer>.
+ The node to display in the the text view. Must be an instance of
+ L<XML::LibXML::Node>.
+ 
+-=item $namespaces
++=item * $namespaces
+ 
+ The namespaces declared in the document. Must be an hash ref where the keys are
+ the URIs and the values the prefixes of the namespaces.
+@@ -97,7 +97,7 @@ The text store to fill. Must be an instance of L<Gtk2::TreeStore>.
+ The node to display in the the tree view. Must be an instance of
+ L<XML::LibXML::Node>.
+ 
+-=item $namespaces
++=item * $namespaces
+ 
+ The namespaces declared in the document. Must be an hash ref where the keys are
+ the URIs and the values the prefixes of the namespaces.
+@@ -152,7 +152,7 @@ Parameters:
+ The node for which the path has to be computed. Must be an instance of
+ L<XML::LibXML::Node>.
+ 
+-=item $namespaces
++=item * $namespaces
+ 
+ The namespaces declared in the document. Must be an hash ref where the keys are
+ the URIs and the values the prefixes of the namespaces.

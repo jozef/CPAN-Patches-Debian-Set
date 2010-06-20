@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: gnupg
-Depends: ${misc:Depends}, ${perl:Depends}, gnupg
-X: 0

@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-04-18
+
+--- a/lib/POE/Component/SSLify/ClientHandle.pm
++++ b/lib/POE/Component/SSLify/ClientHandle.pm
+@@ -60,7 +60,7 @@ POE::Component::SSLify::ClientHandle - c
+ 
+ =head1 DESCRIPTION
+ 
+-	This is a subclass of ServerHandle to accomodate clients setting custom context objects.
++	This is a subclass of ServerHandle to accommodate clients setting custom context objects.
+ 
+ =head1 SEE ALSO
+ 

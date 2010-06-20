@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libmoose-perl, libnamespace-autoclean-perl, libparams-util-perl, libppi-perl (>= 1.205), libstring-rewriteprefix-perl, libtry-tiny-perl, libversion-requirements-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libnamespace-autoclean-perl, libparams-util-perl, libppi-perl (>= 1.205), libstring-rewriteprefix-perl, libversion-requirements-perl
+X: 0

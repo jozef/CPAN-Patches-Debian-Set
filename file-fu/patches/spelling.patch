@@ -1,0 +1,15 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: spelling mistake
+Forwarded: no
+
+--- a/lib/File/Fu/Dir.pm
++++ b/lib/File/Fu/Dir.pm
+@@ -528,7 +528,7 @@
+ 
+ =head2 contents
+ 
+-Equivelant to readdir.  With the 'all' option true, returns hidden names
++Equivalent to readdir.  With the 'all' option true, returns hidden names
+ too (but not the '.' and '..' entries.)
+ 
+ The return values are strings, not File::Fu objects.

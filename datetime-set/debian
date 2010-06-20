@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdatetime-event-recurrence-perl, libdatetime-perl (>= 0.12), libparams-validate-perl, libset-infinite-perl (>= 0.59), perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl (>= 0.12), libparams-validate-perl, libset-infinite-perl (>= 0.59)
-X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: liblingua-en-inflect-number-perl (>= 1.1), liblingua-en-inflect-perl (>= 1.891), liblingua-en-tagger-perl (>= 0.16), libtest-simple-perl (>= 0.94), perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, liblingua-en-inflect-number-perl (>= 1.1), liblingua-en-inflect-perl (>= 1.891), liblingua-en-tagger-perl (>= 0.16), perl (>= 5.10.1)
+X: 0

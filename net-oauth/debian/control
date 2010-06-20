@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libclass-accessor-perl, libclass-data-inheritable-perl, libcrypt-openssl-rsa-perl, libdigest-hmac-perl, libdigest-sha1-perl (>= 2.12), libtest-warn-perl (>= 0.21), liburi-perl, perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libclass-data-inheritable-perl, libcrypt-openssl-rsa-perl, libdigest-hmac-perl, libdigest-sha1-perl (>= 2.12), perl (>= 5.10.1)
+X: 0

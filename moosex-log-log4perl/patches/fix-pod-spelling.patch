@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/MooseX/Log/Log4perl/Easy.pm
++++ b/lib/MooseX/Log/Log4perl/Easy.pm
+@@ -47,7 +47,7 @@
+ 
+   $self->log_info("blabla");
+ 
+-without having to access a seperate log attribute as in MooseX::Log::Log4perl;
++without having to access a separate log attribute as in MooseX::Log::Log4perl;
+ 
+ In case your app grows and you need more of the super-cow powers of Log4perl or simply don't want the additional 
+ methods to clutter up your class you can simply replace all code C<< $self->log_LEVEL >> with 

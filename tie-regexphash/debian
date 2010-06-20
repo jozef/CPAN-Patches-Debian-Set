@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>> 4.0.0), perl
-Depends: ${misc:Depends}, ${perl:Depends}
-X: 0

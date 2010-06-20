@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50~), libdbi-perl, libperl-minimumversion-perl, libsqlite3-dev (>> 3.6.0), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl (>= 1.26), perl (>= 5.10.1) | libpod-simple-perl (>= 3.07), quilt (>= 0.46-7)
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdbi-perl
-X: 0

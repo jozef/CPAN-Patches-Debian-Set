@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.4.15), libcommon-sense-perl, perl, quilt
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libcommon-sense-perl
+X: 0

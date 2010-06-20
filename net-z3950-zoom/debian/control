@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~), libmarc-record-perl, libyaz4-dev | libyaz-dev, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libmarc-record-perl
+X: 0

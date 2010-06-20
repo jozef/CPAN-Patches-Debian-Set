@@ -1,0 +1,16 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: spelling mistake
+Origin: vendor
+Forwarded: no
+
+--- a/lib/POEx/Role/SessionInstantiation/Meta/Session/Magic.pm
++++ b/lib/POEx/Role/SessionInstantiation/Meta/Session/Magic.pm
+@@ -182,7 +182,7 @@ going out of scope
+ 
+ =head2 overload "", !=, ==
+ 
+-Stringification, and numeric comparison are overriden so that we can fool POE
++Stringification, and numeric comparison are overridden so that we can fool POE
+ into thinking that our inject reference is actually the same as the old 
+ reference.
+ 

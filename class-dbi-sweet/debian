@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libcache-cache-perl, libclass-dbi-perl, libdata-page-perl, libdate-simple-perl, libdbd-pg-perl, libdbd-sqlite3-perl, libdbi-perl, libossp-uuid-perl, libsql-abstract-perl (>= 1.55), libtest-pod-coverage-perl, libtest-pod-perl, libtime-piece-mysql-perl, perl (>= 5.8.8-12)
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-dbi-perl (>= 3.0.12), libdata-page-perl, libdbi-perl, libsql-abstract-perl (>= 1.55)
-X: 0

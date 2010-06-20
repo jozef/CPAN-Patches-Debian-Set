@@ -1,0 +1,44 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/MicroMason.pm
++++ b/MicroMason.pm
+@@ -120,7 +120,7 @@
+   $code_ref = $mason->compile( $type => $source, %attribs );
+ 
+ Any attributes provided to compile() will temporarily override the
+-persistant options defined by new(), for that template only.
++persistent options defined by new(), for that template only.
+ 
+ You can provide the template as a text string, a file name, or an open
+ file handle:
+@@ -515,7 +515,7 @@
+ 
+ MicroMason compilation failed: %s
+ 
+-The template was parsed succesfully, but the Perl subroutine declaration
++The template was parsed successfully, but the Perl subroutine declaration
+ it was converted to failed to compile. This is generally a result of a
+ syntax error in one of the Perl expressions used within the template.
+ 
+@@ -537,7 +537,7 @@
+ 
+ MicroMason execution failed: %s
+ 
+-After parsing and compiling the template succesfully, the subroutine was
++After parsing and compiling the template successfully, the subroutine was
+ run and caused a fatal exception, generally because that some Perl code
+ used within the template caused die() to be called (or an equivalent
+ function like croak or confess).
+--- a/MicroMason/HasParams.pm
++++ b/MicroMason/HasParams.pm
+@@ -98,7 +98,7 @@
+ 
+ =item assembler_rules()
+ 
+-Adds initialization for param() at the begining of each subroutine to be compiled.
++Adds initialization for param() at the beginning of each subroutine to be compiled.
+ 
+ =back
+ 

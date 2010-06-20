@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdata-formvalidator-perl (>= 3.61), libdatetime-format-builder-perl, libdatetime-format-strptime-perl (>= 1.00), libdatetime-perl (>= 0.23), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-formvalidator-perl (>= 3.61), libdatetime-format-strptime-perl (>= 1.00), libdatetime-perl (>= 0.23), perl
+X: 0

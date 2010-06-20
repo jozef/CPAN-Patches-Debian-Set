@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libio-stringy-perl, liblog-log4perl-perl (>= 1.13), libmoose-perl (>= 0.65), libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libio-stringy-perl, liblog-log4perl-perl (>= 1.13), libmoose-perl (>= 0.65)
+X: 0

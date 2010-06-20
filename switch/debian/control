@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: perl
+Depends: ${misc:Depends}, ${perl:Depends}, perl, perl-modules
+X: 0

@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libclass-singleton-perl, libdatetime-perl, libfile-find-rule-perl, libparams-validate-perl, libtest-output-perl, libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-singleton-perl, libparams-validate-perl
-X: 0

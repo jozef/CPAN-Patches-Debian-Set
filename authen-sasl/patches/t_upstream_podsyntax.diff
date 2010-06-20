@@ -1,0 +1,55 @@
+From: Franck Joncourt <franck@debian.org>
+Subject: Fix pod errors
+Forwarded: no
+
+This patch fixes pod2man errors.
+
+Signed-off-by: Franck Joncourt <franck@debian.org>
+
+---
+ lib/Authen/SASL/Perl/DIGEST_MD5.pm |    2 +-
+ lib/Authen/SASL/Perl/LOGIN.pm      |    2 +-
+ lib/Authen/SASL/Perl/PLAIN.pm      |    2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lib/Authen/SASL/Perl/DIGEST_MD5.pm b/lib/Authen/SASL/Perl/DIGEST_MD5.pm
+index ca25b6e..f910b64 100644
+--- a/lib/Authen/SASL/Perl/DIGEST_MD5.pm
++++ b/lib/Authen/SASL/Perl/DIGEST_MD5.pm
+@@ -802,7 +802,7 @@ in the initial response.
+ 
+ =head3 server
+ 
+-=over4
++=over 4
+ 
+ =item realm
+ 
+diff --git a/lib/Authen/SASL/Perl/LOGIN.pm b/lib/Authen/SASL/Perl/LOGIN.pm
+index ee385b8..c95dda4 100644
+--- a/lib/Authen/SASL/Perl/LOGIN.pm
++++ b/lib/Authen/SASL/Perl/LOGIN.pm
+@@ -172,7 +172,7 @@ The user's password to be used for authentication
+ 
+ =head3 Server
+ 
+-=over4
++=over 4
+ 
+ =item getsecret(username)
+ 
+diff --git a/lib/Authen/SASL/Perl/PLAIN.pm b/lib/Authen/SASL/Perl/PLAIN.pm
+index d5172a9..d6f15a3 100644
+--- a/lib/Authen/SASL/Perl/PLAIN.pm
++++ b/lib/Authen/SASL/Perl/PLAIN.pm
+@@ -143,7 +143,7 @@ The user's password to be used for authentication.
+ 
+ =head3 Server
+ 
+-=over4
++=over 4
+ 
+ =item checkpass(username, password, realm)
+ 
+-- 
+tg: (ffeb81f..) t/upstream/podsyntax (depends on: master)

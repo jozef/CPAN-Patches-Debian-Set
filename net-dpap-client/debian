@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: cdbs, debhelper (>= 5)
-Build-Depends-Indep: libcarp-assert-perl, libnet-daap-dmap-perl, liburi-perl, libwww-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libcarp-assert-perl, libnet-daap-dmap-perl, liburi-perl, libwww-perl
-X: 0

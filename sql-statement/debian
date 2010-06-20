@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libclone-perl, libdbd-csv-perl, libdbi-perl, libparams-util-perl (>= 1.00), libtest-pod-coverage-perl, libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclone-perl, libparams-util-perl (>= 1.00)
-X: 0

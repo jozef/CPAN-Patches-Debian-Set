@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libdbd-sqlite3-perl (>= 1.21), libdbi-perl (>= 1.58), libfile-pushd-perl, libfile-spec-perl, libfile-which-perl (>= 1.07), libipc-run3-perl (>= 0.042), liborlite-perl, libparams-util-perl (>= 0.37), libprobe-perl-perl, libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl, perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
-Depends: ${misc:Depends}, ${perl:Depends}, libdbd-sqlite3-perl (>= 1.21), libdbi-perl (>= 1.58), libfile-pushd-perl, libfile-spec-perl, libfile-which-perl (>= 1.07), libipc-run3-perl (>= 0.042), liborlite-perl, libparams-util-perl (>= 0.37), libprobe-perl-perl
-X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libtest-inter-perl, libtest-pod-coverage-perl, libtest-pod-perl, libyaml-syck-perl, perl (>= 5.10.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libyaml-syck-perl, perl (>= 5.10.0)
+X: 0

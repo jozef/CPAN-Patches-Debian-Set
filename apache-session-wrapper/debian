@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 4.0.2), libmodule-build-perl
-Build-Depends-Indep: libapache-session-perl (>= 1.81), libclass-container-perl, libexception-class-perl, libtest-pod-perl, perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libapache-session-perl (>= 1.81), libclass-container-perl, libexception-class-perl, libparams-validate-perl
-X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libparams-util-perl (>= 0.20), libtemplate-perl (>= 2.10), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libparams-util-perl (>= 0.20), libtemplate-perl (>= 2.10), perl
+X: 0

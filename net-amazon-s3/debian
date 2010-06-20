@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
-Build-Depends-Indep: libclass-accessor-perl, libdata-stream-bulk-perl (>= 0.07), libdatetime-format-http-perl, libdigest-hmac-perl, libdigest-md5-file-perl, liblwp-useragent-determined-perl, libmoose-perl, libmoosex-strictconstructor-perl, libmoosex-types-datetime-perl, libregexp-common-perl, libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.61), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libdata-stream-bulk-perl (>= 0.07), libdatetime-format-http-perl, libdigest-hmac-perl, libdigest-md5-file-perl, liblwp-useragent-determined-perl, libmoose-perl, libmoosex-strictconstructor-perl, libmoosex-types-datetime-perl, libregexp-common-perl, liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.61)
-X: 0

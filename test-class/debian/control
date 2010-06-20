@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcontextual-return-perl, libdevel-symdump-perl, libmro-compat-perl (>= 0.11), libtest-exception-perl (>= 0.25), perl (>= 5.10.1) | libtest-simple-perl (>= 0.78)
+Depends: ${misc:Depends}, ${perl:Depends}, libcontextual-return-perl, libmro-compat-perl (>= 0.11), libtest-exception-perl (>= 0.25), perl (>= 5.10.1) | libtest-simple-perl (>= 0.78)
+X: 0

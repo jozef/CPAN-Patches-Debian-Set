@@ -1,0 +1,17 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Mon, 12 Apr 2010 20:21:08 +0900
+Origin: vendor
+Subject: Fix spelling error
+Forwarded: http://code.google.com/p/www-mechanize/issues/detail?id=159
+
+--- libwww-mechanize-perl.orig/lib/WWW/Mechanize/Examples.pod
++++ libwww-mechanize-perl/lib/WWW/Mechanize/Examples.pod
+@@ -492,7 +492,7 @@
+     use strict;
+     use WWW::Mechanize;
+ 
+-    # a tool to automatically post entries to a moveable type weblog, and set arbitary creation dates
++    # a tool to automatically post entries to a moveable type weblog, and set arbitrary creation dates
+ 
+     my $mech = WWW::Mechanize->new();
+     my $entry;

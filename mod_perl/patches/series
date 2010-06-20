@@ -8,3 +8,7 @@
 031-test-extra-args.patch
 035-testrequest_add_credentials.patch
 100-svn-XSS-Status.patch
+110-Fix-two-uninitialized-value-warnings-triggered-with-.patch
+200_fix-pod-spelling-errors.patch
+210_fix-pod-errors.patch
+220_fix-bad-whatis-entry.patch

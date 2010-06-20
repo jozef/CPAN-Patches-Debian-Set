@@ -1,0 +1,53 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sun, 06 Jun 2010 20:55:28 +0900
+Origin: vendor
+Subject: Disable tests that require starting a Jabber server
+
+Several tests require a Jabber server to be started by t/server_helper.pl, but
+starting the server is commented out there. We therefore disable these tests.
+
+--- libnet-jabber-loudmouth-perl.orig/t/04_basic.t
++++ libnet-jabber-loudmouth-perl/t/04_basic.t
+@@ -1,9 +1,11 @@
+ use strict;
+ use POSIX qw/SIGKILL/;
+-use Test::More tests => 3;
++use Test::More;# tests => 3;
+ use Test::Builder;
+ use Net::Jabber::Loudmouth;
+ 
++plan skip_all => "Tests disabled.";
++
+ require 't/server_helper.pl';
+ my $pid = start_server();
+ 
+--- libnet-jabber-loudmouth-perl.orig/t/05_connection.t
++++ libnet-jabber-loudmouth-perl/t/05_connection.t
+@@ -1,10 +1,12 @@
+ use strict;
+ use POSIX qw/SIGKILL/;
+-use Test::More tests => 55;
++use Test::More;# tests => 55;
+ use Test::Exception;
+ use Glib;
+ use Net::Jabber::Loudmouth;
+ 
++plan skip_all => "Tests disabled.";
++
+ require 't/server_helper.pl';
+ my $pid = start_server();
+ 
+--- libnet-jabber-loudmouth-perl.orig/t/09_ssl.t
++++ libnet-jabber-loudmouth-perl/t/09_ssl.t
+@@ -1,8 +1,10 @@
+ use strict;
+ use POSIX qw/SIGKILL/;
+-use Test::More tests => 13;
++use Test::More;# tests => 13;
+ use Net::Jabber::Loudmouth;
+ 
++plan skip_all => "Tests disabled.";
++
+ require 't/server_helper.pl';
+ my $pid = start_server();
+ 

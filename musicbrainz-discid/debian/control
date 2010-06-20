@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libdiscid0-dev, libtest-pod-perl, perl (>= 5.10) | libmodule-build-perl, pkg-config
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

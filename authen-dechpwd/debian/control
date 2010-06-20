@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.17), libdata-integer-perl (>= 0.003), libscalar-string-perl, perl (>= 5.10) | libmodule-build-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdata-integer-perl (>= 0.003), libscalar-string-perl
+X: 0

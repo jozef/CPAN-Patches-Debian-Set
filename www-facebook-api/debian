@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50~), quilt (>= 0.46-7)
-Build-Depends-Indep: libcrypt-ssleay-perl, libio-string-perl, libjson-any-perl, libjson-xs-perl, libreadonly-perl, libtest-mockobject-perl, libtest-pod-coverage-perl, libtest-pod-perl, libwww-perl, perl (>= 5.10) | libversion-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libcrypt-ssleay-perl, libjson-any-perl, libjson-xs-perl, libreadonly-perl, libwww-perl, perl (>= 5.10) | libversion-perl
-X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libnet-ssleay-perl (>= 1.36), libpoe-perl (>= 2:1.267), libtest-nowarnings-perl, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-ssleay-perl (>= 1.36)
+X: 0

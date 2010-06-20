@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- libmoosex-getopt-perl.orig/lib/MooseX/Getopt.pm
++++ libmoosex-getopt-perl/lib/MooseX/Getopt.pm
+@@ -89,7 +89,7 @@
+ given for the configfile attribute) for you.
+ 
+ Options specified in multiple places follow the following
+-precendence order: commandline overrides configfile, which
++precedence order: commandline overrides configfile, which
+ overrides explicit new_with_options parameters.
+ 
+ =head2 Supported Type Constraints

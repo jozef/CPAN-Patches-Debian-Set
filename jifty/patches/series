@@ -1,3 +1,4 @@
 fix-rest-test-format.patch
 manpage-has-bad-whatis-entry.patch
 follow-symlink.patch
+spelling.patch

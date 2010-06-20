@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libnet-server-perl, libwww-perl (>= 5.811), libxml-libxml-perl (>= 1.70), libxml-parser-perl (>= 2.31), netbase, perl (>= 5.10.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libwww-perl (>= 5.811), libxml-libxml-perl (>= 1.70), libxml-parser-perl (>= 2.31)
-X: 0

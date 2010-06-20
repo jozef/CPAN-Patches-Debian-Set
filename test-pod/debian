@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libio-stringy-perl, perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
-Depends: ${misc:Depends}, ${perl:Depends}, libio-stringy-perl, libpod-simple-perl
-X: 0

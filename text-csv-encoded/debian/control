@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libtest-pod-perl, libtext-csv-perl (>= 1.12), libtext-csv-xs-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtext-csv-perl (>= 1.12)
+X: 0

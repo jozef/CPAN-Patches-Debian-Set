@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 6), quilt
-Build-Depends-Indep: perl (>> 5.8.2-1), perl-tk, xbase-clients, xfonts-base, xvfb
-Depends: ${misc:Depends}, ${perl:Depends}, perl-tk
-X: 1

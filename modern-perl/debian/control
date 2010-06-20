@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmodern-perl-perl
+X: 0

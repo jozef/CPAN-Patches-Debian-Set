@@ -1,0 +1,15 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: spelling fix
+Forwarded: no
+
+--- a/lib/NetPacket/UDP.pm
++++ b/lib/NetPacket/UDP.pm
+@@ -311,7 +311,7 @@
+         # replace foo in the payload with bar
+         $udp_obj->{data} =~ s/foo/bar/g;
+ 
+-        # reencode the packet
++        # re-encode the packet
+         $ip_obj->{data} = $udp_obj->encode($ip_obj);
+         $data = $ip_obj->encode;
+ 

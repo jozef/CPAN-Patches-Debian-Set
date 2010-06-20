@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), libextutils-depends-perl (>= 0.300), libextutils-pkgconfig-perl (>= 1.00), libglib2.0-dev (>= 2.4.0), perl (>= 5.8.0-7), quilt
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
-X: 0

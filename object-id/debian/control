@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libhash-fieldhash-perl (>= 0.10), libnamespace-autoclean-perl, libossp-uuid-perl, libsub-name-perl (>= 0.03), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libhash-fieldhash-perl (>= 0.10), libsub-name-perl (>= 0.03)
+X: 0

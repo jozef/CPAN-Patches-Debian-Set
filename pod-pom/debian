@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), quilt
-Build-Depends-Indep: libfile-slurp-perl, libtest-differences-perl
-Depends: ${misc:Depends}, ${perl:Depends}
-X: 0

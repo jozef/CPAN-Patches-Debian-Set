@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-parser-perl, libmojolicious-perl, libtest-www-mechanize-perl (>= 1.14), libwww-mechanize-perl (>= 1.50), libwww-perl (>= 5.816), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl, libmojolicious-perl, libtest-www-mechanize-perl (>= 1.14), libwww-mechanize-perl (>= 1.50), libwww-perl (>= 5.816), perl
+X: 0

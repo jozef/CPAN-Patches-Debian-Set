@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), quilt
-Build-Depends-Indep: libemail-mime-perl, libemail-simple-perl, libmail-box-perl, libmailtools-perl, libmime-tools-perl, libmodule-pluggable-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libemail-simple-perl, libmodule-pluggable-perl
-X: 0

@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.8.0-7), quilt (>= 0.40)
-Build-Depends-Indep: libauthen-sasl-perl, libconvert-asn1-perl, libio-socket-ssl-perl, libmime-base64-perl, liburi-perl, libxml-sax-perl, libxml-sax-writer-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libconvert-asn1-perl, libmime-base64-perl, libwww-perl
-X: 0

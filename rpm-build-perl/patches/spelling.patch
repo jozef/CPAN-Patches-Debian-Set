@@ -1,0 +1,17 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sat, 24 Apr 2010 19:41:54 +0900
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56888
+Subject: Fix spelling error
+
+--- libb-perlreq-perl.orig/perl.req
++++ libb-perlreq-perl/perl.req
+@@ -341,7 +341,7 @@
+ =item	B<-m>, B<--method>=I<method>
+ 
+ Use particular I<method> for dependency tracking.  Alternatively,
+-RPM_PERL_REQ_METHOD environement variable can be used to set the method.
++RPM_PERL_REQ_METHOD environment variable can be used to set the method.
+ 
+ The following methods are available:
+ 

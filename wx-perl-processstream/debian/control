@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libwx-perl (>= 0.9701), perl, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libwx-perl (>= 0.9701)
+X: 1

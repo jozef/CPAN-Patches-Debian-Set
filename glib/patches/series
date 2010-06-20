@@ -2,3 +2,4 @@ fix-gtks-whatis
 fix-tests
 remove-version-checking
 fix-man-pages
+fix-pod-spelling.patch

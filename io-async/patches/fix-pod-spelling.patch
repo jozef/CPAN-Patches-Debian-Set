@@ -1,0 +1,26 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/IO/Async.pm
++++ b/lib/IO/Async.pm
+@@ -122,7 +122,7 @@
+ =head2 Merge Points
+ 
+ The L<IO::Async::MergePoint> object class allows for a program to wait on the
+-completion of multiple seperate subtasks. It allows for each subtask to return
++completion of multiple separate subtasks. It allows for each subtask to return
+ some data, which will be collected and given to the callback provided to the
+ merge point, which is called when every subtask has completed.
+ 
+--- a/lib/IO/Async/MergePoint.pm
++++ b/lib/IO/Async/MergePoint.pm
+@@ -22,7 +22,7 @@
+ 
+ This module as now been moved to its own dist of L<Async::MergePoint>.
+ 
+-It is kept here as a trivial subclass for backward compatibilty. Eventually
++It is kept here as a trivial subclass for backward compatibility. Eventually
+ this subclass may be removed. Any code using C<IO::Async::MergePoint> should
+ instead use L<Async::MergePoint>.
+ 

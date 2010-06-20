@@ -2,3 +2,4 @@ remove-branch-handler
 pod-generator.patch
 pod-spelling.patch
 disable-pod-coverage.patch
+fix-longdouble-comparison.patch

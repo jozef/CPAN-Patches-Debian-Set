@@ -1,0 +1,36 @@
+From: Franck Joncourt <franck@debian.org>
+Forwarded: yes
+Subject: Fix pod documentation with the latest license
+ Fixed pod documentation to mention the brand new license rather than the old
+ one.
+
+Signed-off-by: Franck Joncourt <franck@debian.org>
+
+---
+ Writer.pm |    9 ++++++---
+ 1 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/Writer.pm b/Writer.pm
+index fd2e796..58a1a31 100644
+--- a/Writer.pm
++++ b/Writer.pm
+@@ -1651,11 +1651,14 @@ David Megginson E<lt>david@megginson.comE<gt>
+ 
+ =head1 COPYRIGHT AND LICENSE
+ 
+-Copyright 1999, 2000 David Megginson E<lt>david@megginson.comE<gt>
++Copyright (c) 1999 by Megginson Technologies.
+ 
+-Copyright 2004, 2005 Joseph Walton E<lt>joe@kafsemo.orgE<gt>
++Copyright (c) 2003 Ed Avis E<lt>ed@membled.comE<gt>
+ 
+-No warranty.  Commercial and non-commercial use freely permitted.
++Copyright (c) 2004-2010 Joseph Walton E<lt>joe@kafsemo.orgE<gt>
++
++Redistribution and use in source and compiled forms, with or without
++modification, are permitted under any circumstances.  No warranty.
+ 
+ =head1 SEE ALSO
+ 
+-- 
+tg: (0951114..) t/upstream/license (depends on: master)

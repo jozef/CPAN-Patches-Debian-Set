@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdatetime-locale-perl (>= 1:0.43), libdatetime-perl (>= 2:0.4304), libdatetime-timezone-perl, libparams-validate-perl, perl (>= 5.6.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-locale-perl (>= 1:0.43), libdatetime-perl (>= 2:0.4304), libdatetime-timezone-perl, libparams-validate-perl
-X: 0

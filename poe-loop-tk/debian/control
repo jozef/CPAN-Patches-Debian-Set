@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libio-pty-perl, libpoe-perl (>= 2:1.2890), libpoe-test-loops-perl (>= 1.035), libsocket6-perl, netbase, perl, perl-tk (>= 1:804.028-7), xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libpoe-perl (>= 2:1.2890), perl-tk (>= 1:804.028-7)
+X: 1

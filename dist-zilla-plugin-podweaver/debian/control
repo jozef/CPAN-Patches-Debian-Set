@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdist-zilla-perl (>= 4), libfile-find-rule-perl, liblist-moreutils-perl, libmoose-autobox-perl, libmoose-perl, libnamespace-autoclean-perl, libpod-elemental-perl, libpod-elemental-perlmunger-perl, libpod-weaver-perl, libppi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdist-zilla-perl (>= 4), liblist-moreutils-perl, libmoose-autobox-perl, libmoose-perl, libnamespace-autoclean-perl, libpod-elemental-perl, libpod-elemental-perlmunger-perl, libpod-weaver-perl, libppi-perl, perl
+X: 0

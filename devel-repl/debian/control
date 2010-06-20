@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libapp-nopaste-perl, libb-keywords-perl, libdata-dump-streamer-perl, libdata-dumper-concise-perl, libfile-homedir-perl, libfile-next-perl, liblexical-persistence-perl, libmodule-refresh-perl, libmoose-perl (>= 0.74), libmoosex-attributehelpers-perl, libmoosex-getopt-perl (>= 0.18), libmoosex-object-pluggable-perl (>= 0.0009), libnamespace-clean-perl, libppi-perl, libscope-guard-perl, libsys-sigaction-perl, libtask-weaken-perl, perl (>= 5.10.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libapp-nopaste-perl, libb-keywords-perl, libdata-dump-streamer-perl, libdata-dumper-concise-perl, libfile-homedir-perl, libfile-next-perl, liblexical-persistence-perl, libmodule-refresh-perl, libmoose-perl (>= 0.74), libmoosex-attributehelpers-perl, libmoosex-getopt-perl (>= 0.18), libmoosex-object-pluggable-perl (>= 0.0009), libnamespace-clean-perl, libppi-perl, libscope-guard-perl, libsys-sigaction-perl, libtask-weaken-perl
+X: 0

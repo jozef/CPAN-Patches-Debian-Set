@@ -1,0 +1,12 @@
+Author: Angus Lees <gus@debian.org>
+
+--- a/Database.pm
++++ b/Database.pm
+@@ -609,6 +609,7 @@
+       {
+ 
+ 	  $self->{'*DBHdl'}      = $data_source;
++	  $self->{'*Driver'}     = $data_source->{Driver}->{Name};
+       }
+     else
+       {

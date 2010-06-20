@@ -1,0 +1,17 @@
+Description: Fix a spelling error in manpage which is reported by
+ lintian.
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=55516
+Forwarded: yes
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+--- a/lib/App/Cmd/Command.pm
++++ b/lib/App/Cmd/Command.pm
+@@ -198,7 +198,7 @@
+ =head2 abstract
+ 
+ This method returns a short description of the command's purpose.  If this
+-method is not overriden, it will return the abstract from the module's POD.  If
++method is not overridden, it will return the abstract from the module's POD.  If
+ it can't find the abstract, it will return the string "(unknown")
+ 
+ =cut

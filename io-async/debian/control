@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libasync-mergepoint-perl, libheap-perl (>= 0.80), libsocket-getaddrinfo-perl, libtest-exception-perl, libtest-pod-perl, libtest-refcount-perl, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libasync-mergepoint-perl, libheap-perl (>= 0.80), libsocket-getaddrinfo-perl
+X: 0

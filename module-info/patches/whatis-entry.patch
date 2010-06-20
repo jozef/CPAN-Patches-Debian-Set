@@ -1,0 +1,23 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sun, 06 Jun 2010 21:47:36 +0900
+Origin: vendor
+Subject: Add missing whatis entry
+
+It might be better to remove the POD from this module, but maybe somebody will
+someday want to read it...
+
+--- libmodule-info-perl.orig/lib/B/Module/Info.pm
++++ libmodule-info-perl/lib/B/Module/Info.pm
+@@ -7,6 +7,12 @@
+                  opgrep all_roots);
+ @B::Utils::bad_stashes = qw();  # give us everything.
+ 
++=head1 NAME
++
++B::Module::Info - information about Perl modules
++
++=cut
++
+ {
+     # From: Roland Walker <walker@ncbi.nlm.nih.gov>
+     # "Syntax OK" may land inside output and render it unusable

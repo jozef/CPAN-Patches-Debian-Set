@@ -1,0 +1,25 @@
+From: Niko Tyni <ntyni@debian.org>
+Date: Sat, 15 May 2010 10:06:18 +0300
+Bug-Debian: http://bugs.debian.org/578942
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=33009
+Subject: Fix a test failure with Perl 5.12 due to slightly changed caller() interface
+
+As noted by Andreas Koenig in
+ https://rt.cpan.org/Public/Bug/Display.html?id=33009
+
+and shown by (for example)
+ perl -le 'sub a { @a=caller(0); print "$]: <$a[5]>"}; scalar a()'
+
+the wantarray element of caller(n) was changed slightly for Perl 5.12
+by change 33022. Adjust the test suite accordingly.
+--- libdevel-ebug-perl.orig/t/stack.t
++++ libdevel-ebug-perl/t/stack.t
+@@ -23,7 +23,7 @@
+ is($trace->package   , "main");
+ is($trace->filename  , "t/calc.pl");
+ is($trace->subroutine, "main::add");
+-is($trace->wantarray , 0);
++ok(! $trace->wantarray);
+ is($trace->line      , 5);
+ is_deeply([$trace->args], [1, 2]);
+ 

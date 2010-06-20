@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), hicolor-icon-theme, libcairo-perl (>= 1.00), libextutils-depends-perl (>= 0.300), libextutils-pkgconfig-perl (>= 1.03), libglib-perl (>= 1:1.230), libgtk2.0-dev (>= 2.6.0), libpango-perl (>= 1.220), perl, shared-mime-info, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libcairo-perl, libglib-perl (>= 1:1.230), libpango-perl (>= 1.220), shared-mime-info
+X: 1

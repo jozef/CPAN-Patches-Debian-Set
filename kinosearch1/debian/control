@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), liblingua-stem-snowball-perl, liblingua-stopwords-perl, libtest-pod-perl, perl (>= 5.10) | libextutils-parsexs-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, liblingua-stem-snowball-perl, liblingua-stopwords-perl, perl (>= 5.10) | libio-compress-perl | libcompress-zlib-perl
+X: 0

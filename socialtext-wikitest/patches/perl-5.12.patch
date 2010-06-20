@@ -1,0 +1,29 @@
+From: Niko Tyni <ntyni@debian.org>
+Date: Fri, 14 May 2010 09:56:02 +0300
+Bug-Debian: http://bugs.debian.org/579032
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=57481
+Subject: Fix a test failure with Perl 5.12.0 due to improved regexp comparisons
+
+The regexp implementation changed in the Perl 5.11 series, and
+test_deeply() now compares them more carefully, as shown by
+
+ perl -MTest::More=no_plan -e 'is_deeply(qr/a/s, qr/a/)'
+diff --git a/t/fixture-selenese.t b/t/fixture-selenese.t
+index 4e9f6d0..c83b720 100644
+--- a/t/fixture-selenese.t
++++ b/t/fixture-selenese.t
+@@ -29,9 +29,9 @@ EOT
+         [ title_like => qr/\Qmonkey\E/ ],
+         [ text_like => ['//body', qr/\Qwater\E/] ],
+         [ text_like => ['//body', qr/\Qpen?\E/] ],
+-        [ text_like => ['//body', qr/pen?/] ],
++        [ text_like => ['//body', qr/pen?/s] ],
+         [ confirmation_like => qr/\Qpen?\E/ ],
+-        [ confirmation_like => qr/pen?/ ],
++        [ confirmation_like => qr/pen?/s ],
+         [ click_ok => 'foo' ],
+         [ wait_for_page_to_load_ok => 10000 ],
+     ],
+-- 
+1.7.1
+

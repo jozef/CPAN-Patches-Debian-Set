@@ -1,0 +1,33 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sat, 19 Jun 2010 09:29:57 +0900
+Subject: Fix spelling errors
+
+--- libmime-encwords-perl.orig/EncWords.pm
++++ libmime-encwords-perl/EncWords.pm
+@@ -540,7 +540,7 @@
+ B<*>
+ When RAW is an arrayref,
+ adjacent encoded-words (i.e. elements having non-ASCII charset element)
+-are concatenated.  Then they are splitted taking
++are concatenated.  Then they are split taking
+ care of character boundaries of multibyte sequences when Unicode/multibyte
+ support is enabled.
+ Portions for unencoded data should include surrounding whitespace(s), or
+@@ -590,7 +590,7 @@
+ 
+ A Sequence to fold encoded lines.  The default is C<"\n">.
+ If empty string C<""> is specified, encoded-words exceeding line length
+-(see L</MaxLineLen> below) will be splitted by SPACE.
++(see L</MaxLineLen> below) will be split by SPACE.
+ 
+ B<Note>:
+ B<*>
+@@ -623,7 +623,7 @@
+ in the text to be encoded.
+ If C<"NO"> is specified, this module will encode whole text
+ (if encoding needed) not regarding whitespaces;
+-encoded-words exceeding line length will be splitted based only on their
++encoded-words exceeding line length will be split based only on their
+ lengths.
+ Default is C<"YES"> by which minimal portions of text are encoded.
+ If C<"DISPNAME"> is specified, portions including special characters

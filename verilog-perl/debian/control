@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: bison, debhelper (>= 7.0.50~), flex, libbit-vector-perl, libtest-pod-perl, perl (>= 5.10)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl (>= 5.10)
+X: 0

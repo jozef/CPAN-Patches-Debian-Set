@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libautobox-perl (>= 0.11), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libautobox-perl (>= 0.11)
-X: 0

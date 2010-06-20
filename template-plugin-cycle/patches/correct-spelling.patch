@@ -1,0 +1,13 @@
+Description: Correct spelling mistakes
+Author: Alan Haggai Alavi <alanhaggai@alanhaggai.org>
+--- a/lib/Template/Plugin/Cycle.pm
++++ b/lib/Template/Plugin/Cycle.pm
+@@ -200,7 +200,7 @@
+ The C<list> method returns the current list of values for the
+ C<Template::Plugin::Cycle> object.
+ 
+-This is also the prefered method for getting access to a value at a
++This is also the preferred method for getting access to a value at a
+ particular position within the list of items being cycled to.
+ 
+   [%# Access a variety of things from the list %]

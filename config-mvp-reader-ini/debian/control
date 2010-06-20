@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libconfig-ini-perl, libconfig-mvp-perl (>= 2.101460), libmoose-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-ini-perl, libconfig-mvp-perl (>= 2.101460), libmoose-perl
+X: 0

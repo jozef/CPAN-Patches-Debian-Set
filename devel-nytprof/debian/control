@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libjson-any-perl, libsub-name-perl, libtest-pod-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.84), zlib1g-dev
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libjs-jquery, libjson-any-perl
+X: 0

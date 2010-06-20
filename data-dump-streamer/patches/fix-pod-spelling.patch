@@ -1,0 +1,45 @@
+Description: fix POD spelling
+Origin: vendor
+Forwarded: no
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-12
+
+--- a/lib/Data/Dump/Streamer.pm
++++ b/lib/Data/Dump/Streamer.pm
+@@ -305,7 +305,7 @@
+ framework for closure based code. The way this works is that DDS figures
+ out what all the lexicals are that are bound to CODE refs it is dumping
+ and then pretends that it had originally been called with all of them as
+-its arguements, (along with the original arguments as well of course.)
++its arguments, (along with the original arguments as well of course.)
+ 
+ One consequence of the way the dumping process works is that all of the
+ recreated subroutines will be in the same scope. This of course can lead
+@@ -560,7 +560,7 @@
+ This means that when an array value is simple (ie, its not referenced and
+ does contain a reference) and is repeated mutliple times the output will
+ be single a list multiplier statement, and not each item output
+-seperately. Thus: L<C<Dump([0,0,0,0])>|/Dump> will be output somthing like
++separately. Thus: L<C<Dump([0,0,0,0])>|/Dump> will be output somthing like
+ 
+    $ARRAY1 = [ (0) x 4 ];
+ 
+@@ -3761,7 +3761,7 @@
+ =head2 A Note About Speed
+ 
+ Data::Dumper is much faster than this module for many things. However IMO
+-it is less readable, and definately less accurate. YMMV.
++it is less readable, and definitely less accurate. YMMV.
+ 
+ =head1 EXPORT
+ 
+@@ -3848,7 +3848,7 @@
+ 
+ Be aware that to a certain extent this module is subject to whimsies of
+ your local perl. The same code may not produce the same dump on two
+-different installs and versions. Luckily these dont seem to pop up often.
++different installs and versions. Luckily these don't seem to pop up often.
+ 
+ =head1 AUTHOR AND COPYRIGHT
+ 

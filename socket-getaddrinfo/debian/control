@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.10), libextutils-cchecker-perl, libtest-exception-perl, libtest-pod-perl, libtest-warn-perl, perl (>= 5.10) | libmodule-build-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

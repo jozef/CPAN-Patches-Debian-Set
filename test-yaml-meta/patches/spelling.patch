@@ -1,0 +1,39 @@
+Description: spelling fix
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-04-17
+
+--- a/README
++++ b/README
+@@ -59,7 +59,7 @@ RT system (http://rt.cpan.org/Public/Dis
+ However, it would help greatly if you are able to pinpoint problems or even 
+ supply a patch. 
+ 
+-Fixes are dependant upon their severity and my availablity. Should a fix not
++Fixes are dependent upon their severity and my availability. Should a fix not
+ be forthcoming, please feel free to (politely) remind me.
+ 
+ DSLIP
+--- a/lib/Test/YAML/Meta.pm
++++ b/lib/Test/YAML/Meta.pm
+@@ -179,7 +179,7 @@ RT system (http://rt.cpan.org/Public/Dis
+ However, it would help greatly if you are able to pinpoint problems or even
+ supply a patch.
+ 
+-Fixes are dependant upon their severity and my availablity. Should a fix not
++Fixes are dependent upon their severity and my availability. Should a fix not
+ be forthcoming, please feel free to (politely) remind me.
+ 
+ =head1 SEE ALSO
+--- a/lib/Test/YAML/Meta/Version.pm
++++ b/lib/Test/YAML/Meta/Version.pm
+@@ -777,7 +777,7 @@ RT system (http://rt.cpan.org/Public/Dis
+ However, it would help greatly if you are able to pinpoint problems or even
+ supply a patch.
+ 
+-Fixes are dependant upon their severity and my availablity. Should a fix not
++Fixes are dependent upon their severity and my availability. Should a fix not
+ be forthcoming, please feel free to (politely) remind me.
+ 
+ =head1 DSLIP

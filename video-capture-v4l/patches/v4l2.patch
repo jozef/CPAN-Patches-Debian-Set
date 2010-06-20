@@ -1,0 +1,233 @@
+Author: Damyan Invanov <dmn@debian.org>
+Author: gregor herrmann <gregoa@debian.org>
+Description: making the module use v4l1_open function from libv4l
+Bugs-Debian: #569091 -- Uses obsolete V4L1 API
+
+--- a/V4l/V4l.pm
++++ b/V4l/V4l.pm
+@@ -7,6 +7,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPOR
+ require Exporter;
+ require DynaLoader;
+ 
++use IO::Handle;
+ use Fcntl;
+ 
+ $VERSION = '0.902';
+@@ -92,9 +93,8 @@ sub new(;$) {
+    my $device = shift || "/dev/video0";
+    my $self = bless { device => $device }, $class;
+ 
+-   $self->{handle} = local *{$device};
+-   sysopen $self->{handle},$device,O_RDWR or return;
+-   $self->{fd} = fileno ($self->{handle});
++   $self->{fd} = v4l_open($device,O_RDWR) or return;
++   $self->{handle} = IO::Handle->new_from_fd( $self->{fd}, 'w' );
+    $self->{capability} = _capabilities_new ($self->{fd});
+    $self->{picture} = _picture_new ($self->{fd});
+ 
+@@ -176,9 +176,8 @@ sub new(;$) {
+    my $device = shift || "/dev/vbi0";
+    my $self = bless { device => $device }, $class;
+ 
+-   $self->{handle} = local *{$device};
+-   sysopen $self->{handle},$device,O_RDWR or return;
+-   $self->{fd} = fileno ($self->{handle});
++   $self->{fd} = v4l_open($device,O_RDWR) or return;
++   $self->{handle} = IO::Handle->new_from_fd( $self->{fd}, 'w' );
+ 
+    $self
+ }
+--- a/V4l/V4l.xs
++++ b/V4l/V4l.xs
+@@ -10,6 +10,7 @@
+ #include <string.h>
+ #include <pthread.h>
+ #include <linux/videodev.h>
++#include <libv4l1.h>
+ 
+ #define NEED_newCONSTSUB
+ #include "../gppport.h"
+@@ -89,7 +90,7 @@ static int
+ private_free (pTHX_ SV *obj, MAGIC *mg)
+ {
+   struct private *p = (struct private *)mg->mg_ptr;
+-  munmap (p->mmap_base, p->vm.size);
++  v4l1_munmap (p->mmap_base, p->vm.size);
+   return 0;
+ }
+ 
+@@ -105,9 +106,9 @@ find_private (SV *sv)
+     {
+       struct private p;
+       p.fd = SvIV (*hv_fetch (hv, "fd", 2, 0));
+-      if (ioctl (p.fd, VIDIOCGMBUF, &p.vm) == 0)
++      if (v4l1_ioctl (p.fd, VIDIOCGMBUF, &p.vm) == 0)
+         {
+-          p.mmap_base = (unsigned char *)mmap (0, p.vm.size, PROT_READ|PROT_WRITE, MAP_SHARED, p.fd, 0);
++          p.mmap_base = (unsigned char *)v4l1_mmap (0, p.vm.size, PROT_READ|PROT_WRITE, MAP_SHARED, p.fd, 0);
+           if (p.mmap_base)
+             {
+               sv_magic ((SV*)hv, 0, '~', (char*)&p, sizeof p);
+@@ -164,7 +165,7 @@ vbi_snatcher_thread (void *arg)
+           pthread_mutex_unlock (&vbi_lock);
+ 
+           next->next = 0;
+-          next->size = read (vbi_fd, next->data, VBI_BPF);
++          next->size = v4l1_read (vbi_fd, next->data, VBI_BPF);
+ 
+           pthread_mutex_lock (&vbi_lock);
+ 
+@@ -229,7 +230,7 @@ field(self)
+ 
+             RETVAL = newSVpvn ("", 0);
+             SvGROW (RETVAL, VBI_BPF);
+-            len = read (fd, SvPV_nolen (RETVAL), VBI_BPF);
++            len = v4l1_read (fd, SvPV_nolen (RETVAL), VBI_BPF);
+             SvCUR_set (RETVAL, len);
+           }
+ 
+@@ -314,6 +315,15 @@ queued(self)
+ 	OUTPUT:
+         RETVAL
+ 
++int
++v4l_open (file,oflag)
++        char    *file
++        int     oflag
++        CODE:
++            RETVAL = v4l1_open (file, oflag);
++        OUTPUT:
++        RETVAL
++
+ MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l		
+ 
+ SV *
+@@ -333,7 +343,7 @@ capture(sv,frame,width,height,format = V
+             vm.height = height;
+             vm.width  = width;
+             vm.format = format;
+-            if (ioctl (p->fd, VIDIOCMCAPTURE, &vm) == 0)
++            if (v4l1_ioctl (p->fd, VIDIOCMCAPTURE, &vm) == 0)
+               {
+                 SV *fr = newSV (0);
+                 SvUPGRADE (fr, SVt_PV);
+@@ -361,7 +371,7 @@ sync(sv,frame)
+ {
+         struct private *p;
+         if ((p = find_private (sv))
+-            && ioctl (p->fd, VIDIOCSYNC, &frame) == 0)
++            && v4l1_ioctl (p->fd, VIDIOCSYNC, &frame) == 0)
+           XSRETURN_YES;
+         else
+           XSRETURN_EMPTY;
+@@ -375,11 +385,11 @@ _freq (fd,fr)
+         if (items > 1)
+           {
+             fr = ((fr<<4)+499)/1000;
+-            ioctl (fd, VIDIOCSFREQ, &fr);
++            v4l1_ioctl (fd, VIDIOCSFREQ, &fr);
+           }
+         if (GIMME_V != G_VOID)
+           {
+-            if (ioctl (fd, VIDIOCGFREQ, &fr) == 0)
++            if (v4l1_ioctl (fd, VIDIOCGFREQ, &fr) == 0)
+               RETVAL = (fr*1000+7)>>4;
+             else
+               XSRETURN_EMPTY;
+@@ -430,13 +440,22 @@ _picture_new(fd)
+         OUTPUT:
+         RETVAL
+ 
++int
++v4l_open (file,oflag)
++        char    *file
++        int     oflag
++        CODE:
++            RETVAL = v4l1_open (file, oflag);
++        OUTPUT:
++        RETVAL
++
+ MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Capability
+ 
+ void
+ get(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCGCAP, old_struct (sv, "Video::Capture::V4l::Capability")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCGCAP, old_struct (sv, "Video::Capture::V4l::Capability")) == 0);
+ 
+ MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Channel
+ 
+@@ -444,13 +463,13 @@ void
+ get(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCGCHAN, old_struct (sv, "Video::Capture::V4l::Channel")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCGCHAN, old_struct (sv, "Video::Capture::V4l::Channel")) == 0);
+ 
+ void
+ set(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCSCHAN, old_struct (sv, "Video::Capture::V4l::Channel")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCSCHAN, old_struct (sv, "Video::Capture::V4l::Channel")) == 0);
+ 
+ MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Tuner
+ 
+@@ -458,13 +477,13 @@ void
+ get(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCGTUNER, old_struct (sv, "Video::Capture::V4l::Tuner")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCGTUNER, old_struct (sv, "Video::Capture::V4l::Tuner")) == 0);
+ 
+ void
+ set(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCSTUNER, old_struct (sv, "Video::Capture::V4l::Tuner")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCSTUNER, old_struct (sv, "Video::Capture::V4l::Tuner")) == 0);
+ 
+ MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Audio
+ 
+@@ -472,13 +491,13 @@ void
+ get(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCGAUDIO, old_struct (sv, "Video::Capture::V4l::Audio")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCGAUDIO, old_struct (sv, "Video::Capture::V4l::Audio")) == 0);
+ 
+ void
+ set(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCSAUDIO, old_struct (sv, "Video::Capture::V4l::Audio")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCSAUDIO, old_struct (sv, "Video::Capture::V4l::Audio")) == 0);
+ 
+ MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Picture
+ 
+@@ -486,13 +505,13 @@ void
+ get(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCGPICT, old_struct (sv, "Video::Capture::V4l::Picture")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCGPICT, old_struct (sv, "Video::Capture::V4l::Picture")) == 0);
+ 
+ void
+ set(sv)
+ 	SV *	sv
+         CODE:
+-        XSRETURN_bool (ioctl (SvIV (SvRV (sv)), VIDIOCSPICT, old_struct (sv, "Video::Capture::V4l::Picture")) == 0);
++        XSRETURN_bool (v4l1_ioctl (SvIV (SvRV (sv)), VIDIOCSPICT, old_struct (sv, "Video::Capture::V4l::Picture")) == 0);
+ 
+ # accessors/mutators
+ INCLUDE: ./genacc |
+--- a/V4l/Makefile.PL
++++ b/V4l/Makefile.PL
+@@ -8,5 +8,5 @@ if ($^O ne "linux") {
+ WriteMakefile(
+     'NAME'	=> 'Video::Capture::V4l',
+     'VERSION_FROM' => 'V4l.pm',
+-    LIBS	=> '-lpthread',
++    LIBS	=> '-lpthread -lv4l1',
+ );

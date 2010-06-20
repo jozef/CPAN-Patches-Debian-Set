@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liblog-dispatch-array-perl, liblog-dispatch-perl, libparams-util-perl, libstring-flogger-perl, libtest-deep-perl, libtry-tiny-perl, perl (>= 5.10) | libsys-syslog-perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblog-dispatch-array-perl, liblog-dispatch-perl, libparams-util-perl, libstring-flogger-perl, libtest-deep-perl, libtry-tiny-perl, perl (>= 5.10) | libsys-syslog-perl
+X: 0

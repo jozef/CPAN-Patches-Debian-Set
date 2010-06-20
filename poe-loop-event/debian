@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libevent-perl (>= 1.11), libio-pty-perl, libpoe-perl (>= 2:1.0200), libpoe-test-loops-perl, libsocket6-perl, netbase, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libevent-perl (>= 1.11), libpoe-perl (>= 2:1.0200)
-X: 0

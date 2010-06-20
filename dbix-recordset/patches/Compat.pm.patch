@@ -1,0 +1,14 @@
+Description: Tell Compat.pm that Pg type '4' is numeric (Postgres 7.3).
+Author: Angus Lees <gus@debian.org>
+Date: Tue, 19 Aug 2003 22:36:31 +1000
+
+--- a/Compat.pm
++++ b/Compat.pm
+@@ -320,6 +320,7 @@
+ 
+       'SupportSQLJoin' => 1,              # Driver does not supports INNER/LEFT/RIGHt JOIN Syntax in SQL select
+       'NumericTypes'   => { 
++                                4 => 1,
+                                 20 => 1, 
+                                 21 => 1, 
+                                 22 => 1, 

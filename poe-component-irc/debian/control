@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libpoe-component-client-dns-perl, libpoe-component-client-ident-perl, libpoe-component-pluggable-perl (>= 1.24), libpoe-filter-ircd-perl (>= 2.42), libpoe-perl (>= 2:1.2870), libsocket6-perl, libtest-pod-coverage-perl, libtest-pod-perl, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libpoe-component-pluggable-perl (>= 1.24), libpoe-filter-ircd-perl (>= 2.42), libpoe-perl (>= 2:1.2870)
+X: 0

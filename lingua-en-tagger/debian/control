@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-parser-perl (>= 3.45), liblingua-stem-perl (>= 0.81), libmemoize-expirelru-perl (>= 0.55), libtest-pod-perl (>= 1.00), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl (>= 3.45), liblingua-stem-perl (>= 0.81), libmemoize-expirelru-perl (>= 0.55), perl
+X: 0

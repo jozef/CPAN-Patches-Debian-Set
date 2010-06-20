@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~), libb-hooks-endofscope-perl, libb-hooks-op-check-perl, libextutils-depends-perl, libsub-name-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libb-hooks-endofscope-perl, libb-hooks-op-check-perl, libsub-name-perl
+X: 0

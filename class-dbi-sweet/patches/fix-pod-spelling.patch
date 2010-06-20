@@ -1,0 +1,17 @@
+Description: Fix a small typo in POD spelling
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=56832
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=56832
+Author: Damyan Ivanov <dmn@debian.org>
+Last-Update: 2010-04-22
+
+--- a/lib/Class/DBI/Sweet.pm
++++ b/lib/Class/DBI/Sweet.pm
+@@ -1254,7 +1254,7 @@ it in the cache.
+ =item insert 
+ 
+ All caches for this table are marked stale and will be re-cached on next
+-retrieval. create is an alias kept for backwards compability.
++retrieval. create is an alias kept for backwards compatibility.
+ 
+ =item retrieve
+ 

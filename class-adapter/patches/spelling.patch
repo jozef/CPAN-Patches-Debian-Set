@@ -1,0 +1,16 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Mon, 12 Apr 2010 11:31:22 +0900
+Subject: Fix spelling error
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56492
+
+--- libclass-adapter-perl.orig/lib/Class/Adapter/Builder.pm
++++ libclass-adapter-perl/lib/Class/Adapter/Builder.pm
+@@ -53,7 +53,7 @@
+ 
+ =item NEW
+ 
+-Normally, you need to create your C<Class::Adapter> objects seperately:
++Normally, you need to create your C<Class::Adapter> objects separately:
+ 
+   # Create the object
+   my $query = CGI->new( 'param1', 'param2' );

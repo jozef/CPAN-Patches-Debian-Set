@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.10), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libdatetime-perl, libdatetime-timezone-perl, libtimedate-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libdatetime-timezone-perl, libtimedate-perl
+X: 0

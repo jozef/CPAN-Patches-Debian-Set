@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libtest-warn-perl (>= 0.11), liburi-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, liburi-perl
-X: 0

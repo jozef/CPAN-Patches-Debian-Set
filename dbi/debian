@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.8), libplrpc-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl, quilt (>= 0.46-7)
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libplrpc-perl
-X: 0

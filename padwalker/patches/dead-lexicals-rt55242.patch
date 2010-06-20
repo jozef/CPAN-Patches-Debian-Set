@@ -1,0 +1,48 @@
+Description: fix segfault with freed lexicals
+ If lexicals are freed, their memory becomes NULL, but
+ PadWalker still tries to make a reference to it, causing
+ a segmentation fault.
+Author: Paul Driver <frodwith@gmail.com>
+Reviewed-by: Jonathan Yu <jawnsy@cpan.org>
+Origin: other
+Bug-CPAN: http://rt.cpan.org/Ticket/Display.html?id=55242
+--- a/PadWalker.xs
++++ b/PadWalker.xs
+@@ -232,10 +232,6 @@
+             else {
+               if (is_our) {
+                 val_sv = fetch_from_stash(SvOURSTASH(name_sv), name_str, name_len);
+-                if (!val_sv) {
+-                    debug_print(("Value of our variable is undefined\n"));
+-                    val_sv = &PL_sv_undef;
+-                }
+               }
+               else
+               {
+@@ -243,6 +239,12 @@
+                 val_sv = val_ptr ? *val_ptr : &PL_sv_undef;
+               }
+ 
++              if (!val_sv) {
++                debug_print(("Value of %s variable is undefined\n",
++                  is_our ? "our" : "my"));
++                val_sv = &PL_sv_undef;
++              }
++
+               hv_store((is_our ? our_hash : my_hash), name_str, name_len,
+                        newRV_inc(val_sv), 0);
+             }
+--- /dev/null
++++ b/t/dead_my.t
+@@ -0,0 +1,11 @@
++use PadWalker qw(peek_my);
++
++print "1..1\n";
++
++my $outer = 42;
++sub {
++    my $inner = $outer;
++    sub { peek_my 0 }
++}->()->();
++
++print "ok 1\n";

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libhtml-parser-perl, libpod-escapes-perl, libtest-pod-perl, perl (>= 5.10), perl-doc
+Depends: ${misc:Depends}, ${perl:Depends}, libpod-escapes-perl
+X: 0

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~), libplot-dev, perl, quilt (>= 0.46-7), xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libgraphics-libplot-perl
+X: 1

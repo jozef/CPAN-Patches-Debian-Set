@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libany-moose-perl, libcrypt-ssleay-perl, libfile-slurp-perl, libhtml-tree-perl, libjson-any-perl, libtest-mockmodule-perl, libtest-pod-perl, liburi-perl, libwww-mechanize-gzip-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl, libcrypt-ssleay-perl, libhtml-tree-perl, libjson-any-perl, liburi-perl, libwww-mechanize-gzip-perl
-X: 0

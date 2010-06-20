@@ -1,0 +1,90 @@
+Description: fix POD (drop C<> blocks from diagnostics section)
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/WWW/Facebook/API/Auth.pm
++++ b/lib/WWW/Facebook/API/Auth.pm
+@@ -253,7 +253,7 @@
+ 
+ =over
+ 
+-=item C< Token needed for call to get_session >
++=item Token needed for call to get_session
+ 
+ You are running a desktop app and you did not pass a token into get_session.
+ You can create a token by calling create_token() or (better) login().
+@@ -262,13 +262,13 @@
+ web app. When the user does so, an auth_token will be returned (as a
+ parameter) to your callback url. Use that auth_token for the session.
+ 
+-=item C< Don't know how to open browser for the system %s >
++=item Don't know how to open browser for the system %s
+ 
+ The module doesn't know the command to use to open a browser on the given
+ system. If you passed in C<browser> to login(), it can use that string as the
+ command to execute to open the login url.
+ 
+-=item C< Cannot use login method with web app >
++=item Cannot use login method with web app
+ 
+ The login() method is not able to be used to sign in when using a web app. See
+ the Facebook TOS A.9.iv.
+--- a/lib/WWW/Facebook/API.pm
++++ b/lib/WWW/Facebook/API.pm
+@@ -1280,38 +1280,38 @@
+ 
+ =over
+ 
+-=item C<< Unable to load JSON module for parsing: %s >>
++=item Unable to load JSON module for parsing: %s
+ 
+ L<JSON::Any> was not able to load one of the JSON modules it uses to parse
+ JSON. Please make sure you have one (of the several) JSON modules it can use
+ installed.
+ 
+-=item C<< Error during REST call: %s >>
++=item Error during REST call: %s
+ 
+ This means that there's most likely an error in the server you are using to
+ communicate to the Facebook REST server. Look at the traceback to determine
+ why an error was thrown. Double-check that C<server_uri> is set to the right
+ location.
+ 
+-=item C<< Cannot create namespace %s: %s >>
++=item Cannot create namespace %s: %s
+ 
+ Cannot create the needed subclass method. Contact the developer to report.
+ 
+-=item C<< Cannot create attribute %s: %s >>
++=item Cannot create attribute %s: %s
+ 
+ Cannot create the needed attribute method. Contact the developer to report.
+ 
+-=item C<<_format_and_check_params must be called in list context!>>
++=item _format_and_check_params must be called in list context!
+ 
+ You're using a private method call and you're not calling it in list context.
+ It returns a list of items, all of which should be interesting to you.
+ 
+-=item C<< Cannot open %s >>
++=item Cannot open %s
+ 
+ Cannot open the configuration file. Make sure the filename is correct and that
+ the program has the appropriate permissions.
+ 
+-=item C<< Cannot close %s >>
++=item Cannot close %s
+ 
+ Cannot close the configuration file. Make sure the filename is correct and
+ that the program has the appropriate permissions.
+--- a/lib/WWW/Facebook/API/Canvas.pm
++++ b/lib/WWW/Facebook/API/Canvas.pm
+@@ -202,7 +202,7 @@
+ 
+ =over
+ 
+-=item C<< Multiple values for %s. Are you using POST for forms? >>
++=item Multiple values for %s. Are you using POST for forms?
+ 
+ Your forms are most likely using GET rather than POST to the Facebook URLs.
+ Change your forms to using POST and the problem should be resolved. (See

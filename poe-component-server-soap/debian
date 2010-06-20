@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libfile-find-rule-perl, libpoe-component-server-simplehttp-perl, libpoe-perl, libsoap-lite-perl, libtest-apocalypse-perl, libtest-distribution-perl, libtest-perl-critic-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.8-12)
-Depends: ${misc:Depends}, ${perl:Depends}, libpoe-component-server-simplehttp-perl, libpoe-perl, libsoap-lite-perl
-X: 0

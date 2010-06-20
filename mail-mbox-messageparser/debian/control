@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: bzip2, libfilehandle-unget-perl, libtext-diff-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfilehandle-unget-perl
+X: 0

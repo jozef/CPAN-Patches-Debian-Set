@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libaliased-perl, libmoosex-compiletime-traits-perl, libmoosex-declare-perl, libmoosex-types-perl, libpod-coverage-trustpod-perl, libpoe-perl (>= 2:1.2690), libpoex-types-perl (>= 0.092670), libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.92)
+Depends: ${misc:Depends}, ${perl:Depends}, libaliased-perl, libmoosex-compiletime-traits-perl, libmoosex-declare-perl, libmoosex-types-perl, libpoe-perl (>= 2:1.2690), libpoex-types-perl (>= 0.092670)
+X: 0

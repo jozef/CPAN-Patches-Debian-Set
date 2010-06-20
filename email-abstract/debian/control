@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libemail-mime-perl, libemail-simple-perl, libmail-box-perl, libmailtools-perl, libmime-tools-perl, libmodule-pluggable-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-simple-perl, libmodule-pluggable-perl
+X: 0

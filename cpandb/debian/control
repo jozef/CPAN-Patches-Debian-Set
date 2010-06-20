@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdatetime-perl (>= 2:0.4900), liblwp-online-perl, liborlite-mirror-perl (>= 1.20), liborlite-statistics-perl, libparams-util-perl (>= 1.00), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl (>= 2:0.4900), liborlite-mirror-perl (>= 1.20), liborlite-statistics-perl, libparams-util-perl (>= 1.00)
+X: 0

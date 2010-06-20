@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), ecasound, libecasoundc2.2-dev (>= 2.7.0-1.1), perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

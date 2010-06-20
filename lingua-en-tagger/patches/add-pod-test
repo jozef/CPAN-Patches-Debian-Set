@@ -1,0 +1,26 @@
+Description: Adds a Test::Pod check to the testsuite
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=57211
+Author: Chris Butler <chrisb@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-03
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -12,6 +12,7 @@
+ WriteMakefile(
+     'NAME'              => 'Lingua::EN::Tagger',
+     'VERSION_FROM'      => 'Tagger.pm', # finds $VERSION
++	'BUILD_REQUIRES'	=> { 'Test::Pod' => '1.00' },
+     'PREREQ_PM'         => { 'Lingua::Stem' => '0.81', 
+                                 'HTML::Parser' => '3.45',
+                                 'Memoize' => '1.01',
+--- /dev/null
++++ b/t/pod.t
+@@ -0,0 +1,7 @@
++#
++# Tests that there are no errors in the PODs
++#
++use Test::More;
++eval "use Test::Pod 1.00";
++plan skip_all => "Test::Pod 1.00 required for testing POD" if $@;
++all_pod_files_ok();

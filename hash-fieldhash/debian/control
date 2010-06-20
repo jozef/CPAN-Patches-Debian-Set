@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libextutils-parsexs-perl (>= 2.21), libtest-leaktrace-perl (>= 0.07), perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl (>= 5.10.1)
+X: 0

@@ -1,0 +1,229 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Net/LDAP/Control.pm
++++ b/lib/Net/LDAP/Control.pm
+@@ -204,7 +204,7 @@
+ uniquely identifies the control. This prevents conflicts between
+ control names.
+ 
+-This may be ommitted if the contructor is being called on a sub-class of
++This may be omitted if the contructor is being called on a sub-class of
+ Net::LDAP::Control which has registered to be associated with an OID.
+ If the contructor is being called on the Net::LDAP::Control
+ package, then this argument must be given.  If the given OID has been
+@@ -234,7 +234,7 @@
+ =head1 METHODS
+ 
+ In addition to the methods listed below, each of the named parameters
+-to C<new> is also avaliable as a method. C<type> will return the OID of
++to C<new> is also available as a method. C<type> will return the OID of
+ the control object. C<value> and C<critical> are set/get methods and will
+ return the current value for each attribute if called without arguments,
+ but may also be called with arguments to set new values.
+--- a/lib/Net/LDAP/Control/Paged.pm
++++ b/lib/Net/LDAP/Control/Paged.pm
+@@ -133,7 +133,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Control/PostRead.pm
++++ b/lib/Net/LDAP/Control/PostRead.pm
+@@ -64,7 +64,7 @@
+ 
+ If absent, all attributes are returned.
+ 
+-Operational attributes may be included in the list by explicitely asking for them
++Operational attributes may be included in the list by explicitly asking for them
+ or by using special C<"+"> feature (provided the server supports this feature).
+ 
+ =back
+@@ -72,7 +72,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Control/PreRead.pm
++++ b/lib/Net/LDAP/Control/PreRead.pm
+@@ -118,7 +118,7 @@
+ 
+ If absent, all attributes are returned.
+ 
+-Operational attributes may be included in the list by explicitely asking for them
++Operational attributes may be included in the list by explicitly asking for them
+ or by using special C<"+"> feature (provided the server supports this feature).
+ 
+ =back
+@@ -126,7 +126,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Control/SortResult.pm
++++ b/lib/Net/LDAP/Control/SortResult.pm
+@@ -116,7 +116,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Control/SyncDone.pm
++++ b/lib/Net/LDAP/Control/SyncDone.pm
+@@ -91,7 +91,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Control/SyncRequest.pm
++++ b/lib/Net/LDAP/Control/SyncRequest.pm
+@@ -131,7 +131,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Control/SyncState.pm
++++ b/lib/Net/LDAP/Control/SyncState.pm
+@@ -104,7 +104,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Control/VLV.pm
++++ b/lib/Net/LDAP/Control/VLV.pm
+@@ -329,7 +329,7 @@
+ =head2 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Control/VLVResponse.pm
++++ b/lib/Net/LDAP/Control/VLVResponse.pm
+@@ -119,7 +119,7 @@
+ 
+ =item context
+ 
+-An arbitary value which is used to associate subsequent requests with the
++An arbitrary value which is used to associate subsequent requests with the
+ request which this control is a response for. This value should be copied
+ by the client into the Virtual List View control for any subsequent
+ search that uses the same list.
+@@ -138,7 +138,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Control> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/Extra.pm
++++ b/lib/Net/LDAP/Extra.pm
+@@ -52,7 +52,7 @@
+ C<Net::LDAP::Extra> allows methods to be added directly to
+ all Net::LDAP objects. This can be done by creating a class
+ C<Net::LDAP::Extra::name> which exports functions. A
+-C<use Net::LDAP::Extra qw(name)> will then make these functions avaliable
++C<use Net::LDAP::Extra qw(name)> will then make these functions available
+ as a methods on all C<Net::LDAP> objects.
+ 
+ Care should be taken when choosing names for the functions to export
+--- a/lib/Net/LDAP/FAQ.pod
++++ b/lib/Net/LDAP/FAQ.pod
+@@ -1242,7 +1242,7 @@
+ found out by searching the attribute supportedExtension for the
+ value 1.3.6.1.4.1.4203.1.11.1 in the RootDSE object.
+ 
+-If the extended Password Modify operation is not avaiable the
++If the extended Password Modify operation is not available the
+ alternative is the regular modification of the userPassword attribute.
+ 
+ But this method has some drawbacks:
+@@ -1253,7 +1253,7 @@
+ 
+ Depending on the type of the server the arguments to the modify
+ operations may vary. Some want the modify done with replace,
+-some want it done by explicitely deleting the old password
++some want it done by explicitly deleting the old password
+ and add of the new one.
+ This may even depend on whether you change the password for the bound
+ user or as an administrator for another user.
+--- a/lib/Net/LDAP/Intermediate.pm
++++ b/lib/Net/LDAP/Intermediate.pm
+@@ -152,7 +152,7 @@
+ =head1 METHODS
+ 
+ In addition to the methods listed below, each of the named parameters
+-to C<new> is also avaliable as a method. C<responseName> will return the OID of
++to C<new> is also available as a method. C<responseName> will return the OID of
+ the intermediate response object. C<responseValue> is set/get methods and will
+ return the current value for each attribute if called without arguments,
+ but may also be called with arguments to set new values.
+--- a/lib/Net/LDAP/Intermediate/SyncInfo.pm
++++ b/lib/Net/LDAP/Intermediate/SyncInfo.pm
+@@ -102,7 +102,7 @@
+ =head1 METHODS
+ 
+ As with L<Net::LDAP::Intermediate> each constructor argument
+-described above is also avaliable as a method on the object which will
++described above is also available as a method on the object which will
+ return the current value for the attribute if called without an argument,
+ and set a new value for the attribute if called with an argument.
+ 
+--- a/lib/Net/LDAP/LDIF.pod
++++ b/lib/Net/LDAP/LDIF.pod
+@@ -158,10 +158,10 @@
+ 
+ =item write_version ( )
+ 
+-If the object's version is defined, this method allows to explicitely
++If the object's version is defined, this method allows to explicitly
+ write the version before an entry is written.
+ 
+-If  not called explicitely, it gets called automatically when writing
++If  not called explicitly, it gets called automatically when writing
+ the first entry.
+ 
+ =item version ( [ VERSION ] )
+--- a/lib/Net/LDAP/Util.pm
++++ b/lib/Net/LDAP/Util.pm
+@@ -545,7 +545,7 @@
+ can be safely used in LDAP DNs.
+ 
+ The characters ",", "+", """, "\", "E<lt>", "E<gt>", ";", "#", "="
+-with a special meaning in RFC 2252 are preceeded by ba backslash.
++with a special meaning in RFC 2252 are preceded by ba backslash.
+ Control characters with an ASCII code E<lt> 32 are represented
+ as \hexpair.
+ Finally all leading and trailing spaces are converted to

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdigest-hmac-perl, libemail-abstract-perl, libemail-simple-perl, libfile-remove-perl, libhtml-format-perl, libio-stringy-perl, libmailtools-perl (>= 2.01), libmime-tools-perl, libmime-types-perl, libobject-realize-later-perl, libtest-pod-perl, libtext-autoformat-perl, libtimedate-perl, liburi-perl, libuser-identity-perl (>= 0.93), netbase, perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libdigest-hmac-perl, libfile-remove-perl, libio-stringy-perl, libmailtools-perl, libmime-types-perl, libobject-realize-later-perl, libtest-pod-perl, libtimedate-perl, liburi-perl, libuser-identity-perl (>= 0.93), perl (>= 5.10.1)
+X: 0

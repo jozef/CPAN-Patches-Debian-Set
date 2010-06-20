@@ -1,3 +1,4 @@
 bashism.patch
 compile-failure.patch
 compile_with_-fPIC.patch
+v4l2.patch

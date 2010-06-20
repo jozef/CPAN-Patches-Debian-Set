@@ -1,0 +1,17 @@
+Description: fix long lines in POD to prevent
+ "can't break lines" errors from man
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Tie/RDBM.pm
++++ b/lib/Tie/RDBM.pm
+@@ -604,7 +604,8 @@
+ 
+ B<Process #2:>
+    tie %i,'Tie::RDBM','mysql:Employees:host.somewhere.com',
+-                   {table=>'employee',user=>'george',password=>'kumquat2'};
++                   {table=>'employee',user=>'george',
++                    password=>'kumquat2'};
+    foreach (keys %i) {
+       $info = $i{$_};
+       if ($info->{age} > 30) {

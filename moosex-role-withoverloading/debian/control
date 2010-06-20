@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libaliased-perl, libmoose-perl (>= 0.94), libmoosex-types-perl, libnamespace-autoclean-perl (>= 0.09), libnamespace-clean-perl, libpod-coverage-trustpod-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libaliased-perl, libmoose-perl (>= 0.94), libmoosex-types-perl, libnamespace-autoclean-perl (>= 0.09), libnamespace-clean-perl
+X: 0

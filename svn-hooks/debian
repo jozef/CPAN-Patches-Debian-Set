@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
-Build-Depends-Indep: libemail-send-perl, libemail-simple-perl (>= 2.100) | libemail-simple-creator-perl, libjira-client-perl, libsoap-lite-perl, libsvn-look-perl, libsvn-notify-perl, libtest-kwalitee-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl, subversion
-Depends: ${misc:Depends}, ${perl:Depends}, libemail-send-perl, libemail-simple-perl (>= 2.100) | libemail-simple-creator-perl, libjira-client-perl, libsoap-lite-perl, libsvn-look-perl, libsvn-notify-perl, subversion
-X: 0

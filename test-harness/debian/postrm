@@ -1,0 +1,15 @@
+#!/bin/sh
+# Preinstallation script for libtest-harness-perl
+# 
+# Handles back the diversion of perl's /usr/bin/prove (which comes from an 
+# earlier version of libtest-harness-perl)
+
+set -e
+
+if [ "$1" = remove ]
+    then
+    dpkg-divert --package libtest-harness-perl --remove --rename \
+	--divert /usr/bin/prove.diverted /usr/bin/prove
+fi
+
+#DEBHELPER#

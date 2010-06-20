@@ -1,0 +1,16 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: lintian says "spelling", I'd say wording.
+ Anyway, "unuseful" doesn't sound correct.
+Forwarded: no
+
+--- a/lib/DBIx/OO.pm
++++ b/lib/DBIx/OO.pm
+@@ -1331,7 +1331,7 @@ is, it re-INSERT-s the record into the d
+ still have a reference to the object.  I'm not sure how useful it is,
+ but it helped me test the delete() function. :-)
+ 
+-Other (unuseful) thing you can do with it is manually emulating the
++Other (useless) thing you can do with it is manually emulating the
+ create() function:
+ 
+     $u = new Users;

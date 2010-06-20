@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Pod/Simple/Subclassing.pod
++++ b/lib/Pod/Simple/Subclassing.pod
+@@ -615,7 +615,7 @@
+ to the end user of an existing Pod formatter, but some of which you
+ might find useful in writing a Pod formatter. They are listed below. The
+ first several methods (the accept_* methods) are for declaring the
+-capabilites of your parser, notably what C<=for I<targetname>> sections
++capabilities of your parser, notably what C<=for I<targetname>> sections
+ it's interested in, what extra NE<lt>...E<gt> codes it accepts beyond
+ the ones described in the I<perlpod>.
+ 

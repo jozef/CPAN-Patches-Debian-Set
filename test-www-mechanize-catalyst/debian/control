@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libcatalyst-modules-perl, libcatalyst-perl, libmoose-perl (>= 0.67), libnamespace-clean-perl, libtest-pod-perl, libtest-www-mechanize-perl, libwww-mechanize-perl (>= 1.54), libwww-perl, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl, libmoose-perl (>= 0.67), libnamespace-clean-perl, libtest-www-mechanize-perl, libwww-mechanize-perl (>= 1.54), libwww-perl
+X: 0

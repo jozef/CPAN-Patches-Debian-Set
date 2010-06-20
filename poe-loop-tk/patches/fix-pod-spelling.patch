@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/POE/Loop/Tk.pm
++++ b/lib/POE/Loop/Tk.pm
+@@ -221,7 +221,7 @@
+ other, L<POE::Loop::TkActiveState> accommodates behavior differences
+ in ActiveState's build of Tk.  Both versions share common code in
+ L<POE::Loop::TkCommon>.  POE::Loop::Tk dynamically selects the
+-appropriate bridge code based on the runtime enviroment.
++appropriate bridge code based on the runtime environment.
+ 
+ =head1 SEE ALSO
+ 

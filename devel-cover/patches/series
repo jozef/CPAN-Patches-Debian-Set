@@ -1,2 +1,4 @@
 keep-non-existent-dirs-in-INC.patch
 whatis.patch
+spelling.patch
+path-regexp.patch

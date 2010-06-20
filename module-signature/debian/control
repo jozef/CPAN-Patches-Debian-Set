@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: gnupg, libpar-dist-perl, perl (>= 5.10) | libdigest-sha-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libpar-dist-perl, perl (>= 5.10) | libdigest-sha-perl
+X: 0

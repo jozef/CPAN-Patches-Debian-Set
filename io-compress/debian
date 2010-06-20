@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7~)
-Build-Depends-Indep: libcompress-raw-bzip2-perl (>= 2.024), libcompress-raw-zlib-perl (>= 2.024), libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libcompress-raw-bzip2-perl (>= 2.024), libcompress-raw-zlib-perl (>= 2.024), libio-compress-perl
-X: 0

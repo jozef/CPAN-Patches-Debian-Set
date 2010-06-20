@@ -1,0 +1,15 @@
+Description: fix POD spelling problems
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/WWW/Facebook/API.pm
++++ b/lib/WWW/Facebook/API.pm
+@@ -989,7 +989,7 @@
+ 
+ =item last_call_success(1|0)
+ 
+-A boolean set to true or false, to show whether the last call was succesful
++A boolean set to true or false, to show whether the last call was successful
+ or not. Called by C<call_success>. Defaults to 1.
+ 
+ =item last_error( $error_message )

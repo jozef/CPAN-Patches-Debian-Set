@@ -1,0 +1,33 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sun, 06 Jun 2010 18:33:32 +0900
+Subject: Fix spelling errors
+
+--- libdevel-ptkdb-perl.orig/ptkdb.pm
++++ libdevel-ptkdb-perl/ptkdb.pm
+@@ -194,7 +194,7 @@
+ 
+  This is a list of expressions that are evaluated each time the
+  debugger stops. The results of the expresssion are presented
+- heirarchically for expression that result in hashes or lists.  Double
++ hierarchically for expression that result in hashes or lists.  Double
+  clicking on such an expression will cause it to collapse; double
+  clicking again will cause the expression to expand. Expressions are
+  entered through B<Enter Expr> entry, or by Alt-E when text is
+@@ -503,7 +503,7 @@
+ 
+  A non-zero value Sets the scrollbars of all windows to be on the
+  right side of the window. Useful for Windows users using ptkdb in an
+- XWindows environment.
++ X environment.
+ 
+ =item PTKDB_LINENUMBER_FORMAT
+ 
+@@ -653,7 +653,7 @@
+ TIP: You can debug scripts remotely if you're using a unix based
+ Xserver and where you are authoring the script has an Xserver.  The
+ Xserver can be another unix workstation, a Macintosh or Win32 platform
+-with an appropriate XWindows package.  In your script insert the
++with an appropriate X package.  In your script insert the
+ following BEGIN subroutine:
+ 
+     sub BEGIN {

@@ -1,0 +1,50 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/GBookmarkFile.xs
++++ b/GBookmarkFile.xs
+@@ -565,8 +565,8 @@
+ 
+ =for apidoc __gerror__
+ =signature ($exec, $count, $stamp) = $bookmark_file->get_app_info ($uri, $name)
+-Gets the registration informations of $name for the bookmark for
+-$uri.  See Glib::BookmarkFile::set_app_info() for more informations about
++Gets the registration information of $name for the bookmark for
++$uri.  See Glib::BookmarkFile::set_app_info() for more information about
+ the returned data.
+ =cut
+ void
+--- a/GKeyFile.xs
++++ b/GKeyFile.xs
+@@ -412,7 +412,7 @@
+ =for apidoc Glib::KeyFile::set_string
+ =arg value (gchar*)
+ Sets a string value to $key inside $group_name.  The string will be escaped if
+-it containes special characters.
++it contains special characters.
+ If $key is not found, it is created.
+ =cut
+ 
+--- a/GObject.xs
++++ b/GObject.xs
+@@ -1615,7 +1615,7 @@
+ =for apidoc
+ =for arg all if FALSE (or omitted) tie only properties for this object's class, if TRUE tie the properties of this and all parent classes.
+ 
+-A special method avaiable to Glib::Object derivatives, it uses perl's tie
++A special method available to Glib::Object derivatives, it uses perl's tie
+ facilities to associate hash keys with the properties of the object. For
+ example:
+ 
+--- a/lib/Glib/MakeHelper.pm
++++ b/lib/Glib/MakeHelper.pm
+@@ -228,7 +228,7 @@
+ list of files that need to be created before the doc.pl step is run, include
+ files.
+ 
+-There is also a variable BLIB_DONE which should be used as a dependancy
++There is also a variable BLIB_DONE which should be used as a dependency
+ anywhere a rule needs to be sure that a loadable and working module resides in
+ the blib directory before running.
+ 

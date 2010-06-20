@@ -1,0 +1,17 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sun, 06 Jun 2010 20:04:22 +0900
+Subject Fix POD error
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=58175
+
+--- libnet-rendezvous-publish-perl.orig/lib/Net/Rendezvous/Publish.pm
++++ libnet-rendezvous-publish-perl/lib/Net/Rendezvous/Publish.pm
+@@ -106,7 +106,7 @@
+ Spend at most $seconds seconds handling network events and updating
+ internal state.
+ 
+-=head TODO
++=head1 TODO
+ 
+ At some point I may learn enough of the mDNS protocol to write a
+ pure-perl responder.  That'll be nifty.

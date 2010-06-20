@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhttp-server-simple-perl (>= 0.42), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhttp-server-simple-perl (>= 0.42)
+X: 0

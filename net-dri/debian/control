@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-accessor-chained-perl, libclass-accessor-perl, libdatetime-format-iso8601-perl, libdatetime-format-strptime-perl, libdatetime-perl, libdatetime-timezone-perl, libemail-valid-perl, libio-socket-ssl-perl, libmime-tools-perl, libtest-pod-coverage-perl, libtest-pod-perl, libuniversal-require-perl, libxml-libxml-perl (>= 1.61), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-chained-perl, libclass-accessor-perl, libdatetime-format-iso8601-perl, libdatetime-format-strptime-perl, libdatetime-perl, libdatetime-timezone-perl, libemail-valid-perl, libio-socket-ssl-perl, libuniversal-require-perl, libxml-libxml-perl (>= 1.61)
+X: 0

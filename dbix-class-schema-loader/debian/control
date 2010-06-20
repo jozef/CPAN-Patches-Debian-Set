@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libclass-accessor-grouped-perl (>= 0.09002), libclass-c3-componentised-perl (>= 1.0005), libclass-c3-perl (>= 0.18), libclass-unload-perl, libdata-dump-perl, libdata-dumper-concise-perl, libdbd-sqlite3-perl, libdbix-class-perl (>= 0.08114), libfile-slurp-perl (>= 9999.13), liblingua-en-inflect-number-perl, liblingua-en-inflect-perl, liblingua-en-inflect-phrase-perl, liblist-moreutils-perl, libnamespace-autoclean-perl, libscope-guard-perl, libtest-exception-perl, libtest-pod-perl, libtest-simple-perl (>= 0.94), libuniversal-require-perl, perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-grouped-perl (>= 0.09002), libclass-c3-componentised-perl (>= 1.0005), libclass-c3-perl (>= 0.18), libclass-unload-perl, libdata-dump-perl, libdata-dumper-concise-perl, libdbix-class-perl (>= 0.08114), libfile-slurp-perl (>= 9999.13), liblingua-en-inflect-number-perl, liblingua-en-inflect-perl, liblingua-en-inflect-phrase-perl, liblist-moreutils-perl, libnamespace-autoclean-perl, libscope-guard-perl, libuniversal-require-perl, perl (>= 5.10.1)
+X: 0

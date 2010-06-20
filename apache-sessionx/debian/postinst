@@ -1,0 +1,264 @@
+#! /usr/bin/perl -w
+
+package Debconf::Client::ConfModuleX;
+
+#
+# Add the error checking behaviour that I think
+# Debconf::Client::ConfModule should have anyway
+#
+
+use Debconf::Client::ConfModule;
+
+use base qw(Exporter);
+
+BEGIN {
+  *EXPORT_OK = \@Debconf::Client::ConfModule::EXPORT_OK;
+  *EXPORT_TAGS = \%Debconf::Client::ConfModule::EXPORT_TAGS;
+}
+
+sub AUTOLOAD {
+  my $cmd = our $AUTOLOAD;
+  $cmd =~ s|.*:||;
+
+  my ($ret, $text) = &{"Debconf::Client::ConfModule::$cmd"}(@_);
+  if ($ret == 0 or $ret >= 30 && $ret < 100) {
+    # expected return values
+    return wantarray ? ($ret, $text) : $text;
+  }
+
+  $cmd = uc $cmd;
+  my $msg = $text ? "$text ($ret)" : "code $ret";
+
+  require Carp;
+  if ($ret < 10 || $ret >= 110) {
+    Carp::confess("Debconf $cmd returned reserved error code? $msg");
+  } elsif ($ret < 20) {
+    # Dump @_ ?
+    Carp::croak("Debconf $cmd: invalid parameters: $msg");
+  } elsif ($ret < 30) {
+    Carp::confess("Debconf $cmd: syntax error: $msg");
+  } else { # $ret < 110
+    Carp::confess("Debconf $cmd: debconf internal error: $msg");
+  }
+}
+
+1;
+
+
+
+package main;
+
+use IO::File;
+use Data::Dumper;
+
+#use Debconf::Client::ConfModuleX qw(get);
+BEGIN { Debconf::Client::ConfModuleX->import(qw(get)) }
+
+use strict;
+
+my $configfile = '/var/lib/libapache-sessionx-perl/Config.pm';
+
+
+# read config vales out of debconf and build A::SX::Config structures
+
+# from Apache::SessionX Makefile.PL:
+my %Store =
+    (
+    'File' => 
+        {
+        param =>
+            {
+            'Store'     => 'File',
+            'Lock'      => 'Semaphore',
+            'Serialize' => 'Storable',
+            'Directory' => '?',
+            },
+        },
+
+    'FileFile' => 
+        {
+        param =>
+            {
+            'Store'     => 'File',
+            'Lock'      => 'File',
+            'Serialize' => 'Storable',
+            'Directory' => '?',
+            'LockDirectory' => '?',
+            },
+        },
+
+    'DB_File' => 
+        {
+        param =>
+            {
+            'Lock'      => 'File',
+            'Serialize' => 'Storable',
+            'FileName' => '?',
+            'LockDirectory' => '?',
+            },
+        },
+
+    'Mysql' => 
+        {
+        param =>
+            {
+            'Store'     => 'MySQL',
+            'Lock'      => 'Semaphore',
+            'Serialize' => 'Storable',
+            'DataSource' => '?',
+            'UserName'   => '?',
+            'Password'   => '?',
+            },
+        'require'   => 
+            [
+            'DBD::mysql',
+            ],
+        },
+
+    'MysqlMysql' => 
+        {
+        param =>
+            {
+            'Store'     => 'MySQL',
+            'Lock'      => 'MySQL',
+            'Serialize' => 'Storable',
+            'DataSource' => '?',
+            'UserName'   => '?',
+            'Password'   => '?',
+            'LockDataSource' => '?',
+            'LockUserName'   => '?',
+            'LockPassword'   => '?',
+            },
+        'require'   => 
+            [
+            'DBD::mysql',
+            ],
+        },
+
+    'Oracle' => 
+        {
+        param =>
+            {
+            'Lock'      => 'Null',
+            'Serialize' => 'Base64',
+            'Commit'     => 1,
+            'DataSource' => '?',
+            'UserName'   => '?',
+            'Password'   => '?',
+            },
+        'require'   => 
+            [
+            'DBD::Oracle',
+            ],
+        },
+    'Sybase' =>
+        {
+        param =>
+            {
+            'Lock'      => 'Null',
+            'Serialize' => 'Sybase',
+            'Commit'     => 1,
+            'DataSource' => '?',
+            'UserName'   => '?',
+            'Password'   => '?',
+            },
+        'require'   => 
+            [
+            'DBD::Sybase',
+            ],
+        },
+    'Postgres' => 
+        {
+        param =>
+            {
+            'Lock'      => 'Null',
+            'Serialize' => 'Base64',
+            'Commit'     => 1,
+            'DataSource' => '?',
+            'UserName'   => '?',
+            'Password'   => '?',
+            },
+        'require'   => 
+            [
+            'DBD::Pg',
+            ],
+        },
+    ) ;
+
+my @confs = ();
+my %param = ();
+
+sub get_store_val {
+  my $lc = lc $_[1];
+  get "libapache-sessionx-perl/store_$_[0]_$lc";
+}
+
+foreach (split ',', get 'libapache-sessionx-perl/priv_keys') {
+  my %this = ();
+  my $type = get_store_val $_, 'type';
+  my $name = get_store_val $_, 'name';
+
+  # copy across values from %Store, filling '?' with debconf values
+  while (my ($param, $value) = each %{$Store{$type}{param}}) {
+    $this{$param} = $value eq '?' ? get_store_val($_, $param) : $value;
+  }
+
+  $this{Store}	   ||= $type;
+  $this{Serialize} ||= 'Storeable';
+  $this{Lock}	   ||= 'Semaphore';
+  $this{Generate}  ||= 'MD5';
+
+  push @confs, $name;
+  $param{$name} = \%this;
+}
+
+my $default = get 'libapache-sessionx-perl/default_store';
+
+my $newconfig = "$configfile.new";
+
+my $newfh = new IO::File $newconfig, 'w' or
+  die "Couldn't write to $newconfig: $!\n";
+
+END {
+  # cleanup if something went wrong
+  if ($newfh) {
+    undef $newfh;
+    unlink $newconfig;
+  }
+}
+
+# generate config file
+
+print $newfh <<'EOF';
+#
+# Apache::SessionX configuration
+#
+# Autogenerated by libapache-sessionx-perl Debconf script, do not edit!
+# Run dpkg-reconfigure libapache-sessionx-perl if you wish to make changes.
+#
+
+package Apache::SessionX::Config ;
+
+EOF
+
+$newfh->print(Data::Dumper->Dump([$default, \@confs, \%param],
+				 [qw(default *confs *param)]));
+
+print $newfh <<'EOF';
+
+1;
+EOF
+
+# commit changes
+close $newfh
+  or die "Error flushing $newconfig: $!\n";
+rename $newconfig, $configfile
+  or die "Error renaming $newconfig to $configfile: $!\n";
+
+
+# and the usual debhelper guff
+my $temp = "set -e\nset -- @ARGV\n" . << 'MYEOF';
+#DEBHELPER#
+MYEOF
+system($temp) == 0
+  or die "Problem with debhelper scripts: $!\n";

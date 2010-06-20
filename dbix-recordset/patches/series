@@ -1,0 +1,6 @@
+Compat.pm.patch
+Database.pm.patch
+Recordset.pm.patch
+test.pl.patch
+spelling.patch
+pod.patch

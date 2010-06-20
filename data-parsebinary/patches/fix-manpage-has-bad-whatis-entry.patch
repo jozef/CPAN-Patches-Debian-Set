@@ -1,0 +1,51 @@
+Description: Fix manpage-has-bad-whatis-entry
+Origin: vendor
+Forwarded: no
+Author: Alan Haggai Alavi <alanhaggai@alanhaggai.org>
+Last-Update: 2010-06-12
+--- a/lib/Data/ParseBinary/Graphics/BMP.pm
++++ b/lib/Data/ParseBinary/Graphics/BMP.pm
+@@ -97,7 +97,7 @@
+ 
+ =head1 NAME
+ 
+-Data::ParseBinary::Graphics::BMP
++Data::ParseBinary::Graphics::BMP - Parser for Bitmap file format (.bmp)
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/Data/ParseBinary/Graphics/EMF.pm
++++ b/lib/Data/ParseBinary/Graphics/EMF.pm
+@@ -178,7 +178,8 @@
+ 
+ =head1 NAME
+ 
+-Data::ParseBinary::Graphics::EMF
++Data::ParseBinary::Graphics::EMF - Parser for Enhanced Metafile file format
++(.emf)
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/Data/ParseBinary/Graphics/PNG.pm
++++ b/lib/Data/ParseBinary/Graphics/PNG.pm
+@@ -373,7 +373,8 @@
+ 
+ =head1 NAME
+ 
+-Data::ParseBinary::Graphics::PNG
++Data::ParseBinary::Graphics::PNG - Parser for Portable Network Graphics file
++format (.png)
+ 
+ =head1 SYNOPSIS
+ 
+--- a/lib/Data/ParseBinary/Graphics/WMF.pm
++++ b/lib/Data/ParseBinary/Graphics/WMF.pm
+@@ -94,7 +94,7 @@
+ 
+ =head1 NAME
+ 
+-Data::ParseBinary::Graphics::WMF
++Data::ParseBinary::Graphics::WMF - Parser for Windows Metafile format (.wmf)
+ 
+ =head1 SYNOPSIS
+ 

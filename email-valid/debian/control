@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libmailtools-perl, libnet-dns-perl, libnet-domain-tld-perl (>= 1.65-2), libtest-pod-coverage-perl, libtest-pod-perl, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmailtools-perl, libnet-dns-perl, libnet-domain-tld-perl (>= 1.65-2), netbase
+X: 0

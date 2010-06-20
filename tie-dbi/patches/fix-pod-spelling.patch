@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Tie/RDBM.pm
++++ b/lib/Tie/RDBM.pm
+@@ -539,7 +539,7 @@
+ 
+ In a future version of this module, the "frozen" field may be turned
+ into a general "datatype" field in order to minimize storage.  For
+-future compatability, please use an integer for the frozen field.
++future compatibility, please use an integer for the frozen field.
+ 
+ If you use the "create" and/or "drop" options, the module will
+ automatically attempt to create a table for its own use in the

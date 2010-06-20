@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libgetopt-long-descriptive-perl, libpod-coverage-trustpod-perl, libterm-readkey-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, libwww-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libgetopt-long-descriptive-perl, libterm-readkey-perl, liburi-perl, libwww-perl
-X: 0

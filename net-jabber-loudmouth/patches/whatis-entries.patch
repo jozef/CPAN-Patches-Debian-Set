@@ -1,0 +1,139 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sun, 06 Jun 2010 21:26:57 +0900
+Origin: vendor
+Subject: Add missing whatis entries and copyright information
+
+Add missing whatis entries for XS modules. Also overwrite the default copyright
+message with the one for this modules.
+--- libnet-jabber-loudmouth-perl.orig/xs/Connection.xs
++++ libnet-jabber-loudmouth-perl/xs/Connection.xs
+@@ -19,6 +19,10 @@
+ 
+ MODULE = Net::Jabber::Loudmouth::Connection		PACKAGE = Net::Jabber::Loudmouth::Connection	PREFIX = lm_connection_
+ 
++=for object Net::Jabber::Loudmouth::Connection Jabber connection
++
++=cut
++
+ LmConnection*
+ lm_connection_new(class, server)
+ 		const gchar *server
+--- libnet-jabber-loudmouth-perl.orig/xs/Message.xs
++++ libnet-jabber-loudmouth-perl/xs/Message.xs
+@@ -1,7 +1,17 @@
+ #include "perlmouth.h"
+ 
++=head1 NAME
++
++Net::Jabber::Loudmouth::Message - Jabber message
++
++=cut
++
+ MODULE = Net::Jabber::Loudmouth::Message	PACKAGE = Net::Jabber::Loudmouth::Message	PREFIX = lm_message_
+ 
++=for object Net::Jabber::Loudmouth::Message Jabber message
++
++=cut
++
+ LmMessage*
+ lm_message_new(class, to, type)
+ 		const gchar* to
+--- libnet-jabber-loudmouth-perl.orig/xs/MessageHandler.xs
++++ libnet-jabber-loudmouth-perl/xs/MessageHandler.xs
+@@ -1,5 +1,11 @@
+ #include "perlmouth.h"
+ 
++=head1 NAME
++
++Net::Jabber::Loudmouth::MessageHandler - Jabber message handler
++
++=cut
++
+ LmHandlerResult
+ perlmouth_lm_message_handler_new_cb(LmMessageHandler* handler, LmConnection* connection, LmMessage* message, gpointer callback) {
+ 	GValue return_value = {0,};
+@@ -13,6 +19,10 @@
+ 
+ MODULE = Net::Jabber::Loudmouth::MessageHandler	PACKAGE = Net::Jabber::Loudmouth::MessageHandler	PREFIX = lm_message_handler_
+ 
++=for object Net::Jabber::Loudmouth::MessageHandler Jabber message handler
++
++=cut
++
+ LmMessageHandler*
+ lm_message_handler_new(class, handler_cb, user_data=NULL)
+ 		SV* handler_cb
+--- libnet-jabber-loudmouth-perl.orig/xs/MessageNode.xs
++++ libnet-jabber-loudmouth-perl/xs/MessageNode.xs
+@@ -1,7 +1,17 @@
+ #include "perlmouth.h"
+ 
++=head1 NAME
++
++Net::Jabber::Loudmouth::MessageNode - Jabber message node
++
++=cut
++
+ MODULE = Net::Jabber::Loudmouth::MessageNode	PACKAGE = Net::Jabber::Loudmouth::MessageNode	PREFIX = lm_message_node_
+ 
++=for object Net::Jabber::Loudmouth::MessageNode Jabber message node
++
++=cut
++
+ const gchar*
+ lm_message_node_get_value(node)
+ 		LmMessageNode* node
+--- libnet-jabber-loudmouth-perl.orig/xs/Proxy.xs
++++ libnet-jabber-loudmouth-perl/xs/Proxy.xs
+@@ -1,7 +1,17 @@
+ #include "perlmouth.h"
+ 
++=head1 NAME
++
++Net::Jabber::Loudmouth::Proxy - handle proxy for Net::Jabber::Loudmouth
++
++=cut
++
+ MODULE = Net::Jabber::Loudmouth::Proxy	PACKAGE = Net::Jabber::Loudmouth::Proxy	PREFIX = lm_proxy_
+ 
++=for object Net::Jabber::Loudmouth::Proxy Jabber proxy
++
++=cut
++
+ LmProxy*
+ lm_proxy_new(class, type)
+ 		LmProxyType type
+--- libnet-jabber-loudmouth-perl.orig/xs/SSL.xs
++++ libnet-jabber-loudmouth-perl/xs/SSL.xs
+@@ -1,5 +1,11 @@
+ #include "perlmouth.h"
+ 
++=head1 NAME
++
++Net::Jabber::Loudmouth::SSL - handle SSL for Net::Jabber::Loudmouth
++
++=cut
++
+ LmSSLResponse
+ perlmouth_lm_ssl_new_cb(LmSSL* ssl, LmSSLStatus status, gpointer callback) {
+ 	GValue return_value = {0,};
+@@ -13,6 +19,10 @@
+ 
+ MODULE = Net::Jabber::Loudmouth::SSL	PACKAGE = Net::Jabber::Loudmouth::SSL	PREFIX = lm_ssl_
+ 
++=for object Net::Jabber::Loudmouth::SSL SSL handling for Net::Jabber::Loudmouth
++
++=cut
++
+ LmSSL*
+ lm_ssl_new(class, ssl_cb, user_data=NULL, expected_fingerprint=NULL)
+ 		SV* ssl_cb
+--- libnet-jabber-loudmouth-perl.orig/Makefile.PL
++++ libnet-jabber-loudmouth-perl/Makefile.PL
+@@ -74,5 +74,5 @@
+ 
+ sub postamble {
+ 	return Glib::MakeHelper->postamble_clean()
+-		. Glib::MakeHelper->postamble_docs_full(DEPENDS => $main::loudmouth);
++		. Glib::MakeHelper->postamble_docs_full(DEPENDS => $main::loudmouth, COPYRIGHT => "Copyright (C) 2005 by Florian Ragwitz<br><br>This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself, either Perl version 5.8.7 or, at your option, any later version of Perl 5 you may have available.");
+ }

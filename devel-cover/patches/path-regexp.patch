@@ -1,0 +1,22 @@
+From a3df3ec500224fa99ee357eef585eac1f22a3cd4 Mon Sep 17 00:00:00 2001
+From: Niko Tyni <ntyni@debian.org>
+Date: Wed, 28 Apr 2010 21:23:07 +0300
+Subject: [PATCH] Fix test failures when the build directory contains regexp metacharacters.
+
+The build directory name may contain regexp metacharacters like '+'
+that need escaping or they break the substitution.
+---
+ lib/Devel/Cover.pm |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+--- a/lib/Devel/Cover.pm
++++ b/lib/Devel/Cover.pm
+@@ -441,7 +441,7 @@
+         # print STDERR "finally <$file> <$Dir>\n";
+     }
+     $file =~ s|\\|/|g if $^O eq "MSWin32";
+-    $file =~ s|^$Dir/||;
++    $file =~ s|^\Q$Dir\E/||;
+ 
+     # print STDERR "File: $f => $file\n";
+ 

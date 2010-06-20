@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libfile-find-rule-perl (>= 0.20), libtext-glob-perl (>= 0.08), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-find-rule-perl (>= 0.20), libtext-glob-perl (>= 0.08)
+X: 0

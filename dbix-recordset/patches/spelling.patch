@@ -1,0 +1,98 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: spelling fixes
+
+--- a/Intrors.pod
++++ b/Intrors.pod
+@@ -4,7 +4,7 @@
+ 
+ This introduction gives an overview how to use I<DBIx::Recordset> together
+ with I<HTML::Embperl>. Since there are only a few I<Embperl> specific 
+-things herein, it should be also usefull for non I<Embperl> users.
++things herein, it should be also useful for non I<Embperl> users.
+ 
+ =head2 Overview
+ 
+--- a/Recordset.pm
++++ b/Recordset.pm
+@@ -4209,7 +4209,7 @@
+ You can also preset these parameters with the TableAttr method of 
+ DBIx::Database.  This allows you to presetup most parameters
+ for the whole database and they will be use every time you create a new
+-DBIx::Recordset object, without specifing it every time.
++DBIx::Recordset object, without specifying it every time.
+ 
+ =item B<!DataSource>
+ 
+@@ -4650,7 +4650,7 @@
+ 
+ Only for tieing a hash! Gives an reference to an function that is called when more then one
+ record for a given hash key is found to merge the records into one. The function receives
+-a refence to both records a arguments. If more the two records are found, the function is
++a reference to both records a arguments. If more the two records are found, the function is
+ called again for each following record, which is already merged data as first parameter.
+ 
+  The following example sets up a hash, that, when more then one record with the same id is
+@@ -5037,7 +5037,7 @@
+ Additonal all record of links with have the C<!OnDelete> set, are either
+ deleted or the correspending field is set to undef. What to do
+ is determinated by the constants C<odDELETE> and C<odCLEAR>. This is
+-very helpfull to guaratee the inetgrity of the database.
++very helpful to guaratee the inetgrity of the database.
+ 
+ B<params:> setup (only syntax 1), where
+ 
+@@ -5648,7 +5648,7 @@
+ =item $reconnect
+ 
+ If set, forces I<DBIx::Database> to C<undef> any preexisting database handle and call connect in any
+-case. This is usefull in together with I<Apache::DBI>. While the database connection are still kept
++case. This is useful in together with I<Apache::DBI>. While the database connection are still kept
+ open by I<Apache::DBI>, I<Apache::DBI> preforms a test if the handle is still vaild (which DBIx::Database
+ itself wouldn't).
+ 
+@@ -5765,10 +5765,10 @@
+ The CreateTables method is used to create an modify the schema of your database. 
+ The idea is to define the schema as a Perl data structure and give it to this function,
+ it will compare the actual schema of the database with the one provided and creates
+-new tables, new fields or drop fields as neccessary. It also sets the permission on the
++new tables, new fields or drop fields as necessary. It also sets the permission on the
+ tables and is able to create indices for the tables. It will B<never> drop a whole table!
+ NOTE: Create tables cannot deteminate changes of the datatype of a fields, because DBI is
+-not able to provide this information in a standart way.
++not able to provide this information in a standard way.
+ 
+ =over 4
+ 
+@@ -5913,7 +5913,7 @@
+ 
+ =item !Contraints
+ 
+-Used to define contraints. See example under C<!For>.
++Used to define constraints. See example under C<!For>.
+ 
+ =over 4
+ 
+--- a/Recordset/DBSeq.pm
++++ b/Recordset/DBSeq.pm
+@@ -128,8 +128,8 @@
+ =head1 DESCRIPTION
+ 
+ DBIx::Recordset::FileSeq generates unique numbers. State is kept in the
+-one table of a database accessable via DBI. With the new constructor you
+-give an open database handle and sepcify the the table where state should be kept.
++one table of a database accessible via DBI. With the new constructor you
++give an open database handle and specify the the table where state should be kept.
+ Optionaly you can give a min and
+ a max values, which will be used for new sequences.
+ 
+--- a/Recordset/FileSeq.pm
++++ b/Recordset/FileSeq.pm
+@@ -168,7 +168,7 @@
+ 
+ 
+ DBIx::Recordset::FileSeq generates unique numbers. State is kept in the
+-filesystem. With the new constructor you sepcify the directory
++filesystem. With the new constructor you specify the directory
+ where the state is kept. (First parameter is a dummy values, that will
+ receive the database handle from DBIx::Recordset, but you don't need it
+ when you use it without DBIx::Recordset). Optionaly you can give a min and

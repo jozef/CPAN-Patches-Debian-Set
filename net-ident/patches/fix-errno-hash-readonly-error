@@ -1,0 +1,15 @@
+Description: Fix error caused when attempting to modify %! (readonly tied hash)
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=58360
+Author: Chris Butler <chrisb@debian.org>
+Last-Update: 2010-06-13
+
+--- a/Ident.pm
++++ b/Ident.pm
+@@ -204,7 +204,6 @@
+     # clear errno in case it contains EINPROGRESS
+     if($!{EINPROGRESS}) {
+         $! = 0;
+-        $!{EINPROGRESS} = 0;
+     }
+ 
+     # mark the state of the connection

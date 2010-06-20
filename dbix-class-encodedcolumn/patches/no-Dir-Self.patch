@@ -1,0 +1,55 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Fri, 30 Apr 2010 20:31:08 +0900
+Origin: vendor
+Forwarded: not-needed
+Subject: Remove build-dep on Dir::Self by including the relevant method.
+
+The function __DIR__ is taken from Dir::Self 0.10 which has the following
+copyright information:
+
+  Copyright (C) 2007, 2008 by Lukas Mai
+
+  This library is free software; you can redistribute it and/or modify it under
+  the same terms as Perl itself, either Perl version 5.8.8 or, at your option,
+  any later version of Perl 5 you may have available.
+
+--- libdbix-class-encodedcolumn-perl.orig/t/02digest.t
++++ libdbix-class-encodedcolumn-perl/t/02digest.t
+@@ -4,10 +4,16 @@
+ use warnings;
+ use Test::More;
+ 
+-use Dir::Self;
+ use File::Spec;
+ use File::Temp 'tempdir';
+ 
++### from Dir::Self 0.10
++sub __DIR__ () {
++	my $level = shift || 0;
++	my $file = (caller $level)[1];
++	File::Spec->rel2abs(join '', (File::Spec->splitpath($file))[0, 1])
++}
++
+ use lib File::Spec->catdir(__DIR__, 'lib');
+ 
+ my ($sha_ok, $bcrypt_ok, $pgp_ok, $whirlpool_ok);
+--- libdbix-class-encodedcolumn-perl.orig/t/03crosstable_leak.t
++++ libdbix-class-encodedcolumn-perl/t/03crosstable_leak.t
+@@ -4,10 +4,16 @@
+ use warnings;
+ use Test::More tests => 5;
+ 
+-use Dir::Self;
+ use File::Spec;
+ use File::Temp 'tempdir';
+ 
++## from Dir::Self 0.10
++sub __DIR__ () {
++	my $level = shift || 0;
++	my $file = (caller $level)[1];
++	File::Spec->rel2abs(join '', (File::Spec->splitpath($file))[0, 1])
++}
++
+ use lib File::Spec->catdir(__DIR__, 'lib');
+ 
+ #1

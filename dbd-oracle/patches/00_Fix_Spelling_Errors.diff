@@ -1,0 +1,21 @@
+Description: Fix spelling errors.
+Forwarded: no
+Author: Julián Moreno Patiño <darkjunix@gmail.com>
+Origin: vendor
+Last-Update: 2010-05-26
+
+---
+ ora_explain.PL |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/ora_explain.PL
++++ b/ora_explain.PL
+@@ -1713,7 +1713,7 @@
+ column represents an index, and the figures define the order that the table
+ columns appears in the index.  To find out the name of an index, position the
+ mouse over the index column.  A single click will display the definition of the
+-index in a seperate dialog.
++index in a separate dialog.
+ 
+ Right-clicking on a plan step that refers to a table will pop up a menu showing
+ a list of the indexes available for the table.  Selecting an index will display

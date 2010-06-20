@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Paranoid/Filesystem.pm
++++ b/lib/Paranoid/Filesystem.pm
+@@ -1404,7 +1404,7 @@
+ calling incarnation).
+ 
+ Two forms of the function call are supported, primarily for backward
+-compatibility purposes.  The latter is the prefered incarnation.
++compatibility purposes.  The latter is the preferred incarnation.
+ 
+ B<NOTE:> This function is now just a wrapper around L<Paranoid::Glob>.  It may
+ be advantageous for you to use it directly in lieu of B<pglob>.

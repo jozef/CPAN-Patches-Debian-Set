@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), perl, quilt (>= 0.46-7)
-Build-Depends-Indep: libclass-data-inheritable-perl, libclass-dbi-perl (>= 0.90), libclass-dbi-plugin-abstractcount-perl, libdata-page-perl (>= 2), libsql-abstract-perl (>= 1.55), libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-warn-perl, libuniversal-exports-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-data-inheritable-perl, libclass-dbi-perl (>= 0.90), libclass-dbi-plugin-abstractcount-perl, libdata-page-perl (>= 2), libsql-abstract-perl, libuniversal-exports-perl
-X: 0

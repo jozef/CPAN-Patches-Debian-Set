@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libjson-perl (>= 2), libversion-perl (>= 1:0.8200) | perl (>= 5.12), libversion-requirements-perl (>= 0.101020), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libjson-perl (>= 2), libversion-perl (>= 1:0.8200) | perl (>= 5.12), libversion-requirements-perl (>= 0.101020), perl (>= 5.10.1) | libparse-cpan-meta-perl
+X: 0

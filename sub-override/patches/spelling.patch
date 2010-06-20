@@ -1,0 +1,15 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Thu, 01 Apr 2010 20:45:31 +0900
+Subject: Fix spelling error in documentation
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56203
+--- libsub-override-perl.orig/lib/Sub/Override.pm
++++ libsub-override-perl/lib/Sub/Override.pm
+@@ -143,7 +143,7 @@
+    # do something
+  }
+ 
+-In the above example, not only have we probably mispelled the subroutine name,
++In the above example, not only have we probably misspelled the subroutine name,
+ but even if their had been a subroutine with that name, we haven't overridden
+ it.  These two bugs can be subtle to detect.
+ 

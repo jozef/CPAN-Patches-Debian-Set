@@ -1,0 +1,45 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sun, 06 Jun 2010 21:44:25 +0900
+Origin: vendor
+Subject: Fix spelling errors
+
+--- libmodule-info-perl.orig/bin/module_info
++++ libmodule-info-perl/bin/module_info
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME
+ 
+-module_info - find informations about modules
++module_info - find information about modules
+ 
+ =head1 SYNOPSIS
+ 
+@@ -14,7 +14,7 @@
+ C<Module::Name> or paths in the form C<Foo/Bar.pm> or C<foo/bar.pl>).
+ 
+ By default only shows module name, version, directory, absolute path
+-and a flag indicating if it is a core module. Additional informations
++and a flag indicating if it is a core module. Additional information
+ can be requested through command line switches.
+ 
+ =over 4
+--- libmodule-info-perl.orig/lib/Module/Info.pm
++++ libmodule-info-perl/lib/Module/Info.pm
+@@ -318,7 +318,7 @@
+ 
+ The following methods get their information by compiling the module
+ and examining the opcode tree.  The module will be compiled in a
+-seperate process so as not to disturb the current program.
++separate process so as not to disturb the current program.
+ 
+ They will only work on 5.6.1 and up and requires the B::Utils module.
+ 
+@@ -732,7 +732,7 @@
+ Code refs in @INC are currently ignored.  If this bothers you submit a
+ patch.
+ 
+-superclasses() is cheating and just loading the module in a seperate
++superclasses() is cheating and just loading the module in a separate
+ process and looking at @ISA.  I don't think its worth the trouble to
+ go through and parse the opcode tree as it still requires loading the
+ module and running all the BEGIN blocks.  Patches welcome.

@@ -1,0 +1,20 @@
+From: "G. de la Rey" <debian@delarey.org>
+Date: Sat, 24 Apr 2010 23:52:45 +0100
+Bug-Debian: http://bugs.debian.org/579063
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=57031
+Subject: Fix error when description contains lines with colons
+
+[ ansgar: Removed changes that would change the API. ]
+
+Acked-by: Ansgar Burchardt <ansgar@43-1.org>
+--- libparse-debian-packages-perl.orig/lib/Parse/Debian/Packages.pm
++++ libparse-debian-packages-perl/lib/Parse/Debian/Packages.pm
+@@ -16,7 +16,7 @@
+     my %parsed;
+     while (<$fh>) {
+         last if /^$/;
+-        if (my ($key, $value) = m/^(.*): (.*)/) {
++        if (my ($key, $value) = m/^(\S*): (.*)/) {
+             $parsed{$key} = $value;
+         }
+         else {

@@ -1,0 +1,88 @@
+Description: Correct spelling mistakes
+Origin: vendor
+Forwarded: no
+Author: Alan Haggai Alavi <alanhaggai@alanhaggai.org>
+Last-Update: 2010-06-12
+--- a/lib/Data/ParseBinary.pm
++++ b/lib/Data/ParseBinary.pm
+@@ -768,7 +768,7 @@
+ 
+ =head3 Array
+ 
+-Array, as any meta construct, and have constant length or variable lenght.
++Array, as any meta construct, and have constant length or variable length.
+ 
+     # This is an Array of four bytes
+     $s = Array(4, UBInt8("foo"));
+@@ -835,7 +835,7 @@
+     # will return "1.2.3.4"
+ 
+ On additional note, it is possible to declare an "init" sub inside IpAddressAdapter,
+-that will receive any extra parameter that "create" recieved. 
++that will receive any extra parameter that "create" received. 
+ 
+ =head3 Enum
+ 
+@@ -884,7 +884,7 @@
+     $data = $s->parse("\2\4");
+     # $data is { EXECUTABLE_IMAGE => 1, REMOVABLE_RUN_FROM_SWAP => 1 };
+ 
+-Of course, this is equvalent to creating a BitStruct, and specifing Flag-s in the
++Of course, this is equvalent to creating a BitStruct, and specifying Flag-s in the
+ correct positions, and so on. but this is an easier way.
+ 
+ =head2 Validators
+@@ -933,7 +933,7 @@
+     $data = $s->parse("\xe1\xf2");
+     # $data is { a => 7, b => 0, c => 1, d => 30 }
+ 
+-As can be seen, we start with 1110000111110010. The it is being splitted as
++As can be seen, we start with 1110000111110010. The it is being split as
+ a=111, b=0, c=0001, d=11110 and the rest (010) is discard. 
+ 
+ BitStruct can be inside other BitStruct. Inside BitStruct, Struct and BitStruct are equivalents.
+@@ -1036,7 +1036,7 @@
+ 
+ Not all parsing is linear. sometimes you need to peek ahead to see if a certain
+ value exists ahead, or maybe you know where the data is, it's just that it is
+-some arbitary number of bytes ahead. or before.
++some arbitrary number of bytes ahead or before.
+ 
+ =head3 Pointer and Anchor
+ 
+@@ -1089,7 +1089,7 @@
+ second the location is calculated relative to the current location,
+ while with Pointer it's absolute position.
+ 
+-If no distance is supplied, zero is assumed. it is posible to supply
++If no distance is supplied, zero is assumed. it is possible to supply
+ constant distance, (i.e. 5) or code ref. Examples:
+ 
+     Peek(UBInt16("b"), 5) # Peek 5 bytes ahead
+@@ -1290,7 +1290,7 @@
+     # $data is [ 65, 16962, [ 97, 25186 ] ]
+     
+ Be aware that not every construct works well under Sequence. For example, Value
+-will have problems on building. Using Struct is prefered.
++will have problems on building. Using Struct is preferred.
+ 
+ =head1 Depricated Constructs
+ 
+@@ -1410,7 +1410,7 @@
+ data to the internal stream, and call Flush on that internal stream.
+ 
+ The special case here is Wrap, that does not call Flush on the internal stream.
+-usefull for some configurations.
++useful for some configurations.
+ a Flush operation happens in the end of every build operation automatically, and
+ when a stream being destroyed. 
+ 
+@@ -1522,7 +1522,7 @@
+ In writer stream, the StringBuffer will pospone writing the data to the actual stream,
+ until the Flush command.
+ 
+-This warper stream is usefull only when the struct seek inside it's borders, and
++This warper stream is useful only when the struct seek inside it's borders, and
+ not sporadically reads data from 30 bytes ahead / back.
+ 
+     # suppose we have unseekable reader stream names $s_stream

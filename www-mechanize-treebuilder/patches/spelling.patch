@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-04-18
+
+--- a/lib/WWW/Mechanize/TreeBuilder.pm
++++ b/lib/WWW/Mechanize/TreeBuilder.pm
+@@ -39,7 +39,7 @@ The anon-sub there is a bit icky, but th
+ add attributes to the C<< <p> >> tag (such as an id or a class) it will still
+ work and find the right tag.
+ 
+-All of the methods avaiable on L<HTML::Element> (that aren't 'private' - i.e. 
++All of the methods available on L<HTML::Element> (that aren't 'private' - i.e.
+ that don't begin with an underscore) such as C<look_down> or C<find> are
+ automatically delegated to C<< $mech->tree >> through the magic of Moose.
+ 

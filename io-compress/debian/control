@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libcompress-raw-bzip2-perl (>= 2.026), libcompress-raw-zlib-perl (>= 2.026), libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcompress-raw-bzip2-perl (>= 2.025), libcompress-raw-zlib-perl (>= 2.025), libio-compress-perl
+X: 0

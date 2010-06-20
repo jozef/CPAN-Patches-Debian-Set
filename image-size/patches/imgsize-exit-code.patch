@@ -1,0 +1,65 @@
+Description: exit with status code 0 on failure
+Author: Christoph Berg <myon@debian.org>
+Reviewed-by: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/imgsize
++++ b/imgsize
+@@ -46,11 +46,13 @@
+ $opts{f} &&
+     ($rtn = \&return_fmt);
+ 
++my $error = 0;
++
+ if (@ARGV > 1)
+ {
+     foreach (@ARGV)
+     {
+-        printf "$_: %s\n", $rtn->($_);
++        print STDOUT sprintf("%s: %s\n", $_, $rtn->($_));
+     }
+ }
+ else
+@@ -58,7 +60,14 @@
+     printf "%s\n", $rtn->($ARGV[0]);
+ }
+ 
+-exit 0;
++exit $error;
++
++sub return_html
++{
++    my ($html) = html_imgsize($_[0]);
++
++    (defined $html) ? $html : ("error", $error = 1);
++}
+ 
+ sub return_attr
+ {
+@@ -67,7 +76,7 @@
+     my ($width, $height, $err) = imgsize($file);
+ 
+     return (defined $width) ?
+-        "(-width => $width, -height => $height)" : "error: $err";
++        "(-width => $width, -height => $height)" : ("error: $err", $error = 1);
+ }
+ 
+ sub return_imgsize
+@@ -76,7 +85,7 @@
+ 
+     my ($width, $height, $err) = imgsize($file);
+ 
+-    return (defined $width) ? "$width $height" : "error: $err";
++    return (defined $width) ? "$width $height" : ("error: $err", $error = 1);
+ }
+ 
+ sub return_fmt
+@@ -86,7 +95,7 @@
+     my ($width, $height, $err) = imgsize($file);
+ 
+     return (defined $width) ?
+-        sprintf($opts{f}, $width, $height, $err) : "error: $err";
++        sprintf($opts{f}, $width, $height, $err) : ("error: $err", $error = 1);
+ }
+ 
+ __END__

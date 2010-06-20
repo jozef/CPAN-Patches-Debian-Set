@@ -1,0 +1,25 @@
+Description: Correct spelling mistakes
+Origin: vendor
+Forwarded: no
+Author: Alan Haggai Alavi <alanhaggai@alanhaggai.org>
+Last-Update: 2010-06-12
+--- a/lib/Data/FormValidator/Constraints/DateTime.pm
++++ b/lib/Data/FormValidator/Constraints/DateTime.pm
+@@ -209,7 +209,7 @@
+ This routine is used to take multiple inputs (one each for the
+ year, month, and day) and combine them into a L<DateTime> object,
+ validate the resulting date, and give you the resulting DateTime
+-object in your C<< valid() >> results. It must recieve as C<< params >>
++object in your C<< valid() >> results. It must receive as C<< params >>
+ the year, month, and day inputs in that order. You may also specify
+ additional C<< params >> that will be interpretted as 'hour', 'minute'
+ and 'second' values to use. If none are provided, then the time '00:00:00'
+@@ -897,7 +897,7 @@
+ 
+ The routine will change the date string into a DATETIME datatype
+ suitable for PostgreSQL. If you don't provide a format then the
+-data will validated as a DATETIME datatype in PostgresSQL (using
++data will validated as a DATETIME datatype in PostgreSQL (using
+ L<DateTime::Format::Pg>).
+ 
+ If the value is untainted (using C<untaint_all_constraints> or

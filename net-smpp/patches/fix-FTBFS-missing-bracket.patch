@@ -1,0 +1,15 @@
+Description: Fix FTBFS due to missing bracket on eval block.
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=45822
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+--- a/SMPP.pm
++++ b/SMPP.pm
+@@ -145,7 +145,7 @@
+     for my $k (keys(%{&status_code}))
+     {
+ 	eval { *{status_code->{$k}->{code}}        = sub { return $k; } };
+-        eval { *{status_code->{$k}->{code}.'_msg'} = sub { return *{status_code->{$k}->{msg}; } };
++ 	eval { *{status_code->{$k}->{code}.'_msg'} = sub { return *{status_code->{$k}->{msg}; } } };
+     }
+ };
+ 

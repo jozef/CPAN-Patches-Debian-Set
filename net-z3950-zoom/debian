@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), libmarc-record-perl, libyaz3-dev (>= 2.1.50), perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libmarc-record-perl
-X: 0

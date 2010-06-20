@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libtest-pod-coverage-perl (>= 1.00), libtest-pod-perl (>= 1.00), libvirt-dev (>= 0.8.1), libxml-xpath-perl, perl, pkg-config
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

@@ -1,0 +1,28 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sat, 22 May 2010 04:50:11 +0900
+Origin: vendor
+Subject: Fix spelling error in documentation
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=57733
+
+--- libemail-send-perl.orig/lib/Email/Send.pm
++++ libemail-send-perl/lib/Email/Send.pm
+@@ -97,7 +97,7 @@
+ on an object. The mailer object will be passed as the first argument. Second,
+ the actual C<Email::Simple> object for a message will be passed. Finally, any
+ additional arguments passed to C<send> will be passed to this method in the
+-order they were recieved.
++order they were received.
+ 
+ This is useful if you are sending in bulk.
+ 
+--- libemail-send-perl.orig/lib/Email/Send/Test.pm
++++ libemail-send-perl/lib/Email/Send/Test.pm
+@@ -111,7 +111,7 @@
+ 
+ =head2 emails
+ 
+-The C<emails> method is the prefered and recommended method of getting
++The C<emails> method is the preferred and recommended method of getting
+ access to the email trap.
+ 
+ In list context, returns the content of the trap array as a list.

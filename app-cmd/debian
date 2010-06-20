@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libgetopt-long-descriptive-perl (>= 0.081), libio-tiecombine-perl (>= 1), libsub-exporter-perl (>= 0.975), libsub-install-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libgetopt-long-descriptive-perl (>= 0.081), libsub-exporter-perl (>= 0.975), libsub-install-perl
-X: 0

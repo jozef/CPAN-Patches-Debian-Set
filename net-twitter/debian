@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.2.13)
-Build-Depends-Indep: libdata-visitor-perl, libdatetime-format-strptime-perl (>= 1.1000), libdatetime-perl (>= 2:0.5100), libhtml-parser-perl, libjson-any-perl (>= 1.21), libjson-xs-perl, libmoose-perl (>= 0.90), libmoosex-multiinitarg-perl, libnamespace-autoclean-perl, libnet-oauth-perl (>= 0.20), libpod-coverage-perl, libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtry-tiny-perl, liburi-perl (>= 1.40), libwww-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}, libdata-visitor-perl, libdatetime-format-strptime-perl (>= 1.1000), libdatetime-perl (>= 2:0.5100), libhtml-parser-perl, libjson-any-perl (>= 1.21), libjson-xs-perl, libmoose-perl (>= 0.90), libmoosex-multiinitarg-perl, libnamespace-autoclean-perl, libnet-oauth-perl (>= 0.20), libtry-tiny-perl, liburi-perl (>= 1.40), libwww-perl
-X: 0

@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdata-optlist-perl (>= 0.100), libsub-install-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libdata-optlist-perl (>= 0.100), libsub-install-perl
-X: 0

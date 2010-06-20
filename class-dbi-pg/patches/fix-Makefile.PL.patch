@@ -1,0 +1,24 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Sat, 24 Apr 2010 16:30:52 +0900
+Bug-Debian: http://bugs.debian.org/578990
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56880
+Origin: vendor
+Subject: Fix error in Makefile.PL
+
+--- libclass-dbi-pg-perl.orig/Makefile.PL
++++ libclass-dbi-pg-perl/Makefile.PL
+@@ -2,11 +2,12 @@
+ use ExtUtils::MakeMaker;
+ WriteMakefile
+ (
++          'NAME' => 'Class::DBI::Pg',
+           'DISTNAME' => 'Class-DBI-Pg',
+           'VERSION_FROM' => 'lib/Class/DBI/Pg.pm',
+           'PREREQ_PM' => {
+-                           'Class::DBI' => '>= 0.89',
+-                           'DBD::Pg' => '>= 1.13',
++                           'Class::DBI' => '0.89',
++                           'DBD::Pg' => '1.13',
+                            'Test::More' => '0'
+                          },
+           'INSTALLDIRS' => 'site',

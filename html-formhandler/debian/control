@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libaliased-perl, libdatetime-perl, libfile-sharedir-perl, libmoose-perl (>= 0.90), libmoosex-getopt-perl (>= 0.16), libmoosex-traits-perl, libmoosex-types-common-perl, libmoosex-types-perl (>= 0.20), libnamespace-autoclean-perl (>= 0.09), libtest-differences-perl, libtest-exception-perl, libtry-tiny-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libaliased-perl, libdatetime-perl, libfile-sharedir-perl, libmoose-perl (>= 0.90), libmoosex-getopt-perl (>= 0.16), libmoosex-traits-perl, libmoosex-types-common-perl, libmoosex-types-perl (>= 0.20), libnamespace-autoclean-perl (>= 0.09), libtry-tiny-perl, perl
+X: 0

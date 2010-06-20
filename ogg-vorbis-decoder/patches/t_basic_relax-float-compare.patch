@@ -1,0 +1,23 @@
+Description: Avoid floating point math errors when comparing test results
+ Thing is, the test may be run on a perl built with long doubles or short
+ doubles and the results may not match due to precision difference.
+ Perl 5.12 is built with long doubles (5.10 is not)
+ .
+ The patch makes the reference number be computed with the same precision as
+ the test result.
+Bug-Debian: 578554
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56823
+Author: Damyan Ivanov <dmn@debian.org>
+Last-Update: 2010-04-22
+
+--- a/t/basic.t
++++ b/t/basic.t
+@@ -19,7 +19,7 @@ ok($ogg->seekable, 'seekable');
+ ok($ogg->serialnumber, 'serialnumber');
+ is($ogg->raw_total, 4418594, 'raw_total');
+ ok($ogg->pcm_total, 'pcm_total');
+-is($ogg->time_total, 187.146666666667, 'time_total');
++is($ogg->time_total, 187.14 + 2/300, 'time_total');
+ ok($ogg->raw_tell, 'raw_tell');
+ ok($ogg->pcm_tell, 'pcm_tell');
+ ok($ogg->time_tell, 'time_tell');

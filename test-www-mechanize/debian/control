@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcarp-assert-more-perl, libcgi-pm-perl (>= 3.49), libhtml-lint-perl, libhttp-server-simple-perl (>= 0.42), libtest-longstring-perl (>= 0.12), libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, libwww-mechanize-perl (>= 1.24), netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcarp-assert-more-perl, libhttp-server-simple-perl (>= 0.42), libtest-longstring-perl (>= 0.12), liburi-perl, libwww-mechanize-perl (>= 1.24)
+X: 0

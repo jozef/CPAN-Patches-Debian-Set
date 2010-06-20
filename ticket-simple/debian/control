@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.78~), debhelper (>= 6), devscripts (>= 2.10.7~), dh-buildinfo, libclass-std-perl (>= 0.0.9), liblog-log4perl-perl (>= 0.42), libreadonly-perl, libtest-leaktrace-perl, libtest-perl-critic-perl, libtest-pod-coverage-perl (>= 1.04), libtest-pod-perl (>= 1.14), libtest-refcount-perl, libtime-hires-perl, libversion-perl, perl, perl-modules (>= 5.8.0-7~) | libtest-simple-perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

@@ -1,0 +1,16 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=57529
+
+--- a/lib/KinoSearch1/Searcher.pm
++++ b/lib/KinoSearch1/Searcher.pm
+@@ -240,7 +240,7 @@
+ 
+ When a Searcher is created, a small portion of the invindex is loaded into
+ memory.  For large document collections, this startup time may become
+-noticable, in which case reusing the searcher is likely to speed up your
++noticeable, in which case reusing the searcher is likely to speed up your
+ search application.  Caching a Searcher is especially helpful when running a
+ high-activity app under mod_perl.
+ 

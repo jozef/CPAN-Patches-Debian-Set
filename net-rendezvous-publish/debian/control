@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.3.7~), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libclass-accessor-lvalue-perl, libmodule-pluggable-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-lvalue-perl, libmodule-pluggable-perl
+X: 0

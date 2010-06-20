@@ -1,0 +1,26 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: spelling fixes
+Forwarded: no
+
+--- a/lib/Graphics/Primitive/Container.pm
++++ b/lib/Graphics/Primitive/Container.pm
+@@ -191,7 +191,7 @@ arrayref of removed components.
+ 
+ =item I<validate_component>
+ 
+-Optionally overriden by an implementation, allows it to deem a component as
++Optionally overridden by an implementation, allows it to deem a component as
+ invalid.  If this sub returns false, the component won't be added.
+ 
+ =back
+--- a/lib/Graphics/Primitive/Component.pm
++++ b/lib/Graphics/Primitive/Component.pm
+@@ -435,7 +435,7 @@ of PostScript.
+ =item I<prepare>
+ 
+ Method to prepare this component for drawing.  This is an empty sub and is
+-meant to be overriden by a specific implemntation.
++meant to be overridden by a specific implementation.
+ 
+ =item I<preferred_height>
+ 

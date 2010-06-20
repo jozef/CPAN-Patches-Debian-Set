@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.17), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libhtml-template-perl (>= 2.6), libio-stringy-perl, libstruct-compare-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-template-perl (>= 2.6), perl
+X: 0

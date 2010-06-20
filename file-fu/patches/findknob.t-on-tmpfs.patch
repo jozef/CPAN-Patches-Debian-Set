@@ -1,0 +1,22 @@
+Description: Fix the test on tmpfs
+ On tmpfs, the directory is the first item in the list, causing all files to be
+ deleted, subsequentialy failing the test that the first item iis a file and is
+ found with find()
+Bug: https://rt.cpan.org/Ticket/Display.html?id=57472
+Bug-Debian: http://bugs.debian.org/573657
+Author: Damyan Ivanov <dmn@debian.org>
+Last-Update: 2010-05-13
+
+--- a/t/findknob.t
++++ b/t/findknob.t
+@@ -19,7 +19,9 @@ $foo->basename->symlink($topdir/'link');
+ 
+ # bah!
+ my $x = do {
+-  my @files = $topdir->list;
++  # for this test to succeed, $files[0] must not be foo/ (a directory)
++  # to achieve this, we sort the list
++  my @files = sort $topdir->list;
+   my ($i) = grep({$files[$_]->basename eq 'foo/'} 0..$#files);
+   $_->unlink for(@files[($i+1)..$#files]);
+   #warn join("|", $topdir->contents);

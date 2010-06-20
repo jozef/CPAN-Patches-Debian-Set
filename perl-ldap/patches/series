@@ -1,1 +1,3 @@
 pod-ellipsis.patch
+fix-pod-spelling.patch
+localize-dollar_.patch

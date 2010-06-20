@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libdbd-sqlite3-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

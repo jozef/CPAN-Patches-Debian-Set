@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libgl1-mesa-dev | libgl-dev, libx11-dev, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

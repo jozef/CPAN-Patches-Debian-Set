@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-04-16
+
+--- a/lib/Devel/Cover/Report/Html_minimal.pm
++++ b/lib/Devel/Cover/Report/Html_minimal.pm
+@@ -761,7 +761,7 @@ it, not 'pod'. The 'pod' option only app
+ =item unified
+ 
+ Generates a "unified" report for each file. The detailed data that normally
+-appears in the auxilliary reports (branch, condition, etc.) is placed in the
++appears in the auxiliary reports (branch, condition, etc.) is placed in the
+ file report, and the auxilliarry reports are not generated.
+ 
+ =item summarytitle

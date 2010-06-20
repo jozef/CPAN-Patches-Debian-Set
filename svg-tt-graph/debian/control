@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13), perl
+Build-Depends-Indep: libdatetime-perl, libtemplate-perl, libwww-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libtemplate-perl, libwww-perl
+X: 0

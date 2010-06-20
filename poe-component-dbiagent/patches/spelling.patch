@@ -1,0 +1,15 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: small spelling mistake
+Forwarded: no
+
+--- a/DBIAgent.pm
++++ b/DBIAgent.pm
+@@ -77,7 +77,7 @@ there are no more rows to return, the da
+ 
+ Not EVERY query should run through the DBIAgent.  If you need to run a
+ short lookup from within a state, sometimes it can be a hassle to have
+-to define a whole seperate state to receive its value, and resume
++to define a whole separate state to receive its value, and resume
+ processing from there..  The determining factor, of course, is how
+ long your query will take to execute.  If you are trying to retrieve
+ one row from a properly indexed table, use

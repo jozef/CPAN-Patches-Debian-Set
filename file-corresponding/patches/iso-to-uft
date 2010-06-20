@@ -1,0 +1,51 @@
+--- a/Build.PL
++++ b/Build.PL
+@@ -5,7 +5,7 @@
+ my $builder = Module::Build->new(
+     module_name         => 'File::Corresponding',
+     license             => 'perl',
+-    dist_author         => 'Johan Lindström <johanl[ÄT]DarSerMan.com>',
++    dist_author         => 'Johan LindstrÃ¶m <johanl[Ã„T]DarSerMan.com>',
+     dist_version_from   => 'lib/File/Corresponding.pm',
+     requires => {
+         'Carp'                       => 0,
+--- a/lib/File/Corresponding.pm
++++ b/lib/File/Corresponding.pm
+@@ -143,7 +143,7 @@
+ 
+ =head1 AUTHOR
+ 
+-Johan Lindström, C<< <johanl[ÄT]DarSerMan.com> >>
++Johan LindstrÃ¶m, C<< <johanl[Ã„T]DarSerMan.com> >>
+ 
+ 
+ 
+@@ -171,7 +171,7 @@
+ 
+ =head1 COPYRIGHT & LICENSE
+ 
+-Copyright 2007 Johan Lindström, All Rights Reserved.
++Copyright 2007 Johan LindstrÃ¶m, All Rights Reserved.
+ 
+ This program is free software; you can redistribute it and/or modify it
+ under the same terms as Perl itself.
+--- a/README
++++ b/README
+@@ -109,7 +109,7 @@
+ 
+ SEE ALSO
+ AUTHOR
+-    Johan Lindström, `<johanl[ÄT]DarSerMan.com>'
++    Johan LindstrÃ¶m, `<johanl[Ã„T]DarSerMan.com>'
+ 
+ BUGS AND CAVEATS
+   BUG REPORTS
+@@ -127,7 +127,7 @@
+ 
+   KNOWN BUGS
+ COPYRIGHT & LICENSE
+-    Copyright 2007 Johan Lindström, All Rights Reserved.
++    Copyright 2007 Johan LindstrÃ¶m, All Rights Reserved.
+ 
+     This program is free software; you can redistribute it and/or modify it
+     under the same terms as Perl itself.

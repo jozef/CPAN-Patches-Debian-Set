@@ -1,0 +1,33 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/autobox.pod
++++ b/lib/autobox.pod
+@@ -57,7 +57,7 @@
+ defined in a class whose name corresponds to the C<ref()> type of that
+ value - or SCALAR if the value is a non-reference.
+ 
+-This mapping can be overriden by passing key/value pairs to the C<use autobox>
++This mapping can be overridden by passing key/value pairs to the C<use autobox>
+ statement, in which the keys represent native types, and the values
+ their associated classes.
+ 
+@@ -93,7 +93,7 @@
+     HASH::values(\%$hash)
+ 
+ Multiple C<use autobox> statements can appear in the same scope. These are merged both "horizontally" (i.e.
+-mutiple classes can be associated with a particular type) and "vertically" (i.e. multiple classes can be associated
++multiple classes can be associated with a particular type) and "vertically" (i.e. multiple classes can be associated
+ with multiple types).
+ 
+ Thus:
+@@ -500,7 +500,7 @@
+ 
+     1;
+ 
+-Note that C<trim> is defined in an auxilliary class rather than in C<String::Trim> itself to prevent
++Note that C<trim> is defined in an auxiliary class rather than in C<String::Trim> itself to prevent
+ C<String::Trim>'s own methods (i.e. the methods it inherits from C<autobox>) being exposed to SCALAR types.
+ 
+ This module can now be used without a C<use autobox> statement to enable the C<trim> method in the current

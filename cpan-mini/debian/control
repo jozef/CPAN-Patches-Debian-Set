@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libfile-homedir-perl, liburi-perl, libwww-perl, perl (>= 5.10) | libio-compress-perl | libcompress-zlib-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-homedir-perl, liburi-perl, libwww-perl, perl (>= 5.10) | libio-compress-perl | libcompress-zlib-perl
+X: 0

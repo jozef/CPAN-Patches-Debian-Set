@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-data-inheritable-perl (>= 0.02), libdevel-stacktrace-perl (>= 1.2000), perl (>= 5.10.1) | libtest-more-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-data-inheritable-perl (>= 0.02), libdevel-stacktrace-perl (>= 1.2000)
+X: 0

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libdigest-sha1-perl, libmodule-build-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdigest-sha1-perl
+X: 0

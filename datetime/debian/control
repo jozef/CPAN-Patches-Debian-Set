@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libdatetime-locale-perl (>= 1:0.41), libdatetime-timezone-perl (>= 1:1.09), libparams-validate-perl, libtest-exception-perl, libtest-warn-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdatetime-locale-perl (>= 1:0.35), libdatetime-timezone-perl (>= 1:1.09), libparams-validate-perl
+X: 0

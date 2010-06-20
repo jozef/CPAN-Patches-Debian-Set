@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libcapture-tiny-perl, perl (>= 5.10)
+Depends: ${misc:Depends}, ${perl:Depends}, perl (>= 5.10)
+X: 0

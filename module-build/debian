@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libarchive-zip-perl, libextutils-cbuilder-perl (>= 0.2700), libextutils-parsexs-perl (>= 2.210000), libpar-dist-perl (>= 0.17), libsoftware-license-perl (>= 0.012), libtie-cphash-perl, libyaml-tiny-perl, perl (>= 5.10) | libversion-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libextutils-parsexs-perl (>= 2.210000), libyaml-perl
-X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libmro-compat-perl, libsub-exporter-perl, libtest-pod-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libmro-compat-perl, libsub-exporter-perl
+X: 0

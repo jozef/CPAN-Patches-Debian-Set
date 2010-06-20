@@ -1,0 +1,26 @@
+Description: Fix some POD errors in the module file
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=57211
+Author: Chris Butler <chrisb@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-03
+
+--- a/Tagger.pm
++++ b/Tagger.pm
+@@ -138,6 +138,8 @@
+ 
+ =back
+ 
++=back
++
+ =cut
+ 
+ ######################################################################
+@@ -176,8 +178,6 @@
+ 
+ ######################################################################
+ 
+-=back
+-
+ =head1 METHODS
+          
+ =over 

@@ -1,0 +1,15 @@
+Description: fix POD errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/OODoc/XPath.pod
++++ b/OODoc/XPath.pod
+@@ -968,7 +968,7 @@ features of OODoc::Meta and OODoc::Docum
+ 
+ =head3  getFirstTextRun(path, position)
+ 
+-=hread3 getFirstTextRun(element)
++=head3  getFirstTextRun(element)
+ 
+         Returns the first text segment of an element whose text content is
+         segmented due to one or more child elements. In other words, returns

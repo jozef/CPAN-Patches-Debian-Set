@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libperl-minimumversion-perl, libsub-install-perl, libsub-uplevel-perl (>= 0.2002), libtest-class-perl (>= 0.33), libtest-cpan-meta-perl, libtest-exception-perl (>= 0.29), libtest-minimumversion-perl, libtest-nowarnings-perl (>= 0.084), libtest-pod-perl (>= 1.26), perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
-Depends: ${misc:Depends}, ${perl:Depends}, libsub-install-perl, libsub-uplevel-perl (>= 0.2002)
-X: 0

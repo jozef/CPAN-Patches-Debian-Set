@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: perl, perl-tk, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, perl-tk
+X: 1

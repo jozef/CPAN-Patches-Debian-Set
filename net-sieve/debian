@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 5)
-Build-Depends-Indep: libauthen-sasl-perl (>= 2.11), libio-socket-inet6-perl, libio-socket-ssl-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.6.10-12)
-Depends: ${misc:Depends}, ${perl:Depends}, libauthen-sasl-perl (>= 2.11), libio-socket-inet6-perl, libio-socket-ssl-perl
-X: 0

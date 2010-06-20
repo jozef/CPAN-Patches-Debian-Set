@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libextutils-install-perl (>= 1.52), libfile-remove-perl (>= 1.42), libjson-perl (>= 2.14), libmodule-scandeps-perl (>= 0.89), libpar-dist-perl (>= 0.29), libwww-perl (>= 5.812), libyaml-tiny-perl (>= 1.36), perl (>= 5.10.1) | libfile-spec-perl (>= 3.2800)
+Depends: ${misc:Depends}, ${perl:Depends}, libextutils-install-perl (>= 1.52), libfile-remove-perl (>= 1.42), libjson-perl (>= 2.14), libmodule-scandeps-perl (>= 0.89), libpar-dist-perl (>= 0.29), libwww-perl (>= 5.812), libyaml-tiny-perl (>= 1.36), perl (>= 5.10.1) | libfile-spec-perl (>= 3.2800)
+X: 0

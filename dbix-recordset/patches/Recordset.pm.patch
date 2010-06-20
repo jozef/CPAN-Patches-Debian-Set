@@ -1,0 +1,249 @@
+Author: Angus Lees <gus@debian.org>
+
+Date: Sun, 23 Dec 2001 17:47:22 +1100
+Description: Replace several uses of '*Table' with '*MainTable' to try and avoid
+ some of the side affects of !LinkName.
+
+Date: Tue, 29 Jan 2002 16:53:47 +1100
+Description: patch (approved by upstream) to avoid "fully qualifying" fields that
+ aren't in %tab4f - since that means they aren't column names
+ (another side affect of !LinkName).
+
+Date: Sat, 28 Sep 2002 17:20:44 +1000
+Description:
+ * Call savecroak on *Recordset object, not $self.
+ * Use *LastRecordFetch as the "row before the first" indicator.  This
+   prevents Next() looping back to the start in some cases.
+ * Remove *LastRecord "cache", fixing Next(), MoreRecords(), Next() bug.
+ * Allow TableAttr's to set an attribute to a false value.
+   (Thanks René Seindal)
+ * Don't return a tied row from Next when TieRow=0 (closes: #133165)
+   (Thanks René Seindal)
+
+--- a/Recordset.pm
++++ b/Recordset.pm
+@@ -735,8 +735,7 @@
+     {
+     my ($self) = @_ ;
+ 
+-    # 'begin' method is unhandled by DBI
+-    ## ??  $self->{'*DBHdl'} -> func('begin') unless $self->{'*DBHdl'}->{'AutoCommit'};
++    $self->{'*DBHdl'}->begin_work unless $self->{'*DBHdl'}->{'AutoCommit'};
+     }
+ 
+ ## ----------------------------------------------------------------------------
+@@ -866,7 +865,7 @@
+ sub TableName ($)
+ 
+     {
+-    return $_[0] -> {'*Table'} ;
++    return $_[0] -> {'*MainTable'} ;
+     }
+ 
+ ## ----------------------------------------------------------------------------
+@@ -880,7 +879,7 @@
+ sub TableNameWithoutFilter ($)
+ 
+     {
+-    my $tab = $_[0] -> {'*Table'} ;
++    my $tab = $_[0] -> {'*MainTable'} ;
+ 
+     return $1 if ($tab =~ /^$_[0]->{'*TableFilter'}(.*?)$/) ;
+     return $tab ;
+@@ -1036,7 +1035,7 @@
+             $f = $v -> {'!MainField'} ;
+             $mf -> {$f} = $k ;
+             $mf -> {"$tab4f->{$f}.$f"} = $k ;
+-            print LOG "DB:  Field $v->{'!MainField'} has link $k\n" ;
++            print LOG "DB:  Field $v->{'!MainField'} has link $k\n" if ($self -> {'*Debug'} > 2) ;
+             }
+         $self -> {'*MainFields'} = $mf ;
+         }
+@@ -1203,17 +1202,17 @@
+     {
+     my ($self, $fields, $vals, $bind_values, $bind_types) = @_ ;
+   
+-    $self -> savecroak ("Insert disabled for table $self->{'*Table'}") if (!($self->{'*WriteMode'} & wmINSERT)) ;
++    $self -> savecroak ("Insert disabled for table $self->{'*MainTable'}") if (!($self->{'*WriteMode'} & wmINSERT)) ;
+       
+     $self->{'*Stats'}{insert}++ ;
+ 
+     if (defined ($bind_values))
+         {
+-        return $self->do ("INSERT INTO $self->{'*Table'} ($fields) VALUES ($vals)", undef, $bind_values, $bind_types) ;
++        return $self->do ("INSERT INTO $self->{'*MainTable'} ($fields) VALUES ($vals)", undef, $bind_values, $bind_types) ;
+         }
+     else
+         {
+-        return $self->do ("INSERT INTO $self->{'*Table'} ($fields) VALUES ($vals)") ;
++        return $self->do ("INSERT INTO $self->{'*MainTable'} ($fields) VALUES ($vals)") ;
+         }
+     }
+ 
+@@ -1233,17 +1232,17 @@
+     {
+     my ($self, $data, $where, $bind_values, $bind_types) = @_ ;
+     
+-    $self -> savecroak ("Update disabled for table $self->{'*Table'}") if (!($self->{'*WriteMode'} & wmUPDATE)) ;
++    $self -> savecroak ("Update disabled for table $self->{'*MainTable'}") if (!($self->{'*WriteMode'} & wmUPDATE)) ;
+ 
+     $self->{'*Stats'}{update}++ ;
+ 
+     if (defined ($bind_values))
+         {
+-        return $self->do ("UPDATE $self->{'*Table'} SET $data WHERE $where", undef, $bind_values, $bind_types) ;
++        return $self->do ("UPDATE $self->{'*MainTable'} SET $data WHERE $where", undef, $bind_values, $bind_types) ;
+         }
+     else
+         {
+-        return $self->do ("UPDATE $self->{'*Table'} SET $data WHERE $where") ;
++        return $self->do ("UPDATE $self->{'*MainTable'} SET $data WHERE $where") ;
+         }
+     }
+ 
+@@ -1262,18 +1261,18 @@
+     {
+     my ($self, $where, $bind_values, $bind_types) = @_ ;
+     
+-    $self -> savecroak ("Delete disabled for table $self->{'*Table'}") if (!($self->{'*WriteMode'} & wmDELETE)) ;
+-    $self -> savecroak ("Clear (Delete all) disabled for table $self->{'*Table'}") if (!$where && !($self->{'*WriteMode'} & wmCLEAR)) ;
++    $self -> savecroak ("Delete disabled for table $self->{'*MainTable'}") if (!($self->{'*WriteMode'} & wmDELETE)) ;
++    $self -> savecroak ("Clear (Delete all) disabled for table $self->{'*MainTable'}") if (!$where && !($self->{'*WriteMode'} & wmCLEAR)) ;
+ 
+     $self->{'*Stats'}{'delete'}++ ;
+ 
+     if (defined ($bind_values))
+         {
+-        return $self->do ("DELETE FROM $self->{'*Table'} " . ($where?"WHERE $where":''), undef, $bind_values, $bind_types) ;
++        return $self->do ("DELETE FROM $self->{'*MainTable'} " . ($where?"WHERE $where":''), undef, $bind_values, $bind_types) ;
+         }
+     else
+         {
+-        return $self->do ("DELETE FROM $self->{'*Table'} " . ($where?"WHERE $where":'')) ;
++        return $self->do ("DELETE FROM $self->{'*MainTable'} " . ($where?"WHERE $where":'')) ;
+         }
+     }
+ 
+@@ -1322,6 +1321,7 @@
+     $self->{'*EOD'} = undef ;
+     $self->{'*SelectFields'} = undef ;
+     $self->{'*LastRecord'} = undef ;
++    $self->{'*LastRecordFetch'} = undef ;
+ 
+     $order  ||= '' ;
+     $expr   ||= '' ;
+@@ -1486,8 +1486,6 @@
+ 
+     $fetch += $self->{'*FetchStart'} ;
+ 
+-    return $self->{'*LastRecord'} if (defined ($self->{'*LastRecordFetch'}) && $fetch == $self->{'*LastRecordFetch'} && $self->{'*LastRecord'}) ; 
+-
+     my $max ;
+     my $key ;
+     my $dat ;                           # row data
+@@ -1606,12 +1604,24 @@
+ 	if (ref $dat eq 'ARRAY')
+ 	    { # just an Array so tie it now
+ 	    my $arr = $dat ;	
+-            $dat = {} ;
+-            $obj = tie %$dat, 'DBIx::Recordset::Row', $self, $self->{'*SelectFields'} , $arr ;
+-            $data -> [$fetch] = $dat ;
+-	    $self->{'*LastRow'} = $fetch ;
+-            $self->{'*LastKey'} = $obj -> FETCH ($self -> {'*PrimKey'}) ;
++
++	    if ($self -> {'*TieRow'})
++	    {
++		$dat = {} ;
++		$obj = tie %$dat, 'DBIx::Recordset::Row', $self, $self->{'*SelectFields'} , $arr ;
++		$data -> [$fetch] = $dat ;
++		$self->{'*LastRow'} = $fetch ;
++		$self->{'*LastKey'} = $obj -> FETCH ($self -> {'*PrimKey'}) ;
++	    } else {
++		my $fld = $self->{'*SelectFields'} ;
++
++		$dat = {};
++		@$dat{@$fld} = @$arr ;
++
++		$self->{'*LastRow'} = $fetch ;
++		$self->{'*LastKey'} = $dat -> {$self -> {'*PrimKey'}} if ($self -> {'*PrimKey'}) ;
+ 	    }
++	}
+ 	else
+ 	    {
+ 	    #my $v ;
+@@ -1673,6 +1683,7 @@
+     my $self = shift ;
+ 
+     $self->{'*LastRecord'} = undef ;
++    $self->{'*LastRecordFetch'} = undef ;
+     $self ->{'*LastRow'}   = 0 ;
+     }
+ 
+@@ -1725,7 +1736,7 @@
+ 
+     $lr -= $self -> {'*FetchStart'} ;
+     $lr = 0 if ($lr < 0) ;
+-    $lr++ if (defined ($self -> {'*LastRecord'})) ;
++    $lr++ if (defined ($self -> {'*LastRecordFetch'})) ;
+ 
+     ##$lr++ if ($_[0] ->{'*CurrRow'} > 0 || $_[0] ->{'*EOD'}) ; 
+     my $rec = $self -> FETCH ($lr) ;
+@@ -2729,7 +2740,7 @@
+         ($self = $newself) or return undef ;
+         }
+ 
+-    $self -> savecroak ("Delete disabled for table $self->{'*Table'}") if (!($self->{'*WriteMode'} & wmDELETE)) ;
++    $self -> savecroak ("Delete disabled for table $self->{'*MainTable'}") if (!($self->{'*WriteMode'} & wmDELETE)) ;
+     
+     my @bind_values ;
+     my @bind_types ;
+@@ -2737,7 +2748,7 @@
+ 
+     my $clear_disabled_diag =
+       "(!$expr && !($self->{'*WriteMode'} & wmCLEAR))";
+-    $self -> savecroak ("Clear (Delete all) disabled for table $self->{'*Table'}: $clear_disabled_diag") if (!$expr && !($self->{'*WriteMode'} & wmCLEAR)) ;
++    $self -> savecroak ("Clear (Delete all) disabled for table $self->{'*MainTable'}: $clear_disabled_diag") if (!$expr && !($self->{'*WriteMode'} & wmCLEAR)) ;
+ 
+     my $links = $self -> {'*Links'} ;
+ 
+@@ -3124,11 +3135,11 @@
+         $buttons .= "$esc<input type=$esc\"text$esc\" size=6 name=$esc\"\$gotorow$esc\"$esc>" ;
+         $buttons .= "$esc<input type=$esc\"submit$esc\" name=$esc\"\$goto$esc\" value=$esc\"$textgoto$esc\"$esc> " ;
+         }
+-    if ($more > 0 && $textnext)
++    if ($more && $textnext)
+         {
+         $buttons .= "$esc<input type=$esc\"submit$esc\" name=$esc\"\$next$esc\" value=$esc\"$textnext$esc\"$esc> " ;
+         }
+-    if ($more > 0 && $textlast)
++    if ($more && $textlast)
+         {
+         $buttons .= "$esc<input type=$esc\"submit$esc\" name=$esc\"\$last$esc\" value=$esc\"$textlast$esc\"$esc>" ;
+         }
+@@ -3319,7 +3330,7 @@
+ 	    print DBIx::Recordset::LOG "DB:  ::CurrRow::DESTROY\n" if ($self -> {'*Recordset'} -> {'*Debug'} > 3) ;
+ 	    }
+ 	} ;
+-    $self -> savecroak ($@) if (!$orgerr && $@) ;
++    $self -> {'*Recordset'} -> savecroak ($@) if (!$orgerr && $@) ;
+     warn $@ if ($orgerr && $@) ;
+     }
+ 
+@@ -3682,7 +3693,7 @@
+ 	    print DBIx::Recordset::LOG "DB:  ::Hash::DESTROY\n" if ($self -> {'*Recordset'} -> {'*Debug'} > 3) ;
+ 	    }
+ 	} ;
+-    $self -> savecroak ($@) if (!$orgerr && $@) ;
++    $self -> {'*Recordset'} -> savecroak ($@) if (!$orgerr && $@) ;
+     warn $@ if ($orgerr && $@) ;
+     }
+ 
+@@ -4036,7 +4047,7 @@
+                 {
+                 $rc = $rs -> Update ($dat, {$pk => $pko} )  ;
+                 }
+-            if ($rc != 1 && $rc ne '')
++            if ($rc ne '' && $rc != 1)
+                 { # must excatly be one row!
+                 print DBIx::Recordset::LOG "DB:  ERROR: Row Update has updated $rc rows instead of one ($rs->{'*LastSQLStatement'})\n" if ($rs->{'*Debug'}) ;
+                 #$rs -> savecroak ("DB:  ERROR: Row Update has updated $rc rows instead of one ($rs->{'*LastSQLStatement'})") ;            

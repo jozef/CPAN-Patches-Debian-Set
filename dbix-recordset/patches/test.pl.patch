@@ -1,0 +1,30 @@
+Description: Fix incorrect use of DBI::SQL_* constants in test.pl.
+Author: Angus Lees <gus@debian.org>
+Date: Sat, 28 Sep 2002 17:20:44 +1000
+
+--- a/test.pl
++++ b/test.pl
+@@ -412,7 +412,7 @@
+ 
+ sub DropTestTables   {
+     my ($_dbh, @tlist) =@_;
+-    return unless ($dbh and @tlist);
++    return unless ($_dbh and @tlist);
+     foreach (@tlist) 
+       {
+ 	  if ($QuoteIdentifier)
+@@ -3711,12 +3711,12 @@
+ 
+             $db -> TableAttr ($Table[1], '!Filter', 
+ 						    {
+-						    DBI::SQL_CHAR     => 
++						    DBI::SQL_CHAR,
+ 						        [ 
+ 							    sub { shift =~ /(\d\d)\.(\d\d)\.(\d\d)/ ; "19$3$2$1"},
+ 							    sub { shift =~ /\d\d(\d\d)(\d\d)(\d\d)/ ; "$3.$2.$1"}
+ 						        ],
+-						    DBI::SQL_VARCHAR     => 
++						    DBI::SQL_VARCHAR,
+ 						        [ 
+ 							    sub { shift =~ /(\d\d)\.(\d\d)\.(\d\d)/ ; "19$3$2$1"},
+ 							    sub { shift =~ /\d\d(\d\d)(\d\d)(\d\d)/ ; "$3.$2.$1"}

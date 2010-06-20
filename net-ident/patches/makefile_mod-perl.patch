@@ -1,0 +1,13 @@
+Author: Matt Hope <dopey@debian.org>
+Description: Makefile.PL; no longer interactive when mod_perl is installed
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -150,6 +150,7 @@ sub install_compat () {
+ 
+ # initial checks to see if apache is possible at all
+ sub check_initial_apache ($) {
++    return;
+     my $apinfo = shift;
+     print "\nChecking for Apache.pm... ";
+     eval { require Apache };

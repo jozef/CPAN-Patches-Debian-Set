@@ -1,0 +1,288 @@
+Author: gregor herrmann <gregoa@debian.org>
+Description: pod fixes
+
+--- a/Intrors.pod
++++ b/Intrors.pod
+@@ -1,5 +1,9 @@
+ =pod
+ 
++=head1 NAME
++
++DBIx::Intrors - Embperl and DBIx::Recordset
++
+ =head1 Embperl and DBIx::Recordset
+ 
+ This introduction gives an overview how to use I<DBIx::Recordset> together
+--- a/Compat.pm
++++ b/Compat.pm
+@@ -612,6 +612,8 @@
+ 
+ Currently there are entry for
+ 
++=over
++
+ =item B<DBD::mSQL>
+ 
+ =item B<DBD::mysql>
+@@ -630,6 +632,8 @@
+ 
+ =item B<DBD::Informix>
+ 
++=back
++
+ if you detect an error in the definition or add an definition for a new
+ DBD driver, please mail it to the author.
+ 
+--- a/Recordset.pm
++++ b/Recordset.pm
+@@ -4211,6 +4211,8 @@
+ for the whole database and they will be use every time you create a new
+ DBIx::Recordset object, without specifying it every time.
+ 
++=over
++
+ =item B<!DataSource>
+ 
+ Specifies the database to which to connect. This information can be given in
+@@ -4361,12 +4363,12 @@
+ The value from this field from the last insert could be retrieved
+ by the function C<LastSerial>.
+ 
+-=item C<!Sequence>
++=item B<!Sequence>
+ 
+ Name of the sequence to use for this table when inserting a new record and
+ C<!Serial> is defind. Defaults to <tablename>_seq.
+ 
+-=item C<!SeqClass>
++=item B<!SeqClass>
+ 
+ Name and Parameter for a class that can generate unique sequence values. This is
+ a string that holds comma separated values. The first value is the class name and
+@@ -4549,8 +4551,6 @@
+ 
+ See also B<!Links> and B<WORKING WITH MULTIPLE TABLES> below
+ 
+-
+-
+ =item B<!Links>
+ 
+ This parameter can be used to link multiple tables together. It takes a
+@@ -4563,8 +4563,12 @@
+ occur in a link definition (see next paragraph). For a detailed description of
+ how links are handled, see B<WORKING WITH MULTIPLE TABLES> below.
+ 
++=back
++
+ =head2 Link Parameters
+ 
++=over
++
+ =item B<!MainField>
+ 
+ The B<!MailField> parameter holds a fieldname which is used to retrieve
+@@ -4664,10 +4668,14 @@
+                                         '!MergeFunc'    =>  sub { my ($a, $b) = @_ ; $a->{sum} += $b->{sum} ; },
+                                         '!PrimKey'      =>  'id'} ;
+ 
++=back
++
+ =head2 Where Parameters
+ 
+ The following parameters are used to build an SQL WHERE expression
+ 
++=over
++
+ =item B<$where>
+ 
+ Give an SQL WHERE expression literaly. If C<$where> is specified, all
+@@ -4797,9 +4805,12 @@
+ 
+         (name = 'Richter' or country = 'de') and id = 5
+                      
++=back
+ 
+ =head2 Search parameters
+ 
++=over
++
+ =item B<$start>
+ 
+ First row to fetch. The row specified here will appear as index 0 in
+@@ -4865,11 +4876,14 @@
+ 
+ See also B<!PrimKey>
+ 
++=back
+ 
+ =head2 Execute parameters
+ 
+ The following parameters specify which action is to be executed:
+ 
++=over
++
+ =item B<=search>
+ 
+ search data
+@@ -4890,6 +4904,7 @@
+ 
+ setup empty object
+ 
++=back
+ 
+ =head1 METHODS
+ 
+@@ -5183,7 +5198,7 @@
+ itself is destroyed. With this method you can make sure that every update is
+ really written to the db.
+ 
+-=item $set -> Dirty ()
++=item B<$set -E<gt> Dirty ()>
+ 
+ Returns true if there is at least one dirty row containing unflushed data.
+ 
+@@ -5227,20 +5242,20 @@
+ 
+ Returns the DBI statement handle of the last select.
+ 
+-=item $set -> TableName ()
++=item B<$set -E<gt> TableName ()>
+ 
+ Returns the name of the table of the recordset object.
+ 
+-=item $set -> TableNameWithOutFilter ()
++=item B<$set -E<gt> TableNameWithOutFilter ()>
+ 
+ Returns the name of the table of the recordset object, but removes
+ the string given with !TableFilter, if it is the prefix of the table name.
+ 
+-=item $set -> PrimKey ()
++=item B<$set -E<gt> PrimKey ()>
+ 
+ Returns the primary key given in the !PrimKey parameter.
+ 
+-=item $set -> TableFilter ()
++=item B<$set -E<gt> TableFilter ()>
+ 
+ Returns the table filter given in the !TableFilter parameter.
+ 
+@@ -5282,7 +5297,7 @@
+ there is no link for that field.
+ 
+ 
+-=item $set -> TableAttr ($key, $value, $table)
++=item B<$set -E<gt> TableAttr ($key, $value, $table)>
+ 
+ get and/or set an attribute of the table
+ 
+@@ -5302,13 +5317,13 @@
+ 
+ =back
+ 
+-=item $set -> Stats ()
++=item B<$set -E<gt> Stats ()>
+ 
+ Returns an hash ref with some statistical values.
+ 
+-=item $set -> LastError ()
++=item B<$set -E<gt> LastError ()>
+ 
+-=item DBIx::Recordset -> LastError ()
++=item B<DBIx::Recordset -E<gt> LastError ()>
+ 
+ Returns the last error message, if any. If called in an array context the first
+ element receives the last error message and the second the last error code.
+@@ -5754,11 +5769,13 @@
+ 
+ Returns a reference to an array of all fieldtypes for the given table.
+ 
++=over
++
+ =item $db -> do ($statement, $attribs, \%params)
+ 
+ Same as DBI. Executes a single SQL statement on the open database.
+ 
+-
++=back
+ 
+ =head2 $db -> CreateTables ($dbschema, $schemaname, $user, $setpriv, $alterconstraints)
+ 
+@@ -6092,6 +6109,8 @@
+ difference between various DBD drivers and their underlying database systems. 
+ Currently, there are definitions for:
+ 
++=over
++
+ =item B<DBD::mSQL>
+ 
+ =item B<DBD::mysql>
+@@ -6112,6 +6131,8 @@
+ 
+ =item B<DBD::InterBase>
+ 
++=back
++
+ DBIx::Recordset has been tested with all those DBD drivers (on Linux 2.0.32, except 
+ DBD::ODBC, which has been tested on Windows '95 using Access 7 and with MS SQL Server).
+ 
+@@ -6408,14 +6429,21 @@
+ 
+ =head1 SEE ALSO
+ 
++=over
++
+ =item Perl(1)
++
+ =item DBI(3)
++
+ =item DBIx::Compat(3)
++
+ =item HTML::Embperl(3) 
+ http://perl.apache.org/embperl/
++
+ =item Tie::DBI(3)
+ http://stein.cshl.org/~lstein/Tie-DBI/
+ 
++=back
+ 
+ =cut
+ 
+--- a/Recordset/DBSeq.pm
++++ b/Recordset/DBSeq.pm
+@@ -158,8 +158,11 @@
+ 
+ =head1 SEE ALSO
+ 
++=over
++
+ =item DBIx::Recordset
+ 
++=back
+ 
+ =cut
+     
+--- a/Recordset/FileSeq.pm
++++ b/Recordset/FileSeq.pm
+@@ -191,8 +191,11 @@
+ 
+ =head1 SEE ALSO
+ 
++=over
++
+ =item DBIx::Recordset
+ 
++=back
+ 
+ =cut
+     
+--- a/Database.pm
++++ b/Database.pm
+@@ -1503,7 +1503,7 @@
+ 
+ =head1 NAME
+ 
+-DBIx::Database / DBIx::Recordset - Perl extension for DBI recordsets
++DBIx::Database - Perl extension for DBI recordsets
+ 
+ =head1 SYNOPSIS
+ 
