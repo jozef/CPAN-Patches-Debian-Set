@@ -2,7 +2,7 @@ Fix manual page extensions for Debian.
 
 --- a/lib/Module/Build/Base.pm
 +++ b/lib/Module/Build/Base.pm
-@@ -3071,7 +3071,7 @@
+@@ -3079,7 +3079,7 @@ sub manify_bin_pods {
    foreach my $file (keys %$files) {
      # Pod::Simple based parsers only support one document per instance.
      # This is expected to change in a future version (Pod::Simple > 3.03).
@@ -11,7 +11,7 @@ Fix manual page extensions for Debian.
      my $manpage = $self->man1page_name( $file ) . '.' .
  	          $self->config( 'man1ext' );
      my $outfile = File::Spec->catfile($mandir, $manpage);
-@@ -3096,7 +3096,7 @@
+@@ -3104,7 +3104,7 @@ sub manify_lib_pods {
    while (my ($file, $relfile) = each %$files) {
      # Pod::Simple based parsers only support one document per instance.
      # This is expected to change in a future version (Pod::Simple > 3.03).

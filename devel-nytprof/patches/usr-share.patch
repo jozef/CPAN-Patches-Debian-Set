@@ -1,17 +1,18 @@
-Author: gregor herrmann <gregoa@debian.org>
-Debian-Specific: yes
 Description: Patch search path so arch-indep files are found
  On Debian, all of the js, gif, css etc files are installed in /usr/share/perl5
  rather than /usr/lib/perl5. They are not in the library directory as
  Devel::NYTProf::Data expects
+Forwarded: not-needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-12
 
 --- a/bin/nytprofhtml
 +++ b/bin/nytprofhtml
-@@ -1007,6 +1007,7 @@
+@@ -1194,6 +1194,7 @@
      my ($profile) = @_;
      # find the js, gif, css etc files installed with Devel::NYTProf
      (my $lib = $INC{"Devel/NYTProf/Data.pm"}) =~ s/\/Data\.pm$//;
 +    $lib =~ s{usr/lib/perl5}{usr/share/perl5};
-     _copy_dir("$lib/js", "$opt{out}/js");
+     _copy_dir("$lib/js", "$opt_out/js");
  }
  

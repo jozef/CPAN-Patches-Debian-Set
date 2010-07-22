@@ -2,7 +2,7 @@
 # DP: Fix SIGSEGV after "|" command. (#236018)
 --- a/Gnu.xs
 +++ b/Gnu.xs
-@@ -2699,6 +2699,12 @@
+@@ -2769,6 +2769,12 @@
  	      PerlIO_releaseFILE(outstreamPIO, rl_outstream);
  #endif
  	    rl_outstream = PerlIO_findFILE(stream);

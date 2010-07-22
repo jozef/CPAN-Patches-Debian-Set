@@ -1,4 +1,8 @@
-Description: adjust path to perl binary
+Description: fix path
+Forwarded: not-needed
+Origin: vendor
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-05-21
 
 --- a/Read.pm
 +++ b/Read.pm
@@ -8,35 +12,3 @@ Description: adjust path to perl binary
  
  package Spreadsheet::Read;
  
---- a/examples/ss2tk
-+++ b/examples/ss2tk
-@@ -1,4 +1,4 @@
--#!/pro/bin/perl
-+#!/usr/bin/perl
- 
- # ss2tk: show SpreadSheet file in Tk::TableMatrix::Spreadsheet (*)
- #	  (m)'07 [26-06-2007] Copyright H.M.Brand 2005-2009
---- a/examples/xls2csv
-+++ b/examples/xls2csv
-@@ -1,4 +1,4 @@
--#!/pro/bin/perl
-+#!/usr/bin/perl
- 
- # xls2csv: Convert Microsoft Excel spreadsheet to CSV
- #	   (m)'08 [10-03-2008] Copyright H.M.Brand 2008-2009
---- a/examples/xlscat
-+++ b/examples/xlscat
-@@ -1,4 +1,4 @@
--#!/pro/bin/perl
-+#!/usr/bin/perl
- 
- # xls2cat: show XLS/SXC file as Text
- #	  (m)'09 [13-05-2009] Copyright H.M.Brand 2005-2009
---- a/examples/ss-dups-tk.pl
-+++ b/examples/ss-dups-tk.pl
-@@ -1,4 +1,4 @@
--#!/pro/bin/perl
-+#!/usr/bin/perl
- 
- use strict;
- use warnings;

@@ -1,4 +1,8 @@
-add whatis information for Devel::REPL::Profile
+Subject: Add whatis information for Devel::REPL::Profile
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-05-23
 
 --- a/lib/Devel/REPL/Profile.pm
 +++ b/lib/Devel/REPL/Profile.pm

@@ -1,8 +1,10 @@
-manpage-has-errors-from-pod2man
+From: Ryan Niebur <ryanryan52@gmail.com>
+Subject: Fix POD error
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56683
 
---- a/lib/Nagios/Plugin/Functions.pm
-+++ b/lib/Nagios/Plugin/Functions.pm
-@@ -388,6 +388,8 @@
+--- libnagios-plugin-perl.orig/lib/Nagios/Plugin/Functions.pm
++++ libnagios-plugin-perl/lib/Nagios/Plugin/Functions.pm
+@@ -392,6 +392,8 @@
  join the resultant critical, warning, and ok messages together i.e.
  all messages are joined and returned.
  

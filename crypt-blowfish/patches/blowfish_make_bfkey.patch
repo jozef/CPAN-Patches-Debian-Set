@@ -2,7 +2,7 @@ Subject: Correct documentation for blowfish_make_bfkey
 
 --- a/_blowfish.c
 +++ b/_blowfish.c
-@@ -389,11 +389,11 @@
+@@ -386,11 +386,11 @@
     dest[7]= block[1]     & 0xff ;
  }
  

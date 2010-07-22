@@ -3,7 +3,7 @@ and I am not sure Xvfb would provide the same set of capabilities. Upstream also
 includes a gl_exclude.h already that works for us, so just skip the detection.
 --- a/Makefile.PL
 +++ b/Makefile.PL
-@@ -764,166 +764,6 @@
+@@ -766,166 +766,6 @@
  sub get_extensions
  {
    my($found,$no_excl) = @_;

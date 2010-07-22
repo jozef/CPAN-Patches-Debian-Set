@@ -1,10 +1,10 @@
 Description: fix POD errors
 Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
-Forwarded: no
---- a/lib/Devel/Caller.pm
-+++ b/lib/Devel/Caller.pm
-@@ -205,6 +205,7 @@
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=56456
+--- libdevel-caller-perl.orig/lib/Devel/Caller.pm
++++ libdevel-caller-perl/lib/Devel/Caller.pm
+@@ -210,6 +210,7 @@
  C<called_as_method> returns true if the subroutine at $level was
  called as a method.
  

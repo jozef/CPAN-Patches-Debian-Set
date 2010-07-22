@@ -2,7 +2,7 @@ add whatis entries to all of the man pages
 
 --- a/lib/Pod/POM/Constants.pm
 +++ b/lib/Pod/POM/Constants.pm
-@@ -55,7 +55,7 @@
+@@ -58,7 +58,7 @@
  
  =head1 NAME
  
@@ -24,7 +24,7 @@ add whatis entries to all of the man pages
  
 --- a/lib/Pod/POM/View/HTML.pm
 +++ b/lib/Pod/POM/View/HTML.pm
-@@ -406,7 +406,7 @@
+@@ -411,7 +411,7 @@
  
  =head1 NAME
  

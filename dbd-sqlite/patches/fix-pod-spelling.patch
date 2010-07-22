@@ -1,9 +1,11 @@
 Description: fix POD spelling
 Author: Jonathan Yu <jawnsy@cpan.org>
+Author: Ansgar Burchardt <ansgar@43-1.org>
 Origin: vendor
-Forwarded: no
---- a/lib/DBD/SQLite.pm
-+++ b/lib/DBD/SQLite.pm
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56693
+
+--- libdbd-sqlite3-perl.orig/lib/DBD/SQLite.pm
++++ libdbd-sqlite3-perl/lib/DBD/SQLite.pm
 @@ -914,7 +914,7 @@
  Returns all tables and schemas (databases) as specified in L<DBI/table_info>.
  The schema and table arguments will do a C<LIKE> search. You can specify an
@@ -22,6 +24,15 @@ Forwarded: no
  query. The method's parameters are:
  
  =over
+@@ -1010,7 +1010,7 @@
+ 
+   SELECT * from table WHERE column REGEXP '(?i:\bA\w+)'
+ 
+-The default REGEXP implementation can be overriden through the
++The default REGEXP implementation can be overridden through the
+ C<create_function> API described above.
+ 
+ Note that regexp matching will B<not> use SQLite indices, but will iterate
 @@ -1018,7 +1018,7 @@
  
  =head2 $dbh->sqlite_create_collation( $name, $code_ref )
@@ -31,8 +42,8 @@ Forwarded: no
  query as a COLLATE option for sorting. Such functions can also be registered
  automatically on demand: see section L</"COLLATION FUNCTIONS"> below.
  
---- a/lib/DBD/SQLite/Cookbook.pod
-+++ b/lib/DBD/SQLite/Cookbook.pod
+--- libdbd-sqlite3-perl.orig/lib/DBD/SQLite/Cookbook.pod
++++ libdbd-sqlite3-perl/lib/DBD/SQLite/Cookbook.pod
 @@ -149,7 +149,7 @@
  =head1 TO DO
  

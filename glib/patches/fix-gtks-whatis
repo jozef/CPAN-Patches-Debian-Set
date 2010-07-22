@@ -4,8 +4,8 @@ Description: if a man page doesn't have a whatis, try to figure out
  do (using the Glib::Type register stuff), and if they do add a whatis
  that says "wrapper for $ctype"
 
---- a/GenPod.pm
-+++ b/GenPod.pm
+--- a/lib/Glib/GenPod.pm
++++ b/lib/Glib/GenPod.pm
 @@ -276,7 +276,15 @@
  		# end.  But all the other =head1 below need a closing =cut.
  

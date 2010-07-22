@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libcatalyst-modules-perl, libcatalyst-perl (>= 5.80015), libconfig-general-perl (>= 2.42), libfile-changenotify-perl, libfile-copy-recursive-perl, libfile-sharedir-perl, libipc-run3-perl, libmodule-install-perl (>= 0.91), libmoose-perl, libmoosex-emulate-class-accessor-fast-perl, libnamespace-autoclean-perl, libnamespace-clean-perl, libpath-class-perl, libtemplate-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-simple-perl (>= 0.94), perl
+Build-Depends-Indep: libcatalyst-modules-perl, libcatalyst-perl (>= 5.80015), libconfig-general-perl (>= 2.42), libfile-changenotify-perl, libfile-copy-recursive-perl, libfile-sharedir-perl, libipc-run3-perl, libmodule-install-perl (>= 0.91), libmoose-perl, libmoosex-emulate-class-accessor-fast-perl, libnamespace-autoclean-perl, libnamespace-clean-perl, libpath-class-perl, libpod-coverage-perl (>= 0.20), libtemplate-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-simple-perl (>= 0.94), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl (>= 5.80015), libconfig-general-perl (>= 2.42), libfile-changenotify-perl, libfile-copy-recursive-perl, libfile-sharedir-perl, libmoose-perl, libmoosex-emulate-class-accessor-fast-perl, libnamespace-autoclean-perl, libnamespace-clean-perl, libpath-class-perl, libtemplate-perl
 X: 0

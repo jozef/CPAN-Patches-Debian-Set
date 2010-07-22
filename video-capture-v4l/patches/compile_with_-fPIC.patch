@@ -1,3 +1,7 @@
+Description: Use -fPIC, minor compile fixes.
+Debian-Bugs: #258991, #259440, #258680
+Author: Matthias Urlichs <smurf@debian.org>
+
 --- a/RTjpeg/Makefile.PL
 +++ b/RTjpeg/Makefile.PL
 @@ -3,6 +3,7 @@ use ExtUtils::MakeMaker;
@@ -26,3 +30,14 @@
      linkext	=> {LINKTYPE => ''},
      DIR		=> ['V4l','VBI','RTjpeg'],
  );
+--- a/VBI/VBI.xs
++++ b/VBI/VBI.xs
+@@ -482,7 +482,7 @@ decoder_decode (decoder *dec, UI y, u8 *
+                     case 0x55:
+                       break;
+                     default:
+-                      ; /* no teletext page */
++                      break; /* no teletext page */
+                     }
+ 
+                   if (data[1] == 0x55)

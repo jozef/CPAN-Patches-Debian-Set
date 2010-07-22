@@ -50,10 +50,10 @@ Bug-Debian: http://bugs.debian.org/551251
 -
 -The handler is called when a script branches backwards during execution, when a function returns and the end of the script. To continue execution the handler must return a true value. To abort execution either throw an exception or return a false value.
 -
- =item get_version ( )
+ =item set_pending_exception ( $value )
  
- Returns the runtime version of the context as a string, for exmaple C<1.7> or or C<ECMAv3>.
-@@ -662,10 +646,6 @@
+ Converts the I<$value> to JavaScript and sets it as the pending exception for the context. 
+@@ -666,10 +650,6 @@
  
  Removes a new named property in I<parent>.
  

@@ -1,8 +1,10 @@
 Description: missing mandatory name from model Group
-Author: yvesago-guest <agostini@univ-metz.fr>
 Origin: commit:7676
 Bug: http://rt.cpan.org/Public/Bug/Display.html?id=51109
+Forwarded: yes
+Author: yvesago-guest <agostini@univ-metz.fr>
 Last-Update: 2009-11-26
+
 --- a/t/TestApp-Plugin-REST/t/03-format.t
 +++ b/t/TestApp-Plugin-REST/t/03-format.t
 @@ -152,7 +152,7 @@

@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libclass-mixinfactory-perl (>= 0.9), libhtml-parser-perl, liburi-perl (>= 1.53), perl
+Build-Depends-Indep: libclass-mixinfactory-perl (>= 0.9), libhtml-parser-perl, libtest-warn-perl, liburi-perl (>= 1.53), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libclass-mixinfactory-perl (>= 0.9)
 X: 0

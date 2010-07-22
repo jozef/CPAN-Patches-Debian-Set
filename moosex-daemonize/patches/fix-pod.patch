@@ -1,0 +1,17 @@
+Description: add missing 'back'
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-11
+
+--- a/lib/MooseX/Daemonize/Core.pm
++++ b/lib/MooseX/Daemonize/Core.pm
+@@ -282,6 +282,8 @@
+ 
+ =back
+ 
++=back
++
+ =head1 STUFF YOU SHOULD READ
+ 
+ =over 4

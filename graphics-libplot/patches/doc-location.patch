@@ -1,4 +1,11 @@
-# Forwarded to http://rt.cpan.org/Public/Bug/Display.html?id=32613
+Description: Fix location of example files
+Author: Damyan Ivanov <dmn@debian.org>
+Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=32613
+
+The forwarded patch was based on the old package name, libplot-perl. The rename
+was required by Debian policy. The updated patch therefore uses a different name
+than upstream and should not be forwarded.
+
 --- a/Libplot.pm
 +++ b/Libplot.pm
 @@ -237,7 +237,7 @@
@@ -6,7 +13,7 @@
  
  There are additional examples included in the source distribution. 
 -(They are in /usr/doc/libplot-perl/examples on debian systems.)
-+(They are in /usr/share/doc/libgraphics-plot-perl/examples on debian systems.)
++(They are in /usr/share/doc/libgraphics-libplot-perl/examples on debian systems.)
  This example draws a spiraling box pattern.
  
   use Graphics::Libplot ':ALL';

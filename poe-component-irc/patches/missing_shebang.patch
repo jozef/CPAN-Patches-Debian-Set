@@ -1,5 +1,9 @@
 Description: adds shebang to example script
+Forwarded: no
 Author: Martín Ferrari 
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-23
+
 --- a/examples/ircproxy.pl
 +++ b/examples/ircproxy.pl
 @@ -1,3 +1,4 @@

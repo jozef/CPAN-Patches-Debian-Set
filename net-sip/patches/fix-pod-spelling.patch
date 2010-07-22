@@ -1,7 +1,10 @@
 Description: fix POD spelling errors
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
 Forwarded: no
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-12
+
 --- a/lib/Net/SIP/Endpoint.pod
 +++ b/lib/Net/SIP/Endpoint.pod
 @@ -133,7 +133,7 @@
@@ -32,8 +35,8 @@ Forwarded: no
  numerical code CODE and text message MSG. Header for the response will
 -be based on the request, but can be added or overriden using \%HEADER.
 +be based on the request, but can be added or overridden using \%HEADER.
- 
- For details to \%HEADER and BODY see B<new_from_parts> in L<Net::SIP::Packet>.
+ If MSG is not given (e.g. argument is missing, second argument is \%HEADER
+ already) a builtin message for the code will be used.
  
 --- a/lib/Net/SIP/Simple.pod
 +++ b/lib/Net/SIP/Simple.pod

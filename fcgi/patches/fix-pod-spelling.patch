@@ -1,7 +1,7 @@
 Description: fix POD spelling
 Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
-Forwarded: no
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=56197
 --- a/FCGI.PL
 +++ b/FCGI.PL
 @@ -437,7 +437,7 @@

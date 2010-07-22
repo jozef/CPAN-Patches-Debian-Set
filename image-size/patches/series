@@ -1,4 +1,3 @@
 disable-perl-critic.patch
-imgsize-fixes
 imgsize-exit-code.patch
 fix-pod-spelling.patch

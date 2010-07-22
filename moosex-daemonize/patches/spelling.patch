@@ -1,0 +1,46 @@
+Description: spelling mistakes
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-11
+
+--- a/lib/MooseX/Daemonize.pm
++++ b/lib/MooseX/Daemonize.pm
+@@ -338,7 +338,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-Often you want to write a persistant daemon that has a pid file, and responds
++Often you want to write a persistent daemon that has a pid file, and responds
+ appropriately to Signals. This module provides a set of basic roles as an
+ infrastructure to do that.
+ 
+--- a/lib/MooseX/Daemonize/Core.pm
++++ b/lib/MooseX/Daemonize/Core.pm
+@@ -223,7 +223,7 @@
+ 0 to the child process. It will also set the is_daemon flag
+ appropriately.
+ 
+-The C<%options> argument remains for backwards compatability, but
++The C<%options> argument remains for backwards compatibility, but
+ it is suggested that you use the attributes listed above instead.
+ 
+ =item B<daemon_detach (?%options)>
+@@ -231,7 +231,7 @@
+ This detaches the new child process from the terminal by doing
+ the following things.
+ 
+-The C<%options> argument remains for backwards compatability, but
++The C<%options> argument remains for backwards compatibility, but
+ it is suggested that you use the attributes listed above instead.
+ 
+ =over 4
+@@ -273,7 +273,7 @@
+ 
+ This will simply call C<daemon_fork> followed by C<daemon_detach>.
+ 
+-The C<%options> argument remains for backwards compatability, but
++The C<%options> argument remains for backwards compatibility, but
+ it is suggested that you use the attributes listed above instead.
+ 
+ =item meta()

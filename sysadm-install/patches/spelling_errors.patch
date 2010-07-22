@@ -4,7 +4,7 @@ Bug: https://rt.cpan.org/Public/Bug/Display.html?id=54883
 
 --- a/lib/Sysadm/Install.pm
 +++ b/lib/Sysadm/Install.pm
-@@ -1447,7 +1447,7 @@
+@@ -1478,7 +1478,7 @@
  =item C<pipe_copy($in, $out, [$bufsize])>
  
  Reads from $in and writes to $out, using sysread and syswrite. The

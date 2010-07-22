@@ -4,7 +4,7 @@ Origin: vendor
 Forwarded: no
 --- a/Wav.pm
 +++ b/Wav.pm
-@@ -47,7 +47,7 @@
+@@ -59,7 +59,7 @@
      $write -> finish();
  
  
@@ -13,7 +13,7 @@ Forwarded: no
      use Audio::Wav;
      my $read = $wav -> read( '4ch.wav' );
      my $details = $read -> details();
-@@ -67,7 +67,7 @@
+@@ -79,7 +79,7 @@
          }
      }
  

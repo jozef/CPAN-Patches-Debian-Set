@@ -1,0 +1,35 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Fri, 09 Jul 2010 23:28:08 +0900
+Origin: vendor
+Subject: Fix spelling errors in documentation
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=59225
+
+--- libnet-managesieve-perl.orig/lib/Net/ManageSieve.pm
++++ libnet-managesieve-perl/lib/Net/ManageSieve.pm
+@@ -308,7 +308,7 @@
+ =item starttls ( %SSL_opts )
+ 
+ Initiates a TLS session, may be used only before any
+-authentification.
++authentication.
+ 
+ The C<SSL_opts> is a HASH containing any options you can
+ pass to L<< IO::Socket::SSL->new() >>. No one is passed by default.
+@@ -405,7 +405,7 @@
+ Authentificates as C<USER>.
+ 
+ If the module L<Authen::SASL> is available, this module is tried first. In
+-this case, the C<USER> paramter may be a C<Authen::SASL> object, that
++this case, the C<USER> parameter may be a C<Authen::SASL> object, that
+ is not furtherly modified. If C<USER> is no C<Authen::SASL> object, 
+ C<USER> is passed as C<user>, C<PASSWORD> as C<pass> and C<AUTHNAME>
+ as C<authname> to C<< Authen::SASL->new() >>. If C<AUTHNAME> is
+@@ -566,7 +566,7 @@
+ 
+ =item capabilities ([reget])
+ 
+-Returns the capabilites as HASH ref, e.g.:
++Returns the capabilities as HASH ref, e.g.:
+ 
+ 	{
+ 	  'starttls' => 1,

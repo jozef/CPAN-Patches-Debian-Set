@@ -4,7 +4,7 @@ Forwarded: not-yet
 
 --- a/lib/Pod/Simple/HTML.pm
 +++ b/lib/Pod/Simple/HTML.pm
-@@ -953,10 +953,10 @@
+@@ -952,10 +952,10 @@
  
  =head1 ACKNOWLEDGEMENTS
  

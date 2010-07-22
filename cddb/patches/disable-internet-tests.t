@@ -7,7 +7,7 @@ Forwarded: no
 Author: Jonathan Yu <frequency@cpan.org>
 --- a/t/01_cddb.t
 +++ b/t/01_cddb.t
-@@ -8,12 +8,18 @@
+@@ -7,12 +7,18 @@
  
  use strict;
  use CDDB;

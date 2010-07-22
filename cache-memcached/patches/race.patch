@@ -1,6 +1,9 @@
-Author: Niko Tyni <ntyni@debian.org>
-Bug: #545626
 Description: fix/skip timing dependent tests
+Bug-Debian: http://www.debian.org/545626
+Forwarded: no
+Author: Niko Tyni <ntyni@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-20
 
 --- a/t/05_reconnect_timeout.t
 +++ b/t/05_reconnect_timeout.t

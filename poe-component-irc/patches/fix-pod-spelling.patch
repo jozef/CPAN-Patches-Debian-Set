@@ -1,11 +1,12 @@
-Author: gregor herrmann <gregoa@debian.org>
 Description: spelling
-Forwarded: no
 Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-23
 
 --- a/lib/POE/Component/IRC/State.pm
 +++ b/lib/POE/Component/IRC/State.pm
-@@ -1383,7 +1383,7 @@
+@@ -1387,7 +1387,7 @@
  
  =head2 Augmented events
  
@@ -14,7 +15,7 @@ Origin: vendor
  L<POE::Component::IRC|POE::Component::IRC> events.
  
  =head3 C<irc_quit>
-@@ -1391,7 +1391,7 @@
+@@ -1395,7 +1395,7 @@
  See also L<C<irc_quit>|POE::Component::IRC/"irc_quit"> in
  L<POE::Component::IRC|POE::Component::IRC>.
  

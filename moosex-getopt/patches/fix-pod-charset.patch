@@ -18,7 +18,7 @@ Subject: Change "Æ" to "A" in POD
  
 --- libmoosex-getopt-perl.orig/lib/MooseX/Getopt.pm
 +++ libmoosex-getopt-perl/lib/MooseX/Getopt.pm
-@@ -277,7 +277,7 @@
+@@ -288,7 +288,7 @@
  
  =item *
  
@@ -29,7 +29,7 @@ Subject: Change "Æ" to "A" in POD
  
 --- libmoosex-getopt-perl.orig/lib/MooseX/Getopt/Basic.pm
 +++ libmoosex-getopt-perl/lib/MooseX/Getopt/Basic.pm
-@@ -313,7 +313,7 @@
+@@ -317,7 +317,7 @@
  
  =item *
  
@@ -40,7 +40,7 @@ Subject: Change "Æ" to "A" in POD
  
 --- libmoosex-getopt-perl.orig/lib/MooseX/Getopt/GLD.pm
 +++ libmoosex-getopt-perl/lib/MooseX/Getopt/GLD.pm
-@@ -132,7 +132,7 @@
+@@ -146,7 +146,7 @@
  
  =item *
  

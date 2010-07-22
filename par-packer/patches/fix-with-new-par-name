@@ -4,7 +4,7 @@ Description: par.pl was renamed to par-archive in order to be
 
 --- a/lib/PAR/Packer.pm
 +++ b/lib/PAR/Packer.pm
-@@ -1237,9 +1237,9 @@
+@@ -1238,9 +1238,9 @@
  
      if ($opt->{P}) {
          # write as script

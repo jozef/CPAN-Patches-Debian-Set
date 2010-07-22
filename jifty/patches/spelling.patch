@@ -92,6 +92,15 @@ Last-Update: 2010-05-21
  to show the additional information, for example an id of some object, but
 --- a/lib/Jifty/Plugin/ViewDeclarePage/Page.pm
 +++ b/lib/Jifty/Plugin/ViewDeclarePage/Page.pm
+@@ -13,7 +13,7 @@
+ 
+ This library is a replacement for L<Jifty::View::Declare::Page>.
+ That is in Jifty for a while and can not be replaced with something
+-completly different because of backwards compatibility.
++completely different because of backwards compatibility.
+ 
+ When you declare a L<Jifty::View::Declare> template that is a page, for example:
+ 
 @@ -31,7 +31,7 @@
  
  It's very hard to extended L<Jifty::View::Declare::Page> class as

@@ -1,3 +1,8 @@
+Description: Fix bashism: dash requires path to file in "." when sourcing it.
+Bug-Debian: #374151
+Author: Joey Hess <joeyh@debian.org>
+Date: Sat, 11 Aug 2007 21:15:46 -0400
+
 --- a/RTjpeg/Makefile.PL
 +++ b/RTjpeg/Makefile.PL
 @@ -8,7 +8,7 @@ WriteMakefile(

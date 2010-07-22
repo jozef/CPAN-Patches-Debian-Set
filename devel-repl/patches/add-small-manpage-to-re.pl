@@ -1,9 +1,11 @@
-it needs a man page
+Subject: re program should have a manpage
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-05-23
 
-Index: script/re.pl
-===================================================================
---- a/script/re.pl	(revision 31637)
-+++ b/script/re.pl	(working copy)
+--- a/script/re.pl
++++ b/script/re.pl
 @@ -1,3 +1,13 @@
  #!/usr/bin/env perl
  

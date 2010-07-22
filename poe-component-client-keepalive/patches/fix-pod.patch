@@ -1,7 +1,8 @@
 Description: error in POD
-Author: gregor herrmann <gregoa@debian.org>
 Origin: vendor
 Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-23
 
 --- a/lib/POE/Component/Connection/Keepalive.pm
 +++ b/lib/POE/Component/Connection/Keepalive.pm

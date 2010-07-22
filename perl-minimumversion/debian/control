@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libfile-find-rule-perl (>= 0.32), libfile-find-rule-perl-perl (>= 1.04), libparams-util-perl (>= 0.25), libperl-critic-perl (>= 1.104), libppi-perl (>= 1.205), libtest-cpan-meta-perl, libtest-minimumversion-perl (>= 0.101080), libtest-pod-perl, libtest-script-perl (>= 1.03), perl (>= 5.10) | libversion-perl (>= 0.74)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libfile-find-rule-perl (>= 0.32), libfile-find-rule-perl-perl (>= 1.04), libparams-util-perl (>= 0.25), libperl-critic-perl (>= 1.104), libppi-perl (>= 1.205), libtest-script-perl (>= 1.03), perl (>= 5.10) | libversion-perl (>= 0.74)
 Depends: ${misc:Depends}, ${perl:Depends}, libfile-find-rule-perl (>= 0.32), libfile-find-rule-perl-perl, libparams-util-perl (>= 0.25), libperl-critic-perl (>= 1.104), libppi-perl (>= 1.205), perl (>= 5.10) | libversion-perl (>= 0.74)
 X: 0

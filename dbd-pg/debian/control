@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~), libdbi-perl (>= 1.610.90+is+1.609-1~), libpq-dev (>= 8.0), libtest-pod-coverage-perl, libtest-pod-perl, libtest-yaml-meta-perl, perl (>= 5.10) | libversion-perl
-Depends: ${libdbi-perl:Depends}, ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl (>= 5.10) | libversion-perl
+Build-Depends: debhelper (>= 7.0.50~), libdbi-perl (>= 1.612), libpq-dev (>= 8.0), libtest-pod-coverage-perl, libtest-pod-perl, libtest-yaml-meta-perl, perl (>= 5.10) | libversion-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl (>= 5.10) | libversion-perl
 X: 0

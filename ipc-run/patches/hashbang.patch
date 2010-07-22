@@ -1,5 +1,8 @@
-add hashbang to example script
-
+Description: Fix hashbang to example script
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/543673
+Author: Gregor Herrmann <gregoa@debian.org>
+Reviewed-by: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
 --- a/eg/synopsis_scripting
 +++ b/eg/synopsis_scripting
 @@ -1,3 +1,4 @@
@@ -15,3 +18,19 @@ add hashbang to example script
  
  ## An example of how to daemonize.  See the IPC::Run LIMITATIONS section for
  ## some reasons why this can be a bit dangerous.
+--- a/abuse/blocking_debug_with_sub_coprocess
++++ b/abuse/blocking_debug_with_sub_coprocess
+@@ -1,4 +1,4 @@
+-#!/opt/i386-linux/perl/bin/perl -w
++#!/usr/bin/perl -w
+ 
+ ## Submitted by Blair Zajac <blair@orcaware.com>
+ 
+--- a/abuse/timers
++++ b/abuse/timers
+@@ -1,4 +1,4 @@
+-#!/usr/local/lib/perl -w
++#!/usr/bin/perl -w
+ 
+ use strict ;
+ use IPC::Run qw( :all ) ;

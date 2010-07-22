@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libfile-find-rule-perl (>= 0.20), libparams-util-perl (>= 0.38), libperl-minimumversion-perl (>= 1.20), libtest-cpan-meta-perl (>= 0.07), libtest-minimumversion-perl (>= 0.008), libtest-pod-perl (>= 1.00), perl (>= 5.10.1) | libparse-cpan-meta-perl (>= 1.38)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libfile-find-rule-perl (>= 0.20), libparams-util-perl (>= 0.38), perl (>= 5.10.1) | libparse-cpan-meta-perl (>= 1.38)
 Depends: ${misc:Depends}, ${perl:Depends}, libfile-find-rule-perl (>= 0.20), libparams-util-perl (>= 0.38), perl (>= 5.10.1) | libparse-cpan-meta-perl (>= 1.38)
 X: 0

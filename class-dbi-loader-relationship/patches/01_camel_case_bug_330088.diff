@@ -1,6 +1,11 @@
-diff -urNad libclass-dbi-loader-relationship-perl-1.2~/Relationship.pm libclass-dbi-loader-relationship-perl-1.2/Relationship.pm
---- libclass-dbi-loader-relationship-perl-1.2~/Relationship.pm	2004-03-01 16:48:45.000000000 +0000
-+++ libclass-dbi-loader-relationship-perl-1.2/Relationship.pm	2005-10-12 09:51:07.000000000 +0100
+From: Stephen Quinney <sjq@debian.org>
+Date: Wed, 12 Oct 2005 09:55:45 +0100
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/330088
+Subject: Problem with CamelCase classes and underscores in table names
+
+--- libclass-dbi-loader-relationship-perl.orig/Relationship.pm
++++ libclass-dbi-loader-relationship-perl/Relationship.pm
 @@ -93,8 +93,8 @@
      return "$from_c->$method($mapper => $to_c);\n".
             ($method ne "has_a" && "$to_c->has_a(".to_S($from)." => $from_c);\n") 

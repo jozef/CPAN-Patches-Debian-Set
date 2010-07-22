@@ -2,7 +2,7 @@ Author: David Paleino <d.paleino@gmail.com>
 Description: No description.
 --- a/lib/SVG/Element.pm
 +++ b/lib/SVG/Element.pm
-@@ -738,7 +738,7 @@
+@@ -745,7 +745,7 @@
  
      # populate the script tag with cdata
      # be careful to manage the javascript line ends.
@@ -11,7 +11,7 @@ Description: No description.
      # works well for this.
  
      $tag->CDATA(qq|function d(){
-@@ -765,7 +765,7 @@
+@@ -772,7 +772,7 @@
  
      # populate the style tag with cdata
      # be careful to manage the line ends.
@@ -20,7 +20,7 @@ Description: No description.
      # works well for this.
  
      $tag1->CDATA(qq|
-@@ -1211,7 +1211,7 @@
+@@ -1218,7 +1218,7 @@
  
  B<Example:>
  
@@ -29,7 +29,7 @@ Description: No description.
          var SVGDoc;
          var groups = new Array();
          var last_group;
-@@ -1229,7 +1229,7 @@
+@@ -1236,7 +1236,7 @@
              append_group(1, 4, 6); // group 0
              append_group(5, 4, 3); // group 1
              append_group(2, 3);    // group 2
@@ -40,7 +40,7 @@ Description: No description.
  
 --- a/lib/SVG/Manual.pm
 +++ b/lib/SVG/Manual.pm
-@@ -220,7 +220,7 @@
+@@ -218,7 +218,7 @@
  =head1 CREDITS
  
  Peter Wainwright, Excellent ideas, beta-testing, writing SVG::Parser and much of SVG::DOM.  Fredo, http://www.penguin.at0.net/~fredo/ - provided example code and initial feedback for early SVG.pm versions and the idea of a simplified svg generator.
@@ -49,7 +49,7 @@ Description: No description.
  Martin Owens - SVG::DOM improvements in version 3.34
  
  =head1 EXAMPLES
-@@ -609,7 +609,7 @@
+@@ -607,7 +607,7 @@
  
      # populate the script tag with cdata
      # be careful to manage the javascript line ends.
@@ -58,7 +58,7 @@ Description: No description.
      # works well for this.
      #make sure to use the CAPITAL CDATA to poulate the script.
      $tag->CDATA(qq|function d(){
-@@ -845,7 +845,7 @@
+@@ -843,7 +843,7 @@
  
  B<Example:>
  
@@ -67,7 +67,7 @@ Description: No description.
          var SVGDoc;
          var groups = new Array();
          var last_group;
-@@ -863,7 +863,7 @@
+@@ -861,7 +861,7 @@
              append_group(1, 4, 6); // group 0
              append_group(5, 4, 3); // group 1
              append_group(2, 3);    // group 2
@@ -80,7 +80,7 @@ Description: No description.
 +++ b/lib/SVG/Extension.pm
 @@ -4,6 +4,12 @@
  use vars qw(@ISA $VERSION @TYPES %TYPES);
- $VERSION = "2.44";
+ $VERSION = "2.50";
  
 +=head1 NAME
 +

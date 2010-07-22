@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libclass-mop-perl (>= 0.49), libgetopt-long-descriptive-perl (>= 0.081), libmoose-perl (>= 0.56), libtest-exception-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Build-Depends-Indep: libclass-mop-perl (>= 0.49), libgetopt-long-descriptive-perl (>= 0.081), libmoose-perl (>= 0.56), libtest-exception-perl, libtest-warn-perl (>= 0.21), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
 Depends: ${misc:Depends}, ${perl:Depends}, libgetopt-long-descriptive-perl (>= 0.081), libmoose-perl (>= 0.56)
 X: 0

@@ -1,9 +1,12 @@
-Author: gregor herrmann <gregoa@debian.org>
 Description: remove POD fragment
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Origin: vendor
+Last-Update: 2010-07-11
 
 --- a/lib/Web/Simple/HackedPlack.pm
 +++ b/lib/Web/Simple/HackedPlack.pm
-@@ -66,30 +66,3 @@
+@@ -70,30 +70,3 @@
  }
  
  1;

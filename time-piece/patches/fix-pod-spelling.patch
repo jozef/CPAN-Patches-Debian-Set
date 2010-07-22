@@ -1,15 +1,16 @@
 Description: fix POD spelling errors
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
-Forwarded: no
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=55703
+Forwarded: yes
+Author: Jonathan Yu <jawnsy@cpan.org>
 --- a/Piece.pm
 +++ b/Piece.pm
-@@ -730,7 +730,7 @@
+@@ -728,7 +728,7 @@
  
    my $french_day = localtime->day(@days);
  
 -These settings can be overriden globally too:
-+These settings can be overidden globally too:
++These settings can be overridden globally too:
  
    Time::Piece::day_list(@days);
  

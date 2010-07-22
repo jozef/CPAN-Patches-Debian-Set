@@ -1,5 +1,9 @@
-Author: Matt Hope <dopey@debian.org>
 Description: Makefile.PL; no longer interactive when mod_perl is installed
+Forwarded: no
+Author: Matt Hope <dopey@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Origin: vendor
+Last-Update: 2010-06-21
 
 --- a/Makefile.PL
 +++ b/Makefile.PL

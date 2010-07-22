@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-22
+
+--- a/lib/Pod/Tree/HTML.pm
++++ b/lib/Pod/Tree/HTML.pm
+@@ -1215,7 +1215,7 @@
+ 
+ =item *
+ 
+-supported for backwards compatability with 
++supported for backwards compatibility with
+ older versions of C<Pod::Tree::HTML>
+ 
+ =back

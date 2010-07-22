@@ -1,8 +1,8 @@
 fix several pod errors
 
---- a/MicroMason/Docs/Changes.pod
-+++ b/MicroMason/Docs/Changes.pod
-@@ -137,6 +137,8 @@
+--- libtext-micromason-perl.orig/MicroMason/Docs/Changes.pod
++++ libtext-micromason-perl/MicroMason/Docs/Changes.pod
+@@ -187,6 +187,8 @@
  
  Bump version to 2.0
  
@@ -11,8 +11,8 @@ fix several pod errors
  =head2 Version 1.993_01
  
  =over 4
---- a/MicroMason/HasParams.pm
-+++ b/MicroMason/HasParams.pm
+--- libtext-micromason-perl.orig/MicroMason/HasParams.pm
++++ libtext-micromason-perl/MicroMason/HasParams.pm
 @@ -72,6 +72,10 @@
  
  ######################################################################
@@ -24,8 +24,8 @@ fix several pod errors
  =head1 DESCRIPTION
  
  This mixin class ...
---- a/MicroMason/StoreOne.pm
-+++ b/MicroMason/StoreOne.pm
+--- libtext-micromason-perl.orig/MicroMason/StoreOne.pm
++++ libtext-micromason-perl/MicroMason/StoreOne.pm
 @@ -36,6 +36,10 @@
  
  ######################################################################

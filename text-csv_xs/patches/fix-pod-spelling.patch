@@ -1,10 +1,13 @@
 Description: fix POD spelling errors
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
 Forwarded: no
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-05-21
+
 --- a/CSV_XS.pm
 +++ b/CSV_XS.pm
-@@ -1470,7 +1470,7 @@
+@@ -1487,7 +1487,7 @@
  Requests for adding means (methods) that combine C<combine ()> and
  C<string ()> in a single call will B<not> be honored. Likewise for
  C<parse ()> and C<fields ()>. Given the trouble with embedded newlines,

@@ -1,39 +1,39 @@
 add whatis entries to the POD
 
---- libgtk2-unique-perl-0.01.orig/xs/UniqueApp.xs
-+++ libgtk2-unique-perl-0.01/xs/UniqueApp.xs
-@@ -3,6 +3,9 @@
+--- a/xs/UniqueApp.xs
++++ b/xs/UniqueApp.xs
+@@ -54,6 +54,9 @@
  
- MODULE = Gtk2::UniqueApp  PACKAGE = Gtk2::UniqueApp  PREFIX = unique_app_
+ }
  
 +=for object Gtk2::UniqueApp a single instance application
 +
 +=cut
  
- UniqueApp_noinc*
- unique_app_new (class, const gchar *name, const gchar_ornull *startup_id, ...)
---- libgtk2-unique-perl-0.01.orig/xs/UniqueBackend.xs
-+++ libgtk2-unique-perl-0.01/xs/UniqueBackend.xs
-@@ -3,6 +3,9 @@
+ MODULE = Gtk2::UniqueApp  PACKAGE = Gtk2::UniqueApp  PREFIX = unique_app_
  
- MODULE = Gtk2::UniqueBackend  PACKAGE = Gtk2::UniqueBackend  PREFIX = unique_backend_
+--- a/xs/UniqueBackend.xs
++++ b/xs/UniqueBackend.xs
+@@ -16,6 +16,9 @@
+ 
+ =cut
  
 +=for object Gtk2::UniqueBackend IPC backend used by libunique
 +
 +=cut
  
- UniqueBackend*
- unique_backend_create (class)
---- libgtk2-unique-perl-0.01.orig/xs/UniqueMessageData.xs
-+++ libgtk2-unique-perl-0.01/xs/UniqueMessageData.xs
-@@ -3,6 +3,10 @@
+ =for apidoc
  
- MODULE = Gtk2::UniqueMessageData  PACKAGE = Gtk2::UniqueMessageData  PREFIX = unique_message_data_
+--- a/xs/Unique.xs
++++ b/xs/Unique.xs
+@@ -7,6 +7,10 @@
  
-+=for object Gtk2::UniqueMessageData IPC message between two running processes
+ MODULE = Gtk2::Unique  PACKAGE = Gtk2::Unique  PREFIX = unique_
+ 
++=for object Gtk2::Unique Use single instance applications
 +
 +=cut
 +
- SV*
- unique_message_data_get (UniqueMessageData *message_data)
- 	PREINIT:
+ PROTOTYPES: DISABLE
+ 
+ 

@@ -1,10 +1,14 @@
 Description: fix POD spelling
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=54388
 Forwarded: https://rt.cpan.org/Ticket/Display.html?id=54388
---- a/lib/namespace/clean.pm
-+++ b/lib/namespace/clean.pm
-@@ -83,9 +83,9 @@
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-06-13
+
+--- libnamespace-clean-perl.orig/lib/namespace/clean.pm
++++ libnamespace-clean-perl/lib/namespace/clean.pm
+@@ -227,9 +227,9 @@
  If you just want to C<-except> a single sub, you can pass it directly.
  For more than one value you have to use an array reference.
  

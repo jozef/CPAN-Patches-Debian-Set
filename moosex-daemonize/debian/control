@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmoose-perl (>= 0.33), libmoosex-getopt-perl (>= 0.07), libmoosex-types-path-class-perl, libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl, perl-modules
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.33), libmoosex-getopt-perl (>= 0.07), libmoosex-types-path-class-perl, libtest-exception-perl
+Build-Depends-Indep: libmoose-perl (>= 0.33), libmoosex-getopt-perl, libmoosex-types-path-class-perl, libtest-exception-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.33), libmoosex-getopt-perl, libmoosex-types-path-class-perl
 X: 0

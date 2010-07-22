@@ -35,7 +35,7 @@ Status: to be submitted upstream
 +    my ( $this, $arg ) = @_;
 +    my $class = ref($this) || $this;
 +
-+    my $NoExpand = ( delete $arg->{'NoExpand'} || undef );
++    my $NoExpand     = ( delete $arg->{'NoExpand'}     || undef );
 +    my $ErrorContext = ( delete $arg->{'ErrorContext'} || undef );
 +
 +    if ( %{$arg} ) {
@@ -44,7 +44,7 @@ Status: to be submitted upstream
    
    my $self = XML::Element->new('NIL');
    bless $self, $class; # and rebless
-@@ -21,44 +29,51 @@
+@@ -21,57 +29,76 @@
    $self->{'_store_comments'}     = 0;
    $self->{'_store_pis'}          = 0;
    $self->{'_store_declarations'} = 0;
@@ -111,7 +111,20 @@ Status: to be submitted upstream
         return;
      },
      
-@@ -67,11 +82,11 @@
++            'Final' => sub {
++                $self->root()->traverse(
++                    sub {
++                        my ( $node, $start ) = @_;
++                        if ( ref $node ) {    # it's an element
++                            $node->attr( 'NoExpand',     undef );
++                            $node->attr( 'ErrorContext', undef );
++                        }
++                    }
++                );
++            },
++
+     # And now, declarations:
+     
      'Attlist' => sub {
         return unless $self->{'_store_declarations'};
         shift;
@@ -128,7 +141,7 @@ Status: to be submitted upstream
           )
         );
         return;
-@@ -80,11 +95,11 @@
+@@ -80,11 +107,11 @@
      'Element' => sub {
         return unless $self->{'_store_declarations'};
         shift;
@@ -145,7 +158,7 @@ Status: to be submitted upstream
           )
         );
         return;
-@@ -93,32 +108,47 @@
+@@ -93,32 +120,47 @@
      'Doctype' => sub {
         return unless $self->{'_store_declarations'};
         shift;
@@ -224,7 +237,7 @@ Status: to be submitted upstream
  
  unless( $ENV{'HARNESS_ACTIVE'} ) {
    $x->dump;
-@@ -45,6 +44,28 @@
+@@ -45,6 +44,27 @@
  $x->delete;
  $y->delete;
  
@@ -239,7 +252,6 @@ Status: to be submitted upstream
 +
 +$y = XML::Element->new_from_lol(
 + ['Gee',
-+   { 'NoExpand' => "1", 'ErrorContext' => "2" },
 +   ['~comment', {'text' => ' myorp '}],
 +   ['foo', {'Id'=> 'me', 'xml:foo' => 'lal'}, 'Hello World'],
 +   ['lor'],

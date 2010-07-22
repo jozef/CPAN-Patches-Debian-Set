@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.2.10), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libmoose-perl (>= 0.84), libtest-pod-coverage-perl (>= 1.04), libtest-pod-perl (>= 1.14), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.84)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmoose-perl (>= 0.94), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.94)
 X: 0

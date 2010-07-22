@@ -4,7 +4,11 @@ Description: libarchive-zip-perl FTBFS with Perl::MinimumVersion >=
 Origin: vendor
 Bug: http://rt.cpan.org/Public/Bug/Display.html?id=52696
 Bug-Debian: http://bugs.debian.org/560632
+Forwarded: yes
 Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Last-Update: 2010-05-06
+Applied-Upstream: yes, http://svn.ali.as/cpan/trunk/Archive-Zip/
+
 --- a/META.yml
 +++ b/META.yml
 @@ -21,7 +21,7 @@

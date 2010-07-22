@@ -8,7 +8,7 @@ Origin: other
 Bug-CPAN: http://rt.cpan.org/Ticket/Display.html?id=55242
 --- a/PadWalker.xs
 +++ b/PadWalker.xs
-@@ -232,10 +232,6 @@
+@@ -236,10 +236,6 @@
              else {
                if (is_our) {
                  val_sv = fetch_from_stash(SvOURSTASH(name_sv), name_str, name_len);
@@ -19,7 +19,7 @@ Bug-CPAN: http://rt.cpan.org/Ticket/Display.html?id=55242
                }
                else
                {
-@@ -243,6 +239,12 @@
+@@ -247,6 +243,12 @@
                  val_sv = val_ptr ? *val_ptr : &PL_sv_undef;
                }
  
@@ -30,7 +30,7 @@ Bug-CPAN: http://rt.cpan.org/Ticket/Display.html?id=55242
 +              }
 +
                hv_store((is_our ? our_hash : my_hash), name_str, name_len,
-                        newRV_inc(val_sv), 0);
+                        (val_sv ? newRV_inc(val_sv) : &PL_sv_undef), 0);
              }
 --- /dev/null
 +++ b/t/dead_my.t

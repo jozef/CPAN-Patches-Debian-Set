@@ -1,9 +1,10 @@
 Description: The module provides several example scripts written in Perl
  that have missing or incorrect shebang lines. This patch adds or changes
  shebangs to #!/usr/bin/perl in order to comply with Debian Policy.
-Forwarded: not-needed
 Bug-Debian: http://bugs.debian.org/543659
+Forwarded: not-needed
 Author: Ernesto Hernández-Novich <emhn@usb.ve>
+Last-Update: 2010-05-06
 
 --- a/examples/calcSizes.pl
 +++ b/examples/calcSizes.pl

@@ -1,8 +1,11 @@
-fix the characters
-
+Description: fix the non-ascii characters in manpage.
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/464619
+Forwarded: no
+Author: gregor herrmann <gregor+debian@comodo.priv.at>
 --- a/Seconds.pm
 +++ b/Seconds.pm
-@@ -216,7 +216,7 @@
+@@ -242,7 +242,7 @@
  
  Tobias Brox, tobiasb@tobiasb.funcom.com
  

@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~), libdbi-perl (>= 1.610.90+is+1.609-1~), oracle-instantclient11.2-basic, oracle-instantclient11.2-devel, perl
-Depends: ${libdbi-perl:Depends}, ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libaio1, libdbi-perl (>= 1.51)
+Build-Depends: debhelper (>= 7.0.50~), libdbi-perl (>= 1.612), oracle-instantclient11.2-basic, oracle-instantclient11.2-devel, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libaio1, libdbi-perl (>= 1.51)
 X: 0

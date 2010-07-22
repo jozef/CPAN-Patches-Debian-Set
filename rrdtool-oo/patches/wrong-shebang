@@ -1,5 +1,6 @@
 Description: Wrong path to perl
 From: Fabien Wernli <debian@faxm0dem.org>
+Origin: vendor
 
 --- a/eg/dt
 +++ b/eg/dt

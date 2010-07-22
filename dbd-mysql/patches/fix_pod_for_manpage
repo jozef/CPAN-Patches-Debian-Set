@@ -1,8 +1,9 @@
-Index: libdbd-mysql-perl/lib/DBD/mysql.pm
-===================================================================
---- libdbd-mysql-perl.orig/lib/DBD/mysql.pm	2009-07-20 12:36:37.000000000 +0200
-+++ libdbd-mysql-perl/lib/DBD/mysql.pm	2009-07-20 12:36:56.000000000 +0200
-@@ -1224,6 +1224,7 @@
+Author: Gunnar Wolf <gwolf@debian.org>
+Description: fix pod errors
+
+--- libdbd-mysql-perl.orig/lib/DBD/mysql.pm
++++ libdbd-mysql-perl/lib/DBD/mysql.pm
+@@ -1230,6 +1230,7 @@
   $bool_value = $dbh->{mysql_auto_reconnect};
   $dbh->{mysql_auto_reconnect} = $AutoReconnect ? 1 : 0;
  
@@ -10,7 +11,7 @@ Index: libdbd-mysql-perl/lib/DBD/mysql.pm
  
  =item mysql_auto_reconnect
  
-@@ -1326,7 +1327,7 @@
+@@ -1377,7 +1378,7 @@
  
    $dbh->{mysql_no_autocommit_cmd} = 1;
  
@@ -19,7 +20,7 @@ Index: libdbd-mysql-perl/lib/DBD/mysql.pm
  
  =head1 STATEMENT HANDLES
  
-@@ -1568,8 +1569,6 @@
+@@ -1619,8 +1620,6 @@
  
  =back
  

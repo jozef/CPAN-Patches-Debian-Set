@@ -1,21 +1,136 @@
-# fix some missing pod entries
---- a/lib/DBM/Deep/Cookbook.pod
-+++ b/lib/DBM/Deep/Cookbook.pod
+Description: fix some missing pod entries
+Forwarded: no
+Author: AGOSTINI Yves <agostini@univ-metz.fr>
+Author: gregor herrmann <gregoa@debian.org>
+
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Cookbook.pod
++++ libdbm-deep-perl/lib/DBM/Deep/Cookbook.pod
 @@ -1,6 +1,6 @@
  =head1 NAME
  
 -DBM::Deep::Cookbook
-+DBM::Deep::Cookbook - Cookbook for DBM::Deep 
++DBM::Deep::Cookbook - Cookbook for DBM::Deep
  
  =head1 DESCRIPTION
  
---- a/lib/DBM/Deep/Internals.pod
-+++ b/lib/DBM/Deep/Internals.pod
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Internals.pod
++++ libdbm-deep-perl/lib/DBM/Deep/Internals.pod
 @@ -1,6 +1,6 @@
  =head1 NAME
  
 -DBM::Deep::Internals
 +DBM::Deep::Internals - Out of date documentation on DBM::Deep internals
  
- =head1 DESCRIPTION
+ =head1 OUT OF DATE
  
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Engine.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Engine.pm
+@@ -19,7 +19,7 @@
+ 
+ =head1 NAME
+ 
+-DBM::Deep::Engine
++DBM::Deep::Engine - mediate mapping between DBM::Deep objects and storage medium
+ 
+ =head1 PURPOSE
+ 
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Iterator.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Iterator.pm
+@@ -7,7 +7,7 @@
+ 
+ =head1 NAME
+ 
+-DBM::Deep::Iterator
++DBM::Deep::Iterator - iterator for FIRSTKEY() and NEXTKEY()
+ 
+ =head1 PURPOSE
+ 
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Null.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Null.pm
+@@ -7,7 +7,7 @@
+ 
+ =head1 NAME
+ 
+-DBM::Deep::Null
++DBM::Deep::Null - NULL object
+ 
+ =head1 PURPOSE
+ 
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Iterator/File/BucketList.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Iterator/File/BucketList.pm
+@@ -7,7 +7,7 @@
+ 
+ =head1 NAME
+ 
+-DBM::Deep::Iterator::BucketList
++DBM::Deep::Iterator::BucketList - mediate between DBM::Deep::Iterator and DBM::Deep::Engine::Sector::BucketList
+ 
+ =head1 PURPOSE
+ 
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Iterator/File/Index.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Iterator/File/Index.pm
+@@ -7,7 +7,7 @@
+ 
+ =head1 NAME
+ 
+-DBM::Deep::Iterator::Index
++DBM::Deep::Iterator::Index - mediate between DBM::Deep::Iterator and DBM::Deep::Engine::Sector::Index
+ 
+ =head1 PURPOSE
+ 
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Storage/File.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Storage/File.pm
+@@ -13,7 +13,7 @@
+ 
+ =head1 NAME
+ 
+-DBM::Deep::Storage::File
++DBM::Deep::Storage::File - mediate low-level interaction with storage mechanism
+ 
+ =head1 PURPOSE
+ 
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Engine/File.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Engine/File.pm
+@@ -40,7 +40,7 @@
+ 
+ =head1 NAME
+ 
+-DBM::Deep::Engine::File
++DBM::Deep::Engine::File - engine for use with DBM::Deep::Storage::File
+ 
+ =head1 PURPOSE
+ 
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Sector/File.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Sector/File.pm
+@@ -39,12 +39,12 @@
+     return;
+ }
+ 
+-=head2 load( $offset )
+-
+-This will instantiate and return the sector object that represents the data
+-found at $offset.
+-
+-=cut
++#=head2 load( $offset )
++#
++#This will instantiate and return the sector object that represents the data
++#found at $offset.
++#
++#=cut
+ 
+ sub load {
+     my $self = shift;
+--- libdbm-deep-perl.orig/lib/DBM/Deep/Storage.pm
++++ libdbm-deep-perl/lib/DBM/Deep/Storage.pm
+@@ -5,6 +5,10 @@
+ use strict;
+ use warnings FATAL => 'all';
+ 
++=head1 NAME
++
++DBM::Deep::Storage - abstract base class for storage
++
+ =head2 flush()
+ 
+ This flushes the filehandle. This takes no parameters and returns nothing.

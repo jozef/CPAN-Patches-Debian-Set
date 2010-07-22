@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), libcairo2-dev (>= 1.2.0), libextutils-depends-perl (>= 0.200), libextutils-pkgconfig-perl (>= 1.00), libtest-number-delta-perl, perl (>= 5.8.0-7)
+Build-Depends: debhelper (>= 7.0.50~), libcairo2-dev, libextutils-depends-perl, libextutils-pkgconfig-perl, libfont-freetype-perl, libtest-number-delta-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

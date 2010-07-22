@@ -5,7 +5,7 @@ Origin: vendor
 
 --- a/Pg.pm
 +++ b/Pg.pm
-@@ -1893,7 +1893,7 @@
+@@ -1894,7 +1894,7 @@
  
    0  Empty query string
    1  A command that returns no data successfully completed.

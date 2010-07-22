@@ -1,5 +1,8 @@
-Author: gregor herrmann <gregoa@debian.org>
 Description: fix pod2man errors
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-12
+
 --- a/lib/Net/SIP/Debug.pod
 +++ b/lib/Net/SIP/Debug.pod
 @@ -23,27 +23,27 @@

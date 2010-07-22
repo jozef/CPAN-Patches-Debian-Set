@@ -1,6 +1,10 @@
+Author: Andreas Jochens <aj@andaco.de>
+Bug-Debian: #318547
+Description: fix FTBFS ("error: invalid lvalue in assignment")
+
 --- a/RTjpeg/codec/modules/RTb2s_raw.c
 +++ b/RTjpeg/codec/modules/RTb2s_raw.c
-@@ -2,7 +2,7 @@
+@@ -2,7 +2,7 @@ int RTjpeg_b2s(s16 *data, s8 *strm, u8 b
  {
   int ci=1, co=1, tmp;
  
@@ -9,14 +13,3 @@
   
   for(ci=1; ci<=63; ci++)
    if(data[RTjpeg_ZZ[ci]]>0)
---- a/VBI/VBI.xs
-+++ b/VBI/VBI.xs
-@@ -482,7 +482,7 @@
-                     case 0x55:
-                       break;
-                     default:
--                      ; /* no teletext page */
-+                      break; /* no teletext page */
-                     }
- 
-                   if (data[1] == 0x55)

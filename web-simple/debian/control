@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libhttp-request-ascgi-perl, perl (>= 5.10.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libhttp-request-ascgi-perl
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libplack-perl, libsyntax-keyword-gather-perl, perl (>= 5.10.0)
+Depends: ${misc:Depends}, ${perl:Depends}, libplack-perl, libsyntax-keyword-gather-perl
 X: 0

@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libhook-lexwrap-perl (>= 0.20), libpod-simple-perl (>= 3.07), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl (>= 1.26), perl
+Build-Depends-Indep: libhook-lexwrap-perl (>= 0.20), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libhook-lexwrap-perl (>= 0.20)
 X: 0
