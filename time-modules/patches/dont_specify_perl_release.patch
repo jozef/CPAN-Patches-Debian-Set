@@ -1,8 +1,0 @@
---- a/t/datetime.t
-+++ b/t/datetime.t
-@@ -1,4 +1,4 @@
--#!/usr/bin/perl5.00502 -I. -w
-+#!/usr/bin/perl -I. -w
- 
- # David Muir Sharnoff <muir@idiom.com>
- 

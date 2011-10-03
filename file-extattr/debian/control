@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), libattr1-dev, perl
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
-X: 0

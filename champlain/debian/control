@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), libclutter-perl (>= 1.0000)
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libclutter-perl (>= 1.0000)
-X: 0

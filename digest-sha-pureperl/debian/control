@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), quilt (>= 0.47)
-Depends: ${misc:Depends}, ${perl:Depends}
-X: 0

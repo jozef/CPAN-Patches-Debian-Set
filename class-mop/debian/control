@@ -1,4 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7), libalgorithm-c3-perl, libclass-c3-perl, libdata-optlist-perl, libdevel-globaldestruction-perl, liblist-moreutils-perl, libmro-compat-perl, libpackage-stash-perl, libsub-name-perl (>= 0.04), libsuper-perl, libtask-weaken-perl, libtest-exception-perl (>= 0.27), libtest-leaktrace-perl, libtest-output-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtry-tiny-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdata-optlist-perl, libdevel-globaldestruction-perl, liblist-moreutils-perl, libmro-compat-perl, libpackage-stash-perl, libsub-name-perl (>= 0.04), libtask-weaken-perl, libtry-tiny-perl
-X: 0

@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.2.10), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libdate-manip-perl, libdatetime-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdate-manip-perl, libdatetime-perl
-X: 0

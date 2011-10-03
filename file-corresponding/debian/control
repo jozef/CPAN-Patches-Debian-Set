@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libfile-chdir-perl, libfile-homedir-perl, liblist-moreutils-perl, libmoose-autobox-perl (>= 0.08), libmoose-perl (>= 0.57), libmoosex-types-path-class-perl, libpath-class-perl (>= 0.11), libtest-differences-perl, libtest-exception-perl, libyaml-tiny-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libfile-chdir-perl, libfile-homedir-perl, liblist-moreutils-perl, libmoose-autobox-perl (>= 0.08), libmoose-perl (>= 0.57), libmoosex-types-path-class-perl, libpath-class-perl (>= 0.11), libyaml-tiny-perl, perl
-X: 0

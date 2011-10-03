@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libfile-remove-perl (>= 1.42), libperl-minimumversion-perl (>= 1.20), libpod-simple-perl (>= 3.07), libtest-cpan-meta-perl (>= 0.12), libtest-minimumversion-perl (>= 0.008), libtest-pod-perl (>= 1.26), perl (>= 5.8.0)
-Depends: ${misc:Depends}, ${perl:Depends}, perl (>= 5.8.0)
-X: 0

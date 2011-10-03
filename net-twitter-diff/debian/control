@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libarray-diff-perl, libnet-twitter-perl, perl (>= 5.10) | libtest-simple-perl (>= 0.86)
-Depends: ${misc:Depends}, ${perl:Depends}, libarray-diff-perl, libnet-twitter-perl
-X: 0

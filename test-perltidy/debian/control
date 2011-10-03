@@ -1,5 +1,0 @@
-App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libfile-finder-perl, libfile-slurp-perl, libtext-diff-perl, perl, perltidy (>= 20031021)
-Depends: ${misc:Depends}, ${perl:Depends}, libfile-finder-perl, libfile-slurp-perl, libtext-diff-perl, perltidy (>= 20031021)
-X: 0
