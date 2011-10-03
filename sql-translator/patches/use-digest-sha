@@ -1,0 +1,37 @@
+Description: Use Digest::SHA instead of Digest::SHA1
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=67989
+Origin: http://rt.cpan.org/Public/Bug/Display.html?id=67989
+Author: Salvatore Bonaccorso <carnil@cpan.org>
+--- a/META.yml
++++ b/META.yml
+@@ -242,7 +242,7 @@
+   Class::Data::Inheritable: 0.02
+   Class::MakeMethods: 0
+   DBI: 0
+-  Digest::SHA1: 2
++  Digest::SHA: 0
+   File::ShareDir: 1
+   File::Spec: 0
+   IO::Dir: 0
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -10,7 +10,7 @@
+     'Class::Base'              => 0,
+     'Class::Data::Inheritable' => 0.02,
+     'Class::MakeMethods'       => 0,
+-    'Digest::SHA1'             => 2.00,
++    'Digest::SHA'              => 0,
+     'Carp::Clan'               => 0,
+     'IO::Dir'                  => 0,
+     'IO::Scalar'               => 2.110,
+--- a/lib/SQL/Translator/Utils.pm
++++ b/lib/SQL/Translator/Utils.pm
+@@ -21,7 +21,7 @@
+ use strict;
+ use base qw(Exporter);
+ use vars qw($VERSION $DEFAULT_COMMENT @EXPORT_OK);
+-use Digest::SHA1 qw( sha1_hex );
++use Digest::SHA qw( sha1_hex );
+ use Exporter;
+ 
+ $VERSION = '1.59';

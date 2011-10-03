@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 6)
-Build-Depends-Indep: perl (>= 5.8.0)
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdata-section-simple-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-section-simple-perl
 X: 0

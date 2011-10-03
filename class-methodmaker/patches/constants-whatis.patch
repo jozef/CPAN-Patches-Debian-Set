@@ -1,5 +1,6 @@
 Description: Add whatis entry to POD/manpage
 Origin: vendor
+Forwarded: no
 Author: gregor herrmann <gregoa@debian.org>
 Reviewed-by: Jonathan Yu <frequency@cpan.org>
 --- a/lib/Class/MethodMaker/Constants.pm

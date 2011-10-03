@@ -1,0 +1,18 @@
+Description: correct a tiny spelling mistake
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=69652
+Author: gregor herrmann <gregoa@debian.org>,
+ Alessandro Ghedini <al3xbio@gmail.com>
+Last-Update: 2011-06-11
+
+--- a/lib/Catalyst/Engine/PSGI.pm
++++ b/lib/Catalyst/Engine/PSGI.pm
+@@ -236,7 +236,7 @@
+ 
+ Your application is supposed to work with any PSGI servers without any
+ code modifications, but if your application uses C<< $c->res->write >>
+-to do streaming write, this engine will buffer the ouput until your
++to do streaming write, this engine will buffer the output until your
+ app finishes.
+ 
+ To do real streaming with this engine, you should implement an

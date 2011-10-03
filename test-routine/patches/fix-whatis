@@ -1,0 +1,14 @@
+Description: Fix whatis for Test::Routine::Test::Rola
+Author: Maximilian Gass <mxey@cloudconnected.org>
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=70104
+--- a/lib/Test/Routine/Test/Role.pm
++++ b/lib/Test/Routine/Test/Role.pm
+@@ -26,7 +26,7 @@
+ 
+ =head1 NAME
+ 
+-Test::Routine::Test::Role
++Test::Routine::Test::Role - role providing test attributes
+ 
+ =head1 VERSION
+ 

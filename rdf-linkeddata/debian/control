@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libconfig-jfdi-perl, liblog-log4perl-perl, libmoose-perl, libmoosex-log-log4perl-perl, libnamespace-autoclean-perl, libplack-perl, librdf-helper-properties-perl, librdf-trine-perl, libtest-exception-perl, libtest-json-perl, libtest-rdf-perl, libtest-www-mechanize-psgi-perl, liburi-perl (>= 1.52), libwww-perl, perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

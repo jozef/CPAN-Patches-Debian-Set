@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libaliased-perl, libdevel-declare-perl, libdevel-partialdump-perl, libmoose-perl, libmoosex-declare-perl, libmoosex-method-signatures-perl, libmoosex-types-perl, libmoosex-types-varianttable-perl, libnamespace-autoclean-perl, libsub-install-perl, libtest-exception-perl, libtest-nowarnings-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libaliased-perl, libdevel-declare-perl, libdevel-partialdump-perl, libmoose-perl, libmoosex-method-signatures-perl, libmoosex-types-perl, libmoosex-types-varianttable-perl, libnamespace-autoclean-perl, libsub-install-perl
+X: 0

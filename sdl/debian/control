@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libalien-sdl-perl, libsdl-gfx1.2-dev, libsdl-image1.2-dev, libsdl-mixer1.2-dev, libsdl-net1.2-dev, libsdl-ttf2.0-dev, libsdl1.2-dev, libtest-most-perl, libtie-simple-perl, libyaml-perl, perl, ttf-sil-gentium-basic, xauth, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, ttf-sil-gentium-basic
+X: 1

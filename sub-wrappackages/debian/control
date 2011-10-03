@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libhook-lexwrap-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libhook-lexwrap-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdevel-caller-ignorenamespaces-perl, libsub-prototype-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-caller-ignorenamespaces-perl, libsub-prototype-perl
 X: 0

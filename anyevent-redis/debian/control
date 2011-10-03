@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libanyevent-perl, libtest-leaktrace-perl, libtest-tcp-perl (>= 1.03), libtry-tiny-perl, perl, redis-server
+Depends: ${misc:Depends}, ${perl:Depends}, libanyevent-perl, libtry-tiny-perl, perl
+X: 0

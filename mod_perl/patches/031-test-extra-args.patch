@@ -1,10 +1,13 @@
-Honour $(APACHE_TEST_EXTRA_ARGS); Makefile.PL has apparently not been updated
-since this was added to Apache::Test.
-Index: libapache2-mod-perl2/Makefile.PL
-===================================================================
---- libapache2-mod-perl2.orig/Makefile.PL	2008-12-26 19:33:34.000000000 -0600
-+++ libapache2-mod-perl2/Makefile.PL	2008-12-26 19:33:37.000000000 -0600
-@@ -781,12 +781,12 @@
+Author: Niko Tyni <ntyni@debian.org>
+Subject: APACHE_TEST_EXTRA
+ Honour $(APACHE_TEST_EXTRA_ARGS); Makefile.PL has apparently not been updated
+ since this was added to Apache::Test.
+Forwarded: not-needed
+Last-Update: 2011-03-22
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -783,12 +783,12 @@
  
  test_clean :
  	$(FULLPERL) -I$(INST_ARCHLIB) -I$(INST_LIB) \
@@ -16,6 +19,6 @@ Index: libapache2-mod-perl2/Makefile.PL
  	$(FULLPERL) -I$(INST_ARCHLIB) -I$(INST_LIB) \
 -	t/TEST -bugreport -verbose=$(TEST_VERBOSE) $(TEST_FILES)
 +	t/TEST $(APACHE_TEST_EXTRA_ARGS) -bugreport -verbose=$(TEST_VERBOSE) $(TEST_FILES)
- 	cd ModPerl-Registry && $(MAKE) test
+ 	$(MAKE) -k run_subtests
  
- test :: pure_all run_tests test_clean
+ run_subtests ::

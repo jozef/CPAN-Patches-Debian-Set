@@ -5,8 +5,8 @@ Author: Jonathan Yu <jawnsy@cpan.org>
 Reviewed-by: gregor herrmann <gregoa@debian.org>
 Last-Update: 2010-07-12
 
---- a/lib/Net/SIP/Endpoint.pod
-+++ b/lib/Net/SIP/Endpoint.pod
+--- libnet-sip-perl.orig/lib/Net/SIP/Endpoint.pod
++++ libnet-sip-perl/lib/Net/SIP/Endpoint.pod
 @@ -133,7 +133,7 @@
  
  =item from
@@ -16,8 +16,8 @@ Last-Update: 2010-07-12
  
  =item contact
  
---- a/lib/Net/SIP/Leg.pod
-+++ b/lib/Net/SIP/Leg.pod
+--- libnet-sip-perl.orig/lib/Net/SIP/Leg.pod
++++ libnet-sip-perl/lib/Net/SIP/Leg.pod
 @@ -111,7 +111,7 @@
  ADDR is a hostname which can be prefixed by the protocol ( e.g. C<udp:host> )
  and postfixed by the port ( C<host:port>, C<tcp:host:port>,... ).
@@ -27,8 +27,8 @@ Last-Update: 2010-07-12
  it can call the method with %SPEC instead.
  
  Right now it has now way to check if the leg can deliver to a specific
---- a/lib/Net/SIP/Request.pod
-+++ b/lib/Net/SIP/Request.pod
+--- libnet-sip-perl.orig/lib/Net/SIP/Request.pod
++++ libnet-sip-perl/lib/Net/SIP/Request.pod
 @@ -77,7 +77,7 @@
  
  Returns Net::SIP::Response packet for the received request C<$self> with
@@ -38,8 +38,8 @@ Last-Update: 2010-07-12
  If MSG is not given (e.g. argument is missing, second argument is \%HEADER
  already) a builtin message for the code will be used.
  
---- a/lib/Net/SIP/Simple.pod
-+++ b/lib/Net/SIP/Simple.pod
+--- libnet-sip-perl.orig/lib/Net/SIP/Simple.pod
++++ libnet-sip-perl/lib/Net/SIP/Simple.pod
 @@ -67,8 +67,8 @@
  \@List of legs or single leg. Leg can be an existing L<Net::SIP::Leg> (or derived)
  object, an L<IO::Handle> (existing socket), a hash reference which can be used
@@ -51,8 +51,8 @@ Last-Update: 2010-07-12
  
  Either B<legs> or B<outgoing_proxy> has to be provided, e.g. it needs at least one
  leg.
---- a/lib/Net/SIP/Simple/Call.pod
-+++ b/lib/Net/SIP/Simple/Call.pod
+--- libnet-sip-perl.orig/lib/Net/SIP/Simple/Call.pod
++++ libnet-sip-perl/lib/Net/SIP/Simple/Call.pod
 @@ -159,7 +159,7 @@
  
  =item ...

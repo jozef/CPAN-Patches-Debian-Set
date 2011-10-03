@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmoose-perl (>= 0.91), libparams-util-perl, libtie-ixhash-perl, libtry-tiny-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.91), libparams-util-perl, libtie-ixhash-perl, libtry-tiny-perl, perl (>= 5.8.9) | libmodule-pluggable-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-load-perl, libmoose-perl (>= 0.91), libmoosex-oneargnew-perl, libparams-util-perl, librole-hasmessage-perl, librole-identifiable-perl, libtest-fatal-perl, libthrowable-perl, libtie-ixhash-perl, libtry-tiny-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-load-perl, libmoose-perl (>= 0.91), libmoosex-oneargnew-perl, libparams-util-perl, librole-hasmessage-perl, librole-identifiable-perl, libthrowable-perl, libtie-ixhash-perl, libtry-tiny-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
 X: 0

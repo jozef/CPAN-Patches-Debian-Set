@@ -1,0 +1,15 @@
+Origin: vendor
+Last-Update: 2011-07-09
+
+--- a/lib/HTML/Mason/CGIHandler.pm
++++ b/lib/HTML/Mason/CGIHandler.pm
+@@ -97,6 +97,9 @@
+                 $sent_headers = 1;
+             }
+ 
++            # mimic mod_perl behaviour
++            use bytes;
++
+             # We could perhaps install a new, faster out_method here that
+             # wouldn't have to keep checking whether headers have been
+             # sent and what the $r->method is.  That would require

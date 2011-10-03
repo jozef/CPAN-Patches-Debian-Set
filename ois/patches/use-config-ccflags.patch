@@ -1,0 +1,26 @@
+Description: Include $Config{ccflags} in CCFLAGS
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/636655
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-08
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -1,6 +1,7 @@
+ use ExtUtils::MakeMaker;
+ use strict;
+ use warnings;
++use Config;
+ 
+ my $MIN_OIS_VERSION = '1.2.0';
+ 
+@@ -44,7 +45,7 @@
+             chomp $str;
+             my ($v, $s) = split /\./, $str;
+             if (($v == 4 && $s >= 2) || $v > 4) {
+-                return {'CCFLAGS' => '-Wno-write-strings'};
++                return {'CCFLAGS' => "-Wno-write-strings $Config{ccflags}"};
+             }
+         }
+     }

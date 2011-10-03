@@ -1,0 +1,18 @@
+Description: Don't run Test::Kwalitee on Debian (avoids dependency loop)
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/627865
+Forwarded: not-needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-25
+
+--- a/t/local/kwalitee.t
++++ b/t/local/kwalitee.t
+@@ -4,5 +4,8 @@
+ use warnings;
+ use Test::More;
+ 
++# Debian-specific. Cf. #627865
++plan skip_all => "Don't run Test::Kwalitee on Debian";
++
+ eval "use Test::Kwalitee;";
+ plan skip_all => 'Needs Test::Kwalitee' if $@;

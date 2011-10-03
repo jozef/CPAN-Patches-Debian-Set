@@ -1,4 +1,4 @@
-Author: Ansgar Burchardt <ansgar@43-1.org>
+Author: Ansgar Burchardt <ansgar@debian.org>
 Subject: Adds pod to the dumpconf helper script
 
 --- libhtml-formfu-perl.orig/bin/html_formfu_dumpconf.pl

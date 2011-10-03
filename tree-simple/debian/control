@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 5)
-Build-Depends-Indep: libtest-exception-perl (>= 0.15), libtest-pod-coverage-perl, libtest-pod-perl (>= 1.14), perl (>= 5.8.8-1)
-Depends: ${misc:Depends}, perl (>= 5.8.8-1)
+Build-Depends-Indep: libtest-exception-perl (>= 0.15), libtest-pod-coverage-perl, libtest-pod-perl (>= 1.14), perl
+Depends: ${misc:Depends}, perl
 X: 0

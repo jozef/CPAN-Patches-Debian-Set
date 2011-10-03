@@ -1,0 +1,40 @@
+Description: spelling mistakes
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=70549
+Bug: https://rt.cpan.org/Ticket/Display.html?id=70549
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-28
+
+--- a/README
++++ b/README
+@@ -5,7 +5,7 @@
+     This document describes Makefile::DOM 0.006 released on 28 August 2011.
+ 
+ DESCRIPTION
+-    This libary can serve as an advanced lexer for (GNU) makefiles. It
++    This library can serve as an advanced lexer for (GNU) makefiles. It
+     parses makefiles as "documents" and the parsing is lossless. The results
+     are data structures similar to DOM trees. The DOM trees hold every
+     single bit of the information in the original input files, including
+--- a/lib/MDOM/Token.pm
++++ b/lib/MDOM/Token.pm
+@@ -107,7 +107,7 @@
+ 
+ =head2 set_content $string
+ 
+-The C<set_content> method allows to set/change the string that the
++The C<set_content> method allows one to set/change the string that the
+ C<MDOM::Token> object represents.
+ 
+ Returns the string you set the Token to
+--- a/lib/Makefile/DOM.pm
++++ b/lib/Makefile/DOM.pm
+@@ -30,7 +30,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-This libary can serve as an advanced lexer for (GNU) makefiles. It parses makefiles as "documents" and the parsing is lossless. The results are data structures similar to DOM trees. The DOM trees hold every single bit of the information in the original input files, including white spaces, blank lines and makefile comments. That means it's possible to reproduce the original makefiles from the DOM trees. In addition, each node of the DOM trees is modifiable and so is the whole tree, just like the L<PPI> module used for Perl source parsing and the L<HTML::TreeBuilder> module used for parsing HTML source.
++This library can serve as an advanced lexer for (GNU) makefiles. It parses makefiles as "documents" and the parsing is lossless. The results are data structures similar to DOM trees. The DOM trees hold every single bit of the information in the original input files, including white spaces, blank lines and makefile comments. That means it's possible to reproduce the original makefiles from the DOM trees. In addition, each node of the DOM trees is modifiable and so is the whole tree, just like the L<PPI> module used for Perl source parsing and the L<HTML::TreeBuilder> module used for parsing HTML source.
+ 
+ If you're looking for a true GNU make parser that generates an AST, please see L<Makefile::Parser::GmakeDB> instead.
+ 

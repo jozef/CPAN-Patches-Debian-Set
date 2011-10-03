@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), libssl-dev, libtest-exception-perl, libtest-kwalitee-perl, libtest-nowarnings-perl, libtest-pod-perl, libtest-warn-perl, openssl, perl
+Build-Depends: debhelper (>= 8), libssl-dev, libtest-exception-perl, libtest-nowarnings-perl, libtest-pod-perl, libtest-warn-perl, openssl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

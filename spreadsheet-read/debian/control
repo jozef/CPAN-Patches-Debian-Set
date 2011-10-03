@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libspreadsheet-parseexcel-perl (>= 0.5900), libspreadsheet-xlsx-perl (>= 0.13), libtest-nowarnings-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtext-csv-perl (>= 1.21), libtext-csv-xs-perl (>= 0.83), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libio-stringy-perl, libtext-csv-perl (>= 1.21)
+X: 0

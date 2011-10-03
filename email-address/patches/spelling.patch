@@ -1,0 +1,41 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Wed, 25 Aug 2010 21:39:19 +0900
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=60727
+Subject: Fix spelling errors
+
+--- libemail-address-perl.orig/lib/Email/Address.pm
++++ libemail-address-perl/lib/Email/Address.pm
+@@ -36,7 +36,7 @@
+ 
+ This class implements a regex-based RFC 2822 parser that locates email
+ addresses in strings and returns a list of C<Email::Address> objects found.
+-Alternatley you may construct objects manually. The goal of this software is to
++Alternately you may construct objects manually. The goal of this software is to
+ be correct, and very very fast.
+ 
+ =cut
+@@ -120,12 +120,12 @@
+ =item $Email::Address::name_addr
+ 
+ This regular expression defines what an email address can look like
+-with an optional preceeding display name, also known as the C<phrase>.
++with an optional preceding display name, also known as the C<phrase>.
+ 
+ =item $Email::Address::mailbox
+ 
+ This is the complete regular expression defining an RFC 2822 emial
+-address with an optional preceeding display name and optional
++address with an optional preceding display name and optional
+ following comment.
+ 
+ =back
+@@ -285,7 +285,7 @@
+ 
+   Email::Address->disable_cache if memory_low();
+ 
+-If you'd rather not cache address parses at all, you can disable (and reenable) the Email::Address cache with these methods.  The cache is enabled by default.
++If you'd rather not cache address parses at all, you can disable (and re-enable) the Email::Address cache with these methods.  The cache is enabled by default.
+ 
+ =cut
+ 

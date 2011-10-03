@@ -1,0 +1,19 @@
+Description: Fixes first NAME field in FAQ.pod adding "\-" and description.
+Origin: vendor
+Forwarded: no
+Author: Keith Lawson <keith@nowhere.ca>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-08
+
+
+--- a/lib/Apache/AuthCookie/FAQ.pod
++++ b/lib/Apache/AuthCookie/FAQ.pod
+@@ -9,7 +9,7 @@
+ 
+ =head1 NAME
+ 
+-Apache::AuthCookie::FAQ
++Apache::AuthCookie::FAQ - Frequently Asked Questions about Apache::AuthCookie.
+ 
+ =head1 VERSION
+ 

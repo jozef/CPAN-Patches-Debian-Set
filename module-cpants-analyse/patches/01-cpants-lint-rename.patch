@@ -2,6 +2,9 @@ Description: cpants_lint.pl is installed as cpants_lint
 Origin: vendor
 Forwarded: not-needed
 Author: Jonathan Yu <frequency@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-07
+
 --- a/bin/cpants_lint.pl
 +++ b/bin/cpants_lint.pl
 @@ -135,11 +135,11 @@

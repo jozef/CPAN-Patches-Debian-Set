@@ -1,10 +1,14 @@
-# See http://bugs.debian.org/476272
-# See http://rt.cpan.org/Ticket/Display.html?id=37349
-# The idea of the patch is to pass non-existent directories literally so
-# that they can be examined when they exist on the user's system
+Subject: Fix directories
+ The idea of the patch is to pass non-existent directories literally so
+ that they can be examined when they exist on the user's system
+Author: Damyan Ivanov <dmn@debian.org>
+Bug-Debian: http://bugs.debian.org/476272
+Bug: http://rt.cpan.org/Ticket/Display.html?id=37349
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-09-25
 --- a/Makefile.PL
 +++ b/Makefile.PL
-@@ -32,7 +32,7 @@ my @versions = grep { $_ ne "README" && 
+@@ -32,7 +32,7 @@
  
  my $base     = getcwd;
  
@@ -13,7 +17,7 @@
                     @INC;
  my @inc      = sort keys %inc;
  
-@@ -73,7 +73,7 @@ and +-select options.
+@@ -73,7 +73,7 @@
  
  EOM
      eval "use Cwd";

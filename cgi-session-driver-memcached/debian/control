@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcache-memcached-perl | libcache-memcached-fast-perl, libcgi-session-perl, memcached, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcache-memcached-perl | libcache-memcached-fast-perl, libcgi-session-perl
+X: 0

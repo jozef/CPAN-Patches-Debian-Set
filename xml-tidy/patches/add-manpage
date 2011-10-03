@@ -1,0 +1,35 @@
+Subject: add a man page to xmltidy
+Author: Ryan Niebur <ryanryan52@gmail.com>
+Last-Update: 2010-20-17
+Forwarded: no
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+--- a/bin/xmltidy
++++ b/bin/xmltidy
+@@ -14,3 +14,27 @@
+ use strict; use XML::Tidy;
+ my $flnm = shift() || die "USAGE: `$0 FileName.xml '<indent_string>'`\n";
+ my $tidy = XML::Tidy->new($flnm); $tidy->tidy(shift()); $tidy->write();
++
++=pod
++
++=head1 NAME
++
++xmltidy - tidy an XML document
++
++=cut
++
++=head1 SYNOPSIS
++
++xmltidy FileName.xml <indent_string>
++
++=cut
++
++=head1 DESCRIPTION
++
++The FileName is the file that will be tidied, and the optional
++indent_string is the string that should be inserted for each indent
++level, which defaults to two spaces.
++
++=cut
++
++

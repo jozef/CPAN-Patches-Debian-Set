@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: perl, subversion
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: liburi-perl, perl, subversion
 Depends: ${misc:Depends}, ${perl:Depends}, subversion
 X: 0

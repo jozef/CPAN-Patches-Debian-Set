@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-accessor-perl, libclone-perl, libstring-tokenizer-perl, libtest-exception-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libclone-perl, libstring-tokenizer-perl
+X: 0

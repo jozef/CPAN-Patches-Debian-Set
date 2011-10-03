@@ -1,0 +1,15 @@
+Description: silence warning checking undefined dlr_msg
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2010-04-28
+
+--- a/lib/NetSDS/Kannel.pm
++++ b/lib/NetSDS/Kannel.pm
+@@ -630,7 +630,7 @@
+ 	$ret{dlr_msg} = $cgi->param('dlrmsg');
+ 
+ 	# Process return code if not success
+-	if ( $ret{dlr_msg} =~ /^NACK\/(\d+)\// ) {
++	if ( $ret{dlr_msg} and $ret{dlr_msg} =~ /^NACK\/(\d+)\// ) {
+ 		$self->{reject_code} = $1;
+ 	}
+ 

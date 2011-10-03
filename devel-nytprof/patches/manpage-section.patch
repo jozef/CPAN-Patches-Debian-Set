@@ -4,7 +4,8 @@ Description: Fix manpage section
  And the manpage for bin/nytprofmerge is missing.
 Forwarded: no
 Author: gregor herrmann <gregoa@debian.org>
-Last-Update: 2010-06-12
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-09-25
 
 --- a/Makefile.PL
 +++ b/Makefile.PL

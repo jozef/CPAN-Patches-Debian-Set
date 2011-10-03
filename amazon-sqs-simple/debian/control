@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libdigest-hmac-perl, liburi-perl, libwww-perl, libxml-simple-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libdigest-hmac-perl, liburi-perl, libwww-perl, libxml-simple-perl
 X: 0

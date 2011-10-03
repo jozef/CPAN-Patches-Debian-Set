@@ -1,0 +1,29 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: UNIVERSAL->import deprecated in perl 5.12
+Last-Update: 2011-05-11
+Bug: http://rt.cpan.org/Ticket/Display.html?id=66114
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=614872
+--- a/lib/Test/LectroTest/TestRunner.pm
++++ b/lib/Test/LectroTest/TestRunner.pm
+@@ -2,9 +2,7 @@
+ 
+ use strict;
+ use warnings;
+-
+-use UNIVERSAL qw( isa );
+-
++use Scalar::Util qw(blessed);
+ use Carp;
+ use Data::Dumper;
+ 
+@@ -399,7 +397,9 @@
+ 
+ =cut
+ 
+-sub _prop($) { isa $_[0], "Test::LectroTest::Property" }
++sub _prop($) {
++    return blessed $_[0] && $_[0]->isa("Test::LectroTest::Property");
++}
+ 
+ sub run_suite {
+     local $| = 1;

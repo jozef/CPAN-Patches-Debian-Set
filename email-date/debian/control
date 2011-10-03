@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5)
+Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: libemail-abstract-perl, libemail-date-format-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtime-piece-perl, libtimedate-perl, perl (>= 5.8.0-7)
 Depends: ${misc:Depends}, ${perl:Depends}, libemail-abstract-perl, libemail-date-format-perl, libtime-piece-perl, libtimedate-perl
 X: 0

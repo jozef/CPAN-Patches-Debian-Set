@@ -1,5 +1,7 @@
-syslogd isn't necessarily on the buildds
-
+Subject: syslogd isn't necessarily on the buildds
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-10-07
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
 --- a/t/80proxy.t
 +++ b/t/80proxy.t
 @@ -10,6 +10,10 @@

@@ -1,2 +1,3 @@
 fix-pod-spelling.patch
-stop-emailing-in-tests
+stop-emailing-in-tests.patch
+tests_as_root.patch

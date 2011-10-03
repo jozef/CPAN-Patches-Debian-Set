@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libalgorithm-diff-perl, libspiffy-perl (>= 0.30), libtest-deep-perl, libtest-tester-perl, libtext-diff-perl, libyaml-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libalgorithm-diff-perl, libspiffy-perl (>= 0.30), libtext-diff-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libalgorithm-diff-perl, libspiffy-perl, libtest-deep-perl, libtest-tester-perl, libtext-diff-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libalgorithm-diff-perl, libspiffy-perl, libtext-diff-perl
 X: 0

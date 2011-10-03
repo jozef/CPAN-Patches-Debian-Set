@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8), quilt (>= 0.48-2~)
+Build-Depends-Indep: libfile-slurp-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-slurp-perl
+X: 0

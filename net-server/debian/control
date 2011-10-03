@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: perl
+Depends: ${misc:Depends}, ${perl:Depends}, libio-multiplex-perl, libio-socket-inet6-perl, libnet-cidr-perl, libsocket6-perl
+X: 0

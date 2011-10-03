@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcgi-application-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-perl
+X: 0

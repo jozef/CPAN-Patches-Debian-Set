@@ -1,0 +1,93 @@
+Description: Fix parser error on auth failure
+ When I create a connection that has a bad password, I encounter the
+ following error (via warn) after receiving the sasl_error and
+ disconnect events:
+ .
+ parser error: Can't call method "NamespaceEnd" on an undefined value at
+ /usr/lib/perl5/vendor_perl/XML/Parser/Expat.pm line 614.
+ on [<failure xmlns='urn:ietf:params:xml:ns:xmpp-sasl'><not-
+ authorized/><text>The response provided by the client doesn't
+ match the one we calculated.</text></failure>]
+ .
+ What happens is that the AE::XMPP::Parser object gets rids of its expat
+ parser member in disconnect in response to the failure tag, but Expat
+ wants to keep parsing the string. I have attached a test file and a
+ patch to fix the bug.
+Author: RHOELZ [...] cpan.org
+Last-Update: 2011-05-23
+Forwarded: yes
+Origin: https://rt.cpan.org/Ticket/Attachment/789032/408830/patch
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=58296
+--- a/lib/AnyEvent/XMPP/Parser.pm
++++ b/lib/AnyEvent/XMPP/Parser.pm
+@@ -119,8 +119,6 @@
+ sub cleanup {
+    my ($self) = @_;
+ 
+-   $self->{parser}->release;
+-
+    for (qw(stanza_cb error_cb stream_cb parser)) {
+       delete $self->{$_};
+    }
+@@ -247,4 +245,9 @@
+ 
+ =cut
+ 
++sub DESTROY {
++    my ($self) = @_;
++    $self->{parser}->release;
++}
++
+ 1; # End of AnyEvent::XMPP
+--- /dev/null
++++ b/t/z_parser_error.t
+@@ -0,0 +1,49 @@
++#!perl
++
++use strict;
++no warnings;
++use Test::More;
++use AnyEvent::XMPP::Connection;
++
++unless($ENV{NET_XMPP2_TEST}) {
++    plan skip_all => 'Define NET_XMPP2_TEST to jid:password to test this';
++    exit 0;
++}
++plan tests => 3;
++my ( $jid ) = split /:/, $ENV{NET_XMPP2_TEST};
++
++my $conn = AnyEvent::XMPP::Connection->new(
++    jid => $jid,
++    password => '',
++);
++
++my $seen_warn = 0;
++my $seen_stream_ready = 0;
++my $seen_sasl_error = 0;
++
++$SIG{__WARN__} = sub {
++    $seen_warn = 1;
++};
++
++my $cond = AnyEvent->condvar;
++
++$conn->reg_cb(
++    stream_ready => sub {
++        $seen_stream_ready = 1;
++        $conn->disconnect;
++    },
++    sasl_error => sub {
++        $seen_sasl_error = 1;
++    },
++    disconnect => sub {
++        $cond->broadcast;
++    },
++);
++
++$conn->connect;
++
++$cond->wait;
++
++ok(! $seen_stream_ready, 'auth should fail');
++ok(! $seen_warn, 'no warnings should be emitted');
++ok($seen_sasl_error, 'I should see a SASL error');

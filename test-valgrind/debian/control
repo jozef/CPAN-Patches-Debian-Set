@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libenv-sanctify-perl, libfile-homedir-perl (>= 0.86), libperl-destruct-level-perl, libtest-kwalitee-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-portability-files-perl, libxml-twig-perl, perl, valgrind
 Depends: ${misc:Depends}, ${perl:Depends}, libenv-sanctify-perl, libfile-homedir-perl (>= 0.86), libperl-destruct-level-perl, libxml-twig-perl, valgrind
 X: 0

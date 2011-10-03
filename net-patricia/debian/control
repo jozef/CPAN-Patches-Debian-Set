@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), libsocket6-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libsocket6-perl
+Build-Depends: debhelper (>= 7), libnet-cidr-lite-perl, libsocket6-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libnet-cidr-lite-perl, libsocket6-perl
 X: 0

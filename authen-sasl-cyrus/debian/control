@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>> 7), libauthen-sasl-perl, libsasl2-dev, libsasl2-modules, perl (>> 5.8), quilt
+Build-Depends: debhelper (>= 8), libauthen-sasl-perl, libsasl2-dev, libsasl2-modules, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libauthen-sasl-perl
 X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libarray-unique-perl, libclass-accessor-perl, libparse-debcontrol-perl, libperl6-slurp-perl, libtest-longstring-perl, libtie-ixhash-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libarray-unique-perl, libclass-accessor-perl, libparse-debcontrol-perl, libtie-ixhash-perl
+X: 0

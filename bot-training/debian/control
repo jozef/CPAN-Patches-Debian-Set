@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libany-moose-perl, libdir-self-perl, libfile-sharedir-perl, libfile-slurp-perl, libmoose-perl, libmoosex-getopt-perl, libmouse-perl, libmousex-getopt-perl, libnamespace-clean-perl, perl (>= 5.10.1) | libautodie-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl, libdir-self-perl, libfile-sharedir-perl, libmoose-perl, libmoosex-getopt-perl, libmouse-perl, libmousex-getopt-perl, libnamespace-clean-perl, perl (>= 5.10.1) | libautodie-perl
+X: 0

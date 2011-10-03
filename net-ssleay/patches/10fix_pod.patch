@@ -3,7 +3,7 @@ Forwarded: no
 Description: Fix overlong lines and typos in POD
 --- a/lib/Net/SSLeay.pm
 +++ b/lib/Net/SSLeay.pm
-@@ -987,7 +987,8 @@
+@@ -945,7 +945,8 @@
      my $bio = Net::SSLeay::BIO_new_file($crlfilename, 'r');
      my $crl = Net::SSLeay::PEM_read_bio_X509_CRL($bio);
      if ($crl) {

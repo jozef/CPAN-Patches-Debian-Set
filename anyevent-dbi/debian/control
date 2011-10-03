@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libanyevent-perl, libcommon-sense-perl, libdbd-sqlite3-perl, libdbi-perl, libtest-simple-perl (>= 0.96), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libanyevent-perl, libcommon-sense-perl, libdbi-perl
+X: 0

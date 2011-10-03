@@ -1,0 +1,35 @@
+Description: use Digest::MD5 (in perl core) instead of packaging the pure perl alternative Digest::Perl::MD5
+Origin: vendor
+Forwarded: not needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-09-23
+
+--- a/lib/Spreadsheet/ParseExcel.pm
++++ b/lib/Spreadsheet/ParseExcel.pm
+@@ -20,7 +20,7 @@
+ use Config;
+ 
+ use Crypt::RC4;
+-use Digest::Perl::MD5;
++use Digest::MD5;
+ 
+ our $VERSION = '0.59';
+ 
+@@ -269,7 +269,7 @@
+     substr( $pwarray, 9,  1 ) = "\x80";
+     substr( $pwarray, 56, 1 ) = "\x48";
+ 
+-    my $md5 = Digest::Perl::MD5->new();
++    my $md5 = Digest::MD5->new();
+     $md5->add( $pwarray );
+ 
+     my $s = md5state( $md5 );
+@@ -282,7 +282,7 @@
+ 
+     my $pwarray = "\0" x 64;
+     my $i;
+-    my $md5 = Digest::Perl::MD5->new();
++    my $md5 = Digest::MD5->new();
+ 
+     for ( $i = 0 ; $i < length( $password ) ; $i++ ) {
+         my $o = ord( substr( $password, $i, 1 ) );

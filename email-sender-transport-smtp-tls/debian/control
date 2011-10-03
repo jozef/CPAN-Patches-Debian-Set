@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libemail-sender-perl (>= 0.102370), libnet-smtp-tls-butmaintained-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-sender-perl (>= 0.102370), libnet-smtp-tls-butmaintained-perl
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libio-stringy-perl (>= 2.110), libxml-writer-perl (>= 0.531), libxml-xpath-perl (>= 1.13), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libio-stringy-perl (>= 2.110), libxml-writer-perl (>= 0.531), libxml-xpath-perl (>= 1.13)
+X: 0

@@ -1,0 +1,16 @@
+Description: Fix Log::Any::Adapter::Dispatch's POD to have a proper
+ NAME section with a short description after the class name, so
+ pod2man generates proper man pages.
+Forwarded: yes
+Author: Ernesto Hernández-Novich <emhn@usb.ve>
+--- a/lib/Log/Any/Adapter/Dispatch.pm
++++ b/lib/Log/Any/Adapter/Dispatch.pm
+@@ -42,7 +42,7 @@
+ 
+ =head1 NAME
+ 
+-Log::Any::Adapter::Dispatch
++Log::Any::Adapter::Dispatch - Log::Any adapter to log through Log::Dispatch
+ 
+ =head1 SYNOPSIS
+ 

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), libnet-ssleay-perl
-Build-Depends-Indep: libtie-ixhash-perl, liburi-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libtie-ixhash-perl, liburi-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libnet-https-any-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-https-any-perl
 X: 0

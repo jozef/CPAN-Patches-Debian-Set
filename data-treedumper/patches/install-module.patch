@@ -1,4 +1,7 @@
-Only install the actual Perl module, not all the support scripts.
+Description: Only install the actual Perl module, not all the support scripts.
+Forwarded: not-needed
+Author: Peter Pentchev <roam@ringlet.net>
+Last-Update: 2011-02-24
 
 --- a/Makefile.PL
 +++ b/Makefile.PL

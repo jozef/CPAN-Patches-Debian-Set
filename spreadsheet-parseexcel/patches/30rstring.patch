@@ -1,9 +1,14 @@
-Author: Niko Tyni <ntyni@iki.fi>
 Description: Handle BIFF8 UTF16 strings in the 'RSTRING' opcode too, just
-like 'STRING'. (#299870)
+ like 'STRING'.
+Bug-Debian: http://bugs.debian.org/299870
+Forwarded: no
+Author: Niko Tyni <ntyni@iki.fi>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-24
+
 --- a/lib/Spreadsheet/ParseExcel.pm
 +++ b/lib/Spreadsheet/ParseExcel.pm
-@@ -580,10 +580,23 @@
+@@ -861,10 +861,23 @@
      my ( $oBook, $bOp, $bLen, $sWk ) = @_;
      my ( $iR, $iC, $iF, $iL, $sTxt );
      ( $iR, $iC, $iF, $iL ) = unpack( "v4", $sWk );
@@ -25,12 +30,12 @@ like 'STRING'. (#299870)
 +    }
  
 -    #Has STRUN
--    if ( length($sWk) > ( 8 + $iL ) ) {
+-    if ( length( $sWk ) > ( 8 + $iL ) ) {
 +    if ($rich) {
          _NewCell(
              $oBook, $iR, $iC,
              Kind     => 'RString',
-@@ -591,9 +604,9 @@
+@@ -872,9 +885,9 @@
              FormatNo => $iF,
              Format   => $oBook->{Format}[$iF],
              Numeric  => 0,
@@ -42,7 +47,7 @@ like 'STRING'. (#299870)
          );
      }
      else {
-@@ -604,7 +617,7 @@
+@@ -885,7 +898,7 @@
              FormatNo => $iF,
              Format   => $oBook->{Format}[$iF],
              Numeric  => 0,

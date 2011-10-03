@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 8), libanyevent-perl, libdevel-checklib-perl, libjson-perl, libtask-weaken-perl, libtest-exception-perl (>= 0.29), libtest-requires-perl, libtest-simple-perl (>= 0.98) | perl (>= 5.14), libtest-tcp-perl, libzmq-dev (>= 2.1.4), perl (>= 5.10.1) | libextutils-parsexs-perl (>= 2.21), pkg-config, uuid-dev
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libtask-weaken-perl
+X: 0

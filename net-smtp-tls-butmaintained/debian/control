@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdigest-hmac-perl, libio-socket-ssl-perl, libnet-ssleay-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdigest-hmac-perl, libio-socket-ssl-perl, libnet-ssleay-perl
+X: 0

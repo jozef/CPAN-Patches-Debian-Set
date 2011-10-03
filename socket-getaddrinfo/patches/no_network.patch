@@ -1,0 +1,27 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Forwarded: no
+Last-Update: 2011-02-08
+Subject: Test requires network connectivity
+ Note that some of the disabled tests require not just network connectivity
+ but that there is an ftp entry in /etc/services. This entry need not 
+ be conventional.
+--- a/t/01getaddrinfo.t
++++ b/t/01getaddrinfo.t
+@@ -169,7 +169,7 @@
+ my $goodhost = "cpan.perl.org";
+ 
+ SKIP: {
+-   skip "Resolver has no answer for $goodhost", 2 unless gethostbyname( $goodhost );
++   skip "disabling test requiring network", 2;
+ 
+    ( $err, @res ) = getaddrinfo( "cpan.perl.org", "ftp", { socktype => SOCK_STREAM } );
+    is_err( $err, 0,  '$err == 0 for host=cpan.perl.org/service=ftp/socktype=STREAM' );
+@@ -184,7 +184,7 @@
+ # any request. We'd better check for them
+ 
+ SKIP: {
+-   skip "Resolver has an answer for $missinghost", 1 if gethostbyname( $missinghost );
++   skip "disabling test requiring network", 1;
+ 
+    # Some OSes return $err == 0 but no results
+    ( $err, @res ) = getaddrinfo( $missinghost, "ftp", { socktype => SOCK_STREAM } );

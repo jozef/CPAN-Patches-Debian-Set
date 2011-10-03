@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
-Build-Depends-Indep: libdbi-perl, libemail-date-perl, libmro-compat-perl, libparams-validate-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Build-Depends: debhelper (>= 8), perl
+Build-Depends-Indep: libdbi-perl, libemail-date-perl, libmro-compat-perl, libparams-validate-perl, libtest-pod-coverage-perl, libtest-pod-perl
 Depends: ${misc:Depends}, ${perl:Depends}, libparams-validate-perl
 X: 0

@@ -1,0 +1,46 @@
+Description: errors from pod2man
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-28
+
+--- a/lib/Date/Simple/D8.pm
++++ b/lib/Date/Simple/D8.pm
+@@ -27,6 +27,8 @@
+ This module changes the default stringification behaviour of Date::Simple objects to
+ use the as_d8() method instead.
+ 
++=over
++
+ =item Date::Simple::D8->new ([ARG, ...])
+ 
+ =item date_d8 ([ARG, ...])
+@@ -35,6 +37,8 @@
+ overloaded stringification or when not providing a format argument to the format()
+ method.
+ 
++=back
++
+ =head1 SEE ALSO
+ 
+ L<Date::Simple> for full documentation.
+--- a/lib/Date/Simple/Fmt.pm
++++ b/lib/Date/Simple/Fmt.pm
+@@ -36,6 +36,8 @@
+ This module changes the default stringification behaviour of Date::Simple objects to
+ use the format() method instead. It also changes the behaviour of the constructor.
+ 
++=over
++
+ =item Date::Simple::Fmt->new (FMT, [ARG, ...])
+ 
+ =item date_fmt (FMT, [ARG, ...])
+@@ -45,6 +47,8 @@
+ the newly created object.  It is this format that will be used when using overloaded
+ stringification or when not providing a format argument to the format() method.
+ 
++=back
++
+ =head1 SEE ALSO
+ 
+ L<Date::Simple> for full documentation.

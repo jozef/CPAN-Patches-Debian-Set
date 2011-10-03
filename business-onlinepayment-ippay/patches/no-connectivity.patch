@@ -1,0 +1,25 @@
+Subject: Skip tests requiring connectivity
+Author: Ivan Kohler <ivan-debian@420.am>
+Forwarded: not-needed
+Reviewed-By: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-01-227
+--- a/t/card.t
++++ b/t/card.t
+@@ -1,6 +1,6 @@
+ #!/usr/bin/perl -w
+ 
+-use Test::More;
++use Test::More skip_all => 'Skip network tests in Debian build';
+ require "t/lib/test_account.pl";
+ 
+ my($login, $password, %opt) = test_account_or_skip('card');
+--- a/t/check.t
++++ b/t/check.t
+@@ -1,6 +1,6 @@
+ #!/usr/bin/perl -w
+ 
+-use Test::More;
++use Test::More skip_all => 'Skip network tests in Debian build';
+ require "t/lib/test_account.pl";
+ 
+ my($login, $password, %opt) = test_account_or_skip('check');

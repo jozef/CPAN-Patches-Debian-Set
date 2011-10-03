@@ -1,5 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libasync-interrupt-perl, netbase, perl
+Build-Depends: debhelper (>= 8), libasync-interrupt-perl, libevent-perl, libglib-perl, libio-async-perl, libnet-ssleay-perl, libpoe-perl, netbase, perl, perl-tk, shared-mime-info, xauth, xvfb
 Depends: ${misc:Depends}, ${perl:Depends}
-X: 0
+X: 1

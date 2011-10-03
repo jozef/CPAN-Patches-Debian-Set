@@ -1,4 +1,4 @@
 App: libapache2-mod-perl2
-Build-Depends: apache2, apache2-threaded-dev (>= 2.2.3) | apache2-prefork-dev (>= 2.2.3), debhelper (>= 6), libbsd-resource-perl, libcompress-zlib-perl, libdevel-symdump-perl, libgdbm-dev, libgtop2-dev, libhtml-parser-perl, libperl-dev (>= 5.8.7-3), libwww-perl, locales-all, netbase, perl (>= 5.10.0-14) | libcgi-pm-perl (>= 3.33), quilt
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, apache2 (>= 2.2.4) | apache2-mpm-itk (>= 2.2.4), apache2.2-common, libapache2-mod-perl2, libdevel-symdump-perl, libmime-base64-perl, liburi-perl, libwww-perl, netbase
+Build-Depends: apache2, apache2-threaded-dev | apache2-prefork-dev, debhelper (>= 7.0.50~), libbsd-resource-perl, libcompress-zlib-perl, libdevel-symdump-perl, libgtop2-dev, libhtml-parser-perl, libhtml-template-perl, libperl-dev, libreadonly-perl, libwww-perl, locales-all, netbase, perl (>= 5.10.1) | libautodie-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, apache2 | apache2-mpm-itk, apache2.2-common, libapache2-mod-perl2 (<< ${source:Version}.1~), libdevel-symdump-perl, liburi-perl, libwww-perl, netbase
 X: 0

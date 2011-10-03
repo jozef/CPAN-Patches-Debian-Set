@@ -1,0 +1,21 @@
+Description: make it possible to manipulate/delete the MIME-Version header
+Origin: https://rt.cpan.org/Public/Bug/Display.html?id=35979
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=460395
+
+--- a/lib/MIME/Lite.pm
++++ b/lib/MIME/Lite.pm
+@@ -1146,12 +1146,12 @@
+     my ( $self, $onoff ) = @_;
+     my $attrs = $self->{Attrs};
+     if ($onoff) {
+-        $attrs->{'MIME-Version'} = '1.0';
++        $attrs->{'mime-version'} = '1.0';
+         my $uses = ( @Uses ? ( "(" . join( "; ", @Uses ) . ")" ) : '' );
+         $self->replace( 'X-Mailer' => "MIME::Lite $VERSION $uses" )
+           unless $VANILLA;
+     } else {
+-        delete $attrs->{'MIME-Version'};
++        delete $attrs->{'mime-version'};
+         $self->delete('X-Mailer');
+     }
+ }

@@ -1,0 +1,43 @@
+Description: skip tests that fail when run as root
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/612776
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-12
+
+--- a/t/17_filesystem_pmkdir.t
++++ b/t/17_filesystem_pmkdir.t
+@@ -21,8 +21,11 @@
+ foreach (qw(t/test/ab t/test/cd t/test/ef1 t/test/ef2 t/test)) {
+   rmdir $_ };
+ 
+-ok( ! pmkdir( 't/test/{ab,cd,ef{1,2}}', 0555 ), 'pmkdir 2' );
+-rmdir 't/test';
++SKIP: {
++    skip( 'Not as root', 1 ) if $< eq 0;
++    ok( ! pmkdir( 't/test/{ab,cd,ef{1,2}}', 0555 ), 'pmkdir 2' );
++    rmdir 't/test';
++}
+ 
+ $glob = Paranoid::Glob->new(
+     globs   => ['t/test/{ab,cd,ef{1,2}}'], 
+--- a/t/18_filesystem_prm.t
++++ b/t/18_filesystem_prm.t
+@@ -70,10 +70,13 @@
+ ok( ! -d './t/test_rm', 'prmR 3' );
+ 
+ ok( prmR( \%errors, './t/test_rm_not_there'), 'prmR 4' );
+-mkdir './t/test_rm_noperms';
+-mkdir './t/test_rm_noperms/foo';
+-chmod 0400, './t/test_rm_noperms';
+-ok( ! prmR( \%errors, './t/test_rm_noperms/foo'), 'prmR 5' );
++SKIP: {
++    skip( 'Not as root', 1 ) if $< eq 0;
++    mkdir './t/test_rm_noperms';
++    mkdir './t/test_rm_noperms/foo';
++    chmod 0400, './t/test_rm_noperms';
++    ok( ! prmR( \%errors, './t/test_rm_noperms/foo'), 'prmR 5' );
++}
+ chmod 0755, './t/test_rm_noperms';
+ ok( prmR( \%errors, './t/test_rm_noperms'), 'prmR 6' );
+ 

@@ -1,7 +1,10 @@
-to fix the path of the rc file in the manpage
+Subject: to fix the path of the rc file in the manpage
+Author: Jonathan Yu <jawnsey@cpan.org>
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-08-15
 --- a/bin/prove
 +++ b/bin/prove
-@@ -72,7 +72,7 @@
+@@ -73,7 +73,7 @@
  
  =head1 NOTES
  

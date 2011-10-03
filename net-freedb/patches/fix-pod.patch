@@ -1,0 +1,26 @@
+Description: fix POD syntax
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-09
+
+--- a/FreeDB.pm
++++ b/FreeDB.pm
+@@ -297,6 +297,8 @@
+ 
+ =head2 METHODS
+ 
++=over
++
+ =item new(HOST => $h, PORT => $p, USER => $u, HOSTNAME => $hn, TIMEOUT => $to)
+ 
+      Constructor:
+@@ -400,6 +402,8 @@
+ 
+    NOTE: A different return type/design may be developed.
+ 
++=back
++
+ =head1 BUGS
+ 
+         The current version of getdiscid() and getdiscdata()

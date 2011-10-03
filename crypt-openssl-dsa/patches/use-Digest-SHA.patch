@@ -1,0 +1,36 @@
+Description: Use Digest::SHA instead of Digest::SHA1
+Origin: vendor
+Bug: http://rt.cpan.org/Ticket/Display.html?id=60271
+Forwarded: yes
+Author: Ansgar Burchardt <ANSGAR@cpan.org>
+Last-Update: 2011-08-05
+
+--- a/t/90-openssl-compat.t
++++ b/t/90-openssl-compat.t
+@@ -11,7 +11,7 @@
+ 
+ BEGIN { plan tests => 84 }
+ 
+-my $HAS_SHA1 = eval "use Digest::SHA1; 1;";
++my $HAS_SHA1 = eval "use Digest::SHA; 1;";
+ my ($OPEN_SSL, $testable);
+ if($^O !~ /mswin32/i) {
+   $OPEN_SSL = `which openssl` || "/usr/bin/openssl";
+@@ -23,7 +23,7 @@
+   eval{`openssl version`};
+   if(!$@) {$testable = 1 && $HAS_SHA1}
+   }
+-my $why_skip = $HAS_SHA1 ? "Need openssl binary in path" : "Need Digest::SHA1 to test";
++my $why_skip = $HAS_SHA1 ? "Need openssl binary in path" : "Need Digest::SHA to test";
+ 
+ my $dsa = Crypt::OpenSSL::DSA->generate_parameters( 512, "foo" );
+ $dsa->generate_key;
+@@ -43,7 +43,7 @@
+     my %done;  # { zero => $ct, nonzero => $ct }
+     for (1..$to_do) {
+         my $plain = "This is test number $_";
+-        my $msg = Digest::SHA1::sha1($plain);
++        my $msg = Digest::SHA::sha1($plain);
+         my $type = ($msg =~ /\x00/) ? "zero" : "nonzero";
+         next if $done{$type}++ >= $of_each;
+ 

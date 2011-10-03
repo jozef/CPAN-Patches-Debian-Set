@@ -1,0 +1,25 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: disabling network test
+Last-Update: 2011-01-04
+Forwarded: not-needed
+--- a/t/10_determined_test.t
++++ b/t/10_determined_test.t
+@@ -1,8 +1,16 @@
+ 
+ # Time-stamp: "0";
+ use strict;
+-use Test;
+-BEGIN { plan tests => 13 }
++use Test::More;
++BEGIN {
++    if ($ENV{RUN_NETWORK_TESTS}) {
++        plan tests => 13
++    }
++    else {
++        plan skip_all => 'cannot assume network';
++        exit 0;
++    }
++}
+ 
+ #use LWP::Debug ('+');
+ 

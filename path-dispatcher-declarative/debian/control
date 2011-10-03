@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libany-moose-perl, libpath-dispatcher-perl (>= 0.15), libsub-exporter-perl, perl (>= 5.8.9)
-Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl, libpath-dispatcher-perl (>= 0.15), libsub-exporter-perl, perl (>= 5.8.9)
+Build-Depends-Indep: libany-moose-perl, libpath-dispatcher-perl (>= 1.02), libsub-exporter-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl, libpath-dispatcher-perl (>= 1.02), libsub-exporter-perl
 X: 0

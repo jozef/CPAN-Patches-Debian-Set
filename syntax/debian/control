@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdata-optlist-perl (>= 0.104), libnamespace-clean-perl, libtest-simple-perl (>= 0.94), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-optlist-perl (>= 0.104), libnamespace-clean-perl
+X: 0

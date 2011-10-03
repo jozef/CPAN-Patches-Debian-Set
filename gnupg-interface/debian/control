@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: gnupg | gnupg2, libany-moose-perl (>= 0.04), perl
-Depends: ${misc:Depends}, ${perl:Depends}, gnupg | gnupg2, libany-moose-perl (>= 0.04)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: gnupg | gnupg2, libany-moose-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, gnupg | gnupg2, libany-moose-perl
 X: 0

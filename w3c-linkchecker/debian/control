@@ -1,0 +1,5 @@
+App: w3c-linkchecker
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libcss-dom-perl, libencode-locale-perl, libhtml-parser-perl, liburi-perl (>= 1.53), libwww-perl (>= 5.833), perl, po-debconf
+Depends: ${misc:Depends}, ${perl:Depends}, apache2, libconfig-general-perl, libcss-dom-perl, libencode-locale-perl, libhtml-parser-perl, libnet-ip-perl, libterm-readkey-perl, liburi-perl (>= 1.53), libwww-perl (>= 5.833)
+X: 0

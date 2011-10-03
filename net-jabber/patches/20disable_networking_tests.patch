@@ -2,12 +2,10 @@ Author: Florian Ragwitz <rafl@debian.org>
 Description: Disable tests which require a network connection
 --- a/t/2_client.t
 +++ b/t/2_client.t
-@@ -1,5 +1,7 @@
+@@ -1,5 +1,5 @@
  use lib "t/lib";
 -use Test::More tests=>5;
-+use Test::More;
-+
-+plan skip_all => 'Disabled for the Debian build';
++use Test::More skip_all => 'Disabled for the Debian build';
  
  BEGIN{ use_ok( "Net::Jabber" ); }
  

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8), libmodule-build-perl (>= 0.360100), perl
+Build-Depends-Indep: libmoose-perl, libtry-tiny-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libtry-tiny-perl
+X: 0

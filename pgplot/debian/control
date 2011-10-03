@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 5.0.0), gfortran, libextutils-f77-perl (>> 1.13), libpng12-dev, libx11-dev, perl, pgplot5 (> 5.2.2), x11proto-core-dev
+Build-Depends: chrpath, debhelper (>= 8), gfortran, libextutils-f77-perl, libpng12-dev, libx11-dev, perl, pgplot5, x11proto-core-dev
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

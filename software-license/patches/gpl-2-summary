@@ -1,0 +1,17 @@
+Description: gpl-2 summary
+--- a/lib/Software/License/GPL_2.pm
++++ b/lib/Software/License/GPL_2.pm
+@@ -40,6 +40,13 @@
+ 
+ 
+ __DATA__
++__DEBIAN-SUMMARY__
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; version 2 dated June, 1991.
++
++On Debian systems, the complete text of version 2 of the GNU General
++Public License can be found in '/usr/share/common-licenses/GPL-2'.
+ __LICENSE__
+                     GNU GENERAL PUBLIC LICENSE
+                        Version 2, June 1991

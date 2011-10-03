@@ -6,7 +6,7 @@ Last-Update: 2010-04-18
 
 --- a/lib/POE/Component/SSLify/ClientHandle.pm
 +++ b/lib/POE/Component/SSLify/ClientHandle.pm
-@@ -60,7 +60,7 @@ POE::Component::SSLify::ClientHandle - c
+@@ -77,7 +77,7 @@
  
  =head1 DESCRIPTION
  

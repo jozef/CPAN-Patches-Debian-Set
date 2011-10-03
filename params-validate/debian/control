@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), libreadonly-perl, libreadonly-xs-perl, libtest-kwalitee-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-taint-perl (>= 0.02), perl (>= 5.10) | libmodule-build-perl
+Build-Depends: debhelper (>= 7), libmodule-build-perl (>= 0.360100) | perl (>= 5.11.4), libreadonly-perl, libreadonly-xs-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

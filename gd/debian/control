@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs, debhelper (>= 6), dh-buildinfo, libfreetype6-dev, libgd2-noxpm-dev (>= 2.0.28), libjpeg-dev, libpng12-dev, libz-dev, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

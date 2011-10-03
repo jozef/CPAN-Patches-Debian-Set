@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libpoe-perl (>= 2:1.0070), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libpoe-perl (>= 2:1.0070)
+X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libdatetime-perl, libdbd-sqlite3-perl (>= 1.21), libdbix-class-introspectablem2m-perl, libdbix-class-perl (>= 0.08100), libreadonly-perl (>= 1.03), libsql-translator-perl (>= 0.09004), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libdbd-sqlite3-perl (>= 1.21), libdbix-class-introspectablem2m-perl, libdbix-class-perl (>= 0.08100), libreadonly-perl (>= 1.03), libsql-translator-perl (>= 0.09004)
+X: 0

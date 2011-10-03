@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: liblog-log4perl-perl, libtest-exception-perl, libtext-table-perl, libxml-dom-perl, perl (>= 5.10) | libio-compress-perl | libio-compress-zlib-perl
-Depends: ${misc:Depends}, ${perl:Depends}, liblog-log4perl-perl, libtext-table-perl, libxml-dom-perl, perl (>= 5.10) | libio-compress-perl | libio-compress-zlib-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: liblog-log4perl-perl, libtest-exception-perl, libtext-table-perl, libxml-dom-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblog-log4perl-perl, libtext-table-perl, libxml-dom-perl
 X: 0

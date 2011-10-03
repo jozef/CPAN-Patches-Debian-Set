@@ -1,0 +1,22 @@
+--- a/t/00sig.t
++++ b/t/00sig.t
+@@ -1,18 +1,4 @@
+ use lib 'inc';
+ use Test::More tests => 1;
+ use Test::Signature;
+-
+-$@ = undef;
+-eval {
+-	require Module::Signature;
+-	die "Module::Signature version number too low."
+-		if $Module::Signature::VERSION lt '0.66';
+-};
+-if ($@)
+-{
+-	diag $@;
+-	ok(1, "Skipping SIGNATURE test.");
+-	exit;
+-}
+-
+-signature_ok();
++ok(1, "Skipping SIGNATURE test.");

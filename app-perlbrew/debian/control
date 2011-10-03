@@ -1,0 +1,5 @@
+App: perlbrew
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdevel-patchperl-perl, libfile-path-tiny-perl, libio-all-perl, libpath-class-perl, libtest-exception-perl, libtest-output-perl, libtest-simple-perl (>= 0.98) | perl (>= 5.14), libtest-spec-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, gcc, libc6-dev | libc-dev, libdevel-patchperl-perl, libfile-path-tiny-perl, make
+X: 0

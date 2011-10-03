@@ -1,0 +1,29 @@
+Description: remove version check, to avoid extra dependency
+ This check is not necessary for debian packaging, as the required version is
+ present in all currently supported suites.
+Origin: vendor
+Forwarded: not-needed
+Author: Ben Webb <bjwebb67@googlemail.com>
+Last-Update: 2011-08-09
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -4,18 +4,6 @@
+ use ExtUtils::MakeMaker;
+ use strict;
+ 
+-my $yazver = `yaz-config --version`;
+-if (!$yazver) {
+-    die qq[
+-ERROR: Unable to call script: yaz-config
+-If you are using a YAZ installation from the Debian package "yaz", you
+-will also need to install "libyaz-dev" in order to build this module.
+-];
+-}
+-
+-chomp($yazver);
+-check_version($yazver, "3.0.10");
+-
+ WriteMakefile(
+     NAME          => 'Net::Z3950::Simple2ZOOM',
+     VERSION_FROM  => 'lib/Net/Z3950/Simple2ZOOM.pm', # finds $VERSION

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libtest-deep-perl, perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libfile-homedir-perl, libtest-deep-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

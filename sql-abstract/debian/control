@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libpod-coverage-perl (>= 0.19), libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-warn-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libclass-accessor-grouped-perl (>= 0.09005), libgetopt-long-descriptive-perl (>= 0.086), libhash-merge-perl (>= 0.12), libtest-deep-perl (>= 0.106), libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-warn-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-grouped-perl (>= 0.09005), libgetopt-long-descriptive-perl (>= 0.086), libhash-merge-perl (>= 0.12)
 X: 0

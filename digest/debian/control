@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0)
-Build-Depends-Indep: libdigest-md5-perl | perl (>= 5.8), perl (>= 5.6.0-17)
-Depends: ${misc:Depends}, ${perl:Depends}, libdigest-md5-perl | perl (>= 5.8)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: perl
+Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

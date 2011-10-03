@@ -1,13 +1,13 @@
 Description: fix man section of the generated manpages
- On Debian, manual pages about Perl modules need to nbe with '3pm' extension as
+ On Debian, manual pages about Perl modules need to have the '3pm' extension as
  per Debian Perl policy.
 Forwarded: not-needed
 Author: Gunnar Wolf <gwolf@debian.org>
-Last-Update: 2007-08-18
-
+Last-Update: 2011-03-22
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 --- a/lib/ModPerl/BuildMM.pm
 +++ b/lib/ModPerl/BuildMM.pm
-@@ -281,7 +281,7 @@ sub ModPerl::BuildMM::MY::postamble {
+@@ -281,7 +281,7 @@
                  $man =~ s!/!::!g;
  
                  push @target,

@@ -1,0 +1,48 @@
+Description: fix spelling errors in POD
+Forwarded: no
+Author: Damyan Ivanov <dmn@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-16
+
+--- a/lib/Dancer/FileUtils.pm
++++ b/lib/Dancer/FileUtils.pm
+@@ -219,7 +219,7 @@
+ Returns either the content of a file (whose filename is the input), I<undef>
+ if the file could not be opened.
+ 
+-In array context it returns each line (as defined by $/) as a seperate element;
++In array context it returns each line (as defined by $/) as a separate element;
+ in scalar context returns the entire contents of the file.
+ 
+ =head2 read_glob_content
+--- a/lib/Dancer/Deprecation.pm
++++ b/lib/Dancer/Deprecation.pm
+@@ -65,7 +65,7 @@
+ 
+ =back
+ 
+-You can call the method with no arguments, and a default message using informations from C<caller> will be build for you.
++You can call the method with no arguments, and a default message using information from C<caller> will be build for you.
+ 
+ =head1 LICENSE
+ 
+--- a/lib/Dancer/Route/Cache.pm
++++ b/lib/Dancer/Route/Cache.pm
+@@ -160,7 +160,7 @@
+ A major drawback is that L<Dancer> has to go over the matching on every request,
+ which (especially on CGI-based applications) can be very time consuming.
+ 
+-The caching mechanism allows to cache some requests to specific routes (but
++The caching mechanism allows one to cache some requests to specific routes (but
+ B<NOT> specific results) and run those routes on a specific path. This allows us
+ to speed up L<Dancer> quite a lot.
+ 
+@@ -214,7 +214,7 @@
+ 
+ =head2 size_limit($limit)
+ 
+-Allows to set a size limit of the cache.
++Allows one to set a size limit of the cache.
+ 
+ Returns the limit (post-set).
+ 

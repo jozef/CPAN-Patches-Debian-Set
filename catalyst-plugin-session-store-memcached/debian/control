@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libcache-memcached-managed-perl, libcatalyst-modules-perl (>= 0.26), libmro-compat-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcache-memcached-managed-perl, libcatalyst-modules-perl (>= 0.26), libmro-compat-perl
+X: 0

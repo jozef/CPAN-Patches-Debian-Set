@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liblist-moreutils-perl, libparams-util-perl, libsub-install-perl, libtest-fatal-perl, libtest-output-perl (>= 0.16), libtest-requires-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libparams-util-perl, libsub-install-perl, perl
+X: 0

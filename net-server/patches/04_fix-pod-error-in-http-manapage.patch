@@ -1,0 +1,16 @@
+Description: Comments USER and ACCESS entries in rscsi file.
+Forwarded: no
+Author: Carsten Wolff <carsten@wolffcarsten.de>
+Last-Update: 2011-09-20
+
+--- a/lib/Net/Server/HTTP.pm
++++ b/lib/Net/Server/HTTP.pm
+@@ -289,6 +289,8 @@
+ 
+ Calls send_status with 501 and the argument passed to send_501.
+ 
++=back
++
+ =head1 COMMAND LINE ARGUMENTS
+ 
+ In addition to the command line arguments of the Net::Server

@@ -1,11 +1,10 @@
-#
-# Description: Fix link present on doc/index_top.html page
-# Author: Dario Minnucci <midget@debian.org>
-#
-Index: libapache2-mod-perl2/docs/index_top.html
-===================================================================
---- libapache2-mod-perl2.orig/docs/index_top.html	2010-01-13 08:34:46.962368377 +0100
-+++ libapache2-mod-perl2/docs/index_top.html	2010-01-13 08:35:09.582367282 +0100
+Description: Fix link present on doc/index_top.html page
+Author: Dario Minnucci <midget@debian.org>
+Forwarded: no
+Last-Update: 2011-03-22
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+--- a/docs/index_top.html
++++ b/docs/index_top.html
 @@ -3,6 +3,6 @@
      <title>index bottom</title>
    </head>

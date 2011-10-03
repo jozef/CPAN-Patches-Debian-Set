@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-01-11
+
+--- a/Pod/Search.pm
++++ b/Pod/Search.pm
+@@ -284,7 +284,7 @@
+ 
+ =item B<Option:> -search
+ 
+-Expects a list of words (or a whitespace seperated list).
++Expects a list of words (or a whitespace separated list).
+ 
+ =item B<Class:> undef
+ 

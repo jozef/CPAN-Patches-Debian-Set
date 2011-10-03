@@ -1,15 +1,16 @@
 Description: fix POD spelling errors
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
 Forwarded: no
---- a/lib/Pod/Simple/Subclassing.pod
-+++ b/lib/Pod/Simple/Subclassing.pod
-@@ -615,7 +615,7 @@
- to the end user of an existing Pod formatter, but some of which you
- might find useful in writing a Pod formatter. They are listed below. The
- first several methods (the accept_* methods) are for declaring the
--capabilites of your parser, notably what C<=for I<targetname>> sections
-+capabilities of your parser, notably what C<=for I<targetname>> sections
- it's interested in, what extra NE<lt>...E<gt> codes it accepts beyond
- the ones described in the I<perlpod>.
+Author: Jonathan Yu <jawnsy@cpan.org>
+
+--- a/lib/Pod/Simple/XHTML.pm
++++ b/lib/Pod/Simple/XHTML.pm
+@@ -151,7 +151,7 @@
+ A string containing all characters that should be encoded as HTML entities,
+ specified using the regular expression character class syntax (what you find
+ within brackets in regular expressions). This value will be passed as the
+-second argument to the C<encode_entities> fuction of L<HTML::Entities>. IF
++second argument to the C<encode_entities> function of L<HTML::Entities>. IF
+ L<HTML::Entities> is not installed, then any characters other than C<&<>"'>
+ will be encoded numerically.
  

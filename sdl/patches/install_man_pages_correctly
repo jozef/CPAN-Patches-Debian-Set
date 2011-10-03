@@ -1,0 +1,16 @@
+Description: Fix build so that man pages do not being with pods::
+--- a/inc/My/Builder.pm
++++ b/inc/My/Builder.pm
+@@ -193,4 +193,12 @@
+ 	$self->SUPER::ACTION_test();
+ }
+ 
++sub man3page_name {
++  my $self = shift ;
++
++  my $name = $self->SUPER::man3page_name( @_ ) ;
++
++  $name =~ s!^pods::!!;
++  return $name ;
++}
+ 1;

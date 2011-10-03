@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libio-all-perl (>= 0.33), libspiffy-perl (>= 0.22), libtemplate-perl (>= 2.10), liburi-perl, perl (>= 5.8.0-7)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libio-all-perl (>= 0.33), libspiffy-perl (>= 0.22), libtemplate-perl (>= 2.10), liburi-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libio-all-perl (>= 0.33), libspiffy-perl (>= 0.22), libtemplate-perl (>= 2.10)
 X: 0

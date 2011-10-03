@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libclass-accessor-perl, libemail-abstract-perl, libemail-address-perl (>= 1.80), libemail-send-io-perl, libemail-simple-perl (>= 1.92), libmime-tools-perl, libreturn-value-perl (>= 1.28), libtest-pod-coverage-perl, libtest-pod-perl, nullmailer | mail-transport-agent, perl (>= 5.10) | libmodule-pluggable-perl (>= 2.97)
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libemail-abstract-perl, libemail-address-perl (>= 1.80), libemail-simple-perl (>= 1.92), libreturn-value-perl (>= 1.28), perl (>= 5.10) | libmodule-pluggable-perl (>= 2.97)
+Build-Depends-Indep: libclass-accessor-perl, libemail-abstract-perl, libemail-address-perl (>= 1.80), libemail-send-io-perl, libemail-simple-perl (>= 1.92), libmime-tools-perl, libreturn-value-perl (>= 1.28), libtest-pod-coverage-perl, libtest-pod-perl, nullmailer | mail-transport-agent, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libemail-abstract-perl, libemail-address-perl (>= 1.80), libemail-simple-perl (>= 1.92), libreturn-value-perl (>= 1.28)
 X: 0

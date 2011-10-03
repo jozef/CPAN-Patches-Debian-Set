@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdevel-caller-perl, libmoose-perl (>= 0.58), libparams-validate-perl (>= 0.88), libsub-exporter-perl, libtest-exception-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdevel-caller-perl, libmoose-perl (>= 0.58), libparams-validate-perl (>= 0.88), libsub-exporter-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdevel-caller-perl, libmoose-perl (>= 0.58), libparams-validate-perl, libsub-exporter-perl, libtest-fatal-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-caller-perl, libmoose-perl (>= 0.58), libparams-validate-perl, libsub-exporter-perl
 X: 0

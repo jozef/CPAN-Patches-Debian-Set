@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libnet-ssleay-perl (>= 1.36), libpoe-perl (>= 2:1.267), libtest-nowarnings-perl, netbase, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libnet-ssleay-perl (>= 1.36)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmodule-build-perl (>= 0.360100) | perl (>= 5.11.4), libnet-ssleay-perl (>= 1.36), libpoe-perl (>= 2:1.267), libtask-weaken-perl (>= 1.03), libtest-nowarnings-perl, netbase, perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-ssleay-perl (>= 1.36), libpoe-perl (>= 2:1.267), libtask-weaken-perl (>= 1.03), perl (>= 5.10.1)
 X: 0

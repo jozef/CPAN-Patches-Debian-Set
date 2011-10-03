@@ -1,0 +1,17 @@
+Description: Fixing man page
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=69893
+Forwarded: yes
+Author: Fabrizio Regalli <fabreg@fabreg.it>
+Last-Update: 2011-07-07
+
+--- a/lib/Validation/Class.pm
++++ b/lib/Validation/Class.pm
+@@ -1834,7 +1834,7 @@
+         my ($name, $email, $login, $password) =
+             $self->get_params(qw/name email login password/);
+         
+-        # you should note that if the params dont exist they will return undef
++        # you should note that if the params don't exist they will return undef
+         # ... meaning you should check that it exists before checking its value
+         # e.g.
+         

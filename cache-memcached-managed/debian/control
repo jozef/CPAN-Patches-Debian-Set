@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcache-memcached-perl, libsocket6-perl, memcached, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcache-memcached-perl, memcached
+X: 0

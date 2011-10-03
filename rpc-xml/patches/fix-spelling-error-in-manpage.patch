@@ -1,0 +1,18 @@
+Description: Fix spelling error in manpage
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=70408
+Forwarded: yes
+Author: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-08-22
+
+--- a/lib/RPC/XML.pm
++++ b/lib/RPC/XML.pm
+@@ -1988,7 +1988,7 @@
+ implementations of the XML-RPC standard in other languages that rely on a
+ strict interpretation of this format.
+ 
+-To accomodate this, the B<RPC::XML> package only produces B<dateTime.iso8601>
++To accommodate this, the B<RPC::XML> package only produces B<dateTime.iso8601>
+ values in the format given in the spec, with the possible addition of timezone
+ information if the string used to create a B<RPC::XML::datetime_iso8601>
+ instance included a timezone offset. The string passed in to the constructor

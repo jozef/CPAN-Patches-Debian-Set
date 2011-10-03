@@ -1,6 +1,9 @@
-From: Ansgar Burchardt <ansgar@43-1.org>
+Description: Correct spelling errors
+Origin: vendor
 Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=54910
-Subject: Correct spelling errors
+Author: Ansgar Burchardt <ansgar@43-1.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-22
 
 --- libapache-sessionx-perl.orig/SessionX.pm
 +++ libapache-sessionx-perl/SessionX.pm

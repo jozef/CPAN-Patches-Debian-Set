@@ -1,0 +1,29 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Stop tests from overwriting source
+ The t/*-generate.t tests generate data in t/generated which is in the
+ upstream source. This patch makes the tests use a different directory
+ which is cleaned up by dh_clean.
+Last-Update: 2010-10-24
+Forwared: no
+--- a/t/1.0-generate.t
++++ b/t/1.0-generate.t
+@@ -19,7 +19,7 @@
+   $pub_date     = &POSIX::strftime(DATE_TEMPLATE_PUB,   gmtime);
+ }
+ 
+-use constant BASEDIR => File::Spec->catdir('t', 'generated');
++use constant BASEDIR => 'generated';
+ use constant RSS_VERSION    => "1.0";
+ use constant RSS_SAVEAS     => File::Spec->catfile(BASEDIR, RSS_VERSION."-generated.xml");
+ use constant RSS_MOD_PREFIX => "my";
+--- a/t/2.0-generate.t
++++ b/t/2.0-generate.t
+@@ -16,7 +16,7 @@
+ my $pub_date     = &POSIX::strftime( DATE_TEMPLATE_PUB,   gmtime );
+ ok( $current_date, "Current date: $current_date" );
+ 
+-use constant BASEDIR => File::Spec->catdir('t', 'generated');
++use constant BASEDIR => 'generated';
+ use constant RSS_VERSION    => "2.0";
+ use constant RSS_SAVEAS     => File::Spec->catfile(BASEDIR, RSS_VERSION."-generated.xml");
+ use constant RSS_MOD_PREFIX => "my";

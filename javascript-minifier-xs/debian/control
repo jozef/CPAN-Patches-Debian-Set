@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), libtest-pod-coverage-perl, libtest-pod-perl, perl
+Build-Depends: debhelper (>= 8), libmodule-build-perl (>= 0.350000), libtest-pod-coverage-perl, libtest-pod-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

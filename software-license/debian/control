@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdata-section-perl, libsub-install-perl, libtext-template-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Build-Depends-Indep: libdata-section-perl, libsub-install-perl, libtest-simple-perl (>= 0.96), libtext-template-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libdata-section-perl, libsub-install-perl, libtext-template-perl
 X: 0

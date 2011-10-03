@@ -1,5 +1,4 @@
 App: 0
-Build-Depends: cdbs, debhelper (>= 5)
-Build-Depends-Indep: libmodule-build-perl, perl
+Build-Depends: debhelper (>= 8), libmodule-build-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

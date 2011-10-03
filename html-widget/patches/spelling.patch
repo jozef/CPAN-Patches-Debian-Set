@@ -1,0 +1,39 @@
+Description: spelling fix
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-01-19
+
+--- a/lib/HTML/Widget.pm
++++ b/lib/HTML/Widget.pm
+@@ -268,7 +268,7 @@
+ 
+ As a special case, if no arguments are passed, the return value is a 
+ hash-ref of attributes instead of the object reference. This provides 
+-backwards compatability to support:
++backwards compatibility to support:
+ 
+     $w->attributes->{key} = $value;
+ 
+--- a/lib/HTML/Widget/Accessor.pm
++++ b/lib/HTML/Widget/Accessor.pm
+@@ -52,7 +52,7 @@
+ 
+ As a special case, if no arguments are passed, the return value is a 
+ hash-ref of attributes instead of the object reference. This provides 
+-backwards compatability to support:
++backwards compatibility to support:
+ 
+     $w->attributes->{key} = $value;
+ 
+--- a/lib/HTML/Widget/Element.pm
++++ b/lib/HTML/Widget/Element.pm
+@@ -62,7 +62,7 @@
+ 
+ As a special case, if no arguments are passed, the return value is a 
+ hash-ref of attributes instead of the object reference. This provides 
+-backwards compatability to support:
++backwards compatibility to support:
+ 
+     $e->attributes->{key} = $value;
+ 

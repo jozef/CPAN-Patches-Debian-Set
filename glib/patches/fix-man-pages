@@ -1,4 +1,7 @@
-improves man pages
+Description: improves man pages
+Origin: vendor
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
 
 --- a/GParamSpec.xs
 +++ b/GParamSpec.xs
@@ -11,7 +14,7 @@ improves man pages
  void
  DESTROY (GParamSpec * pspec)
      CODE:
-@@ -809,7 +811,7 @@
+@@ -805,7 +807,7 @@
   ## similarly, all unsigned integer types
  
  
@@ -20,7 +23,7 @@ improves man pages
  
  =head1 DESCRIPTION
  
-@@ -903,7 +905,7 @@
+@@ -899,7 +901,7 @@
  
  MODULE = Glib::ParamSpec	PACKAGE = Glib::Param::Int64
  
@@ -29,7 +32,7 @@ improves man pages
  
  =head1 DESCRIPTION
  
-@@ -942,7 +944,7 @@
+@@ -938,7 +940,7 @@
  
  MODULE = Glib::ParamSpec	PACKAGE = Glib::Param::UInt64
  
@@ -38,7 +41,7 @@ improves man pages
  
  =head1 DESCRIPTION
  
-@@ -983,7 +985,7 @@
+@@ -979,7 +981,7 @@
  
   ## and again for the floating-point types
  
@@ -47,7 +50,7 @@ improves man pages
  
  =head1 DESCRIPTION
  
-@@ -1085,6 +1087,9 @@
+@@ -1081,6 +1083,9 @@
  
  =cut
  
@@ -57,7 +60,7 @@ improves man pages
  =for see_also Glib::ParamSpec
  =cut
  
-@@ -1106,6 +1111,9 @@
+@@ -1102,6 +1107,9 @@
  
  =cut
  
@@ -67,7 +70,7 @@ improves man pages
  =for see_also Glib::ParamSpec
  =cut
  
-@@ -1140,6 +1148,9 @@
+@@ -1136,6 +1144,9 @@
  
  =cut
  
@@ -77,7 +80,7 @@ improves man pages
  =for see_also Glib::ParamSpec
  =cut
  
-@@ -1175,6 +1186,9 @@
+@@ -1171,6 +1182,9 @@
  
  =cut
  
@@ -87,7 +90,7 @@ improves man pages
  =for see_also Glib::ParamSpec
  =cut
  
-@@ -1203,6 +1217,9 @@
+@@ -1199,6 +1213,9 @@
  
  =cut
  
@@ -97,16 +100,6 @@ improves man pages
  =for see_also Glib::ParamSpec
  =cut
  
-@@ -1227,6 +1244,9 @@
- 
- MODULE = Glib::ParamSpec	PACKAGE = Glib::Param::GType
- 
-+=for object Glib::Param::GType Wrapper for GType parameters in GLib
-+=cut
-+
- #if GLIB_CHECK_VERSION(2, 10, 0)
- 
- =for section DESCRIPTION
 --- a/GType.xs
 +++ b/GType.xs
 @@ -2741,6 +2741,8 @@
@@ -130,17 +123,6 @@ improves man pages
  =for apidoc __function__
  =cut
  # gchar* g_markup_escape_text (const gchar *text, gssize length);
---- a/lib/Glib/MakeHelper.pm
-+++ b/lib/Glib/MakeHelper.pm
-@@ -440,7 +440,7 @@
- 
- \$(INST_LIB)/\$(FULLEXT)/index.pod :: \$(INST_LIB)/\$(FULLEXT)/ build/podindex
- 	\$(NOECHO) \$(ECHO) Creating POD index...
--	\$(NOECHO) $^X -e "print qq(\\n=head1 NAME\\n\\n\$(NAME) - API Reference Pod Index\\n\\n=head1 PAGES\\n\\n=over\\n\\n)" \\
-+	\$(NOECHO) $^X -e "print qq(\\n=head1 NAME\\n\\n\$(NAME) \\\\- API Reference Pod Index\\n\\n=head1 PAGES\\n\\n=over\\n\\n)" \\
- 		> \$(INST_LIB)/\$(FULLEXT)/index.pod
- 	\$(NOECHO) $^X -ne "print q(=item L<) . (split q( ))[1] . qq(>\\n\\n);" < build/podindex >> \$(INST_LIB)/\$(FULLEXT)/index.pod
- 	\$(NOECHO) $^X -e "print qq(=back\\n\\n);" >> \$(INST_LIB)/\$(FULLEXT)/index.pod
 --- a/GOption.xs
 +++ b/GOption.xs
 @@ -652,6 +652,14 @@
@@ -158,3 +140,14 @@ improves man pages
  =for position SYNOPSIS
  
  =head1 SYNOPSIS
+--- a/MakeHelper.pm
++++ b/MakeHelper.pm
+@@ -440,7 +440,7 @@
+ 
+ \$(INST_LIB)/\$(FULLEXT)/index.pod :: \$(INST_LIB)/\$(FULLEXT)/ build/podindex
+ 	\$(NOECHO) \$(ECHO) Creating POD index...
+-	\$(NOECHO) $^X -e "print qq(\\n=head1 NAME\\n\\n\$(NAME) - API Reference Pod Index\\n\\n=head1 PAGES\\n\\n=over\\n\\n)" \\
++	\$(NOECHO) $^X -e "print qq(\\n=head1 NAME\\n\\n\$(NAME) \\\\- API Reference Pod Index\\n\\n=head1 PAGES\\n\\n=over\\n\\n)" \\
+ 		> \$(INST_LIB)/\$(FULLEXT)/index.pod
+ 	\$(NOECHO) $^X -ne "print q(=item L<) . (split q( ))[1] . qq(>\\n\\n);" < build/podindex >> \$(INST_LIB)/\$(FULLEXT)/index.pod
+ 	\$(NOECHO) $^X -e "print qq(=back\\n\\n);" >> \$(INST_LIB)/\$(FULLEXT)/index.pod

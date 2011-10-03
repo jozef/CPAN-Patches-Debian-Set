@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), quilt (>= 0.40)
-Build-Depends-Indep: libtext-iconv-perl (>= 1.2), libxml-filter-buffertext-perl (>= 0.01), libxml-namespacesupport-perl (>= 0.03), libxml-sax-perl (>= 0.10), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libtext-iconv-perl (>= 1.2), libxml-filter-buffertext-perl (>= 0.01), libxml-namespacesupport-perl (>=0.03), libxml-sax-perl (>= 0.10)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libxml-filter-buffertext-perl, libxml-namespacesupport-perl, libxml-sax-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-filter-buffertext-perl, libxml-namespacesupport-perl, libxml-sax-perl
 X: 0

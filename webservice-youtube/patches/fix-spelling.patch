@@ -1,8 +1,12 @@
 Description: Fix typo "interfece" -> "interface"
 Origin: vendor
-Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=538116
-Forwarded: no
+Bug: https://rt.cpan.org/Ticket/Display.html?id=59974
+Bug-Debian: http://bugs.debian.org/538116
+Forwarded: yes
 Author: Jonathan Yu <frequency@cpan.org>
+Reviewed-by: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Last-Update: 2010-08-01
+
 --- a/lib/WebService/YouTube.pm
 +++ b/lib/WebService/YouTube.pm
 @@ -34,7 +34,7 @@

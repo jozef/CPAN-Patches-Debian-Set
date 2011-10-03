@@ -1,0 +1,24 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-10-20
+Subject: pod errors
+Bug: http://rt.cpan.org/Ticket/Display.html?id=62299
+--- a/RSSLite.pm
++++ b/RSSLite.pm
+@@ -407,6 +407,8 @@
+ 
+ =back
+ 
++=back
++
+ =head2 CAVEATS
+ 
+ This is not a conforming parser. It does not handle the following
+@@ -443,8 +445,6 @@
+ 
+ =back
+ 
+-=back
+-
+ =head1 SEE ALSO
+ 
+ perl(1), C<XML::RSS>, C<XML::SAX::PurePerl>,

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~)
-Build-Depends-Indep: liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.60), libxml-sax-perl (>= 0.96), perl
-Depends: ${misc:Depends}, ${perl:Depends}, liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.60), libxml-sax-perl (>= 0.96)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libhttp-message-perl, liburi-perl, libwww-perl, libxml-libxml-perl, libxml-sax-perl (>= 0.96), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhttp-message-perl, liburi-perl, libwww-perl, libxml-libxml-perl, libxml-sax-perl (>= 0.96)
 X: 0

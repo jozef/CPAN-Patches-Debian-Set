@@ -1,1 +1,2 @@
 1001_fix_segfault_from_truncated_pointer.patch
+1002_Don-t-use-PERL_POLLUTE-macros.patch

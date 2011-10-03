@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), libextutils-depends-perl (>= 0.301), libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libextutils-depends-perl (>= 0.301)
+Build-Depends: debhelper (>= 8), libextutils-depends-perl (>= 0.304), libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libextutils-depends-perl (>= 0.304)
 X: 0

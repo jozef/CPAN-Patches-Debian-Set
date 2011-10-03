@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libhtml-lint-perl, libhtml-tidy-perl, libmodule-build-perl (>= 0.360100), libtest-pod-perl, libwebservice-validator-html-w3c-perl, libxml-xpath-perl, padre-plugin-api-2, perl, xauth, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-lint-perl, libhtml-tidy-perl, libwebservice-validator-html-w3c-perl, libxml-xpath-perl, padre-plugin-api-2
+X: 1

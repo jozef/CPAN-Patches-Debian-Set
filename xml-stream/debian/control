@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libauthen-sasl-perl, libio-socket-ssl-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libauthen-sasl-perl, libio-socket-ssl-perl
 X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libexception-class-perl (>= 1.23), libexception-class-trycatch-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libexception-class-perl (>= 1.23)
+X: 0

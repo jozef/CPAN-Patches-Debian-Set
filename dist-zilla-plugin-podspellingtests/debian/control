@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdist-zilla-perl, libmoose-perl, libpod-wordlist-hanekomu-perl, libtest-spelling-perl, perl (>= 5.11.1) | libtest-simple-perl (>= 0.94)
+Depends: ${misc:Depends}, ${perl:Depends}, libdist-zilla-perl, libmoose-perl, libpod-wordlist-hanekomu-perl, libtest-spelling-perl
+X: 0

@@ -1,0 +1,16 @@
+Description: fix bad-whatis-entry lintian warning
+Forwarded: no
+Author: Alessandro Ghedini <al3xbio@gmail.com>
+Last-Update: 2011-07-15
+--- a/lib/Dancer/Exception.pm
++++ b/lib/Dancer/Exception.pm
+@@ -17,6 +17,9 @@
+                      all => \@EXPORT_OK,
+                    );
+ 
++=head1 NAME
++
++Dancer::Exception - lighweight exceptions module
+ 
+ =head1 SYNOPSIS
+ 

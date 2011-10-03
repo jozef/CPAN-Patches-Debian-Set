@@ -1,8 +1,9 @@
 Description: Fix spelling errors.
+Origin: vendor
 Forwarded: no
 Author: Julián Moreno Patiño <darkjunix@gmail.com>
-Origin: vendor
-Last-Update: 2010-05-26
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-04
 
 ---
  ora_explain.PL |    2 +-

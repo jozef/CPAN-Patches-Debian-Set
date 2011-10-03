@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcarp-assert-perl, libdata-serializer-perl, libdigest-jhash-perl, libhash-moreutils-perl, libjson-perl, liblist-moreutils-perl, liblog-any-perl, libmoose-perl (>= 0.66), libossp-uuid-perl, libtask-weaken-perl, libtest-class-perl, libtest-deep-perl, libtest-exception-perl, libtest-warn-perl, libtime-duration-parse-perl, libtime-duration-perl (>= 1.06), libtry-tiny-perl (>= 0.05), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcache-cache-perl, libcache-fastmmap-perl, libcarp-assert-perl, libdata-serializer-perl, libdigest-jhash-perl, libhash-moreutils-perl, libjson-perl, liblist-moreutils-perl, liblog-any-perl, libmoose-perl (>= 0.66), libossp-uuid-perl, libtask-weaken-perl, libtime-duration-parse-perl, libtime-duration-perl (>= 1.06), libtry-tiny-perl (>= 0.05)
+X: 0

@@ -1,0 +1,143 @@
+Subject: Pod errors
+ * 'parameter' consistently mispelt as 'paramter'
+ * 'overridden' mispelt as 'overriden'
+ * Modified code examples so that they are breakable in man pages.
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-08-31
+Bug: http://rt.cpan.org/Ticket/Display.html?id=60914
+--- CGI-Application-Plugin-AnyTemplate-0.18.orig/lib/CGI/Application/Plugin/AnyTemplate.pm
++++ CGI-Application-Plugin-AnyTemplate-0.18/lib/CGI/Application/Plugin/AnyTemplate.pm
+@@ -398,7 +398,7 @@
+ Normally, component embedding is handled by
+ L<CGI::Application::Plugin::AnyTemplate::ComponentHandler>.  If you want to
+ use a different class for this purpose, specify the class name as the
+-value of this paramter.
++value of this parameter.
+ 
+ It still has to provide the same interface as
+ L<CGI::Application::Plugin::AnyTemplate::ComponentHandler>.  See the source
+@@ -638,7 +638,7 @@
+ generated, you can do so with the C<template_filename_generator>
+ configuration parameter.
+ 
+-If you call C<load> with one paramter, it is taken to be either the
++If you call C<load> with one parameter, it is taken to be either the
+ filename or a reference to a string containing the template text:
+ 
+     my $template = $self->template->load('somefile');
+@@ -648,7 +648,7 @@
+ appropriate extension will be added for this template type.
+ 
+ If you call C<load> with more than one parameter, then
+-you can specify filename and configuration paramters directly:
++you can specify filename and configuration parameters directly:
+ 
+     my $template = $self->template->load(
+         file                        => 'some_file.tmpl',
+@@ -1039,7 +1039,7 @@
+ =head2 fill
+ 
+ Fill is a convenience method which in a single step creates the
+-template, fills it with the template paramters and returns its output.
++template, fills it with the template parameters and returns its output.
+ 
+ You can call it with or without a filename (or string ref).
+ 
+--- CGI-Application-Plugin-AnyTemplate-0.18.orig/lib/CGI/Application/Plugin/AnyTemplate/Base.pm
++++ CGI-Application-Plugin-AnyTemplate-0.18/lib/CGI/Application/Plugin/AnyTemplate/Base.pm
+@@ -154,7 +154,10 @@
+ called before each template is processed.  Register a
+ C<template_pre_process> callback as follows:
+ 
+-    $self->add_callback('template_pre_process', \&my_tmpl_pre_process);
++    $self->add_callback(
++        'template_pre_process',
++        \&my_tmpl_pre_process
++    );
+ 
+ Pre-process callbacks will be passed a reference to the C<$template>
+ object, and can can modify the parameters passed into the template by
+@@ -179,7 +182,9 @@
+ After the template output is generated, the C<template_post_process> hook is called.
+ You can register a C<template_post_process> callback as follows:
+ 
+-    $self->add_callback('template_post_process', \&my_tmpl_post_process);
++    $self->add_callback('template_post_process',
++                        \&my_tmpl_post_process
++    );
+ 
+ Any callbacks that you register to this hook will be called after each
+ template is processed, and will be passed both a reference to the
+@@ -287,14 +292,16 @@
+ 
+ This is a virtual method and must be defined in the subclass.
+ 
+-The following paramters are passed to the driver and available as keys of the
++The following parameters are passed to the driver and available as keys of the
+ driver's C<$self> object:
+ 
+      'driver_config' => ...    # hashref of driver-specific config
+-     'native_config' => ...    # hashref of native template system specific config
++     'native_config' => ...    # hashref of native template system
++                               # specific config
+      'include_paths' => ...    # listref of template include paths
+      'filename'      => ...    # template filename
+-     'webapp'        => ...    # reference to the current CGI::Application $self
++     'webapp'        => ...    # reference to the current
++                               # CGI::Application $self
+ 
+ =cut
+ 
+@@ -370,7 +377,7 @@
+ 
+ =item render_template
+ 
+-This method must be overriden in a subclass.  It has the responsibility
++This method must be overridden in a subclass.  It has the responsibility
+ of filling the template in C<< $self->filename >> with the values in C<< $self->param >>
+ via the appropriate template system, and returning the output as either
+ a string or a reference to a string.
+--- CGI-Application-Plugin-AnyTemplate-0.18.orig/lib/CGI/Application/Plugin/AnyTemplate/Driver/HTMLTemplate.pm
++++ CGI-Application-Plugin-AnyTemplate-0.18/lib/CGI/Application/Plugin/AnyTemplate/Driver/HTMLTemplate.pm
+@@ -23,7 +23,7 @@
+ 
+     <TMPL_VAR NAME="cgiapp_embed('some_run_mode', param1, param2, 'literal string3')">
+ 
+-I<(Support for parameter passing is limited.  See the note on paramters below.)>
++I<(Support for parameter passing is limited.  See the note on parameters below.)>
+ 
+ This can be overridden by the following configuration variables:
+ 
+--- CGI-Application-Plugin-AnyTemplate-0.18.orig/lib/CGI/Application/Plugin/AnyTemplate/Driver/HTMLTemplatePluggable.pm
++++ CGI-Application-Plugin-AnyTemplate-0.18/lib/CGI/Application/Plugin/AnyTemplate/Driver/HTMLTemplatePluggable.pm
+@@ -26,7 +26,11 @@
+ 
+ The L<HTML::Template::Pluggable> syntax for embedding components is:
+ 
+-    <TMPL_VAR NAME="cgiapp.embed('some_run_mode', param1, param2, 'literal string3')">
++    <TMPL_VAR NAME="cgiapp.embed('some_run_mode',
++                                 param1,
++                                 param2,
++                                 'literal string3')"
++    >
+ 
+ This can be overridden by the following configuration variables:
+ 
+@@ -57,7 +61,7 @@
+ 
+ =head1 CONFIGURATION
+ 
+-The L<CGI::Application::Plugin::AnyTemplate::Driver::HTMLTemplatePluggable> driver
++The L<HTMLTemplatePluggable|CGI::Application::Plugin::AnyTemplate::Driver::HTMLTemplatePluggable> driver
+ accepts the following config parameters:
+ 
+ =over 4
+@@ -79,7 +83,7 @@
+ B<This feature is now deprecated and will be removed in a future release.>
+ 
+ If this config parameter is true, then
+-L<CGI::Application::Plugin::AnyTemplate::Driver::HTMLTemplatePluggable> will
++L<HTMLTemplatePluggable|CGI::Application::Plugin::AnyTemplate::Driver::HTMLTemplatePluggable> will
+ copy all of the webapp's query params into the template using
+ L<HTML::Template>'s C<associate> mechanism:
+ 

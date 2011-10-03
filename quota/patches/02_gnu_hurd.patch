@@ -1,6 +1,8 @@
 Description: fix build on hurd
 Author: Barry deFreese
-
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-01-05
+Forwarded: not-needed
 --- a/Makefile.PL
 +++ b/Makefile.PL
 @@ -14,6 +14,7 @@

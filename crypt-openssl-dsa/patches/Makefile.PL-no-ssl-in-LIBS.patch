@@ -1,7 +1,11 @@
-# Description: remove -lssl from LIBS as it is not needed; no symbols from
-#              libssl are used
-# Author: Damyan Ivanov <dmn@debian.org>
-# Upstream-Bug: https://sourceforge.net/tracker2/?func=detail&aid=2556362&group_id=73194&atid=537056
+Description: remove -lssl from LIBS as it is not needed; no symbols from                                                                                                            
+ libssl are used.
+Origin: vendor
+Bug: https://sourceforge.net/tracker2/?func=detail&aid=2556362&group_id=73194&atid=537056
+Forwarded: yes
+Author: Damyan Ivanov <dmn@debian.org>
+Last-Update: 2011-08-05
+
 --- a/Makefile.PL
 +++ b/Makefile.PL
 @@ -6,6 +6,6 @@ WriteMakefile(

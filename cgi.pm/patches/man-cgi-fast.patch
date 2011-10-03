@@ -1,8 +1,9 @@
 Description: fix paths to FastCGI scripts
 Author: AGOSTINI Yves <agostini@univ-metz.fr>
-Reviewed-by: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 Origin: vendor
 Forwarded: not-needed
+Last-Update: 2010-11-21
 --- a/lib/CGI/Fast.pm
 +++ b/lib/CGI/Fast.pm
 @@ -152,7 +152,7 @@

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libversion-perl (>= 1:0.8700) | perl (>= 5.13.9), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libversion-perl (>= 1:0.8700) | perl (>= 5.13.9)
+X: 0

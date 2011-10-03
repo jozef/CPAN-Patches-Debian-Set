@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 6), perl (>= 5.8.0)
+Build-Depends: debhelper (>= 8), perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libmime-base64-perl
 X: 0

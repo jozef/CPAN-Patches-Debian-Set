@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: liborlite-perl, libperl-minimumversion-perl, libstatistics-basic-perl, libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl (>= 1.26), perl (>= 5.10) | libpod-simple-perl (>= 3.07)
+Build-Depends-Indep: liborlite-perl, libperl-minimumversion-perl, libstatistics-basic-perl, libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl (>= 1.26), perl
 Depends: ${misc:Depends}, ${perl:Depends}, liborlite-perl, libstatistics-basic-perl
 X: 0

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libmoose-perl (>= 0.73), libmoosex-async-perl, libpoe-perl (>= 1.004), libsub-name-perl (>= 0.04), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.73), libmoosex-async-perl, libpoe-perl (>= 1.004), libsub-name-perl (>= 0.04)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl (>= 2.0002), libmoosex-daemonize-perl, libmoosex-declare-perl, libpoe-perl (>= 2:1.3100), libtest-fatal-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.90)
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 2.0002), libpoe-perl (>= 2:1.3100)
 X: 0

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libipc-shareable-perl, libmoose-perl (>= 0.81), libmoosex-attributehelpers-perl, libpoe-component-client-http-perl (>= 0.82), libpoe-component-sslify-perl, libpoe-perl (>= 2:1.000), libtest-pod-perl, libtest-poe-client-tcp-perl (>= 0.1), libwww-perl, perl (>= 5.10.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.81), libmoosex-attributehelpers-perl, libpoe-perl (>= 2:1.0000), libwww-perl, perl (>= 5.8.8)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libipc-shareable-perl, libmoose-perl (>= 0.81), libmoosex-attributehelpers-perl, libmoosex-poe-perl, libpoe-component-client-http-perl, libpoe-component-sslify-perl, libpoe-filter-http-parser-perl (>= 1.06), libpoe-perl, libtest-pod-perl, libtest-poe-client-tcp-perl (>= 0.10), libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.81), libmoosex-attributehelpers-perl, libmoosex-poe-perl, libpoe-perl, libwww-perl
 X: 0

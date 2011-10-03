@@ -1,5 +1,8 @@
-# Add missing whatis entry
-# http://rt.cpan.org/Ticket/Display.html?id=37350
+Subject: Add missing whatis entry
+Author: Damyan Ivanov <dmn@debian.org>
+Bug: http://rt.cpan.org/Ticket/Display.html?id=37350
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-09-25
 --- a/lib/Devel/Cover/Tutorial.pod
 +++ b/lib/Devel/Cover/Tutorial.pod
 @@ -1,3 +1,7 @@

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdbd-csv-perl, libdbd-sqlite2-perl, libdbd-sqlite3-perl, libdbi-perl, libfile-homedir-perl, libtest-pod-coverage-perl, libtest-pod-perl, libversion-perl, libyaml-tiny-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbi-perl, libfile-homedir-perl, libversion-perl, libyaml-tiny-perl
+X: 0

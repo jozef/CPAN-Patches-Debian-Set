@@ -2,3 +2,5 @@ fix-manpage-has-bad-whatis-entry.patch
 fix-manpage-latex2ps.patch
 fix-manpage-latex2pdf.patch
 fix-manpage-latex2dvi.patch
+accept-interactive-questions.patch
+fix-spelling-errors-in-manpage.patch

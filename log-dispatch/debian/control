@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libparams-validate-perl, perl (>= 5.10.1) | libsys-syslog-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libparams-validate-perl, perl (>= 5.10.1) | libsys-syslog-perl
+X: 0

@@ -1,15 +1,18 @@
 Description: don't compile with -lssl
-Author: Damyan Ivanov <dmn@debian.org>
 Origin: vendor
 Forwarded: not-needed
+Author: Damyan Ivanov <dmn@debian.org>
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-08-25
+
 --- a/Makefile.PL
 +++ b/Makefile.PL
-@@ -11,7 +11,7 @@
-     'DISTNAME' => 'Crypt-OpenSSL-RSA',
-     'VERSION_FROM' => 'RSA.pm', # finds $VERSION
+@@ -19,7 +19,7 @@
+         'Test' => 0,
+     },
      'OBJECT' => 'RSA.o',
--    'LIBS'	=> ['-lssl -lcrypto'],   # e.g., '-lm'
+-    'LIBS'    => ($^O eq 'MSWin32') ? ['-lssl32 -leay32'] : ['-lssl -lcrypto'],
 +    'LIBS'	=> ['-lcrypto'],   # e.g., '-lm'
-     'PREREQ_PM' => { 'Crypt::OpenSSL::Random' => 0 },
      'DEFINE'	=> '-DPERL5 -DOPENSSL_NO_KRB5',
      # perl-5.8/gcc-3.2 needs -DPERL5, and redhat9 likes -DOPENSSL_NO_KRB5
+     'INC'	=> $include,     # e.g., '-I/usr/include/other'

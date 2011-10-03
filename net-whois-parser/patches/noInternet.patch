@@ -1,0 +1,27 @@
+Description: Workaround to skip tests when internet access is not available
+ Due to Debian policy, build systems of Debiandon't have internet access, 
+ that causes that the internet dependent tests fail at build time.
+Origin: vendor, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=577350
+Forwarded: not-needed
+Bug-Debian: http://bugs.debian.org/577350
+Author: Jotam Jr. Trejo <jotamjr@debian.org.sv>
+Last-Update: 2011-06-18
+
+--- a/t/000-base.t
++++ b/t/000-base.t
+@@ -14,6 +14,9 @@ my $domain = 'reg.ru';
+ my $info;
+ 
+ plan tests => 11;
++SKIP: {
++
++skip "Build system don't have internet access", 11 unless $ENV{CONNECTED_TO_NET};
+ 
+ my ( $raw, $server ) = whois($domain);
+ 
+@@ -52,4 +55,5 @@ $info = parse_whois( raw => $raw );
+ 
+ is_deeply $info->{test}, [ 1, 2, 3], 'get_all_values is on';
+ 
++      }
+ 

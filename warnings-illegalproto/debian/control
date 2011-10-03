@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libstrictures-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.92)
+Depends: ${misc:Depends}, ${perl:Depends}, libstrictures-perl
+X: 0

@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
-Build-Depends-Indep: libperl-minimumversion-perl, libpod-simple-perl (>= 3.07), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl (>= 1.26), libtest-script-perl (>= 1.05), perl (>= 5.10.1) | libtest-simple-perl (>= 0.80)
+Build-Depends-Indep: libperl-minimumversion-perl, libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl (>= 1.26), libtest-script-perl (>= 1.05), perl (>= 5.10.1) | libtest-simple-perl (>= 0.80)
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

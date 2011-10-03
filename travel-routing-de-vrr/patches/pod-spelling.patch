@@ -1,0 +1,14 @@
+Description: Fix spelling error in POD
+Author: Maximilian Gass <mxey@cloudconnected.org>
+Forwarded: yes
+--- a/lib/Travel/Routing/DE/VRR.pm
++++ b/lib/Travel/Routing/DE/VRR.pm
+@@ -602,7 +602,7 @@
+ 
+ =head1 NAME
+ 
+-Travel::Routing::DE::VRR - inofficial interface to the efa.vrr.de German itinerary service
++Travel::Routing::DE::VRR - unofficial interface to the efa.vrr.de German itinerary service
+ 
+ =head1 SYNOPSIS
+ 

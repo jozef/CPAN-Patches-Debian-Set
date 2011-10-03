@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Remove install instructions from README
+Forwarded: not-needed
+Last-Update: 2011-01-29
+--- a/README
++++ b/README
+@@ -9,8 +9,6 @@
+ cannot really do this, as it is stream-oriented, rather than being able to
+ tell you, say, what's on the top row of the screen.
+ 
+-For installation instructions, see the INSTALL file.
+-
+ Please send bug reports, comments, and whatnot to the project maintainer,
+ Andrew Wood <andrew dot wood at ivarch dot com>.
+ 

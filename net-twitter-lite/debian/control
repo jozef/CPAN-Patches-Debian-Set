@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.2.13)
-Build-Depends-Indep: aspell-en, libcrypt-ssleay-perl, libjson-any-perl (>= 1.21), libnet-oauth-perl (>= 0.25), libtest-pod-coverage-perl, libtest-pod-perl, libtest-spelling-perl, liburi-perl (>= 1.4), libwww-perl (>= 5.819), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libjson-any-perl (>= 1.21), liburi-perl (>= 1.4), libwww-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcrypt-ssleay-perl, libjson-any-perl (>= 1.21), libnet-oauth-perl (>= 0.25), liburi-perl (>= 1.40), libwww-perl (>= 5.819), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcrypt-ssleay-perl, libjson-any-perl (>= 1.21), libnet-oauth-perl (>= 0.25), liburi-perl (>= 1.40), libwww-perl
 X: 0

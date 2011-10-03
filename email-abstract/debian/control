@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libemail-mime-perl, libemail-simple-perl, libmail-box-perl, libmailtools-perl, libmime-tools-perl, libmodule-pluggable-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libemail-simple-perl, libmodule-pluggable-perl
+Build-Depends-Indep: libemail-mime-perl, libemail-simple-perl, libmail-box-perl, libmailtools-perl, libmime-tools-perl (>= 5.501), libmodule-pluggable-perl, libmro-compat-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-simple-perl, libmodule-pluggable-perl, libmro-compat-perl
 X: 0

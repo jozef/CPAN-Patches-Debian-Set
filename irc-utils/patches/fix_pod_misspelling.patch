@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: Jotam Jr. Trejo <jotamjr@debian.org.sv>
+Last-Update: 2011-06-12
+
+--- a/lib/IRC/Utils.pm
++++ b/lib/IRC/Utils.pm
+@@ -769,7 +769,7 @@
+  sub message_handler {
+      my ($nick, $channel, $message) = @_;
+ 
+-     # not wise, $message is a byte string of unkown encoding
++     # not wise, $message is a byte string of unknown encoding
+      print $message, "\n";
+ 
+      $message = decode_irc($what);

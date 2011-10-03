@@ -1,0 +1,18 @@
+Description: unbreakable line in manpage
+Origin: vendor
+Forwarded: not-needed
+Author: Gerfried Fuchs <rhonda@debian.at>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-09-24
+
+--- a/lib/DBIx/Abstract.pm
++++ b/lib/DBIx/Abstract.pm
+@@ -1378,7 +1378,7 @@
+ 
+ ($fields,[$table,[$where[,$order]]])
+ 
+-({fields=>$fields,table=>$table[,where=>$where][,order=>$order][,join=>$join][,group=>$group]})
++({ fields=>$fields, table=>$table [,where=>$where] [,order=>$order] [,join=>$join] [,group=>$group] })
+ 
+ The select method returns the DBIx::Abstract object it was invoked with. 
+ This allows you to chain commands.

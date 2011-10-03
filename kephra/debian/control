@@ -1,0 +1,5 @@
+App: kephra
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libconfig-general-perl, libfile-userconfig-perl, libtest-checkmanifest-perl, libtest-exception-perl, libtest-nowarnings-perl, libtest-pod-perl, libtest-script-perl, libwx-perl, libwx-perl-processstream-perl, libyaml-tiny-perl, perl, xauth, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-general-perl, libfile-userconfig-perl, libwx-perl, libwx-perl-processstream-perl, libyaml-tiny-perl
+X: 1

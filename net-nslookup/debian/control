@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libnet-dns-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-dns-perl
+X: 0

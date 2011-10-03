@@ -1,0 +1,72 @@
+Description: Some of the infrastructure clases do not provide proper POD
+ documentation, thus preventing the availability of man pages for them.
+ This patch adds a minimal POD fragment describing the purpose of these
+ infrastructural classes.
+Forwarded: Yes
+Author: Ernesto Hernández-Novich <emhn@usb.ve>
+
+--- a/lib/Monkey/Patch/Handle.pm
++++ b/lib/Monkey/Patch/Handle.pm
+@@ -111,6 +111,20 @@
+ 
+ 1;
+ 
++=head1 NAME
++
++Monkey::Patch::Handle - Handle for monkey-patched functions
++
++=head1 DESCRIPTION
++
++Monkey::Patch::Handle keeps a stack of subroutine references for
++each name (Foo::bar::baz type name), so that the coderef that lives
++at that name is always the top of the stack, and if the wrappers get
++uninstalled in a funky order all hell doesn't break loose.
++
++You should never need to use this directly, so read L(Monkey::Patch)
++instead.
++
+ =pod
+ 
+ =begin Pod::Coverage
+--- a/lib/Monkey/Patch/Handle/Class.pm
++++ b/lib/Monkey/Patch/Handle/Class.pm
+@@ -18,6 +18,18 @@
+ 
+ 1;
+ 
++=head1 NAME
++
++Monkey::Patch::Handle::Class - Handle for monkey-patching classes
++
++=head1 DESCRIPTION
++
++Monkey::Patch::Handle::Class provides the default Monkey::Patch::Handle
++for monkey-patching a whole class.
++
++You should never need to use this directly, so read L(Monkey::Patch)
++instead.
++
+ =pod
+ 
+ =begin Pod::Coverage
+--- a/lib/Monkey/Patch/Handle/Object.pm
++++ b/lib/Monkey/Patch/Handle/Object.pm
+@@ -15,6 +15,18 @@
+ 
+ 1;
+ 
++=head1 NAME
++
++Monkey::Patch::Handle::Object - Handle for monkey-patching objects
++
++=head1 DESCRIPTION
++
++Monkey::Patch::Handle::Object provides the default Monkey::Patch::Handle
++for monkey-patching a particular object.
++
++You should never need to use this directly, so read L(Monkey::Patch)
++instead.
++
+ =pod
+ 
+ =begin Pod::Coverage

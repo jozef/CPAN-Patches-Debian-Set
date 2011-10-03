@@ -1,0 +1,18 @@
+Description: Fix minor misspelling that Lintian is unhappy about.
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=70221
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=70221
+Author: Harlan Lieberman-Berg <H.LiebermanBerg@gmail.com>
+Last-Update: 2011-08-12
+
+--- a/lib/Data/Hexdumper.pm
++++ b/lib/Data/Hexdumper.pm
+@@ -65,7 +65,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-C<Data::Hexdumper> provides a simple way to format arbitary binary data
++C<Data::Hexdumper> provides a simple way to format arbitrary binary data
+ into a nice human-readable format, somewhat similar to the Unix 'hexdump'
+ utility.
+ 

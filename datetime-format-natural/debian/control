@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libboolean-perl, libdate-calc-perl, libdatetime-perl, liblist-moreutils-perl, libparams-validate-perl, libtest-mocktime-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libboolean-perl, libdate-calc-perl, libdatetime-perl, liblist-moreutils-perl, libmodule-util-perl, libparams-validate-perl, libtest-mocktime-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.10.1) | libmodule-build-perl (>= 0.340201)
 Depends: ${misc:Depends}, ${perl:Depends}, libboolean-perl, libdatetime-perl, liblist-moreutils-perl, libparams-validate-perl
 X: 0

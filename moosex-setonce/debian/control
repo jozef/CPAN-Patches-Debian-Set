@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmoose-perl (>= 0.90), libtry-tiny-perl, perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl (>= 0.90), libtest-fatal-perl, libtest-simple-perl (>= 0.96), libtry-tiny-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.90), libtry-tiny-perl
 X: 0

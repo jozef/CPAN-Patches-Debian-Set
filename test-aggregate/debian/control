@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libtest-most-perl, libtest-nowarnings-perl, perl (>= 5.11.1) | libtest-simple-perl (>= 0.94)
+Depends: ${misc:Depends}, ${perl:Depends}, libtest-most-perl, libtest-nowarnings-perl, perl (>= 5.10.1) | libtest-harness-perl (>= 3.09)
+X: 0

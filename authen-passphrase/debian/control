@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.17), perl
-Build-Depends-Indep: libauthen-dechpwd-perl (>= 2.003), libcrypt-blowfish-perl (>= 2.00), libcrypt-des-perl, libcrypt-eksblowfish-perl (>= 0.005), libcrypt-mysql-perl (>= 0.03), libcrypt-passwdmd5-perl (>= 1.0), libcrypt-unixcrypt-xs-perl (>= 0.08), libdata-entropy-perl, libdigest-md4-perl (>= 1.2), libdigest-sha1-perl, libmodule-runtime-perl (>= 0.005), libparams-classify-perl, perl (>= 5.10.0) | libmodule-build-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libauthen-dechpwd-perl (>= 2.003), libcrypt-blowfish-perl (>= 2.0), libcrypt-des-perl, libcrypt-eksblowfish-perl (>= 0.005), libcrypt-mysql-perl (>= 0.03), libcrypt-passwdmd5-perl (>= 1.0), libcrypt-unixcrypt-xs-perl (>= 0.08), libdata-entropy-perl, libdigest-md4-perl (>= 1.2), libdigest-perl (>= 1.0), libdigest-sha1-perl, libmodule-runtime-perl (>= 0.005), libparams-classify-perl
+Build-Depends: debhelper (>= 8), perl
+Build-Depends-Indep: libauthen-dechpwd-perl (>= 2.003), libcrypt-des-perl, libcrypt-eksblowfish-perl (>= 0.008), libcrypt-mysql-perl, libcrypt-passwdmd5-perl, libcrypt-unixcrypt-xs-perl, libdata-entropy-perl, libdigest-md4-perl, libmodule-runtime-perl (>= 0.006), libparams-classify-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.10.1) | libparent-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libauthen-dechpwd-perl (>= 2.003), libcrypt-des-perl, libcrypt-eksblowfish-perl (>= 0.008), libcrypt-mysql-perl, libcrypt-passwdmd5-perl, libcrypt-unixcrypt-xs-perl, libdata-entropy-perl, libdigest-md4-perl, libdigest-perl, libmodule-runtime-perl (>= 0.006), libparams-classify-perl, perl (>= 5.10.1) | libparent-perl
 X: 0

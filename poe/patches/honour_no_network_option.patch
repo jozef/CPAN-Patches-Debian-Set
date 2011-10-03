@@ -1,6 +1,9 @@
-so that the network tests are only ran if networking is up
+Subject: so that the network tests are only ran if networking is up
 (debian/rules has the other half)
-
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-02-11
+Forwarded: not-needed
+Author: Rene Mayorga <rmayorga@debian.org.sv>
 --- a/t/90_regression/agaran-filter-httpd.t
 +++ b/t/90_regression/agaran-filter-httpd.t
 @@ -5,6 +5,10 @@
@@ -14,3 +17,16 @@ so that the network tests are only ran if networking is up
    eval "use HTTP::Request";
    if ($@) {
      print "1..0 # skip - HTTP::Request needed to test POE::Filter::HTTPD\n";
+--- a/t/10_units/01_pod/03_pod_no404s.t
++++ b/t/10_units/01_pod/03_pod_no404s.t
+@@ -11,8 +11,8 @@
+     plan skip_all => 'Need network access (and permission) for these tests';
+   }
+ 
+-  unless ( $ENV{RELEASE_TESTING} ) {
+-    plan skip_all => 'enable by setting RELEASE_TESTING';
++  unless ( $ENV{INTERNET_TESTING} ) {
++    plan skip_all => 'enable by setting INTERNET_TESTING';
+   }
+ 
+   foreach my $req (qw(Test::Pod::No404s)) {

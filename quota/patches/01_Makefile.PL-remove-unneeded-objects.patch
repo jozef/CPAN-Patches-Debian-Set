@@ -1,7 +1,9 @@
 Author: Elie Rosenblum <fnord@debian.org>
 Description: Remove Makefile.PL code to compile some stuff without -fPIC
-Bug: #229396
-   
+Bug-Debian: #229396
+Bug: http://rt.cpan.org/Ticket/Display.html?id=64509
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-01-05
 --- a/Makefile.PL
 +++ b/Makefile.PL
 @@ -102,14 +102,6 @@

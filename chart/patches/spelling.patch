@@ -1,0 +1,63 @@
+Description: spelling fixes
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=69689
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-12-21
+
+--- a/Chart.pod
++++ b/Chart.pod
+@@ -31,7 +31,7 @@
+     $obj->png ( FILEHANDLE );
+     $obj->cgi_png ();
+ 
+-    The similiar functions are available for jpeg
++    The similar functions are available for jpeg
+ 
+     # Retrieve imagemap information
+     $obj->set ( 'imagemap' => 'true' );
+@@ -168,7 +168,7 @@
+ =item 'xy_plot'
+ 
+ Forces Chart to plot a x-y-graph, which means, that the x-axis is also
+-numeric if set to 'true'. Very usefull for mathematical graphs.
++numeric if set to 'true'. Very useful for mathematical graphs.
+ Works for Lines, Points, LinesPoints and ErrorBars. Split makes always a 
+ xy_plot. Defaults to 'false'.
+ 
+@@ -180,7 +180,7 @@
+ =item 'max_y_ticks'
+ 
+ Sets the maximum number of y_ticks to draw when generating a scale.
+-Default is 100. This limit is used to avoid ploting an unreasonably
++Default is 100. This limit is used to avoid plotting an unreasonably
+ large number of ticks if non-round values are used for the min_val
+ and max_val.
+ 
+@@ -229,8 +229,8 @@
+ every 1 unit.. If no 'min_val' & 'max_val', the system will autoscale the
+ range to 30-120 with 10 ticks every 10 units.
+ 
+-If the 'min_val' & 'max_val' are specifed to exesive precision, they may
+-be overiden by the system, ploting a maximum 'max_y_ticks' ticks.
++If the 'min_val' & 'max_val' are specified to exesive precision, they may
++be overiden by the system, plotting a maximum 'max_y_ticks' ticks.
+ 
+ =item 'include_zero'
+ 
+@@ -619,14 +619,14 @@
+ 'set' or 'pt is the type of the datafile. 
+ If the parameter is 'set' then each line in the data file
+ has to be a complete data set. The value of the set has to be 
+-seperated by whitespaces. For example the file looks like this:
++separated by whitespaces. For example the file looks like this:
+ 
+ 	'foo'  'bar'
+ 	30     16
+ 	25     32
+ 
+ If the parameter is 'pt', one line has to include all values
+-of one data point seperated by whitespaces. For example:
++of one data point separated by whitespaces. For example:
+ 
+ 	'foo'  30  25
+ 	'bar'  16  32

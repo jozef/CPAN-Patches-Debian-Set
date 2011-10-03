@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libxml-parser-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-parser-perl
+X: 0

@@ -4,67 +4,12 @@ Description: Fix spelling errors in documentation
  but is not done with this patch.
 Forwarded: http://mail-archives.apache.org/mod_mbox/perl-modperl/201004.mbox/thread
 Author: Damyan Ivanov <dmn@debian.org>
-Last-Update: 2010-04-20
+Last-Update: 2011-04-10
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 
---- a/Apache-Test/lib/Apache/TestConfig.pm
-+++ b/Apache-Test/lib/Apache/TestConfig.pm
-@@ -2221,8 +2221,8 @@ sub custom_config_add_conf_opts {
-     # the logic is quite complicated with 'httpd' and 'apxs', since
-     # one is enough to run the test suite, and we need to avoid the
-     # situation where both are saved in custom config but only one
--    # (let's say httpd) is overriden by the command line /env var and
--    # a hell may break loose if we take that overriden httpd value and
-+    # (let's say httpd) is overridden by the command line /env var and
-+    # a hell may break loose if we take that overridden httpd value and
-     # also use apxs from custom config which could point to a different
-     # server. So if there is an override of apxs or httpd, do not use
-     # the custom config for apxs or httpd.
---- a/Apache-Test/lib/Apache/TestRun.pm
-+++ b/Apache-Test/lib/Apache/TestRun.pm
-@@ -1456,7 +1456,7 @@ F<lib/Apache/TestConfigData.pm> (if duri
- F<~/.apache-test/Apache/TestConfigData.pm> and
- F<Apache/TestConfigData.pm> in the perl's libraries.
- 
--C<$config_overriden> - that means that we have either C<apxs> or
-+C<$config_overridden> - that means that we have either C<apxs> or
- C<httpd> values provided by user, via env vars or command line options.
- 
- =over
-@@ -1477,12 +1477,12 @@ bundles Apache-Test).
-   3) make test
- 
-   if $config_exists
--      if $config_overriden
--          override saved options (for those that were overriden)
-+      if $config_overridden
-+          override saved options (for those that were overridden)
-       else
-           use saved options
-   else
--      if $config_overriden
-+      if $config_overridden
-           save them in lib/Apache/TestConfigData.pm
-           (which will be installed on 'make install')
-       else
-@@ -1523,12 +1523,12 @@ F<~/.apache-test/Apache/TestConfigData.p
-   3) make test
- 
-   if $config_exists
--      if $config_overriden
--          override saved options (for those that were overriden)
-+      if $config_overridden
-+          override saved options (for those that were overridden)
-       else
-           use saved options
-   else
--      if $config_overriden
-+      if $config_overridden
-           save them in $custom_config_path
-       else
-           - run interactive prompt for C<httpd> and optionally for C<apxs>
 --- a/Apache-Test/lib/Apache/TestTrace.pm
 +++ b/Apache-Test/lib/Apache/TestTrace.pm
-@@ -126,9 +126,9 @@ sub nc_trace {
+@@ -126,9 +126,9 @@
  }
  
  sub trace_level {
@@ -78,7 +23,7 @@ Last-Update: 2010-04-20
      # or default
 --- a/Apache-Test/lib/Apache/TestUtil.pm
 +++ b/Apache-Test/lib/Apache/TestUtil.pm
-@@ -822,7 +822,7 @@ directory separators. The function is no
+@@ -859,7 +859,7 @@
  =item t_start_error_log_watch(), t_finish_error_log_watch()
  
  This pair of functions provides an easy interface for checking
@@ -89,7 +34,7 @@ Last-Update: 2010-04-20
  this with a call to one of the t_*_is_expected() functions.
 --- a/ModPerl-Registry/lib/ModPerl/RegistryCooker.pm
 +++ b/ModPerl-Registry/lib/ModPerl/RegistryCooker.pm
-@@ -61,7 +61,7 @@ use constant D_WARN    => 2;
+@@ -61,7 +61,7 @@
  use constant D_COMPILE => 4;
  use constant D_NOISE   => 8;
  
@@ -100,7 +45,7 @@ Last-Update: 2010-04-20
  use constant DEBUG => 0;
 --- a/docs/api/APR.pod
 +++ b/docs/api/APR.pod
-@@ -18,7 +18,7 @@ libaprutil Libraries)
+@@ -18,7 +18,7 @@
  
  =head1 Description
  
@@ -111,7 +56,7 @@ Last-Update: 2010-04-20
  You don't need to use this module explicitly, since it's already
 --- a/docs/api/Apache2/Module.pod
 +++ b/docs/api/Apache2/Module.pod
-@@ -413,7 +413,7 @@ Remove a module from the list of loaded
+@@ -413,7 +413,7 @@
  
  =head2 C<top_module>
  
@@ -122,7 +67,7 @@ Last-Update: 2010-04-20
    $module = Apache2::Module::top_module();
 --- a/docs/api/Apache2/Util.pod
 +++ b/docs/api/Apache2/Util.pod
-@@ -36,7 +36,7 @@ C<Apache2::Util> provides the following
+@@ -36,7 +36,7 @@
  
  =head2 C<escape_path>
  
@@ -133,7 +78,7 @@ Last-Update: 2010-04-20
    $escaped_path = Apache2::Util::escape_path($path, $p, $partial);
 --- a/docs/api/ModPerl/MM.pod
 +++ b/docs/api/ModPerl/MM.pod
-@@ -55,7 +55,7 @@ hasn't already specified a method I<MY::
+@@ -55,7 +55,7 @@
  C<ModPerl::MM> will DWIM and do nothing.
  
  In case the functionality of C<ModPerl::MM> methods needs to be
@@ -142,7 +87,7 @@ Last-Update: 2010-04-20
  can be called internally. For example if you need to modify constants
  in addition to the modifications applied by
  C<ModPerl::MM::MY::constants>, call the C<ModPerl::MM::MY::constants>
-@@ -72,7 +72,7 @@ not C<ModPerl::MM>), then do your extra
+@@ -72,7 +72,7 @@
  In certain cases a developers may want to prevent from C<ModPerl::MM>
  to override certain methods. In that case an explicit override in
  I<Makefile.PL> will do the job. For example if you don't want the
@@ -151,7 +96,7 @@ Last-Update: 2010-04-20
  I<Makefile.PL>:
  
    sub MY::constants { shift->MM::constants(@_); }";
-@@ -89,7 +89,7 @@ C<ModPerl::MM::WriteMakefile> supplies d
+@@ -89,7 +89,7 @@
  C<INC> and C<TYPEMAPS> unless they weren't passed to
  C<ModPerl::MM::WriteMakefile> from I<Makefile.PL>.
  
@@ -162,7 +107,7 @@ Last-Update: 2010-04-20
  
 --- a/docs/api/ModPerl/RegistryCooker.pod
 +++ b/docs/api/ModPerl/RegistryCooker.pod
-@@ -25,7 +25,7 @@ Provide ingredients that can be used by
+@@ -25,7 +25,7 @@
  
  =item *
  
@@ -173,7 +118,7 @@ Last-Update: 2010-04-20
  
 --- a/lib/Apache2/compat.pm
 +++ b/lib/Apache2/compat.pm
-@@ -254,7 +254,7 @@ sub override_mp2_api {
+@@ -254,7 +254,7 @@
  }
  
  # restore_mp2_api does the opposite of override_mp2_api(), it removes
@@ -184,7 +129,7 @@ Last-Update: 2010-04-20
  
 --- a/lib/Apache2/porting.pm
 +++ b/lib/Apache2/porting.pm
-@@ -84,9 +84,9 @@ BEGIN {
+@@ -84,9 +84,9 @@
          $package =~ s|/|::|g;
          $package =~ s|.pm$||;
  
@@ -198,7 +143,7 @@ Last-Update: 2010-04-20
          my $msg = "mod_perl 2.0 API doesn't include package '$package'.";
 --- a/xs/APR/Pool/APR__Pool.h
 +++ b/xs/APR/Pool/APR__Pool.h
-@@ -49,7 +49,7 @@ APR_OPTIONAL_FN_TYPE(modperl_thx_interp_
+@@ -49,7 +49,7 @@
  #define MP_APR_POOL_SV_HAS_OWNERSHIP(sv) mpxs_pool_is_custom(sv)
  
  /* before the magic is freed, one needs to carefully detach the
@@ -209,7 +154,7 @@ Last-Update: 2010-04-20
   * destruction of the parent pool will destroy the child pool C guts
 --- a/todo/bugs_build
 +++ b/todo/bugs_build
-@@ -71,7 +71,7 @@ HPUX11i     DSO
+@@ -71,7 +71,7 @@
  
  * we have a dependency check problem when xs/*/*.h use code from
    xs/modperl_xs*.h, when the latter change 'make' won't rebuild the
@@ -218,3 +163,113 @@ Last-Update: 2010-04-20
  
  * Testing:
    Need to put Philippe's smoking test into the core
+--- a/Apache-Reload/lib/Apache2/Reload.pm
++++ b/Apache-Reload/lib/Apache2/Reload.pm
+@@ -360,7 +360,7 @@
+ 
+ =head2 Unregistering a module
+ 
+-In some cases, it might be necessary to explicitely stop reloading
++In some cases, it might be necessary to explicitly stop reloading
+ a module.
+ 
+   Apache2::Reload->unregister_module('Some::Module');
+--- a/docs/api/Apache2/RequestUtil.pod
++++ b/docs/api/Apache2/RequestUtil.pod
+@@ -813,7 +813,7 @@
+ same code is called in a sub-request then the pnote of $r->prev is magically 
+ updated at a distance to the same value!
+ 
+-Try explain why that is to anyone not deeply familar with perl internals!
++Try explain why that is to anyone not deeply familiar with perl internals!
+ 
+ The fix is to avoid pnotes taking a ref to the invisible op_targ embededed in 
+ the code by passing a simple lexical variable as the actual argument. That can be done in-line like this:
+--- a/docs/user/intro/overview.pod
++++ b/docs/user/intro/overview.pod
+@@ -279,7 +279,7 @@
+ 
+ =item *
+ 
+-The I<warnings> pragma, which allows to force the code to be super
++The I<warnings> pragma, which allows one to force the code to be super
+ clean, via the setting:
+ 
+   use warnings FATAL => 'all';
+--- a/docs/user/handlers/http.pod
++++ b/docs/user/handlers/http.pod
+@@ -1580,7 +1580,7 @@
+ a cleanup code, for example removing temporarily created files. The
+ less obvious is to use this phase instead of
+ C<L<PerlLogHandler|/PerlLogHandler>> if the logging operation is time
+-consuming. This approach allows to free the client as soon as the
++consuming. This approach allows one to free the client as soon as the
+ response is sent.
+ 
+ This phase is of type
+--- a/docs/user/coding/coding.pod
++++ b/docs/user/coding/coding.pod
+@@ -300,7 +300,7 @@
+   no warnings 'redefine';
+   use warnings 'redefine';
+ 
+-Perl 5.8.0 allows to do all this in one line:
++Perl 5.8.0 allows one to do all this in one line:
+ 
+   use warnings FATAL => 'all', NONFATAL => 'redefine';
+ 
+--- a/docs/api/Apache2/SizeLimit.pod
++++ b/docs/api/Apache2/SizeLimit.pod
+@@ -147,7 +147,7 @@
+ to make it into the vanilla kernel in the near future.
+ 
+ F</proc/self/smaps> reports various sizes for each memory segment of a
+-process and allows to count the amount of shared memory correctly.
++process and allows one to count the amount of shared memory correctly.
+ 
+ If C<Apache2::SizeLimit> detects a kernel that supports F</proc/self/smaps>
+ and if the C<Linux::Smaps> module is installed it will use them instead of
+--- a/docs/api/Apache2/RequestRec.pod
++++ b/docs/api/Apache2/RequestRec.pod
+@@ -804,7 +804,7 @@
+ 
+ =back
+ 
+-See also C<L<err_headers_out|/C_err_headers_out_>>, which allows to
++See also C<L<err_headers_out|/C_err_headers_out_>>, which allows one to
+ set headers for non-2xx responses and persist across internal
+ redirects.
+ 
+--- a/docs/api/ModPerl/RegistryLoader.pod
++++ b/docs/api/ModPerl/RegistryLoader.pod
+@@ -175,7 +175,7 @@
+ C<ModPerl::RegistryLoader> performs a very simple job, at run time it
+ loads and sub-classes the module passed via the I<package> attribute
+ and overrides some of its functions, to emulate the run-time
+-environment. This allows to preload the same script into different
++environment. This allows one to preload the same script into different
+ registry environments.
+ 
+ =head1 Authors
+--- a/docs/devel/core/mod_perl_specific.pod
++++ b/docs/devel/core/mod_perl_specific.pod
+@@ -131,7 +131,7 @@
+                        retrieve ctx->handler
+   modperl_output_filter_handler -> modperl_run_filter -> modperl_callback
+ 
+-This trick allows to have more than one filter handler in the filters
++This trick allows one to have more than one filter handler in the filters
+ chain using the same Apache filter name (the real filter's name is
+ stored in ctx-E<gt>handler-E<gt>name.
+ 
+--- a/Apache-Test/lib/Apache/Test.pm
++++ b/Apache-Test/lib/Apache/Test.pm
+@@ -749,7 +749,7 @@
+ 
+ =item sok
+ 
+-Allows to skip a sub-test, controlled from the command line.  The
++Allows one to skip a sub-test, controlled from the command line.  The
+ argument to sok() is a CODE reference or a BLOCK whose return value
+ will be passed to ok(). By default behaves like ok(). If all sub-tests
+ of the same test are written using sok(), and a test is executed as:

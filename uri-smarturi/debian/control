@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8.0.0)
+Build-Depends-Indep: libclass-c3-componentised-perl, libfile-find-rule-perl, liblist-moreutils-perl, libmoose-perl, libnamespace-clean-perl, liburi-perl (>= 1.51), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-c3-componentised-perl, libfile-find-rule-perl, liblist-moreutils-perl, libmoose-perl, libnamespace-clean-perl, liburi-perl (>= 1.51), perl
+X: 0

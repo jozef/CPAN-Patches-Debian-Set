@@ -1,5 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 6)
 Build-Depends-Indep: libauthen-simple-perl (>= 0.4), libtest-pod-coverage-perl, libtest-pod-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libauthen-simple-perl
 X: 0

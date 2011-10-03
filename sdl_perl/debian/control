@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libsdl-gfx1.2-dev, libsdl-image1.2-dev, libsdl-mixer1.2-dev (>= 1.2.5-2), libsdl-net1.2-dev, libsdl-ttf2.0-dev, libsdl1.2-dev (>= 1.2.5-3), libtest-simple-perl, libyaml-perl, perl (>= 5.8), perl-modules (>= 5.10) | libmodule-build-perl, quilt (>= 0.46-7)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

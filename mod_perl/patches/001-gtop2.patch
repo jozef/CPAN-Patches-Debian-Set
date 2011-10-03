@@ -1,11 +1,12 @@
 Description: link with gtop-2.0
+ The gtop library reads information about processs and the state of the system.
 Forwarded: no
 Author: Andres Salomon <dilinger@voxel.net>
-Last-Update: 2010-04-21
-
+Last-Update: 2011-03-22
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 --- a/lib/Apache2/Build.pm
 +++ b/lib/Apache2/Build.pm
-@@ -449,7 +449,7 @@ sub gtop_ldopts_old {
+@@ -449,7 +449,7 @@
          $xlibs .= ' -lintl';
      }
  

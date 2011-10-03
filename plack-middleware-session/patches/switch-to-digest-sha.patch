@@ -1,0 +1,25 @@
+Description: Switch from Digest::SHA1 -> Digest::SHA
+Author: Dave Walker (Daviey) <DaveWalker@ubuntu.com>
+Forwarded: no
+Last-Update: 2011-07-26
+
+--- a/lib/Plack/Session/State.pm
++++ b/lib/Plack/Session/State.pm
+@@ -5,7 +5,7 @@
+ our $VERSION   = '0.14';
+ our $AUTHORITY = 'cpan:STEVAN';
+ 
+-use Digest::SHA1 ();
++use Digest::SHA ();
+ 
+ use Plack::Util::Accessor qw[
+     session_key
+@@ -18,7 +18,7 @@
+ 
+     $params{'session_key'}   ||= 'plack_session';
+     $params{'sid_generator'} ||= sub {
+-        Digest::SHA1::sha1_hex(rand() . $$ . {} . time)
++        Digest::SHA::sha1_hex(rand() . $$ . {} . time)
+     };
+     $params{'sid_validator'} ||= qr/\A[0-9a-f]{40}\Z/;
+ 

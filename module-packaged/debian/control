@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl, quilt (>= 0.40)
-Build-Depends-Indep: libapp-cache-perl, libio-string-perl, libparse-cpan-packages-perl (>= 2.20), libparse-debian-packages-perl (>= 0.01), libsort-versions-perl (>= 1.5), libtest-pod-coverage-perl, libtest-pod-perl, libwww-perl (>= 5.69), perl (>= 5.10)
-Depends: ${misc:Depends}, ${perl:Depends}, libapp-cache-perl, libparse-cpan-packages-perl (>= 2.20), libparse-debian-packages-perl (>= 0.01), libsort-versions-perl (>= 1.5), libwww-perl (>= 5.69), perl (>= 5.10)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libapp-cache-perl, libio-string-perl, libparse-cpan-packages-perl (>= 2.20), libparse-debian-packages-perl (>= 0.01), libsort-versions-perl (>= 1.5), libtest-pod-coverage-perl, libtest-pod-perl, libwww-perl (>= 5.69), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libapp-cache-perl, libparse-cpan-packages-perl (>= 2.20), libparse-debian-packages-perl (>= 0.01), libsort-versions-perl (>= 1.5), libwww-perl (>= 5.69)
 X: 0

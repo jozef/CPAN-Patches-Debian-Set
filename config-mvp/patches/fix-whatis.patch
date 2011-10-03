@@ -1,0 +1,17 @@
+Description: add missing whatis entry
+Origin: vendor
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=66893
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-03-25
+
+--- a/lib/Config/MVP/Error.pm
++++ b/lib/Config/MVP/Error.pm
+@@ -39,7 +39,7 @@
+ 
+ =head1 NAME
+ 
+-Config::MVP::Error
++Config::MVP::Error - common exceptions class
+ 
+ =head1 VERSION
+ 

@@ -1,0 +1,14 @@
+Description: add hashbang
+Origin: vendor
+Forwarded: not-needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-09
+
+--- a/etc/sru-auth
++++ b/etc/sru-auth
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++#
+ # $Id: sru-auth,v 1.1 2007-08-21 12:21:56 mike Exp $
+ 
+ # In order to test the authentication feature of Simple2ZOOM, we need

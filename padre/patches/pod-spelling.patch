@@ -1,0 +1,44 @@
+Description: Fix a couple of spelling errors in POD
+Author: Damyan Ivanov <dmn@debian.org>
+Source: upstream http://padre.perlide.org/trac/changeset/15864
+
+--- a/lib/Padre/Role/Task.pm
++++ b/lib/Padre/Role/Task.pm
+@@ -53,7 +53,7 @@ need to be delayed until a new backgroun
+ if the maximum background worker limit has been reached.
+ 
+ The solution is provided by the C<on_message> handler, which is passed the
+-parent task object as its first paramater.
++parent task object as its first parameter.
+ 
+ Tasks which expect to be sent messages from their owner should send the owner
+ a greeting message as soon as they have started. Not only does this let the
+--- a/lib/Padre/Task.pm
++++ b/lib/Padre/Task.pm
+@@ -184,7 +184,7 @@ In addition to defining a set of method
+ implementer, the base class also provides implements a "task ownership" system
+ in the base class that you may use for nearly no cost in terms of code.
+ 
+-This task owner system will consume three paramters.
++This task owner system will consume three parameters.
+ 
+ The optional C<owner> parameter should be an object that inherits from the role
+ L<Padre::Role::Task>. Message and finish events for this task will be forwarded
+@@ -409,7 +409,7 @@ reference to a Wx element, and flatten i
+ widget instead.
+ 
+ The C<prepare> method also gives your task object a chance to determine whether
+-or not it is still necesary. In some situations the delay between C<new> and
++or not it is still necessary. In some situations the delay between C<new> and
+ C<prepare> may be long enough that the task is no longer relevant, and so by
+ the use of C<prepare> you can indicate execution should be aborted.
+ 
+@@ -432,7 +432,7 @@ after deserialisation. It is where the a
+ task occurs.
+ 
+ In many situations the implementation of run is simple and procedural, doing
+-work based on input parameters stored on the object, blocking if necesary,
++work based on input parameters stored on the object, blocking if necessary,
+ and storing the results of the computation on the object for transmission
+ back to the parent thread.
+ 

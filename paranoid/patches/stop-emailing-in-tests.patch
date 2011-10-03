@@ -1,0 +1,20 @@
+Description: don't email us during the tests
+Origin: vendor
+Forwarded: not-needed
+Author: Ryan Niebur <ryan@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-12
+
+--- a/t/10_log_email.t
++++ b/t/10_log_email.t
+@@ -14,9 +14,7 @@
+ my $rv;
+ 
+ SKIP: {
+-    skip( 'Net::SMTP not found', 14 )
+-        unless loadModule('Paranoid::Log::Email')
+-            and exists $ENV{USER};
++    skip( 'Not running mailing tests', 14 );
+ 
+     # Bad mailhost, should fail
+     ok( enableFacility(

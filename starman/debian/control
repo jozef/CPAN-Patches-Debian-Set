@@ -1,0 +1,5 @@
+App: starman
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdata-dump-perl, libhttp-parser-xs-perl, libnet-server-perl, libplack-perl (>= 0.9971), libtest-requires-perl, libtest-tcp-perl, libwww-perl, perl (>= 5.10.1) | libparent-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-dump-perl, libhttp-parser-xs-perl, libnet-server-perl, libplack-perl, libwww-perl, perl (>= 5.10.1) | libparent-perl
+X: 0

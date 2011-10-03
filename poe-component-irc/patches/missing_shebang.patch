@@ -1,5 +1,6 @@
 Description: adds shebang to example script
-Forwarded: no
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=71190
+Bug: https://rt.cpan.org/Ticket/Display.html?id=71190
 Author: Martín Ferrari 
 Reviewed-by: gregor herrmann <gregoa@debian.org>
 Last-Update: 2010-06-23

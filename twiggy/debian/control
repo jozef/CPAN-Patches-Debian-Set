@@ -1,0 +1,5 @@
+App: twiggy
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libanyevent-perl, libhttp-parser-xs-perl, libplack-perl, libtest-pod-perl, libtest-requires-perl, libtest-tcp-perl, libtry-tiny-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libanyevent-perl, libplack-perl, libtry-tiny-perl, libwww-perl
+X: 0

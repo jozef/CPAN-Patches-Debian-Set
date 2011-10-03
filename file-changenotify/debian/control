@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libclass-mop-perl, liblinux-inotify2-perl (>= 1:1.2), libmoose-perl, libmoosex-params-validate-perl (>= 0.08), libmoosex-semiaffordanceaccessor-perl, libnamespace-autoclean-perl, libtest-exception-perl, libtest-without-module-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-mop-perl, liblist-moreutils-perl, libmoose-perl, libmoosex-params-validate-perl (>= 0.08), libmoosex-semiaffordanceaccessor-perl, libnamespace-autoclean-perl, perl (>= 5.10.0) | libmodule-pluggable-perl
+Build-Depends: debhelper (>= 8), perl (>= 5.11.4) | libmodule-build-perl (>= 0.360100)
+Build-Depends-Indep: liblinux-inotify2-perl (>= 1:1.2), libmoose-perl, libmoosex-params-validate-perl (>= 0.08), libmoosex-semiaffordanceaccessor-perl, libnamespace-autoclean-perl, libtest-exception-perl, libtest-without-module-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libmoose-perl, libmoosex-params-validate-perl (>= 0.08), libmoosex-semiaffordanceaccessor-perl, libnamespace-autoclean-perl
 X: 0

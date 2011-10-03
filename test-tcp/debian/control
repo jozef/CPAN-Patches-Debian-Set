@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libtest-sharedfork-perl, libyaml-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libtest-sharedfork-perl
+Build-Depends-Indep: libtest-sharedfork-perl (>= 0.14), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtest-sharedfork-perl (>= 0.14)
 X: 0

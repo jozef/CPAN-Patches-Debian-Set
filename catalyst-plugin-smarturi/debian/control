@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcatalyst-perl (>= 5.80002), libclass-c3-componentised-perl, libmoose-perl, libnamespace-clean-perl, libtask-weaken-perl, libtest-pod-perl, liburi-smarturi-perl, perl (>= 5.10.1) | libparent-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl (>= 5.80002), libclass-c3-componentised-perl, libmoose-perl, libnamespace-clean-perl, libtask-weaken-perl, liburi-smarturi-perl, perl (>= 5.10.1) | libparent-perl
+X: 0

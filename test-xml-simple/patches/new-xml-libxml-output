@@ -1,7 +1,9 @@
 Description: Fix up expected output to match XML::LibXML 1.70
  Note that the trailing whitespace is significant in this patch.
+Forwarded: http://rt.cpan.org/Public/Display.html?id=65828
 Author: Tim Retout <tim@retout.co.uk>
 Bug-Debian: http://bugs.debian.org/555939
+Last-Update: 2011-02-17
 
 --- a/t/03valid.t
 +++ b/t/03valid.t

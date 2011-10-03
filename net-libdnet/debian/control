@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), libclass-gomor-perl, libdumbnet-dev, perl, quilt (>= 0.46-7)
+Build-Depends: debhelper (>= 7.0.50), libclass-gomor-perl, libdumbnet-dev, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libclass-gomor-perl
 X: 0

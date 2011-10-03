@@ -1,0 +1,39 @@
+Description: fix some spelling mistakes
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-08
+
+--- a/lib/Net/XMPP.pm
++++ b/lib/Net/XMPP.pm
+@@ -68,7 +68,7 @@
+   directly in your code.  Instead you will instantiate objects that call
+   functions from this module to do work.  The three main objects that
+   you will work with are the Message, Presence, and IQ modules. Each one
+-  corresponds to the Jabber equivilant and allows you get and set all
++  corresponds to the Jabber equivalent and allows you get and set all
+   parts of those packets.
+ 
+   There are a few functions that are the same across all of the objects:
+--- a/lib/Net/XMPP/Namespaces.pm
++++ b/lib/Net/XMPP/Namespaces.pm
+@@ -118,7 +118,7 @@
+ 
+   In jabber:iq:roster, the <item/> tag can be repeated multiple times,
+   and is sort of like a mini-namespace in itself.  To that end, we treat
+-  it like a seperate namespace and defined a __netxmpp__:iq:roster:item
++  it like a separate namespace and defined a __netxmpp__:iq:roster:item
+   namespace to hold it.  What happens is this, in my code I define that
+   the <item/>s tag is "item" and anything with that tag name is to create
+   a new Net::XMPP::Stanza object with the namespace
+--- a/lib/Net/XMPP/Protocol.pm
++++ b/lib/Net/XMPP/Protocol.pm
+@@ -283,7 +283,7 @@
+                  send=>function,       <message/>, <presence/>, and
+                  receive=>function,    <iq/>.  If a packet is received
+                  update=>function)     with an ID which is found in the
+-                                       registerd ID list (see RegisterID
++                                       registered ID list (see RegisterID
+                                        below) then it is not sent to
+                                        these functions, instead it
+                                        is inserted into a LIST and can

@@ -1,0 +1,54 @@
+Description: fix whatis entries
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-12-21
+
+--- a/lib/SOAP/WSDL/Manual/CodeFirst.pod
++++ b/lib/SOAP/WSDL/Manual/CodeFirst.pod
+@@ -1,6 +1,8 @@
+ =pod
+ 
+-=head1 Writing Code-First Web Services with SOAP::WSDL
++=head1 NAME
++
++CodeFirst - Writing Code-First Web Services with SOAP::WSDL
+ 
+ B<Note: This document is just a collection of thought. There's no implementation yet>.
+ 
+--- a/lib/SOAP/WSDL/Manual/Deserializer.pod
++++ b/lib/SOAP/WSDL/Manual/Deserializer.pod
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME
+ 
+-SOAP::WSDL::Manual::Deserializer
++SOAP::WSDL::Manual::Deserializer - Deserializer classes
+ 
+ =head1 DESERIALIZER CLASSES
+ 
+@@ -46,4 +46,4 @@
+ Martin Kutter E<lt>martin.kutter fen-net.deE<gt>
+ 
+ =cut
+- 
+\ No newline at end of file
++
+--- a/lib/SOAP/WSDL/Manual/Serializer.pod
++++ b/lib/SOAP/WSDL/Manual/Serializer.pod
+@@ -2,7 +2,7 @@
+ 
+ =head1 NAME
+ 
+-SOAP::WSDL::Manual::Serializer
++SOAP::WSDL::Manual::Serializer - Serializer classes
+ 
+ =head1 SERIALIZER CLASSES
+ 
+@@ -27,4 +27,4 @@
+ Martin Kutter E<lt>martin.kutter fen-net.deE<gt>
+ 
+ =cut
+- 
+\ No newline at end of file
++

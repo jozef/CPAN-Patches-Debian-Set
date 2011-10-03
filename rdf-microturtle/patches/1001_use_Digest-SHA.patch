@@ -1,0 +1,38 @@
+Description: Use Digest::SHA instead of Digest::SHA1.
+ Digest::SHA is part of the standard perl distribution since perl v5.9.3
+ so this reduces the number of external dependencies by one.
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2011-05-25
+--- a/META.yml
++++ b/META.yml
+@@ -23,7 +23,7 @@
+ requires:
+   CGI::Util: 0
+   Data::UUID: 0
+-  Digest::SHA1: 0
++  Digest::SHA: 0
+   LWP::UserAgent: 0
+   RDF::Trine: 0.123
+   RDF::TrineShortcuts: 0
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -25,7 +25,7 @@
+ 
+ requires            'CGI::Util'          => 0;
+ requires            'Data::UUID'         => 0;
+-requires            'Digest::SHA1'       => 0;
++requires            'Digest::SHA'        => 0;
+ recommends          'HTML::Microformats' => 0;
+ requires            'LWP::UserAgent'     => 0;
+ requires            'RDF::Trine'         => '0.123';
+--- a/lib/RDF/MicroTurtle/Parser.pm
++++ b/lib/RDF/MicroTurtle/Parser.pm
+@@ -6,7 +6,7 @@
+ use utf8;
+ 
+ use Data::UUID;
+-use Digest::SHA1 qw'sha1_hex';
++use Digest::SHA qw'sha1_hex';
+ use LWP::UserAgent;
+ use RDF::MicroTurtle::Context;
+ use RDF::TrineShortcuts qw':nodes rdf_statement';

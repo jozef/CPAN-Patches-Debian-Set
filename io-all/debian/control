@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
+Build-Depends: debhelper (>= 7.0.50~)
 Build-Depends-Indep: libfile-readbackwards-perl, libio-string-perl, libmldbm-perl, libspiffy-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libspiffy-perl
 X: 0

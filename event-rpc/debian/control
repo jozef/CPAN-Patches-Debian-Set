@@ -1,5 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), quilt
-Build-Depends-Indep: libevent-perl | libglib-perl, libio-socket-ssl-perl, netbase, perl (>= 5.8.0-7)
+Build-Depends: debhelper (>= 8), libevent-perl | libglib-perl, libio-socket-ssl-perl, netbase, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libevent-perl | libglib-perl
 X: 0

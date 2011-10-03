@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdata-optlist-perl, libpackage-stash-perl (>= 0.32), libtest-fatal-perl, libtry-tiny-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-optlist-perl, libpackage-stash-perl (>= 0.32), libtry-tiny-perl
+X: 0

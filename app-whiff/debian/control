@@ -1,0 +1,5 @@
+App: whiff
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libfile-which-perl, perl (>= 5.6.0-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-which-perl
+X: 0

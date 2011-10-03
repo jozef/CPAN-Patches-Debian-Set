@@ -1,0 +1,16 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Fri, 19 Nov 2010 20:21:39 +0100
+Origin: vendor
+Subject: documentation fixes
+
+--- a/lib/Apache/DBI.pm
++++ b/lib/Apache/DBI.pm
+@@ -553,7 +553,7 @@
+   PERL_CHILD_INIT=1 PERL_STACKED_HANDLERS=1
+ 
+ Apache::DBI v0.94 was the last version before dual mod_perl 2.x support was begun.
+-It still recommended that you use the latest version of Apache::DBI because Apache::DBI
++It is recommended that you use the latest version of Apache::DBI because Apache::DBI
+ versions less than 1.00 are NO longer supported.
+ 
+ =head1 DO YOU NEED THIS MODULE?

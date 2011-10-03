@@ -1,0 +1,37 @@
+Bug-Debian: http://bugs.debian.org/629302
+Forwarded: no, but see RT#68613
+
+From 6e66a1d78d825fa24ee369b5a076bf7c18f8abb8 Mon Sep 17 00:00:00 2001
+From: Niko Tyni <ntyni@debian.org>
+Date: Sun, 10 Jul 2011 08:11:20 +0300
+Subject: [PATCH] Append CCFLAGS to $Config{ccflags} instead of overriding it
+
+As discussed in [rt.cpan.org #68613], overriding $Config{ccflags}
+breaks XS extensions on Perl 5.14 / x86. This manifests in
+
+> looking for -lpcap... no
+
+because the test distribution in .testlink/ fails its test suite.
+
+Manually append to $Config{ccflags} as a change in EU::MM seems
+improbable.
+---
+ Makefile.PL |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile.PL b/Makefile.PL
+index 26ab13e..37e2ef5 100644
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -22,7 +22,7 @@ elsif ($^O eq 'cygwin') {
+     cygwin_pcap_headers();
+ }
+ else {
+-    $options{CCFLAGS} = '-Wall -Wwrite-strings' if $Config{ccname} eq 'gcc' and $] >= 5.006;
++    $options{CCFLAGS} = $Config{ccflags} . ' -Wall -Wwrite-strings' if $Config{ccname} eq 'gcc' and $] >= 5.006;
+     $options{LIBS}    = '-lpcap';
+ }
+ 
+-- 
+1.7.5.4
+

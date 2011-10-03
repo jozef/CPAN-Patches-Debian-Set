@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libb-hooks-op-annotation-perl, libb-hooks-op-check-perl (>= 0.18), libdevel-stacktrace-perl (>= 1.27), libextutils-depends-perl (>= 0.301), libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libb-hooks-op-annotation-perl, libb-hooks-op-check-perl (>= 0.18), libdevel-stacktrace-perl (>= 1.27)
+X: 0

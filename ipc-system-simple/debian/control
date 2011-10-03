@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libbsd-resource-perl, libtest-nowarnings-perl, libtest-perl-critic-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

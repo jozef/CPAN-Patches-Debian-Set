@@ -1,4 +1,3 @@
 disable-glversion
 glext_procs-replacement
-examples-perl-path
 use-systems-gl

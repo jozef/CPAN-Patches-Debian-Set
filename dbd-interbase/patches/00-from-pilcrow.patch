@@ -1,0 +1,2313 @@
+Description: a set of changes from git://github.com/pilcrow/perl-dbd-interbase.git
+Author: Mike Pomraning <mjp@pilcrow.madison.wi.us>
+Origin: git://github.com/pilcrow/perl-dbd-interbase.git
+
+diff --git a/Changes b/Changes
+index e471a48..ba1bc17 100644
+--- a/Changes
++++ b/Changes
+@@ -2,6 +2,23 @@ Revision history for Perl extension DBD::InterBase.
+ 
+ $Id: Changes 400 2008-01-08 09:31:13Z edpratomo $
+ 
++Mar 26, 2010 - mjp
++* Fix corrupted representation of high-scale NUMERIC/DECIMAL values
++  (t/scale.t) (RT#55841)
++
++Mar 13, 2010 - mjp
++* DBI compliance/changes
++  - table_info() accepts specifiers
++  - tables() now returns quotes identifiers
++  - primary_key_info() supported
++* t/31prepare.t adapt test to modern DBI (RT#53671)
++* t/62timeout.t work around "object in use" failure on Firebird 2.1 (RT#53904)
++* Interbase.pm respect and document $ENV{ISC_DATABASE} (RT#53997)
++* .../InterBase/GetInfo.pm shorten SQL_DRIVER_NAME (RT#53674)
++* Makefile.PL Allow local, remote and aliased db specifications during build (RT#55530)
++* InterBase.xs, dbdimp.[ch] Switch to perlclib(1) equivalents of memory and
++string management functions (addresses RT#49896)
++
+ Jan 08, 2008 - edpratomo
+ * maintenance release: 0.48
+ * fixed link problem when using perl-5.6.x (undefined PERL_UNUSED_VAR)
+@@ -327,4 +344,4 @@ imp_dbh->tr
+ 
+ Before returning, init_commit is reset to 0.
+ 
+-- 
+\ No newline at end of file
++- 
+diff --git a/InterBase.pm b/InterBase.pm
+index f25bc97..5d347c3 100644
+--- a/InterBase.pm
++++ b/InterBase.pm
+@@ -120,6 +120,7 @@ sub connect
+     DBD::InterBase->_OdbcParse($dsn, $private_attr_hash,
+                                ['database', 'host', 'port', 'ib_role', 'ib_dbkey_scope',
+                                 'ib_charset', 'ib_dialect', 'ib_cache', 'ib_lc_time']);
++    $private_attr_hash->{database} ||= $ENV{ISC_DATABASE}; #"employee.fdb"
+ 
+     # second attr args will be retrieved using DBIc_IMP_DATA
+     my $dbh = DBI::_new_dbh($drh, {}, $private_attr_hash);
+@@ -147,7 +148,7 @@ sub do
+     else 
+     {
+         $rows = DBD::InterBase::db::_do($dbh, $statement, $attr) or return undef;
+-    }       
++    }
+     ($rows == 0) ? "0E0" : $rows;
+ }
+ 
+@@ -161,57 +162,65 @@ sub prepare
+     $sth;
+ }
+ 
+-# from Michael Arnett <marnett@samc.com> :
+-sub tables
++sub primary_key_info
+ {
+-    my $dbh = shift;
+-    my @tables;
+-    my @row;
+-
+-    my $sth = $dbh->prepare(q{
+-      SELECT rdb$relation_name 
+-      FROM rdb$relations 
+-      WHERE (rdb$system_flag IS NULL OR rdb$system_flag = 0) 
+-        AND rdb$view_source IS NULL;  
+-    }) or return undef;
+-
+-    $sth->{ChopBlanks} = 1;
+-    $sth->execute;
+-    while (@row = $sth->fetchrow_array) {
+-        push(@tables, @row);
++    my ($dbh, undef, undef, $tbl) = @_;
++
++    my $sth = $dbh->prepare(<<'__eosql');
++    SELECT CAST(NULL AS CHAR(1))       AS TABLE_CAT,
++           CAST(NULL AS CHAR(1))       AS TABLE_SCHEM,
++           rc.rdb$relation_name        AS TABLE_NAME,
++           ix.rdb$field_name           AS COLUMN_NAME,
++           ix.rdb$field_position + 1   AS KEY_SEQ,
++           rc.rdb$index_name           AS PK_NAME
++      FROM rdb$relation_constraints rc
++           INNER JOIN
++           rdb$index_segments ix
++             ON rc.rdb$index_name = ix.rdb$index_name
++     WHERE rc.rdb$relation_name = ?
++           AND
++           rc.rdb$constraint_type = 'PRIMARY KEY'
++  ORDER BY 1, 2, 3, 5
++__eosql
++
++    if ($sth) {
++        $sth->{ChopBlanks} = 1;
++        return unless $sth->execute($tbl);
+     }
+-    return @tables;
++
++    $sth;
+ }
+ 
+ sub table_info
+ {
+-    my $dbh = shift;
+-
+-    my $sth = $dbh->prepare(q{
+-      SELECT
+-        NULL                      TABLE_CAT, 
+-        a.rdb$owner_name          TABLE_SCHEM,
+-        a.rdb$relation_name       TABLE_NAME,
+-        CAST('TABLE' AS CHAR(5))  TABLE_TYPE,
+-        a.rdb$description         REMARKS
+-      FROM rdb$relations a
+-      WHERE a.rdb$system_flag=0 AND a.rdb$view_blr IS NULL
+-        UNION ALL
+-      SELECT
+-        NULL                      TABLE_CAT, 
+-        b.rdb$owner_name          TABLE_SCHEM,
+-        b.rdb$relation_name       TABLE_NAME,
+-        CAST('VIEW' AS CHAR(5))   TABLE_TYPE,
+-        b.rdb$description         REMARKS
+-      FROM rdb$relations b
+-      WHERE b.rdb$system_flag=0 AND b.rdb$view_blr IS NOT NULL
+-    });
+-    $sth->execute() or return undef;
+-
+-    return $sth;
++    my ($self, $cat, $schem, $name, $type, $attr) = @_;
++
++    require DBD::InterBase::TableInfo;
++
++    my $ti = ($self->{private_table_info}
++               ||=
++              DBD::InterBase::TableInfo->factory($self));
++
++    no warnings 'uninitialized';
++    if ($cat eq '%' and $schem eq '' and $name eq '') {
++        return $ti->list_catalogs($self);
++    } elsif ($cat eq '' and $schem eq '%' and $name eq '') {
++        return $ti->list_schema($self);
++    } elsif ($cat eq '' and $schem eq '' and $name eq '' and $type eq '%') {
++        return $ti->list_types($self);
++    } else {
++        my %seen;
++        $type = '' if $type eq '%';
++
++        # normalize $type specifiers:  upcase, strip quote and uniqify
++        my @types = grep { length and not $seen{$_}++ }
++                        map { s/'//g; s/^\s+//; s/\s+$//; uc }
++                            split(',' => $type);
++        return $ti->list_tables($self, $name, @types);
++    }
+ }
+ 
+-sub ping 
++sub ping
+ {
+     my($dbh) = @_;
+ 
+@@ -255,7 +264,7 @@ DBD::InterBase - DBI driver for Firebird and InterBase RDBMS server
+ 
+   use DBI;
+ 
+-  $dbh = DBI->connect("dbi:InterBase:db=$dbname", "sysdba", "masterkey");
++  $dbh = DBI->connect("dbi:InterBase:db=$dbname", $user, $password);
+ 
+   # See the DBI module documentation for full details
+ 
+@@ -281,13 +290,17 @@ case consult the DBI documentation first !
+ To connect to a database with a minimum of parameters, use the 
+ following syntax: 
+ 
+-  $dbh = DBI->connect("dbi:InterBase:dbname=$dbname", "sysdba", "masterkey");
++  $dbh = DBI->connect("dbi:InterBase:dbname=$dbname", $user, $password);
+ 
+-This connects to the database $dbname at localhost as SYSDBA user with the
+-default password. 
++If omitted, C<$user> defaults to the ISC_USER environment variable
++(or, failing that, the DBI-standard DBI_USER environment variable).
++Similarly, C<$password> defaults to ISC_PASSWORD (or DBI_PASS).  If
++C<$dbname> is blank, that is, I<"dbi:InterBase:dbname=">, the
++environment variable ISC_DATABASE is substituted.
+ 
+-Multiline DSN is acceptable. Here is an example of connect statement which uses all 
+-possible parameters: 
++The DSN may take several optional parameters, which may be split
++over multiple lines.  Here is an example of connect statement which
++uses all possible parameters: 
+ 
+    $dsn =<< "DSN";
+  dbi:InterBase:dbname=$dbname;
+@@ -301,7 +314,7 @@ possible parameters:
+ 
+  $dbh =  DBI->connect($dsn, $username, $password);
+ 
+-The $dsn is prefixed by 'dbi:InterBase:', and consists of key-value
++The C<$dsn> is prefixed by 'dbi:InterBase:', and consists of key-value
+ parameters separated by B<semicolons>. New line may be added after the
+ semicolon. The following is the list of valid parameters and their
+ respective meanings:
+@@ -567,17 +580,44 @@ This driver supports the ping-method, which can be used to check the
+ validity of a database-handle. This is especially required by
+ C<Apache::DBI>.
+ 
++=item B<primary_key_info>
++
++  $sth = $dbh->primary_key_info('', '', $table_name);
++  @pks = $dbh->primary_key('', '', $table_name);
++
++Supported by the driver as proposed by DBI.  Note that catalog and schema
++are ignored.
++
+ =item B<table_info>
+ 
+   $sth = $dbh->table_info;
+ 
+-Supported by the driver as proposed by DBI. 
++All Interbase/Firebird versions support the basic DBI-specified columns
++(TABLE_NAME, TABLE_TYPE, etc.) as well as C<IB_TABLE_OWNER>.  Peculiar
++versions may return additional fields, prefixed by C<IB_>.
++
++Table searching may not work as expected on older Interbase/Firebird engines
++which do not natively offer a TRIM() function.  Some engines store TABLE_NAME
++in a blank-padded CHAR field, and a search for table name is performed via a
++SQL C<LIKE> predicate, which is sensitive to blanks.  That is:
++
++  $dbh->table_info('', '', 'FOO');  # May not find table "FOO", depending on
++                                    # IB/FB version
++  $dbh->table_info('', '', 'FOO%'); # Will always find "FOO", but also tables
++                                    # "FOOD", "FOOT", etc.
++
++Future versions of DBD::InterBase may attempt to work around this irritating
++limitation, at the expense of efficiency.
++
++Note that Interbase/Firebird implementations do not presently support the DBI
++concepts of 'catalog' and 'schema', so these parameters are effectively
++ignored.
+ 
+ =item B<tables>
+ 
+   @names = $dbh->tables;
+ 
+-Supported by the driver as proposed by DBI. 
++Returns a list of tables, excluding any 'SYSTEM TABLE' types.
+ 
+ =item B<type_info_all>
+ 
+diff --git a/InterBase.xs b/InterBase.xs
+index 451f461..250ac74 100644
+--- a/InterBase.xs
++++ b/InterBase.xs
+@@ -10,6 +10,7 @@
+    for commercial distribution without the prior approval of the author.
+ 
+ */
++/* vim: set noai ts=4 et sw=4: */
+ 
+ #include "InterBase.h"
+ 
+@@ -318,7 +319,7 @@ ib_tx_info(dbh)
+     RETVAL = newHV();
+     if (!RETVAL) {
+         if (result) {
+-            safefree(result);
++            Safefree(result);
+         }
+         do_error(dbh, 2, "unable to allocate hash return value");
+         XSRETURN_UNDEF;
+@@ -360,12 +361,7 @@ ib_tx_info(dbh)
+     */
+     
+   try_alloc_result_buffer:
+-    result = (char*)safemalloc(result_length * sizeof(char));
+-    if (result == NULL) {
+-        do_error(dbh, 2, "Unable to allocate memory");
+-        XSRETURN_UNDEF;
+-    }
+-    memset(result, 0, result_length);
++    Newxz(result, result_length, char);
+     /* PerlIO_printf(PerlIO_stderr(), "result_length: %d\n", result_length); */
+ 
+     /* call */
+@@ -389,7 +385,7 @@ ib_tx_info(dbh)
+ 
+                 /* increase result_length, retry allocation */
+                 result_length += 10;
+-                safefree(result);
++                Safefree(result);
+                 result = NULL;
+                 goto try_alloc_result_buffer;
+             }
+@@ -430,7 +426,7 @@ ib_tx_info(dbh)
+                         reshv = newHV();
+                         if (!reshv) {
+                             if (result) {
+-                                safefree(result);
++                                Safefree(result);
+                             }
+                             do_error(dbh, 2, "unable to allocate hash for read_committed rec/no_rec version");
+                             XSRETURN_UNDEF;
+@@ -543,10 +539,7 @@ ib_set_tx_param(dbh, ...)
+     }
+ 
+     /* alloc it */
+-    tmp_tpb = (char *)safemalloc(tpb_len * sizeof(char));
+-
+-    if (tmp_tpb == NULL)
+-        croak("set_tx_param: Can't alloc memory");
++	Newx(tmp_tpb, tpb_len, char);
+ 
+     /* do set TPB values */
+     tpb = tmp_tpb;
+@@ -560,7 +553,7 @@ ib_set_tx_param(dbh, ...)
+         /* value specified? */
+         if (i >= items - 1)
+         {
+-            safefree(tmp_tpb);
++            Safefree(tmp_tpb);
+             croak("You must specify parameter => value pairs, but theres no value for %s", tx_key);
+         }
+ 
+@@ -580,7 +573,7 @@ ib_set_tx_param(dbh, ...)
+                 *tpb++ = isc_tpb_read;
+             else
+             {
+-                safefree(tmp_tpb);
++                Safefree(tmp_tpb);
+                 croak("Unknown -access_mode value %s", tx_val);
+             }
+ 
+@@ -612,7 +605,7 @@ ib_set_tx_param(dbh, ...)
+ 
+                 if (!rc)
+                 {
+-                    safefree(tmp_tpb);
++                    Safefree(tmp_tpb);
+                     croak("Invalid -isolation_level value");
+                 }
+ 
+@@ -631,7 +624,7 @@ ib_set_tx_param(dbh, ...)
+                     }
+                     else if (!strEQ(tx_val, "read_committed"))
+                     {
+-                        safefree(tmp_tpb);
++                        Safefree(tmp_tpb);
+                         croak("Unknown -isolation_level value %s", tx_val);
+                     }
+                 }
+@@ -647,7 +640,7 @@ ib_set_tx_param(dbh, ...)
+                     *tpb++ = isc_tpb_consistency;
+                 else
+                 {
+-                    safefree(tmp_tpb);
++                    Safefree(tmp_tpb);
+                     croak("Unknown -isolation_level value %s", tx_val);
+                 }
+             }
+@@ -700,7 +693,7 @@ ib_set_tx_param(dbh, ...)
+                     *tpb++ = isc_tpb_nowait;
+                 else
+                 {
+-                    safefree(tmp_tpb);
++                    Safefree(tmp_tpb);
+                     croak("Unknown transaction parameter %s", tx_val);
+                 }
+             }
+@@ -732,7 +725,7 @@ ib_set_tx_param(dbh, ...)
+                                 *tpb++ = isc_tpb_protected;
+                             else
+                             {
+-                                safefree(tmp_tpb);
++                                Safefree(tmp_tpb);
+                                 croak("Invalid -reserving access value");
+                             }
+                         }
+@@ -747,13 +740,13 @@ ib_set_tx_param(dbh, ...)
+                                *tpb++ = isc_tpb_lock_write;
+                             else
+                             {
+-                              safefree(tmp_tpb);
++                              Safefree(tmp_tpb);
+                               croak("Invalid -reserving lock value");
+                             }
+                         }
+                         else /* lock */
+                         {
+-                            safefree(tmp_tpb);
++                            Safefree(tmp_tpb);
+                             croak("Lock value is required in -reserving");
+                         }
+ 
+@@ -769,20 +762,20 @@ ib_set_tx_param(dbh, ...)
+                     } /* end hashref check*/
+                     else
+                     {
+-                        safefree(tmp_tpb);
++                        Safefree(tmp_tpb);
+                         croak("Reservation for a given table must be hashref.");
+                     }
+                 } /* end of while() */
+             }
+             else
+             {
+-                safefree(tmp_tpb);
++                Safefree(tmp_tpb);
+                 croak("Invalid -reserving value. Must be hashref.");
+             }
+         } /* end table reservation */
+         else
+         {
+-            safefree(tmp_tpb);
++            Safefree(tmp_tpb);
+             croak("Unknown transaction parameter %s", tx_key);
+         }
+     }
+@@ -790,7 +783,7 @@ ib_set_tx_param(dbh, ...)
+     /* an ugly label... */
+     do_set_tpb:
+ 
+-    safefree(imp_dbh->tpb_buffer);
++    Safefree(imp_dbh->tpb_buffer);
+     imp_dbh->tpb_buffer = tmp_tpb;
+     imp_dbh->tpb_length = tpb - imp_dbh->tpb_buffer;
+ 
+@@ -909,7 +902,7 @@ ib_database_info(dbh, ...)
+ 
+     /* allocate the result buffer */
+     res_len += 256; /* add some safety...just in case */
+-    res_buf = (char *) safemalloc(res_len);
++	Newx(res_buf, res_len, char);
+ 
+     /* call the function */
+     isc_database_info(status, &(imp_dbh->db), item_buf_len, item_buf,
+@@ -917,21 +910,12 @@ ib_database_info(dbh, ...)
+ 
+     if (ib_error_check(dbh, status))
+     {
+-        safefree(res_buf);
++        Safefree(res_buf);
+         XSRETURN_UNDEF; // croak("isc_database_info failed!");
+     }
+ 
+-    /* create a hash if function passed */
++    /* fill hash with key/value pairs */
+     RETVAL = newHV();
+-    if (!RETVAL)
+-    {
+-        safefree(res_buf);
+-        // croak("unable to allocate hash return value");
+-        do_error(dbh, 2, "unable to allocate hash return value");
+-        XSRETURN_UNDEF;
+-    }
+-
+-    /* fill the hash with key/value pairs */
+     for (p = res_buf; *p != isc_info_end; )
+     {
+         char *keyname;
+@@ -1078,7 +1062,7 @@ ib_database_info(dbh, ...)
+                     svp = hv_fetch(RETVAL, "user_names", 10, 0);
+                     if (!svp || !SvROK(*svp))
+                     {
+-                        safefree(res_buf);
++                        Safefree(res_buf);
+                         croak("Error fetching hash value");
+                     }
+ 
+@@ -1125,7 +1109,7 @@ ib_database_info(dbh, ...)
+                 struct tm times;
+                 ISC_TIMESTAMP cdatetime;
+                 char tbuf[100];
+-                memset(tbuf, 0, sizeof(tbuf));
++				Zero(tbuf, sizeof(tbuf), char);
+                 cdatetime.timestamp_date = isc_vax_integer(p, sizeof(ISC_DATE));
+                 cdatetime.timestamp_time = isc_vax_integer(p + sizeof(ISC_DATE), sizeof(ISC_TIME));
+                 isc_decode_timestamp(&cdatetime, &times);
+@@ -1144,7 +1128,7 @@ ib_database_info(dbh, ...)
+     }
+ 
+     /* don't leak */
+-    safefree(res_buf);
++    Safefree(res_buf);
+ }
+     OUTPUT:
+     RETVAL
+@@ -1176,9 +1160,7 @@ ib_init_event(dbh, ...)
+         if (cnt > MAX_EVENTS)
+             croak("Max number of events exceeded.");
+ 
+-        RETVAL = (IB_EVENT *) safemalloc(sizeof(IB_EVENT));
+-        if (RETVAL == NULL)
+-            croak("Unable to allocate memory");
++		Newx(RETVAL, 1, IB_EVENT);
+ 
+         /* init members */
+         RETVAL->dbh           = imp_dbh;
+@@ -1189,10 +1171,8 @@ ib_init_event(dbh, ...)
+         RETVAL->perl_cb       = NULL;
+         RETVAL->state         = INACTIVE;
+         RETVAL->exec_cb       = 0;
+-        
+-        RETVAL->names = (char **) safemalloc(sizeof(char*) * MAX_EVENTS);
+-        if (RETVAL->names == NULL)
+-            croak("Unable to allocate memory");
++
++		Newx(RETVAL->names, MAX_EVENTS, char *);
+ 
+         for (i = 0; i < MAX_EVENTS; i++)
+         {
+@@ -1200,9 +1180,7 @@ ib_init_event(dbh, ...)
+                 /* dangerous! 
+                 *(RETVAL->names + i) = SvPV_nolen(ST(i + 1));
+                 */
+-                RETVAL->names[i] = (char*) safemalloc(sizeof(char) * (SvCUR(ST(i + 1)) + 1));
+-                if (RETVAL->names[i] == NULL) 
+-                    croak("Unable to allocate memory");
++				Newx(RETVAL->names[i], SvCUR(ST(i + 1)) + 1, char);
+                 strcpy(RETVAL->names[i], SvPV_nolen(ST(i + 1)));
+             }
+             else
+@@ -1362,9 +1340,9 @@ DESTROY(evh)
+ #endif
+     for (i = 0; i < evh->num; i++)
+         if (*(evh->names + i))
+-            safefree(*(evh->names + i));
++            Safefree(*(evh->names + i));
+     if (evh->names)
+-        safefree(evh->names);
++        Safefree(evh->names);
+     if (evh->perl_cb) {
+         SvREFCNT_dec(evh->perl_cb);
+         isc_cancel_events(status, &(evh->dbh->db), &(evh->id));
+@@ -1396,7 +1374,7 @@ ib_plan(sth)
+     char plan_buffer[PLAN_BUFFER_LEN];
+ 
+     RETVAL = NULL;
+-    memset(plan_buffer, 0, PLAN_BUFFER_LEN);
++	Zero(plan_buffer, sizeof(plan_buffer), char);
+     plan_info[0] = isc_info_sql_get_plan;
+ 
+     if (isc_dsql_sql_info(status, &(imp_sth->stmt), sizeof(plan_info), plan_info,
+@@ -1410,10 +1388,7 @@ ib_plan(sth)
+     }
+     if (plan_buffer[0] == isc_info_sql_get_plan) {
+         short l = (short) isc_vax_integer((char *)plan_buffer + 1, 2);
+-        if ((RETVAL = (char*)safemalloc(sizeof(char) * (l + 2))) == NULL) {
+-            do_error(sth, 2, "Failed to allocate plan buffer");
+-            XSRETURN_UNDEF;
+-        }
++		Newx(RETVAL, l + 2, char);
+         sprintf(RETVAL, "%.*s%s", l, plan_buffer + 3, "\n");
+         //PerlIO_printf(PerlIO_stderr(), "Len: %d, orig len: %d\n", strlen(imp_sth->plan), l);
+     }
+diff --git a/MANIFEST b/MANIFEST
+index a45673c..3313137 100644
+--- a/MANIFEST
++++ b/MANIFEST
+@@ -1,6 +1,9 @@
+ InterBase.h
+ Changes
+ lib/DBD/InterBase/GetInfo.pm
++lib/DBD/InterBase/TableInfo.pm
++lib/DBD/InterBase/TableInfo/Basic.pm
++lib/DBD/InterBase/TableInfo/Firebird21.pm
+ lib/DBD/InterBase/TypeInfo.pm
+ InterBase.pm
+ InterBase.xs
+@@ -27,6 +30,7 @@ t/40listfields.t
+ t/40nulls.t
+ t/40numrows.t
+ t/41numeric.t
++t/42scale.t
+ t/50chopblanks.t
+ t/50commit.t
+ t/60leaks.t
+@@ -43,5 +47,10 @@ t/README
+ t/ak-dbd.t
+ t/dbdadmin.t
+ t/lib.pl
++t/testlib.pl
+ t/skeleton.test
++t/rt49896.t
++t/dbi-primary_key_info.t
++t/dbi-table_info.t
++t/dbi-tables.t
+ META.yml                                 Module meta-data (added by MakeMaker)
+diff --git a/Makefile.PL b/Makefile.PL
+index b4f1246..70c783b 100644
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -33,6 +33,7 @@ my $ib_dir_prefix;
+ # init stuff
+ my $IB_Bin_path = '';
+ my $isql_name;
++my $isql_path;
+ my @ib_bin_dirs;
+ my @ib_inc_dirs;
+ my $ib_lib_dir = '';
+@@ -93,6 +94,33 @@ sub locate_dbi_arch_dir {
+     return $xst[0];
+ }
+ 
++sub ISQL_EXE
++{
++    # try to find isql
++    return $isql_path if $isql_path;
++
++    for ($IB_Bin_path, split /:/ => $ENV{PATH}) {
++        s!/ +$ !!xg;
++        next unless $_;
++        if (-x "$_/$isql_name") {
++            $isql_path = "$_/$isql_name";
++            return $isql_path;
++        }
++    }
++
++    EXEC:
++    {
++        for (1..3)
++        {
++            $isql_path = prompt("Enter full path to isql: ", $isql_path);
++            last EXEC if (-x $isql_path);
++        }
++        die "Unable to execute isql. Aborting..";
++    }
++
++    $isql_path;
++}
++
+ ################################################################################
+ # sub test_files - checks if at least one of the files in the list exists
+ # Paramters:
+@@ -160,69 +188,48 @@ sub make_test_conf
+     # ask for database path
+     DBPATH: {
+         for (1..3) {
+-            last if $path = prompt("\nFull path to your test database: ", $path);
++            last if $path = prompt("\nFull path to test database to create or use: ", $path);
+         }
+         die "Must specify a test database" unless $path;
+ 
+         ($db, $host) = reverse split /:/, $path;
+-
+-        # no longer necessary
+-        #PFW - isql on windows doesn't seem to work without the localhost in the db path
+-        #my $hostpath = $path;
+-        #if ($path =~ /^localhost:(.+)/) {
+-        #    $hostpath = $1;
+-        #}
+-
+-        # if DB doesn't exist ask for creation
+-        if ((!$host || $host =~ /localhost/) && !-f $db or
+-            $host && $host !~ /localhost/)
+-        {
+-            print <<"EOM";
+-$path does not exist.
+-Trying to create the test database..
+-Please enter a username with CREATE DATABASE permission.
+-EOM
+-            $user = prompt("Username :", $user);
+-            $pass = prompt("Password :", $pass);
+-            create_test_db($path, $user, $pass);
+-            last DBPATH;
+-        }
+-        else
+-        {
+-            print <<"EOM";
+-$db exists.
+-Trying to use an existing database..
+-Please enter a username to connect.
+-EOM
+-            $user = prompt("Username :", $user);
+-            $pass = prompt("Password :", $pass);
+-
+-            # check dialect
+-            my $dialect;
+-            my $gstat = $IB_Bin_path . "/" . test_files($IB_Bin_path, [qw(gstat gstat.exe)]);
+-            local *GSTAT;
+-            open GSTAT, "$gstat -user $user -password $pass -h $path |" or die "Can't execute $gstat: $!";
+-            while (<GSTAT>) { ($dialect) = $_ =~ /dialect\s+(\d)/i and last }
+-
+-            unless (defined $dialect) {
+-                print <<"EOM";
++        $user = prompt("Username :", $user);
++        $pass = prompt("Password :", $pass);
++
++        my $isql = ISQL_EXE;
++		my $dialect = undef;
++
++        if (open(*ISQL, "\Q$isql\E -u \Q$user\E -p \Q$pass\E -x \Q$path\E |")) {
++			while (<ISQL>) {
++				if (/DIALECT (\d)/i) {
++					$dialect = $1;
++					last;
++				}
++			}
++			close(ISQL);
++		} else {
++			# Assume target db did not exist
++			create_test_db($path, $user, $pass);
++		}
++
++		unless (defined $dialect) {
++			print <<"EOM";
+ 
+ Dialect of $path is UNKNOWN.
+ This test requires a database of dialect 3. You may specify a non-existent database to create a new one.
+ EOM
+-                my $is_proceed = prompt("Proceed anyway or create a NEW test database (P/N)?", "P");
+-                last DBPATH if $is_proceed =~ /P/i;
+-                $path = undef, goto DBPATH;
+-            }
+-            unless ($dialect == 3) {
+-                print <<"EOM";
++			my $is_proceed = prompt("Proceed anyway or create a NEW test database (P/N)?", "P");
++			last DBPATH if $is_proceed =~ /P/i;
++			$path = undef, goto DBPATH;
++		}
++		unless ($dialect == 3) {
++			print <<"EOM";
+ The dialect of $path is: $dialect !!.
+ This test requires a database of dialect 3. Please specify a non-existent database to create a new one.
+ EOM
+-                $path = undef, goto DBPATH;
+-            }
+-        }
+-    }
++			$path = undef, goto DBPATH;
++		}
++	}
+ 
+     # save test config to file
+     open F, ">$test_conf" or die "Can't write $test_conf: $!";
+@@ -253,47 +260,10 @@ sub create_test_db
+     }
+     close T;
+ 
+-    # try to find isql
+-    my $isql;
+-    if (-x "$IB_Bin_path/$isql_name") { 
+-        $isql = "$IB_Bin_path/$isql_name"; 
+-    } else {
+-        for (split /:/, $ENV{PATH})
+-        {
+-            s#/+$##g;
+-            if (-x "$_/$isql_name") {
+-                $isql = "$_/$isql_name"; last; 
+-            }
+-        }
+-    }
+-
+-    EXEC:
+-    {
+-        for (1..3)
+-        {
+-            $isql = prompt("Enter full path to isql: ", $isql);
+-            last EXEC if (-x $isql);
+-        }
+-        die "Unable to execute isql. Aborting..";
+-    }
+-
+-    #PFW - isql on windows doesn't seem to work without the localhost in the db path
+-    my $hostpath = $path;
+-    if ($path =~ /^localhost:(.+)/) {
+-        $hostpath = $1;
+-    }
+-    # if test db directory doesn't exist -> try to create
+-    my $dir = dirname $hostpath;
+-    unless (-d $dir)
+-    {
+-        print "Can't find $dir. Trying to mkdir..\n";
+-        system('mkdir', '-p', $dir) == 0
+-        or die "Can't mkdir -p $dir";
+-    }
+-
+     # try to execute isql and create the test database
++	my $isql = ISQL_EXE;
+     system($isql, '-sql_dialect', 3, '-i', './t/create.sql') == 0
+-    or die "Fail calling $isql -i t/create/sql: $?";
++        or die "Fail calling $isql -i t/create/sql: $?";
+ }
+ 
+ ################################################################################
+diff --git a/dbdimp.c b/dbdimp.c
+index bafb9a2..932a103 100644
+--- a/dbdimp.c
++++ b/dbdimp.c
+@@ -1,3 +1,4 @@
++/* vim: set noai ts=4 et sw=4: */
+ /*
+    $Id: dbdimp.c 395 2008-01-08 05:33:11Z edpratomo $
+ 
+@@ -21,13 +22,9 @@ do {                                                                  \
+     char *frmt = NULL;                                                \
+     char *buf = SvPV(sv, len);                                        \
+     if (len < 2 || len > 30)  break;                                  \
+-    if ((frmt = (char*) safemalloc(sizeof(char)* (len + 1))) == NULL) \
+-    {                                                                 \
+-        do_error(xxh, 2, "Can't alloc SQL time format");              \
+-        return FALSE;                                                 \
+-    }                                                                 \
++    Newx(frmt, len + 1, char);                                        \
+     strcpy(frmt, buf);                                                \
+-    if (format) safefree(format);                                     \
++    if (format) Safefree(format);                                     \
+     format = frmt;                                                    \
+ } while (0)
+ 
+@@ -36,14 +33,12 @@ do {                                                         \
+     short len = n;                                           \
+     if (sqlda)                                               \
+     {                                                        \
+-        safefree(sqlda);                                     \
++        Safefree(sqlda);                                     \
+         sqlda = NULL;                                        \
+     }                                                        \
+-    if (!(sqlda = (XSQLDA*) safemalloc(XSQLDA_LENGTH(len)))) \
+-        do_error(sth, 2, "Fail to allocate XSQLDA");         \
+-    memset(sqlda, 0, XSQLDA_LENGTH(len));                    \
++    Newxz(sqlda, XSQLDA_LENGTH(len), char);                  \
+     sqlda->sqln = len;                                       \
+-    sqlda->version = SQLDA_OK_VERSION;                         \
++    sqlda->version = SQLDA_OK_VERSION;                       \
+ } while (0)
+ 
+ 
+@@ -51,12 +46,7 @@ int create_cursor_name(SV *sth, imp_sth_t *imp_sth)
+ {
+     ISC_STATUS status[ISC_STATUS_LENGTH];
+ 
+-    if ((imp_sth->cursor_name = (char *) safemalloc(22)) == NULL)
+-    {
+-        do_error(sth, IB_ALLOC_FAIL, "Cannot allocate cursor name.");
+-        return FALSE;
+-    }
+-
++    Newxz(imp_sth->cursor_name, 22, char);
+     sprintf(imp_sth->cursor_name, "perl%016.16x", imp_sth->stmt);
+     isc_dsql_set_cursor_name(status, &(imp_sth->stmt), imp_sth->cursor_name, 0);
+     if (ib_error_check(sth, status))
+@@ -93,7 +83,7 @@ void ib_cleanup_st_execute (imp_sth_t *imp_sth)
+ 
+         for (i = 0; i < imp_sth->in_sqlda->sqln; i++, var++)
+         {
+-            safefree(var->sqldata);
++            Safefree(var->sqldata);
+             var->sqldata = NULL;
+             if (var->sqlind)
+                 *(var->sqlind) = -1;    /* isNULL */
+@@ -135,7 +125,7 @@ int ib_error_check(SV *h, ISC_STATUS *status)
+ #else
+         char msg[1024], *pmsg;
+ #endif
+-        memset(msg, 0, sizeof(msg));
++        Zero(msg, sizeof(msg), char);
+         pmsg = msg;
+ 
+         if ((sqlcode = isc_sqlcode(status)) != 0)
+@@ -286,27 +276,27 @@ int dbd_db_login6(SV *dbh, imp_dbh_t *imp_dbh, char *dbname, char *uid,
+ 
+     imp_dbh->soft_commit = 0; /* use soft commit (isc_commit_retaining)? */
+ 
+-    /* default date/time formats */
+-    imp_dbh->dateformat      = (char *) safemalloc(sizeof(char) * 3);
+-#ifdef IB_API_V6
+-    imp_dbh->timeformat      = (char *) safemalloc(sizeof(char) * 3);
+-    imp_dbh->timestampformat = (char *) safemalloc(sizeof(char) * 3);
+-    if (!imp_dbh->dateformat || !imp_dbh->timeformat ||
+-        !imp_dbh->timestampformat)
+-#else
+-    if (!imp_dbh->dateformat)
+-#endif
+-    {
+-        do_error(dbh, 2, "Not enough memory to allocate date/time formats.");
+-        return FALSE;
+-    }
+-
++    /* default date/time formats
++       +     *
++     * Old API:  dateformat ........ %c
++     *           timeformat ........ (none)
++     *           timestampformat ... (none)
++     *
++     * v6 API:   dateformat ........ %x
++     *           timeformat ........ %X
++     *           timestampformat ... %c
++     */
++    Newxz(imp_dbh->dateformat, 3, char);
+ #ifndef IB_API_V6
+-    strcpy(imp_dbh->dateformat,      "%c");
++    strcpy(imp_dbh->dateformat, "%c");
+ #else
++    strcpy(imp_dbh->dateformat, "%x");
++
++    Newxz(imp_dbh->timeformat, 3, char);
++    strcpy(imp_dbh->timeformat, "%X");
++
++    Newxz(imp_dbh->timestampformat, 3, char);
+     strcpy(imp_dbh->timestampformat, "%c");
+-    strcpy(imp_dbh->dateformat,      "%x");
+-    strcpy(imp_dbh->timeformat,      "%X");
+ #endif
+ 
+     /* linked list */
+@@ -390,11 +380,7 @@ int dbd_db_login6(SV *dbh, imp_dbh_t *imp_dbh, char *dbname, char *uid,
+     DBI_TRACE_imp_xxh(imp_dbh, 2, (DBIc_LOGPIO(imp_dbh), "dbd_db_login6\n"));
+ 
+     /* Allocate DPB */
+-    if ((dpb_buffer = (char *) safemalloc(buflen * sizeof(char))) == NULL)
+-    {
+-        do_error(dbh, 2, "Not enough memory to allocate DPB");
+-        return FALSE;
+-    }
++    Newx(dpb_buffer, buflen, char);
+ 
+     /* Default SQL dialect for every statement  */
+     imp_dbh->sqldialect = ib_dialect;
+@@ -455,7 +441,7 @@ int dbd_db_login6(SV *dbh, imp_dbh_t *imp_dbh, char *dbname, char *uid,
+                         dpb_buffer);      /* connect options */
+ 
+     /* freeing database parameter buffer */
+-    safefree(dpb_buffer);
++    Safefree(dpb_buffer);
+ 
+     /* return false on failed attach */
+     if (ib_error_check(dbh, status))
+@@ -963,7 +949,7 @@ int dbd_st_prepare(SV *sth, imp_sth_t *imp_sth, char *statement, SV *attribs)
+     }
+     else if (imp_sth->out_sqlda->sqld == 0) /* not a select statement */
+     {
+-        safefree(imp_sth->out_sqlda);
++        Safefree(imp_sth->out_sqlda);
+         imp_sth->out_sqlda = NULL;
+     }
+ 
+@@ -979,21 +965,13 @@ int dbd_st_prepare(SV *sth, imp_sth_t *imp_sth, char *statement, SV *attribs)
+             DBI_TRACE_imp_xxh(imp_sth, 3, (DBIc_LOGPIO(imp_sth), "dbd_st_prepare: field type: %d.\n", dtype));
+ 
+             /* Alloc space for sqldata */
+-            var->sqldata = (char *) safemalloc(sizeof(char) * var->sqllen +
+-                           (dtype == SQL_VARYING ? sizeof(short) : 0));
+-            if (!var->sqldata)
+-            {
+-                do_error(sth, 2, "Cannot allocate XSQLDA sqldata.\n");
+-                return FALSE;
+-            }
++            Newx(var->sqldata,
++                 var->sqllen + (dtype == SQL_VARYING ? sizeof(short) : 0),
++                 ISC_SCHAR);
+ 
+             /* Nullable? */
+             if (var->sqltype & 1)
+-                if ((var->sqlind = (short*) safemalloc(sizeof(short))) == NULL)
+-                {
+-                    do_error(sth, 2, "Cannot allocate XSQLDA sqlind.\n");
+-                    return FALSE;
+-                }
++                Newx(var->sqlind, 1, short);
+         }
+     }
+ 
+@@ -1288,46 +1266,56 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp_sth)
+                  * nobody has a problem with it.
+                  */
+                 {
+-                    ISC_INT64 q, r;
+-                    char buf[25], prec_buf[25];
+-                    long double prec;
+-                    q = *((ISC_INT64 *) (var->sqldata));
+-
+-                    /*
+-                     * I deliberately use two integers instead
+-                     * of casting the scaled int64 to a double.
+-                     * This avoids rounding errors in conversions
+-                     * to IEEE float, which is the whole reason
+-                     * for InterBase support of INT64.
++                    static ISC_INT64 const scales[] = { 1LL,
++                                                        10LL,
++                                                        100LL,
++                                                        1000LL,
++                                                        10000LL,
++                                                        100000LL,
++                                                        1000000LL,
++                                                        10000000LL,
++                                                        100000000LL,
++                                                        1000000000LL,
++                                                        10000000000LL,
++                                                        100000000000LL,
++                                                        1000000000000LL,
++                                                        10000000000000LL,
++                                                        100000000000000LL,
++                                                        1000000000000000LL,
++                                                        10000000000000000LL,
++                                                        100000000000000000LL };
++                    ISC_INT64 i; /* significand */
++                    char buf[22]; /* NUMERIC(18,2) = -92233720368547758.08 + '\0' */
++
++                    i = *((ISC_INT64 *) (var->sqldata));
++
++                    /* We use the system snprintf(3) and system-specific
++                     * format codes. :(  On my perl, I was unable to
++                     * persuade sv_setpvf to handle INT64 values with
++                     * IVdf (and there is no I64f).
++                     *  - MJP 2010-03-25
+                      */
+-/*
+- * Define INT64 printf formats for various platforms
+- * using #defines eases the adding of a new platform (compiler/library)
+- */
+-
+ #if defined(_MSC_VER)        /* Microsoft C compiler/library */
+-#  define P_INT64_RPEC "%.*I64f"
+-#  define P_INT64_FULL "%s%I64d%s"
++#  define DBD_IB_INT64f "I64d"
+ #elif defined(__BORLANDC__)  /* Borland compiler/library */
+-#  define P_INT64_RPEC "%.*Lf"
+-#  define P_INT64_FULL "%s%Ld%s"
++#  define DBD_IB_INT64f "Ld"
+ #elif defined (__FreeBSD__)  /* FreeBSD */
+-#  define P_INT64_RPEC "%.*Lf"
+-#  define P_INT64_FULL "%s%qd%s"
++#  define DBD_IB_INT64f "qd"
+ #else                        /* others: linux, various unices */
+-#  define P_INT64_RPEC "%.*Lf"
+-#  define P_INT64_FULL "%s%lld%s"
++#  define DBD_IB_INT64f "lld"
+ #endif
+-
+-                    prec = abs((int) (q % (int)
+-                      pow(10.0, (double) -var->sqlscale))) /
+-                      (long double) pow(10.0, (double) -var->sqlscale);
+-
+-                    sprintf(prec_buf, P_INT64_RPEC, (int) -var->sqlscale, prec);
+-
+-                    r = (ISC_INT64) (q / (int) pow(10.0, (double) -var->sqlscale));
+-                    sprintf(buf, P_INT64_FULL, ((q < 0) && !(r < 0))? "-": "", r,
+-                            prec ? prec_buf + 1 : "");
++                    if (var->sqlscale == 0) {
++                        snprintf(buf, sizeof(buf), "%"DBD_IB_INT64f, i);
++                    } else {
++                        ISC_INT64 divisor, remainder;
++                        divisor   = scales[-var->sqlscale];
++                        remainder = (i%divisor);
++                        if (remainder < 0) remainder = -remainder;
++
++                        snprintf(buf, sizeof(buf),
++                                "%"DBD_IB_INT64f".%0.*"DBD_IB_INT64f,
++                                i/divisor, -var->sqlscale, remainder);
++                    }
+ 
+                     sv_setpvn(sv, buf, strlen(buf));
+                 }
+@@ -1440,7 +1428,7 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp_sth)
+ 
+ 
+                     /* hardcoded output format.... */
+-                    if (!strcmp(format, "iso") || !strcmp(format, "ISO"))
++                    if (strEQ(format, "iso") || strEQ(format, "ISO"))
+                     {
+                         switch (dtype)
+                         {
+@@ -1483,7 +1471,7 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp_sth)
+ 
+ #endif
+                     /* output as array like perl's localtime? */
+-                    if (!strcmp(format, "tm") || !strcmp(format, "TM"))
++                    if (strEQ(format, "tm") || strEQ(format, "TM"))
+                     {
+                         AV *list = newAV();
+ 
+@@ -1514,7 +1502,7 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp_sth)
+                     if (sizeof(struct tm) > (9*sizeof(int)))
+                     {
+                         struct tm dummy;
+-                        memset(&dummy, 0, sizeof(struct tm));
++                        Zero(&dummy, 1, struct tm);
+                         mktime(&dummy);
+                         memcpy(((char *)&times) + 9*sizeof(int),
+                                ((char *)&dummy) + 9*sizeof(int),
+@@ -1786,7 +1774,7 @@ void dbd_st_destroy(SV *sth, imp_sth_t *imp_sth)
+ 
+         DBI_TRACE_imp_xxh(imp_dbh, 3, (DBIc_LOGPIO(imp_dbh), "dbd_st_destroy: freeing in_sqlda..\n"));
+ 
+-        safefree(imp_sth->in_sqlda);
++        Safefree(imp_sth->in_sqlda);
+         imp_sth->in_sqlda = NULL;
+     }
+ 
+@@ -1800,7 +1788,7 @@ void dbd_st_destroy(SV *sth, imp_sth_t *imp_sth)
+             FREE_SETNULL(var->sqldata);
+             FREE_SETNULL(var->sqlind);
+         }
+-        safefree(imp_sth->out_sqlda);
++        Safefree(imp_sth->out_sqlda);
+         imp_sth->out_sqlda = NULL;
+     }
+ 
+@@ -2014,13 +2002,8 @@ int ib_blob_write(SV *sth, imp_sth_t *imp_sth, XSQLVAR *var, SV *value)
+             return FALSE;
+ 
+     /* alloc mem for blob id */
+-    if ((var->sqldata == (char *) NULL) &&
+-        ((var->sqldata = (char *) safemalloc(sizeof(ISC_QUAD))) == NULL))
+-    {
+-        do_error(sth, 2, "Cannot allocate buffer for Blob input parameter ..\n");
+-        return FALSE;
+-    }
+-
++    if (var->sqldata == NULL)
++        Newxc(var->sqldata, 1, ISC_QUAD, ISC_SCHAR);
+ 
+     /* try to create blob handle */
+     isc_create_blob2(status, &(imp_dbh->db), &(imp_dbh->tr), &handle,
+@@ -2112,7 +2095,7 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+ 
+     /* NULL indicator */
+     if (!(ivar->sqlind))
+-        ivar->sqlind = (short *) safemalloc(sizeof(short));
++        Newx(ivar->sqlind, 1, ISC_SHORT);
+ 
+     /* *(ivar->sqlind) = ivar->sqltype & 1 ? 0 : 1; */
+ 
+@@ -2125,7 +2108,7 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+         DBI_TRACE_imp_xxh(imp_sth, 3, (DBIc_LOGPIO(imp_sth), "ib_fill_isqlda: Freeing sqldata\n"));
+         DBI_TRACE_imp_xxh(imp_sth, 4, (DBIc_LOGPIO(imp_sth), "ib_fill_isqlda: Freeing sqldata, sqltype is %d\n", ivar->sqltype));
+ 
+-        safefree(ivar->sqldata);
++        Safefree(ivar->sqldata);
+         ivar->sqldata = (char *)NULL;
+     }
+ #endif
+@@ -2179,109 +2162,47 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+         case SQL_VARYING:
+             DBI_TRACE_imp_xxh(imp_sth, 1, (DBIc_LOGPIO(imp_sth), "ib_fill_isqlda: SQL_VARYING\n"));
+         {
+-            char buf[25]; /* long long can have max 20 chars. */
+-            char *tmp = NULL;
+-            if (ivar->sqldata == (char *) NULL)
+-            {
+-                if ((ivar->sqldata = (char *)safemalloc(
+-                    sizeof(char) * (ivar->sqllen + 1) + sizeof(short))) == NULL)
+-                {
+-                    do_error(sth, 2, "Cannot allocate buffer for VARCHAR input parameter \n");
+-                    retval = FALSE;
+-                    break;
+-                }
+-            }
+-            if (SvIOK(value)) {
+-                tmp = buf;
+-                len = sprintf(tmp, "%d", (int)SvIV(value));
+-            }
+-            else if (SvNOK(value)) {
+-                tmp = buf;
+-                len = sprintf(tmp, "%f", SvNV(value));
+-            }
+-            else if (SvPOK(value) || (SvTYPE(value) == SVt_PVMG)) {
+-                len = SvCUR(value);
+-                tmp = SvPV_nolen(value);
+-            }
+-            else {
+-                /* error */
+-                do_error(sth, 2, "Cannot cast to VARCHAR input parameter\n");
+-                retval = FALSE;
+-                break;
+-            }
++            char *string;
++            STRLEN len;
+ 
+-            /* The first word of VARCHAR sqldata is the length */
+-             *((short *) ivar->sqldata) = len;
+-            /* is the scalar longer than the database field? */
++            string = SvPV(value, len);
+ 
+-            if (len > (sizeof(char) * (ivar->sqllen+1)))
+-            {
++            if (len > ivar->sqllen) {
+                 char err[80];
+-                sprintf(err, "You are trying to put %d characters into a %d character field",
+-                        len, (sizeof(char) * (ivar->sqllen + 1)));
+-                do_error(sth, 2, err);
+-                retval = FALSE;
+-            }
+-            else
+-            {
+-                memcpy(ivar->sqldata + sizeof(short), tmp, len);
+-                ivar->sqldata[len + sizeof(short)] = '\0';
++                sprintf(err, "String truncation (SQL_VARYING): attempted to bind %lu octets to column sized %lu",
++                        len, (sizeof(char) * (ivar->sqllen)));
++                break;
+             }
+ 
++            if (!(ivar->sqldata))
++                Newxz(ivar->sqldata, ivar->sqllen + sizeof(short), char);
++
++            *((short *)ivar->sqldata) = len;
++            Copy(string, ivar->sqldata + sizeof(short), len, char);
+             break;
+         }
+         /**********************************************************************/
+         case SQL_TEXT:
+             DBI_TRACE_imp_xxh(imp_sth, 1, (DBIc_LOGPIO(imp_sth), "ib_fill_isqlda: SQL_TEXT\n"));
+         {
+-            char buf[25]; /* long long can have max 20 chars. */
+-            char *tmp;
++            char *string;
++            STRLEN len;
+ 
+-            if (ivar->sqldata == (char *) NULL)
+-            {
+-                if ((ivar->sqldata = (char *)
+-                    safemalloc(sizeof(char) * (ivar->sqllen + 1))) == NULL)
+-                {
+-                    do_error(sth, 2, "Cannot allocate buffer for TEXT input parameter \n");
+-                    retval = FALSE;
+-                    break;
+-                }
+-            }
+-            if (SvIOK(value)) {
+-                tmp = buf;
+-                len = sprintf(tmp, "%d", (int)SvIV(value));
+-            }
+-            else if (SvNOK(value)) {
+-                tmp = buf;
+-                len = sprintf(tmp, "%f", SvNV(value));
+-            }
+-            else if (SvPOK(value) || (SvTYPE(value) == SVt_PVMG)) {
+-                len = SvCUR(value);
+-                tmp = SvPV_nolen(value);
+-            }
+-            else {
+-                /* error */
+-                do_error(sth, 2, "Cannot cast to TEXT input parameter\n");
+-                retval = FALSE;
+-                break;
+-            }
++            string = SvPV(value, len);
+ 
+-            /* is the scalar longer than the database field? */
+-            if (len > (sizeof(char) * (ivar->sqllen+1)))
+-            {
+-                /* error? or truncate? */
++            if (len > ivar->sqllen) {
+                 char err[80];
+-                sprintf(err, "You are trying to put %d characters into a %d character field",
+-                        len, (sizeof(char) * (ivar->sqllen+1)));
+-                do_error(sth, 2, err);
+-                retval = FALSE;
+-            }
+-            else
+-            {
+-                memset(ivar->sqldata, ' ', ivar->sqllen);
+-                memcpy(ivar->sqldata, tmp, len);
++                sprintf(err, "String truncation (SQL_TEXT): attempted to bind %lu octets to column sized %lu",
++                        len, (sizeof(char) * (ivar->sqllen)));
++                break;
+             }
+ 
++            if (!(ivar->sqldata))
++                Newxc(ivar->sqldata, ivar->sqllen, char, ISC_SCHAR);
++
++            /* Pad the entire field with blanks */
++            PoisonWith(ivar->sqldata, ivar->sqllen, char, ' ');
++            Copy(string, ivar->sqldata, len, char);
+             break;
+         }
+ 
+@@ -2296,16 +2217,13 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+             char *svalue;
+ 
+             /* we need a bit of mem */
+-            if ((ivar->sqldata == (char *) NULL) &&
+-                ((ivar->sqldata = (dtype == SQL_SHORT)? (char *) safemalloc(sizeof(short)):
+-                                                        (char *) safemalloc(sizeof(long ))) == NULL))
+-            {
+-                do_error(sth, 2, "Cannot allocate buffer for SHORT/LONG input parameter ..\n");
+-                retval = FALSE;
+-                break;
++            if (!(ivar->sqldata)) {
++                Newxc(ivar->sqldata,
++                      (dtype == SQL_SHORT ? sizeof(short) : sizeof(long)),
++                      char,
++                      ISC_SCHAR);
+             }
+ 
+-
+             /* See case SQL_INT64 for commentary. */
+ 
+             p = q = r = (long) 0;
+@@ -2397,13 +2315,8 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+             char     format[64];
+             ISC_INT64 p, q, r;
+ 
+-            if ((ivar->sqldata == (char *) NULL) &&
+-                ((ivar->sqldata = (char *) safemalloc(sizeof(ISC_INT64))) == NULL))
+-            {
+-                do_error(sth, 2, "Cannot allocate buffer for LONG input parameter ..\n");
+-                retval = FALSE;
+-                break;
+-            }
++            if (!(ivar->sqldata))
++                Newxc(ivar->sqldata, 1, ISC_INT64, ISC_SCHAR);
+ 
+             /*
+              * Here I handle both whole and scaled numerics.
+@@ -2531,30 +2444,20 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+         case SQL_FLOAT:
+             DBI_TRACE_imp_xxh(imp_sth, 1, (DBIc_LOGPIO(imp_sth), "ib_fill_isqlda: SQL_FLOAT\n"));
+ 
+-            if ((ivar->sqldata == (char *) NULL) &&
+-                ((ivar->sqldata = (char *) safemalloc(sizeof(float))) == NULL))
+-            {
+-                do_error(sth, 2, "Cannot allocate buffer for FLOAT input parameter..\n");
+-                retval = FALSE;
+-            }
+-            else
+-                *(float *) (ivar->sqldata) = (float) SvNV(value);
++            if (!(ivar->sqldata))
++                Newxc(ivar->sqldata, 1, float, ISC_SCHAR);
++            *(float *) (ivar->sqldata) = (float) SvNV(value);
+ 
+             break;
+ 
+-
+         /**********************************************************************/
+         case SQL_DOUBLE:
+             DBI_TRACE_imp_xxh(imp_sth, 1, (DBIc_LOGPIO(imp_sth), "ib_fill_isqlda: SQL_DOUBLE\n"));
+ 
+-            if ((ivar->sqldata == (char *) NULL) &&
+-                ((ivar->sqldata = (char *) safemalloc(sizeof(double))) == NULL))
+-            {
+-                do_error(sth, 2, "Cannot allocate buffer for DOUBLE input parameter ..\n");
+-                retval = FALSE;
+-            }
+-            else
+-                *(double *) (ivar->sqldata) = SvNV(value);
++            if (!(ivar->sqldata))
++                Newxc(ivar->sqldata, 1, double, ISC_SCHAR);
++
++            *(double *) (ivar->sqldata) = SvNV(value);
+ 
+             break;
+ 
+@@ -2587,21 +2490,14 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+                 ivar->sqlsubtype = 0x77; /* (0x77 is a random value) */
+ 
+                 ivar->sqllen = len;
+-                if (ivar->sqldata == (char *) NULL)
+-                {
+                 /*
+                  * I should not allocate based on len, I should allocate
+                  * a fixed length based on the max date/time string.
+                  * For now let's just call it 100.  Okay, 101.
+                  */
+-                    if ((ivar->sqldata = (char *) safemalloc(sizeof(char) * 101)) == NULL)
+-                    {
+-                        do_error(sth, 2, "Cannot allocate buffer for DATE input parameter ..\n");
+-                        retval = FALSE;
+-                        break;
+-                    }
+-                }
+-                memcpy(ivar->sqldata, datestring, len);
++                if (!(ivar->sqldata))
++                    Newx(ivar->sqldata, 101, ISC_SCHAR);
++                Copy(datestring, ivar->sqldata, len, ISC_SCHAR);
+                 ivar->sqldata[len] = '\0';
+             }
+             else if (SvROK(value))
+@@ -2631,7 +2527,7 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+                 /* free ivar->sqldata (prior call wasn't necessary an localtimes
+                  * style list) */
+                 if (ivar->sqldata)
+-                    safefree(ivar->sqldata);
++                    Safefree(ivar->sqldata);
+ 
+                 /* encode for firebird/interbase, store value*/
+ #ifndef IB_API_V6
+@@ -2639,7 +2535,7 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+                     ISC_QUAD timestamp;
+                     isc_encode_date(&times, &timestamp);
+ 
+-                    ivar->sqldata = (char *) safemalloc(sizeof(ISC_QUAD));
++                    Newx(ivar->sqldata, 1, ISC_QUAD, ISC_SCHAR);
+ 
+                     /* we assume there's a fpsecs part after struct tm elements */
+                     if (items >= 10)
+@@ -2655,7 +2551,7 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+                         ISC_TIMESTAMP timestamp;
+                         isc_encode_timestamp(&times, &timestamp);
+ 
+-                        ivar->sqldata = (char *) safemalloc(sizeof(ISC_TIMESTAMP));
++                        Newxc(ivar->sqldata, 1, ISC_TIMESTAMP, ISC_SCHAR);
+ 
+                         if (items >= 10)
+                             TIMESTAMP_ADD_FPSECS(&timestamp, SvIV(svp[9]));
+@@ -2670,7 +2566,7 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+                         ISC_TIME sql_time;
+                         isc_encode_sql_time(&times, &sql_time);
+ 
+-                        ivar->sqldata = (char *) safemalloc(sizeof(ISC_TIME));
++                        Newxc(ivar->sqldata, 1, ISC_TIME, ISC_SCHAR);
+ 
+                         if (items >= 10)
+                             TIME_ADD_FPSECS(&sql_time, SvIV(svp[9]));
+@@ -2685,7 +2581,7 @@ static int ib_fill_isqlda(SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
+                         ISC_DATE sql_date;
+                         isc_encode_sql_date(&times, &sql_date);
+ 
+-                        ivar->sqldata = (char *) safemalloc(sizeof(ISC_TIME));
++                        Newxc(ivar->sqldata, 1, ISC_DATE, ISC_SCHAR);
+                         *(ISC_DATE *) ivar->sqldata = sql_date;
+ 
+                         break;
+diff --git a/dbdimp.h b/dbdimp.h
+index cbd1cd7..6de9120 100644
+--- a/dbdimp.h
++++ b/dbdimp.h
+@@ -101,7 +101,7 @@ typedef void (*ISC_EVENT_CALLBACK)();
+ do {                      \
+     if (ptr)              \
+     {                     \
+-        safefree(ptr);    \
++        Safefree(ptr);    \
+         ptr = NULL;       \
+     }                     \
+ } while (0)
+@@ -118,7 +118,7 @@ do {                                         \
+     *(dpb) = 4;                              \
+     dpb += 1;                                \
+     tmp = isc_vax_integer((char *) &tmp, 4); \
+-    memcpy(dpb, &tmp, sizeof(tmp));          \
++    Copy(&tmp, dpb, 1, sizeof(tmp));         \
+     dpb += 4;                                \
+ } while (0)
+ 
+diff --git a/lib/DBD/InterBase/GetInfo.pm b/lib/DBD/InterBase/GetInfo.pm
+index 2515e4c..4aec285 100644
+--- a/lib/DBD/InterBase/GetInfo.pm
++++ b/lib/DBD/InterBase/GetInfo.pm
+@@ -21,7 +21,12 @@ use DBD::InterBase;
+ 
+ my $sql_driver = 'InterBase';
+ my $sql_ver_fmt = '%02d.%02d.%04d';   # ODBC version string: ##.##.#####
+-my $sql_driver_ver = sprintf $sql_ver_fmt, split (/\./, $DBD::InterBase::VERSION);
++my $sql_driver_ver;
++{
++    no warnings 'uninitialized';
++    $sql_driver_ver = sprintf $sql_ver_fmt, split (/\./, $DBD::InterBase::VERSION);
++}
++
+ 
+ my @Keywords = qw(
+ 
+@@ -212,7 +217,7 @@ our %info = (
+       4 => 136446256,                     # SQL_DRIVER_HENV
+ #    76 => undef,                         # SQL_DRIVER_HLIB
+ #     5 => undef,                         # SQL_DRIVER_HSTMT
+-      6 => $INC{'DBD/InterBase.pm'},      # SQL_DRIVER_NAME
++      6 => "DBD::InterBase",              # SQL_DRIVER_NAME
+      77 => '03.52',                       # SQL_DRIVER_ODBC_VER
+       7 => $sql_driver_ver,               # SQL_DRIVER_VER
+     136 => 0,                             # SQL_DROP_ASSERTION
+diff --git a/lib/DBD/InterBase/TableInfo.pm b/lib/DBD/InterBase/TableInfo.pm
+new file mode 100644
+index 0000000..23880d4
+--- /dev/null
++++ b/lib/DBD/InterBase/TableInfo.pm
+@@ -0,0 +1,27 @@
++use strict;
++
++package DBD::InterBase::TableInfo;
++
++sub factory {
++    my (undef, $dbh) = @_;
++    my ($vers, $klass);
++
++    $vers = $dbh->func('version', 'ib_database_info')->{version};
++
++    $dbh->trace_msg("TableInfo factory($dbh [$vers])");
++
++    if ($vers =~ /firebird (\d\.\d+)/i and $1 >= 2.1) {
++        $klass = 'DBD::InterBase::TableInfo::Firebird21';
++    } else {
++        $klass = 'DBD::InterBase::TableInfo::Basic';
++    }
++
++    eval "require $klass";
++    if ($@) {
++        $dbh->set_err(1, "DBD::InterBase::TableInfo factory: $@");
++        return undef;
++    }
++    $klass->new() if $klass;
++}
++
++1;
+diff --git a/lib/DBD/InterBase/TableInfo/Basic.pm b/lib/DBD/InterBase/TableInfo/Basic.pm
+new file mode 100644
+index 0000000..1d22179
+--- /dev/null
++++ b/lib/DBD/InterBase/TableInfo/Basic.pm
+@@ -0,0 +1,204 @@
++package DBD::InterBase::TableInfo::Basic;
++use strict;
++
++=pod
++
++=head1 NAME
++
++DBD::InterBase::TableInfo::Basic - A base class for lowest-common denominator Interbase table_info() querying.
++
++=head1 SYNOPSIS
++
++    # Add support for a hypothetical IB derivative
++    package DBD::InterBase::TableInfo::HypotheticalIBDerivative
++
++    @ISA = qw(DBD::InterBase::TableInfo::Basic);
++
++    # What table types are supported?
++    sub supported_types {
++        ('SYSTEM TABLE', 'TABLE', 'VIEW', 'SPECIAL TABLE TYPE');
++    }
++
++    sub table_info {
++        my ($self, $dbh, $table, @types) = @_;
++    }
++
++=head1 INTERFACE
++
++=over 4
++
++=item I<list_catalogs>
++
++    $ti->list_catalogs($dbh);  # $dbh->table_info('%', '', '')
++
++Returns a statement handle with an empty result set, as IB does not support
++the DBI concept of catalogs. (Rule 19a)
++
++=item I<list_schema>
++
++    $ti->list_schema($dbh);    # $dbh->table_info('', '%', '')
++
++Returns a statement handle with an empty result set, as IB does not support
++the DBI concept of schema. (Rule 19b)
++
++=item I<list_tables>
++
++    $ti->list_tables($dbh, $table, @types); # $dbh->table_info('', '',
++                                            #                  'FOO%',
++                                            #                  'TABLE,VIEW');
++
++Called in response to $dbh->table_info($cat, $schem, $table, $types).  C<$cat>
++and C<$schem> are presently ignored.
++
++This is the workhorse method that must return an appropriate statement handle
++of tables given the requested C<$table> pattern and C<@types>.  A blank
++C<$table> pattern means "any table," and an empty C<@types> list means "any
++type."
++
++C<@types> is a list of user-supplied, requested types.
++C<DBD::InterBase::db::table_info> will normalize the user-supplied types,
++stripping quote marks, uppercasing, and removing duplicates.
++
++=item I<list_types>
++
++    $tbl_info->list_types($dbh);  # $dbh->table_info('', '', '', '%')
++
++Called in response to $dbh->table_info('', '', '', '%'), returning a
++statement handle with a TABLE_TYPE column populated with the results of
++I<supported_types>.  (Rule 19c)
++
++Normally not overridden.  Override I<supported_types>, instead.
++
++=item I<supported_types>
++
++    $tbl_info->supported_types($dbh);
++
++Returns a list of supported DBI TABLE_TYPE entries.  The default
++implementation supports 'TABLE', 'SYSTEM TABLE' and 'VIEW'.
++
++This method is called by the default implementation of C<list_types>.
++
++=back
++
++=cut
++
++sub new { bless {}, shift; }
++
++my %IbTableTypes = (
++  'SYSTEM TABLE' => '((rdb$system_flag = 1) AND rdb$view_blr IS NULL)',
++   'SYSTEM VIEW' => '((rdb$system_flag = 1) AND rdb$view_blr IS NOT NULL)',
++         'TABLE' => '((rdb$system_flag = 0 OR rdb$system_flag IS NULL) AND rdb$view_blr IS NULL)',
++          'VIEW' => '((rdb$system_flag = 0 OR rdb$system_flag IS NULL) AND rdb$view_blr IS NOT NULL)',
++);
++
++sub supported_types {
++    sort keys %IbTableTypes;
++}
++
++sub sponge {
++    # no warnings 'once';
++    my ($self, $dbh, $stmt, $attrib_hash) = @_;
++    my $sponge = DBI->connect('dbi:Sponge:', '', '')
++                   or return $dbh->DBI::set_err($DBI::err, "DBI::Sponge: $DBI::errstr");
++    return ($sponge->prepare($stmt, $attrib_hash)
++            or
++            $dbh->DBI::set_err($sponge->err(), $sponge->errstr()));
++}
++
++sub list_catalogs {
++	my ($self, $dbh) = @_;
++	return $self->sponge($dbh, 'catalog_info', {
++            NAME => [qw(TABLE_CAT TABLE_SCHEM TABLE_NAME TABLE_TYPE REMARKS)],
++            rows => [],
++        });
++}
++
++sub list_schema {
++	my ($self, $dbh) = @_;
++	$self->sponge($dbh, 'schema_info', {
++        NAME => [qw(TABLE_CAT TABLE_SCHEM TABLE_NAME TABLE_TYPE REMARKS)],
++        rows => [],
++    });
++}
++
++sub list_types {
++    my ($self, $dbh) = @_;
++    my @rows = map { [undef, undef, undef, $_, undef] } $self->supported_types;
++    $self->sponge($dbh, 'supported_type_info', {
++        NAME => [qw(TABLE_CAT TABLE_SCHEM TABLE_NAME TABLE_TYPE REMARKS)],
++        rows => \@rows
++    });
++}
++
++#
++# Fetch a listing of tables matching the desired TABLE_NAME pattern
++# and desired TABLE_TYPEs.  Do not presume support for CASE/END,
++# COALESCE nor derived tables.
++#
++# We could put more work on the server than we do here.  However,
++# rdb$relation_name is very likely to be space padded, and we cannot
++# presume a TRIM() function.  So, $dbh->table_info('', '', 'F%T')
++# cannot be implemented as "rdb$relation_name LIKE 'F%T'", since, in
++# strict SQL, the padded string 'FOOT   ' is NOT LIKE 'F%T'.
++#
++sub list_tables { my ($self, $dbh, $name_pattern, @types) = @_; my
++    ($name_ok, $type_ok); my @data;
++
++    # no warnings 'uninitialized'
++    if ($name_pattern eq '%' or $name_pattern eq '') {
++        $name_ok = sub {1};
++    } else {
++        my $re = quotemeta($name_pattern);
++        for ($re) { s/_/./g; s/%/.*/g; }
++        $name_ok = sub { $_[0] =~ /$re/ };
++    }
++
++    if (@types) {
++        my %desired = map { $_ => 1 } grep { exists $IbTableTypes{$_} } @types;
++        $type_ok = sub { exists $desired{$_[0]} };
++    } else {
++        $type_ok = sub { 1 };
++    }
++
++    my $sth = $dbh->prepare(<<'__eosql');
++SELECT v.rdb$relation_name      AS TABLE_NAME,
++       CAST('VIEW' AS CHAR(5))  AS TABLE_TYPE,
++       v.rdb$description        AS REMARKS,
++       v.rdb$owner_name         AS ib_owner_name,
++       v.rdb$system_flag        AS flag_sys
++FROM   rdb$relations v
++WHERE  v.rdb$view_blr IS NOT NULL
++UNION ALL
++SELECT t.rdb$relation_name      AS TABLE_NAME,
++       CAST('TABLE' AS CHAR(5)) AS TABLE_TYPE,
++       t.rdb$description        AS REMARKS,
++       t.rdb$owner_name         AS ib_owner_name,
++       t.rdb$system_flag        AS flag_sys
++FROM   rdb$relations t
++WHERE  t.rdb$view_blr IS NULL
++__eosql
++
++    if ($sth) {
++        $sth->{ChopBlanks} = 1;
++        $sth->execute or return undef;
++    }
++
++    while (my $r = $sth->fetch) {
++        my ($name, $type, $remarks, $owner, $flag_sys) = @$r;
++        $type = "SYSTEM $type" if $flag_sys;
++
++        next unless $name_ok->($name);
++        next unless $type_ok->($type);
++
++        push @data, [undef, undef, $name, $type, $remarks, $owner];
++    }
++
++	return $self->sponge($dbh, 'table_info', {
++        NAME => [qw(TABLE_CAT TABLE_SCHEM TABLE_NAME TABLE_TYPE REMARKS ib_owner_name)],
++        rows => \@data
++    });
++}
++
++1;
++__END__
++# vim:set et ts=4:
+diff --git a/lib/DBD/InterBase/TableInfo/Firebird21.pm b/lib/DBD/InterBase/TableInfo/Firebird21.pm
+new file mode 100644
+index 0000000..233229c
+--- /dev/null
++++ b/lib/DBD/InterBase/TableInfo/Firebird21.pm
+@@ -0,0 +1,95 @@
++use strict;
++
++package DBD::InterBase::TableInfo::Firebird21;
++
++use DBD::InterBase::TableInfo::Basic;
++use vars qw(@ISA);
++@ISA = qw(DBD::InterBase::TableInfo::Basic);
++
++my %FbTableTypes = (
++    'SYSTEM TABLE' => '((rdb$system_flag = 1) AND rdb$view_blr IS NULL)',
++     'SYSTEM VIEW' => '((rdb$system_flag = 1) AND rdb$view_blr IS NOT NULL)',
++           'TABLE' => '((rdb$system_flag = 0 OR rdb$system_flag IS NULL) AND rdb$view_blr IS NULL)',
++            'VIEW' => '((rdb$system_flag = 0 OR rdb$system_flag IS NULL) AND rdb$view_blr IS NOT NULL)',
++'GLOBAL TEMPORARY' => '((rdb$system_flag = 0 OR rdb$system_flag IS NULL) AND rdb$relation_type IN (4, 5))',
++);
++
++sub supported_types {
++    sort keys %FbTableTypes;
++}
++
++sub list_tables {
++    my ($self, $dbh, $table, @types) = @_;
++    my (@conditions, @bindvars);
++    my $where = '';
++
++    if (defined($table) and length($table)) {
++        push @conditions, ($table =~ /[_%]/
++                           ? 'TRIM(rdb$relation_name) LIKE ?'
++                           : 'rdb$relation_name = ?');
++        push @bindvars, $table;
++    }
++
++    if (@types) {
++        push @conditions, join ' OR ' => map { $FbTableTypes{$_} || '(1=0)' } @types;
++    }
++
++    if (@conditions) {
++        $where = 'WHERE ' . join(' AND ' => map { "($_)" } @conditions);
++    }
++
++    # "The Firebird System Tables Exposed"
++    # Martijn Tonies, 6th Worldwide Firebird Conference 2008
++    # Bergamo, Italy
++    my $sth = $dbh->prepare(<<__eosql);
++  SELECT CAST(NULL AS CHAR(1))    AS TABLE_CAT,
++         CAST(NULL AS CHAR(1))    AS TABLE_SCHEM,
++         TRIM(rdb\$relation_name) AS TABLE_NAME,
++         CAST(CASE
++                WHEN rdb\$system_flag > 0 THEN
++                     CASE WHEN rdb\$view_blr IS NULL THEN 'SYSTEM TABLE'
++                                                     ELSE 'SYSTEM VIEW'
++                     END
++                WHEN rdb\$relation_type IN (4, 5)    THEN 'GLOBAL TEMPORARY'
++                WHEN rdb\$view_blr IS NULL           THEN 'TABLE'
++                                                     ELSE 'VIEW'
++              END AS CHAR(16))                     AS TABLE_TYPE,
++         TRIM(rdb\$description)  AS REMARKS,
++         TRIM(rdb\$owner_name)   AS ib_owner_name,
++         CASE rdb\$relation_type
++           WHEN 0 THEN 'Persistent'
++           WHEN 1 THEN 'View'
++           WHEN 2 THEN 'External'
++           WHEN 3 THEN 'Virtual'
++           WHEN 4 THEN 'Global Temporary Preserve'
++           WHEN 5 THEN 'Global Temporary Delete'
++           ELSE        NULL
++         END                      AS ib_relation_type
++    FROM rdb\$relations
++    $where
++__eosql
++
++    if ($sth) {
++        $sth->{ChopBlanks} = 1;
++        $sth->execute(@bindvars) or return undef;
++    }
++    $sth;
++}
++
++1;
++__END__
++sub fb15_table_info {
++  SELECT NULL                     AS TABLE_CAT,
++         NULL                     AS TABLE_SCHEM,
++         TRIM(rdb\$relation_name) AS TABLE_NAME,
++         CASE
++           WHEN rdb\$system_flag > 0 THEN 'SYSTEM TABLE'
++           WHEN rdb\$view_blr IS NOT NULL THEN 'VIEW'
++           ELSE 'TABLE'
++         END                      AS TABLE_TYPE,
++         rdb\$description         AS REMARKS,
++         rdb\$owner_name          AS ib_owner_name,
++         rdb\$external_file       AS ib_external_file
++    FROM rdb\$relations
++}
++# vim:set et ts=4:
+diff --git a/t/31prepare.t b/t/31prepare.t
+index a4a38d8..4cf26c1 100644
+--- a/t/31prepare.t
++++ b/t/31prepare.t
+@@ -62,11 +62,13 @@ SKIP: {
+ 
+ TEST_CACHED: {
+     $prepare_sub = sub { $dbh->prepare_cached(shift), "prepare_cached" };
+-    my $k;
++    my ($query, $n_cached);
+ 
+-    $k = simpleQuery($dbh, $prepare_sub);
+-    my $ck = $dbh->{CachedKids};
+-    ok($ck->{$k}, qq{cached "$k"});
++    $query = simpleQuery($dbh, $prepare_sub);
++	for (values %{$dbh->{CachedKids}}) {
++		$n_cached++ if $_->{Statement} eq $query;
++	}
++    is($n_cached, 1, qq{cached "$query"});
+ 
+     $dbh->commit() unless $dbh->{AutoCommit};
+ 
+@@ -75,11 +77,11 @@ TEST_CACHED: {
+ #    ok($dbh->{CachedKids}{$k}, qq{cached "$k"});
+ #    $dbh->rollback() unless $dbh->{AutoCommit};
+ 
+-    $k = simpleQuery($dbh, $prepare_sub);
+-    is(scalar keys(%$ck), 1);
++    $query = simpleQuery($dbh, $prepare_sub);
++    is(scalar keys(%{$dbh->{CachedKids}}), 1);
+ 
+     # clear cached sth
+-    %$ck = ();
++    %{$dbh->{CachedKids}} = ();
+     # wrong:
+     # $dbh->{CachedKids} = undef;
+ 
+diff --git a/t/42scale.t b/t/42scale.t
+new file mode 100644
+index 0000000..623d7e4
+--- /dev/null
++++ b/t/42scale.t
+@@ -0,0 +1,71 @@
++#! env perl
++
++# RT#55841 high-scale numbers incorrectly formatted
++
++use strict;
++use warnings;
++use DBI;
++use Test::More;
++
++$::test_dsn = '';
++$::test_user = '';
++$::test_password = '';
++
++for my $file ('t/testlib.pl', 'testlib.pl') {
++    next unless -f $file;
++    eval { require $file };
++    BAIL_OUT("Cannot load testlib.pl\n") if $@;
++    last;
++}
++
++my @Types = qw|NUMERIC DECIMAL|;
++my @Tests = (
++#  Literal      Precision   Scale   Expected
++   [ '-19.061',     18,       0,     -19     ], # XXX - we coerce Expected
++   [ '-19.061',     18,       1,     -19.1   ], #       into a number
++   [ '-19.061',     18,       2,     -19.06  ],
++   [ '-19.061',     18,       3,     -19.061 ],
++   [ '-19.061',     18,       4,     -19.061 ],
++   [ '-19.061',     18,       5,     -19.061 ],
++   [ '-19.061',     18,       6,     -19.061 ],
++   [ '-19.061',     18,       7,     -19.061 ],
++   [ '-19.061',     18,       8,     -19.061 ],
++   [ '-19.061',     18,       9,     -19.061 ],
++   [ '-19.061',     18,      10,     -19.061 ],
++   [ '-19.061',     18,      11,     -19.061 ],
++   [ '-19.061',     18,      12,     -19.061 ],
++   [ '-19.061',     18,      13,     -19.061 ],
++   [ '-19.061',     18,      14,     -19.061 ],
++   [ '-19.061',     18,      15,     -19.061 ],
++   [ '-19.061',     18,      16,     -19.061 ],
++   [ '0.00001',     12,      11,     0.00001 ],
++   [ '0.00001',     12,      10,     0.00001 ],
++   [ '0.00001',     12,       9,     0.00001 ],
++   [ '0.00001',     12,       8,     0.00001 ],
++   [ '0.00001',     12,       7,     0.00001 ],
++   [ '0.00001',     12,       6,     0.00001 ],
++   [ '0.00001',     12,       5,     0.00001 ],
++   [ '0.00001',     12,       4,           0 ],
++);
++
++plan tests => (1 + (@Types * @Tests));
++
++my $dbh = DBI->connect($::test_dsn, $::test_user, $::test_password,
++                       { RaiseError => 1 });
++
++for my $type (@Types) {
++    for (@Tests) {
++        my ($literal, $prec, $scale, $expected) = @$_;
++        my $cast = "CAST($literal AS $type($prec, $scale))";
++        my ($r) = $dbh->selectrow_array("select $cast from RDB\$DATABASE");
++        is(0+$r, $expected, "$cast");
++    }
++}
++
++{
++    my ($r) = $dbh->selectrow_array('select 0+1 from RDB$DATABASE');
++    is($r, '1', "0+1"); # No decimal point on implicit zero-scale field
++}
++
++__END__
++# vim: set et ts=4 ft=perl:
+diff --git a/t/62timeout.t b/t/62timeout.t
+index f5f590f..00e2ca3 100644
+--- a/t/62timeout.t
++++ b/t/62timeout.t
+@@ -93,9 +93,9 @@ SKIP: {
+         ok($dbh1->commit, "1st tx committed");
+     }
+ 
++	ok($dbh2->disconnect);
++
+     ok($dbh1->do("DROP TABLE $table"), "DROP TABLE $table");
+     ok($dbh1->disconnect);    
+-}
+-
+-ok($dbh2->disconnect);
++} # - SKIP {}
+ 
+diff --git a/t/dbi-primary_key_info.t b/t/dbi-primary_key_info.t
+new file mode 100644
+index 0000000..371726f
+--- /dev/null
++++ b/t/dbi-primary_key_info.t
+@@ -0,0 +1,60 @@
++#!perl -w
++# vim: ft=perl
++
++use Test::More;
++use DBI;
++use strict;
++use lib 't', '.';
++require 'lib.pl';
++$|= 1;
++
++use vars qw($table $test_dsn $test_user $test_password);
++my $dbh;
++eval {$dbh= DBI->connect($test_dsn, $test_user, $test_password,
++                      { RaiseError => 1, PrintError => 0, AutoCommit => 0 });};
++
++if ($@) {
++    plan skip_all => "ERROR: $DBI::errstr. Can't continue test";
++}
++plan tests => 12;
++
++ok(defined $dbh, "Connected to database for key info tests");
++
++$table = FindNewTable($dbh);
++
++ok($dbh->do(<<__eosql), "CREATE TABLE $table");
++  CREATE TABLE $table(
++    Z INTEGER NOT NULL,
++    Y CHAR(10) NOT NULL,
++    X INTEGER NOT NULL,
++    K CHAR(3) NOT NULL,
++    PRIMARY KEY(Z, Y, X),
++    UNIQUE(K)
++  )
++__eosql
++
++my $sth = $dbh->primary_key_info(undef, undef, $table);
++ok($sth, "Got primary key info");
++is_deeply($sth->{NAME_uc},
++   [qw|TABLE_CAT TABLE_SCHEM TABLE_NAME COLUMN_NAME KEY_SEQ PK_NAME|]);
++
++my $key_info = $sth->fetch;
++is_deeply([@$key_info[0..4]], [ undef, undef, $table, 'Z', '1' ]);
++ok($key_info->[5] =~ /\S/, "PK_NAME is set"); # Something like RBD$PRIMARY123
++
++$key_info = $sth->fetch;
++is_deeply([@$key_info[0..4]], [ undef, undef, $table, 'Y', '2' ]);
++ok($key_info->[5] =~ /\S/, "PK_NAME is set");
++
++$key_info = $sth->fetch;
++is_deeply([@$key_info[0..4]], [ undef, undef, $table, 'X', '3' ]);
++ok($key_info->[5] =~ /\S/, "PK_NAME is set");
++
++$sth->finish;
++
++is_deeply([ $dbh->primary_key(undef, undef, $table) ], [qw|Z Y X|],
++          "Check primary_key results");
++
++ok($dbh->do("DROP TABLE $table"), "Dropped table");
++
++$dbh->disconnect();
+diff --git a/t/dbi-table_info.t b/t/dbi-table_info.t
+new file mode 100644
+index 0000000..0bc67ce
+--- /dev/null
++++ b/t/dbi-table_info.t
+@@ -0,0 +1,128 @@
++#! /usr/bin/env perl
++
++#
++# Verify that $dbh->tables() returns a list of (quoted) tables.
++#
++
++use DBI 1.19; # FetchHashKeyName support (2001-07-20)
++use Test::More tests => 19;
++use strict;
++
++use constant TI_DBI_FIELDS =>
++             [qw/ TABLE_CAT TABLE_SCHEM TABLE_NAME TABLE_TYPE REMARKS / ];
++
++# IB/FB derivatives can add at least 'ib_owner_name'
++# (rdb$relations.rdb$owner_name) to the ordinary DBI table_info() fields.
++use constant TI_IB_FIELDS =>
++             [ @{TI_DBI_FIELDS()}, 'IB_OWNER_NAME' ];
++
++# FIXME - consolidate this duplicated code
++
++# Make -w happy
++$::test_dsn = '';
++$::test_user = '';
++$::test_password = '';
++
++for my $file ('t/testlib.pl', 'testlib.pl') {
++    next unless -f $file;
++    eval { require $file };
++    BAIL_OUT("Cannot load testlib.pl\n") if $@;
++    last;
++}
++
++sub contains {
++    my ($superset, $subset) = @_;
++
++    # for our purposes, sets must not be empty
++    if (0 == @$superset or 0 == @$subset) {
++        die "Empty set given to contains()";
++    }
++
++    my %super = map {$_=>undef} @$superset;
++    for my $element (@$subset) {
++        return undef unless exists $super{$element};
++    }
++    1;
++}
++
++# === BEGIN TESTS ===
++
++my ($dbh, $sth, $r);
++
++$dbh = DBI->connect($::test_dsn, $::test_user, $::test_password,
++                       { RaiseError => 1, FetchHashKeyName => 'NAME_uc' });
++ok($dbh);
++
++# -- List all catalogs (none)
++$sth = $dbh->table_info('%', '', '');
++$r = $sth->fetch;
++ok(!defined($r), "No DBI catalog support");
++ok(contains($sth->{NAME_uc}, TI_DBI_FIELDS),
++   "Result set contains expected table_info() fields");
++
++# -- List all schema (none)
++$sth = $dbh->table_info('', '%', '');
++ok(!defined($sth->fetch), "No DBI schema support");
++ok(contains($sth->{NAME_uc}, TI_DBI_FIELDS),
++   "Result set contains expected table_info() fields");
++
++# -- List all supported types
++$sth = $dbh->table_info('', '', '', '%');
++my @types;
++while (my $r = $sth->fetchrow_hashref) {
++    push @types, $r->{TABLE_TYPE};
++}
++ok(contains(\@types, ['VIEW', 'TABLE', 'SYSTEM TABLE']),
++   "Minimal types supported");
++
++# -- Literal table specification
++
++for my $tbl_spec ('RDB$DATABASE') {
++    $sth = $dbh->table_info('', '', $tbl_spec);
++    $r = $sth->fetchrow_hashref;
++    is($r->{TABLE_NAME}, $tbl_spec, "TABLE_NAME is $tbl_spec");
++    is($r->{TABLE_TYPE}, 'SYSTEM TABLE', 'TABLE_TYPE is SYSTEM TABLE');
++    ok(contains($sth->{NAME_uc}, TI_IB_FIELDS),
++        "Result set contains expected table_info() fields");
++    ok(!defined($sth->fetch), "One and only one row returned for $tbl_spec");
++
++    $sth = $dbh->table_info('', '', $tbl_spec, 'VIEW');
++    ok(!defined($sth->fetch), "No VIEW named $tbl_spec");
++    ok(contains($sth->{NAME_uc}, TI_IB_FIELDS),
++        "Result set contains expected table_info() fields");
++
++    $sth = $dbh->table_info('', '', $tbl_spec, 'VIEW,SYSTEM TABLE');
++    $r = $sth->fetchrow_hashref;
++    is($r->{TABLE_NAME}, $tbl_spec, "$tbl_spec found (multiple TYPEs given)");
++    is($r->{TABLE_TYPE}, 'SYSTEM TABLE', 'TABLE_TYPE is SYSTEM TABLE (multiple TYPEs given)');
++    ok(!defined($sth->fetch), "Only one row returned (multiple TYPEs given)");
++    ok(contains($sth->{NAME_uc}, TI_IB_FIELDS),
++        "Result set contains expected table_info() fields");
++}
++
++# -- Pattern tests
++#    Similar to the literal table spec, but may return more than one
++#    matching entry
++
++for my $tbl_spec ('RDB$D_T_B_S_', 'RDB$%', '%', '') {
++    $sth = $dbh->table_info('', '', $tbl_spec);
++    while ($r = $sth->fetchrow_hashref) {
++        last if $r->{TABLE_NAME} eq 'RDB$DATABASE';
++    }
++    is($r->{TABLE_NAME}, 'RDB$DATABASE', "RDB\$DATABASE found against '$tbl_spec'");
++    is($r->{TABLE_TYPE}, 'SYSTEM TABLE', 'is SYSTEM TABLE');
++    ok(contains($sth->{NAME_uc}, TI_IB_FIELDS),
++        "Result set contains expected table_info() fields");
++
++    $sth = $dbh->table_info('', '', $tbl_spec, 'VIEW,SYSTEM TABLE');
++    while ($r = $sth->fetchrow_hashref) {
++        last if $r->{TABLE_NAME} eq 'RDB$DATABASE';
++    }
++    is($r->{TABLE_NAME}, 'RDB$DATABASE', "RDB\$DATABASE found against '$tbl_spec' (multiple TYPEs)");
++    is($r->{TABLE_TYPE}, 'SYSTEM TABLE', 'is SYSTEM TABLE (multiple TYPEs)');
++    ok(contains($sth->{NAME_uc}, TI_IB_FIELDS),
++        "Result set contains expected table_info() fields");
++}
++
++__END__
++# vim: set et ts=4:
+diff --git a/t/dbi-tables.t b/t/dbi-tables.t
+new file mode 100644
+index 0000000..a2dae19
+--- /dev/null
++++ b/t/dbi-tables.t
+@@ -0,0 +1,54 @@
++#! /usr/bin/env perl
++
++#
++# Verify that $dbh->tables() returns a list of (quoted) tables.
++#
++
++use DBI;
++use Test::More tests => 5;
++use strict;
++
++# Make -w happy
++$::test_dsn = '';
++$::test_user = '';
++$::test_password = '';
++
++for my $file ('t/testlib.pl', 'testlib.pl') {
++    next unless -f $file;
++    eval { require $file };
++    BAIL_OUT("Cannot load testlib.pl\n") if $@;
++    last;
++}
++
++# === BEGIN TESTS ===
++
++my ($dbh, $tbl, %tables);
++
++$dbh = DBI->connect($::test_dsn, $::test_user, $::test_password,
++                    { RaiseError => 1 });
++ok($dbh);
++
++$tbl = find_new_table($dbh);
++ok($dbh->do(<<__eocreate), "CREATE TABLE $tbl");
++CREATE TABLE $tbl(
++    i INTEGER NOT NULL,
++    vc VARCHAR(64) NOT NULL
++)
++__eocreate
++
++%tables = map { uc($_) => 1 } $dbh->tables;
++
++ok(exists $tables{ $dbh->quote_identifier(uc($tbl)) },
++   "tables() returned uppercased, quoted $tbl");
++#diag join(' ', sort keys %tables);
++
++ok($dbh->do("DROP TABLE $tbl"), "DROP TABLE $tbl");
++
++%tables = map { uc($_) => 1 } $dbh->tables;
++#diag join(' ', sort keys %tables);
++
++ok(!exists($tables{ $dbh->quote_identifier(uc($tbl)) }),
++   "$tbl no longer in tables()");
++
++__END__
++# vim: set et ts=4:
+diff --git a/t/rt49896.t b/t/rt49896.t
+new file mode 100644
+index 0000000..b54e5f6
+--- /dev/null
++++ b/t/rt49896.t
+@@ -0,0 +1,57 @@
++#!/usr/local/bin/perl -w
++#
++#   Test cases for DBD-InterBase rt.cpan.org #49896
++#   "Varchar fields accept data one char over field length (but memory
++#   is corrupted)"
++#
++
++use strict;
++use DBI;
++use Test::More tests => 8;
++use vars qw( $dbh $table );
++
++END {
++  if (defined($dbh) and $table) {
++    eval { $dbh->do("DROP TABLE $table"); };
++    $dbh->disconnect;
++  }
++}
++
++# Make -w happy
++$::test_dsn = '';
++$::test_user = '';
++$::test_password = '';
++
++for my $file ('t/testlib.pl', 'testlib.pl') {
++    next unless -f $file;
++    eval { require $file };
++    BAIL_OUT("Cannot load testlib.pl\n") if $@;
++    last;
++}
++
++# ------- TESTS ------------------------------------------------------------- #
++
++$dbh = DBI->connect($::test_dsn, $::test_user, $::test_password);
++ok($dbh);
++
++$table = find_new_table($dbh);
++ok($table);
++
++ok($dbh->do("CREATE TABLE $table( c1 varchar(3) )",
++            "CREATE TABLE $table(...)"));
++
++ok($dbh->do("INSERT INTO $table(c1) VALUES(?)", undef, 'aa'),
++   "INSERT string (length < column size) succeeds");
++
++ok($dbh->do("INSERT INTO $table(c1) VALUES(?)", undef, 'aaa'),
++   "INSERT string (length == column size) succeeds");
++
++$dbh->{PrintError} = 0;
++
++ok(! defined $dbh->do("INSERT INTO GGG(c1) VALUES(?)", undef, 'aaa!'),
++   "INSERT string (length == column size + 1) fails");
++
++ok(! defined $dbh->do("INSERT INTO GGG(c1) VALUES(?)", undef, 'aaa!!'),
++   "INSERT string (length == column size + 2) fails");
++
++ok($dbh->do("DROP TABLE $table"), "DROP TABLE $table");
+diff --git a/t/testlib.pl b/t/testlib.pl
+new file mode 100644
+index 0000000..c4add29
+--- /dev/null
++++ b/t/testlib.pl
+@@ -0,0 +1,39 @@
++#! /usr/bin/env perl
++
++use Test::More;
++
++# testlib.pl
++# Consolidation of code for DBD::InterBase's Test::More tests...
++
++my $file;
++do {
++    if (-f ($file = "t/InterBase.dbtest") ||
++        -f ($file = "InterBase.dbtest"))
++    {
++        eval { require $file };
++        BAIL_OUT("Cannot load $file: $@\n") if $@;
++    }
++};
++
++my $lower_bound = 'TESTAA';
++my $upper_bound = 'TESTZZ';
++
++sub find_new_table {
++    my $dbh = shift;
++    my $try_name = 'TESTAA';
++    my $try_name_quoted = $dbh->quote_identifier($try_name);
++
++    my %tables = map { uc($_) => undef } $dbh->tables;
++
++    while (exists $tables{$dbh->quote_identifier($try_name)}) {
++        if (++$try_name gt 'TESTZZ') {
++            diag("Too many test tables cluttering database ($try_name)\n");
++            exit 255;
++        }
++    }
++
++    $try_name;
++}
++
++__END__
++# vim: set et ts=4:

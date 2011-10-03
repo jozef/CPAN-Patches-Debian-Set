@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: libtest-pod-perl, libxml-libxml-perl (>= 1.67), libxml-tidy-perl (>= 1), padre-plugin-api-2, perl, xauth, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-libxml-perl (>= 1.67), libxml-tidy-perl (>= 1), padre-plugin-api-2
+X: 1

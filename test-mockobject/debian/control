@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), libmodule-build-perl, quilt
-Build-Depends-Indep: libtest-exception-perl, libtest-warn-perl, libuniversal-can-perl, libuniversal-isa-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libtest-simple-perl, libuniversal-can-perl, libuniversal-isa-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libtest-exception-perl (>= 0.31), libtest-simple-perl (>= 0.98) | perl (>= 5.14), libtest-warn-perl (>= 0.23), libuniversal-can-perl, libuniversal-isa-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtest-exception-perl (>= 0.31), libtest-simple-perl (>= 0.98) | perl (>= 5.14), libtest-warn-perl (>= 0.23), libuniversal-can-perl, libuniversal-isa-perl
 X: 0

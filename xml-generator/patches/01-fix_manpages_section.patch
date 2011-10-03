@@ -1,3 +1,8 @@
+Description: added to fix the manpages section from "3" to "3pm"
+Forwarded: no
+Author: David Paleino
+Last-Update: 2011-08-01
+
 --- a/Makefile.PL
 +++ b/Makefile.PL
 @@ -5,7 +5,7 @@ WriteMakefile(

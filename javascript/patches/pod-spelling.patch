@@ -1,6 +1,8 @@
 Author: gregor herrmann <gregoa@debian.org>
 Description: spelling mistakes
-
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-10-12
+Forwarded: no
 --- a/lib/JavaScript.pm
 +++ b/lib/JavaScript.pm
 @@ -50,7 +50,7 @@

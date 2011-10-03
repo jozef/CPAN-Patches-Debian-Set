@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libbsd-resource-perl, libipc-system-simple-perl, libsub-identify-perl (>= 0.04), libtest-kwalitee-perl, libtest-perl-critic-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.10)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libbsd-resource-perl, libipc-system-simple-perl, libsub-identify-perl (>= 0.04), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libsub-identify-perl (>= 0.04)
 X: 0

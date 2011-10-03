@@ -1,11 +1,12 @@
-Author: Ryan Niebur
 Description: if a man page doesn't have a whatis, try to figure out
  which ctype corresponds to that (using regexps), check if they really
  do (using the Glib::Type register stuff), and if they do add a whatis
  that says "wrapper for $ctype"
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
 
---- a/lib/Glib/GenPod.pm
-+++ b/lib/Glib/GenPod.pm
+--- a/GenPod.pm
++++ b/GenPod.pm
 @@ -276,7 +276,15 @@
  		# end.  But all the other =head1 below need a closing =cut.
  

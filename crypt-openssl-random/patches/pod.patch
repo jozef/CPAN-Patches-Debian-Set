@@ -1,0 +1,26 @@
+Description: fix pod error
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-28
+
+--- a/Random.pm
++++ b/Random.pm
+@@ -59,6 +59,8 @@
+ 
+ =head1 Static Methods
+ 
++=over
++
+ =item random_bytes
+ 
+ This function, returns a specified number of cryptographically strong
+@@ -90,6 +92,8 @@
+ 
+ This function returns true if the PRNG has sufficient seeding.
+ 
++=back
++
+ =head1 BUGS
+ 
+ Because of the internal workings of OpenSSL's random library, the

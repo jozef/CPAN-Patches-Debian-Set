@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libcolor-library-perl, libmoose-perl (>= 0.74), libmoosex-aliases-perl, libmoosex-clone-perl, libmoosex-storage-perl, libmoosex-types-perl, libtest-number-delta-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libcolor-library-perl, libmoose-perl (>= 0.74), libmoosex-aliases-perl, libmoosex-clone-perl, libmoosex-storage-perl, libmoosex-types-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcolor-library-perl, libmoose-perl (>= 0.74), libmoosex-aliases-perl (>= 0.10), libmoosex-clone-perl, libmoosex-storage-perl, libmoosex-types-perl, libtest-number-delta-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcolor-library-perl, libmoose-perl (>= 0.74), libmoosex-aliases-perl (>= 0.10), libmoosex-clone-perl, libmoosex-storage-perl, libmoosex-types-perl
 X: 0

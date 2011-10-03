@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: perl
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-isa-perl | perl (<< 5.10.1-13), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-isa-perl | perl (<< 5.10.1-13)
 X: 0

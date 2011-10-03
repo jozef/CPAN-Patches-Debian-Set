@@ -1,0 +1,26 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Invalid response from service not handled correctly
+Last-Update: 2011-03-14
+Bug: http://rt.cpan.org/Ticket/Display.html?id=66599
+--- a/lib/Test/HTML/W3C.pm
++++ b/lib/Test/HTML/W3C.pm
+@@ -224,10 +224,15 @@
+ sub diag_html {
+     my $tb = __PACKAGE__->builder();
+     if ($show_detail) {
+-        my @errs = $v->errors();
+-        my $e;
+-        foreach my $error ( @{$v->errors()} ) {
+-             $e .= sprintf("%s at line %d\n", $error->msg, $error->line);
++        my $e = "";
++        if ($v->errors()) {
++            my @errs = @{$v->errors()};
++            foreach my $error ( @errs ) {
++                $e .= sprintf("%s at line %d\n", $error->msg, $error->line);
++            }
++        }
++        else {
++            $e .= $v->validator_error;
+         }
+         $tb->diag($e);
+     } else {

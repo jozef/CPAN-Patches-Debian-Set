@@ -1,0 +1,80 @@
+From: =?UTF-8?q?Carl=20F=C3=BCrstenberg?= <azatoth@gmail.com>
+Date: Thu, 8 Sep 2011 03:08:00 +0200
+Subject: Escape characters that can have a special meaning in markdown
+
+Escaping * and _ in verbatim and textblocks as they have special
+meanings in markdown as emphasis
+---
+ lib/Pod/Markdown.pm |    9 +++++++++
+ t/misc.t            |   11 ++++++++++-
+ 2 files changed, 19 insertions(+), 1 deletions(-)
+
+diff --git a/lib/Pod/Markdown.pm b/lib/Pod/Markdown.pm
+index c58c282..781fcae 100644
+--- a/lib/Pod/Markdown.pm
++++ b/lib/Pod/Markdown.pm
+@@ -82,8 +82,15 @@ sub _indent_text {
+ sub _clean_text {
+     my $text    = $_[1];
+     my @trimmed = grep { $_; } split(/\n/, $text);
++
+     return wantarray ? @trimmed : join("\n", @trimmed);
+ }
++sub _escape {
++	my $text = $_[1];
++	# escape stars and stripes as they are interpret in markdown as emphasis
++	$text =~ s/(\_|\*)/\\$1/g;
++	return $text;
++}
+ 
+ sub command {
+     my ($parser, $command, $paragraph, $line_num) = @_;
+@@ -145,12 +152,14 @@ sub command {
+ 
+ sub verbatim {
+     my ($parser, $paragraph) = @_;
++	$paragraph = $parser->_escape($paragraph);
+     $parser->_save($paragraph);
+ }
+ 
+ sub textblock {
+     my ($parser, $paragraph, $line_num) = @_;
+     my $data = $parser->_private;
++	$paragraph = $parser->_escape($paragraph);
+ 
+     # interpolate the paragraph for embebed sequences
+     $paragraph = $parser->interpolate($paragraph, $line_num);
+diff --git a/t/misc.t b/t/misc.t
+index 3f94c3e..135acea 100755
+--- a/t/misc.t
++++ b/t/misc.t
+@@ -15,7 +15,7 @@ pod2markdown - Convert POD text to Markdown
+ 
+ # SYNOPSIS
+ 
+-    $ pod2markdown < POD_File > Markdown_File
++    $ pod2markdown < POD\_File > Markdown\_File
+ 
+ # DESCRIPTION
+ 
+@@ -50,6 +50,11 @@ item
+ 
+ - list
+ - test
++
++# Special characters
++
++	foo\_bar is the result of 4 \* 4
++
+ EOMARKDOWN
+ 
+ 1 while chomp $markdown;
+@@ -112,3 +117,7 @@ list
+ =item * test
+ 
+ =back
++
++=head1 Special characters
++
++	foo_bar is the result of 4 * 4
+-- 

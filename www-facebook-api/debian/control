@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libcrypt-ssleay-perl, libio-string-perl, libjson-any-perl, libjson-xs-perl, libreadonly-perl, libtest-mockobject-perl, libwww-perl, perl (>= 5.10) | libversion-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libcrypt-ssleay-perl, libjson-any-perl, libjson-xs-perl, libreadonly-perl, libwww-perl, perl (>= 5.10) | libversion-perl
+Build-Depends-Indep: libcrypt-ssleay-perl, libio-string-perl, libjson-any-perl, libjson-xs-perl, libreadonly-perl, libtest-mockobject-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcrypt-ssleay-perl, libjson-any-perl, libjson-xs-perl, libreadonly-perl, libwww-perl
 X: 0

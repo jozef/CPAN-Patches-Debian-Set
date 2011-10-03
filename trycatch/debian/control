@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libb-hooks-endofscope-perl, libb-hooks-op-check-perl, libb-hooks-op-ppaddr-perl (>= 0.03), libdevel-declare-perl, libmoose-perl, libmoosex-types-perl, libparse-method-signatures-perl, libscope-upper-perl, libsub-exporter-perl, libtest-exception-perl, libvariable-magic-perl, perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

@@ -1,0 +1,20 @@
+Description: Fix the manpage-has-bad-whatis-entry lintian warning for
+ MooseX::Types::UndefinedType.
+Origin: vendor
+Forwarded: no
+Author: Alessandro Ghedini <al3xbio@gmail.com>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-08
+
+--- a/lib/MooseX/Types/UndefinedType.pm
++++ b/lib/MooseX/Types/UndefinedType.pm
+@@ -11,6 +11,9 @@
+ 
+ use overload '""'     => sub { shift->name },
+              fallback => 1;
++=head1 NAME
++
++MooseX::Types::UndefinedType - Represents a not yet defined type
+ 
+ =head1 DESCRIPTION
+ 

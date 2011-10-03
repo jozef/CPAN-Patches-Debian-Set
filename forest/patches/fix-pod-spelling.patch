@@ -1,7 +1,8 @@
 Description: fix POD typos
 Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
-Forwarded: no
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=53271
+Forwarded: yes
 --- a/lib/Forest.pm
 +++ b/lib/Forest.pm
 @@ -55,9 +55,9 @@

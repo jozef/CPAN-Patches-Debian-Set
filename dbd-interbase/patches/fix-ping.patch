@@ -1,0 +1,26 @@
+Description: fix ping() so that it has a chance to succeed
+ isc_database_info() does not work when not supplied with request items
+ At least this is the case with Firebird 2.5.
+ The patch fixes that by querying the database ODS version, which should
+ work with any server/client version.
+Author: Damyan Ivanov <dmn@debian.org>
+Forwarded: no
+
+--- a/dbdimp.c
++++ b/dbdimp.c
+@@ -472,10 +472,14 @@ int dbd_db_ping(SV *dbh)
+     ISC_STATUS status[ISC_STATUS_LENGTH];
+ 
+     char buffer[100];
++    char req[] = {
++        isc_info_ods_version,
++        isc_info_end
++    };
+ 
+     DBI_TRACE_imp_xxh(imp_dbh, 1, (DBIc_LOGPIO(imp_dbh), "dbd_db_ping\n"));
+ 
+-    if (isc_database_info(status, &(imp_dbh->db), 0, NULL, sizeof(buffer), buffer))
++    if (isc_database_info(status, &(imp_dbh->db), sizeof(req), req, sizeof(buffer), buffer))
+         if (ib_error_check(dbh, status))
+             return FALSE;
+     return TRUE;

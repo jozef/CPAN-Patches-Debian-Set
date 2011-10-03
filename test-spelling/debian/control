@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libpod-spell-perl (>= 1.01), libtest-pod-perl, perl (>= 5.6.10-12)
-Depends: ${misc:Depends}, ${perl:Depends}, libpod-spell-perl (>= 1.01)
+Build-Depends-Indep: libpod-spell-perl, libtest-pod-perl, libtest-tester-perl, perl, spell
+Depends: ${misc:Depends}, ${perl:Depends}, libpod-spell-perl
 X: 0

@@ -1,0 +1,18 @@
+Description: Fix the t/url.t test, by adding  a done_testing() to the 
+ rewrite_interactions subtest.
+Origin: vendor
+Forwarded: no
+Author: Alessandro Ghedini <al3xbio@gmail.com>
+Last-Update: 2011-06-12
+
+--- a/t/url.t
++++ b/t/url.t
+@@ -63,6 +63,8 @@
+                                                 '$q->url(-rewrite=>1,-path=>1), with rewriting detected' );
+     is( $q->url(-rewrite=>0,-path=>0), 'http://example.com/real/cgi-bin/dispatch.cgi',
+                                                 '$q->url(-rewrite=>0,-path=>1), with rewriting detected' );
++
++    done_testing();
+ };
+ 
+ 

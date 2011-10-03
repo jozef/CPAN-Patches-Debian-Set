@@ -1,0 +1,13 @@
+Index: b/src/OpenGL.xs
+===================================================================
+--- a/src/OpenGL.xs
++++ b/src/OpenGL.xs
+@@ -69,6 +69,8 @@
+ 
+ #define GL_HAS_NURBS
+ 
++#define GL_HAS_NURBS
++
+ #include "../../src/defines.h"
+ 
+ SV* sdl_perl_nurbs_error_hook;

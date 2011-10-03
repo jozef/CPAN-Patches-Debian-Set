@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libconvert-nls-date-format-perl, libdatetime-format-builder-perl, libdatetime-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libconvert-nls-date-format-perl, libdatetime-format-builder-perl, libdatetime-perl, perl
+X: 0

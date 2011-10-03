@@ -1,4 +1,4 @@
 App: pperl
-Build-Depends: debhelper (>= 7), libperl-dev, perl (>= 5.8.4-2.2), quilt (>= 0.40)
+Build-Depends: debhelper (>= 8), libperl-dev, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.2.13)
-Build-Depends-Indep: libjson-perl (>= 2.02), libjson-xs-perl (>= 2.232), libtest-pod-coverage-perl, libtest-pod-perl, libyaml-syck-perl, perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libjson-perl (>= 2.02), libjson-xs-perl (>= 2.232), libyaml-syck-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libjson-perl (>= 2.02) | libjson-xs-perl (>= 2.232)
 X: 0

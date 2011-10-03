@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libclass-accessor-perl, libmoose-perl (>= 0.89), libnamespace-clean-perl, libtest-use-ok-perl, libtie-toobject-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libmoose-perl (>= 0.89), libnamespace-clean-perl, libtie-toobject-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl (>= 0.89), libnamespace-clean-perl, libtest-use-ok-perl, libtie-toobject-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.89), libnamespace-clean-perl, libtie-toobject-perl
 X: 0

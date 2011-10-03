@@ -2,6 +2,8 @@ Description: fix POD spelling errors
 Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
 Forwarded: no
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-02-19
 --- a/lib/inc/latest.pm
 +++ b/lib/inc/latest.pm
 @@ -132,7 +132,7 @@

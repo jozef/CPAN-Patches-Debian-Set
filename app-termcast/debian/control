@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libio-pty-easy-perl, libjson-perl, libmoose-perl, libmoosex-getopt-perl, libscope-guard-perl, libterm-readkey-perl, libtest-requires-perl, libtest-script-perl, libtest-tcp-perl, libtry-tiny-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libio-pty-easy-perl, libjson-perl, libmoose-perl, libmoosex-getopt-perl, libscope-guard-perl, libterm-readkey-perl, libtry-tiny-perl
+X: 0

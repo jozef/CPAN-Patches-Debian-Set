@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libbit-vector-perl, libclass-gomor-perl, libnet-ipv6addr-perl, libsocket6-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libbit-vector-perl, libclass-gomor-perl, libnet-ipv6addr-perl, libsocket6-perl
+X: 0

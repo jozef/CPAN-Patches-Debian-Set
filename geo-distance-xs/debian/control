@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.73~), debhelper, devscripts, dh-buildinfo, libgeo-distance-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.82)
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

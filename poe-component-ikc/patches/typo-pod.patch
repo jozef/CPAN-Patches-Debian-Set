@@ -1,0 +1,14 @@
+Description: remove accidental typo which renders the POD incorrect
+Origin: vendor
+Forwarded: yes, in the unrelated #627269
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-27
+
+--- a/IKC.pod
++++ b/IKC.pod
+@@ -1,4 +1,4 @@
+-l=head1 NAME
++=head1 NAME
+ 
+ POE::Component::IKC -- POE Inter-Kernel Communication
+ 

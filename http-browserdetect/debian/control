@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.3.7~)
-Build-Depends-Indep: libdata-dump-perl, libyaml-tiny-perl, perl
+Build-Depends: debhelper (>= 8), perl
+Build-Depends-Indep: libdata-dump-perl, libfile-slurp-perl, libjson-pp-perl, perl (>= 5.11.4) | libmodule-build-perl (>= 0.360100)
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

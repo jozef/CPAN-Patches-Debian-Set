@@ -1,0 +1,15 @@
+Description: Fixing man page
+Author: Fabrizio Regalli <fabreg@fabreg.it>
+Last-Update: 2011-06-13
+
+--- a/lib/Object/Signature/File.pm
++++ b/lib/Object/Signature/File.pm
+@@ -63,7 +63,7 @@
+ be stored with no extension.
+ 
+ If the method return C<undef> (the default value), it indicates no
+-preference for the extention the file.
++preference for the extension the file.
+ 
+ =head2 signature_name
+ 

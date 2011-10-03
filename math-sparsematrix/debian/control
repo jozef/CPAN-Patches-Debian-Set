@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libmath-sparsevector-perl (>= 0.01), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmath-sparsevector-perl (>= 0.01)
+X: 0

@@ -1,0 +1,17 @@
+Description: Spelling error in manpage
+ Lintian found a spelling error in the manpage (usefull useful).
+Forwarded: no
+Author: Jotam Jr. Trejo <jotamjr@debian.org.sv>
+Last-Update: 2010-03-23
+
+--- a/lib/Net/Whois/Parser.pm
++++ b/lib/Net/Whois/Parser.pm
+@@ -419,7 +419,7 @@ Net::Whois::Parser - module for parsing
+     $Net::Whois::Parser::FIELD_NAME_CONV{'Domain name'} = 'domain';
+ 
+     # If you want to format some fields.
+-    # I think it is very usefull for dates.
++    # I think it is very useful for dates.
+     $Net::Whois::Parser::HOOKS{'expiration_date'} = [ \&format_date ];
+     
+ =head1 DESCRIPTION

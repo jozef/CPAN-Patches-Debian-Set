@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: liblist-moreutils-perl, libmoose-perl (>= 1.15), libmoosex-insideout-perl, libtest-fatal-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libmoose-perl (>= 1.15)
+X: 0

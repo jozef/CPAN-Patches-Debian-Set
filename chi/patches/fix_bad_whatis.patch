@@ -1,0 +1,14 @@
+Description: Remove unused pod entries to fix bad whatis problem
+Author: Angel Abad <angelabad@gmail.com>
+Forwarded: no
+
+--- a/lib/CHI/Driver/Role/Universal.pm
++++ b/lib/CHI/Driver/Role/Universal.pm
+@@ -27,7 +27,3 @@
+ 1;
+ 
+ __END__
+-
+-=pod
+-
+-=cut

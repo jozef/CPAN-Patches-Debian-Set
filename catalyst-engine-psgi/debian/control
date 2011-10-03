@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcatalyst-modules-perl, libcatalyst-perl (>= 5.80007), libplack-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-modules-perl, libcatalyst-perl (>= 5.80007), libmoose-perl (>= 2) | libclass-mop-perl, libplack-perl, libtest-tcp-perl
+X: 0

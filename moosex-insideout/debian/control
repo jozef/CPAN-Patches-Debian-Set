@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl (>= 2) | libclass-mop-perl (>= 0.80), libnamespace-clean-perl (>= 0.11), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 2) | libclass-mop-perl (>= 0.80), libnamespace-clean-perl (>= 0.11)
+X: 0

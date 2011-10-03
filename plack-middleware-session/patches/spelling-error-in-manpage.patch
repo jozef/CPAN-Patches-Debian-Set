@@ -1,0 +1,25 @@
+Description: Fix spelling error. writeable -> writable
+Author: Dave Walker (Daviey) <DaveWalker@ubuntu.com>
+Forwarded: no
+Last-Update: 2011-07-26
+
+--- a/lib/Plack/Session/Store/File.pm
++++ b/lib/Plack/Session/Store/File.pm
+@@ -20,7 +20,7 @@
+ 
+     $params{'dir'} ||= $ENV{TMPDIR} || '/tmp';
+ 
+-    die "Storage directory (" . $params{'dir'} . ") is not writeable"
++    die "Storage directory (" . $params{'dir'} . ") is not writable"
+         unless -w $params{'dir'};
+ 
+     $params{'serializer'}   ||= sub { Storable::lock_nstore( @_ ) };
+@@ -111,7 +111,7 @@
+ =item B<new ( %params )>
+ 
+ The C<%params> can include I<dir>, I<serializer> and I<deserializer>
+-options. It will check to be sure that the I<dir> is writeable for
++options. It will check to be sure that the I<dir> is writable for
+ you.
+ 
+ =item B<dir>

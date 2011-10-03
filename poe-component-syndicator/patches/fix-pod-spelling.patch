@@ -1,0 +1,17 @@
+Description: Fix pod spelling error
+Origin: vendor
+Forwarded: no
+Author: Jotam Jr. Trejo <jotamjr@debian.org.sv>
+Last-Update: 2011-08-30
+
+--- a/lib/POE/Component/Syndicator.pm
++++ b/lib/POE/Component/Syndicator.pm
+@@ -570,7 +570,7 @@
+ documentation. A subclass does not have to register for plugin events.
+ 
+ Two event types are supported: SERVER and USER, though their names can be
+-overriden (see L<C<_syndicator_init>|/_syndicator_init>).
++overridden (see L<C<_syndicator_init>|/_syndicator_init>).
+ 
+ =head3 SERVER events
+ 

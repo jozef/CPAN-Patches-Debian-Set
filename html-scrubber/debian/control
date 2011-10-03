@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5)
-Build-Depends-Indep: libhtml-parser-perl, perl (>= 5.8.0)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-parser-perl, perl (>= 5.11.1) | libtest-simple-perl (>= 0.94)
 Depends: ${misc:Depends}, libhtml-parser-perl, perl
 X: 0

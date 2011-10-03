@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: libfile-next-perl, libppi-perl (>= 1.203), libreadonly-perl, libtest-deep-perl (>= 0.098), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libfile-next-perl, libppi-perl (>= 1.203), libreadonly-perl
 X: 0

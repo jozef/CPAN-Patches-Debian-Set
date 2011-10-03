@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.73~), debhelper (>= 6), devscripts (>= 2.10.7~), dh-buildinfo, libanyevent-perl, libauthen-sasl-perl, libnet-libidn-perl, libobject-event-perl, libxml-parser-perl, libxml-writer-perl, perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

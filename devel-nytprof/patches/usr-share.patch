@@ -4,11 +4,12 @@ Description: Patch search path so arch-indep files are found
  Devel::NYTProf::Data expects
 Forwarded: not-needed
 Author: gregor herrmann <gregoa@debian.org>
-Last-Update: 2010-07-12
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-09-25
 
 --- a/bin/nytprofhtml
 +++ b/bin/nytprofhtml
-@@ -1194,6 +1194,7 @@
+@@ -1202,6 +1202,7 @@
      my ($profile) = @_;
      # find the js, gif, css etc files installed with Devel::NYTProf
      (my $lib = $INC{"Devel/NYTProf/Data.pm"}) =~ s/\/Data\.pm$//;

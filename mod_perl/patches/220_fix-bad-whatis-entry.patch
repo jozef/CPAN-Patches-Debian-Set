@@ -4,11 +4,11 @@ Description: Replace stray POD with =for comment
  entry (=head1 NAME)
 Forwarded: http://mail-archives.apache.org/mod_mbox/perl-modperl/201004.mbox/thread
 Author: Damyan Ivanov <dmn@debian.org>
-Last-Update: 2010-04-20
-
+Last-Update: 2011-03-22
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 --- a/Apache-Test/lib/Apache/TestServer.pm
 +++ b/Apache-Test/lib/Apache/TestServer.pm
-@@ -379,7 +379,7 @@ sub port_available {
+@@ -379,7 +379,7 @@
      }
  }
  

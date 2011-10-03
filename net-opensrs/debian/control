@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: perl (>= 5.8.8-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libdate-calc-perl, libwww-perl, libxml-simple-perl
+X: 0

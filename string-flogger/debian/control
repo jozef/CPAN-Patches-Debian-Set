@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libjson-perl (>= 2), libparams-util-perl, libsub-exporter-perl, perl
+Build-Depends-Indep: libjson-perl (>= 2), libparams-util-perl, libsub-exporter-perl, libtest-simple-perl (>= 0.96), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libjson-perl (>= 2), libparams-util-perl, libsub-exporter-perl
 X: 0

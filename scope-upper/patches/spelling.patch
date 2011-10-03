@@ -1,0 +1,17 @@
+Description: grammer fix
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-09-04
+
+--- a/lib/Scope/Upper.pm
++++ b/lib/Scope/Upper.pm
+@@ -310,7 +310,7 @@
+ =item *
+ 
+ The L<Sub::Uplevel> implementation of C<uplevel> may execute a code reference in the context of B<any> upper stack frame.
+-The L<Scope::Upper> version only allows to uplevel to a B<subroutine> stack frame, and will croak if you try to target an C<eval> or a format.
++The L<Scope::Upper> version only allows one to uplevel to a B<subroutine> stack frame, and will croak if you try to target an C<eval> or a format.
+ 
+ =item *
+ 

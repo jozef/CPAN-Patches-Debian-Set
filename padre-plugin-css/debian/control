@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libcss-minifier-xs-perl, libmodule-build-perl (>= 0.360100), libtest-pod-perl, libwebservice-validator-css-w3c-perl, libyaml-tiny-perl, padre-plugin-api-2, perl, xauth, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libcss-minifier-xs-perl, libwebservice-validator-css-w3c-perl, libyaml-tiny-perl, padre-plugin-api-2
+X: 1

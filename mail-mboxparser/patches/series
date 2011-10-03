@@ -1,1 +1,3 @@
 fix_messageparser_interaction
+perl-Mail-MboxParser-0.55-Fix-garbled-attachment-name-RT-66576.patch
+fix-spelling-error-in-manpage.patch

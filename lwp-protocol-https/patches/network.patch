@@ -1,0 +1,23 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: tests depend on network which may not be available
+Forwarded: not-needed
+Last-Update: 2011-03-30
+--- a/t/apache.t
++++ b/t/apache.t
+@@ -1,10 +1,15 @@
+ #!perl -w
+ 
+ use strict;
+-use Test;
++use Test::More;
+ 
+ use LWP::UserAgent;
+ 
++if (not $ENV{ENABLE_NETWORK_TEST}) {
++    plan skip_all => 'network tests not enabled';
++    exit 0;
++}
++
+ my $ua = LWP::UserAgent->new();
+ my $res = $ua->simple_request(HTTP::Request->new(GET => "https://www.apache.org"));
+ 

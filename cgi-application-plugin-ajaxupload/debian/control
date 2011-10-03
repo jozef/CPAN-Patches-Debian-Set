@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libautodie-perl, libcgi-application-extra-plugin-bundle-perl, libcgi-application-perl, libdata-formvalidator-perl, libperl6-slurp-perl, libreadonly-perl, libtest-cgi-multipart-perl, libtest-image-gd-perl (>= 0.03-2), libtest-nowarnings-perl, libtest-warn-perl, libversion-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libautodie-perl, libcgi-application-perl, libdata-formvalidator-perl, libgd-gd2-perl (>= 1:2.45-2), libperl6-slurp-perl, libreadonly-perl, libversion-perl
+X: 0

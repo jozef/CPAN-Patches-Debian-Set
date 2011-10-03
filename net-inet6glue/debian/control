@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libio-socket-inet6-perl
+Build-Depends-Indep: perl (>= 5.6.0-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libio-socket-inet6-perl
+X: 0

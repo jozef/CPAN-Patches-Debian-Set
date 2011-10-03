@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmodule-build-perl
+Build-Depends-Indep: libpath-class-perl, libtest-pod-perl, padre-plugin-api-0, perl (>= 5.6.0-12), perl-modules
+Depends: ${misc:Depends}, ${perl:Depends}
+X: 0

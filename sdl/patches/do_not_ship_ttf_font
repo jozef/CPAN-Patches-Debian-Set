@@ -1,0 +1,12 @@
+Description: Avoid shipping fonts provided elsewhere
+--- a/Build.PL
++++ b/Build.PL
+@@ -592,7 +592,7 @@
+ 		'CPAN'           => '1.92',
+ 		'perl'           => '5.008000',
+ 	},
+-	share_dir => 'share',
++	# share_dir => 'share',
+ 
+ 	build_recommends => {
+ 		'Pod::ToDemo' => '0.20',

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdatetime-perl, libdist-zilla-perl, libfile-chdir-perl, libfile-copy-recursive-perl, libfile-pushd-perl, libfile-which-perl, libgit-wrapper-perl, libmoose-autobox-perl, libmoose-perl, libmoosex-has-sugar-perl, libmoosex-types-perl, libnamespace-autoclean-perl, libpath-class-perl, libstring-formatter-perl, libtest-exception-perl, libversion-next-perl, perl (>= 5.12.3) | libmodule-build-perl (>= 0.360100)
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libdist-zilla-perl, libfile-chdir-perl, libgit-wrapper-perl, libmoose-autobox-perl, libmoose-perl, libmoosex-has-sugar-perl, libmoosex-types-perl, libnamespace-autoclean-perl, libpath-class-perl, libstring-formatter-perl, libversion-next-perl, perl (>= 5.11.4) | libversion-perl
+X: 0

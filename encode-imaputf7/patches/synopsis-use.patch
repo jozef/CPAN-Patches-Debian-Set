@@ -1,0 +1,15 @@
+Description: add 'use Encode::IMAPUTF7;' to SYNOPSIS
+Bug-Debian: http://bugs.debian.org/642819
+Author: Damyan Ivanov <dmn@debian.org>
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=71216
+
+--- a/lib/Encode/IMAPUTF7.pm
++++ b/lib/Encode/IMAPUTF7.pm
+@@ -86,6 +86,7 @@ Encode::IMAPUTF7 - modification of UTF-7
+ =head1 SYNOPSIS
+ 
+   use Encode qw/encode decode/;
++  use Encode::IMAPUTF7;
+ 
+   print encode('IMAP-UTF-7', 'Répertoire');
+   print decode('IMAP-UTF-7', R&AOk-pertoire');

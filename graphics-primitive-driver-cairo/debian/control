@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libcairo-perl (>= 1.061), libgeometry-primitive-perl, libgraphics-primitive-perl, libmoose-perl (>= 0.76), libtext-flow-perl, perl (>= 5.10.1)
+Build-Depends: debhelper (>= 7.0.8)
+Build-Depends-Indep: libcairo-perl (>= 1.061), libgeometry-primitive-perl, libgraphics-color-perl, libgraphics-primitive-perl, libmoose-perl (>= 0.76), libtext-flow-perl, perl (>= 5.10.1)
 Depends: ${misc:Depends}, ${perl:Depends}, libcairo-perl (>= 1.061), libgeometry-primitive-perl, libgraphics-primitive-perl, libmoose-perl (>= 0.76), libtext-flow-perl, perl (>= 5.10.1)
 X: 0

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmocked-perl, libsocialtext-resting-perl, libsocialtext-resting-utils-perl (>= 0.04), libtest-exception-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libmocked-perl, libsocialtext-resting-perl, libsocialtext-resting-utils-perl (>= 0.04), libtest-www-selenium-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmocked-perl, libsocialtext-resting-perl, libsocialtext-resting-utils-perl, libtest-exception-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmocked-perl, libsocialtext-resting-perl, libsocialtext-resting-utils-perl, libtest-www-selenium-perl
 X: 0

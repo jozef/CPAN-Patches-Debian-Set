@@ -1,7 +1,8 @@
 Description: add a whatis entry
 Author: Jonathan Yu <jawnsy@cpan.org>
-Origin: vendor
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 Forwarded: no
+Last-Update: 2010-08-15
 --- a/lib/TAP/Harness/Beyond.pod
 +++ b/lib/TAP/Harness/Beyond.pod
 @@ -1,4 +1,8 @@

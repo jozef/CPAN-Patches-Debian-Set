@@ -1,0 +1,46 @@
+Description: fix spelling mistakes
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-23
+
+--- a/bin/ccconfig
++++ b/bin/ccconfig
+@@ -663,7 +663,7 @@
+ 
+   # Try to remove as many defines as possible
+ 
+-  $self->_msg( "\nNow let's see which defines aren't neccessary..." );
++  $self->_msg( "\nNow let's see which defines aren't necessary..." );
+ 
+   my %orgdef = %{$self->{predefined}};
+   my @additional;
+--- a/lib/Convert/Binary/C.pm
++++ b/lib/Convert/Binary/C.pm
+@@ -393,7 +393,7 @@
+   CCODE
+ 
+ Now the object C<$c> will know everything about C<struct foo>.
+-The example above uses a so-called here-document. It allows to
++The example above uses a so-called here-document. It allows one to
+ easily embed multi-line strings in your code. You can find more
+ about here-documents in L<perldata> or L<perlop>.
+ 
+@@ -1150,7 +1150,7 @@
+ 
+ The final and most powerful way to define a C<Dimension> tag is
+ to pass it a subroutine reference. The referenced subroutine can
+-execute whatever code is neccessary to determine the size of the
++execute whatever code is necessary to determine the size of the
+ tagged array:
+ 
+   sub get_size
+@@ -3272,7 +3272,7 @@
+   offset = 4
+   offset = 4
+ 
+-This allows to
++This allows one to
+ 
+ =over 2
+ 

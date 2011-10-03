@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libpadwalker-perl, libsub-exporter-perl, libtest-fatal-perl, libtest-output-perl, libtest-requires-perl, libtry-tiny-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libsub-exporter-perl, libtry-tiny-perl
+X: 0

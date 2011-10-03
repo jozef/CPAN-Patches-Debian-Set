@@ -1,0 +1,7 @@
+00-from-pilcrow.patch
+01-from-mariuz.patch
+no-libdl.so-link.patch
+skip-db-testing.patch
+fix-ping.patch
+ib_encoding.patch
+fix-warnings.patch

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libsub-delete-perl, libsuper-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libsub-delete-perl, libsuper-perl
+X: 0

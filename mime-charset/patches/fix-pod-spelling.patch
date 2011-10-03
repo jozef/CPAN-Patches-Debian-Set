@@ -1,0 +1,51 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/Charset.pm
++++ b/Charset.pm
+@@ -5,7 +5,7 @@
+ 
+ =head1 NAME
+ 
+-MIME::Charset - Charset Informations for MIME
++MIME::Charset - Charset Information for MIME
+ 
+ =head1 SYNOPSIS
+ 
+@@ -13,7 +13,7 @@
+ 
+     $charset = MIME::Charset->new("euc-jp");
+ 
+-Getting charset informations:
++Getting charset information:
+ 
+     $benc = $charset->body_encoding; # e.g. "Q"
+     $cset = $charset->as_string; # e.g. "US-ASCII"
+@@ -78,7 +78,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-MIME::Charset provides informations about character sets used for
++MIME::Charset provides information about character sets used for
+ MIME messages on Internet.
+ 
+ =head2 Definitions
+@@ -444,7 +444,7 @@
+ 
+ =back
+ 
+-=head2 Getting Informations of Charsets
++=head2 Getting Information of Charsets
+ 
+ =over
+ 
+@@ -1063,7 +1063,7 @@
+ current fallback charset will be returned.
+ 
+ B<NOTE>: It I<is> useful that C<"US-ASCII"> is specified as fallback charset,
+-since result of conversion will be readable without charset informations.
++since result of conversion will be readable without charset information.
+ 
+ =cut
+ 

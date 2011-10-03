@@ -1,0 +1,15 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/File/ShareDir/PAR.pm
++++ b/lib/File/ShareDir/PAR.pm
+@@ -51,7 +51,7 @@
+ L<PAR> uses an C<@INC> hook to intercept any attempt to load
+ a module. L<File::ShareDir> uses the directory structure that
+ is typically found in the directories that are listed in C<@INC>
+-for storing the shared data. In a C<PAR> enviroment, this is
++for storing the shared data. In a C<PAR> environment, this is
+ not necessarily possible.
+ 
+ When you call one of the functions that this module provides,

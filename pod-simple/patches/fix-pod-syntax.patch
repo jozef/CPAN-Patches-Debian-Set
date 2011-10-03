@@ -1,0 +1,25 @@
+Description: "empty L<>" POD errors
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-28
+
+--- a/lib/Pod/Simple/Subclassing.pod
++++ b/lib/Pod/Simple/Subclassing.pod
+@@ -378,13 +378,13 @@
+     &#34;Member Data&#34;
+   </L>
+ 
+-The I<raw> attribute depends on what the raw content of the L<> is, so that is
++The I<raw> attribute depends on what the raw content of the LE<lt>E<gt> is, so that is
+ why the event structure is the same "for the most part".
+ 
+ If you have not guessed it yet, the I<raw> attribute contains the raw,
+-original, unescaped content of the L<> formatting code. In addition to the
++original, unescaped content of the LE<lt>E<gt> formatting code. In addition to the
+ examples above, take notice of the following event structure produced by
+-the following L<> formatting code.
++the following LE<lt>E<gt> formatting code.
+ 
+   L<click B<here>|page/About the C<-M> switch>
+ 

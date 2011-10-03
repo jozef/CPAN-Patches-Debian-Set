@@ -1,5 +1,7 @@
-Author: gregor herrmann <gregoa@debian.org>
 Description: add/fix hashbangs in example scripts
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-04
 
 --- a/eg/flv.pl
 +++ b/eg/flv.pl

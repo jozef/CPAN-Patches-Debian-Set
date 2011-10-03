@@ -1,0 +1,23 @@
+Subject: Fix spelling errors
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Sat, 05 Mar 2011 20:32:33 +0100
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=66404
+
+--- libxml-treebuilder-perl.orig/lib/XML/TreeBuilder.pm
++++ libxml-treebuilder-perl/lib/XML/TreeBuilder.pm
+@@ -272,12 +272,12 @@
+ =item NoExpand
+ 
+     Passed to XML::Parser. Do not Expand external entities.
+-    Deafult: undef
++    Default: undef
+ 
+ =item ErrorContext
+ 
+     Passed to XML::Parser. Number of context lines to generate on errors.
+-    Deafult: undef
++    Default: undef
+ 
+ =back
+ 

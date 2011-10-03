@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: liblog-any-adapter-perl, liblog-dispatch-perl (>= 2.26), perl (>= 5.10.1) | libtest-simple-perl (>= 0.92)
+Depends: ${misc:Depends}, ${perl:Depends}, liblog-any-adapter-perl, liblog-dispatch-perl (>= 2.26)
+X: 0

@@ -1,0 +1,37 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling
+Forwarded: no
+Last-Update: 2011-06-25
+--- a/image.c
++++ b/image.c
+@@ -318,7 +318,7 @@
+ /*
+ =item i_img_setmask(C<im>, C<ch_mask>)
+ =category Image Information
+-=synopsis // only channel 0 writeable 
++=synopsis // only channel 0 writable
+ =synopsis i_img_setmask(img, 0x01);
+ 
+ Set the image channel mask for C<im> to C<ch_mask>.
+--- a/samples/samp-form.cgi
++++ b/samples/samp-form.cgi
+@@ -138,7 +138,7 @@
+ expensive CGI request to generate the image, but it means you need
+ some mechanism to manage the files (for example, a cron job to delete
+ old files), and you need to make some directory under the document
+-root writeable by the user that your web server runs CGI programs as,
++root writable by the user that your web server runs CGI programs as,
+ which may be a security concern.
+ 
+ Also, if you're generating large numbers of large images, you may end
+--- a/lib/Imager/APIRef.pod
++++ b/lib/Imager/APIRef.pod
+@@ -74,7 +74,7 @@
+   # Image Implementation
+ 
+   # Image Information
+-  // only channel 0 writeable 
++  // only channel 0 writable
+   i_img_setmask(img, 0x01);
+   int mask = i_img_getmask(img);
+   int channels = i_img_getchannels(img);

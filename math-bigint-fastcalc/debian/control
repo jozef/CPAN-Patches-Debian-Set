@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), libmath-bigint-perl (>= 1.90), perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libmath-bigint-perl (>= 1.90)
+X: 0

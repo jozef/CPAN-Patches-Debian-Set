@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs, debhelper (>= 7), libanyevent-perl, libcommon-sense-perl, libdbd-pg-perl, libdbi-perl, liblib-abs-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libanyevent-perl, libcommon-sense-perl, libdbd-pg-perl, libdbi-perl, liblib-abs-perl
+X: 0

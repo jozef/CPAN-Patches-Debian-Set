@@ -1,0 +1,18 @@
+Description: Fix spelling error s/Persistant/Persistent/ found by lintian
+Origin: vendor
+Forwarded: no
+Author: Alessandro Ghedini <al3xbio@gmail.com>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-03
+
+--- a/lib/HTTP/Tiny.pm
++++ b/lib/HTTP/Tiny.pm
+@@ -1009,7 +1009,7 @@
+ 
+ =item *
+ 
+-Persistant connections are not supported.  The C<Connection> header will
++Persistent connections are not supported.  The C<Connection> header will
+ always be set to C<close>.
+ 
+ =item *

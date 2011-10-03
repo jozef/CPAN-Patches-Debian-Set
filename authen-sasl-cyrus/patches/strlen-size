@@ -1,0 +1,146 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Fix type mismatches on 64-bit platforms
+
+Change the data types used in the XS code for the module to ensure data
+types match Perl's expectations on 64-bit platforms.
+
+--- libauthen-sasl-cyrus-perl.orig/Cyrus.xs
++++ libauthen-sasl-cyrus-perl/Cyrus.xs
+@@ -195,7 +195,7 @@
+ 	This function executes the perl sub/code and returns the result
+ 	and its length.
+ */
+-int PerlCallbackSub (struct _perlcontext *cp, char **result, unsigned *len, AV *args)
++int PerlCallbackSub (struct _perlcontext *cp, char **result, Size_t *len, AV *args)
+ {
+ 	int rc = SASL_OK;
+ 
+@@ -274,7 +274,8 @@
+ int PerlCallback(void *context, int id, const char **result, unsigned *len)
+ {
+ 	struct _perlcontext *cp = (struct _perlcontext *) context;
+-	int llen, rc=SASL_OK;
++	Size_t llen;
++        int rc=SASL_OK;
+ 	char *c = NULL;
+ 
+ 	if (id != SASL_CB_USER &&
+@@ -308,7 +309,8 @@
+ int PerlCallbackRealm ( void *context, int id, const char **availrealms, const char **result)
+ {
+ 	struct _perlcontext *cp = (struct _perlcontext *) context;
+-	int rc = SASL_OK,i,len;
++	int rc = SASL_OK,i;
++	Size_t len;
+ 	char *c = NULL;
+ 
+ 	AV *args = newAV();
+@@ -366,7 +368,8 @@
+ int PerlCallbackSecret (sasl_conn_t *conn, void *context, int id, sasl_secret_t **psecret)
+ {
+ 	struct _perlcontext *cp = (struct _perlcontext *) context;
+-	int len,rc = SASL_OK;
++	int rc = SASL_OK;
++	Size_t len;
+ 	char *c = NULL;
+ 
+ 	/* HandlePerlStuff */
+@@ -390,7 +393,8 @@
+ 					unsigned *out_ulen)
+ {
+ 	struct _perlcontext *cp = (struct _perlcontext *) context;
+-	int rc = SASL_OK,len;
++	int rc = SASL_OK;
++	Size_t len;
+ 	char *c = NULL;
+ 
+ 	AV *args;
+@@ -433,7 +437,8 @@
+ 	const char *pass, unsigned passlen, struct propctx *propctx)
+ {
+ 	struct _perlcontext *cp = (struct _perlcontext *) context;
+-	int rc = SASL_OK,len;
++	int rc = SASL_OK;
++	Size_t len;
+ 	char *c = NULL;
+ 
+ 	AV *args = newAV();
+@@ -467,7 +472,8 @@
+ {
+ 	struct _perlcontext *cp = (struct _perlcontext *) context;
+ 	AV *args = newAV();
+-	int rc = SASL_OK, len;
++	int rc = SASL_OK;
++	Size_t len;
+ 	char *c = NULL;
+ 
+ 	_DEBUG("ServerSetPass: %s, %s, %d",user,pass,passlen);
+@@ -497,7 +503,8 @@
+ {
+ 	struct _perlcontext *cp = (struct _perlcontext *) context;
+ 	AV *args = newAV();
+-	int rc = SASL_OK,len;
++	int rc = SASL_OK;
++	Size_t len;
+ 	char *c = NULL;
+ 
+ 	_DEBUG("Authorize: %s, %s, %s",auth_identity,requested_user,def_realm);
+@@ -937,7 +944,7 @@
+ {
+ 	char *key;
+ 	int count=0,i;
+-	long l;
++	I32 l;
+ #ifndef SASL2
+ 	// Missing SASL1 canonuser workaround
+ 	int canon=-1,auth=-1;
+@@ -1306,7 +1313,8 @@
+ 	const char *instring;
+ 	PREINIT:
+ 		int rc;
+-		unsigned outlen,inlen;
++		Size_t inlen;
++		unsigned int outlen;
+ #ifdef SASL2
+ 		const char *outstring = NULL;
+ #else
+@@ -1402,7 +1410,8 @@
+ 		const char *error=NULL;
+ #endif
+ 		int rc;
+-		unsigned int inlen, outlen=0;
++		Size_t inlen;
++		unsigned int outlen=0;
+ 	PPCODE:
+ 		if (sasl->error_code != SASL_CONTINUE)
+ 			XSRETURN_UNDEF;
+@@ -1454,7 +1463,8 @@
+     char *outstring=NULL;
+ #endif
+     int rc;
+-    unsigned int inlen, outlen=0;
++    Size_t inlen;
++    unsigned int outlen=0;
+ 
+     if (sasl->error_code != SASL_CONTINUE)
+       XSRETURN_UNDEF;
+@@ -1624,7 +1634,8 @@
+     char *outstring=NULL;
+ #endif
+     int rc;
+-	unsigned int inlen, outlen=0;
++	Size_t inlen;
++	unsigned int outlen=0;
+ 	if (sasl->error_code)
+ 		XSRETURN_UNDEF;
+ 
+@@ -1652,7 +1663,8 @@
+     char *outstring=NULL;
+ #endif
+     int rc;
+-    unsigned int inlen, outlen=0;
++    Size_t inlen;
++    unsigned int outlen=0;
+ 
+     if (sasl->error_code)
+        XSRETURN_UNDEF;

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libany-moose-perl (>= 0.13), libmouse-perl (>= 0.82), libtest-fatal-perl (>= 0.003), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libmouse-perl (>= 0.82)
+X: 0

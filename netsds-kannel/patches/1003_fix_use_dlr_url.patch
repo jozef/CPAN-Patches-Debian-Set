@@ -1,0 +1,71 @@
+Description: Fix set dlr-url in send() and preserve dlr_id as fallback.
+ Multiple flaws was discovered in the send() DLR handling.
+ .
+ dlr_url parameter was ignored, unconditionally using default dlr-url.
+ .
+ msgid was set to dlr_url, and not (separately) configurable.
+ .
+ Additionally, the documented parameter dlr-url was ignored and instead
+ dlr_id was expected. dlr_id was the valid parameter until Kannel 1.1.6
+ where it was replaced with dlr_url.
+ .
+ This patch fixes above:
+  * uses msgid parameter or avoids msgid in generated dlr_url.
+  * uses dlr_url parameter or dlr_id parameter or default dlr_url.
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2011-05-13
+--- a/lib/NetSDS/Kannel.pm
++++ b/lib/NetSDS/Kannel.pm
+@@ -226,11 +226,16 @@
+ 
+ Example:
+ 
++	use NetSDS::Kannel;
++	use NetSDS::Util::Misc;
++
++	my $kannel = NetSDS::Kannel->new(...);
+ 	$kannel->send_sms(
+ 		from => '1234',
+ 		to => '380672206770',
+ 		text => 'Wake up!!!',
+ 		smsc => 'nokia_modem',
++		msgid => make_uuid,
+ 	);
+ 
+ =cut
+@@ -324,8 +329,14 @@
+ 	}
+ 
+ 	# Set DLR fetching mask (see kannel documentation)
+-	if ( $params{dlr_id} ) {
+-		$send{'dlr-url'} = $self->make_dlr_url( msgid => $params{dlr_id} );
++	# Fallback to dlr_id (undocumented and obsolete since Kannel 1.1.6)
++	if ( $params{dlr_id} and not $params{dlr_url} ) {
++		$params{dlr_url} = $params{dlr_id};
++	}
++	if ( $params{dlr_url} or $params{dlr_id} ) {
++		if ( $params{dlr_url} ) {
++			$send{'dlr-url'} = $self->make_dlr_url( dlr_url => $params{dlr_url}, msgid => $params{msgid} );
++		}
+ 
+ 		# Set DLR fetching mask (see kannel documentation)
+ 		if ( $params{dlr_mask} ) {
+@@ -659,13 +670,16 @@
+ 	my ( $self, %params ) = @_;
+ 
+ 	# Set reference to MT message Id for identification
+-	my $msgid = $params{msgid};
++	my $msgid;
++	if ( $params{msgid} ) {
++		$msgid = '&msgid=' . $params{msgid};
++	}
+ 
+ 	# Set DLR base URL from object property or method parameter
+ 	my $dlr_url = $self->{dlr_url};
+ 	if ( $params{dlr_url} ) { $dlr_url = $params{dlr_url}; }
+ 
+-	$dlr_url .= "?type=dlr&msgid=$msgid&smsid=%I&from=%p&to=%P&time=%t&unixtime=%T&dlr=%d&dlrmsg=%A";
++	$dlr_url .= "?type=dlr$msgid&smsid=%I&from=%p&to=%P&time=%t&unixtime=%T&dlr=%d&dlrmsg=%A";
+ 
+ 	return conv_str_uri($dlr_url);
+ 

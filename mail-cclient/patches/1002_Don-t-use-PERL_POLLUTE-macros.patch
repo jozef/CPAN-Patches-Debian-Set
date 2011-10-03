@@ -1,0 +1,632 @@
+From 96a11f3b97edabe831aa2ef951e7312c6c72fd57 Mon Sep 17 00:00:00 2001
+From: Niko Tyni <ntyni@debian.org>
+Date: Sun, 10 Jul 2011 22:00:14 +0300
+Subject: [PATCH] Don't use PERL_POLLUTE macros
+
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=69907
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=628517
+
+The sv_yes, sv_no, sv_undef, etc. symbol names are compatibility
+macros that have been deprecated since Perl 5.6.
+
+Perl 5.14.0 removes support for defining PERL_POLLUTE to get these
+compatibility macros, so replace them all with the current names
+(PL_sv_yes, PL_sv_no, etc.) and don't define PERL_POLLUTE any more.
+---
+ Cclient.xs |  169 +++++++++++++++++++++++++++++------------------------------
+ typemap    |    2 +-
+ 2 files changed, 84 insertions(+), 87 deletions(-)
+
+diff --git a/Cclient.xs b/Cclient.xs
+index a88bb52..7ee3a3a 100644
+--- a/Cclient.xs
++++ b/Cclient.xs
+@@ -40,9 +40,6 @@
+ #define strcaseEQ(s1,s2) (!strcasecmp(s1,s2))
+ #endif
+ 
+-/* Ensure na and sv_undef get defined */
+-#define PERL_POLLUTE
+-
+ #include "EXTERN.h"
+ #include "perl.h"
+ #include "XSUB.h"
+@@ -82,7 +79,7 @@ static SV *newRV_noinc(SV *ref) {
+ #endif
+ 
+ static SV *str_to_sv(char *str) {
+-	return str ? newSVpv(str, 0) : newSVsv(&sv_undef);
++	return str ? newSVpv(str, 0) : newSVsv(&PL_sv_undef);
+ }
+ 
+ static HV *av_to_hv(AV *av, int n) {
+@@ -186,54 +183,54 @@ char *generate_message_id() {
+ static void make_mail_envelope(ENVELOPE *env, char *dhost, HV* hv) {
+ 	if(hv_exists(hv, "from", 4)) {
+ 		SV **value = hv_fetch(hv, "from", 4, 0);
+-		rfc822_parse_adrlist(&env->from, SvPV(*value, na), dhost);
++		rfc822_parse_adrlist(&env->from, SvPV(*value, PL_na), dhost);
+ 		env->return_path = rfc822_cpy_adr(env->from);
+ 	}
+ 	if(hv_exists(hv, "to", 2)) {
+ 		SV **value = hv_fetch(hv, "to", 2, 0);
+-		rfc822_parse_adrlist(&env->to, SvPV(*value, na), dhost);
++		rfc822_parse_adrlist(&env->to, SvPV(*value, PL_na), dhost);
+ 	}
+ 	if(hv_exists(hv, "cc", 2)) {
+ 		SV **value = hv_fetch(hv, "cc", 2, 0);
+-		rfc822_parse_adrlist(&env->cc, SvPV(*value, na), dhost);
++		rfc822_parse_adrlist(&env->cc, SvPV(*value, PL_na), dhost);
+ 	}
+ 	if(hv_exists(hv, "bcc", 3)) {
+ 		SV **value = hv_fetch(hv, "bcc", 3, 0);
+-		rfc822_parse_adrlist(&env->bcc, SvPV(*value, na), dhost);
++		rfc822_parse_adrlist(&env->bcc, SvPV(*value, PL_na), dhost);
+ 	}
+ 	if(hv_exists(hv, "sender", 6)) {
+ 		SV **value = hv_fetch(hv, "sender", 6, 0);
+-		rfc822_parse_adrlist(&env->sender, SvPV(*value, na), dhost);
++		rfc822_parse_adrlist(&env->sender, SvPV(*value, PL_na), dhost);
+ 	}
+ 	if(hv_exists(hv, "reply_to", 8)) {
+ 		SV **value = hv_fetch(hv, "reply_to", 8, 0);
+-		rfc822_parse_adrlist(&env->reply_to, SvPV(*value, na), dhost);
++		rfc822_parse_adrlist(&env->reply_to, SvPV(*value, PL_na), dhost);
+ 	}
+ 	if(hv_exists(hv, "return_path", 11)) {
+ 		SV **value = hv_fetch(hv, "return_path", 11, 0);
+-		rfc822_parse_adrlist(&env->return_path, SvPV(*value, na), dhost);
++		rfc822_parse_adrlist(&env->return_path, SvPV(*value, PL_na), dhost);
+ 	}
+ 	if(hv_exists(hv, "in_reply_to", 11)) {
+ 		SV **value = hv_fetch(hv, "in_reply_to", 11, 0);
+-		env->in_reply_to = SvPV(*value, na);
++		env->in_reply_to = SvPV(*value, PL_na);
+ 	}
+ 	if(hv_exists(hv, "message_id", 10)) {
+ 		SV **value = hv_fetch(hv, "message_id", 10, 0);
+-		env->message_id = SvPV(*value, na);
++		env->message_id = SvPV(*value, PL_na);
+ 	} else
+ 		env->message_id = generate_message_id();
+ 
+ 	if(hv_exists(hv, "subject", 7)) {
+ 		SV **value = hv_fetch(hv, "subject", 7, 0);
+-		env->subject = SvPV(*value, na);
++		env->subject = SvPV(*value, PL_na);
+ 	}
+ 	if(hv_exists(hv, "remail", 6)) {
+ 		SV **value = hv_fetch(hv, "remail", 6, 0);
+-		env->remail = SvPV(*value, na);
++		env->remail = SvPV(*value, PL_na);
+ 	}
+ 	if(hv_exists(hv, "date", 4)) {
+ 		SV **value = hv_fetch(hv, "date", 4, 0);
+-		env->date = SvPV(*value, na);
++		env->date = SvPV(*value, PL_na);
+ 	} else {
+ 		char buf[DATE_BUFF_SIZE];
+ 		rfc822_date(buf);
+@@ -241,15 +238,15 @@ static void make_mail_envelope(ENVELOPE *env, char *dhost, HV* hv) {
+ 	}
+ 	if(hv_exists(hv, "newsgroups", 10)) {
+ 		SV **value = hv_fetch(hv, "newsgroups", 10, 0);
+-		env->newsgroups = SvPV(*value, na);
++		env->newsgroups = SvPV(*value, PL_na);
+ 	}
+ 	if(hv_exists(hv, "followup_to", 11)) {
+ 		SV **value = hv_fetch(hv, "followup_to", 11, 0);
+-		env->followup_to = SvPV(*value, na);
++		env->followup_to = SvPV(*value, PL_na);
+ 	}
+ 	if(hv_exists(hv, "references", 10)) {
+ 		SV **value = hv_fetch(hv, "references", 11, 0);
+-		env->references = SvPV(*value, na);
++		env->references = SvPV(*value, PL_na);
+ 	}
+ }
+ 
+@@ -267,11 +264,11 @@ static PARAMETER *make_mail_parameter(SV *sv) {
+ 
+ 			if(hv_exists(hv, "attribute", 9)) {
+ 				SV **value = hv_fetch(hv, "attribute", 9, 0);
+-				p->attribute = SvPV(*value, na);
++				p->attribute = SvPV(*value, PL_na);
+ 			}
+ 			if(hv_exists(hv, "value", 5)) {
+ 				SV **value = hv_fetch(hv, "value", 5, 0);
+-				p->value = SvPV(*value, na);
++				p->value = SvPV(*value, PL_na);
+ 			}
+ 		}
+ 	}
+@@ -316,7 +313,7 @@ static void make_mail_disposition(SV *sv, BODY **body) {
+ 	HV *hv = (HV*)SvRV(sv);
+ 	if(hv_exists(hv, "type", 4)) {
+ 		SV **v = hv_fetch(hv, "type", 4, 0);
+-		(*body)->disposition.type = SvPV(*v, na);
++		(*body)->disposition.type = SvPV(*v, PL_na);
+ 	}
+ 	if(hv_exists(hv, "parameter", 9)) {
+ 		SV **v = hv_fetch(hv, "parameter", 9, 0);
+@@ -418,7 +415,7 @@ static void make_mail_body(BODY *body, HV* hv) {
+ 	if(hv_exists(hv, "content_type", 12)) {
+ 		char *type = NULL, *subtype = NULL;
+ 		SV **value = hv_fetch(hv, "content_type", 12, 0);
+-		char *ctype = SvPV(*value, na);
++		char *ctype = SvPV(*value, PL_na);
+ 
+ 		type = strtok(ctype, "/");
+ 		if(type) {
+@@ -430,7 +427,7 @@ static void make_mail_body(BODY *body, HV* hv) {
+ 
+ 	if(hv_exists(hv, "encoding", 8)) {
+ 		SV **value = hv_fetch(hv, "encoding", 8, 0);
+-		body->encoding = set_encoding(SvPV(*value, na));
++		body->encoding = set_encoding(SvPV(*value, PL_na));
+ 	}
+ 	if(hv_exists(hv, "disposition", 11)) {
+ 		SV **value = hv_fetch(hv, "disposition", 11, 0);
+@@ -442,11 +439,11 @@ static void make_mail_body(BODY *body, HV* hv) {
+ 	}
+ 	if(hv_exists(hv, "description", 11)) {
+ 		SV **value = hv_fetch(hv, "description", 11, 0);
+-		body->description = SvPV(*value, na);
++		body->description = SvPV(*value, PL_na);
+ 	}
+ 	if(hv_exists(hv, "id", 2)) {
+ 		SV **value = hv_fetch(hv, "id", 2, 0);
+-		body->id = SvPV(*value, na);
++		body->id = SvPV(*value, PL_na);
+ 	}
+ 	if(hv_exists(hv, "language", 8)) {
+ 		SV **value = hv_fetch(hv, "language", 8, 0);
+@@ -455,17 +452,17 @@ static void make_mail_body(BODY *body, HV* hv) {
+ #ifdef DR_NONEWMAIL
+ 	if(hv_exists(hv, "location", 8)) {
+ 		SV **value = hv_fetch(hv, "location", 8, 0);
+-		body->location = SvPV(*value, na);
++		body->location = SvPV(*value, PL_na);
+ 	}
+ #endif
+ 	if(hv_exists(hv, "md5", 3)) {
+ 		SV **value = hv_fetch(hv, "md5", 3, 0);
+-		body->md5 = SvPV(*value, na);
++		body->md5 = SvPV(*value, PL_na);
+ 	}
+ 	if(hv_exists(hv, "path", 4)) {
+ 		SV **value = hv_fetch(hv, "path", 4, 0);
+ 		unsigned char *data;
+-		addfile(SvPV(*value, na), &body->contents.text);
++		addfile(SvPV(*value, PL_na), &body->contents.text);
+ 		if(body->type == TYPEOTHER)
+ 			set_mime_type(&body);
+ 	} else if(hv_exists(hv, "data", 4)) {
+@@ -730,11 +727,11 @@ make_body(BODY *body) {
+ 	} else if (body->type == TYPEMESSAGE && strEQ(body->subtype, "RFC822")) {
+ 		AV *mess = newAV();
+ 		MESSAGE *msg = body->nested.msg;
+-		av_push(mess, msg ? make_envelope(msg->env) : &sv_undef);
+-		av_push(mess, msg ? make_body(msg->body) : &sv_undef);
++		av_push(mess, msg ? make_envelope(msg->env) : &PL_sv_undef);
++		av_push(mess, msg ? make_body(msg->body) : &PL_sv_undef);
+ 		nest = newRV_noinc((SV*)mess);
+ 	} else
+-		nest = newSVsv(&sv_undef);
++		nest = newSVsv(&PL_sv_undef);
+ 
+ 	av_push(av, nest);
+ 	av_push(av, newRV_noinc((SV*)stringlist_to_av(body->language)));
+@@ -1053,7 +1050,7 @@ mail_open(stream, mailbox, ...)
+ 		long options = 0;
+ 	CODE:
+ 		for (i = 2; i < items; i++) {
+-			char *option = SvPV(ST(i), na);
++			char *option = SvPV(ST(i), PL_na);
+ 			if(strEQ(option, "debug"))
+ 				options |= OP_DEBUG;
+ 			else if(strEQ(option, "readonly"))
+@@ -1106,7 +1103,7 @@ mail_close(stream, ...)
+ 			long options = 0;
+ 			int i;
+ 			for(i = 1; i < items; i++) {
+-				char *option = SvPV(ST(i), na);
++				char *option = SvPV(ST(i), PL_na);
+ 				if(strEQ(option, "expunge"))
+ 					options |= CL_EXPUNGE;
+ 				else {
+@@ -1172,7 +1169,7 @@ mail_status(stream, mailbox, ...)
+ 	long flags = 0;
+     CODE:
+ 	for (i = 2; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "messages"))
+ 		flags |= SA_MESSAGES;
+ 	    else if (strEQ(flag, "recent"))
+@@ -1319,7 +1316,7 @@ mail_fetch_fast(stream, sequence, ...)
+ 	long flags = 0;
+     PPCODE:
+ 	for (i = 2; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "uid"))
+ 		flags |= FT_UID;
+ 	    else {
+@@ -1328,7 +1325,7 @@ mail_fetch_fast(stream, sequence, ...)
+ 	    }
+ 	}
+ 	mail_fetch_fast(stream, sequence, flags);
+-	ST(0) = &sv_yes;
++	ST(0) = &PL_sv_yes;
+ 
+ void
+ mail_fetch_flags(stream, sequence, ...)
+@@ -1341,7 +1338,7 @@ mail_fetch_flags(stream, sequence, ...)
+ 	long flags = 0;
+     PPCODE:
+ 	for (i = 2; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "uid"))
+ 		flags |= FT_UID;
+ 	    else {
+@@ -1350,7 +1347,7 @@ mail_fetch_flags(stream, sequence, ...)
+ 	    }
+ 	}
+ 	mail_fetch_flags(stream, sequence, flags);
+-	ST(0) = &sv_yes;
++	ST(0) = &PL_sv_yes;
+ 
+ void
+ mail_fetch_structure(stream, msgno, ...)
+@@ -1366,7 +1363,7 @@ mail_fetch_structure(stream, msgno, ...)
+ 	BODY *body = 0;
+     PPCODE:
+ 	for (i = 2; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "uid"))
+ 		flags |= FT_UID;
+ 	    else {
+@@ -1398,15 +1395,15 @@ mail_thread(stream, ...)
+ 	    croak("Wrong numbers of args (KEY => value)"
+ 		" passed to Mail::Cclient::thread");
+ 	for(i = 1; i < items; i = i + 2) {
+-	    char *key = SvPV(ST(i), na);
++	    char *key = SvPV(ST(i), PL_na);
+ 	    if(strcaseEQ(key, "threading"))
+-		threading = SvPV(ST(i+1), na);
++		threading = SvPV(ST(i+1), PL_na);
+ 	    else if(strcaseEQ(key, "charset"))
+-		cs = SvPV(ST(i+1), na);
++		cs = SvPV(ST(i+1), PL_na);
+ 	    else if(strcaseEQ(key, "search"))
+-		search_criteria = SvPV(ST(i+1), na);
++		search_criteria = SvPV(ST(i+1), PL_na);
+ 	    else if(strcaseEQ(key, "flag")) {
+-		char *flag = SvPV(ST(i+1), na);		
++		char *flag = SvPV(ST(i+1), PL_na);		
+ 		if (strEQ(flag, "uid"))
+ 		    flags |= SE_UID;
+ 		else
+@@ -1446,7 +1443,7 @@ mail_sort(stream, ...)
+ 			croak("Wrong numbers of args (KEY => value)"
+ 				" passed to Mail::Cclient::sort");
+ 		for(i = 1; i < items; i = i + 2) {
+-			char *key = SvPV(ST(i), na);
++			char *key = SvPV(ST(i), PL_na);
+ 			if(strcaseEQ(key, "sort")) {
+ 				SV *arrayRef = ST(i+1);
+ 				if(SvROK(arrayRef) && SvTYPE(SvRV(arrayRef))) {
+@@ -1462,9 +1459,9 @@ mail_sort(stream, ...)
+ 					croak("SORT => not array ref"
+ 						" passed to Mail::Cclient::sort");
+ 			} else if(strcaseEQ(key, "charset"))
+-				cs = SvPV(ST(i+1), na);
++				cs = SvPV(ST(i+1), PL_na);
+ 			else if(strcaseEQ(key, "search"))
+-				search_criteria = SvPV(ST(i+1), na);
++				search_criteria = SvPV(ST(i+1), PL_na);
+ 			else if(strcaseEQ(key, "flag")) {
+ 				AV *avflags;
+ 				int k;
+@@ -1477,7 +1474,7 @@ mail_sort(stream, ...)
+ 				}
+ 				for (k = 0; k < av_len(avflags) + 1; k++) {
+ 					SV **allflags = av_fetch(avflags, k, 0);
+-					char *flag = SvPV(*allflags, na);
++					char *flag = SvPV(*allflags, PL_na);
+ 					if(strEQ(flag, "uid"))
+ 						flags |= SE_UID;
+ 					else if(strEQ(flag, "searchfree"))
+@@ -1508,7 +1505,7 @@ mail_sort(stream, ...)
+ 			if(pg) pg = pg->next = mail_newsortpgm();
+ 			else pgm = pg = mail_newsortpgm();
+ 
+-			if(SvPOKp(*elem)) criteria = SvPV(*elem, na);
++			if(SvPOKp(*elem)) criteria = SvPV(*elem, PL_na);
+ 			pg->function = (strEQ(criteria, "subject"))
+ 						? SORTSUBJECT
+ 						: (strEQ(criteria, "from"))
+@@ -1546,7 +1543,7 @@ mail_fetch_message(stream, msgno, ...)
+ 	char *msg;
+     PPCODE:
+ 	for (i = 2; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "uid"))
+ 		flags |= FT_UID;
+ 	    else {
+@@ -1574,7 +1571,7 @@ mail_fetch_header(stream, msgno, ...)
+ 	char *hdr;
+     PPCODE:
+ 	if(ix == 0 && items > 2) {
+-	    section = SvPV(ST(2), na);
++	    section = SvPV(ST(2), PL_na);
+ 	    n++;
+ 	}
+ 	for (i = n; i < items; i++) {
+@@ -1587,7 +1584,7 @@ mail_fetch_header(stream, msgno, ...)
+ 		}
+ 		lines = av_to_stringlist((AV*)sv);
+ 	    } else {
+-		char *flag = SvPV(sv, na);
++		char *flag = SvPV(sv, PL_na);
+ 		if (strEQ(flag, "uid"))
+ 		    flags |= FT_UID;
+ 		else if (strEQ(flag, "not"))
+@@ -1623,11 +1620,11 @@ mail_fetch_text(stream, msgno, ...)
+ 	char *text;
+     PPCODE:
+ 	if(ix == 0 && items > 2) {
+-	    section = SvPV(ST(2), na);
++	    section = SvPV(ST(2), PL_na);
+ 	    n++;
+ 	}
+ 	for (i = n; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "uid"))
+ 		flags |= FT_UID;
+ 	    else if (strEQ(flag, "peek"))
+@@ -1655,7 +1652,7 @@ mail_fetch_mime(stream, msgno, section = NIL, ...)
+         char *mime;
+     PPCODE:
+ 	for (i = 3; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "uid"))
+ 		flags |= FT_UID;
+ 	    else if (strEQ(flag, "internal"))
+@@ -1683,7 +1680,7 @@ mail_fetch_body(stream, msgno, section = NIL, ...)
+ 		char *body;
+ 	PPCODE:
+ 		for(i = 3; i < items; i++) {
+-			char *flag = SvPV(ST(i), na);
++			char *flag = SvPV(ST(i), PL_na);
+ 			if(strEQ(flag, "uid"))
+ 				flags |= FT_UID;
+ 			else if(strEQ(flag, "peek"))
+@@ -1717,7 +1714,7 @@ mail_elt(stream, msgno)
+ 	MESSAGECACHE *elt;
+     PPCODE:
+ 	elt = mail_elt(stream, msgno);
+-	XPUSHs(elt ? sv_2mortal(make_elt(stream, elt)) : &sv_undef);
++	XPUSHs(elt ? sv_2mortal(make_elt(stream, elt)) : &PL_sv_undef);
+ 
+  #
+  # Message Status Manipulation Functions
+@@ -1735,7 +1732,7 @@ mail_setflag(stream, sequence, flag, ...)
+ 		clearflag = 1
+ 	CODE:
+ 		for(i = 3; i < items; i++) {
+-			char *fl = SvPV(ST(i), na);
++			char *fl = SvPV(ST(i), PL_na);
+ 			if(strEQ(fl, "uid"))
+ 				flags |= ST_UID;
+ 			else if (strEQ(fl, "silent"))
+@@ -1779,7 +1776,7 @@ mail_copy(stream, sequence, mailbox, ...)
+ 	long flags = 0;
+     CODE:
+ 	for (i = 3; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "uid"))
+ 		flags |= CP_UID;
+ 	    else if (strEQ(flag, "move"))
+@@ -1832,11 +1829,11 @@ mail_search(stream, ...)
+ 	    croak("Wrong numbers of args (KEY => value)"
+ 		" passed to Mail::Cclient::search");
+ 	for(i = 1; i < items; i = i + 2) {
+-	    char *key = SvPV(ST(i), na);
++	    char *key = SvPV(ST(i), PL_na);
+ 	    if(strcaseEQ(key, "search"))
+-		search_criteria = SvPV(ST(i+1), na);
++		search_criteria = SvPV(ST(i+1), PL_na);
+ 	    else if(strcaseEQ(key, "charset"))
+-		cs = SvPV(ST(i+1), na);
++		cs = SvPV(ST(i+1), PL_na);
+ 	    else if(strcaseEQ(key, "flag")) {
+ 		int k;
+ 		AV *avflags;
+@@ -1849,7 +1846,7 @@ mail_search(stream, ...)
+ 		}
+ 		for (k = 3; k < av_len(avflags) + 1; k++) {
+ 		    SV **allflags = av_fetch(avflags, k, 0);
+-		    char *flag = SvPV(*allflags, na);
++		    char *flag = SvPV(*allflags, PL_na);
+ 		    if (strEQ(flag, "uid"))
+ 			flags |= SE_UID;
+ 		    else if (strEQ(flag, "searchfree"))
+@@ -1888,7 +1885,7 @@ mail_filter(stream, ...)
+ 				" passed to Mail::Cclient::filter");
+ 
+ 		for(i = 1; i < items; i = i + 2) {
+-			char *key = SvPV(ST(i), na);
++			char *key = SvPV(ST(i), PL_na);
+ 			if(strcaseEQ(key, "msgno")) {
+ 				msgno = (unsigned long)SvUV(ST(i+1));
+ 			} else if(strcaseEQ(key, "lines")) {
+@@ -1897,7 +1894,7 @@ mail_filter(stream, ...)
+ 					lines = av_to_stringlist((AV*)SvRV(arrayRef));
+ 				}
+ 			} else if(strcaseEQ(key, "flag")) {
+-				char *flag = SvPV(ST(i+1), na);
++				char *flag = SvPV(ST(i+1), PL_na);
+ 				if (strEQ(flag, "not"))
+ 					flags |= FT_NOT;
+ 				else
+@@ -1941,7 +1938,7 @@ mail_real_gc(stream, ...)
+ 	long flags = 0;
+     CODE:
+ 	for (i = 1; i < items; i++) {
+-	    char *flag = SvPV(ST(i), na);
++	    char *flag = SvPV(ST(i), PL_na);
+ 	    if (strEQ(flag, "elt"))
+ 		flags |= GC_ELT;
+ 	    else if (strEQ(flag, "env"))
+@@ -1971,42 +1968,42 @@ mail__parameters(stream, param, sv = 0)
+ 	PPCODE:
+ 		if(strEQ(param, "USERNAME")) {
+ 			if(sv)
+-				mail_parameters(stream, SET_USERNAME, SvPV(sv, na));
++				mail_parameters(stream, SET_USERNAME, SvPV(sv, PL_na));
+ 			else
+ 				res_str = mail_parameters(stream, GET_USERNAME, 0);
+ 		} else if(strEQ(param, "HOMEDIR")) {
+ 			if(sv)
+-				mail_parameters(stream, SET_HOMEDIR, SvPV(sv, na));
++				mail_parameters(stream, SET_HOMEDIR, SvPV(sv, PL_na));
+ 			else
+ 				res_str = mail_parameters(stream, GET_HOMEDIR, 0);
+ 		} else if(strEQ(param, "LOCALHOST")) {
+ 			if(sv)
+-				mail_parameters(stream, SET_LOCALHOST, SvPV(sv, na));
++				mail_parameters(stream, SET_LOCALHOST, SvPV(sv, PL_na));
+ 			else
+ 				res_str = mail_parameters(stream, GET_LOCALHOST, 0);
+ 		} else if(strEQ(param, "SYSINBOX")) {
+ 			if(sv)
+-				mail_parameters(stream, SET_SYSINBOX, SvPV(sv, na));
++				mail_parameters(stream, SET_SYSINBOX, SvPV(sv, PL_na));
+ 			else
+ 				res_str = mail_parameters(stream, GET_SYSINBOX, 0);
+ 		} else if(strEQ(param, "NEWSACTIVE")) {
+ 			if(sv)
+-				mail_parameters(stream, SET_NEWSACTIVE, SvPV(sv, na));
++				mail_parameters(stream, SET_NEWSACTIVE, SvPV(sv, PL_na));
+ 			else
+ 				res_str = mail_parameters(stream, GET_NEWSACTIVE, 0);
+ 		} else if (strEQ(param, "NEWSSPOOL")) {
+ 			if(sv)
+-				mail_parameters(stream, SET_NEWSSPOOL, SvPV(sv, na));
++				mail_parameters(stream, SET_NEWSSPOOL, SvPV(sv, PL_na));
+ 			else
+ 				res_str = mail_parameters(stream, GET_NEWSSPOOL, 0);
+ 		} else if(strEQ(param, "NEWSRC")) {
+ 			if(sv)
+-				mail_parameters(stream, SET_NEWSRC, SvPV(sv, na));
++				mail_parameters(stream, SET_NEWSRC, SvPV(sv, PL_na));
+ 			else
+ 				res_str = mail_parameters(stream, GET_NEWSRC, 0);
+ 		} else if(strEQ(param, "ANONYMOUSHOME")) {
+ 			if(sv)
+-				mail_parameters(stream, SET_ANONYMOUSHOME, SvPV(sv, na));
++				mail_parameters(stream, SET_ANONYMOUSHOME, SvPV(sv, PL_na));
+ 			else
+ 				res_str = mail_parameters(stream, GET_ANONYMOUSHOME, 0);
+ 		} else if(strEQ(param, "OPENTIMEOUT")) {
+@@ -2118,7 +2115,7 @@ mail__parameters(stream, param, sv = 0)
+ 			croak("no such parameter name: %s", param);
+ 		}
+ 		if(sv)
+-			ST(0) = &sv_yes;
++			ST(0) = &PL_sv_yes;
+ 		else {
+ 			if (res_str)
+ 				XPUSHs(sv_2mortal(newSVpv(res_str, 0)));
+@@ -2176,7 +2173,7 @@ smtp_open_full(package="Mail::Cclient::SMTP", ...)
+ 			croak("Wrong numbers of args (KEY => value)"
+ 				" passed to Mail::Cclient::SMTP::smtp_open_full");
+ 		for(i = 1; i < items; i = i + 2) {
+-			char *key = SvPV(ST(i), na);
++			char *key = SvPV(ST(i), PL_na);
+ 			if(strcaseEQ(key, "hostlist")) {
+ 				int k;
+ 				AV *av_hl;
+@@ -2191,11 +2188,11 @@ smtp_open_full(package="Mail::Cclient::SMTP", ...)
+ 				New(0, hostlist, n * sizeof(char *), char*);
+ 				for (k = 0; k < n; k++) {
+ 					SV **h = av_fetch(av_hl, k, 0);
+-					char *host = SvPV(*h, na);
++					char *host = SvPV(*h, PL_na);
+ 					hostlist[k] = host;
+ 				}
+ 			} else if(strcaseEQ(key, "service"))
+-				service = SvPV(ST(i+1), na);
++				service = SvPV(ST(i+1), PL_na);
+ 			else if(strcaseEQ(key, "port"))
+ 				port = (unsigned long)SvUV(ST(i+1));
+ 			else if(strcaseEQ(key, "options")) {
+@@ -2210,7 +2207,7 @@ smtp_open_full(package="Mail::Cclient::SMTP", ...)
+ 				}
+ 				for(k = 0; k < av_len(av_options) + 1; k++) {
+ 					SV **sv_opt = av_fetch(av_options, k, 0);
+-					char *option = SvPV(*sv_opt, na);
++					char *option = SvPV(*sv_opt, PL_na);
+ 					if(strEQ(option, "debug"))
+ 						options |= SOP_DEBUG;
+ 					else if(strEQ(option, "dsn"))
+@@ -2262,11 +2259,11 @@ smtp_mail(stream, ...)
+ 		int i;
+ 	CODE:
+ 		for(i = 1; i < items; i = i + 2) {
+-			char *key = SvPV(ST(i), na);
++			char *key = SvPV(ST(i), PL_na);
+ 			if(strcaseEQ(key, "defaulthost"))
+-				dhost = SvPV(ST(i+1), na);
++				dhost = SvPV(ST(i+1), PL_na);
+ 			else if(strcaseEQ(key, "transaction"))
+-				trans = ucase(SvPV(ST(i+1), na));
++				trans = ucase(SvPV(ST(i+1), PL_na));
+ 			else if(strcaseEQ(key, "filehandle"))
+ 				fp = IoIFP(sv_2io(ST(i+1)));
+ 			else if(strcaseEQ(key, "envelope"))
+@@ -2422,7 +2419,7 @@ rfc822_parse_adrlist(string, host)
+ 		env = mail_newenvelope();
+ 		rfc822_parse_adrlist(&env->to, string, host);
+ 		XPUSHs(env->to ?
+-			sv_2mortal(newRV_noinc((SV*)make_address(env->to))) : &sv_undef);
++			sv_2mortal(newRV_noinc((SV*)make_address(env->to))) : &PL_sv_undef);
+ 
+ 
+ char *
+@@ -2460,9 +2457,9 @@ rfc822_output(...)
+ 		int i;
+ 	CODE:
+ 		for(i = 0; i < items; i = i + 2) {
+-			char *key = SvPV(ST(i), na);
++			char *key = SvPV(ST(i), PL_na);
+ 			if(strcaseEQ(key, "defaulthost"))
+-				dhost = SvPV(ST(i+1), na);
++				dhost = SvPV(ST(i+1), PL_na);
+ 			else if(strcaseEQ(key, "filehandle"))
+ 				fp = IoIFP(sv_2io(ST(i+1)));
+ 			else if(strcaseEQ(key, "envelope"))
+diff --git a/typemap b/typemap
+index 34a9201..48aef3f 100644
+--- a/typemap
++++ b/typemap
+@@ -7,7 +7,7 @@ T_XSCPTR
+ 	    MAGIC *mg;
+ 	    SV *sv = ($arg);
+ 
+-	    if (sv == &sv_undef)
++	    if (sv == &PL_sv_undef)
+ 		$var = 0;
+ 	    else {
+ 		if (!sv_isobject(sv))
+-- 
+1.7.5.4
+

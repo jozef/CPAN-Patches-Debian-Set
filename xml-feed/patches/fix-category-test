@@ -1,5 +1,7 @@
-that file is removed, so skip the test
-
+Author: Ryan Niebur <ryan@debian.org>
+Subject: that file is removed, so skip the test
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-07-17
 --- a/t/13-category-hash-bug.t
 +++ b/t/13-category-hash-bug.t
 @@ -3,6 +3,7 @@

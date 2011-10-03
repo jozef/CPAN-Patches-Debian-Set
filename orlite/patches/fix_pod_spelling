@@ -1,0 +1,18 @@
+Description: fix POD spelling errors
+Origin: vendor
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=64986 
+Author: Angel Abad <angelabad@gmail.com>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-08
+
+--- a/lib/ORLite.pm
++++ b/lib/ORLite.pm
+@@ -1076,7 +1076,7 @@
+ overriding method difficult.
+ 
+ The C<shim> option will make ORLite generate all of it's methods into a
+-seperate C<Foo::TableName::Shim> class, and leave the main table class
++separate C<Foo::TableName::Shim> class, and leave the main table class
+ C<Foo::TableName> as a transparent subclass of the shim.
+ 
+ This allows you to alter the behaviour of a table class without having

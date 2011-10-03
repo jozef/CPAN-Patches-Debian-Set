@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libmouse-perl (>= 0.39), libmousex-types-perl (>= 0.02), libpath-class-perl, libtest-simple-perl (>= 0.94), libtest-useallmodules-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmouse-perl (>= 0.39), libmousex-types-perl (>= 0.02), libpath-class-perl
+X: 0

@@ -1,0 +1,18 @@
+Description: Fix typographical error.
+Author: Tim Retout <diocles@debian.org>
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-09-05
+Bug: http://rt.cpan.org/Ticket/Display.html?id=60684
+--- a/lib/Data/Phrasebook.pm
++++ b/lib/Data/Phrasebook.pm
+@@ -241,8 +241,8 @@
+ 
+ =head1 DEDICATION
+ 
+-Much of the work original class framework is from Iain's original code. My
+-code was alot simpler and was tied to using just an INI data source. Merging
++Much of the original class framework work is from Iain's original code. My
++code was a lot simpler and was tied to using just an INI data source. Merging
+ all the ideas and code together we came up with this distribution.
+ 
+ Unfortunately Iain died in December 2003, so he never got to see or play

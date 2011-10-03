@@ -1,4 +1,10 @@
-add a useful whatis entry to the generated man page
+Description: add a useful whatis entry to the generated man page
+Origin: vendor
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-06
+
 
 --- a/xs/GtkMozEmbed.xs
 +++ b/xs/GtkMozEmbed.xs

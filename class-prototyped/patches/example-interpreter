@@ -1,0 +1,12 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Add a #! line to the graphtest.pl example so that it's
+ executable when installed.
+
+--- libclass-prototyped-perl.orig/examples/graphtest.pl
++++ libclass-prototyped-perl/examples/graphtest.pl
+@@ -1,3 +1,5 @@
++#!/usr/bin/perl
++
+ use Class::Prototyped qw(:EZACCESS);
+ use Class::Prototyped::Graph;
+ 

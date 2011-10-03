@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdigest-sha1-perl, libio-stringy-perl, libjson-any-perl, libjson-xs-perl, libmoose-perl (>= 0.99), libstring-rewriteprefix-perl, libtest-deep-perl, libtest-exception-perl, libtest-json-perl, libtest-tempdir-perl, libtest-without-module-perl, libtest-yaml-valid-perl, libyaml-libyaml-perl, libyaml-perl, libyaml-syck-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdigest-hmac-perl, libio-stringy-perl, libjson-any-perl, libjson-xs-perl, libmoose-perl (>= 0.99), libstring-rewriteprefix-perl, libtest-deep-perl, libtest-exception-perl, libtest-json-perl, libtest-requires-perl (>= 0.05), libtest-without-module-perl, libtest-yaml-valid-perl, libyaml-libyaml-perl, libyaml-perl, libyaml-syck-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
 Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.99), libstring-rewriteprefix-perl
 X: 0

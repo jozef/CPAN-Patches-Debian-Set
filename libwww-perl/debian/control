@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libhtml-parser-perl, liburi-perl, netbase, perl (>= 5.10.1) | libio-compress-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl, libhtml-tagset-perl, libhtml-tree-perl, liburi-perl, netbase
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libencode-locale-perl, libfile-listing-perl, libhtml-parser-perl, libhttp-cookies-perl, libhttp-daemon-perl, libhttp-date-perl, libhttp-message-perl, libhttp-negotiate-perl, liblwp-mediatypes-perl, libnet-http-perl, liburi-perl, libwww-robotrules-perl, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ca-certificates, libencode-locale-perl, libfile-listing-perl, libhtml-parser-perl, libhtml-tagset-perl, libhtml-tree-perl, libhttp-cookies-perl, libhttp-date-perl, libhttp-message-perl, libhttp-negotiate-perl, liblwp-mediatypes-perl, liblwp-protocol-https-perl, libnet-http-perl, liburi-perl, libwww-robotrules-perl, netbase
 X: 0

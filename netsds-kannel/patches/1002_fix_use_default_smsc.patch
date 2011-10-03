@@ -1,0 +1,14 @@
+Description: Fix use default_smsc
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2011-05-13
+--- a/lib/NetSDS/Kannel.pm
++++ b/lib/NetSDS/Kannel.pm
+@@ -319,6 +319,8 @@
+ 	# Set SMSC id
+ 	if ( $params{smsc} ) {
+ 		$send{smsc} = $params{smsc};
++	} else {
++		$send{smsc} = $self->default_smsc;
+ 	}
+ 
+ 	# Set DLR fetching mask (see kannel documentation)

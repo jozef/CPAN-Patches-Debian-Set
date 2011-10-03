@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libhash-util-fieldhash-compat-perl, libmoose-perl, libmoosex-role-parameterized-perl, libnamespace-autoclean-perl, libtest-use-ok-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhash-util-fieldhash-compat-perl, libmoose-perl, libmoosex-role-parameterized-perl, libnamespace-autoclean-perl, perl
+X: 0

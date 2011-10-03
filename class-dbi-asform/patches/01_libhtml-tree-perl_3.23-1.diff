@@ -1,5 +1,11 @@
-This patch contains the modifications needed to build with libhtml-tree-perl (>= 3.23-1).
-Patch by Niko Tyni <ntyni@iki.fi>, thanks.  See bug #414745 for details.
+Description: This patch contains the modifications needed to build with libhtml-tree-perl (>= 3.23-1).
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=19802
+Bug-Debian: http://bugs.debian.org/414745
+Forwarded: yes
+Author: Niko Tyni <ntyni@iki.fi>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-12-03
 
 --- libclass-dbi-asform-perl-2.42.orig/t/01.t
 +++ libclass-dbi-asform-perl-2.42/t/01.t

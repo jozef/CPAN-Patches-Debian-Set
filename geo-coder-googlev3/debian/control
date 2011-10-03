@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libjson-xs-perl, liburi-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libjson-xs-perl, liburi-perl, libwww-perl
+X: 0

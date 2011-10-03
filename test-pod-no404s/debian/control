@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libtest-pod-perl (>= 1.40), liburi-find-perl (>= 20090319), libwww-perl (>= 5.834), perl (>= 5.11.3) | libpod-simple-perl (>= 3.13)
+Depends: ${misc:Depends}, ${perl:Depends}, libtest-pod-perl (>= 1.40), liburi-find-perl (>= 20090319), libwww-perl (>= 5.834), perl (>= 5.11.3) | libpod-simple-perl (>= 3.13)
+X: 0

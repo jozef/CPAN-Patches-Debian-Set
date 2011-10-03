@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libconfig-model-perl (>= 1.001), libexception-class-perl, liblog-log4perl-perl (>= 1.11), libpod-pom-perl, libtest-pod-perl, libtk-dirselect-perl, libtk-objscanner-perl, perl, perl-tk (>= 800)
-Depends: ${misc:Depends}, ${perl:Depends}, libconfig-model-perl (>= 1.001), libexception-class-perl, liblog-log4perl-perl (>= 1.11), libpod-pom-perl, libtk-dirselect-perl, perl-tk
+Build-Depends: debhelper (>= 8), perl
+Build-Depends-Indep: libconfig-model-perl (>= 1.253), libexception-class-perl, libfile-slurp-perl, liblog-log4perl-perl, libpod-pom-perl, libtest-pod-perl, libtest-warn-perl, libtk-dirselect-perl, libtk-objscanner-perl, libtk-pod-perl, perl-tk
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-model-perl (>= 1.253), libexception-class-perl, libfile-slurp-perl, liblog-log4perl-perl, libpod-pom-perl, libtk-dirselect-perl, libtk-pod-perl, perl-tk
 X: 0

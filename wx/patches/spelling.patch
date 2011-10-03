@@ -1,0 +1,16 @@
+Description: Fix a small spelling mistake
+Author: Damyan Ivanov <dmn@debian.org>
+Bug: https://rt.cpan.org/Ticket/Display.html?id=70363
+Forwarded: yes
+
+--- a/cpp/overload.cpp
++++ b/cpp/overload.cpp
+@@ -145,7 +145,7 @@ void wxPli_overload_error( pTHX_ const c
+                            wxPliPrototype* prototypes[] )
+ {
+     dXSARGS; // restore the mark we implicitly popped in dMARK!
+-    SV* message = newSVpv( "Availble methods:\n", 0 );
++    SV* message = newSVpv( "Available methods:\n", 0 );
+     sv_2mortal( message );
+ 
+     for( int j = 0; prototypes[j]; ++j )

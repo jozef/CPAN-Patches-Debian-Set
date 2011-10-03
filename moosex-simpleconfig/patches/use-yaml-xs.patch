@@ -1,0 +1,57 @@
+Description: use YAML::XS for tests
+ Patch the test files to look for YAML::XS instead of YAML or
+ YAML::Syck (these options are deprecated by Config::Any)
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/t/10simple.t
++++ b/t/10simple.t
+@@ -9,12 +9,9 @@
+ BEGIN {
+     use Test::More;
+ 
+-    eval "use YAML::Syck ()";
++    eval "use YAML::XS ()";
+     if($@) {
+-        eval "use YAML ()";
+-        if($@) {
+-            plan skip_all => "YAML or YAML::Syck required for this test";
+-        }
++        plan skip_all => "YAML::XS required for this test";
+     }
+     
+     plan tests => 6;
+--- a/t/11default.t
++++ b/t/11default.t
+@@ -11,12 +11,9 @@
+ 
+     @classes = qw/ MXDefaultConfigTest MXDefaultMultipleConfigsTest /;
+ 
+-    eval "use YAML::Syck ()";
++    eval "use YAML::XS ()";
+     if($@) {
+-        eval "use YAML ()";
+-        if($@) {
+-            plan skip_all => "YAML or YAML::Syck required for this test";
+-        }
++        plan skip_all => "YAML::XS required for this test";
+     }
+ 
+     use_ok($_) for @classes;
+--- a/t/multiple.t
++++ b/t/multiple.t
+@@ -9,12 +9,9 @@
+ BEGIN {
+     use Test::More;
+ 
+-    eval "use YAML::Syck ()";
++    eval "use YAML::XS ()";
+     if($@) {
+-        eval "use YAML ()";
+-        if($@) {
+-            plan skip_all => "YAML or YAML::Syck required for this test";
+-        }
++        plan skip_all => "YAML or YAML::Syck required for this test";
+     }
+     
+     plan tests => 5;

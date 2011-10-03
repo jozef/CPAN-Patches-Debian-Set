@@ -1,0 +1,93 @@
+Description: Makes lintian happy
+--- a/lib/pods/SDL/Events.pod
++++ b/lib/pods/SDL/Events.pod
+@@ -462,11 +462,11 @@
+      $previous_translation_mode = SDL::Events::enable_unicode( 0 ); #disables
+ 
+ To obtain the character codes corresponding to received keyboard events, Unicode translation must first be turned on using this function. The 
+-translation incurs a slight overhead for each keyboard event and is therefore disabled by default. For each subsequently recieved key down event, 
++translation incurs a slight overhead for each keyboard event and is therefore disabled by default. For each subsequently received key down event,
+ the unicode member of the L<SDL::Event::key_sym|SDL::Event/"key_sym"> provided structure will be then contain the corresponding character code, or 
+ otherwise zero.
+ 
+-A value of 1 for enabling, 0 for disabling and -1 for unchanged. -1 is usefull for querying the current translation mode.
++A value of 1 for enabling, 0 for disabling and -1 for unchanged. -1 is useful for querying the current translation mode.
+ 
+ Only key press events will be translated not release events.
+ 
+--- a/lib/pods/SDL/GFX/Framerate.pod
++++ b/lib/pods/SDL/GFX/Framerate.pod
+@@ -41,7 +41,7 @@
+ 
+  SDL::GFX::Framerate::delay($fps);
+ 
+-Generate a delay to accomodate currently set framerate. Call once in thegraphics/rendering loop. 
++Generate a delay to accommodate currently set framerate. Call once in thegraphics/rendering loop. 
+ If the computer cannot keep up with the rate (i.e.drawing too slow), the delay is zero and the delay interpolation is reset.
+ 
+ =head1 AUTHORS
+--- a/lib/pods/SDL/MPEG.pod
++++ b/lib/pods/SDL/MPEG.pod
+@@ -15,7 +15,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-C<SDL::MPEG> provides an interface to quering the status
++C<SDL::MPEG> provides an interface to query the status
+ of a SMPEG stream.  
+ 
+ =head2 METHODS 
+--- a/lib/pods/SDLx/App.pod
++++ b/lib/pods/SDLx/App.pod
+@@ -75,7 +75,7 @@
+ Any flags you want to pass to L<SDL::Video> upon initialization. Defaults to SDL_ANYFORMAT. Flags should be I<or'ed> together if you're passing more than one (flags => FOO|BAR). Shortcut: 'f'.
+ 
+ =item * resizeable
+-Set this to a true value to make the window resizeable by the user. Default is off.
++Set this to a true value to make the window resizable by the user. Default is off.
+ 
+ =item * exit_on_quit
+ Set this to a true value to make the app exit if a SDL_QUIT event is triggered. Shortcut: 'eoq'.
+@@ -139,9 +139,9 @@
+ 
+ =head2 sync
+ 
+-C<SDLx::App::sync> encapsulates the various methods of syncronizing the screen with the
++C<SDLx::App::sync> encapsulates the various methods of synchronizing the screen with the
+ current video buffer. C<SDLx::App::sync> will do a fullscreen update, using the double buffer
+-or OpenGL buffer if applicable. This is prefered to calling flip on the application window.
++or OpenGL buffer if applicable. This is preferred to calling flip on the application window.
+ 
+ =head2 attribute( $attr )
+ 
+--- a/lib/pods/SDLx/Controller.pod
++++ b/lib/pods/SDLx/Controller.pod
+@@ -97,7 +97,7 @@
+ =back
+ 
+ Please refer to each handler below for information on received arguments.
+-Note that the second argument every callback recieves is the C<SDLx::Controller> object.
++Note that the second argument received by every callback is the C<SDLx::Controller> object.
+ 
+ =head2 stop
+ 
+@@ -108,7 +108,7 @@
+ Attempts to pause the application with a call to C<SDL::Events::wait_event>. See L<SDL::Events>.
+ 
+ Takes 1 argument which is a callback. The application waits for the next event with C<wait_event>.
+-When one is recieved, it is passed to the callback as the first argument, along with the C<SDLx::Controller> object as the second argument.
++When one is received, it is passed to the callback as the first argument, along with the C<SDLx::Controller> object as the second argument.
+ If the callback then returns a true value, C<pause> will return.
+ If the callback returns a false value, C<pause> will repeat the process.
+ 
+--- a/lib/pods/SDLx/Controller/Interface.pod
++++ b/lib/pods/SDLx/Controller/Interface.pod
+@@ -60,7 +60,7 @@
+       }
+   );
+ 
+-These accelerations are arbitary and can be set to any frame of reference.
++These accelerations are arbitrary and can be set to any frame of reference.
+ Your render callback will handle how to interpret it.
+ 
+ The callback will receive the time and the current state as a

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), libinline-perl
+Build-Depends: debhelper (>= 8), libinline-perl
 Build-Depends-Indep: perl
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

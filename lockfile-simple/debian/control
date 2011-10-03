@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: liblog-agent-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, liblog-agent-perl
 X: 0

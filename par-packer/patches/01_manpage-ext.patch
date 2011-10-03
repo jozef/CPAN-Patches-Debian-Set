@@ -1,8 +1,10 @@
 Description: fix manpage extension for compatibility with Debian Perl Policy
-
+Author: Damyan Ivanov <dmn@debian.org>
+Origin: vendor
+Forwarded: no
 --- a/Makefile.PL
 +++ b/Makefile.PL
-@@ -72,7 +72,7 @@
+@@ -73,7 +73,7 @@
      $cc = can_cc unless $bork;
      my $par;
      $par = fetch_par('', '', !$cc) unless ($cc or $bork);
@@ -11,7 +13,7 @@ Description: fix manpage extension for compatibility with Debian Perl Policy
      my $dynperl = $Config::Config{useshrplib} && ($Config::Config{useshrplib} ne 'false');
  
      if ($bork) {
-@@ -115,11 +115,11 @@
+@@ -90,11 +90,11 @@
  
      makemaker_args(
          MAN1PODS		=> {

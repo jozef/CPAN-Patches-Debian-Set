@@ -1,0 +1,26 @@
+--- a/t/00sig.t
++++ /dev/null
+@@ -1,4 +0,0 @@
+-use lib 'inc';
+-use Test::More tests => 1;
+-use Test::Signature;
+-signature_ok();
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -15,7 +15,6 @@
+ license             'perl';
+ 
+ test_requires       'Test::More'          => '0.61';
+-test_requires       'Module::Signature'   => '0.66';
+ 
+ requires            'Carp'                 => '1.00';
+ requires            'CGI'                  => 0;
+@@ -53,8 +52,6 @@
+ write_doap_changes;
+ write_doap_changes_xml;
+ 
+-include 'Test::Signature';
+-auto_install;
+ WriteAll(
+ 	'meta' => 1,
+ 	'sign' => 1,

@@ -1,0 +1,78 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-03-04
+Subject: spelling fixes
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=69648
+--- a/lib/Cache/Memcached/Managed.pm
++++ b/lib/Cache/Memcached/Managed.pm
+@@ -1616,7 +1616,7 @@
+ 
+ The caller's package provides an identifying version (by default), allowing
+ differently formatted data-structures caused by source code changes, to live
+-seperately from each other in the cache.
++separately from each other in the cache.
+ 
+ =head2 namespace support
+ 
+@@ -1746,7 +1746,7 @@
+ 
+ The data key identifies a piece of data in the L<"data server">.  It is
+ formed by appending the namespace (by default the user id of the process),
+-L<version>, L<key> and L<ID>, seperated by the L<delimiter>.
++L<version>, L<key> and L<ID>, separated by the L<delimiter>.
+ 
+ If a scalar value is specified as an ID, then that value is used.
+ 
+@@ -1807,7 +1807,7 @@
+ data server will be assumed.
+ 
+ If there are multiple memcached servers used for the L<"data server">, then
+-it is advised to use a seperate directory server (as a failure in one of
++it is advised to use a separate directory server (as a failure in one of
+ the memcached backend servers will leave you with an incomplete directory
+ otherwise).
+ 
+@@ -1883,7 +1883,7 @@
+ The specification of the memcached server backend(s) for the L<"data server">.
+ It should either be:
+ 
+- - string with comma seperated memcached server specification
++ - string with comma separated memcached server specification
+  - list ref with memcached server specification
+  - hash ref with Cache::Memcached object specification
+  - blessed object adhering to the Cache::Memcached API
+@@ -1921,7 +1921,7 @@
+ The specification of the memcached server backend(s) for the
+ L<"directory server">.  It should either be:
+ 
+- - string with comma seperated memcached server specification
++ - string with comma separated memcached server specification
+  - list ref with memcached server specification
+  - hash ref with Cache::Memcached object specification
+  - blessed object adhering to the Cache::Memcached API
+@@ -2173,7 +2173,7 @@
+ L<"data server">.  The input parameter specifies interval between flushes
+ of backend memcached servers, default is the L<flush_interval> value
+ implicitely) specified with L<new>.  Returns whether all memcached L<servers>
+-were succesfully flushed.
++were successfully flushed.
+ 
+ Please note that this method returns immediately after instructing each of
+ the memcached servers.  Also note that the timed flush_all functionality has
+@@ -2620,7 +2620,7 @@
+ 'event1'.  Since we're not interested in the id of the event, but want to
+ make sure it is always unique, the pseudo id ':unique' is specified.
+ 
+-A recurring proces, usually a cron job, would then need to do the following
++A recurring process, usually a cron job, would then need to do the following
+ to grab all of the values cached:
+ 
+  my @value = $cache->grab_group( group => 'event1' );
+@@ -2734,7 +2734,7 @@
+ =head1 THEORY OF OPERATION
+ 
+ The group management is implemented by keeping a type of directory information
+-in a (seperate) directory memcached server.
++in a (separate) directory memcached server.
+ 
+ For each L<group|"group management"> one directory key is maintained in the
+ directory memcached server.  This key consists of the string

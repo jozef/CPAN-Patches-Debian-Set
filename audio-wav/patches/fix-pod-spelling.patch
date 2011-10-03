@@ -1,7 +1,7 @@
 Description: fix POD spelling
 Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
-Forwarded: no
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=69644
 --- a/Wav.pm
 +++ b/Wav.pm
 @@ -59,7 +59,7 @@

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libcrypt-ssleay-perl | libio-socket-ssl-perl, libguard-perl, libplack-perl, libtest-requires-perl, libwww-perl, perl (>=5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

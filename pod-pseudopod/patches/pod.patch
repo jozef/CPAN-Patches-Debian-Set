@@ -1,0 +1,19 @@
+Description: fix pod(2man) glitches
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-07-08
+
+--- libpod-pseudopod-perl.orig/lib/Pod/PseudoPod/Tutorial.pod
++++ libpod-pseudopod-perl/lib/Pod/PseudoPod/Tutorial.pod
+@@ -1,8 +1,8 @@
+ =pod
+ 
+-=head1 PseudoPod
++=head1 NAME
+ 
+-A Pod Extension for Authoring Large Documents
++PseudoPod - A Pod Extension for Authoring Large Documents
+ 
+ =head2 Introduction
+ 

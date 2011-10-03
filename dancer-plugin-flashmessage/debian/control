@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdancer-perl (>= 1.3001), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdancer-perl (>= 1.3001)
+X: 0

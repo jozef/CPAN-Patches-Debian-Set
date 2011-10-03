@@ -1,0 +1,30 @@
+Description: adjust test to HTML::Tree 4.0
+Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=63623
+Bug-Debian: http://bugs.debian.org/605793
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-01-02
+
+--- a/t/01.t
++++ b/t/01.t
+@@ -40,15 +40,12 @@
+     "Ordinary text field OK");
+ 
+ Foo->has_a(bar => Bar);
+-is(Foo->to_field("bar"), "<select name=\"bar\"><option value=\"1\">Hi</option></select>\n",
++is(Foo->to_field("bar"), "<select name=\"bar\"><option value=\"1\">Hi</option></select>",
+     "Select OK");
+ 
+ my $x = bless({id => 1, bar => Bar->retrieve_all(), baz => "Hello there"}, "Foo");
+-my %cgi = ( id => '<input name="id" type="text" value="1" />
+-',
+-    bar => '<select name="bar"><option selected value="1">Hi</option></select>
+-',
+-            baz => '<input name="baz" type="text" value="Hello there" />
+-'
++my %cgi = ( id => '<input name="id" type="text" value="1" />',
++    bar => '<select name="bar"><option selected value="1">Hi</option></select>',
++            baz => '<input name="baz" type="text" value="Hello there" />'
+           );
+ is_deeply({$x->to_cgi}, \%cgi, "All correct as an object method");

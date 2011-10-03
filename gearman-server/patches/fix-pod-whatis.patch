@@ -1,7 +1,10 @@
 Description: add a POD whatis entry
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
 Forwarded: no
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-14
+
 --- a/lib/Gearman/Server/Client.pm
 +++ b/lib/Gearman/Server/Client.pm
 @@ -2,7 +2,7 @@

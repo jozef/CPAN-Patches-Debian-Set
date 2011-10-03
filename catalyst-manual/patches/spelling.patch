@@ -1,0 +1,19 @@
+Description: minor spelling fix
+Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=70714
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=70714
+Author: gregor herrmann <gregoa@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-09-04
+
+--- a/lib/Catalyst/Manual/Deployment.pod
++++ b/lib/Catalyst/Manual/Deployment.pod
+@@ -21,7 +21,7 @@
+ FastCGI application on Apache. You will usually want to have a set of
+ libraries specific to your application installed on your shared host.
+ 
+-Full details of deploying Catalyst in a shared hosting enviroment are at
++Full details of deploying Catalyst in a shared hosting environment are at
+ L<Catalyst::Manual::Deployment::SharedHosting>.
+ 
+ =head2 FastCGI

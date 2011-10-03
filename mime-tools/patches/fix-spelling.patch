@@ -1,0 +1,18 @@
+Description: spelling fix
+Origin: vendor
+Forwarded: http://rt.cpan.org/Ticket/Display.html?id=64610
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-17
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+
+--- a/lib/MIME/Parser.pm
++++ b/lib/MIME/Parser.pm
+@@ -1790,7 +1790,7 @@
+ 
+ B<Native I/O is much faster than object-oriented I/O.>
+ It's much faster to use E<lt>$fooE<gt> than $foo-E<gt>getline.
+-For backwards compatibilty, this module must continue to use
++For backwards compatibility, this module must continue to use
+ object-oriented I/O in most places, but if you use L<parse()|/parse>
+ with a "real" filehandle (string, globref, or subclass of IO::File)
+ then MIME::Parser is able to perform some crucial optimizations.

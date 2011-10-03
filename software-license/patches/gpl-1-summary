@@ -1,0 +1,17 @@
+Description: added summary
+--- a/lib/Software/License/GPL_1.pm
++++ b/lib/Software/License/GPL_1.pm
+@@ -40,6 +40,13 @@
+ 
+ 
+ __DATA__
++__DEBIAN-SUMMARY__
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; version 1, February 1989
++
++On Debian systems, the complete text of version 1 of the GNU General
++Public License can be found in `/usr/share/common-licenses/GPL-1'.
+ __LICENSE__
+                     GNU GENERAL PUBLIC LICENSE
+                      Version 1, February 1989

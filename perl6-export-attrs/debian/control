@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, perl, perl-modules (>= 5.10.0) | libmodule-build-perl (>= 0.2808)
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

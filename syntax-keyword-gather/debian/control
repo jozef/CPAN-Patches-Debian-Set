@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libsub-exporter-perl (>= 0.980), libsyntax-perl, libtest-simple-perl (>= 0.94), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libsub-exporter-perl (>= 0.980), libsyntax-perl
+X: 0

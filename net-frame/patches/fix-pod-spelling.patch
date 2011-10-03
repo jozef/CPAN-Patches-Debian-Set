@@ -1,0 +1,114 @@
+Description: fix minor POD spelling issues
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Net/Frame.pm
++++ b/lib/Net/Frame.pm
+@@ -68,7 +68,7 @@
+ 
+ B<Net::Frame> is a fork of B<Net::Packet>. The goal here was to greatly simplify the use of the frame crafting framework. B<Net::Packet> does many things undercover, and it was difficult to document all the thingies.
+ 
+-Also, B<Net::Packet> may suffer from unease of use, because frames were assembled using layers stored in L2, L3, L4 and L7 attributes. B<Net::Frame> removes all this, and is splitted in different modules, for those who only want to use part of the framework, and not whole framework.
++Also, B<Net::Packet> may suffer from unease of use, because frames were assembled using layers stored in L2, L3, L4 and L7 attributes. B<Net::Frame> removes all this, and is split into different modules, for those who only want to use part of the framework, and not whole framework.
+ 
+ Finally, anyone can create a layer, and put it on his CPAN space, because of the modularity B<Net::Frame> offers. For an example, see B<Net::Frame::Layer::ICMPv4> on my CPAN space.
+ 
+--- a/lib/Net/Frame/Layer/ARP.pm
++++ b/lib/Net/Frame/Layer/ARP.pm
+@@ -302,7 +302,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 
+--- a/lib/Net/Frame/Layer/ETH.pm
++++ b/lib/Net/Frame/Layer/ETH.pm
+@@ -299,7 +299,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 
+--- a/lib/Net/Frame/Layer/IPv4.pm
++++ b/lib/Net/Frame/Layer/IPv4.pm
+@@ -479,7 +479,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 
+--- a/lib/Net/Frame/Layer/NULL.pm
++++ b/lib/Net/Frame/Layer/NULL.pm
+@@ -201,7 +201,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 
+--- a/lib/Net/Frame/Layer/PPP.pm
++++ b/lib/Net/Frame/Layer/PPP.pm
+@@ -174,7 +174,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 
+--- a/lib/Net/Frame/Layer/RAW.pm
++++ b/lib/Net/Frame/Layer/RAW.pm
+@@ -118,7 +118,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 
+--- a/lib/Net/Frame/Layer/SLL.pm
++++ b/lib/Net/Frame/Layer/SLL.pm
+@@ -275,7 +275,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 
+--- a/lib/Net/Frame/Layer/TCP.pm
++++ b/lib/Net/Frame/Layer/TCP.pm
+@@ -383,7 +383,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 
+--- a/lib/Net/Frame/Layer/UDP.pm
++++ b/lib/Net/Frame/Layer/UDP.pm
+@@ -256,7 +256,7 @@
+ 
+ =back
+ 
+-The following are inherited methods. Some of them may be overriden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
++The following are inherited methods. Some of them may be overridden in this layer, and some others may not be meaningful in this layer. See B<Net::Frame::Layer> for more information.
+ 
+ =over 4
+ 

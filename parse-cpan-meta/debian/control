@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libperl-minimumversion-perl (>= 1.20), libpod-simple-perl (>= 3.07), libtest-cpan-meta-perl (>= 0.12), libtest-minimumversion-perl (>= 0.008), libtest-pod-perl (>= 1.00), perl
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends-Indep: libcpan-meta-yaml-perl, libjson-pp-perl, libperl-minimumversion-perl (>= 1.20), libtest-cpan-meta-perl (>= 0.12), libtest-minimumversion-perl (>= 0.008), libtest-pod-perl, perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
+Depends: ${misc:Depends}, ${perl:Depends}, libcpan-meta-yaml-perl, libjson-pp-perl
 X: 0

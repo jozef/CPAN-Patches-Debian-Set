@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libfile-find-rule-perl-perl, libmoose-autobox-perl, libmoose-perl (>= 0.84), libmoosex-types-perl, libnamespace-autoclean-perl, libpath-class-perl, libpod-coverage-trustpod-perl, libsub-exporter-perl, libtest-cpan-meta-perl, libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Build-Depends: debhelper (>= 7), libmodule-build-perl (>= 0.3601)
+Build-Depends-Indep: libfile-find-rule-perl-perl, libmoose-autobox-perl, libmoose-perl (>= 0.84), libmoosex-types-perl, libnamespace-autoclean-perl, libpath-class-perl, libsub-exporter-perl, libtest-fatal-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
 Depends: ${misc:Depends}, ${perl:Depends}, libmoose-autobox-perl, libmoose-perl (>= 0.84), libmoosex-types-perl, libnamespace-autoclean-perl, libsub-exporter-perl
 X: 0

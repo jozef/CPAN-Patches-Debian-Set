@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libtimedate-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtimedate-perl
+X: 0

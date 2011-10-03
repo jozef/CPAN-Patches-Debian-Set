@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling mistakes
+Last-Update: 2011-03-31
+Forwarded: no
+--- a/lib/Lingua/EN/NameParse.pm
++++ b/lib/Lingua/EN/NameParse.pm
+@@ -796,7 +796,7 @@
+ If name type is unknown , returns undef
+ 
+ If the name type has a joint name, such as 'Mr_A_Smith_&_Ms_B_Jones', return undef,
+-as it is ambigious which surname to place at the start of the string
++as it is ambiguous which surname to place at the start of the string
+ 
+ Else, returns a string of all cased components in correct reversed order
+ 

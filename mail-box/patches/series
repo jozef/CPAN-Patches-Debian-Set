@@ -1,3 +1,2 @@
 01_access_check_use_filetest::access.patch
 02_man_page_width_errors.patch
-fix-spelling-errors.patch

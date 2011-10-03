@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libhttp-tiny-perl | perl (>= 5.14), libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhttp-tiny-perl | perl (>= 5.14)
+X: 0

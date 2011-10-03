@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libhtml-template-perl, perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcgi-psgi-perl, libclass-isa-perl | perl (<< 5.10.1-13), libhtml-template-perl, libparams-validate-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl, pkg-components (>= 0.2)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-isa-perl | perl (<< 5.10.1-13), libparams-validate-perl
 X: 0

@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libclass-xsaccessor-perl (>= 1.05)
+Build-Depends: debhelper (>= 8), perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${sameperl:Depends}, ${shlibs:Depends}
 X: 0

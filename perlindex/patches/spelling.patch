@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-04
+
+--- a/perlindex.PL
++++ b/perlindex.PL
+@@ -635,7 +635,7 @@
+ 
+ =item B<-nocbreak>
+ 
+-Switch to cbreak in menu mode or dont. B<-cbreak> is the default.
++Switch to cbreak in menu mode or don't. B<-cbreak> is the default.
+ 
+ =item B<-verbose>
+ 

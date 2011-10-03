@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 6), quilt
-Build-Depends-Indep: libemail-foldertype-perl (>= 0.7-1), libemail-simple-perl (>= 1.998), libfile-path-expand-perl (>= 1.01-1), liblockfile1 (>= 1.0-1), libtest-pod-coverage-perl (>= 1.08-1), libtest-pod-perl (>= 1.14-1), perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libemail-foldertype-perl (>= 0.7-1), libemail-simple-perl (>= 1.998), libfile-path-expand-perl (>= 1.01-1), liblockfile1 (>= 1.0-1)
+Build-Depends-Indep: libemail-foldertype-perl, libemail-simple-perl, libfile-path-expand-perl, liblockfile1, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-foldertype-perl, libemail-simple-perl, libfile-path-expand-perl, liblockfile1
 X: 0

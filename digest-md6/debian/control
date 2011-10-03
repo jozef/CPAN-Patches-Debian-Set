@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), perl (>=5.8), perl-modules
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdigest-perl, libfile-spec-perl, libtest-simple-perl, perl (>= 5.8)
+X: 0

@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling
+Bug: http://rt.cpan.org/Tiket/Display.html?id=70522
+Last-Update: 2011-08-26
+--- a/lib/CGI/Application/Plugin/AJAXUpload.pm
++++ b/lib/CGI/Application/Plugin/AJAXUpload.pm
+@@ -246,7 +246,7 @@
+ =item upload_subdir
+ 
+ This is the sub-directory of I<httpdocs_dir> where the files will actually
+-be written to. It must be writeable. It defaults to '/img/uploads'.
++be written to. It must be writable. It defaults to '/img/uploads'.
+ 
+ =item dfv_profile
+ 

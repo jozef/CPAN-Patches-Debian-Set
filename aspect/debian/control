@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libparams-util-perl (>= 1.00), libsub-install-perl, libsub-uplevel-perl (>= 0.2002), libtest-class-perl (>= 0.33), libtest-exception-perl (>= 0.29), libtest-nowarnings-perl (>= 0.084), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libparams-util-perl (>= 1.00), libsub-install-perl, libsub-uplevel-perl (>= 0.2002)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libparams-util-perl (>= 1.00), libsub-install-perl, libsub-uplevel-perl (>= 0.2002), libtask-weaken-perl, libtest-class-perl (>= 0.33), libtest-exception-perl (>= 0.29), libtest-nowarnings-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libparams-util-perl (>= 1.00), libsub-install-perl, libsub-uplevel-perl (>= 0.2002), libtask-weaken-perl
 X: 0

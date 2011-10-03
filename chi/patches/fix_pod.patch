@@ -1,0 +1,45 @@
+Description: 
+ * Fix several typos in CHI and CHI::Driver::Development PODs.
+ * Fix CHI::Driver::Base::CacheContainer's POD to have a proper
+   NAME section with a short description after the class name, so
+   pod2man generates proper man pages.
+ * Fix CHI::Driver::MetaCache's POD to have a proper
+   NAME section with a short description after the class name, so
+   pod2man generates proper man pages.
+Forwarded: yes
+Author: Ernesto Hernández-Novich <emhn@usb.ve>
+--- a/lib/CHI.pm
++++ b/lib/CHI.pm
+@@ -855,7 +855,7 @@
+ The cache containing the subcache is called the I<parent cache>.
+ 
+ The following options are automatically inherited by the subcache from the
+-parent cache, and may not be overriden:
++parent cache, and may not be overridden:
+ 
+     expires_at
+     expires_in
+@@ -866,10 +866,10 @@
+ object|CHI::CacheObject> and store it in both caches. The cache object contains
+ expiration information and is dependent on the serializer.  At some point we
+ could conceivably add code that will use a single object or separate objects as
+-necessary, and thus allow the above to be overriden.)
++necessary, and thus allow the above to be overridden.)
+ 
+ The following options are automatically inherited by the subcache from the
+-parent cache, but may be overriden:
++parent cache, but may be overridden:
+ 
+     namespace
+     on_get_error
+--- a/lib/CHI/Driver/Development.pod
++++ b/lib/CHI/Driver/Development.pod
+@@ -149,7 +149,7 @@
+ 
+ =head2 Overridable methods
+ 
+-The following methods have a default implementation, but MAY be overriden by
++The following methods have a default implementation, but MAY be overridden by
+ your subclass:
+ 
+ =over

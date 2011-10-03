@@ -1,0 +1,52 @@
+Description: Adjust the shebang line to point to /usr/bin/perl instead of
+./perl or env perl, in the examples. This fixes various
+example-wrong-path-for-interpreter and  example-interpreter-not-absolute
+lintian warnings
+--- a/demo/echo.t
++++ b/demo/echo.t
+@@ -1,4 +1,4 @@
+-#!./perl -w
++#!/usr/bin/perl -w
+
+ $| = 1;
+ use Event qw(time);
+--- a/demo/group.t
++++ b/demo/group.t
+@@ -1,4 +1,4 @@
+-#!./perl -w
++#!/usr/bin/perl -w
+
+ use strict;
+ use Test; plan test => 6;
+--- a/demo/perlqt.t
++++ b/demo/perlqt.t
+@@ -1,4 +1,4 @@
+-#!./perl -w
++#!/usr/bin/perl -w
+
+ use Qt 2.0;
+ use Event;
+--- a/demo/rand_interval.t
++++ b/demo/rand_interval.t
+@@ -1,4 +1,4 @@
+-#!./perl -w
++#!/usr/bin/perl -w
+ # contributed by jsalmon@gw.thesalmons.org
+
+ use Event qw(loop);
+--- a/demo/readline.t
++++ b/demo/readline.t
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl -w
++#!/usr/bin/perl -w
+
+ #
+ # Test script to combine Term::Readline::Gnu and Event.
+--- a/demo/repeat.t
++++ b/demo/repeat.t
+@@ -1,4 +1,4 @@
+-#!./perl -w
++#!/usr/bin/perl -w
+
+ use strict;
+ use Event;

@@ -1,0 +1,13 @@
+Fix spelling error in manpage.
+
+--- a/lib/Test/Reporter/Transport/File.pm
++++ b/lib/Test/Reporter/Transport/File.pm
+@@ -62,7 +62,7 @@
+ 
+     $report->transport_args( $dir );
+ 
+-This transport class must have a writeable directory as its argument.
++This transport class must have a writable directory as its argument.
+ 
+ =head1 METHODS
+ 

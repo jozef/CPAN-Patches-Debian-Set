@@ -1,11 +1,12 @@
-Author: Martín Ferrari <tincho@debian.org>
-Bugs: #508432, RT#43308
 Description: Do not allow pcap_loop to be interrupted by signals
  Allowing pcap_loop to be interrupted by external signals causes segfaults
  on i386 architectures.
  This patch makes the Net::Pcap (0.16) module behave the same way as its
  previous release.
  Upstream is working on it since this feature can be useful for some people.
+Bug: RT#43308
+Bug-Debian: #508432
+Author: Martín Ferrari <tincho@debian.org>
 
 --- libnet-pcap-perl.orig/Pcap.xs
 +++ libnet-pcap-perl/Pcap.xs

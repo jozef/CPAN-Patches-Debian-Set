@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), libalien-wxwidgets-perl (>= 0.48), libextutils-parsexs-perl (>= 2.2203), libextutils-xspp-perl (>= 0.11), libtest-pod-perl, libyaml-perl, perl, x11-xkb-utils, xauth, xfonts-base, xvfb
+Build-Depends: debhelper (>= 8), libalien-wxwidgets-perl (>= 0.48), libextutils-parsexs-perl (>= 2.2203) | perl (>= 5.14), libextutils-xspp-perl (>= 0.1602), libtest-pod-perl, libyaml-perl, perl, x11-xkb-utils, xauth, xfonts-base, xvfb
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libalien-wxwidgets-perl (>= 0.48)
 X: 1

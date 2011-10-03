@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 8), libdevel-checklib-perl, libextutils-parsexs-perl (>= 2.210000) | perl (>= 5.14), libgmp-dev, libtest-requires-perl, perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl (>= 5.10.1)
+X: 0

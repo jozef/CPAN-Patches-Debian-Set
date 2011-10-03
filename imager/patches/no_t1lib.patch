@@ -1,0 +1,18 @@
+Description: pretend we can't build the T1lib module, even if libt1-dev is installed
+Origin: vendor
+Forwarded: no needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-29
+
+diff --git a/T1/Makefile.PL b/T1/Makefile.PL
+index d773f77..28b7900 100644
+--- a/T1/Makefile.PL
++++ b/T1/Makefile.PL
+@@ -80,6 +80,7 @@ my %probe =
+   );
+ 
+ my $probe_res = Imager::Probe->probe(\%probe);
++undef $probe_res; # we don't want to build the T1 lib, cf. #638762
+ if ($probe_res) {
+   $IMAGER_LIBS{T1} = 1;
+ 

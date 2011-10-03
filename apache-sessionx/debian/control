@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends: debhelper (>= 8), po-debconf
 Build-Depends-Indep: libapache-session-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libapache-session-perl, libdigest-md5-perl, libstorable-perl
 X: 0

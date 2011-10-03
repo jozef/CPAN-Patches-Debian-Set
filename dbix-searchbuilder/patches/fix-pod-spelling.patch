@@ -1,0 +1,27 @@
+Description: fix POD spelling
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=71121
+
+--- libdbix-searchbuilder-perl.orig/lib/DBIx/SearchBuilder.pm
++++ libdbix-searchbuilder-perl/lib/DBIx/SearchBuilder.pm
+@@ -1336,7 +1336,7 @@
+ =head3 GotoPage
+ 
+ Takes an integer number and jumps to that page or first page if
+-number ommitted. Numbering starts from zero.
++number omitted. Numbering starts from zero.
+ 
+ =cut
+ 
+--- libdbix-searchbuilder-perl.orig/lib/DBIx/SearchBuilder/Handle.pm
++++ libdbix-searchbuilder-perl/lib/DBIx/SearchBuilder/Handle.pm
+@@ -357,7 +357,7 @@
+ and returns query string and set of bind values.
+ 
+ This method is more useful for subclassing in DB specific
+-handles. L</Insert> method is prefered for end users.
++handles. L</Insert> method is preferred for end users.
+ 
+ =cut
+ 

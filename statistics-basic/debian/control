@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libnumber-format-perl (>= 1.61)
-Depends: ${misc:Depends}, ${perl:Depends}, libnumber-format-perl (>= 1.61)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libnumber-format-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnumber-format-perl
 X: 0

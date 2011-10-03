@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: cdbs (>= 0.4.39), debhelper (>= 5.0.44), devscripts (>= 2.10.7), dh-buildinfo, libc-client-dev, libkrb5-dev, libpam-dev, libssl-dev, patchutils (>= 0.2.25), perl, quilt
+Build-Depends: cdbs (>= 0.4.73~), debhelper (>= 6), devscripts (>= 2.10.7~), dh-buildinfo, libc-client-dev, libkrb5-dev, libpam-dev, libssl-dev, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

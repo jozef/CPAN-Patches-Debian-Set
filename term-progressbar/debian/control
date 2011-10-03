@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: cdbs, debhelper (>= 5)
+Build-Depends: debhelper (>= 7.3.7)
 Build-Depends-Indep: libclass-methodmaker-perl, libterm-readkey-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libclass-methodmaker-perl, libterm-readkey-perl
 X: 0

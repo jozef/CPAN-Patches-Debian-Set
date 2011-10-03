@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libastro-fits-cfitsio-perl (>= 1.01), perl (>= 5.6.1)
-Depends: ${misc:Depends}, ${perl:Depends}, libastro-fits-cfitsio-perl (>= 1.01-1)
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libastro-fits-cfitsio-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libastro-fits-cfitsio-perl
 X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libcpan-meta-perl, libdist-zilla-perl, libfile-homedir-perl (>= 0.81), libfile-pushd-perl, libmodule-metadata-perl, libmoose-autobox-perl, libmoose-perl (>= 0.65), libpath-class-perl, perl (>= 5.10.1)
+Depends: ${misc:Depends}, ${perl:Depends}, libcpan-meta-perl, libdist-zilla-perl, libfile-homedir-perl (>= 0.81), libmodule-metadata-perl, libmoose-autobox-perl, libmoose-perl (>= 0.65), libpath-class-perl, perl (>= 5.10.1)
+X: 0

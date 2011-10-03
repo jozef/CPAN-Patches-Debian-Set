@@ -1,0 +1,26 @@
+Author: Niko Tyni <ntyni@debian.org>
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Updated: 2010-10-12
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=60120
+Bug-Debian: http://bugs.debian.org/591132
+Subject: [PATCH] Fix E4X test failure with new SpiderMonkey versions
+ As of Mozilla 1.9.1.11, a pure XML element is not treated as valid
+ top level JavaScript but rather gets rejected with "XML cannot be the
+ whole program".
+ Work around this by throwing some valid JavaScript in the mix that
+ explicitly takes the value of the object.
+ See
+ http://hg.mozilla.org/releases/mozilla-1.9.1/rev/d4b2224cf458
+ http://hg.mozilla.org/releases/mozilla-1.9.1/rev/c4ba70070012
+
+--- a/t/26-e4x.t
++++ b/t/26-e4x.t
+@@ -19,7 +19,7 @@
+ my $context = $runtime->create_context();
+ 
+ my $ret = $context->eval(<<'EOP');
+-<xml>this is an E4X object</xml>
++(<xml>this is an E4X object</xml>).valueOf();
+ EOP
+ is($ret, '<xml>this is an E4X object</xml>');
+ 

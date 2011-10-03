@@ -1,0 +1,8 @@
+--- a/t/00sig.t
++++ b/t/00sig.t
+@@ -1,4 +1,4 @@
+ use lib 'inc';
+ use Test::More tests => 1;
+ use Test::Signature;
+-signature_ok();
++ok(1, "Skipping SIGNATURE test.");

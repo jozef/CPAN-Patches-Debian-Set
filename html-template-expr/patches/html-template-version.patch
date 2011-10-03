@@ -1,0 +1,19 @@
+Description: Remove version requirement for use HTML::Template
+ This breaks with use HTML::Template 2.10, since 2.1 < 2.4 ...
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/634582
+Forwarded: no, and the problem is more in HTML::Template#s version history
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-07-21
+
+--- a/Expr.pm
++++ b/Expr.pm
+@@ -5,7 +5,7 @@
+ 
+ $VERSION = '0.07';
+ 
+-use HTML::Template 2.4;
++use HTML::Template;
+ use Carp qw(croak confess carp);
+ use Parse::RecDescent;
+ 

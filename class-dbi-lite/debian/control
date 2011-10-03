@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcache-memcached-perl, libdbd-sqlite3-perl, libdbi-perl, libdbix-contextualfetch-perl, libima-dbi-contextual-perl, libsql-abstract-limit-perl, libsql-abstract-perl, libtest-memory-cycle-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbi-perl, libdbix-contextualfetch-perl, libima-dbi-contextual-perl, libsql-abstract-limit-perl, libsql-abstract-perl
+X: 0

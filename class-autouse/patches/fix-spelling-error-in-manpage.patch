@@ -1,0 +1,23 @@
+Fix a couple of spelling errors found by lintian
+Index: libclass-autouse-perl/lib/Class/Autouse.pm
+===================================================================
+--- libclass-autouse-perl.orig/lib/Class/Autouse.pm
++++ libclass-autouse-perl/lib/Class/Autouse.pm
+@@ -966,7 +966,7 @@
+ to use a subroutine directly, say with C<Class::method()>, the class will
+ not be loaded and a fatal error will mostly likely occur.
+
+-This limitation is made to allow more powerfull features in other areas,
++This limitation is made to allow more powerful features in other areas,
+ because we can focus on just loading the modules, and not have
+ to deal with importing.
+
+@@ -1145,7 +1145,7 @@
+
+ When Perl is unable to find a subroutine/method, and all of the class loaders
+ are exhausted, callbacks registered via sugar() are called.  The callbacks
+-recieve the class name, method name, and parameters of the call.
++receive the class name, method name, and parameters of the call.
+
+ If the callback returns nothing, Class::Autouse will continue to iterate through
+ other callbacks.  The first callback which returns a true value will

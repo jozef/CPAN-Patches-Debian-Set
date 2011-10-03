@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libconvert-asn1-perl, libconvert-pem-perl, libcrypt-des-ede3-perl, libdata-buffer-perl, libdata-random-perl, libfile-spec-perl, libfile-which-perl, libmath-bigint-gmp-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libconvert-asn1-perl, libconvert-pem-perl, libdata-buffer-perl, libfile-spec-perl, libfile-which-perl
+X: 0

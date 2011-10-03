@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.3.0)
+Build-Depends-Indep: libtest-exception-perl, libtest-mock-lwp-perl, liburi-perl (>= 1.53), libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liburi-perl (>= 1.53)
+X: 0

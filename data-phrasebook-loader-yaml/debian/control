@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdata-phrasebook-perl, libtest-distribution-perl, libtest-yaml-meta-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-phrasebook-perl, libyaml-perl
+X: 0

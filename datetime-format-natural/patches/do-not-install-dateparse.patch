@@ -1,20 +1,20 @@
 Description: do not install dateparse into /usr/bin
 Origin: vendor
-Author: Ansgar Burchardt <ansgar@43-1.org>
-Last-Updated: 2009-08-07
---- a/Build.PL
-+++ b/Build.PL
-@@ -30,7 +30,7 @@
-                    'Test::Pod' => '1.14',
-                    'Test::Pod::Coverage' => '1.04',
-                  },
+Author: Ansgar Burchardt <ansgar@debian.org>
+Last-Updated: 2011-06-02
+--- libdatetime-format-natural-perl.orig/Build.PL
++++ libdatetime-format-natural-perl/Build.PL
+@@ -32,7 +32,7 @@
+                        'Test::More' => 0,
+                      },
+    recommends => { 'Date::Calc' => 0 },
 -   script_files => [ 'scripts/dateparse' ],
 +#   script_files => [ 'scripts/dateparse' ],
     license => 'perl',
     create_readme => 1,
     create_makefile_pl => 'traditional',
---- a/Makefile.PL
-+++ b/Makefile.PL
+--- libdatetime-format-natural-perl.orig/Makefile.PL
++++ libdatetime-format-natural-perl/Makefile.PL
 @@ -5,9 +5,9 @@
            'PL_FILES' => {},
            'INSTALLDIRS' => 'site',

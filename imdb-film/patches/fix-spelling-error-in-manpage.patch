@@ -1,0 +1,29 @@
+Description: Fix spelling errors in manpage
+Origin: vendor
+Bug: http://rt.cpan.org/Ticket/Display.html?id=70702
+Forwarded: yes
+Author: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-09-02
+
+--- a/lib/IMDB/BaseClass.pm
++++ b/lib/IMDB/BaseClass.pm
+@@ -249,7 +249,7 @@
+ =item _cacheObj()
+ 
+ In case of using cache, we create new Cache::File object and store it in object's
+-propery. For more details about Cache::File please see Cache::Cache documentation.
++property. For more details about Cache::File please see Cache::Cache documentation.
+ 
+ =cut
+ 
+--- a/lib/IMDB/Persons.pm
++++ b/lib/IMDB/Persons.pm
+@@ -35,7 +35,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-IMDB::Persons allows to retrieve an information about
++IMDB::Persons allows one to retrieve an information about
+ IMDB persons (actors, actresses, directors etc): full name,
+ photo, date and place of birth, mini bio and filmography.
+ 

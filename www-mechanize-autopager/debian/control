@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libhtml-autopagerize-perl, libjson-perl (>= 2.09), libwww-mechanize-perl (>= 1.50), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-autopagerize-perl, libjson-perl (>= 2.09), libwww-mechanize-perl (>= 1.50)
+X: 0

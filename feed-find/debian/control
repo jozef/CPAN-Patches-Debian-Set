@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5.0.0)
-Build-Depends-Indep: libclass-errorhandler-perl, libmodule-build-perl, liburi-fetch-perl, liburi-perl, libwww-perl, perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-errorhandler-perl, liburi-fetch-perl, liburi-perl, libwww-perl
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libclass-errorhandler-perl, libtest-base-perl, liburi-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-errorhandler-perl, liburi-perl, libwww-perl
 X: 0

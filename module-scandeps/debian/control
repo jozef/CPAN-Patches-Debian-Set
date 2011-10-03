@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libmodule-pluggable-perl, libprefork-perl, libtest-pod-perl, perl (>= 5.10.0) | libmodule-build-perl (>= 0.28)
-Depends: ${misc:Depends}, ${perl:Depends}, perl (>= 5.10.0) | libmodule-build-perl (>= 0.28)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libprefork-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

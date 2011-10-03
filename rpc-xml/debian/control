@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libnet-server-perl, libwww-perl (>= 5.834), libxml-libxml-perl (>= 1.70), libxml-parser-perl (>= 2.31), netbase, perl (>= 5.10.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libwww-perl (>= 5.834), libxml-parser-perl (>= 2.31) | libxml-libxml-perl (>= 1.70)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdatetime-format-iso8601-perl (>= 0.07), libhttp-daemon-perl | libwww-perl (<< 6), libnet-server-perl, libwww-perl (>= 5.834), libxml-libxml-perl (>= 1.70), libxml-parser-perl, netbase, perl (>= 5.12) | libtest-simple-perl (>= 0.94)
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-format-iso8601-perl (>= 0.07), libhttp-daemon-perl | libwww-perl (<< 6), libwww-perl (>= 5.834), libxml-parser-perl | libxml-libxml-perl (>= 1.70)
 X: 0

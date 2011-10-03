@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libclass-singleton-perl, libdatetime-perl, libparams-validate-perl, libtest-output-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-singleton-perl, libparams-validate-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-load-perl, libclass-singleton-perl, libdatetime-perl, libparams-validate-perl, libtest-output-perl, perl (>= 5.10.1) | libparent-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-load-perl, libclass-singleton-perl, libparams-validate-perl, perl (>= 5.10.1) | libparent-perl
 X: 0

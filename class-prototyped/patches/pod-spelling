@@ -1,0 +1,14 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Fix spelling error in POD documentation
+
+--- libclass-prototyped-perl.orig/lib/Class/Prototyped.pm
++++ libclass-prototyped-perl/lib/Class/Prototyped.pm
+@@ -2315,7 +2315,7 @@
+       sub1 => sub { print "this is sub1 in p2" },
+   );
+ 
+-It calls C<newCore> to create the new object*, so if you have overriden C<new>, 
++It calls C<newCore> to create the new object*, so if you have overridden C<new>, 
+ you should contemplate overriding C<clone> in order to ensure that behavioral 
+ changes made to C<new> that would be applicable to C<clone> are implemented.  Or 
+ simply override C<newCore>.

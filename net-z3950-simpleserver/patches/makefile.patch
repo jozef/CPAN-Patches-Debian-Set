@@ -1,0 +1,25 @@
+Description: only install the perl modules to the libdir, not the example test scripts
+Origin: vendor
+Forwarded: not-needed
+Author: Ben Webb <bjwebb67@googlemail.com>
+Last-Update: 2011-08-05
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -2,7 +2,7 @@
+ 
+ # Use: perl Makefile.PL OPTIMIZE="-O0 -g -Wdeclaration-after-statement"
+ 
+-my $yazconf = "../yaz/yaz-config";
++my $yazconf = "/usr/bin/yaz-config";
+ my $yazver = `$yazconf --version`;
+ my $yazinc = `$yazconf --cflags servers`;
+ my $yazlibs = `$yazconf --libs server`;
+@@ -40,4 +40,7 @@
+     'DEFINE'	=> '',     # e.g., '-DHAVE_SOMETHING' 
+     'INC'	=> $yazinc,     # e.g., '-I/usr/include/other' 
+ #    OPTIMIZE   => "-Wdeclaration-after-statement -g -O0",
++    'PM'        => {'GRS1.pm' => '$(INST_LIBDIR)/GRS1.pm',
++                    'OID.pm' => '$(INST_LIBDIR)/OID.pm',
++                    'SimpleServer.pm' => '$(INST_LIBDIR)/SimpleServer.pm'}
+ );

@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 8), libcddb-file-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libcddb-file-perl
+X: 0

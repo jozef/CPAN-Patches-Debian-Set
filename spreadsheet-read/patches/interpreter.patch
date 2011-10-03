@@ -1,0 +1,15 @@
+Description: fix path
+Forwarded: not-needed
+Origin: vendor
+Author: gregor herrmann <gregoa@debian.org>
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-10-12
+
+--- a/Read.pm
++++ b/Read.pm
+@@ -1,4 +1,4 @@
+-#!/pro/bin/perl
++#!/usr/bin/perl
+ 
+ package Spreadsheet::Read;
+ 

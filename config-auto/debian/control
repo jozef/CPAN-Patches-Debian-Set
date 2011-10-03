@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5.0.0)
-Build-Depends-Indep: libconfig-inifiles-perl, libtest-pod-perl (>= 1.14), libxml-simple-perl, libyaml-perl (>= 0.57), perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libconfig-inifiles-perl, libxml-simple-perl, libyaml-perl (>= 0.57-2)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libconfig-inifiles-perl, libio-string-perl, libtest-pod-perl, libxml-simple-perl, libyaml-perl (>= 0.67), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-inifiles-perl, libio-string-perl, libxml-simple-perl, libyaml-perl (>= 0.67)
 X: 0

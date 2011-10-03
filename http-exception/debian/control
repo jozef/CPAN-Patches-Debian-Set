@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libexception-class-perl (>= 1.29), libscalar-list-utils-perl (>= 1.22), libtest-exception-perl (>= 0.29), libwww-perl (>= 5.817), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libexception-class-perl (>= 1.29), libscalar-list-utils-perl (>= 1.22), libwww-perl (>= 5.817)
+X: 0

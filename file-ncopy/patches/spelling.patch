@@ -1,0 +1,17 @@
+Description: fix a spelling mistaked
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-18
+
+--- a/lib/File/NCopy.pm
++++ b/lib/File/NCopy.pm
+@@ -80,7 +80,7 @@
+ recursive flag is set then it is done recursively like B<cp -R>.
+ In fact it behaves like cp on Unix for the most part.
+ If called in array context, an array of successful copies is returned,
+-otherwise the number of succesful copies is returned.  If passed a file
++otherwise the number of successful copies is returned.  If passed a file
+ handle, it's difficult to make sure the file we are copying isn't the
+ same that we are copying to, since by opening the file in write mode it
+ gets pooched.  To avoid this use file names instead, if at all possible,

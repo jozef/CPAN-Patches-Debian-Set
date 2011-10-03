@@ -1,9 +1,13 @@
-Author: <gregor+debian@comodo.priv.at>
-Description: fix problems with dates in XML::Feed:Atom;
-Cf. #380498
+Author: Gregor Herrmann <gregoa@debian.org>
+Subject: fix problems with dates in XML::Feed:Atom;
+ Note according to changelog for 0.21 this was only partly adopted upstream
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=380498
+Bug: http://rt.cpan.org/Ticket/Display.html?id=20763
+Last-Update: 2011-07-17
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 --- a/lib/XML/Feed/Format/Atom.pm
 +++ b/lib/XML/Feed/Format/Atom.pm
-@@ -260,7 +260,9 @@
+@@ -268,7 +268,9 @@
      if (@_) {
          $entry->{entry}->issued(DateTime::Format::W3CDTF->format_datetime($_[0])) if $_[0];
      } else {

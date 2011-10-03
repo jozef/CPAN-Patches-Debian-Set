@@ -1,0 +1,59 @@
+Description: fix a soelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-09-20
+
+--- a/lib/Net/Server/Fork.pm
++++ b/lib/Net/Server/Fork.pm
+@@ -355,7 +355,7 @@
+ 
+ =item C<$self-E<gt>run_dequeue()>
+ 
+-This hook only gets called in conjuction with the
++This hook only gets called in conjunction with the
+ check_for_dequeue setting.
+ 
+ =back
+--- a/lib/Net/Server/Multiplex.pm
++++ b/lib/Net/Server/Multiplex.pm
+@@ -450,7 +450,7 @@
+ 
+ =item C<$self-E<gt>run_dequeue()>
+ 
+-This hook only gets called in conjuction with the check_for_dequeue
++This hook only gets called in conjunction with the check_for_dequeue
+ setting.  It will run every check_for_dequeue seconds.  Since no
+ forking is done, this hook should run fast in order to prevent
+ blocking the rest of the processing.
+@@ -469,7 +469,7 @@
+ 
+ $fh may be either a client socket or a listen socket file descriptor
+ within the mux.  $seconds_from_now may be fractional to achieve
+-more precise timeouts.  This is used in conjuction with mux_timeout,
++more precise timeouts.  This is used in conjunction with mux_timeout,
+ which you should define yourself.
+ 
+ =head2 mux_timeout
+--- a/lib/Net/Server/PreForkSimple.pm
++++ b/lib/Net/Server/PreForkSimple.pm
+@@ -623,7 +623,7 @@
+ 
+ =item C<$self-E<gt>run_dequeue()>
+ 
+-This hook only gets called in conjuction with the
++This hook only gets called in conjunction with the
+ check_for_dequeue setting.
+ 
+ =item C<$self-E<gt>idle_loop_hook()>
+--- a/lib/Net/Server/SIG.pm
++++ b/lib/Net/Server/SIG.pm
+@@ -162,7 +162,7 @@
+ Takes key/value pairs where the key is the signal name, and the 
+ argument is either a code ref, or the words 'DEFAULT' or
+ 'IGNORE'.  The function register_sig must be used in
+-conjuction with check_sigs, and with a blocking select() function
++conjunction with check_sigs, and with a blocking select() function
+ call -- otherwise, you will observe the registered signal
+ mysteriously vanish.
+ 

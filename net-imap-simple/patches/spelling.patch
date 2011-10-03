@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-11-20
+
+--- a/contrib/SimpleX.pod
++++ b/contrib/SimpleX.pod
+@@ -73,7 +73,7 @@
+ 
+ 
+ For multipart messages, the object contains sub-objects for each message part,
+-accessable via the parts() method and inspected via the has_parts() method.
++accessible via the parts() method and inspected via the has_parts() method.
+ The type method describes the type of multipart (such as mixed or alternative).
+ The parts method returns a list of sub parts, which themselves may have
+ subparts, and so on.

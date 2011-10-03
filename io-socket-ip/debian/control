@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8), perl
+Build-Depends-Indep: libio-socket-inet6-perl, libsocket-getaddrinfo-perl, libtest-pod-perl, netbase
+Depends: ${misc:Depends}, ${perl:Depends}, libsocket-getaddrinfo-perl, netbase, perl
+X: 0

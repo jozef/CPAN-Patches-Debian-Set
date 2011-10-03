@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libregexp-reggrp-perl (>= 1.002), libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libregexp-reggrp-perl (>= 1.002)
 X: 0

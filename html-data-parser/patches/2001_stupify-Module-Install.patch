@@ -1,0 +1,25 @@
+Description: Cripple Module::Install to not be too smart
+ Verification process chokes on debian/ subdir and (obviously) patches
+ to upstream code.
+ .
+ Also, Debian forbid network access during build.
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2011-05-26
+--- a/t/00sig.t
++++ /dev/null
+@@ -1,4 +0,0 @@
+-use lib 'inc';
+-use Test::More tests => 1;
+-use Test::Signature;
+-signature_ok();
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -38,8 +38,6 @@
+ write_doap_changes;
+ write_doap_changes_xml;
+ 
+-include 'Test::Signature';
+-auto_install;
+ WriteAll(
+ 	'meta' => 1,
+ 	'sign' => 1,

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libyaml-syck-perl | libyaml-perl (>= 0.38), perl (>= 5.6.10-12)
 Depends: ${misc:Depends}, ${perl:Depends}, libyaml-syck-perl | libyaml-perl (>= 0.38)
 X: 0

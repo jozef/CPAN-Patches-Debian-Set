@@ -1,0 +1,18 @@
+Description: don't use FieldHash Compat module
+ Upstream depends on Hash::Util::FieldHash::Compat, which is not
+ packaged in Debian since it is not required for the versions of
+ Perl available in Debian.
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: not-needed
+--- a/lib/MooseX/InsideOut/Role/Meta/Instance.pm
++++ b/lib/MooseX/InsideOut/Role/Meta/Instance.pm
+@@ -5,7 +5,7 @@
+ 
+ use Moose::Role;
+ 
+-use Hash::Util::FieldHash::Compat qw(fieldhash);
++use Hash::Util::FieldHash qw(fieldhash);
+ use Scalar::Util qw(refaddr weaken);
+ use namespace::clean -except => 'meta';
+ 

@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.17), libdata-integer-perl (>= 0.003), libscalar-string-perl, perl (>= 5.10) | libmodule-build-perl
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdata-integer-perl (>= 0.003), libscalar-string-perl
+Build-Depends: debhelper (>= 8), libdata-integer-perl, libdigest-crc-perl, libscalar-string-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.10.1) | libparent-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libdata-integer-perl, libdigest-crc-perl, libscalar-string-perl, perl (>= 5.10.1) | libparent-perl
 X: 0

@@ -1,0 +1,42 @@
+Description: fix POD spelling
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/PostScript/File.pm
++++ b/lib/PostScript/File.pm
+@@ -2147,7 +2147,7 @@
+ 
+ Setting this to C<cp1252> or C<iso-8859-1> also causes the document to
+ be encoded in that character set.  Any strings you add to the document
+-that have the UTF8 flag set will be reencoded automatically.  Strings
++that have the UTF8 flag set will be re-encoded automatically.  Strings
+ that do not have the UTF8 flag are expected to be in the correct
+ character set already.  This means that you should be able to set this
+ to C<cp1252>, use Unicode characters in your code and the "-iso"
+@@ -2162,7 +2162,7 @@
+ L<http://en.wikipedia.org/wiki/Windows-1252>
+ 
+ For backwards compatibility with versions of PostScript::File older
+-than 1.05, setting this to C<ISOLatin1Encoding> reencodes the fonts,
++than 1.05, setting this to C<ISOLatin1Encoding> re-encodes the fonts,
+ but does not do any character set translation in the document.
+ 
+ =head2 Initialization keys
+@@ -2202,7 +2202,7 @@
+ 
+ =head3 font_suffix
+ 
+-This string is appended to each font name as it is reencoded.  (Default: "-iso")
++This string is appended to each font name as it is re-encoded.  (Default: "-iso")
+ 
+ The string value is appended to these to make the new names.
+ 
+@@ -2890,7 +2890,7 @@
+ Code added here is output before each page.  As there is no special provision for %%Page... DSC comments, they
+ should be included here.
+ 
+-Note that any settings defined here will be active for each page seperately.  Use B<add_setup> if you want to
++Note that any settings defined here will be active for each page separately.  Use B<add_setup> if you want to
+ carry settings from one page to another.
+ 
+ =head2 get_page( [page] )

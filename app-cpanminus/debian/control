@@ -1,0 +1,5 @@
+App: cpanminus
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: perl (>= 5.10.1) | libextutils-install-perl
+Depends: ${misc:Depends}, ${perl:Depends}, perl (>= 5.10.1) | libextutils-install-perl
+X: 0

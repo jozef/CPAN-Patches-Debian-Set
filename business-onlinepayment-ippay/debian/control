@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5)
-Build-Depends-Indep: libbusiness-onlinepayment-perl (>= 3.00~09), libnet-ssleay-perl (>=1.30) | libwww-perl, libtie-ixhash-perl, liburi-perl, libxml-simple-perl, libxml-writer-perl, perl (>= 5.6.10-12)
-Depends: ${misc:Depends}, ${perl:Depends}, libbusiness-onlinepayment-perl (>= 3.00~09), libnet-ssleay-perl (>=1.30) | libwww-perl, libtie-ixhash-perl, liburi-perl, libxml-simple-perl, libxml-writer-perl
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libbusiness-onlinepayment-perl, libnet-ssleay-perl| libwww-perl, libtie-ixhash-perl, liburi-perl, libxml-simple-perl, libxml-writer-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libbusiness-onlinepayment-perl, libnet-ssleay-perl| libwww-perl, libtie-ixhash-perl, liburi-perl, libxml-simple-perl, libxml-writer-perl
 X: 0

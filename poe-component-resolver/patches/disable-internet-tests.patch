@@ -1,0 +1,26 @@
+Description: disable tests requiring networking
+ If networking is down during the name resolution tests, or there
+ is no Internet access available on the build system, the package
+ will fail to build from source.
+ .
+ Thus, we require HAS_INTERNET to be a true value before testing.
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: not-needed
+--- a/t/01-basic.t
++++ b/t/01-basic.t
+@@ -2,7 +2,13 @@
+ 
+ use warnings;
+ use strict;
+-use Test::More tests => 4;
++use Test::More;
++
++unless ($ENV{HAS_INTERNET}) {
++  plan skip_all => 'Set HAS_INTERNET to enable tests requiring Internet';
++}
++
++plan tests => 4;
+ 
+ sub POE::Kernel::ASSERT_DEFAULT () { 1 }
+ 

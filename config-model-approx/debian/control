@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libconfig-model-perl (>= 0.637), liblog-log4perl-perl, libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libconfig-model-perl (>= 0.637), liblog-log4perl-perl
+Build-Depends: debhelper (>= 8), libmodule-build-perl (>= 0.380000) | perl (>= 5.13.11)
+Build-Depends-Indep: libconfig-model-perl (>= 1.245), libfile-slurp-perl, liblog-log4perl-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-model-perl (>= 1.245), liblog-log4perl-perl
 X: 0

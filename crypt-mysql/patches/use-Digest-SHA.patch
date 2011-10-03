@@ -1,0 +1,62 @@
+Description: Use Digest::SHA, which is in perl core since
+ 5.9.3 instead of Digest::SHA1. This allows to drop 
+ libdigest-sha1-perl (Build-)Depends.
+ See: http://bugs.debian.org/594273
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=59918
+Forwarded: yes
+Author: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-08-11
+
+--- a/Build.PL
++++ b/Build.PL
+@@ -9,7 +9,7 @@
+     dist_version_from   => 'lib/Crypt/MySQL.pm',
+     requires => {
+         'Test::More' => 0,
+-        'Digest::SHA1' => 0,
++        'Digest::SHA' => 0,
+     },
+     add_to_cleanup      => [ 'Crypt-MySQL-*' ],
+ );
+--- a/META.yml
++++ b/META.yml
+@@ -5,7 +5,7 @@
+ version_from: lib/Crypt/MySQL.pm
+ installdirs:  site
+ requires:
+-    Digest::SHA1:                  0
++    Digest::SHA:                  0
+     Test::More:                    0
+ 
+ distribution_type: module
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -11,7 +11,7 @@
+     PL_FILES            => {},
+     PREREQ_PM => {
+         'Test::More' => 0,
+-        'Digest::SHA1' => 0,
++        'Digest::SHA' => 0,
+     },
+     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+     clean               => { FILES => 'Crypt-MySQL-*' },
+--- a/lib/Crypt/MySQL.pm
++++ b/lib/Crypt/MySQL.pm
+@@ -2,7 +2,7 @@
+ 
+ use strict;
+ use vars qw($VERSION @ISA @EXPORT_OK);
+-use Digest::SHA1 qw(sha1 sha1_hex);
++use Digest::SHA qw(sha1 sha1_hex);
+ 
+ BEGIN {
+     $VERSION = '0.04';
+@@ -50,6 +50,6 @@
+ 
+ =head1 SEE ALSO
+ 
+-L<DBD::mysql> L<Digest::SHA1>
++L<DBD::mysql> L<Digest::SHA>
+ 
+ =cut

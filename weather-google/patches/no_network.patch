@@ -1,0 +1,115 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Skip most tests if there is no network
+Forwarded: not needed
+Last-Update: 2010-11-04
+--- a/t/01init.t
++++ b/t/01init.t
+@@ -2,8 +2,14 @@
+ 
+ use strict;
+ use warnings;
+-
+-use Test::Simple tests => 10;
++use Test::More;
++if ($ENV{TEST_WITH_NETWORK}) {
++    plan tests => 10;
++}
++else {
++    plan skip_all => "ignoring tests that depend on network";
++    exit(0);
++}
+ 
+ use Weather::Google;
+ 
+@@ -22,3 +28,4 @@
+ ok ( $g = new Weather::Google('Beverly Hills, CA'), 'new(city)');
+ ok( defined $g );
+ ok( $g->isa('Weather::Google') );
++
+--- a/t/02current_conditions.t
++++ b/t/02current_conditions.t
+@@ -1,10 +1,16 @@
+-#!/usr/bin/perl -Tw
++#!/usr/bin/perl -w
+ 
+ use strict;
+ use warnings;
+ 
+-use Test::More tests => 41;
+-
++use Test::More;
++if ($ENV{TEST_WITH_NETWORK}) {
++    plan tests => 41;
++}
++else {
++    plan skip_all => "ignoring tests that depend on network";
++    exit(0);
++}
+ use Weather::Google;
+ 
+ my $g = new Weather::Google(90210);
+@@ -37,4 +43,3 @@
+ ok( @b = $g->current(@test) );
+ is( @a, @b, "Arrays work" );
+ 
+-
+--- a/t/03forecast_conditions.t
++++ b/t/03forecast_conditions.t
+@@ -6,6 +6,10 @@
+ use Weather::Google;
+ 
+ use Test::More;
++if (not $ENV{TEST_WITH_NETWORK}) {
++    plan skip_all => "ignoring tests that depend on network";
++    exit(0);
++}
+ 
+ # There are 5+3(n)+(3*11)(n) tests. 
+ 
+@@ -73,4 +77,3 @@
+ 	ok( @b = $g->forecast($m,@test) );
+ 	is( @a, @b, "Arrays work" );
+ }
+-
+--- a/t/04forecast_information.t
++++ b/t/04forecast_information.t
+@@ -3,8 +3,15 @@
+ use strict;
+ use warnings;
+ 
+-use Test::More tests => 26;
++use Test::More;
+ 
++if ($ENV{TEST_WITH_NETWORK}) {
++    plan tests => 26;
++}
++else {
++    plan skip_all => "ignoring tests that depend on network";
++    exit(0);
++}
+ use Weather::Google;
+ 
+ my $g = new Weather::Google(90210);
+@@ -35,4 +42,3 @@
+ ok( @b = $g->info(@test) );
+ is( @a, @b, "Arrays work" );
+ 
+-
+--- a/t/05language.t
++++ b/t/05language.t
+@@ -3,7 +3,14 @@
+ use strict;
+ use warnings;
+ 
+-use Test::More tests => 12;
++use Test::More;
++if ($ENV{TEST_WITH_NETWORK}) {
++    plan tests => 12;
++}
++else {
++    plan skip_all => "ignoring tests that depend on network";
++    exit(0);
++}
+ use Test::Warn;
+ 
+ use Weather::Google;

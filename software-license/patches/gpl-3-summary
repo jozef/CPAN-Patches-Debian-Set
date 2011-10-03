@@ -1,0 +1,17 @@
+Description: gpl3 summary
+--- a/lib/Software/License/GPL_3.pm
++++ b/lib/Software/License/GPL_3.pm
+@@ -40,6 +40,13 @@
+ 
+ 
+ __DATA__
++__DEBIAN-SUMMARY__
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; version 3 dated June, 2007.
++
++On Debian systems, the complete text of version 3 of the GNU General
++Public License can be found in '/usr/share/common-licenses/GPL-3'.
+ __LICENSE__
+                     GNU GENERAL PUBLIC LICENSE
+                        Version 3, 29 June 2007

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libb-hooks-op-annotation-perl, libextutils-parsexs-perl (>= 2.210000), libmodule-install-perl (>= 0.91), perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libb-hooks-op-annotation-perl, libextutils-parsexs-perl (>= 2.210000) | perl (>= 5.14), libmodule-install-perl (>= 0.91), perl (>= 5.10.1)
 Depends: ${misc:Depends}, ${perl:Depends}, libmodule-install-perl (>= 0.91)
 X: 0

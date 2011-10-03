@@ -1,0 +1,39 @@
+Author: 
+Description: this patch was created by Carsten Wolff <carsten@wolffcarsten.de>
+It should be removed after the problem is fixed in libnet-cidr-perl
+--- a/lib/Net/Server.pm
++++ b/lib/Net/Server.pm
+@@ -824,25 +824,29 @@
+     && $#{ $prop->{cidr_allow} } == -1
+     && $#{ $prop->{cidr_deny} }  == -1;
+ 
++  ### work around Net::CIDR::cidrlookup() croaking,
++  ### if first parameter is an IPv4 address in IPv6 notation.
++  my $peeraddr = ($prop->{peeraddr} =~ /^\s*::ffff:([0-9.]+\s*)$/) ? $1 : $prop->{peeraddr};
++
+   ### if the addr or host matches a deny, reject it immediately
+   foreach ( @{ $prop->{deny} } ){
+     return 0 if $prop->{peerhost} =~ /^$_$/ && defined($prop->{reverse_lookups});
+-    return 0 if $prop->{peeraddr} =~ /^$_$/;
++    return 0 if $peeraddr =~ /^$_$/;
+   }
+   if ($#{ $prop->{cidr_deny} } != -1) {
+     require Net::CIDR;
+-    return 0 if Net::CIDR::cidrlookup($prop->{peeraddr}, @{ $prop->{cidr_deny} });
++    return 0 if Net::CIDR::cidrlookup($peeraddr, @{ $prop->{cidr_deny} });
+   }
+ 
+ 
+   ### if the addr or host isn't blocked yet, allow it if it is allowed
+   foreach ( @{ $prop->{allow} } ){
+     return 1 if $prop->{peerhost} =~ /^$_$/ && defined($prop->{reverse_lookups});
+-    return 1 if $prop->{peeraddr} =~ /^$_$/;
++    return 1 if $peeraddr =~ /^$_$/;
+   }
+   if ($#{ $prop->{cidr_allow} } != -1) {
+     require Net::CIDR;
+-    return 1 if Net::CIDR::cidrlookup($prop->{peeraddr}, @{ $prop->{cidr_allow} });
++    return 1 if Net::CIDR::cidrlookup($peeraddr, @{ $prop->{cidr_allow} });
+   }
+ 
+   return 0;

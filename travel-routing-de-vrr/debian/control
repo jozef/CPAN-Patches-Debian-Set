@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8), perl (>= 5.11.3) | libmodule-build-perl (>= 0.360000)
+Build-Depends-Indep: libclass-accessor-perl, libexception-class-perl, libtest-compile-perl, libtest-fatal-perl, libtest-pod-perl, libwww-perl, libxml-libxml-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl, libexception-class-perl, libwww-perl, libxml-libxml-perl, perl (>= 5.10.1)
+X: 0

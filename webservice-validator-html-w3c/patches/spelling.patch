@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling
+Bug: http://rt.cpan.org/Ticket/Display.html?id=69998
+Last-Update: 2011-08-04
+--- a/lib/WebService/Validator/HTML/W3C.pm
++++ b/lib/WebService/Validator/HTML/W3C.pm
+@@ -143,7 +143,7 @@
+ 
+ =head2 Alternate interface
+ 
+-You can also pass a hash in to specify what you wish to validate. This is provided to ensure compatability with the CSS validator module.
++You can also pass a hash in to specify what you wish to validate. This is provided to ensure compatibility with the CSS validator module.
+ 
+ 	$v->validate( uri => 'http://example.com/' );
+ 	$v->validate( string => $markup );

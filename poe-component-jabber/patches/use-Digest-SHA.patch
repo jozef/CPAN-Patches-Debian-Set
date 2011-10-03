@@ -1,0 +1,63 @@
+Description: Use Digest::SHA instead of Digest::SHA1. 
+ See: http://bugs.debian.org/594273
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=68010
+Forwarded: yes
+Author: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-08-09
+
+--- a/lib/POE/Component/Jabber/J14.pm
++++ b/lib/POE/Component/Jabber/J14.pm
+@@ -8,7 +8,7 @@
+ use POE::Filter::XML;
+ use POE::Filter::XML::Node;
+ use POE::Filter::XML::NS qw/ :JABBER :IQ /;
+-use Digest::SHA1 qw/ sha1_hex /;
++use Digest::SHA qw/ sha1_hex /;
+ 
+ use base('POE::Component::Jabber::Protocol');
+ 
+--- a/lib/POE/Component/Jabber/Legacy.pm
++++ b/lib/POE/Component/Jabber/Legacy.pm
+@@ -8,7 +8,7 @@
+ use POE::Filter::XML;
+ use POE::Filter::XML::Node;
+ use POE::Filter::XML::NS qw/ :JABBER :IQ /;
+-use Digest::SHA1 qw/ sha1_hex /;
++use Digest::SHA qw/ sha1_hex /;
+ 
+ use base('POE::Component::Jabber::Protocol');
+ 
+--- a/lib/POE/Component/Jabber.pm
++++ b/lib/POE/Component/Jabber.pm
+@@ -410,7 +410,7 @@
+     $self->[+_pcj_sid] = 0;
+     $self->[+_pcj_pending] = {};
+     $self->[+_pcj_init_finished] = 0;
+-    $self->[+_pcj_id] ||= Digest::SHA1->new();
++    $self->[+_pcj_id] ||= Digest::SHA->new();
+     $self->[+_pcj_id]->add(time().rand().$$.rand().$^T.rand());
+     $self->[+_pcj_wheel] = undef;
+     $self->[+_pcj_sfwheel] = undef;
+--- a/Build.PL
++++ b/Build.PL
+@@ -73,7 +73,7 @@
+ 	{
+ 		'perl'	=>	'5.10.0',
+ 		'POE'	=>	'1.003',
+-		'Digest::SHA1' => '2.11',
++		'Digest::SHA' => '0',
+ 		'Authen::SASL' => '2.12',
+ 		'MIME::Base64' => '3.07_01',
+ 		'POE::Filter::XML' => '0.35',
+--- a/META.yml
++++ b/META.yml
+@@ -8,7 +8,7 @@
+   license: http://opensource.org/licenses/gpl-license.php
+ requires:
+   Authen::SASL: 2.12
+-  Digest::SHA1: 2.11
++  Digest::SHA: 0
+   MIME::Base64: 3.07_01
+   POE: 1.003
+   POE::Component::PubSub: 0.05

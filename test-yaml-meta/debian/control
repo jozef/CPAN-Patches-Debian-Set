@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libtest-pod-coverage-perl, libtest-pod-perl, libtest-yaml-valid-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libtest-yaml-valid-perl (>= 0.03)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libtest-cpan-meta-yaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtest-cpan-meta-yaml-perl
 X: 0

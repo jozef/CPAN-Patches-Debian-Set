@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: liblist-moreutils-perl, libparams-util-perl (>= 0.25), libppi-perl, libreadonly-perl, libtask-weaken-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libparams-util-perl (>= 0.25), libppi-perl, libreadonly-perl, libtask-weaken-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: liblist-moreutils-perl, libppi-perl, libtask-weaken-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libppi-perl, libtask-weaken-perl
 X: 0

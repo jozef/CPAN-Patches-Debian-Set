@@ -1,0 +1,26 @@
+Description: fix POD spelling errors
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=69653
+--- a/lib/Catalyst/Plugin/Server/XMLRPC.pm
++++ b/lib/Catalyst/Plugin/Server/XMLRPC.pm
+@@ -761,7 +761,7 @@
+ You can change this to any C<Regex> wish.
+ 
+ The default is: C<qr!^(/?)rpc(/|$)!i>, which matches on a top-level path
+-begining with C<rpc> preceeded or followed by an optional C</>, like this:
++beginning with C<rpc> preceded or followed by an optional C</>, like this:
+ 
+     http://your-host.tld/rpc
+ 
+--- a/lib/Catalyst/Plugin/Server/XMLRPC/Tutorial.pod
++++ b/lib/Catalyst/Plugin/Server/XMLRPC/Tutorial.pod
+@@ -119,7 +119,7 @@
+         ...
+     }
+     
+-    ### avaiable as goto_global
++    ### available as goto_global
+     sub goto_global : XMLRPCGlobal {
+         my ($self, $c, @args) = @_;
+         ...

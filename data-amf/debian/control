@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libany-moose-perl, libdatetime-perl, libuniversal-require-perl, libxml-libxml-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl, libdatetime-perl, libuniversal-require-perl, libxml-libxml-perl
+X: 0

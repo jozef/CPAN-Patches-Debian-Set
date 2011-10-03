@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libtest-script-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

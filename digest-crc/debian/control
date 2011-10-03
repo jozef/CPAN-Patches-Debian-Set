@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 6), perl (>= 5.8)
+Build-Depends: debhelper (>= 8), dpkg-dev (>= 1.15.4), perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libdbd-sqlite3-perl, libdbix-class-perl, libnetaddr-ip-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbix-class-perl, libnetaddr-ip-perl
+X: 0

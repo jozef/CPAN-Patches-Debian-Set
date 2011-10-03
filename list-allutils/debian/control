@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8), liblist-moreutils-perl (>= 0.22), quilt (>= 0.48-2~)
+Build-Depends-Indep: perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl (>= 0.22)
+X: 0

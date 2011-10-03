@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libhttp-message-perl, libplack-perl, libtest-tcp-perl, liburi-perl, libwww-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.89)
+Depends: ${misc:Depends}, ${perl:Depends}, libhttp-message-perl, libplack-perl, libtest-tcp-perl, liburi-perl, libwww-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.89)
+X: 0

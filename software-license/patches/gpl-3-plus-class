@@ -1,0 +1,22 @@
+Description: new class for gpl3 plus summary
+--- /dev/null
++++ b/lib/Software/License/GPL_3_plus.pm
+@@ -0,0 +1,18 @@
++use strict;
++use warnings;
++package Software::License::GPL_3_plus;
++
++use base 'Software::License::GPL_3';
++
++sub name { 'The GNU General Public License, Version 3 or later' }
++
++1;
++__DATA__
++__DEBIAN-SUMMARY__
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; version 3 dated June, 2007, or (at your
++option) any later version.
++
++On Debian systems, the complete text of version 3 of the GNU General
++Public License can be found in '/usr/share/common-licenses/GPL-3'.

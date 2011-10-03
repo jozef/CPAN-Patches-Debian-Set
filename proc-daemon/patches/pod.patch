@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: bad grammar
+Last-Update: 2011-06-01
+Forwarded: no
+--- a/lib/Proc/Daemon.pod
++++ b/lib/Proc/Daemon.pod
+@@ -144,7 +144,7 @@
+ 
+ Sets the real user identifier (C<< $< >>) and the effective user identifier
+ (C<< $> >>) for the daemon process using C<POSIX::setuid( ... )>, in case you
+-want to run your daemon under an other user then the parent. Obviously the
++want to run your daemon under a different user from the parent. Obviously the
+ first user must have the rights to switch to the new user otherwise it will
+ stay the same. It is helpful to define the argument C<setuid> if you start your
+ script at boot time by init with the superuser, but wants the daemon to run

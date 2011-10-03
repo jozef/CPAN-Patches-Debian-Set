@@ -1,0 +1,33 @@
+Description: fix bad-whatis-entry warnings
+Forwarded: no
+Author: AGOSTINI Yves
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-09-30
+
+--- a/lib/Module/Install/With.pm
++++ b/lib/Module/Install/With.pm
+@@ -12,8 +12,13 @@
+ 	$ISCORE  = 1;
+ }
+ 
++=pod
+ 
++=head1 NAME
+ 
++Module::Install::With - find environnement for Module::Install
++
++=cut
+ 
+ 
+ #####################################################################
+--- a/lib/Module/Install/Admin/Include.pm
++++ b/lib/Module/Install/Admin/Include.pm
+@@ -59,7 +59,7 @@
+ 
+ =head1 NAME
+ 
+-Module::Install::Admin::Include
++Module::Install::Admin::Include - include methods for Module::Install
+ 
+ =head2 auto_include_dependent_dists
+ 

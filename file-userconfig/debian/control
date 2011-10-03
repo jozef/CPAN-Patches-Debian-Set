@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libfile-copy-recursive-perl, libfile-homedir-perl, libfile-remove-perl (>= 1.42), libfile-sharedir-perl (>= 1.00), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-copy-recursive-perl, libfile-homedir-perl, libfile-sharedir-perl (>= 1.00)
+X: 0

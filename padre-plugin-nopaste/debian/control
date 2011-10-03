@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~), libmodule-build-perl (>= 0.360000)
+Build-Depends-Indep: libapp-nopaste-perl, libmodule-util-perl, libparent-perl, libtest-pod-coverage-perl, libtest-pod-perl, padre-plugin-api-2, perl, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libapp-nopaste-perl, libmodule-util-perl, libparent-perl, padre-plugin-api-2
+X: 1

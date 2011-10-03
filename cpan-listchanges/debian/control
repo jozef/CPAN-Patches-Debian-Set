@@ -1,0 +1,5 @@
+App: cpan-listchanges
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libalgorithm-diff-perl, libcpan-distnameinfo-perl, libmodule-metadata-perl, libtest-requires-perl, libtry-tiny-perl, libwww-perl, libyaml-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libalgorithm-diff-perl, libcpan-distnameinfo-perl, libmodule-metadata-perl, libtry-tiny-perl, libwww-perl, libyaml-perl
+X: 0

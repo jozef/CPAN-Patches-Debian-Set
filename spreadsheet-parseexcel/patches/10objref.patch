@@ -1,17 +1,22 @@
-Author: Niko Tyni <ntyni@iki.fi>
 Description: Allow IO::File/Handle/Wrap objects to be passed in.
-(#112130, patch by Gunnar Wolf)
+Bug-Debian: http://bugs.debian.org/112130
+Forwarded: no
+Author: Gunnar Wolf <gwolf@debian.org>
+Reviewed-by: Niko Tyni <ntyni@iki.fi>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-24
+
 --- a/lib/Spreadsheet/ParseExcel.pm
 +++ b/lib/Spreadsheet/ParseExcel.pm
-@@ -320,12 +320,21 @@
+@@ -601,12 +601,21 @@
      # Reset the error status in case method is called more than once.
      $self->{_error_status} = ErrorNone;
  
 +    my $ref = ref($source);
-     if ( ref($source) eq "SCALAR" ) {
+     if ( ref( $source ) eq "SCALAR" ) {
  
          # Specified by a scalar buffer.
-         ( $biff_data, $data_length ) = $self->{GetContent}->($source);
+         ( $biff_data, $data_length ) = $self->{GetContent}->( $source );
  
      }
 +    elsif ( grep { $ref eq $_ } qw(IO::File IO::Handle IO::Wrap) ) {
@@ -22,6 +27,6 @@ Description: Allow IO::File/Handle/Wrap objects to be passed in.
 +        my ( $sBIFF, $iLen ) = $self->{GetContent}->( \$sBuff );
 +        return $sBIFF ? ( $sBIFF, $iLen ) : (undef);
 +    }
-     elsif (( ref($source) =~ /GLOB/ ) || ( ref($source) eq 'Fh' ) ) {
+     elsif ( ( ref( $source ) =~ /GLOB/ ) || ( ref( $source ) eq 'Fh' ) ) {
  
          # For CGI.pm (Light FileHandle)

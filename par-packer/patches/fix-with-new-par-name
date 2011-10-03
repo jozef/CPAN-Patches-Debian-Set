@@ -1,10 +1,12 @@
-Author: Ryan Niebur
 Description: par.pl was renamed to par-archive in order to be
  compliant with Debian Policy
+Author: Ryan Niebur <ryan@debian.org>
+Origin: vendor
+Forwarded: no
 
 --- a/lib/PAR/Packer.pm
 +++ b/lib/PAR/Packer.pm
-@@ -1238,9 +1238,9 @@
+@@ -1236,9 +1236,9 @@
  
      if ($opt->{P}) {
          # write as script

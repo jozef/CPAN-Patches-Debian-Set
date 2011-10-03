@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libdata-visitor-perl (>= 0.24), libmoose-perl (>= 0.74), libnamespace-clean-perl, libtest-use-ok-perl, perl (>= 5.10)
-Depends: ${misc:Depends}, ${perl:Depends}, libdata-visitor-perl (>= 0.24), libmoose-perl (>= 0.74), libnamespace-clean-perl, perl (>= 5.10)
+Build-Depends-Indep: libdata-visitor-perl (>= 0.24), libmoose-perl (>= 0.74), libnamespace-clean-perl, libtest-use-ok-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-visitor-perl (>= 0.24), libmoose-perl (>= 0.74), libnamespace-clean-perl
 X: 0

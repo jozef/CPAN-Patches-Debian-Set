@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: apache2, apache2-threaded-dev | apache2-prefork-dev, debhelper (>= 8), libapache2-mod-perl2, libcgi-application-perl (>= 4.50), libcgi-psgi-perl, libhttp-exception-perl, libplack-perl (>= 0.9956), libtest-longstring-perl, libtry-tiny-perl, perl (>= 5.12) | libversion-perl (>= 0.82)
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-perl (>= 4.50), libhttp-exception-perl, libtry-tiny-perl, perl (>= 5.12) | libversion-perl (>= 0.82)
+X: 0

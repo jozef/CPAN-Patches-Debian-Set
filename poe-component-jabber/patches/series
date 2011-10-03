@@ -1,1 +1,3 @@
 fix-pod-docs-for-names.patch
+use-Digest-SHA.patch
+

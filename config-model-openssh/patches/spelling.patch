@@ -1,0 +1,28 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: yes (IRC)
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-11
+
+--- a/lib/Config/Model/models/Sshd/MatchBlock.pl
++++ b/lib/Config/Model/models/Sshd/MatchBlock.pl
+@@ -25,7 +25,7 @@
+       'Condition',
+       {
+         'type' => 'node',
+-        'description' => 'Specify the condition (User, Group, Host, Adress) necessary for this Match block to be applied',
++        'description' => 'Specify the condition (User, Group, Host, Address) necessary for this Match block to be applied',
+         'config_class_name' => 'Sshd::MatchCondition'
+       },
+       'Settings',
+--- a/lib/Config/Model/models/Sshd/MatchBlock.pod
++++ b/lib/Config/Model/models/Sshd/MatchBlock.pod
+@@ -15,7 +15,7 @@
+ 
+ =head2 Condition
+ 
+-Specify the condition (User, Group, Host, Adress) necessary for this Match block to be applied. I<< Optional. Type node.  >>
++Specify the condition (User, Group, Host, Address) necessary for this Match block to be applied. I<< Optional. Type node.  >>
+ 
+ =head2 Settings
+ 

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5.0.0), libmodule-build-perl, quilt (>= 0.40)
-Build-Depends-Indep: libauthen-sasl-perl, libdigest-sha1-perl, libxml-stream-perl (>= 1.22), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libauthen-sasl-perl, libdigest-sha1-perl, libxml-stream-perl (>= 1.22)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libauthen-sasl-perl, libxml-stream-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libauthen-sasl-perl, libxml-stream-perl
 X: 0

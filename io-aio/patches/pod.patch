@@ -1,0 +1,71 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: spelling mistakes
+Bug: http://lists.schmorp.de/pipermail/anyevent/2011q3/000149.html
+Last-Update: 2011-07-24
+--- a/AIO.pm
++++ b/AIO.pm
+@@ -688,7 +688,7 @@
+ 
+ =item aio_readdirx $pathname, $flags, $callback->($entries, $flags)
+ 
+-Quite similar to C<aio_readdir>, but the C<$flags> argument allows to tune
++Quite similar to C<aio_readdir>, but the C<$flags> argument allows one to tune
+ behaviour and output format. In case of an error, C<$entries> will be
+ C<undef>.
+ 
+@@ -746,7 +746,7 @@
+ 
+ This flag should not be set when calling C<aio_readdirx>. Instead, it
+ is being set by C<aio_readdirx>, when any of the C<$type>'s found were
+-C<IO::AIO::DT_UNKNOWN>. The absense of this flag therefore indicates that all
++C<IO::AIO::DT_UNKNOWN>. The absence of this flag therefore indicates that all
+ C<$type>'s are known, which can be used to speed up some algorithms.
+ 
+ =back
+@@ -938,7 +938,7 @@
+ entry plus an appended C</.> will be C<stat>'ed, likely directories first,
+ in order of their inode numbers. If that succeeds, it assumes that the
+ entry is a directory or a symlink to directory (which will be checked
+-seperately). This is often faster than stat'ing the entry itself because
++separately). This is often faster than stat'ing the entry itself because
+ filesystems might detect the type of the entry without reading the inode
+ data (e.g. ext2fs filetype feature), even on systems that cannot return
+ the filetype information on readdir.
+@@ -1667,7 +1667,7 @@
+ 
+ Simply calls the C<posix_fadvise> function (see its
+ manpage for details). The following advice constants are
+-avaiable: C<IO::AIO::FADV_NORMAL>, C<IO::AIO::FADV_SEQUENTIAL>,
++available: C<IO::AIO::FADV_NORMAL>, C<IO::AIO::FADV_SEQUENTIAL>,
+ C<IO::AIO::FADV_RANDOM>, C<IO::AIO::FADV_NOREUSE>,
+ C<IO::AIO::FADV_WILLNEED>, C<IO::AIO::FADV_DONTNEED>.
+ 
+@@ -1678,7 +1678,7 @@
+ 
+ Simply calls the C<posix_madvise> function (see its
+ manpage for details). The following advice constants are
+-avaiable: C<IO::AIO::MADV_NORMAL>, C<IO::AIO::MADV_SEQUENTIAL>,
++available: C<IO::AIO::MADV_NORMAL>, C<IO::AIO::MADV_SEQUENTIAL>,
+ C<IO::AIO::MADV_RANDOM>, C<IO::AIO::MADV_WILLNEED>, C<IO::AIO::MADV_DONTNEED>.
+ 
+ On systems that do not implement C<posix_madvise>, this function returns
+@@ -1688,7 +1688,7 @@
+ 
+ Simply calls the C<mprotect> function on the preferably AIO::mmap'ed
+ $scalar (see its manpage for details). The following protect
+-constants are avaiable: C<IO::AIO::PROT_NONE>, C<IO::AIO::PROT_READ>,
++constants are available: C<IO::AIO::PROT_NONE>, C<IO::AIO::PROT_READ>,
+ C<IO::AIO::PROT_WRITE>, C<IO::AIO::PROT_EXEC>.
+ 
+ On systems that do not implement C<mprotect>, this function returns
+@@ -1823,8 +1823,8 @@
+ 
+ =item IO::AIO::reinit
+ 
+-Abondons all current requests and I/O threads and simply reinitialises all
+-data structures. This is not an operation suppported by any standards, but
++Abandons all current requests and I/O threads and simply reinitialises all
++data structures. This is not an operation supported by any standards, but
+ happens to work on GNU/Linux and some newer BSD systems.
+ 
+ The only reasonable use for this function is to call it after forking, if

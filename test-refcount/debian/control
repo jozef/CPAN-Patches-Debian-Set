@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdevel-findref-perl, libdevel-refcount-perl, libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdevel-refcount-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdevel-findref-perl, libtest-pod-perl, perl (>= 5.11.3) | libmodule-build-perl (>= 0.360000)
+Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

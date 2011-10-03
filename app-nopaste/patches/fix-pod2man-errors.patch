@@ -1,0 +1,22 @@
+Description: Fix errors in pod2man errors in manpage
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=70434
+Forwarded: yes
+Author: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-08-23
+
+--- a/lib/App/Nopaste/Service/Ubuntu.pm
++++ b/lib/App/Nopaste/Service/Ubuntu.pm
+@@ -140,10 +140,10 @@
+ 
+ =head1 AUTHOR
+ 
+-gregor herrmann, C<< <gregoa@debian.org> >
++gregor herrmann, C<< <gregoa@debian.org> >>
+ 
+ (Based on App::Nopaste::Service::Debian, written by
+-Ryan Niebur, C<< <gregoa@debian.org> >>)
++Ryan Niebur, C<< <ryanryan52@gmail.com> >>)
+ 
+ =cut
+ 

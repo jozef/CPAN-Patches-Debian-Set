@@ -1,7 +1,7 @@
 Description: fix POD spelling
 Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
-Forwarded: no
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=69641
 --- a/lib/Alien/wxWidgets.pm
 +++ b/lib/Alien/wxWidgets.pm
 @@ -236,7 +236,7 @@

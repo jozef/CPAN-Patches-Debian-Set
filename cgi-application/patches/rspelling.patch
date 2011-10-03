@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: spelling
+Forwarded: no
+Last-Updated: 2011-06-17
+--- a/r/lib/CGI/Application/Plugin/Redirect.pm
++++ b/r/lib/CGI/Application/Plugin/Redirect.pm
+@@ -85,7 +85,7 @@
+ will not execute.  As soon as all prerun method have finished,
+ the redirect will happen without the runmode being executed.
+ 
+-The $status paramater is optional as the CGI module will default to something
++The $status parameter is optional as the CGI module will default to something
+ suitable.
+ 
+   return $self->redirect('http://www.example.com/');

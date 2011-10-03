@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~), perl (>= 5.11.3) | libmodule-build-perl (>= 0.360000)
+Build-Depends-Indep: libnet-whois-raw-perl (>= 2)
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-whois-raw-perl (>= 2)
+X: 0

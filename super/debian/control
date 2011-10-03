@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: libsub-identify-perl, perl, perl-base (>= 5.10.1) | libscalar-list-utils-perl (>= 1:1.20)
 Depends: ${misc:Depends}, ${perl:Depends}, libsub-identify-perl, perl-base (>= 5.10.1) | libscalar-list-utils-perl (>= 1:1.20)
 X: 0

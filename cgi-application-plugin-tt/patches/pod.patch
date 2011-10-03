@@ -1,0 +1,24 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Two spelling errors
+Last-Update: 2010-08-31
+Bug: http://rt.cpan.org/Ticket/Display.html?id=60921
+--- CGI-Application-Plugin-TT-1.05.orig/lib/CGI/Application/Plugin/TT.pm
++++ CGI-Application-Plugin-TT-1.05/lib/CGI/Application/Plugin/TT.pm
+@@ -582,7 +582,7 @@
+ 
+ This options allows you to specify a directory (or an array of directories) to
+ search when this module is loaded and then compile all files found into memory.
+-This provides a speed boost in persistant environments (mod_perl, fast-cgi) and
++This provides a speed boost in persistent environments (mod_perl, fast-cgi) and
+ can improve memory usage in environments that use shared memory (mod_perl).
+ 
+ =item TEMPLATE_PRECOMPILE_FILETEST
+@@ -616,7 +616,7 @@
+ =head2 tt_obj
+ 
+ This method will return the underlying Template Toolkit object that is used
+-behind the scenes.  It is usually not necesary to use this object directly,
++behind the scenes.  It is usually not necessary to use this object directly,
+ as you can process templates and configure the Template object through
+ the tt_process and tt_config methods.  Every call to this method will
+ return the same object during a single request.

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libb-hooks-endofscope-perl (>= 0.07), libclass-mop-perl (>= 0.80), libmoose-perl, libnamespace-clean-perl (>= 0.11), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libb-hooks-endofscope-perl (>= 0.07), libclass-mop-perl (>= 0.80), libnamespace-clean-perl (>= 0.11)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libb-hooks-endofscope-perl, libmoose-perl, libnamespace-clean-perl (>= 0.20), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libb-hooks-endofscope-perl, libmoose-perl (>= 2) | libclass-mop-perl (>= 0.80), libnamespace-clean-perl (>= 0.20)
 X: 0

@@ -1,12 +1,13 @@
 Description: spelling
 Origin: vendor
-Forwarded: no
+Bug: https://rt.cpan.org/Ticket/Display.html?id=71189
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=71189
 Author: gregor herrmann <gregoa@debian.org>
-Last-Update: 2010-06-23
+Last-Update: 2011-04-24
 
 --- a/lib/POE/Component/IRC/State.pm
 +++ b/lib/POE/Component/IRC/State.pm
-@@ -1387,7 +1387,7 @@
+@@ -1612,7 +1612,7 @@
  
  =head2 Augmented events
  
@@ -15,8 +16,8 @@ Last-Update: 2010-06-23
  L<POE::Component::IRC|POE::Component::IRC> events.
  
  =head3 C<irc_quit>
-@@ -1395,7 +1395,7 @@
- See also L<C<irc_quit>|POE::Component::IRC/"irc_quit"> in
+@@ -1620,7 +1620,7 @@
+ See also L<C<irc_quit>|POE::Component::IRC/irc_quit> in
  L<POE::Component::IRC|POE::Component::IRC>.
  
 -Additional paramater C<ARG2> contains an arrayref of channel names that are

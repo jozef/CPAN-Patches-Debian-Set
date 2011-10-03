@@ -1,0 +1,26 @@
+Description: Fix man page
+Author: Fabrizio Regalli <fabreg@fabreg.it>
+Forwarded: not-needed
+
+--- a/lib/Class/Default.pm
++++ b/lib/Class/Default.pm
+@@ -98,8 +98,8 @@
+ method, like C<CGI->header>, your call is being applied to a default
+ instantiation of a CGI object.
+ 
+-This technique appears to be especially usefull when writing modules that you
+-want to be used in either a single use or a persistant environment. In a CGI
++This technique appears to be especially useful when writing modules that you
++want to be used in either a single use or a persistent environment. In a CGI
+ like environment, you want the simplicity of a static interface. You can
+ call C<Class->method> directly, without having to pass an instantiation 
+ around constantly.
+@@ -203,7 +203,7 @@
+   print "The default slashdot user is " . Slashdot::User->name
+       . " and they like the colour " . Slashdot::User->favourite_color;
+ 
+-Remember that the default object is persistant, so changes made to the
++Remember that the default object is persistent, so changes made to the
+ statically accessible object can be recovered later.
+ 
+ =head2 Getting access to the default object

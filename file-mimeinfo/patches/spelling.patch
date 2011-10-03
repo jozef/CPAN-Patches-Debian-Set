@@ -1,0 +1,45 @@
+Description: fix some spelling mistakes
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/485372
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=70171
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-09
+
+--- a/lib/File/MimeInfo/Magic.pm
++++ b/lib/File/MimeInfo/Magic.pm
+@@ -262,7 +262,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-This module inherits from L<File::MimeInfo>, it is transparant
++This module inherits from L<File::MimeInfo>, it is transparent
+ to its functions but adds support for the freedesktop magic file.
+ 
+ Magic data is hashed when you need it for the first time.
+--- a/mimetype
++++ b/mimetype
+@@ -302,12 +302,12 @@
+ =item B<--file-compat>
+ 
+ Make mimetype behave a little more L<file(1)> compatible. This
+-is turned on automaticly when you call mimetype by a link
++is turned on automatically when you call mimetype by a link
+ called 'file'.
+ 
+-A single '-' won't be considered a seperator
++A single '-' won't be considered a separator
+ between options and filenames anymore, but becomes identical to L</--stdin>.
+-( You can still use '--' as seperator, but
++( You can still use '--' as separator, but
+ that is not backward compatible with the original file command. )
+ Also the default becomes to print descriptions instead of mimetypes.
+ 
+@@ -360,7 +360,7 @@
+ 
+ =item B<--stdin>
+ 
+-Determine type of content from STDIN, less powerfull then normal file checking
++Determine type of content from STDIN, less powerful then normal file checking
+ because it only uses magic typing. This will happen also if the STDIN filehandle
+ is a pipe.
+ 

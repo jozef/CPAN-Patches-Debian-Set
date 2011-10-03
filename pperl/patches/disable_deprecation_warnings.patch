@@ -1,0 +1,47 @@
+Description: Disable deprecation warnings as a workaround for test failures on Perl 5.12.0
+ The test suite fails with Perl 5.12.0 due to new deprecation messages:
+
+  # Test 6 got: "Use of \"goto\" to jump into a construct is deprecated at /home/niko/tmp/tt/pperl-0.25/sockets/pperlNrZKqj line 53.\n" (t/06exit_die.t at line 18)
+
+ Fixing these requires code restructuring, but a temporary workaround
+ is to disable the messages for now.
+Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=56122
+Bug-Debian: http://bugs.debian.org/581411
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56122
+Author: Niko Tyni <ntyni@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-06
+
+--- a/pperl.h.header
++++ b/pperl.h.header
+@@ -49,7 +49,9 @@
+             exit($retval);
+         }
+         $exit_code = $retval;
++{ no warnings 'deprecated';
+         goto __PPerl_exit;
++}
+     };
+ 
+     *CORE::GLOBAL::fork = sub {
+@@ -74,7 +76,9 @@
+         }
+         my $code = system(@_);
+         $exit_code = $code >> 8;
++{ no warnings 'deprecated';
+         goto __PPerl_exit;
++}
+     };
+ }
+ 
+@@ -506,7 +510,9 @@
+     #### Your Code Here ####
+ };
+ 
++{ no warnings 'deprecated';
+ goto ____PPerlBackAgain;
++}
+ 
+ BEGIN {
+     log_error("finding open filehandles ($PPERL::NO_CLEANUP)\n");

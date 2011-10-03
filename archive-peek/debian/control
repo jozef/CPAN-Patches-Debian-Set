@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libarchive-zip-perl, libmoose-perl, libmoosex-types-path-class-perl, libtest-pod-perl, perl (>= 5.10.1) | libio-compress-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libarchive-zip-perl, libmoose-perl, libmoosex-types-path-class-perl, perl (>= 5.10.1) | libio-compress-perl
+X: 0

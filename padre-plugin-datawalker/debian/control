@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liblocale-msgfmt-perl (>= 0.14), libwx-perl-datawalker-perl (>= 0.02), libyaml-libyaml-perl, padre-plugin-api-3, perl, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libwx-perl-datawalker-perl (>= 0.02), libyaml-libyaml-perl, padre-plugin-api-3
+X: 1

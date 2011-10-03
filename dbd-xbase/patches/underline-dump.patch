@@ -1,9 +1,10 @@
 # Description: rename dbfdump to dbf_dump following the rename in Debian (due
 #  to #274792)
+# Author: Gregor Herrmann <gregoa@debian.org>
 # Forwarded: not-needed
 --- a/README
 +++ b/README
-@@ -48,7 +48,7 @@ How does the code look like:
+@@ -48,7 +48,7 @@
  		my $table = new XBase 'table.dbf';
  		my @data = $table->get_record(0);
  
@@ -12,7 +13,7 @@
  	the content of the table in readable form.
  
  
-@@ -75,7 +75,7 @@ Support, documentation:
+@@ -75,7 +75,7 @@
  	native XBase engines produce data incompatible with this
  	module.
  
@@ -23,7 +24,7 @@
  	man page for DBI specific issues, and the XBase::FAQ page.
 --- a/bin/dbfdump.PL
 +++ b/bin/dbfdump.PL
-@@ -33,7 +33,7 @@ Getopt::Long::GetOptions( \%options,
+@@ -33,7 +33,7 @@
  	) or exit;
  
  if (defined $options{'version'}) {
@@ -32,7 +33,7 @@
  	exit;
  }
  
-@@ -44,7 +44,7 @@ if ($stdin) {
+@@ -44,7 +44,7 @@
  
  if (@ARGV == 0 or defined $options{'help'}) {
  	die <<'EOF';
@@ -41,7 +42,7 @@
      where the options specify
  	--rs		output record separator (default newline)
  	--fs		output field separator (default colon)
-@@ -129,11 +129,11 @@ __END__
+@@ -129,11 +129,11 @@
  
  =head1 NAME
  
@@ -55,7 +56,7 @@
  
  where options are
  
-@@ -153,15 +153,15 @@ where options are
+@@ -153,15 +153,15 @@
  
  =head1 SYNOPSIS
  
@@ -76,7 +77,7 @@
  default, it prints all fields, separated by colons, one record on
  a line. The output record and column separators can be changed by
  switches on the command line. You can also ask only for some fields to
-@@ -181,7 +181,7 @@ at Faculty of Informatics, Masaryk Unive
+@@ -183,7 +183,7 @@
  
  =head1 SEE ALSO
  
@@ -87,7 +88,7 @@
  
 --- a/bin/indexdump.PL
 +++ b/bin/indexdump.PL
-@@ -71,15 +71,15 @@ print "Total records: $i\n" if $showtota
+@@ -71,15 +71,15 @@
  
  =head1 NAME
  
@@ -106,7 +107,7 @@
          --type		specifies the num/date/char type of the index
          --start		defines the value to start dump from
          --n		prints also the total number of records
-@@ -87,12 +87,12 @@ where options are
+@@ -87,12 +87,12 @@
  
  =head1 SYNOPSIS
  
@@ -122,7 +123,7 @@
  The type of the index is one of those supported by the XBase::Index
  Perl module (cdx, idx, ntx, ndx, mdx).
  
-@@ -110,7 +110,7 @@ at Faculty of Informatics, Masaryk Unive
+@@ -112,7 +112,7 @@
  
  =head1 SEE ALSO
  
@@ -133,7 +134,7 @@
  
 --- a/eg/use_index
 +++ b/eg/use_index
-@@ -77,7 +77,7 @@ name:
+@@ -77,7 +77,7 @@
  	my $cur = $table->prepare_select_with_index(
  		[ "cust.cdx", 'addr' ], 'field1', 'field2');
  
@@ -144,7 +145,7 @@
  plain field name, chances are that XBase.pm won't be able to recognize
 --- a/lib/XBase.pm
 +++ b/lib/XBase.pm
-@@ -1341,7 +1341,7 @@ Example of use is
+@@ -1341,7 +1341,7 @@
      $table->dump_records("fs" => " | ", "rs" => " <-+\n",
  			"fields" => [ "id", "msg" ]);'
  
@@ -153,7 +154,7 @@
  
  =head2 Errors and debugging
  
-@@ -1423,7 +1423,7 @@ Dan Albertsson for providing support for
+@@ -1427,7 +1427,7 @@
  =head1 SEE ALSO
  
  perl(1); XBase::FAQ(3); DBD::XBase(3) and DBI(3) for DBI interface;
@@ -164,7 +165,7 @@
  
 --- a/lib/XBase/FAQ.pod
 +++ b/lib/XBase/FAQ.pod
-@@ -175,11 +175,11 @@ script from a different directory (pwd) 
+@@ -174,11 +174,11 @@
  
  to your script and you will see that it's not B<DBD::XBase> problem.
  
@@ -178,7 +179,7 @@
  you the expected number of records and length of one record, like
  
  	Filename:       file.dbf
-@@ -191,7 +191,7 @@ you the expected number of records and l
+@@ -190,7 +190,7 @@
  	Num fields:     40
  
  So the expected length of the file is at least I<1313 + 65 * 1117>. If
@@ -189,7 +190,7 @@
  =item How is this B<DBD::XBase> related to B<DBD::ODBC>?
 --- a/lib/XBase/Index.pm
 +++ b/lib/XBase/Index.pm
-@@ -1647,17 +1647,18 @@ reading support stable before I get to w
+@@ -1647,17 +1647,18 @@
  
  =head2 Testing your index file (and XBase::Index)
  
@@ -214,7 +215,7 @@
  
  if you haven't installed this version of XBase.pm/DBD::XBase yet. You
  should get the content of the index file. On each row, there is
-@@ -1674,18 +1675,18 @@ index to see if the sequence is OK.
+@@ -1674,18 +1675,18 @@
  
  The index formats usually distinguish between numeric and character
  data. Some of the file formats include the information about the type
@@ -239,7 +240,7 @@
  =head2 Using the index files to speed up searches in dbf
 --- a/new-XBase
 +++ b/new-XBase
-@@ -395,7 +395,7 @@ Example of use is
+@@ -395,7 +395,7 @@
      $table->dump_records("fs" => " | ", "rs" => " <-+\n",
  			"fields" => [ "id", "msg" ]);'
  
@@ -248,7 +249,7 @@
  the printing.
  
  =head1 Writing the data
-@@ -597,7 +597,7 @@ Dan Albertsson for providing support for
+@@ -595,7 +595,7 @@
  
  XBase::FAQ(3); XBase::Index(3);
  DBD::XBase(3) and DBI(3) for DBI interface;

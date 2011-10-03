@@ -1,0 +1,21 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Man page should document the location of the examples
+Forwarded: not-needed
+Last-Update: 2010-11-01
+--- a/lib/Module/Starter/Plugin/TT2.pm
++++ b/lib/Module/Starter/Plugin/TT2.pm
+@@ -32,9 +32,13 @@
+ methods, required by the Template plugin.  The methods are implemented with
+ Template Toolkit.
+ 
++=head1 EXAMPLES
++
+ This module's distribution includes a directory, C<templates/dir>, and a file
+ C<templates/inline> that contain stock templates for use with the InlineStore
+-and DirStore plugins.  The module itself contains default templates in its data
++and DirStore plugins. On Debian systems these files are installed in
++C</usr/share/doc/libmodule-starter-plugin-tt2-perl/examples>. The module
++itself contains default templates for the ModuleStore plugin in its data
+ section.
+ 
+ =head1 USAGE

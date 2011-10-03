@@ -1,0 +1,61 @@
+Description: Use Digest::SHA instead of Digest::SHA1.
+ .
+ Digest::SHA is part of the standard perl distribution since perl v5.9.3
+ so this reduces the number of external dependencies by one.
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2011-05-23
+--- a/lib/AnyEvent/XMPP.pm
++++ b/lib/AnyEvent/XMPP.pm
+@@ -93,7 +93,7 @@
+ 
+ For stringprep profiles to handle JIDs.
+ 
+-=item L<Digest::SHA1>
++=item L<Digest::SHA>
+ 
+ For component authentication and old-style authentication.
+ 
+--- a/lib/AnyEvent/XMPP/Connection.pm
++++ b/lib/AnyEvent/XMPP/Connection.pm
+@@ -9,7 +9,7 @@
+ use AnyEvent::XMPP::Extendable;
+ use AnyEvent::XMPP::Error;
+ use Object::Event;
+-use Digest::SHA1 qw/sha1_hex/;
++use Digest::SHA qw/sha1_hex/;
+ use Encode;
+ 
+ our @ISA = qw/AnyEvent::XMPP::SimpleConnection Object::Event AnyEvent::XMPP::Extendable/;
+--- a/lib/AnyEvent/XMPP/Ext/VCard.pm
++++ b/lib/AnyEvent/XMPP/Ext/VCard.pm
+@@ -4,7 +4,7 @@
+ use strict;
+ 
+ use MIME::Base64;
+-use Digest::SHA1 qw/sha1_hex/;
++use Digest::SHA qw/sha1_hex/;
+ use Scalar::Util;
+ use AnyEvent::XMPP::Namespaces qw/xmpp_ns/;
+ use AnyEvent::XMPP::Util qw/prep_bare_jid/;
+--- a/lib/AnyEvent/XMPP/Writer.pm
++++ b/lib/AnyEvent/XMPP/Writer.pm
+@@ -5,7 +5,7 @@
+ use MIME::Base64;
+ use AnyEvent::XMPP::Namespaces qw/xmpp_ns/;
+ use AnyEvent::XMPP::Util qw/simxml filter_xml_chars filter_xml_attr_hash_chars/;
+-use Digest::SHA1 qw/sha1_hex/;
++use Digest::SHA qw/sha1_hex/;
+ use Encode;
+ 
+ =head1 NAME
+--- a/t/z_08_vcard_hook.t
++++ b/t/z_08_vcard_hook.t
+@@ -3,7 +3,7 @@
+ use strict;
+ no warnings;
+ use Test::More;
+-use Digest::SHA1 qw/sha1_hex/;
++use Digest::SHA qw/sha1_hex/;
+ use AnyEvent::XMPP;
+ use AnyEvent::XMPP::TestClient;
+ use AnyEvent::XMPP::Namespaces qw/xmpp_ns/;

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libpackage-stash-perl (>= 0.23), libtest-deep-perl, libtest-trap-perl, libtie-ixhash-perl, perl (>= 5.10.1) | libtap-parser-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libpackage-stash-perl (>= 0.23), libtest-deep-perl, libtest-trap-perl, libtie-ixhash-perl
+X: 0

@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.9.1), libextutils-cchecker-perl (>= 0.04), libtest-exception-perl, libtest-pod-perl, libtest-warn-perl, perl
+Build-Depends: debhelper (>= 8), libextutils-cchecker-perl (>= 0.06), libtest-exception-perl, libtest-pod-perl, libtest-warn-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

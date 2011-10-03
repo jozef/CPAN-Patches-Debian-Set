@@ -1,0 +1,15 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Tue, 12 Oct 2010 18:14:39 +0200
+Subject: Add whatis entries to man pages
+
+--- libhtml-formfu-model-dbic-perl.orig/lib/HTML/FormFu/Constraint/DBIC/Unique.pm
++++ libhtml-formfu-model-dbic-perl/lib/HTML/FormFu/Constraint/DBIC/Unique.pm
+@@ -129,7 +129,7 @@
+ 
+ =head1 NAME
+ 
+-HTML::FormFu::Constraint::Unique
++HTML::FormFu::Constraint::DBIC::Unique - unique constraint for HTML::FormFu::Model::DBIC
+ 
+ =head1 SYNOPSIS
+ 

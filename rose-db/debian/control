@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libbit-vector-perl, libclone-pp-perl, libdatetime-format-mysql-perl, libdatetime-format-pg-perl, libdatetime-perl, libdbd-sqlite3-perl, libdbi-perl, librose-datetime-perl, librose-object-perl (>= 0.854), libsql-reservedwords-perl, libtest-pod-perl, libtime-clock-perl, libyaml-syck-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libbit-vector-perl, libclone-pp-perl, libdatetime-format-mysql-perl, libdatetime-format-pg-perl, libdatetime-perl, libdbi-perl, librose-datetime-perl, librose-object-perl (>= 0.854), libsql-reservedwords-perl, libtime-clock-perl, libyaml-syck-perl
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libbit-vector-perl, libclone-pp-perl, libdatetime-format-mysql-perl, libdatetime-format-oracle-perl, libdatetime-format-pg-perl, libdatetime-perl, libdbd-sqlite3-perl, libdbi-perl, librose-datetime-perl, librose-object-perl (>= 0.854), libsql-reservedwords-perl, libtest-pod-perl, libtime-clock-perl, libyaml-syck-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libbit-vector-perl, libclone-pp-perl, libdatetime-format-mysql-perl, libdatetime-format-oracle-perl, libdatetime-format-pg-perl, libdatetime-perl, libdbi-perl, librose-datetime-perl, librose-object-perl (>= 0.854), libsql-reservedwords-perl, libtime-clock-perl, libyaml-syck-perl
 X: 0

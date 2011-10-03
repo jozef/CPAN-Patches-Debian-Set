@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libatompub-perl, libcapture-tiny-perl, libdancer-perl, libdancer-plugin-dbic-perl, libdbd-sqlite3-perl, libdbix-class-perl, libsql-translator-perl, libuuid-tiny-perl, libxml-atom-perl, libxml-xpath-perl, perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

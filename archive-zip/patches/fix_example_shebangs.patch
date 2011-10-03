@@ -43,6 +43,15 @@ Last-Update: 2010-05-06
  #
  # Shows one way to write a self-extracting archive file.
  # This is not intended for production use, and it always extracts to a
+@@ -46,7 +46,7 @@
+ 
+ # below the __DATA__ line is the extraction stub:
+ __DATA__
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ # Self-extracting Zip file extraction stub
+ # Copyright (C) 2002 Ned Konz
+ 
 --- a/examples/unzipAll.pl
 +++ b/examples/unzipAll.pl
 @@ -1,4 +1,4 @@

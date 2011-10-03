@@ -5,7 +5,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
 
 --- a/V4l/V4l.pm
 +++ b/V4l/V4l.pm
-@@ -7,6 +7,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPOR
+@@ -7,6 +7,7 @@
  require Exporter;
  require DynaLoader;
  
@@ -13,7 +13,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  use Fcntl;
  
  $VERSION = '0.902';
-@@ -92,9 +93,8 @@ sub new(;$) {
+@@ -92,9 +93,8 @@
     my $device = shift || "/dev/video0";
     my $self = bless { device => $device }, $class;
  
@@ -25,7 +25,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
     $self->{capability} = _capabilities_new ($self->{fd});
     $self->{picture} = _picture_new ($self->{fd});
  
-@@ -176,9 +176,8 @@ sub new(;$) {
+@@ -176,9 +176,8 @@
     my $device = shift || "/dev/vbi0";
     my $self = bless { device => $device }, $class;
  
@@ -37,17 +37,27 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  
     $self
  }
+--- a/V4l/Makefile.PL
++++ b/V4l/Makefile.PL
+@@ -8,5 +8,5 @@
+ WriteMakefile(
+     'NAME'	=> 'Video::Capture::V4l',
+     'VERSION_FROM' => 'V4l.pm',
+-    LIBS	=> '-lpthread',
++    LIBS	=> '-lpthread -lv4l1',
+ );
 --- a/V4l/V4l.xs
 +++ b/V4l/V4l.xs
-@@ -10,6 +10,7 @@
+@@ -9,7 +9,7 @@
+ 
  #include <string.h>
  #include <pthread.h>
- #include <linux/videodev.h>
+-#include <linux/videodev.h>
 +#include <libv4l1.h>
  
  #define NEED_newCONSTSUB
  #include "../gppport.h"
-@@ -89,7 +90,7 @@ static int
+@@ -89,7 +89,7 @@
  private_free (pTHX_ SV *obj, MAGIC *mg)
  {
    struct private *p = (struct private *)mg->mg_ptr;
@@ -56,7 +66,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
    return 0;
  }
  
-@@ -105,9 +106,9 @@ find_private (SV *sv)
+@@ -105,9 +105,9 @@
      {
        struct private p;
        p.fd = SvIV (*hv_fetch (hv, "fd", 2, 0));
@@ -68,7 +78,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
            if (p.mmap_base)
              {
                sv_magic ((SV*)hv, 0, '~', (char*)&p, sizeof p);
-@@ -164,7 +165,7 @@ vbi_snatcher_thread (void *arg)
+@@ -164,7 +164,7 @@
            pthread_mutex_unlock (&vbi_lock);
  
            next->next = 0;
@@ -77,7 +87,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  
            pthread_mutex_lock (&vbi_lock);
  
-@@ -229,7 +230,7 @@ field(self)
+@@ -229,7 +229,7 @@
  
              RETVAL = newSVpvn ("", 0);
              SvGROW (RETVAL, VBI_BPF);
@@ -86,7 +96,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
              SvCUR_set (RETVAL, len);
            }
  
-@@ -314,6 +315,15 @@ queued(self)
+@@ -314,6 +314,15 @@
  	OUTPUT:
          RETVAL
  
@@ -102,7 +112,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l		
  
  SV *
-@@ -333,7 +343,7 @@ capture(sv,frame,width,height,format = V
+@@ -333,7 +342,7 @@
              vm.height = height;
              vm.width  = width;
              vm.format = format;
@@ -111,7 +121,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
                {
                  SV *fr = newSV (0);
                  SvUPGRADE (fr, SVt_PV);
-@@ -361,7 +371,7 @@ sync(sv,frame)
+@@ -361,7 +370,7 @@
  {
          struct private *p;
          if ((p = find_private (sv))
@@ -120,7 +130,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
            XSRETURN_YES;
          else
            XSRETURN_EMPTY;
-@@ -375,11 +385,11 @@ _freq (fd,fr)
+@@ -375,11 +384,11 @@
          if (items > 1)
            {
              fr = ((fr<<4)+499)/1000;
@@ -134,7 +144,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
                RETVAL = (fr*1000+7)>>4;
              else
                XSRETURN_EMPTY;
-@@ -430,13 +440,22 @@ _picture_new(fd)
+@@ -430,13 +439,22 @@
          OUTPUT:
          RETVAL
  
@@ -158,7 +168,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  
  MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Channel
  
-@@ -444,13 +463,13 @@ void
+@@ -444,13 +462,13 @@
  get(sv)
  	SV *	sv
          CODE:
@@ -174,7 +184,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  
  MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Tuner
  
-@@ -458,13 +477,13 @@ void
+@@ -458,13 +476,13 @@
  get(sv)
  	SV *	sv
          CODE:
@@ -190,7 +200,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  
  MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Audio
  
-@@ -472,13 +491,13 @@ void
+@@ -472,13 +490,13 @@
  get(sv)
  	SV *	sv
          CODE:
@@ -206,7 +216,7 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  
  MODULE = Video::Capture::V4l		PACKAGE = Video::Capture::V4l::Picture
  
-@@ -486,13 +505,13 @@ void
+@@ -486,13 +504,13 @@
  get(sv)
  	SV *	sv
          CODE:
@@ -222,12 +232,13 @@ Bugs-Debian: #569091 -- Uses obsolete V4L1 API
  
  # accessors/mutators
  INCLUDE: ./genacc |
---- a/V4l/Makefile.PL
-+++ b/V4l/Makefile.PL
-@@ -8,5 +8,5 @@ if ($^O ne "linux") {
- WriteMakefile(
-     'NAME'	=> 'Video::Capture::V4l',
-     'VERSION_FROM' => 'V4l.pm',
--    LIBS	=> '-lpthread',
-+    LIBS	=> '-lpthread -lv4l1',
- );
+@@ -510,9 +528,6 @@
+ 	newCONSTSUB(stash,"AUDIO_MUTE",	newSViv(VIDEO_AUDIO_MUTE));
+ 	newCONSTSUB(stash,"AUDIO_TREBLE",	newSViv(VIDEO_AUDIO_TREBLE));
+ 	newCONSTSUB(stash,"AUDIO_VOLUME",	newSViv(VIDEO_AUDIO_VOLUME));
+-	newCONSTSUB(stash,"CAPTURE_EVEN",	newSViv(VIDEO_CAPTURE_EVEN));
+-	newCONSTSUB(stash,"CAPTURE_ODD",	newSViv(VIDEO_CAPTURE_ODD));
+-	newCONSTSUB(stash,"MAX_FRAME",	newSViv(VIDEO_MAX_FRAME));
+ 	newCONSTSUB(stash,"MODE_AUTO",	newSViv(VIDEO_MODE_AUTO));
+ 	newCONSTSUB(stash,"MODE_NTSC",	newSViv(VIDEO_MODE_NTSC));
+ 	newCONSTSUB(stash,"MODE_PAL",	newSViv(VIDEO_MODE_PAL));

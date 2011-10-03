@@ -1,0 +1,33 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: UNIVERSAL::import deprecated in perl 5.12
+Last-Update: 2011-05-13
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=614868
+Bug: http://rt.cpan.org/Ticket/Display.html?id=68170
+--- a/lib/Memoize/Memcached.pm
++++ b/lib/Memoize/Memcached.pm
+@@ -3,7 +3,6 @@
+ use strict;
+ use warnings;
+ 
+-use UNIVERSAL qw( isa );
+ use Carp qw( carp croak );
+ use Memoize qw( unmemoize );
+ use Cache::Memcached;
+@@ -49,7 +48,7 @@
+ 
+   my $memcached_args = delete $args{memcached} || {};
+   croak "Invalid memcached argument (expected a hash)"
+-    unless isa($memcached_args, 'HASH');
++    unless ref $memcached_args eq 'HASH';
+ 
+   _memcached_setup(
+     %{$memcached_args},
+@@ -138,7 +137,7 @@
+     next unless $arg eq 'memcached';
+     (undef, my $memcached_config) = splice @_, $idx, 2;
+     croak "Invalid memcached config (expected a hash ref)"
+-      unless isa($memcached_config, 'HASH');
++      unless ref $memcached_config eq 'HASH';
+     %memcached_config = %{$memcached_config};
+   }
+ 

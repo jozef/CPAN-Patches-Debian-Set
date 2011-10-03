@@ -1,0 +1,17 @@
+Description: fix pod error, detected by pod2man
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=71253
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-09-26
+
+--- a/lib/perl5i.pm
++++ b/lib/perl5i.pm
+@@ -881,8 +881,6 @@
+ See L<Child> for more information.
+ 
+ 
+-=back
+-
+ =head2 English
+ 
+ L<English> gives English names to the punctuation variables; for

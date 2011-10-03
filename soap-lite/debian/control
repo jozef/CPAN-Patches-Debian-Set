@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~)
-Build-Depends-Indep: libclass-inspector-perl, libcrypt-ssleay-perl, libfcgi-perl, libio-socket-ssl-perl, libio-stringy-perl, libmime-lite-perl, libmime-tools-perl, libossp-uuid-perl, libtask-weaken-perl, libtest-mockobject-perl, liburi-perl, libwww-perl, libxml-parser-perl, nullmailer | mail-transport-agent, perl (>= 5.10.0) | libversion-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-inspector-perl, libcrypt-ssleay-perl, libfcgi-perl, libio-socket-ssl-perl, libio-stringy-perl, libmime-tools-perl, libossp-uuid-perl, libtask-weaken-perl, liburi-perl, libwww-perl, libxml-parser-perl, perl (>= 5.9.3)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-inspector-perl, libcrypt-ssleay-perl, libfcgi-perl, libhttp-daemon-perl | libwww-perl (<< 6), libio-socket-ssl-perl, libio-stringy-perl, libmime-lite-perl, libmime-tools-perl, libossp-uuid-perl, libtask-weaken-perl, libtest-mockobject-perl, liburi-perl, libwww-perl, libxml-parser-perl, nullmailer | mail-transport-agent, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-inspector-perl, libcrypt-ssleay-perl, libfcgi-perl, libhttp-daemon-perl | libwww-perl (<< 6), libio-socket-ssl-perl, libio-stringy-perl, libmime-tools-perl, libossp-uuid-perl, libtask-weaken-perl, liburi-perl, libwww-perl, libxml-parser-perl
 X: 0

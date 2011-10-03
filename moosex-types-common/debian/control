@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libcapture-tiny-perl, libmoose-perl (>= 0.39), libmoosex-types-perl, libtest-exception-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.39), libmoosex-types-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcapture-tiny-perl, libmoose-perl, libmoosex-types-perl, libtest-exception-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libmoosex-types-perl
 X: 0

@@ -1,3 +1,4 @@
 Makefile.PL-no-ssl-in-LIBS.patch
 security_croak-in-do_verify-too.patch
 fix-manpage-errors.patch
+use-Digest-SHA.patch

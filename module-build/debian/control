@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libarchive-zip-perl, libextutils-cbuilder-perl (>= 0.2700), libextutils-parsexs-perl (>= 2.210000), libpar-dist-perl (>= 0.17), libsoftware-license-perl (>= 0.012), libtie-cphash-perl, libyaml-tiny-perl, perl (>= 5.10) | libversion-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libextutils-parsexs-perl (>= 2.210000), libyaml-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libarchive-zip-perl, libcpan-meta-perl (>= 2.110420), libmodule-metadata-perl, libpar-dist-perl, libperl-ostype-perl, libsoftware-license-perl, libversion-perl (>= 1:0.8700) | perl (>= 5.13.9), perl (>= 5.12) | libextutils-parsexs-perl (>= 2.210000)
+Depends: ${misc:Depends}, ${perl:Depends}, libcpan-meta-perl (>= 2.110420), libmodule-metadata-perl, libperl-ostype-perl, libversion-perl (>= 1:0.8700) | perl (>= 5.13.9), perl (>= 5.12) | libextutils-parsexs-perl (>= 2.210000)
 X: 0

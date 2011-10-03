@@ -1,0 +1,188 @@
+Description: optionally decode/encode data from/to database
+ Perl's unicode support is great, but requires that all data channels play
+ nice with it. This patch adds a new option, ib_encoding, then specifies
+ Perl encoding to use to decode the data from the database and to encode
+ Perl data for the database. Only text fields are processed (char, varchar
+ and text blobs).
+Author: Damyan Ivanov <dmn@debian.org>
+Forwarded: no
+
+--- a/dbdimp.c
++++ b/dbdimp.c
+@@ -108,6 +108,54 @@ void do_error(SV *h, int rc, char *what)
+ 
+ #define CALC_AVAILABLE(buff) sizeof(buff) - strlen(buff) - 1
+ 
++#define ENCODE 1
++#define DECODE 0
++SV* recode_string( int encode, imp_sth_t* imp_sth, SV* v ) {
++    I32 result;
++    SV **encoding;
++    SV *sv, *ret;
++    HV *hv;
++    dSP;
++
++    D_imp_dbh_from_sth;
++    sv = DBIc_IMP_DATA(imp_dbh);
++
++//    if (!sv || !SvROK(sv))
++//        return FALSE;
++
++    hv = (HV*) SvRV(sv);
++//    if (SvTYPE(hv) != SVt_PVHV)
++//        return FALSE;
++
++    // TODO make ib_encoding an Encode::Encoding instance for speed
++    if ((encoding = hv_fetch(hv, "ib_encoding", 11, FALSE)))
++    {
++        ENTER;
++        SAVETMPS;
++        PUSHMARK(SP);
++        XPUSHs(sv_mortalcopy(*encoding));
++        XPUSHs(sv_mortalcopy(v));
++        XPUSHs(sv_2mortal(newSViv(1)));     // Encode::FB_CROAK
++        PUTBACK;
++        result = call_pv( encode ? "Encode::encode" : "Encode::decode",
++            G_SCALAR );
++        SPAGAIN;
++        if ( result != 1 )
++            croak("Encode::(en|de)code returned no result\n");
++        ret = POPs;
++        PUTBACK;
++        FREETMPS;
++        LEAVE;
++
++        DBI_TRACE_imp_xxh(imp_dbh, 2, (DBIc_LOGPIO(imp_dbh), "recode_string\n"));
++    }
++    else {
++        ret = v;
++    }
++
++    return v;
++}
++
+ /* higher level error handling, check and decode status */
+ int ib_error_check(SV *h, ISC_STATUS *status)
+ {
+@@ -1366,6 +1414,8 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp
+                     }
+                     else
+                         sv_setpvn(sv, var->sqldata, var->sqllen);
++
++                    sv = recode_string(DECODE, imp_sth, sv);
+                     break;
+ 
+                 case SQL_VARYING:
+@@ -1373,6 +1423,7 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp
+                     DBD_VARY *vary = (DBD_VARY *) var->sqldata;
+                     sv_setpvn(sv, vary->vary_string, vary->vary_length);
+                     /* Note that sqllen for VARCHARs is the max length */
++                    sv = recode_string(DECODE, imp_sth, sv);
+                     break;
+                 }
+ 
+@@ -1528,11 +1579,13 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp
+                          blob_segment_buffer[BLOB_SEGMENT];
+                     char blob_info_items[] =
+                     {
++                        isc_info_blob_type,
+                         isc_info_blob_max_segment,
+                         isc_info_blob_total_length
+                     };
+                     long max_segment = -1L, total_length = -1L, t;
+                     unsigned short seg_length;
++                    unsigned short blob_type = 0;
+ 
+                     /* Open the Blob according to the Blob id. */
+                     isc_open_blob2(status, &(imp_dbh->db), &(imp_dbh->tr),
+@@ -1575,6 +1628,9 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp
+                           case isc_info_blob_total_length:
+                               total_length = isc_vax_integer(p, length);
+                               break;
++                          case isc_info_blob_type:
++                              blob_type = isc_vax_integer(p, length);
++                              break;
+                         }
+                         p += length;
+                     }
+@@ -1670,6 +1726,8 @@ AV *dbd_st_fetch(SV *sth, imp_sth_t *imp
+                     if (ib_error_check(sth, status))
+                         return FALSE;
+ 
++                    if ( blob_type == isc_blob_text )
++                        sv = recode_string(DECODE, imp_sth, sv);
+                     break;
+                 }
+ 
+@@ -2017,12 +2075,15 @@ int ib_blob_write(SV *sth, imp_sth_t *im
+         return FALSE;
+ 
+ 
++    is_text_blob = (var->sqlsubtype == isc_blob_text)? 1: 0; /* SUBTYPE TEXT */
++
++    if (is_text_blob)
++        value = recode_string(ENCODE, imp_sth, value);
++
+     /* get length, pointer to data */
+     total_length = SvCUR(value);
+     p = SvPV_nolen(value);
+ 
+-    is_text_blob = (var->sqlsubtype == isc_bpb_type_stream)? 1: 0; /* SUBTYPE TEXT */
+-
+     /* write it segment by segment */
+     seg_len = BLOB_SEGMENT;
+     while (total_length > 0)
+@@ -2170,6 +2231,8 @@ static int ib_fill_isqlda(SV *sth, imp_s
+             char *string;
+             STRLEN len;
+ 
++            value = recode_string(ENCODE, imp_sth, value);
++
+             string = SvPV(value, len);
+ 
+             if (len > ivar->sqllen) {
+@@ -2193,6 +2256,8 @@ static int ib_fill_isqlda(SV *sth, imp_s
+             char *string;
+             STRLEN len;
+ 
++            value = recode_string(ENCODE, imp_sth, value);
++
+             string = SvPV(value, len);
+ 
+             if (len > ivar->sqllen) {
+--- a/InterBase.pm
++++ b/InterBase.pm
+@@ -117,9 +117,13 @@ sub connect
+ 
+     DBD::InterBase->_OdbcParse($dsn, $private_attr_hash,
+                                ['database', 'host', 'port', 'ib_role', 'ib_dbkey_scope',
+-                                'ib_charset', 'ib_dialect', 'ib_cache', 'ib_lc_time']);
++                                'ib_charset', 'ib_encoding', 'ib_dialect', 'ib_cache',
++                                'ib_lc_time']);
+     $private_attr_hash->{database} ||= $ENV{ISC_DATABASE}; #"employee.fdb"
+ 
++    # dbimp.c will call Encode::(en|de)code if ib_encoding is set
++    require Encode if $private_attr_hash->{ib_encoding};
++
+     # second attr args will be retrieved using DBIc_IMP_DATA
+     my $dbh = DBI::_new_dbh($drh, {}, $private_attr_hash);
+ 
+@@ -307,6 +311,7 @@ uses all possible parameters:
+  ib_dialect=$dialect;
+  ib_role=$role;
+  ib_charset=$charset;
++ ib_encoding=$encoding;
+  ib_cache=$cache
+  DSN
+ 
+@@ -328,6 +333,10 @@ respective meanings:
+     ib_dialect      the SQL dialect to be used              optional
+     ib_role         the role of the user                    optional
+     ib_charset      character set to be used                optional
++    ib_encoding     Perl encoding used to encode/decode     optional
++                    the data when passing to/from the
++                    database. This converts text data
++                    from/to Perl unicode
+     ib_cache        number of database cache buffers        optional
+     ib_dbkey_scope  change default duration of RDB$DB_KEY   optional
+ 

@@ -1,0 +1,33 @@
+Description: Don't run tests that need internet access (or a physical CD-Rom) unless HAVE_INTERNET is set
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/625840
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-09
+
+--- a/test.pl
++++ b/test.pl
+@@ -7,7 +7,7 @@
+ 
+ use Test;
+ use Data::Dumper;
+-BEGIN { plan tests => 10 };
++BEGIN { plan tests => ( $ENV{HAVE_INTERNET} ? 10 : 1) };
+ use Net::FreeDB;
+ ok(1); # If we made it this far, we're ok.
+ 
+@@ -16,6 +16,8 @@
+ # Insert your test code below, the Test module is use()ed here so read
+ # its man page ( perldoc Test ) for help writing this test script.
+ 
++if ( $ENV{HAVE_INTERNET} ) {
++
+ #########################
+ ok($cddb = new Net::FreeDB('USER' => 'win32usr'));
+ 
+@@ -67,3 +69,5 @@
+ }
+ 
+ ok($id->{NUM_TRKS});
++
++} # end HAVE_INTERNET

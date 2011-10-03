@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.2.13)
-Build-Depends-Indep: libmoose-perl (>= 0.74), libmoosex-getopt-perl (>= 0.17), libwww-mechanize-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.74), libmoosex-getopt-perl (>= 0.17), libwww-mechanize-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libbrowser-open-perl, libclass-load-perl, libmoose-perl (>= 0.74), libmoosex-getopt-perl (>= 0.17), liburi-perl, libwww-mechanize-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libbrowser-open-perl, libclass-load-perl, libmoose-perl (>= 0.74), libmoosex-getopt-perl (>= 0.17), liburi-perl, libwww-mechanize-perl
 X: 0

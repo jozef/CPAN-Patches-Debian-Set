@@ -1,8 +1,11 @@
+Subject: use double quotes in xml declarations
 Author: Florian Ragwitz <rafl@debian.org>
-Description: use double quotes in xml declarations
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Forwarded: no
+Last-Update: 2010-08-22
 --- a/lib/XML/SAX/Writer/XML.pm
 +++ b/lib/XML/SAX/Writer/XML.pm
-@@ -481,14 +481,14 @@ sub xml_decl {
+@@ -481,14 +481,14 @@
      # also, there's order in the pseudo-attr
      my $xd = '';
      if ($data->{Version}) {

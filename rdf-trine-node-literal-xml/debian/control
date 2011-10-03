@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, liberror-perl, librdf-trine-perl, libtest-exception-perl, libtest-nowarnings-perl, libxml-libxml-perl, libxml2 (>= 2.6.27), perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

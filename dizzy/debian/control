@@ -1,0 +1,5 @@
+App: dizzy
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libfile-copy-recursive-perl, libfile-find-rule-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, dizzy (= ${source:Version}), libconvert-color-perl, libopengl-perl (>= 0.58), libopengl-xscreensaver-perl, libsdl-perl
+X: 0

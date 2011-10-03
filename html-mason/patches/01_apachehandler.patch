@@ -1,0 +1,49 @@
+Origin: vendor
+Last-Update: 2011-07-09
+
+--- a/lib/HTML/Mason/ApacheHandler.pm
++++ b/lib/HTML/Mason/ApacheHandler.pm
+@@ -9,9 +9,6 @@
+ 
+ package HTML::Mason::ApacheHandler;
+ 
+-use vars qw($VERSION);
+-# do not change the version number
+-$VERSION = 1.69;
+ 
+ 
+ # PerlAddVar was introduced in mod_perl-1.24
+@@ -27,7 +24,7 @@
+         require mod_perl;
+     }
+ 
+-    my $mpver = (mod_perl2->VERSION || mod_perl->VERSION || 0);
++    my $mpver = ($mod_perl2::VERSION || $mod_perl::VERSION || 0);
+ 
+     # This is the version that introduced PerlAddVar
+     if ($mpver && $mpver < 1.24)
+@@ -270,6 +267,11 @@
+         unless Apache::perl_hook('TableApi');
+ }
+ 
++# CFRY: moved down from top of file in Debian (by a previous maintainer)
++use vars qw($VERSION);
++# do not change the version number
++$VERSION = 1.69;
++
+ use base qw(HTML::Mason::Handler);
+ 
+ BEGIN
+@@ -598,7 +600,11 @@
+     if (exists $allowed_params->{data_dir} and not exists $params{data_dir})
+     {
+         # constructs path to <server root>/mason
+-        if (UNIVERSAL::can('Apache2::ServerUtil','server_root')) {
++        # CFRY: use /var/cache/mason as default data_dir on Debian
++        if (-d '/var/cache/mason') {
++            $defaults{data_dir} = '/var/cache/mason';
++        }
++        elsif (UNIVERSAL::can('Apache2::ServerUtil','server_root')) {
+                 $defaults{data_dir} = File::Spec->catdir(Apache2::ServerUtil::server_root(),'mason');
+         } else {
+                 $defaults{data_dir} = Apache->server_root_relative('mason');

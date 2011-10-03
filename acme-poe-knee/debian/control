@@ -1,0 +1,4 @@
+App: 0
+Build-Depends-Indep: debhelper (>= 7.0.50), perl (>= 5.6.0-17), quilt (>= 0.46-7)
+Depends: ${misc:Depends}, ${perl:Depends}, libpoe-perl
+X: 0

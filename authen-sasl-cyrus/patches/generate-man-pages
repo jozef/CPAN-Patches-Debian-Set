@@ -1,0 +1,28 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Install the Authen::SASL::Cyrus man page
+
+The man page wasn't being installed due to an upstream override of the
+manifypods rule, which dropped the part of the rule that actually
+created the man page.  Fix this by including the inherited text in the
+rule override.
+
+--- libauthen-sasl-cyrus-perl.orig/Makefile.PL
++++ libauthen-sasl-cyrus-perl/Makefile.PL
+@@ -16,12 +16,12 @@
+ package MY;
+ sub manifypods
+ {
+-	return <<'POD';
+-manifypods: Cyrus.pod
+-
++	my $inherited = shift->SUPER::manifypods(@_);
++	return <<"POD";
++$inherited
+ Cyrus.pod: Cyrus.xs
+-		@echo "!!! Developers: Do not edit the Cyrus.pod, edit the Cyrus.xs instead. !!!"
+-		@echo "Make will overwrite Cyrus.pod."
++		\@echo "!!! Developers: Do not edit the Cyrus.pod, edit the Cyrus.xs instead. !!!"
++		\@echo "Make will overwrite Cyrus.pod."
+ 		podselect Cyrus.xs > Cyrus.pod
+ POD
+ }

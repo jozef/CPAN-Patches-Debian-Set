@@ -2,44 +2,11 @@ Description: spelling fixes
 Origin: vendor
 Forwarded: no
 Author: gregor herrmann <gregoa@debian.org>
-Last-Update: 2010-05-21
+Last-Update: 2011-08-25
 
---- a/lib/Jifty/Continuation.pm
-+++ b/lib/Jifty/Continuation.pm
-@@ -225,7 +225,7 @@
- Returns from the continuation by pulling out the stored request, and
- setting that to be the active request.  This shouldn't need to be
- called by hand -- use L<Jifty::Request/return_from_continuation>,
--which ensures that all requirements are ment before it calls this.
-+which ensures that all requirements are meant before it calls this.
- 
- =cut
- 
---- a/lib/Jifty/Manual/Actions.pod
-+++ b/lib/Jifty/Manual/Actions.pod
-@@ -265,7 +265,7 @@
- In fact, that's exactly how actions "return" values to other components 
- in your application.
- 
--Mutiple action "return values" are possible and arbitrary data structures
-+Multiple action "return values" are possible and arbitrary data structures
- can be passed too:
- 
-     $self->result->content( keys   => $keys );
---- a/lib/Jifty/Manual/Actions_zhtw.pod
-+++ b/lib/Jifty/Manual/Actions_zhtw.pod
-@@ -268,7 +268,7 @@
- In fact, that's exactly how actions "return" values to other components 
- in your application.
- 
--Mutiple action "return values" are possible and arbitrary data structures
-+Multiple action "return values" are possible and arbitrary data structures
- can be passed too:
- 
-     $self->result->content( keys   => $keys );
 --- a/lib/Jifty/Action.pm
 +++ b/lib/Jifty/Action.pm
-@@ -490,7 +490,7 @@
+@@ -491,7 +491,7 @@
          # It is in fact a form field for this action
  
          my $sticky = 0;
@@ -48,37 +15,6 @@ Last-Update: 2010-05-21
          if ( defined $field_info->{sticky} ) {
              $sticky = $field_info->{sticky};
          }
-@@ -1105,7 +1105,7 @@
-             # Check for a collection spec
-             if ( $v->{'collection'} ) {
- 
--                # Load the display_from/value_from paramters
-+                # Load the display_from/value_from parameters
-                 my $disp = $v->{'display_from'};
-                 my $val  = $v->{'value_from'};
- 
---- a/lib/Jifty/Manual/Cookbook.pod
-+++ b/lib/Jifty/Manual/Cookbook.pod
-@@ -608,7 +608,7 @@
- 
-   id => { result_of => $create, name => 'id' },
- 
--This line tells Jifty that you want to set the "id" paramter sent to the URL given in C<append>, to the "id" set when C<$create> is executed. That is, after running the action, Jifty will contact the URL and effectively perform:
-+This line tells Jifty that you want to set the "id" parameter sent to the URL given in C<append>, to the "id" set when C<$create> is executed. That is, after running the action, Jifty will contact the URL and effectively perform:
- 
-   set id => $create->result->content('id');
- 
---- a/lib/Jifty/Web/Form/Clickable.pm
-+++ b/lib/Jifty/Web/Form/Clickable.pm
-@@ -288,7 +288,7 @@
- 
- =head2 parameter KEY VALUE
- 
--Sets the given HTTP paramter named C<KEY> to the given C<VALUE>.
-+Sets the given HTTP parameter named C<KEY> to the given C<VALUE>.
- 
- =cut
- 
 --- a/lib/Jifty/Manual/PageRegions.pod
 +++ b/lib/Jifty/Manual/PageRegions.pod
 @@ -199,7 +199,7 @@
@@ -90,35 +26,6 @@ Last-Update: 2010-05-21
  
  You can add any arguments you want to this component that may be required
  to show the additional information, for example an id of some object, but
---- a/lib/Jifty/Plugin/ViewDeclarePage/Page.pm
-+++ b/lib/Jifty/Plugin/ViewDeclarePage/Page.pm
-@@ -13,7 +13,7 @@
- 
- This library is a replacement for L<Jifty::View::Declare::Page>.
- That is in Jifty for a while and can not be replaced with something
--completly different because of backwards compatibility.
-+completely different because of backwards compatibility.
- 
- When you declare a L<Jifty::View::Declare> template that is a page, for example:
- 
-@@ -31,7 +31,7 @@
- 
- It's very hard to extended L<Jifty::View::Declare::Page> class as
- it's written in such a way that forces you to copy&paste some
--internals from the class to make overriden method work and don't
-+internals from the class to make overridden method work and don't
- breake things.
- 
- I think this implementation is much better thing. To use this class
-@@ -174,7 +174,7 @@
- Renders whole page from doctype till closing html tag. Takes
- no arguments.
- 
--This method drives rendering of the page. Page is splitted
-+This method drives rendering of the page. Page is split
- into three major parts: header, body and footer. Each is
- implemented as corresponding method with 'render_' prefix.
- 
 --- a/lib/Jifty/Manual/Tutorial_zhtw.pod
 +++ b/lib/Jifty/Manual/Tutorial_zhtw.pod
 @@ -453,7 +453,7 @@
@@ -130,78 +37,25 @@ Last-Update: 2010-05-21
  
              $self->render_pre_content_hook();
              $body_code->();
---- a/lib/Jifty/Manual/jQueryMigrationGuide.pod
-+++ b/lib/Jifty/Manual/jQueryMigrationGuide.pod
-@@ -115,7 +115,7 @@
+--- a/lib/Jifty/Plugin/ViewDeclarePage/Page.pm
++++ b/lib/Jifty/Plugin/ViewDeclarePage/Page.pm
+@@ -31,7 +31,7 @@
  
- jQuery does not build-in with JSON stringify function, but since it
- neither altered the native Array, nor defined its own Hash, it's
--prefered and fine to just use C<JSON.stringify> from C<json.js>.
-+preferred and fine to just use C<JSON.stringify> from C<json.js>.
+ It's very hard to extended L<Jifty::View::Declare::Page> class as
+ it's written in such a way that forces you to copy&paste some
+-internals from the class to make overriden method work and don't
++internals from the class to make overridden method work and don't
+ break things.
  
- From:
+ I think this implementation is much better thing. To use this class
+--- a/lib/Jifty/Manual/Models.pod
++++ b/lib/Jifty/Manual/Models.pod
+@@ -60,7 +60,7 @@
  
---- a/lib/Jifty/Plugin/CSSQuery.pm
-+++ b/lib/Jifty/Plugin/CSSQuery.pm
-@@ -67,7 +67,7 @@
- as Perl itself.
+ =back
  
- cssQuery is available for use in all personal or commercial projects
--under both MIT and GPL licenses. This means taht you can choose the
-+under both MIT and GPL licenses. This means that you can choose the
- license that best suits your project and use it accordingly. See
- L<http://jifty.com/> for current information on cssQuery copyrights
- and licensing.
---- a/lib/Jifty/Request/Mapper.pm
-+++ b/lib/Jifty/Request/Mapper.pm
-@@ -110,7 +110,7 @@
- 
- Responsible for doing the actual mapping that L</query_parameters>
- above sets up.  That is, takes magical query parameters and extracts
--the values they were ment to have.
-+the values they were meant to have.
- 
- =over
- 
---- a/lib/Jifty/Web/Form/Field.pm
-+++ b/lib/Jifty/Web/Form/Field.pm
-@@ -138,7 +138,7 @@
- 
- =head2 name [VALUE]
- 
--Gets or sets the name of the field.  This is seperate from the name of
-+Gets or sets the name of the field.  This is separate from the name of
- the label (see L</label>) and the form input name (see
- L</input_name>), though both default to this name.  This name should
- match to a key in the L<Jifty::Action/arguments> hash.  If this
-@@ -664,7 +664,7 @@
- Renders the div tag and javascript necessary to do autocompletion for
- this form field. Deprecated internally in favor of
- L</render_autocomplete_div> and L</autocomplete_javascript>, but kept
--for backwards compatability since there exists external code that uses
-+for backwards compatibility since there exists external code that uses
- it.
- 
- =cut
---- a/lib/Jifty/Web/Menu.pm
-+++ b/lib/Jifty/Web/Menu.pm
-@@ -374,7 +374,7 @@
- =head2 render_as_yui_menubar [PARAMHASH]
- 
- Render menubar with YUI menu, suitable for an application's menu.
--It can support arbitary levels of submenu.
-+It can support arbitrary levels of submenu.
- 
- =cut
- 
---- a/lib/Jifty/Manual/Glossary.pod
-+++ b/lib/Jifty/Manual/Glossary.pod
-@@ -49,7 +49,7 @@
- =item constructor
- 
- A property of a L</parameter>; the action B<must> have an argument value for
--this paramater in order to be constructed.  This is different from
-+this parameter in order to be constructed.  This is different from
- L</mandatory>, in that the user can leave mandatory fields empty.  For
- instance, the C<id> of a L<Jifty::Action::Record::Update> is a constructor.
- See L<Jifty::Action>.
+-To get all these things done, Jifty allows to describe the schema
++To get all these things done, Jifty allows one to describe the schema
+ definition in a simply comprehensible but powerful syntax that looks
+ more like written text than a programming language. The schema
+ definition is made inside the C<MyApp::Model::XXX::Schema> package and

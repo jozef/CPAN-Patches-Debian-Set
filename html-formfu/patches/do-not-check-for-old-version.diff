@@ -1,0 +1,15 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Sat, 23 Apr 2011 13:54:55 +0200
+Origin: vendor
+Forwarded: not-needed
+Subject: do not check for old versions when building the package
+--- libhtml-formfu-perl.orig/Makefile.PL
++++ libhtml-formfu-perl/Makefile.PL
+@@ -8,6 +8,7 @@
+ # required for legacy check below
+ include_deps 'IO::Interactive' => '0.04';
+ 
++if (0)
+ {
+     # check for old non-Moose version
+     

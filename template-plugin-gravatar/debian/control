@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libtemplate-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libtemplate-perl, liburi-perl
+X: 0

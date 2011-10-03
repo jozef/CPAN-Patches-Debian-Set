@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libaliased-perl, libautodie-perl, libcarp-clan-perl, libdbd-sqlite3-perl, libdbix-class-perl (>= 0.08121), libfile-path-perl, libfile-touch-perl (>= 0.08), liblog-contextual-perl, libmethod-signatures-simple-perl, libmoose-perl (>= 1.00), libmoosex-role-parameterized-perl, libnamespace-autoclean-perl, libsql-translator-perl (>= 0.11005), libtest-exception-perl, libtry-tiny-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libaliased-perl, libautodie-perl, libcarp-clan-perl, libdbd-sqlite-perl, libdbix-class-perl (>= 0.08121), libfile-touch-perl (>= 0.08), liblog-contextual-perl, libmethod-signatures-simple-perl, libmoose-perl (>= 1.00), libmoosex-role-parameterized-perl, libnamespace-autoclean-perl, libsql-translator-perl (>= 0.11005), libtry-tiny-perl, perl (>= 5.11.1) | libfile-path-perl
+X: 0

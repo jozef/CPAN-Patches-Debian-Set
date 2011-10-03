@@ -1,0 +1,74 @@
+Description: fix POD errors
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-28
+
+--- a/Expr.pm
++++ b/Expr.pm
+@@ -493,7 +493,7 @@
+ 
+ =item * E<lt>=E<gt>
+ 
+-=back 4
++=back
+ 
+ =item * String Comparisons
+ 
+@@ -513,9 +513,9 @@
+ 
+ =item * cmp
+ 
+-=back 4
++=back
+ 
+-=back 4
++=back
+ 
+ =head1 MATHEMATICS
+ 
+@@ -533,7 +533,7 @@
+ 
+ =item * %
+ 
+-=back 4
++=back
+ 
+ There are also some mathy functions.  See the FUNCTIONS section below.
+ 
+@@ -547,7 +547,7 @@
+ 
+ =item * || (synonym: or)
+ 
+-=back 4
++=back
+ 
+ =head1 FUNCTIONS
+ 
+@@ -596,7 +596,7 @@
+ 
+ =item * srand
+ 
+-=back 4
++=back
+ 
+ All functions must be called using full parenthesis.  For example,
+ this is a syntax error:
+@@ -621,7 +621,7 @@
+   HTML::Template::Expr->register_function(func_name => \&func_handler);
+ 
+ You provide a subroutine reference that will be called during output.
+-It will recieve as arguments the parameters specified in the template.
++It will receive as arguments the parameters specified in the template.
+ For example, here's a function that checks if a directory exists:
+ 
+   sub directory_exists {
+@@ -662,7 +662,7 @@
+ 
+ Currently the module forces the HTML::Template global_vars option to
+ be set.  This will hopefully go away in a future version, so if you
+-need global_vars in your templates then you should set it explicitely.
++need global_vars in your templates then you should set it explicitly.
+ 
+ The module won't work with HTML::Template's file_cache or shared_cache
+ modes, but normal memory caching should work.  I hope to address this

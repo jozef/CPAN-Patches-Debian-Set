@@ -1,0 +1,15 @@
+Description: fix a typo in POD
+Author: FLorian Weimer
+Forwarded: no
+
+--- a/PPerl.pm
++++ b/PPerl.pm
+@@ -30,7 +30,7 @@ PPerl - Make perl scripts persistent in 
+ 
+ This program turns ordinary perl scripts into long running daemons, making
+ subsequent executions extremely fast. It forks several processes for each
+-script, allowing many proceses to call the script at once.
++script, allowing many processes to call the script at once.
+ 
+ It works a lot like SpeedyCGI, but is written a little differently. I didn't
+ use the SpeedyCGI codebase, because I couldn't get it to compile, and needed

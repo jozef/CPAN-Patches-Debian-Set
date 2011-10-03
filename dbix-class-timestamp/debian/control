@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.2.13)
-Build-Depends-Indep: libclass-accessor-grouped-perl, libdatetime-format-mysql-perl, libdatetime-format-sqlite-perl, libdatetime-perl, libdbd-sqlite3-perl, libdbix-class-dynamicdefault-perl, libdbix-class-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtime-warp-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libdbix-class-dynamicdefault-perl, libdbix-class-perl
+Build-Depends-Indep: libclass-accessor-grouped-perl, libdatetime-format-mysql-perl, libdatetime-format-sqlite-perl, libdatetime-perl (>= 2:0.5500), libdbd-sqlite3-perl, libdbix-class-dynamicdefault-perl, libdbix-class-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtime-warp-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl (>= 2:0.5500), libdbix-class-dynamicdefault-perl, libdbix-class-perl
 X: 0

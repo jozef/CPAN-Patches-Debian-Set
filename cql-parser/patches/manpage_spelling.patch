@@ -1,0 +1,17 @@
+Description: spelling fixes
+Origin: vendor
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=70052
+Author: Ben Webb <bjwebb67@googlemail.com>
+Last-Update: 2011-08-03
+
+--- a/lib/CQL/Token.pm
++++ b/lib/CQL/Token.pm
+@@ -157,7 +157,7 @@
+ 
+ =head2 getType()
+ 
+-Returns the token type which will be availble as one of the constants
++Returns the token type which will be available as one of the constants
+ that CQL::Token exports. See internals for a list of available constants.
+ 
+ =cut

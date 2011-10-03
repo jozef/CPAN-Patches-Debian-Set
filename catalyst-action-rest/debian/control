@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.2.13)
-Build-Depends-Indep: libcatalyst-perl, libclass-inspector-perl, libdata-serializer-perl, libjson-perl (>= 2.12), libmoose-perl, libmro-compat-perl (>= 0.10), libnamespace-autoclean-perl, libparams-validate-perl, libtest-pod-perl, liburi-find-perl, libwww-perl, libyaml-syck-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl, libclass-inspector-perl, libdata-serializer-perl, libmoose-perl, libmro-compat-perl (>= 0.10), libnamespace-autoclean-perl, libparams-validate-perl, liburi-find-perl, libwww-perl, libyaml-syck-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcatalyst-perl (>= 5.80030), libclass-inspector-perl, libdata-serializer-perl, libjson-perl (>= 2.12), libmoose-perl (>= 1.03), libmro-compat-perl (>= 0.10), libnamespace-autoclean-perl, libparams-validate-perl, libtest-pod-perl, liburi-find-perl, libwww-perl, libyaml-syck-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl (>= 5.80030), libclass-inspector-perl, libdata-serializer-perl, libmoose-perl (>= 1.03), libmro-compat-perl (>= 0.10), libnamespace-autoclean-perl, libparams-validate-perl, liburi-find-perl, libwww-perl, libyaml-syck-perl
 X: 0

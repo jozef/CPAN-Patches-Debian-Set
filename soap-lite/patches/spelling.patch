@@ -6,7 +6,7 @@ Last-Update: 2010-06-13
 
 --- a/lib/XML/Parser/Lite.pm
 +++ b/lib/XML/Parser/Lite.pm
-@@ -332,7 +332,7 @@
+@@ -338,7 +338,7 @@
  
  =head2 Final
  
@@ -15,3 +15,14 @@ Last-Update: 2010-06-13
  cleanup here.
  
  =head1 SEE ALSO
+--- a/lib/SOAP/Lite.pm
++++ b/lib/SOAP/Lite.pm
+@@ -5544,7 +5544,7 @@
+ 
+ =head2 Transport Modules
+ 
+-SOAP::Lite allows to add support for additional transport protocols, or
++SOAP::Lite allows one to add support for additional transport protocols, or
+ server handlers, via separate modules implementing the SOAP::Transport::*
+ interface. The following modules are available from CPAN:
+ 

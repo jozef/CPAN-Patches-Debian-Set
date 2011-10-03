@@ -1,0 +1,53 @@
+Description: make test compatible with HTML::Tree >= 4
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=63583
+Bug-Debian: http://bugs.debian.org/605809
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-01-19
+
+--- a/t/04basic.t
++++ b/t/04basic.t
+@@ -82,13 +82,14 @@
+     is( $c->error_xml, <<EOF, 'Error XML output is ok' );
+ <span class="error_messages" id="widget_age_errors"><span class="regex_errors" id="widget_age_error_regex">Contains digit characters.</span></span>
+ EOF
+-    is( $c->javascript_xml, <<EOF, 'JavScript XML output is ok' );
++    chomp( my $js = <<'EOF' );
+ <script type="text/javascript">
+ <!--
+ 
+ //-->
+ </script>
+ EOF
++    is( $c->javascript_xml, $js, 'JavScript XML output is ok' );
+     is( $c->as_xml, <<EOF, 'Container XML output is ok' );
+ <label class="labels_with_errors" for="widget_age" id="widget_age_label">Age<span class="fields_with_errors"><input class="textfield" id="widget_age" name="age" size="3" type="text" value="23" /></span></label>
+ <span class="error_messages" id="widget_age_errors"><span class="regex_errors" id="widget_age_error_regex">Contains digit characters.</span></span>
+--- a/t/07custom_render.t
++++ b/t/07custom_render.t
+@@ -119,13 +119,14 @@
+     is( $c->error_xml, <<EOF, 'Error XML output is ok' );
+ <span class="error_messages" id="widget_age_errors"><span class="regex_errors" id="widget_age_error_regex">Contains digit characters.</span></span>
+ EOF
+-    is( $c->javascript_xml, <<EOF, 'JavScript XML output is ok' );
++    chomp( my $js = <<'EOF' );
+ <script type="text/javascript">
+ <!--
+ 
+ //-->
+ </script>
+ EOF
++    is( $c->javascript_xml, $js, 'JavScript XML output is ok' );
+     is( $c->as_xml, <<EOF, 'Container XML output is ok' );
+ <label class="labels_with_errors" for="widget_age" id="widget_age_label">Age</label>
+ <br />
+--- a/t/06bugs_xml_escape.t
++++ b/t/06bugs_xml_escape.t
+@@ -23,5 +23,5 @@
+ 
+     like( "$f", qr'value="é"', 'utf-8 character ok' );
+ 
+-    like( "$f", qr'value="&#34; foo &#62;"', '' );
++    like( "$f", qr'value="&quot; foo &gt;"', '' );
+ }

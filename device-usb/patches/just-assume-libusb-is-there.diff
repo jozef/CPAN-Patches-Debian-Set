@@ -1,0 +1,27 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Mon, 29 Aug 2011 13:31:54 +0200
+Subject: Just assume libusb is out there
+Bug-Debian: http://bugs.debian.org/639677
+
+Makefile.PL should not try to check for libusb in a given list of directories
+as the compiler might look in other places as well.
+--- libdevice-usb-perl.orig/Makefile.PL
++++ libdevice-usb-perl/Makefile.PL
+@@ -21,7 +21,7 @@
+     }
+ }
+ 
+-unless(header_found())
++unless(1 || header_found())
+ {
+     die <<"END";
+ ERROR: Can't find usb.h header.
+@@ -36,7 +36,7 @@
+ END
+ }
+ 
+-unless(lib_found())
++unless(1 || lib_found())
+ {
+     die <<"END";
+ ERROR: Can't find libusb library.

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-dbi-sqlite-perl, libdigest-hmac-perl, libplack-perl, libtest-exception-perl, libtest-requires-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libplack-perl
+X: 0

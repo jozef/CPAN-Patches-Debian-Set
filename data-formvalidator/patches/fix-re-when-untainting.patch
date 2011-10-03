@@ -1,0 +1,20 @@
+Description: Fix a matching check leading to passing (and mangling) invalid data
+ $match would be '' when $val doesn't match $re and '' is still defined...
+Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=61792
+Bug-Debian: http://bugs.debian.org/629511
+Forwarded: yes
+Author: Damyan Ivanov <dmn@debian.org>
+Last-Update: 2011-06-07
+
+--- a/lib/Data/FormValidator/Results.pm
++++ b/lib/Data/FormValidator/Results.pm
+@@ -807,7 +807,7 @@ sub _create_sub_from_RE {
+             # With methods, the value is the second argument
+             my $val = $force_method_p ? $_[1] : $_[0];
+             my ($match) = scalar ($val =~ $re);
+-            if ($untaint_this && defined $match) {
++            if ($untaint_this && $match) {
+                 # pass the value through a RE that matches anything to untaint it.
+                 my ($untainted) = ($&  =~ m/(.*)/s);
+                 return $untainted;

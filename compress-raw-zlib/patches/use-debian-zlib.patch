@@ -1,7 +1,9 @@
-Author: Damyan Ivanov
 Description: Modify config.in to use vendor zlib instead of the built-in one.
 Origin: vendor
-Forwarded: no
+Forwarded: not-needed
+Author: Damyan Ivanov
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-08
 
 --- a/config.in
 +++ b/config.in

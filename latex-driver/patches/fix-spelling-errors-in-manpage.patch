@@ -1,0 +1,37 @@
+Description: Fix spelling errors in LaTeX::Driver manpage.
+Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=61929
+Forwarded: yes
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Reviewed-by: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Last-Update: 2011-09-18
+
+--- a/lib/LaTeX/Driver.pm
++++ b/lib/LaTeX/Driver.pm
+@@ -1093,7 +1093,7 @@
+ 
+ =item no source specified
+ 
+-The C<source> paramater should be specified as the name of a LaTeX
++The C<source> parameter should be specified as the name of a LaTeX
+ source file or it should be a reference to a scalar variable holding
+ the LaTeX source document.
+ 
+@@ -1134,7 +1134,7 @@
+ The module was trying to copy the specified source file to the
+ temporary directory but couldn't.  Perhaps you specified the temporary
+ directory name explicitly but the directory does not exist or is not
+-writeable.
++writable.
+ 
+ =back
+ 
+@@ -1229,7 +1229,7 @@
+ 
+ =item *
+ 
+-Investigate pre- and post-processors and other auxilliary programs.
++Investigate pre- and post-processors and other auxiliary programs.
+ 
+ =back
+ 

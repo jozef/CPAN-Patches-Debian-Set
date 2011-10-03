@@ -1,0 +1,11 @@
+--- a/lib/Config/Model/Tk/AnyViewer.pm
++++ b/lib/Config/Model/Tk/AnyViewer.pm
+@@ -197,7 +197,7 @@
+     ) ->pack(-anchor => 'w', -side => 'left', -fill =>'x');
+ 
+     if ($usage eq 'edit') {
+-        my $nb_fixes = $elt_obj->has_fixes ;
++        my $nb_fixes = $elt_obj->has_fixes || 0;
+ 
+         my $fix_widget = $label_button_frame -> Button(
+             -text => "Apply $nb_fixes fixes",

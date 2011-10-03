@@ -1,0 +1,15 @@
+Description: do not link with libdl.so
+ The module doesn't use any of its symbols
+Author: Damyan Ivanov <dmn@debian.org>
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -491,7 +491,7 @@ elsif (($os eq 'linux') || ($os eq 'free
+ 
+     my $ldl = ($os eq 'linux') ? '-ldl' : '';
+ 
+-    $MakeParams{'LIBS'} = "-L$ib_lib -l$lib $ldl ";
++    $MakeParams{'LIBS'} = "-L$ib_lib -l$lib";
+ 
+     # o Commercial IB 5.1.1 for Red Hat Linux 6.x
+     #   requires a compatibilty library to resolve

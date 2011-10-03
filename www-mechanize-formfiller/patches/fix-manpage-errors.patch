@@ -1,8 +1,13 @@
-# Description: add spacing to SEE ALSO lists so that man can wrap the text
-#              otherwise man complains, not to mention that the links and
-#              wrapped
-# Author: Damyan Ivanov <dmn@debian.org>
-# Upstream-Bug: http://rt.cpan.org/Ticket/Display.html?id=45276
+Description: add spacing to SEE ALSO lists so that man can wrap the text
+             otherwise man complains, not to mention that the links and
+             wrapped
+Origin: vendor
+Bug: http://rt.cpan.org/Ticket/Display.html?id=45276
+Forwarded: no
+Author: Damyan Ivanov <dmn@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-04
+
 --- a/lib/WWW/Mechanize/FormFiller/Value.pm
 +++ b/lib/WWW/Mechanize/FormFiller/Value.pm
 @@ -75,5 +75,8 @@ Please contact me if you find bugs or ot

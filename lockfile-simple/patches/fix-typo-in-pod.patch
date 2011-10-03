@@ -1,0 +1,23 @@
+Description: Fix typo in POD
+Author: Maximilian Gass <mxey@cloudconnected.org>
+Bug: https://rt.cpan.org/Ticket/Display.html?id=66086
+--- a/Simple.pm
++++ b/Simple.pm
+@@ -677,7 +677,7 @@
+ it redirects to the logerr() routine if you have Log::Agent installed,
+ to Perl's warn() function otherwise.
+ 
+-You may set it explicitely to C<\&LockFile::Simple::core_warn> to force the
++You may set it explicitly to C<\&LockFile::Simple::core_warn> to force the
+ use of Perl's warn() function, or to C<undef> to suppress logging.
+ 
+ =item I<ext>
+@@ -746,7 +746,7 @@
+ it redirects to the logwarn() routine if you have Log::Agent installed,
+ to Perl's warn() function otherwise.
+ 
+-You may set it explicitely to C<\&LockFile::Simple::core_warn> to force the
++You may set it explicitly to C<\&LockFile::Simple::core_warn> to force the
+ use of Perl's warn() function, or to C<undef> to suppress logging.
+ 
+ =item I<wmin>

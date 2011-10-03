@@ -1,0 +1,46 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling mistakes
+Last-Update: 2010-08-31
+Bug: http://rt.cpan.org/Ticket/Display.html?id=60917
+--- CGI-Application-Plugin-Authorization-0.07.orig/lib/CGI/Application/Plugin/Authorization.pm
++++ CGI-Application-Plugin-Authorization-0.07/lib/CGI/Application/Plugin/Authorization.pm
+@@ -854,7 +854,7 @@
+ 
+ =head1 TODO
+ 
+-The module is definately in a usable state, but there are still some parts
++The module is definitely in a usable state, but there are still some parts
+ missing that I would like to add in:
+ 
+ =over 4
+--- CGI-Application-Plugin-Authorization-0.07.orig/lib/CGI/Application/Plugin/Authorization/Driver.pm
++++ CGI-Application-Plugin-Authorization-0.07/lib/CGI/Application/Plugin/Authorization/Driver.pm
+@@ -108,7 +108,7 @@
+ =head2 authz
+ 
+ This will return the underlying L<CGI::Application::Plugin::Authorization> object.  In most cases it will
+-not be necesary to access this.
++not be necessary to access this.
+ 
+ =cut
+ 
+--- CGI-Application-Plugin-Authorization-0.07.orig/lib/CGI/Application/Plugin/Authorization/Driver/DBI.pm
++++ CGI-Application-Plugin-Authorization-0.07/lib/CGI/Application/Plugin/Authorization/Driver/DBI.pm
+@@ -36,7 +36,7 @@
+ This Authorization driver uses the DBI module to allow you to gather
+ authorization information from any database for which there is a DBD module.
+ You can either provide an active database handle, or provide the parameters
+-necesary to connect to the database.
++necessary to connect to the database.
+ 
+ =head2 DBH
+ 
+@@ -59,7 +59,7 @@
+ 
+ =back
+ 
+-Following is a description of all the avaliable parameters:
++Following is a description of all the available parameters:
+ 
+ =head2 TABLE(S)
+ 

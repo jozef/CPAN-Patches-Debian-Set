@@ -1,0 +1,22 @@
+Description: remove requirement for Package::Stash::Conflicts
+ This patch removes the requirements for Package::Stash::Conflicts
+ and friends, since these are handled by the package management
+ system.
+Origin: vendor
+Forwarded: not-needed
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-21
+
+--- a/t/00-compile.t
++++ b/t/00-compile.t
+@@ -37,6 +37,9 @@
+     );
+ }
+ 
++@modules = grep { !/^Package::Stash::Conflicts$/ } @modules;
++@scripts = grep { !/^bin\/package-stash-conflicts$/ } @scripts;
++
+ my $plan = scalar(@modules) + scalar(@scripts);
+ $plan ? (plan tests => $plan) : (plan skip_all => "no tests to run");
+ 

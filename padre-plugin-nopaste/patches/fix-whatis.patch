@@ -1,0 +1,15 @@
+Description: fix manpage whatis entry
+Author: Damyan Ivanov <dmn@debian.org>
+Origin: http://padre.perlide.org/trac/changeset/13278
+
+--- a/lib/Padre/Plugin/Nopaste/Task.pm
++++ b/lib/Padre/Plugin/Nopaste/Task.pm
+@@ -13,7 +13,7 @@ our @ISA     = 'Padre::Task';
+ 
+ =head1 NAME
+ 
+-Padre::Plugin::Nopaste::Task
++Padre::Plugin::Nopaste::Task - Padre::Task subclass doing nopaste job
+ 
+ =head1 SYNOPSIS
+ 

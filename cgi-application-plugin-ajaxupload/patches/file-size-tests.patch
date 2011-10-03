@@ -1,0 +1,27 @@
+Description: File size tests failing since recent upgrades
+Bug: http://rt.cpan.org/Ticket/Display.html?id=70523
+Bug-Debian: http://bugs.debian.org/637791
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-08-26
+--- libcgi-application-plugin-ajaxupload-perl-0.0.3.orig/t/03.images.t
++++ libcgi-application-plugin-ajaxupload-perl-0.0.3/t/03.images.t
+@@ -243,7 +243,8 @@ subtest 'options' => sub{
+         qr!{"status":"UPLOADED","image_url":"$upload_subdir/test.jpeg"}!xms,
+         'UPLOADED'
+     );
+-    is(-s "$tmpdir_name$upload_subdir/test.jpeg", 4046, 'file size');
++    my $size = -s "$tmpdir_name/$upload_subdir/test.jpeg";
++    ok($size >= 4000 && $size <= 4100, 'file size');
+ };
+ 
+ subtest 'UPLOADED' => sub{
+@@ -266,7 +267,8 @@ subtest 'UPLOADED' => sub{
+         qr!{"status":"UPLOADED","image_url":"/img/uploads/test.jpeg"}!xms,
+         'UPLOADED'
+     );
+-    is(-s "$tmpdir_name/img/uploads/test.jpeg", 4046, 'file size');
++    my $size = -s "$tmpdir_name/img/uploads/test.jpeg";
++    ok($size >= 4000 && $size <= 4100, 'file size');
+ };
+ 
+ 

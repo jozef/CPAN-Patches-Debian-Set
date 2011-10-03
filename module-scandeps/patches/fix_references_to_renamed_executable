@@ -1,14 +1,13 @@
 Subject: Fix references to scandeps
-Date: Mon, 10 Mar 2008 10:40:40 -0600
+ Fixed references to scandeps.pl so they refer to scandeps.  The name of the
+ program was changed to follow Debian policy.
+Last-Update: 2011-04-23
 From: Gunnar Wolf <gwolf@debian.org>
 Origin: vendor
 Forwarded: not-needed
-
-Fixed references to scandeps.pl so they refer to scandeps.  The name of the
-program was changed to follow Debian policy.
-
---- libmodule-scandeps-perl.orig/lib/Module/ScanDeps.pm
-+++ libmodule-scandeps-perl/lib/Module/ScanDeps.pm
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+--- a/lib/Module/ScanDeps.pm
++++ b/lib/Module/ScanDeps.pm
 @@ -36,12 +36,12 @@
  
  =head1 SYNOPSIS
@@ -27,7 +26,7 @@ program was changed to follow Debian policy.
  
  Used in a program;
  
-@@ -1395,7 +1395,7 @@
+@@ -1414,7 +1414,7 @@
  
  =head1 SEE ALSO
  
@@ -36,8 +35,8 @@ program was changed to follow Debian policy.
  for a number of files.
  
  An application of B<Module::ScanDeps> is to generate executables from
---- libmodule-scandeps-perl.orig/script/scandeps.pl
-+++ libmodule-scandeps-perl/script/scandeps.pl
+--- a/script/scandeps.pl
++++ b/script/scandeps.pl
 @@ -137,20 +137,20 @@
  
  =head1 NAME

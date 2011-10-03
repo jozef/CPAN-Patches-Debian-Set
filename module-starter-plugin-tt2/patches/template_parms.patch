@@ -1,0 +1,36 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-11-01
+Bug: http://rt.cpan.org/Ticket/Display.html?id=46185
+Subject: Module author asked for patches for broken code
+ djerius@cpan.org reported that if the template_parms parameter was not
+ set in create_distro an error would be reported, but that the parameter was 
+ not used elsewhere in the code. He went on to speculate that it might be
+ orphan code. The module author thinks this might be corrected and requested
+ patches.
+
+ Code inspection reveals that the parameter does have meaning - it is passed 
+ to the Template module where it may do all sorts of stuff. However this usage
+ is broken because of a stray 'eval'. This patch documents the usage and removes
+ the eval.
+--- a/lib/Module/Starter/Plugin/TT2.pm
++++ b/lib/Module/Starter/Plugin/TT2.pm
+@@ -64,6 +64,10 @@
+ MODULE_TEMPLATE_MODULE environment variable, or using a different template
+ store altogether (q.v., SimpleStore or other plugins).
+ 
++If you need to send parameters to the L<Template> constructor, put them
++in the C<template_parms> parameter to the C<create_distro> method. It must
++be a hash reference.
++
+ =head1 METHODS
+ 
+ =head2 C<< renderer >>
+@@ -75,7 +79,7 @@
+ 
+ sub renderer {
+   my ($self) = @_;
+-  my $conf = (eval $self->{template_parms})||{};
++  my $conf = $self->{template_parms} || {};
+   my $renderer = Template->new($conf);
+ }
+ 

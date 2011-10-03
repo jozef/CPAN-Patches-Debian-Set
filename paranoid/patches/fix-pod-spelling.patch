@@ -1,7 +1,10 @@
 Description: fix POD spelling errors
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
 Forwarded: no
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-12
+
 --- a/lib/Paranoid/Filesystem.pm
 +++ b/lib/Paranoid/Filesystem.pm
 @@ -1404,7 +1404,7 @@

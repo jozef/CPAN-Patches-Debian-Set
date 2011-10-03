@@ -1,0 +1,32 @@
+Description: added .pc and debian to exclude/filter clauses
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Origin: vendor
+Forwarded: no
+Last-Update: 2011-03-28
+--- a/t/01_selftest.t
++++ b/t/01_selftest.t
+@@ -33,7 +33,7 @@
+ open $fh ,'>',$file2 and close $fh;
+ 
+ Test::CheckManifest::_not_ok_manifest('expected: Manifest not ok');
+-ok_manifest({filter => [qr/\.(?:svn|git)/]},'Filter: \.(?:svn|git)');
++ok_manifest({filter => [qr/\.(?:svn|git|pc)/,qr/debian/]},'Filter: \.(?:svn|git)');
+ Test::CheckManifest::_not_ok_manifest({exclude => ['/.git/']},'expected: Manifest not ok (Exclude /.git/)');
+ 
+ mkdir $dir2;
+@@ -44,12 +44,12 @@
+ Test::CheckManifest::_not_ok_manifest({filter  => [qr/\.git/],
+                                        bool    => 'and',
+                                        exclude => ['/t/test']}, 'filter AND exclude');
+-ok_manifest({filter  => [qr/\.git/],
+-             exclude => ['/t/test']}, 'filter OR exclude');
++ok_manifest({filter  => [qr/\.(?:git|svn)/],
++             exclude => ['/t/test','/debian','/.pc']}, 'filter OR exclude');
+ 
+ unlink $file3;
+ 
+-ok_manifest({filter => [qr/\.git/, qr/\.svn/ ]},'Filter \.git or \.svn');
++ok_manifest({filter => [qr/\.git/, qr/\.svn/, qr/\.pc/, qr/debian/ ]},'Filter \.git or \.svn');
+ 
+ unlink $file2, $file1;
+ rmdir  $dir;

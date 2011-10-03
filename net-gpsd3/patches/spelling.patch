@@ -1,16 +1,27 @@
 Author: gregor herrmann <gregoa@debian.org>
 Description: spelling mistake
-Forwarded: no
-Origian: vendor
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=70410
+Origin: vendor
 
 --- a/lib/Net/GPSD3.pm
 +++ b/lib/Net/GPSD3.pm
-@@ -33,7 +33,7 @@
+@@ -47,7 +47,7 @@
  
  =head1 DESCRIPTION
  
--Net::GPSD3 provides an object client interface to the gpsd server daemon utilizing the version 3.1 protocol. gpsd is an open source GPS deamon from http://gpsd.berlios.de/.  Support for Version 3 of the protocol (JSON) was adding to the daemon in version 2.90.  If your daemon is before 2.90 then please use the L<Net::GPSD> package.
-+Net::GPSD3 provides an object client interface to the gpsd server daemon utilizing the version 3.1 protocol. gpsd is an open source GPS daemon from http://gpsd.berlios.de/.  Support for Version 3 of the protocol (JSON) was adding to the daemon in version 2.90.  If your daemon is before 2.90 then please use the L<Net::GPSD> package.
+-Net::GPSD3 provides an object client interface to the gpsd server daemon utilizing the version 3 protocol. gpsd is an open source GPS deamon from http://gpsd.berlios.de/.  Support for Version 3 of the protocol (JSON) was adding to the daemon in version 2.90.  If your daemon is before 2.90 (protocol 2.X), please use the L<Net::GPSD> package.
++Net::GPSD3 provides an object client interface to the gpsd server daemon utilizing the version 3 protocol. gpsd is an open source GPS daemon from http://gpsd.berlios.de/.  Support for Version 3 of the protocol (JSON) was added to the daemon in version 2.90.  If your daemon is before 2.90 (protocol 2.X), please use the L<Net::GPSD> package.
  
  =head1 CONSTRUCTOR
+ 
+--- a/lib/Net/GPSD3/Return/Unknown/Timestamp.pm
++++ b/lib/Net/GPSD3/Return/Unknown/Timestamp.pm
+@@ -28,7 +28,7 @@
+ 
+ Note: In 2.96 (protocol 3.4) the TPV->time format changed from unix epoch to W3C, but this method attempts to hide that change from the user.
+ 
+-Since the POXIS standard for the Unix epoch does not use leap seconds but GPS system does I do not recommend that you use this method for time display or storage.  This method is purely here for backwards compatability.
++Since the POXIS standard for the Unix epoch does not use leap seconds but GPS system does I do not recommend that you use this method for time display or storage.  This method is purely here for backwards compatibility.
+ 
+ =cut
  

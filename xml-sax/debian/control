@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8~), quilt (>= 0.46-7)
-Build-Depends-Indep: libxml-namespacesupport-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libxml-namespacesupport-perl, ucf (>= 0.28)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libxml-namespacesupport-perl, libxml-sax-base-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-namespacesupport-perl, libxml-sax-base-perl, ucf (>= 0.28)
 X: 0

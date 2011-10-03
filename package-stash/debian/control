@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libtest-exception-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libpackage-deprecationmanager-perl, libpackage-stash-xs-perl (>= 0.24), libtest-fatal-perl, libtest-leaktrace-perl, libtest-requires-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libpackage-deprecationmanager-perl
 X: 0

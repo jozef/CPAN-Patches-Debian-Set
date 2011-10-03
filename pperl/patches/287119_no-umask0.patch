@@ -1,3 +1,11 @@
+Description: Don't change umaks when becoming a daemon to avoid world-writable files.
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/287119
+Forwarded: no
+Author: Florian Weimer <fw@deneb.enyo.de>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-13
+
 --- a/pperl.h.header
 +++ b/pperl.h.header
 @@ -188,7 +188,6 @@ sub become_daemon {
@@ -27,7 +35,7 @@
 +    my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,
 +	$atime,$mtime,$ctime,$blksize,$blocks)
 +	= stat($file);
-+    ok(S_IMODE($mode), 0644);
++    ok(( $mode & S_IWOTH ) ? 0 : 1); # not world-writable
 +}
 +
  `$^X t/autoclose.plx $file foo`;

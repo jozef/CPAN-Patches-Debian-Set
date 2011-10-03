@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), libmodule-build-perl
-Build-Depends-Indep: libexception-class-perl (>= 1.14), libtest-deep-perl, libtest-differences-perl, libtest-exception-perl, libtest-harness-perl (>= 3.07), libtest-simple-perl (>= 0.82), libtest-warn-perl (>= 0.1), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libexception-class-perl (>= 1.14), libtest-deep-perl, libtest-differences-perl, libtest-exception-perl, libtest-harness-perl (>= 3.07), libtest-simple-perl (>= 0.82), libtest-warn-perl (>= 0.1)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libexception-class-perl, libmodule-build-perl (>= 0.36), libtest-deep-perl (>= 0.106), libtest-differences-perl (>= 0.61), libtest-exception-perl (>= 0.31), libtest-harness-perl (>= 3.21), libtest-warn-perl (>= 0.23), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libexception-class-perl, libtest-deep-perl (>= 0.106), libtest-differences-perl (>= 0.61), libtest-exception-perl (>= 0.31), libtest-harness-perl (>= 3.21), libtest-warn-perl (>= 0.23), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
 X: 0

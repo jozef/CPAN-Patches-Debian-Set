@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-basic-plugin-bundle-perl, libcgi-application-perl, libcgi-application-server-perl, libmodule-starter-plugin-cgiapp-perl, libtest-www-mechanize-cgiapp-perl, perl (>= 5.10) | libcompress-raw-zlib-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-basic-plugin-bundle-perl, libcgi-application-perl, libcgi-application-server-perl, libmodule-starter-plugin-cgiapp-perl, libtest-www-mechanize-cgiapp-perl
 X: 0

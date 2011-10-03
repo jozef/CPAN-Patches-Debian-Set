@@ -1,0 +1,26 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Updating internal man page references
+Forwarded: not-needed
+Last-Update: 2011-04-23
+--- a/bin/compile_encoding
++++ b/bin/compile_encoding
+@@ -322,7 +322,7 @@
+ 
+ =head1 SEE ALSO
+ 
+-L<make_encmap(1)>,
++L<make_encmap(1p)>,
+ L<XML::Encoding(3pm)>,
+ L<XML::Parser(3pm)>
+ 
+--- a/bin/make_encmap
++++ b/bin/make_encmap
+@@ -187,7 +187,7 @@
+ 
+ =head1 SEE ALSO
+ 
+-L<compile_encoding(1)>,
++L<compile_encoding(1p)>,
+ L<XML::Encoding(3pm)>
+ 
+ =head1 AUTHORS

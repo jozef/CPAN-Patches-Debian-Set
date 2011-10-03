@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: spelling
+Forwarded: no
+Last-Update: 2011-05-11
+--- a/lib/Test/LectroTest/TestRunner.pm
++++ b/lib/Test/LectroTest/TestRunner.pm
+@@ -122,7 +122,7 @@
+ 
+ =item verbose
+ 
+-If this paramter is set to true (the default) the TestRunner will use
++If this parameter is set to true (the default) the TestRunner will use
+ verbose output that includes things like label frequencies and
+ counterexamples.  Otherwise, only one-line summaries will be output.
+ Unless you have a good reason to do otherwise, leave this parameter

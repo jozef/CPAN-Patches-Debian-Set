@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libtest-mockobject-perl (>= 1.08), perl (>= 5.6.10-12)
 Depends: ${misc:Depends}, ${perl:Depends}, libtest-mockobject-perl (>= 1.08)
 X: 0

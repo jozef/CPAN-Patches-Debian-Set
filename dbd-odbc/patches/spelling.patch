@@ -1,0 +1,15 @@
+Forwarded: no
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-06-30
+Subject: spelling typo
+--- a/ODBC.pm
++++ b/ODBC.pm
+@@ -1179,7 +1179,7 @@
+ parts onto the end of the C<$lob> with the addition of an extra flag
+ or destination offset as in DBI's undocumented blob_read.
+ 
+-The type the lob is retrieved as may be overriden in C<%attr> using
++The type the lob is retrieved as may be overridden in C<%attr> using
+ C<TYPE =E<gt> sql_type>. C<%attr> is optional and if omitted defaults to
+ SQL_C_BINARY for binary columns and SQL_C_CHAR/SQL_C_WCHAR for other
+ column types depending on whether DBD::ODBC is built with unicode

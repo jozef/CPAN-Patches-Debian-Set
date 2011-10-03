@@ -1,0 +1,17 @@
+Description: fix a spelling error
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=62611
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-11-01
+
+--- a/lib/Text/QRCode.pm
++++ b/lib/Text/QRCode.pm
+@@ -103,7 +103,7 @@
+ 
+ =item plot_qrcode($text, \%params)
+ 
+-Instant method. C<$text> is input text. C<%params> is same paramater as C<new()>.
++Instant method. C<$text> is input text. C<%params> is same parameter as C<new()>.
+ 
+ =back
+ 

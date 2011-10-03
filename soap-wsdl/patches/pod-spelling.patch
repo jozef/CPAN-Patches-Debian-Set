@@ -1,0 +1,121 @@
+Description: spelling fixes
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-12-21
+
+--- a/lib/SOAP/WSDL.pm
++++ b/lib/SOAP/WSDL.pm
+@@ -784,7 +784,7 @@
+ 
+ =head1 ACKNOWLEDGMENTS
+ 
+-There are many people out there who fostered SOAP::WSDL's developement.
++There are many people out there who fostered SOAP::WSDL's development.
+ I would like to thank them all (and apologize to all those I have forgotten).
+ 
+ Giovanni S. Fois wrote a improved version of SOAP::WSDL (which eventually
+@@ -811,7 +811,7 @@
+ testing. Thank you.
+ 
+ Noah Robin contributed lots of documentation fixes, and the mod_perl server,
+-and eventually joined SOAP::WSDL's developement. Thanks.
++and eventually joined SOAP::WSDL's development. Thanks.
+ 
+ Mark Overmeer wrote XML::Compile::SOAP - competition is good for business.
+ 
+--- a/lib/SOAP/WSDL/Expat/MessageParser.pm
++++ b/lib/SOAP/WSDL/Expat/MessageParser.pm
+@@ -297,7 +297,7 @@
+ 
+ =head2 Skipping unwanted items
+ 
+-Sometimes there's unneccessary information transported in SOAP messages.
++Sometimes there's unnecessary information transported in SOAP messages.
+ 
+ To skip XML nodes (including all child nodes), just edit the type map for
+ the message, set the type map entry to '__SKIP__', and comment out all
+--- a/lib/SOAP/WSDL/Manual/CodeFirst.pod
++++ b/lib/SOAP/WSDL/Manual/CodeFirst.pod
+@@ -71,7 +71,7 @@
+ Perl does not have the concept of interfaces. However, Moose provides Roles, which can be used for defining
+ interfaces.
+ 
+-However, it's not really necessary to define a interface Interface (in the sense of a Jave interface) -
++However, it's not really necessary to define a interface Interface (in the sense of a Java interface) -
+ a interface class is sufficient.
+ 
+ Subroutine attributes could be used for providing additional information - attributes in perl are much like
+--- a/lib/SOAP/WSDL/Manual/Cookbook.pod
++++ b/lib/SOAP/WSDL/Manual/Cookbook.pod
+@@ -101,7 +101,7 @@
+ If you're talking to a Server using NTLMv2 exclusively, you will only the first line 
+ in the debug output, and then an error.
+ 
+-To explicitely enable NTLMv2, do the following in your client:
++To explicitly enable NTLMv2, do the following in your client:
+ 
+  use Authen::NTLM;
+  ntlmv2(1);
+@@ -156,7 +156,7 @@
+ 
+ How do I do this using SOAP::WSDL?
+ 
+-A: The following steps are neccessary to achieve this result:
++A: The following steps are necessary to achieve this result:
+ 
+ First, you would need to write a new serializer, which is quite easy, as it
+ just creates the envelope and calls ->serialize_qualified() on $header and
+@@ -214,7 +214,7 @@
+ 
+ =head2 Disabling strict XML processing in a CGI based server
+ 
+-You have to set the deserializer in the transport class explicitely to
++You have to set the deserializer in the transport class explicitly to
+ a L<SOAP::WSDL::Deserializer|SOAP::WSDL::Deserializer> object with the
+ C<strict> option set to 0.
+ 
+--- a/lib/SOAP/WSDL/Manual/FAQ.pod
++++ b/lib/SOAP/WSDL/Manual/FAQ.pod
+@@ -64,7 +64,7 @@
+ Its SOAP message parser however, is not namespace sensitive but uses the
+ pre-shared information from the WSDL for looking up what each XML node means.
+ 
+-SOAP::WSDL can parse SOAP messages including namespace informations up to the
++SOAP::WSDL can parse SOAP messages including namespace information up to the
+ point where equally named elements from different namespaces may appear at
+ the same position.
+ 
+--- a/lib/SOAP/WSDL/Manual/Parser.pod
++++ b/lib/SOAP/WSDL/Manual/Parser.pod
+@@ -75,7 +75,7 @@
+ 
+ =head3 Skipping unwanted items
+ 
+-Sometimes there's unneccessary information transported in SOAP messages.
++Sometimes there's unnecessary information transported in SOAP messages.
+ 
+ To skip XML nodes (including all child nodes), just edit the type map for
+ the message and set the type map entry to '__SKIP__'.
+--- a/lib/SOAP/WSDL/Manual/XSD.pod
++++ b/lib/SOAP/WSDL/Manual/XSD.pod
+@@ -424,7 +424,7 @@
+ 
+ =item * fractionDigits
+ 
+-=item * lenght
++=item * length
+ 
+ =item * maxExclusive
+ 
+--- a/lib/SOAP/WSDL/Manual/Glossary.pod
++++ b/lib/SOAP/WSDL/Manual/Glossary.pod
+@@ -16,7 +16,7 @@
+ SOAP is a W3C recommendation. The latest version of the SOAP specification
+ may be found at L<http://www.w3.org/TR/soap/>.
+ 
+-SOAP defines a protocoll for message exchange between applications.
++SOAP defines a protocol for message exchange between applications.
+ The most popular usage is to use SOAP for remote procedure calls (RPC).
+ 
+ While one of the constituting aspects of a web service is its

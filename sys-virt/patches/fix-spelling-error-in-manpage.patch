@@ -1,0 +1,18 @@
+Description: Fix spelling error in manpage
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=71327
+Forwarded: yes
+Author: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-09-28
+
+--- a/lib/Sys/Virt/Domain.pm
++++ b/lib/Sys/Virt/Domain.pm
+@@ -1398,7 +1398,7 @@
+ 
+ =item Sys::Virt::Domain::EVENT_RESUMED_FROM_SNAPSHOT
+ 
+-The domain resumed becuase it was restored from a snapshot
++The domain resumed because it was restored from a snapshot
+ 
+ =back
+ 

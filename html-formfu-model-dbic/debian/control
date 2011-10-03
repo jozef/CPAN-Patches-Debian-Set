@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libdatetime-format-sqlite-perl, libdbd-sqlite3-perl, libdbix-class-perl (>= 0.08108), libhtml-formfu-perl (>= 0.06000), liblist-moreutils-perl, libsql-translator-perl, libtask-weaken-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdbd-sqlite3-perl, libdbix-class-perl (>= 0.08108), libhtml-formfu-perl (>= 0.06000), liblist-moreutils-perl, libtask-weaken-perl
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdatetime-format-sqlite-perl, libdbd-sqlite3-perl, libdbix-class-perl (>= 0.08108), libhtml-formfu-perl (>= 0.09001), liblist-moreutils-perl, libsql-translator-perl, libtask-weaken-perl, libyaml-syck-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbd-sqlite3-perl, libdbix-class-perl (>= 0.08108), libhtml-formfu-perl (>= 0.09001), liblist-moreutils-perl, libtask-weaken-perl, libyaml-syck-perl
 X: 0

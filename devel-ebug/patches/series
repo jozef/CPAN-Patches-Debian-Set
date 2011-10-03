@@ -1,1 +1,2 @@
 perl-5.12.patch
+fix_593012_ftbfs_yaml_syck_1_12.patch

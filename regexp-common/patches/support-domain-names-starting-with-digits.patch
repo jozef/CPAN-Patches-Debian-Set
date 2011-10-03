@@ -1,0 +1,46 @@
+Description: Support domain names starting with digits
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=23626
+Forwarded: yes
+Author: intrigeri <intrigeri+debian@boum.org>
+Last-Update: 2011-09-14
+
+--- a/lib/Regexp/Common/net.pm
++++ b/lib/Regexp/Common/net.pm
+@@ -72,11 +72,11 @@ my $let_dig_hyp = "[-A-Za-z0-9]";
+ pattern name   => [qw (net domain -nospace=)],
+         create => sub {
+             if (exists $_ [1] {-nospace} && !defined $_ [1] {-nospace}) {
+-                return "(?k:$letter(?:(?:$let_dig_hyp){0,61}$let_dig)?" .
++                return "(?k:$let_dig(?:(?:$let_dig_hyp){0,61}$let_dig)?" .
+                        "(?:\\.$letter(?:(?:$let_dig_hyp){0,61}$let_dig)?)*)"
+             }
+             else {
+-                return "(?k: |(?:$letter(?:(?:$let_dig_hyp){0,61}$let_dig)?" .
++                return "(?k: |(?:$let_dig(?:(?:$let_dig_hyp){0,61}$let_dig)?" .
+                        "(?:\\.$letter(?:(?:$let_dig_hyp){0,61}$let_dig)?)*))"
+             }
+         },
+diff --git a/t/test_domain.t b/t/test_domain.t
+index c2e27b7..b05cafe 100755
+--- a/t/test_domain.t
++++ b/t/test_domain.t
+@@ -23,7 +23,7 @@ pass 'a-----------------1.example.com';
+ pass 'a123456a.example.com';
+ pass 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789.com';
+ pass ' ';
+-fail '123host.example.com';
++pass '123host.example.com';
+ fail 'host-.example.com';
+ fail 'host.example.com.';
+ fail 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789a.com';
+@@ -44,7 +44,7 @@ pass 'a-----------------1.example.com';
+ pass 'a123456a.example.com';
+ pass 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789.com';
+ fail ' ';
+-fail '123host.example.com';
++pass '123host.example.com';
+ fail 'host-.example.com';
+ fail 'host.example.com.';
+ fail 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789a.com';
+-- 

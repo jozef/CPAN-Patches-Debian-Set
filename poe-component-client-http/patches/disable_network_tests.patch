@@ -1,17 +1,40 @@
+Description: skipinternet tests unless HAS_INTERNET is set.
+Forwarded: not-needed
 Author: gregor herrmann <gregoa@debian.org>
-Description: disable internet tests if NOINTERNET is set.
+Last-Update: 2011-07-20
 
 --- a/t/57_pravus_progress.t
 +++ b/t/57_pravus_progress.t
-@@ -4,6 +4,11 @@
+@@ -4,12 +4,19 @@
  use warnings;
  use strict;
  
-+if ($ENV{NOINTERNET} ) {
-+  use Test::More skip_all => "Tests disabled that need internet access.";
+-use Test::More tests => 2;
++use Test::More;
++
++unless ($ENV{HAS_INTERNET} ) {
++  plan skip_all => "Tests disabled that need internet access.";
 +}
 +
-+
- use Test::More tests => 2;
  use HTTP::Request::Common qw(GET);
  use POE;
+ use POE::Component::Client::HTTP;
+ use Test::POE::Server::TCP;
+ 
++plan tests => 2;
++
+ POE::Component::Client::HTTP->spawn(
+   Alias           => 'ua',
+   Streaming       => 4000,
+--- a/t/01_ssl.t
++++ b/t/01_ssl.t
+@@ -8,6 +8,9 @@
+ use HTTP::Request::Common qw(GET POST);
+ use Test::More;
+ 
++unless ($ENV{HAS_INTERNET} ) {
++  plan skip_all => "Tests disabled that need internet access.";
++}
+ 
+ unless (grep /SSLify/, keys %INC) {
+   plan skip_all => 'Need POE::Component::SSLify to test SSL';

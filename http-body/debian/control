@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libpath-class-perl, libtest-deep-perl, libtest-pod-coverage-perl, libtest-pod-perl, libwww-perl, libyaml-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.86)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libpath-class-perl, libtest-deep-perl, libwww-perl, libyaml-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.86)
 Depends: ${misc:Depends}, ${perl:Depends}, libpath-class-perl, libwww-perl, libyaml-perl
 X: 0

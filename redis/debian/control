@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libtest-pod-coverage-perl, libtest-pod-perl, perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libio-string-perl, libtest-deep-perl, libtest-exception-perl, libtest-pod-perl, libtest-simple-perl (>= 0.96), perl, redis-server
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

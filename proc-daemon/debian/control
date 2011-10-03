@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libproc-processtable-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libproc-processtable-perl
+X: 0

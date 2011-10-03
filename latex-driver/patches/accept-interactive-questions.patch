@@ -1,0 +1,20 @@
+Description: Set $ACCEPT variable to true to accept all questions
+ asked when run interactively. 
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/599251
+Forwarded: no
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Reviewed-by: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Last-Update: 2010-10-06
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -12,7 +12,7 @@
+ select STDOUT;
+ 
+ our $QUIET  = 0;
+-our $ACCEPT = 0;
++our $ACCEPT = 1;
+ our $WIN32  = ($^O eq 'MSWin32');
+ our $MODVERSION = sprintf("%.2f", get_module_version());
+ 

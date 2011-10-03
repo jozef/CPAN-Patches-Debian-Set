@@ -1,0 +1,36 @@
+--- a/t/lib/libmemcached_test.pm
++++ b/t/lib/libmemcached_test.pm
+@@ -17,7 +17,7 @@
+ 
+ use Memcached::libmemcached qw(
+     memcached_create
+-    memcached_server_add
++    memcached_server_add_unix_socket
+     memcached_get
+     memcached_set
+     memcached_errstr
+@@ -29,7 +29,7 @@
+     my $servers = $ENV{PERL_LIBMEMCACHED_TEST_SERVERS};
+     # XXX add the default port as well to stop uninit
+     # warnings from the test suite
+-    $servers ||= 'localhost:11211';
++    $servers ||= '/tmp/libmemcached_perl_test.socket';
+     return split(/\s*,\s*/, $servers);
+ }
+ 
+@@ -43,12 +43,12 @@
+     # XXX would be good to filter this list by those we can communicate with
+     # (and have sufficient version number)
+     # then pick the first of those to use as the default test server
+-    my ($server,$port) = split /:/, (libmemcached_test_servers())[0];
++    my $server = (libmemcached_test_servers())[0];
+ 
+     # XXX may change to memcached_parse_options or somesuch so the env
+     # var can set behaviours etc   
+-    my $rc = memcached_server_add($memc, $server, $port);
+-    die "libmemcached_test_create: memcached_server_add($server) failed: ".memcached_errstr($memc)
++    my $rc = memcached_server_add_unix_socket($memc, $server);
++    die "libmemcached_test_create: memcached_server_add_unix_socket($server) failed: ".memcached_errstr($memc)
+         if not $rc;
+ 
+     # XXX ideally this should be a much 'simpler/safer' command

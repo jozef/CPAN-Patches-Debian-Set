@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), quilt
-Build-Depends-Indep: libdata-random-perl (>=0.05), libfile-slurp-perl, libtest-mockobject-perl, libtest-pod-perl, libwww-perl, perl (>= 5.8.8-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libdata-random-perl (>= 0.05)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdata-random-perl, libfile-slurp-perl, libhtml-form-perl | libwww-perl (<< 6), libtest-mockobject-perl, libtest-pod-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-random-perl
 X: 0

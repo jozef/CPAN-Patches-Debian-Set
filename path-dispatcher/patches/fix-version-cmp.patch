@@ -1,0 +1,18 @@
+Description: fix version comparison in test script
+ The minimum version required for the 026-named-captures.t
+ test is 5.10.1, but the comparison was skipping even when
+ that version is running.
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/t/026-named-captures.t
++++ b/t/026-named-captures.t
+@@ -2,7 +2,7 @@
+ use warnings;
+ use Test::More;
+ BEGIN {
+-    if ($] <= 5.010001) {
++    if ($] < 5.010001) {
+         plan skip_all => 'This test requires Perl 5.10.1';
+     }
+ }

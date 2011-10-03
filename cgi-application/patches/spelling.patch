@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=69655
+Last-Update: 2011-06-17
+--- a/lib/CGI/Application.pm
++++ b/lib/CGI/Application.pm
+@@ -2057,7 +2057,7 @@
+ that contain JavaScript.
+ 
+ Direct testing is also easy. CGI::Application will normally print the output of it's
+-run modes directly to STDOUT. This can be suppressed with an enviroment variable, 
++run modes directly to STDOUT. This can be suppressed with an environment variable,
+ CGI_APP_RETURN_ONLY. For example:
+ 
+   $ENV{CGI_APP_RETURN_ONLY} = 1;

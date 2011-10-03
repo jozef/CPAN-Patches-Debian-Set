@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdbd-sqlite3-perl, libdbix-class-perl, libsql-translator-perl (>= 0.11002), libsub-name-perl (>= 0.04), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdbix-class-perl, libsub-name-perl (>= 0.04)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcrypt-eksblowfish-perl, libdbd-sqlite3-perl, libdbix-class-perl, libdigest-whirlpool-perl, libsql-translator-perl (>= 0.11002), libsub-name-perl, libtest-exception-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbix-class-perl, libsub-name-perl
 X: 0

@@ -1,7 +1,11 @@
 Description: fix POD spelling errors
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
-Forwarded: no
+Bug: https://rt.cpan.org/Ticket/Display.html?id=71131
+Forwarded: yes
+Author: Jonathan Yu <jawnsy@cpan.org>, intrigeri <intrigeri+debian@boum.org>
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-09-21
+
 --- a/lib/Regexp/Common.pm
 +++ b/lib/Regexp/Common.pm
 @@ -678,7 +678,7 @@
@@ -22,9 +26,18 @@ Forwarded: no
  the non mentioned defaults aren't made available.
  
  =head2 List of available patterns
+@@ -786,7 +786,7 @@
+ =item C<Can't create unknown regex: $RE{...}>
+ 
+ Regexp::Common doesn't have a generator for the requested pattern.
+-Often indicates a mispelt or missing parameter.
++Often indicates a misspelt or missing parameter.
+ 
+ =item
+ C<Perl %f does not support the pattern $RE{...}.
 --- a/lib/Regexp/Common/comment.pm
 +++ b/lib/Regexp/Common/comment.pm
-@@ -666,9 +666,9 @@
+@@ -669,9 +669,9 @@
  =item INTERCAL
  
  Comments in INTERCAL are single line comments. They start with one of
@@ -36,7 +49,7 @@ Forwarded: no
  
  =item J
  
-@@ -722,9 +722,9 @@
+@@ -733,9 +733,9 @@
  
  In C<M> (aka C<MUMPS>), comments start with a semi-colon, and last
  till the end of a line. The language specification requires the 

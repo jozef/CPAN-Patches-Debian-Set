@@ -1,0 +1,22 @@
+Description: don't delete SMIME.pod in 'make clean'
+ 'make clean' will delete ./SMIME.pod, which is part of the distribution
+ and essential for the build to succeed.
+ .
+ This is a quick&dirty fix for the immediate issue, and may not be
+ appropriate for upstream (autogenerate SMIME.pod?):
+ .
+ Just don't touch it (don't delete it).
+Author: Florian Schlichting <fschlich@zedat.fu-berlin.de>
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=56025
+
+--- libcrypt-smime-perl-0.10.orig/Makefile.PL
++++ libcrypt-smime-perl-0.10/Makefile.PL
+@@ -20,7 +20,7 @@ WriteMakefile(
+     INC                 => "$OPENSSL->{CFLAGS}",
+     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+     clean               => {
+-        FILES => 'Crypt-SMIME-* SMIME.pod',
++        FILES => 'Crypt-SMIME-*',
+     },
+     PM                  => {
+         'lib/SMIME.pm'     => '$(INST_LIBDIR)/SMIME.pm',

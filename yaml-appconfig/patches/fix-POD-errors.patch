@@ -1,0 +1,16 @@
+Description: Fix error in POD
+ The =over should be really =back for closing the list
+Author: Damyan Ivanov <dmn@debian.org>
+Bug: https://rt.cpan.org/Ticket/Display.html?id=68118
+
+--- a/lib/YAML/AppConfig.pm
++++ b/lib/YAML/AppConfig.pm
+@@ -407,7 +407,7 @@ to load L<YAML::Syck> and failing that i
+ both fail then L<YAML::AppConfig> will C<croak> when you create a new object
+ instance.
+ 
+-=over
++=back
+ 
+ =head1 USING VARIABLES
+ 

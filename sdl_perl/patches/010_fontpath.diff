@@ -1,0 +1,48 @@
+Index: sdlperl/test/testfonttool.pl
+===================================================================
+--- sdlperl.orig/test/testfonttool.pl	2009-09-01 23:11:57.000000000 -0700
++++ sdlperl/test/testfonttool.pl	2009-09-01 23:14:08.000000000 -0700
+@@ -34,24 +34,25 @@
+ $app = new SDL::App  %options;
+ 
+ my %ttfonts = (
+-	'aircut3.ttf' => 0,
+-	'electrohar.ttf' => 0,
++       '/usr/share/fonts/truetype/freefont/FreeSerif.ttf' => 0,
++       '/usr/share/fonts/truetype/freefont/FreeSans.ttf' => 0,
++       '/usr/share/fonts/truetype/freefont/FreeMono.ttf' => 0,
+ );
+ 
+ my %sfonts = (
+-	'24P_Arial_NeonYellow.png' => 0,
+-	'24P_Copperplate_Blue.png' => 0,
++       'data/24P_Arial_NeonYellow.png' => 0,
++       'data/24P_Copperplate_Blue.png' => 0,
+ );
+ 
+ my @fonts;
+ 
+ for ( reverse keys %ttfonts ) {
+ 	for $mode ( qw/ -normal -bold -italic -underline / ) {
+-		if (-e "data/$_") {
++            if (-e "$_") {
+ 			print STDERR "Loading $_\n";
+ 			$ttfonts{"$_$mode"} = new SDL::Tool::Font 
+ 						$mode => 1,
+-						-ttfont => "data/$_", 
++						-ttfont => "$_", 
+ 						-size => 20, 
+ 						-fg => $SDL::Color::black,
+ 						-bg => $SDL::Color::black;
+@@ -63,9 +64,9 @@
+ %ttfonts = reverse %ttfonts;
+ 
+ for ( reverse keys %sfonts) {
+-	if (-e "data/$_") {
++	if (-e "$_") {
+ 		print STDERR "Loading $_\n";
+-		$sfonts{$_} = new SDL::Tool::Font -sfont => "data/$_";
++		$sfonts{$_} = new SDL::Tool::Font -sfont => "$_";
+ 		push @fonts,  $sfonts{$_};
+ 	}
+ }

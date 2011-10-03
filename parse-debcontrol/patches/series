@@ -1,3 +1,4 @@
-error.diff
-strict_parse.diff
-patch.diff
+0001-Parse-DebControl-error-handling.patch
+0002-Strict-parse.patch
+0003-Parse-DebControl-Patch.patch
+0004-Manpage-spelling-fixes.patch

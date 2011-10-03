@@ -1,7 +1,10 @@
-# Description: fix errors in POD
-#              Mainly just missing =over/=back
-# Author: Damyan Ivanov <dmn@debian.org>
-# Upstream-Bug: https://sourceforge.net/tracker2/?func=detail&aid=2556457&group_id=73194&atid=53705
+Description: fix errors in POD. Mainly just missing =over/=back.
+Origin: vendor
+Bug: https://sourceforge.net/tracker2/?func=detail&aid=2556457&group_id=73194&atid=53705
+Forwarded: yes
+Author: Damyan Ivanov <dmn@debian.org>
+Last-Update: 2011-08-05
+
 --- a/lib/Crypt/OpenSSL/DSA/Signature.pod
 +++ b/lib/Crypt/OpenSSL/DSA/Signature.pod
 @@ -20,13 +20,19 @@

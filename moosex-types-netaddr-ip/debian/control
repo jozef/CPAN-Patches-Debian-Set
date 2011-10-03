@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl, libmoosex-types-perl, libnamespace-clean-perl, libnetaddr-ip-perl, libtest-exception-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libmoosex-types-perl, libnamespace-clean-perl, libnetaddr-ip-perl
+X: 0

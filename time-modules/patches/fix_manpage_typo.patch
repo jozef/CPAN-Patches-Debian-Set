@@ -1,6 +1,13 @@
+Description: fix spelling mistakes
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/445710
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-20
+
 --- a/lib/Time/ParseDate.pm
 +++ b/lib/Time/ParseDate.pm
-@@ -1158,8 +1158,8 @@ Date parsing can also use options.  The 
+@@ -1165,8 +1165,8 @@
  	TIME_REQUIRED -> do not default the time
  	NO_RELATIVE -> input time is not relative to NOW
  	TIMEFIRST -> try parsing time before date [not default]

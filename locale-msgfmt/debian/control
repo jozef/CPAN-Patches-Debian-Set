@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), libmodule-build-perl
+Build-Depends: debhelper (>= 7.0.50~)
 Build-Depends-Indep: liblocale-maketext-gettext-perl, libtest-pod-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

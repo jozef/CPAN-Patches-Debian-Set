@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libcarp-assert-more-perl, libconfig-tiny-perl, libexception-class-perl, liblog-log4perl-perl (>= 1.11), libmoose-perl, libparse-recdescent-perl (>= 1.90.0), libtest-exception-perl, libtest-pod-perl, libtest-warn-perl, libtext-template-perl, libyaml-perl (>= 0.67), perl, po-debconf
-Depends: ${misc:Depends}, ${perl:Depends}, libcarp-assert-more-perl, libexception-class-perl, liblog-log4perl-perl (>= 1.11), libmoose-perl, libparse-recdescent-perl (>= 1.90.0), libyaml-perl (>= 0.67)
+Build-Depends: debhelper (>= 8), perl
+Build-Depends-Indep: bash-completion (>= 1:1.0-3), libany-moose-perl, libapt-pkg-perl, libcarp-assert-more-perl, libexception-class-perl, libfile-copy-recursive-perl, libfile-homedir-perl, libfile-slurp-perl, libhash-merge-perl (>= 0.12), liblog-log4perl-perl, libmouse-perl, libmousex-nativetraits-perl, libmousex-strictconstructor-perl, libparse-recdescent-perl, libpath-class-perl, libpod-pom-perl, libprobe-perl-perl, libtest-command-perl (>= 0.08), libtest-differences-perl, libtest-exception-perl, libtest-pod-perl, libtest-warn-perl, libtext-autoformat-perl, libwww-perl, libyaml-perl (>= 0.67), po-debconf
+Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl, libapt-pkg-perl, libcarp-assert-more-perl, libexception-class-perl, libfile-homedir-perl, libhash-merge-perl (>= 0.12), liblog-log4perl-perl, libmouse-perl, libmousex-nativetraits-perl, libmousex-strictconstructor-perl, libparse-recdescent-perl, libpod-pom-perl, libtext-autoformat-perl, libwww-perl, libyaml-perl (>= 0.67)
 X: 0

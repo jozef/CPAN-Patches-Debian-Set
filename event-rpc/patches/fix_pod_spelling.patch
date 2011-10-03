@@ -1,0 +1,27 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Fix spelling and wording issues in POD documentation
+
+--- libevent-rpc-perl.orig/lib/Event/RPC/Client.pm
++++ libevent-rpc-perl/lib/Event/RPC/Client.pm
+@@ -450,8 +450,8 @@
+ 
+   $rpc_client->connect;
+   
+-  #-- And now use classes and methods the server
+-  #-- allows to access via RPC, here My::TestModule
++  #-- And now use classes and methods to which the
++  #-- server allows access via RPC, here My::TestModule
+   #-- from the Event::RPC::Server manpage SYNPOSIS.
+   my $obj = My::TestModule->new( data => "foobar" );
+   print "obj says hello: ".$obj->hello."\n";
+--- libevent-rpc-perl.orig/lib/Event/RPC/Server.pm
++++ libevent-rpc-perl/lib/Event/RPC/Server.pm
+@@ -513,7 +513,7 @@
+     ...
+   },
+ 
+-Each class which should be accessable for clients needs to
++Each class which should be accessible for clients needs to
+ be listed here at the first level, assigned a hash of methods
+ allowed to be called. Event::RPC disuinguishes three types
+ of methods by classifying their return value:

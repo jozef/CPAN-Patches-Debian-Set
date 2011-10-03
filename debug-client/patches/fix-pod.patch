@@ -4,8 +4,8 @@ Origin: vendor
 Forwarded: no
 --- a/lib/Debug/Client.pm
 +++ b/lib/Debug/Client.pm
-@@ -433,7 +433,7 @@
-     return ($module, $file, $row, $content);
+@@ -557,7 +557,7 @@
+ 	return ( $module, $file, $row, $content );
  }
  
 -=head get

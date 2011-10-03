@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libclass-accessor-perl (>= 0.30), libio-string-perl (>= 1.00), liblist-moreutils-perl (>= 0.21), perl (>= 5.10.1) | libparent-perl (>= 0.221)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-perl (>= 0.30), liblist-moreutils-perl (>= 0.21), perl (>= 5.10.1) | libparent-perl (>= 0.221)
+X: 0

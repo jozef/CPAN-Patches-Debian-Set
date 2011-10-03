@@ -1,0 +1,28 @@
+Description: Fix spelling errors in manpage
+Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=69086
+Forwarded: yes
+Author: Salvatore Bonaccorso <carnil@debian.org>
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-06-25
+
+--- a/MboxParser/Mail.pm
++++ b/MboxParser/Mail.pm
+@@ -776,7 +776,7 @@
+ exactly the same as in C<store_attachement()> with the same behaviour if no
+ options are given. 
+ 
+-Returns a list of files that have been succesfully saved and an empty list if
++Returns a list of files that have been successfully saved and an empty list if
+ no attachment could be extracted.
+ 
+ C<$mail-E<gt>error> will tell you possible failures and a possible explanation
+@@ -820,7 +820,7 @@
+ 
+ =item B<get_attachments(file)>
+ 
+-This method returns a mapping from attachment-names (if those are savable) to
++This method returns a mapping from attachment-names (if those are saveable) to
+ index-numbers of the MIME-part that represents this attachment. It returns a
+ hash-reference, the file-names being the key and the index the value:
+ 

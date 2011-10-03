@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libgeometry-primitive-perl, libgraphics-primitive-perl, libmoose-perl (>= 0.79), libmoosex-attributehelpers-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libgeometry-primitive-perl, libgraphics-primitive-perl, libmoose-perl (>= 0.79), libmoosex-attributehelpers-perl
+Build-Depends-Indep: libgeometry-primitive-perl, libgraphics-primitive-perl, libmoose-perl (>= 0.79), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libgeometry-primitive-perl, libgraphics-primitive-perl, libmoose-perl (>= 0.79)
 X: 0

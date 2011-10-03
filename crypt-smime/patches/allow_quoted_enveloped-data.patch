@@ -1,0 +1,17 @@
+Description: allow quotes around "enveloped-data" as created by MIME::Entity
+ This patch was picked from the upstream RT, where it has been lingering
+ for 18 months without receiving a comment. It looks like it could be useful
+ for our users as well.
+Origin: https://rt.cpan.org/Public/Bug/Display.html?id=53620
+
+--- a/lib/SMIME.pm
++++ b/lib/SMIME.pm
+@@ -87,7 +87,7 @@
+ 
+ 	my $ctype = $this->_getContentType($mime);
+ 	if($ctype =~ m!^application/(?:x-)?pkcs7-mime!
+-	&& ($ctype !~ m!smime-type=! || $ctype =~ m!smime-type=enveloped-data!)) {
++	&& ($ctype !~ m!smime-type=! || $ctype =~ m!smime-type="?enveloped-data"?!)) {
+ 		# smime-typeが存在しないか、それがenveloped-dataである。
+ 		1;
+ 	} else {

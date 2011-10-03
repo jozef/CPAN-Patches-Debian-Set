@@ -1,7 +1,11 @@
-DBD::SQLite3 ships its own copy of SQLite. That makes Debian sad and so we
-patched it away.
-Index: b/Makefile.PL
-===================================================================
+Description: DBD::SQLite3 ships its own copy of SQLite. That makes Debian
+ sad and so we patched it away.
+Origin: vendor
+Forwarded: not-neede
+Author: Maximilian Gass
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-12
+
 --- a/Makefile.PL
 +++ b/Makefile.PL
 @@ -123,7 +123,7 @@

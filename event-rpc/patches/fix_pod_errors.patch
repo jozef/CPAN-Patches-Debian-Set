@@ -1,3 +1,6 @@
+Author: Rene Mayorga <rmayorga@debian.org.sv>
+Description: Fix POD syntax error
+
 --- libevent-rpc-perl.orig/lib/Event/RPC/Server.pm
 +++ libevent-rpc-perl/lib/Event/RPC/Server.pm
 @@ -778,6 +778,8 @@

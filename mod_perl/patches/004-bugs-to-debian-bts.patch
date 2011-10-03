@@ -1,11 +1,11 @@
 Description: direct bug reports to Debian BTS
 Forwarded: not-needed
 Author: Gunnar Wolf <gwolf@debian.org>
-Last-Update: 2010-04-21
-
+Last-Update: 2011-03-22
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 --- a/lib/ModPerl/TestReport.pm
 +++ b/lib/ModPerl/TestReport.pm
-@@ -97,7 +97,11 @@ sub package2filename {
+@@ -97,7 +97,11 @@
      return $package;
  }
  

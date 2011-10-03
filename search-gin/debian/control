@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libdata-stream-bulk-perl (>= 0.03), libmoose-perl, libmoosex-types-path-class-perl (>= 0.05), libmoosex-types-set-object-perl, libmro-compat-perl, libnamespace-clean-perl (>= 0.08), libscope-guard-perl, libset-object-perl, libtest-tempdir-perl (>= 0.04), libtest-use-ok-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdata-stream-bulk-perl (>= 0.03), libmoose-perl, libmoosex-types-path-class-perl (>= 0.05), libmoosex-types-set-object-perl, libmro-compat-perl, libnamespace-clean-perl (>= 0.08), libscope-guard-perl, libset-object-perl
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libdata-stream-bulk-perl, libmoose-perl (>= 0.89), libmoosex-types-set-object-perl, libmro-compat-perl, libnamespace-clean-perl, libscope-guard-perl, libset-object-perl, libtest-deep-perl, libtest-tempdir-perl (>= 0.04), libtest-use-ok-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-stream-bulk-perl, libmoose-perl (>= 0.89), libmro-compat-perl, libnamespace-clean-perl, libscope-guard-perl, libset-object-perl, libtest-deep-perl
 X: 0

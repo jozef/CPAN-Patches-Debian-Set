@@ -1,5 +1,9 @@
-This patch has been sent upstream:
- http://rt.cpan.org/Public/Bug/Display.html?id=31237
+Description: Add summaries to NAME POD sections
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=31237
+Forwarded: yes
+Author: Kees Cook <kees@outflux.net>
+Last-Update: 2011-08-09
 
 --- a/lib/POE/Component/Jabber/J2.pm
 +++ b/lib/POE/Component/Jabber/J2.pm

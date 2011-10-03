@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-std-fast-perl, libio-stringy-perl, libsoap-lite-perl, libtemplate-perl, libterm-readkey-perl, libtest-mockobject-perl, libtest-pod-perl, libtimedate-perl, liburi-perl, libwww-perl, libxml-parser-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-std-fast-perl, libtemplate-perl, libterm-readkey-perl, libtimedate-perl, liburi-perl, libwww-perl, libxml-parser-perl
+X: 0

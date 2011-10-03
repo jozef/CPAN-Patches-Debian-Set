@@ -1,7 +1,11 @@
-between the version of notification-daemon in lenny and the version in
-squeeze/sid, this broke.
-should probably file a bug report or something, but for now I'm too
-lazy to try reproduce the bug in C.
+Description: between the version of notification-daemon in lenny and the version in
+ squeeze/sid, this broke.
+ should probably file a bug report or something, but for now I'm too
+ lazy to try reproduce the bug in C.
+Origin: vendor
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
+Last-Update: 2011-08-02
 
 --- a/t/notification.t
 +++ b/t/notification.t

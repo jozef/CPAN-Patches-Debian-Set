@@ -1,0 +1,26 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Use warn to report test error messages
+
+Use warn rather than print to report error messages from client or server
+negotiation.  print is swallowed by the test harness.
+
+--- libauthen-sasl-cyrus-perl.orig/t/plain.t
++++ libauthen-sasl-cyrus-perl/t/plain.t
+@@ -50,7 +50,7 @@
+ 		print "Server: Test successful Negotiation succeeded.\n";
+ 	} else {
+ 		ok(0);
+-		print "Server: Negotiation failed.\n",$conn->error(),"\n";
++		warn "Server: Negotiation failed.\n",$conn->error(),"\n";
+ 	}
+ 
+ 	close FROM_CLIENT;
+@@ -82,7 +82,7 @@
+ 	if ($conn->code == 0) {
+ 		print "Client: Negotiation succeeded.\n";
+ 	} else { 
+-		print "Client: Negotiation failed.\n",$conn->error,"\n";
++		warn "Client: Negotiation failed.\n",$conn->error,"\n";
+ 	}
+ 	
+ 	close FROM_PARENT;

@@ -1,3 +1,6 @@
+Description: provide pperl.1p manpage
+Forwarded: no
+Author: Florian Weimer
 --- a/Makefile.PL
 +++ b/Makefile.PL
 @@ -56,6 +56,8 @@ WriteMakefile(

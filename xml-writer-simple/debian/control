@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libxml-dt-perl, libxml-dtdparser-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-dt-perl, libxml-dtdparser-perl
+X: 0

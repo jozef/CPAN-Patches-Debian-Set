@@ -1,0 +1,5 @@
+App: clive
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libberkeleydb-perl, libclass-singleton-perl (>= 1.4), libconfig-tiny-perl, libexpect-perl, libgetopt-argvfile-perl, libhtml-parser-perl (>= 2.37), libterm-readkey-perl, libtest-pod-perl, liburi-perl (>= 1.37), libwww-curl-perl, perl (>= 5.10.1) | libversion-perl (>= 1:0.7700)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-singleton-perl (>= 1.4), libconfig-tiny-perl, libexpect-perl, libgetopt-argvfile-perl, libhtml-parser-perl (>= 2.37), liburi-perl (>= 1.37), libwww-curl-perl, perl (>= 5.10.1) | libversion-perl (>= 1:0.7700)
+X: 0

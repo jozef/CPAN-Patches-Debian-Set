@@ -1,0 +1,16 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Sat, 05 Mar 2011 16:32:39 +0100
+Subject: Disable tests that require network connection
+--- libfeed-find-perl.orig/t/01-find.t
++++ libfeed-find-perl/t/01-find.t
+@@ -1,3 +1,10 @@
++BEGIN {
++  unless ($ENV{NETWORK_TESTS}) {
++    require Test::More;
++    Test::More::plan(skip_all => "Set NETWORK_TESTS to enable this test.");
++  }
++}
++
+ use strict;
+ use Test::More tests => 4;
+ use Feed::Find;

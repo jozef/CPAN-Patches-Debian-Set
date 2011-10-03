@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libautodie-perl, libcgi-simple-perl, libgd-gd2-perl (>= 1:2.45-2), libmime-tools-perl, libparams-validate-perl, libperl6-slurp-perl, libreadonly-perl, libtest-exception-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtext-lorem-perl, libuniversal-require-perl, libversion-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libautodie-perl, libmime-tools-perl, libparams-validate-perl, libreadonly-perl, libuniversal-require-perl, libversion-perl
+X: 0

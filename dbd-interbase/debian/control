@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 8), firebird-dev | firebird2.5-dev | firebird2.1-dev, firebird2.5-super | firebird2.1-super | firebird-utils, libdbi-perl (>= 1.612), perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

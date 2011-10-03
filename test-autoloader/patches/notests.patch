@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: incorrect number of tests
+Bug: http://rt.cpan.org/Ticket/Display.html?id=66399
+Last-Update: 2011-03-05
+--- a/t/00basic.t
++++ b/t/00basic.t
+@@ -7,7 +7,7 @@
+     eval "use Test::Pod 0.95";
+     $NO_TEST_POD = $@;
+ }
+-use Test::More tests=>54;
++use Test::More tests=>64;
+ use POSIX;
+ use strict;
+ 

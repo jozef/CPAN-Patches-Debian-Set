@@ -1,11 +1,11 @@
-From: Ansgar Burchardt <ansgar@43-1.org>
+From: Ansgar Burchardt <ansgar@debian.org>
 Date: Thu, 15 Jul 2010 01:38:00 +0900
 Origin: vendor
 Subject: Ignore directory used by quilt during tests
 
 --- libfile-find-rule-perl-perl.orig/t/03_no_index.t
 +++ libfile-find-rule-perl-perl/t/03_no_index.t
-@@ -46,6 +46,8 @@
+@@ -47,6 +47,8 @@
  			and
  			! /\.sw[op]\b/
  			and

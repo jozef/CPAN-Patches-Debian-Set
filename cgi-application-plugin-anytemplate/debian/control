@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcgi-application-basic-plugin-bundle-perl, libcgi-application-perl, libclone-perl, libexporter-renaming-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-basic-plugin-bundle-perl, libcgi-application-perl
+X: 0

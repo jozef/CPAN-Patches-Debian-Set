@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5.0.0), libmodule-build-perl
-Build-Depends-Indep: libexception-class-perl, libparams-validate-perl, libtest-pod-perl, perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libexception-class-perl, libparams-validate-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-isa-perl | perl (<< 5.10.1-13), libexception-class-perl, libparams-validate-perl, libtest-pod-perl (>= 1.41), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-isa-perl | perl (<< 5.10.1-13), libexception-class-perl, libparams-validate-perl
 X: 0

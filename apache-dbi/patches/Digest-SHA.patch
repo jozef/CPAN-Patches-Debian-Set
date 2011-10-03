@@ -1,0 +1,38 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Fri, 19 Nov 2010 20:35:33 +0100
+Origin: vendor
+Subject: Use Digest::SHA instead of Digest::SHA1
+
+See also <http://bugs.debian.org/594273>
+
+--- libapache-dbi-perl.orig/Makefile.PL
++++ libapache-dbi-perl/Makefile.PL
+@@ -6,7 +6,7 @@
+     'PREREQ_PM'    => { 
+             'Test::More'   => 0,    # without tests we don't know fun.
+ 			'DBI'          => 1.00, # no DBI can never be any fun.
+-            'Digest::SHA1' => 2.01, # SHA1 Digest for alternate encryption method fun.
++            'Digest::SHA' => 0, # SHA1 Digest for alternate encryption method fun.
+             'Digest::MD5'  => 2.20  # MD5 Digest for even more fun.
+ 		      },
+ );
+--- libapache-dbi-perl.orig/lib/Apache/AuthDBI.pm
++++ libapache-dbi-perl/lib/Apache/AuthDBI.pm
+@@ -27,7 +27,7 @@
+ 
+ use strict;
+ use DBI ();
+-use Digest::SHA1 ();
++use Digest::SHA ();
+ use Digest::MD5 ();
+ 
+ sub debug {
+@@ -1154,7 +1154,7 @@
+ 
+     $params{'format'} ||= "base64";
+ 
+-    my $sha1 = Digest::SHA1->new();
++    my $sha1 = Digest::SHA->new();
+ 
+     if ($params{'text'} ne '') {
+         $sha1->add($params{'text'});

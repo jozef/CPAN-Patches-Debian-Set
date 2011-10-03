@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-ooorno-perl (>= 0.01), libexception-handler-perl (>= 1), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-ooorno-perl (>= 0.01), libexception-handler-perl (>= 1)
+X: 0

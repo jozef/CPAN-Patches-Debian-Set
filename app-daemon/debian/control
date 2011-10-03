@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libfile-pid-perl, liblog-log4perl-perl, libproc-processtable-perl, perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libfile-pid-perl, liblog-log4perl-perl, libproc-processtable-perl, libsysadm-install-perl (>= 0.37), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libfile-pid-perl, liblog-log4perl-perl, libproc-processtable-perl
 X: 0

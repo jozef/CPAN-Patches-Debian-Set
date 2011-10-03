@@ -1,0 +1,28 @@
+From: =?UTF-8?q?Carl=20F=C3=BCrstenberg?= <azatoth@gmail.com>
+Date: Sat, 13 Aug 2011 19:55:27 +0200
+Subject: Allow for indented multiline msgstr
+
+It is possible for xgettext and msgmerge to create indentent po files,
+currently Locale::PO hasn't handled that well
+---
+ PO.pm |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/PO.pm b/PO.pm
+index f9ddd4b..c7d5247 100644
+--- a/PO.pm
++++ b/PO.pm
+@@ -426,10 +426,10 @@ sub _load_file {
+             $buffer{msgstr_n}{$1} = $self->dequote($2);
+             $last_buffer = \$buffer{msgstr_n}{$1};
+         }
+-        elsif (/^(?:#~\s+)?"/) {
++        elsif (/^(?:#~\s+)?\s*(".*)/) {
+ 
+             # contined string
+-            $$last_buffer .= $self->dequote($_);
++            $$last_buffer .= $self->dequote($1);
+         }
+         else {
+             warn "Strange line at $file line $line_number: $_\n";
+-- 

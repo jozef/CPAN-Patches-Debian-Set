@@ -1,0 +1,28 @@
+From: Ansgar Burchardt <ansgar@43-1.org>
+Date: Wed, 18 Aug 2010 17:43:32 +0900
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=60458
+Subject: Fix FTBFS on GNU/Hurd
+
+Building Apache-DB on GNU/Hurd fails[1]:
+
+  DB.xs: In function 'XS_DB_ApacheSIGINT':
+  DB.xs:60: error: too many arguments to function 'ApacheSIGINT'
+
+In /usr/lib/perl/5.10/CORE/iperlsys.h, Sighandler_t is defined to take three
+arguments only when HAS_SIGACTION and SA_SIGINFO are defined.  This patch adds
+these conditions to DB.xs as well.
+
+[1] <https://buildd.debian.org/fetch.cgi?pkg=libapache-db-perl&arch=hurd-i386&ver=0.14-1&stamp=1281706853&file=log&as=raw>
+
+--- libapache-db-perl.orig/DB.xs
++++ libapache-db-perl/DB.xs
+@@ -56,7 +56,7 @@
+ ApacheSIGINT(...)
+ 
+     CODE:
+-#if ((PERL_REVISION == 5) && (PERL_VERSION >= 10))
++#if ((PERL_REVISION == 5) && (PERL_VERSION >= 10)) && defined(HAS_SIGACTION) && defined(SA_SIGINFO)
+     if (ApacheSIGINT) (*ApacheSIGINT)(SIGINT, NULL, NULL); 
+ #else 
+     if (ApacheSIGINT) (*ApacheSIGINT)(SIGINT);

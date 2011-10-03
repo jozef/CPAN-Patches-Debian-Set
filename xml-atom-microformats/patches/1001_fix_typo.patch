@@ -1,0 +1,15 @@
+Description: Fix typo in synopsis
+ Synopsis should use this module (not HTML::Microformats).
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2011-06-08
+--- a/lib/XML/Atom/Microformats.pm
++++ b/lib/XML/Atom/Microformats.pm
+@@ -6,7 +6,7 @@
+ 
+  use XML::Atom::Microformats;
+  
+- my $feed = HTML::Microformats
++ my $feed = XML::Atom::Microformats
+              ->new_feed($xml, $base_uri)
+              ->assume_profile(qw(hCard hCalendar));
+  print $feed->json(pretty => 1);

@@ -1,0 +1,19 @@
+Description: 
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=68744
+Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=68744
+Author: Joenio Costa <joenio@perl.org.br>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-10
+
+--- a/lib/Catalyst/Controller/ActionRole.pm
++++ b/lib/Catalyst/Controller/ActionRole.pm
+@@ -159,7 +159,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-This module allows to apply L<Moose::Role>s to the C<Catalyst::Action>s for
++This module allows one to apply L<Moose::Role>s to the C<Catalyst::Action>s for
+ different controller methods.
+ 
+ For that a C<Does> attribute is provided. That attribute takes an argument,

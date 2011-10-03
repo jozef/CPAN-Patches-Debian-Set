@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.3.7~), libmodule-build-perl (>= 0.360100) | perl (>= 5.12)
-Build-Depends-Indep: perl
+Build-Depends: debhelper (>= 7), perl (>= 5.11.4) | libmodule-build-perl (>= 0.360100)
+Build-Depends-Indep: perl (>= 5.11.1) | libtest-simple-perl (>= 0.94)
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

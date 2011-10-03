@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs, debhelper (>= 8), libmojolicious-perl (>= 1.40)
+Depends: ${misc:Depends}, ${perl:Depends}, libmojolicious-perl (>= 1.40)
+X: 0

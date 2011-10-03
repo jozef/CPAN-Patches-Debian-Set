@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.2.13~)
-Build-Depends-Indep: libclass-inspector-perl, libclass-xsaccessor-perl, libmro-compat-perl, libsub-identify-perl, libsub-name-perl (>= 0.04), libtest-pod-coverage-perl, libtest-pod-perl, libtest-strict-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-inspector-perl, libmro-compat-perl, libsub-name-perl (>= 0.04)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-inspector-perl, libclass-xsaccessor-perl, libsub-name-perl, libtest-exception-perl (>= 0.31), perl (>= 5.11.1) | libtest-simple-perl (>= 0.94)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-inspector-perl, libsub-name-perl
 X: 0

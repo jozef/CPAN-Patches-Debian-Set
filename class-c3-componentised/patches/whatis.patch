@@ -3,8 +3,8 @@ Description: add a whatis entry to the POD/manpage
 Origin: vendor
 Forwarded: no
 
---- a/lib/Class/C3/Componentised.pm
-+++ b/lib/Class/C3/Componentised.pm
+--- libclass-c3-componentised-perl.orig/lib/Class/C3/Componentised.pm
++++ libclass-c3-componentised-perl/lib/Class/C3/Componentised.pm
 @@ -2,7 +2,7 @@
  
  =head1 NAME
@@ -13,4 +13,15 @@ Forwarded: no
 +Class::C3::Componentised - load mix-ins or components to your C3-based class
  
  =head1 DESCRIPTION
+ 
+--- libclass-c3-componentised-perl.orig/lib/Class/C3/Componentised/ApplyHooks.pm
++++ libclass-c3-componentised-perl/lib/Class/C3/Componentised/ApplyHooks.pm
+@@ -90,7 +90,7 @@
+ 
+ =head1 NAME
+ 
+-Class::C3::Componentised::ApplyHooks
++Class::C3::Componentised::ApplyHooks - allow component to run methods on the class that is being injected into
+ 
+ =head1 SYNOPSIS
  

@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libemail-mime-contenttype-perl, libemail-mime-creator-perl, libio-string-perl, libole-storage-lite-perl, libtest-pod-coverage-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libemail-mime-contenttype-perl, libemail-mime-creator-perl, libio-string-perl, libole-storage-lite-perl
+X: 0

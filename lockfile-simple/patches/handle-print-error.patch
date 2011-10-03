@@ -1,0 +1,26 @@
+Description: Detect lock file creation errors
+Author: Baurzhan Ismagulov <ibr@radix50.net>
+Author: Maximilian Gass <mxey@cloudconnected.org>
+Origin: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=294972
+Bug: https://rt.cpan.org/Ticket/Display.html?id=66087
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=294972
+--- a/Simple.pm
++++ b/Simple.pm
+@@ -422,7 +422,16 @@
+ 		# Attempt to create lock
+ 		if (open(FILE, ">$lockfile")) {
+ 			local $\ = undef;
+-			print FILE "$stamp\n";
++			my $buf = "$stamp\n";
++			if (!syswrite(FILE, $buf, length($buf))) {
++				&$wfunc("writing to $lockfile: $!\n");
++				close(FILE);
++				if (!unlink($lockfile)) {
++					&$wfunc("removing $lockfile: $!");
++				}
++				umask($mask);
++				return 0;  # Couldn't write to file
++			}
+ 			close FILE;
+ 			open(FILE, $lockfile);	# Check lock
+ 			my $l;

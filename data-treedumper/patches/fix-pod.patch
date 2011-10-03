@@ -1,14 +1,18 @@
 Description: fix POD errors
-Author: Jonathan Yu <jawnsy@cpan.org>
 Origin: vendor
 Forwarded: no
+Author: Jonathan Yu <jawnsy@cpan.org>
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-06-05
+
 --- a/TreeDumper.pm
 +++ b/TreeDumper.pm
-@@ -2453,9 +2453,10 @@
+@@ -2451,10 +2451,10 @@
  =item * {RENDERER}{BEGIN} is called before the traversal of the data structure starts. This allows you
  to setup the document (ex:: html header).
  
 -=over 4
+-
  my ($title, $type_address, $element, $size, $perl_address, $setup) = @_ ;
  
 +=over 4

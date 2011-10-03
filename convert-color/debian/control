@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libtest-pod-perl, perl, x11-common
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends: debhelper (>= 8), libmodule-build-perl (>= 0.360000)
+Build-Depends-Indep: liblist-utilsby-perl, libtest-pod-perl, perl, x11-common
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-utilsby-perl
 X: 0

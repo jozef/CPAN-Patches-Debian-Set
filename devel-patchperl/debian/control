@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libfile-pushd-perl, libtest-script-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-pushd-perl
+X: 0

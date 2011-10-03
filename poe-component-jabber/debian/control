@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), libmodule-build-perl, quilt
-Build-Depends-Indep: libauthen-sasl-perl, libdigest-sha1-perl, libpoe-component-pubsub-perl, libpoe-component-sslify-perl, libpoe-filter-xml-perl (>= 0.35), libpoe-perl (>= 2:1.0030), perl (>= 5.8.0-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libauthen-sasl-perl, libdigest-sha1-perl, libpoe-component-pubsub-perl, libpoe-component-sslify-perl, libpoe-filter-xml-perl (>= 0.35), libpoe-perl (>= 2:1.0030)
+Build-Depends: debhelper (>= 8), perl
+Build-Depends-Indep: libauthen-sasl-perl, libpoe-component-pubsub-perl, libpoe-component-sslify-perl, libpoe-filter-xml-perl (>= 0.35), libpoe-perl (>= 2:1.0030)
+Depends: ${misc:Depends}, ${perl:Depends}, libauthen-sasl-perl, libpoe-component-pubsub-perl, libpoe-component-sslify-perl, libpoe-filter-xml-perl (>= 0.35), libpoe-perl (>= 2:1.0030)
 X: 0

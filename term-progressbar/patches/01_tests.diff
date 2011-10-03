@@ -1,0 +1,18 @@
+Description: skip Module::Signature test
+Origin: vendor
+Forwarded: not-needed
+Author: Bart Martens <bartm@knars.be>
+Last-Update: 2010-07-27
+
+--- a/t/0-signature.t
++++ b/t/0-signature.t
+@@ -2,6 +2,9 @@
+ use strict;
+ print "1..1\n";
+ 
++print("ok 1 # skip ", "Intentionally skipping this test in Debian.");
++exit 0;
++
+ if ( ! eval { require Module::Signature; 1 } ) {
+   print("ok 1 # skip ",
+         "Next time around, consider install Module::Signature, ",

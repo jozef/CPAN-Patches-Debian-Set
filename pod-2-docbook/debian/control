@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: liblist-moreutils-perl, libtest-compile-perl, libtest-distribution-perl, libxml-libxml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl
+X: 0

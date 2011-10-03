@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), libmodule-build-perl
+Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: libclass-xsaccessor-perl, libfile-find-object-perl (>= 0.2.1), libnumber-compare-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtext-glob-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libclass-xsaccessor-perl, libfile-find-object-perl (>= 0.2.1), libnumber-compare-perl, libtext-glob-perl
 X: 0

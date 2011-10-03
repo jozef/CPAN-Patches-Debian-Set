@@ -1,0 +1,16 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling
+ Note that 'writable' is an intentional alternative spelling.
+Forwarded: no
+Last-Update: 2011-06-24
+--- a/lib/Getopt/Euclid.pm
++++ b/lib/Getopt/Euclid.pm
+@@ -1759,7 +1759,7 @@
+         file.type: readable
+ 
+ will match at least once, but as many times as possible before encountering
+-the next argument on the command-line. This allows to specify multiple values
++the next argument on the command-line. This allows one to specify multiple values
+ for an argument, for example:
+ 
+     -lib file1.txt file2.txt

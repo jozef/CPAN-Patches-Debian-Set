@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~), perl (>= 5.10) | libmodule-build-perl, xauth, xvfb
-Build-Depends-Indep: libconfig-model-perl (>= 1.001), libconfig-model-tkui-perl (>= 1.303), liblog-log4perl-perl (>= 1.11), libpod-pom-perl, libtest-pod-perl, libyaml-perl, perl (>= 5.8.8-12)
-Depends: ${misc:Depends}, ${perl:Depends}, libconfig-model-perl (>= 1.001), libconfig-model-tkui-perl (>= 1.303), liblog-log4perl-perl (>= 1.11), libpod-pom-perl, libyaml-perl
+Build-Depends: debhelper (>= 7.0.50~), libmodule-build-perl (>= 0.360100), xauth, xvfb
+Build-Depends-Indep: libconfig-model-perl (>= 1.253), libconfig-model-tkui-perl, liblog-log4perl-perl, libpod-pom-perl, libtest-differences-perl, libtest-pod-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libconfig-model-perl (>= 1.253), libconfig-model-tkui-perl, liblog-log4perl-perl, libpod-pom-perl, libyaml-perl
 X: 1

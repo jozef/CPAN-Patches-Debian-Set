@@ -1,28 +1,28 @@
 Description: Arrange for dh_config to be handled by Module::Build
-             (mostly to generate proper man page from pod doc)
-Author: Dominique Dumont <dominique.dumont@hp.com>
-Reviewed-by: gregor herrmann <gregoa@debian.org>
-Last-Update: 2010-06-06
+ (mostly to generate proper man page from pod doc)
 Origin: vendor
-
+Author: Dominique Dumont <dominique.dumont@hp.com>
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2010-11-12
+ 
 --- a/Build.PL
 +++ b/Build.PL
-@@ -73,7 +73,7 @@
-   (
-    module_name    => 'Config::Model',
-    license        => 'lgpl',
--   script_files   => [ 'config-edit' ],
-+   script_files   => [ 'config-edit' , 'debian/dh/dh_config_model_upgrade' ],
-    dist_abstract  => 'Describe, edit and validate configuration data',
-    dist_author    => 'Dominique Dumont (ddumont at cpan dot org)',
-    requires       => {
+@@ -53,7 +53,7 @@
+     module_name => 'Config::Model',
+     @version_info,
+     license       => 'lgpl',
+-    script_files  => ['config-edit'],
++    script_files  => ['config-edit', 'debian/dh/dh_config_model_upgrade' ],
+     appli_files   => \%appli_files,
+     dist_abstract => 'Describe, edit and validate configuration data',
+     dist_author   => 'Dominique Dumont (ddumont at cpan dot org)',
 --- a/MANIFEST
 +++ b/MANIFEST
-@@ -8,6 +8,7 @@
+@@ -9,6 +9,7 @@
  TODO
  config-edit
- config-edit.tmpl
+ contrib/bash_completion.config-edit
 +debian/dh/dh_config_model_upgrade
- examples/fstab/Fstab.pl
  examples/fstab/README
+ examples/fstab/add-ext4-workshop.txt
  examples/fstab/fstab.sample

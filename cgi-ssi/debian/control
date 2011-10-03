@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libhtml-simpleparse-perl, libtimedate-perl, liburi-perl, libwww-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libhtml-simpleparse-perl, libtimedate-perl, liburi-perl, libwww-perl
 X: 0

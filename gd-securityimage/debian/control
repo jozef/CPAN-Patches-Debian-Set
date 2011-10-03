@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libgd-gd2-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.8.0-7), perlmagick
-Depends: ${misc:Depends}, ${perl:Depends}, libgd-gd2-perl | perlmagick
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libgd-gd2-perl, libmodule-build-perl (>= 0.380000) | perl (>= 5.13.11), libtest-pod-coverage-perl, libtest-pod-perl, perl, perlmagick
+Depends: ${misc:Depends}, ${perl:Depends}, libgd-gd2-perl
 X: 0

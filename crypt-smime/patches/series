@@ -1,0 +1,2 @@
+allow_quoted_enveloped-data.patch
+dont_delete_SMIME_pod.patch

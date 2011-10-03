@@ -1,0 +1,20 @@
+Author: Florian Schlichting <fschlich@zedat.fu-berlin.de>
+Description: EXE_FILES in Makefile.PL causes the sample scripts to be installed into /usr/bin where they don't belong
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=70414
+Origin: vendor
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -13,12 +13,4 @@
+                      'DateTime::Format::W3CDTF' => 0.06, #factional seconds
+                     },
+ 
+-    EXE_FILES    => [
+-                    qw{
+-                       scripts/perl-Net-GPSD3-Example.pl
+-                       scripts/perl-Net-GPSD3-Handler.pl
+-                       scripts/perl-Net-GPSD3-poll.pl
+-                      }
+-                    ],
+-
+ );

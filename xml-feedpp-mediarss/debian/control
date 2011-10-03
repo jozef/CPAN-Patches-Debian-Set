@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libtest-deep-perl, libtie-ixhash-perl, libxml-feedpp-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libxml-feedpp-perl
+X: 0

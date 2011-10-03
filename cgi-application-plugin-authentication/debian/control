@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libapache-htpasswd-perl, libauthen-simple-perl, libcgi-application-basic-plugin-bundle-perl, libcgi-application-perl, libclass-dbi-perl, libclass-inspector-perl, libclass-isa-perl | perl-modules (<< 5.12), libcolor-calc-perl, libdbd-sqlite3-perl, libdbix-class-perl, libtest-exception-perl, libtest-mockobject-perl, libtest-nowarnings-perl, libtest-regression-perl, libtest-taint-perl, libtest-warn-perl (>= 0.11), libtest-without-module-perl, libuniversal-require-perl, perl (>= 5.11.1) | libtest-simple-perl (>= 0.93), pkg-components (>= 0.2)
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-perl, libclass-isa-perl | perl-modules (<< 5.12), libuniversal-require-perl
+X: 0

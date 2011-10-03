@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: perl (>= 5.10.1) | libio-compress-perl | libio-compress-bzip2-perl
+Depends: ${misc:Depends}, ${perl:Depends}, perl (>= 5.10.1) | libio-compress-perl | libio-compress-bzip2-perl
+X: 0

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libemail-send-perl, libemail-simple-perl (>= 2.100) | libemail-simple-creator-perl, libjira-client-perl, libsoap-lite-perl, libsvn-look-perl, libsvn-notify-perl, perl, subversion
-Depends: ${misc:Depends}, ${perl:Depends}, libemail-send-perl, libemail-simple-perl (>= 2.100) | libemail-simple-creator-perl, libjira-client-perl, libsoap-lite-perl, libsvn-look-perl, libsvn-notify-perl, subversion
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libjira-client-perl, libsoap-lite-perl, libsvn-look-perl (>= 0.21), libsvn-notify-perl, liburi-perl, perl, subversion
+Depends: ${misc:Depends}, ${perl:Depends}, libjira-client-perl, libsoap-lite-perl, libsvn-look-perl (>= 0.21), libsvn-notify-perl, subversion
 X: 0

@@ -6,7 +6,7 @@ Last-Update: 2010-04-16
 
 --- a/Coro.pm
 +++ b/Coro.pm
-@@ -891,7 +891,7 @@ actually take advantage of custom hardwa
+@@ -1233,7 +1233,7 @@
  by the forks module, which gives you the (i-) threads API, just much
  faster).
  
@@ -17,7 +17,7 @@ Last-Update: 2010-04-16
  communication-intensive show extremely bad behaviour with i-threads (in
 --- a/README
 +++ b/README
-@@ -650,7 +650,7 @@ WINDOWS PROCESS EMULATION
+@@ -1008,7 +1008,7 @@
      evidenced by the forks module, which gives you the (i-) threads API,
      just much faster).
  

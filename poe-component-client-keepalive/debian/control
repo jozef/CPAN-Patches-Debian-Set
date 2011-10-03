@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libnet-ip-perl (>= 1.25), libpoe-component-client-dns-perl (>= 1:1.051), libpoe-perl (>= 2:1.2800), netbase, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libnet-ip-perl (>= 1.25), libpoe-component-client-dns-perl (>= 1:1.051), libpoe-perl (>= 2:1.2800)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libnet-ip-perl (>= 1.25), libpoe-component-resolver-perl (>= 0.912), libpoe-perl (>= 2:1.3110), libtest-simple-perl (>= 0.96), netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-ip-perl (>= 1.25), libpoe-component-resolver-perl (>= 0.912), libpoe-perl (>= 2:1.3110)
 X: 0

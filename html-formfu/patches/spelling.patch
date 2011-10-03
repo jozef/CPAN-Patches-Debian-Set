@@ -1,102 +1,17 @@
-From: Ansgar Burchardt <ansgar@43-1.org>
-Date: Sat, 09 Jan 2010 21:42:48 +0900
-Subject: Fix spelling errors
-Forwarded: http://lists.scsys.co.uk/pipermail/html-formfu/2010-January/002668.html
+Description: spelling mistake according to lintian
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-27
 
-This patch fixes several spelling errors pointed out by lintian.
---- libhtml-formfu-perl.orig/lib/HTML/FormFu.pm
-+++ libhtml-formfu-perl/lib/HTML/FormFu.pm
-@@ -1992,7 +1992,7 @@
- Deflators will also be run on the value.
+--- a/lib/HTML/FormFu/Manual/Cookbook.pod
++++ b/lib/HTML/FormFu/Manual/Cookbook.pod
+@@ -457,7 +457,7 @@
+     sub auto : Private {
+         my ($self, $c) = @_;
  
- If you set this on a field with an Inflator, but without an equivalent
--Deflator, you should ensure that the Inflators stringify back to a useable
-+Deflator, you should ensure that the Inflators stringify back to a usable
- value, so as not to confuse / annoy the user.
+-        # We want to utilize alot of the magic that the controller
++        # We want to utilize a lot of the magic that the controller
+         # gives us, so therefore we call $self->form like this
  
- Default Value: false
-@@ -3062,21 +3062,21 @@
- 
- =head2 element_defaults
- 
--Is deprecated and provided only for backwards compatability. Will be removed
-+Is deprecated and provided only for backwards compatibility. Will be removed
- at some point in the future.
- 
- See L</default_args> instead.
- 
- =head2 model_class
- 
--Is deprecated and provided only for backwards compatability. Will be removed
-+Is deprecated and provided only for backwards compatibility. Will be removed
- at some point in the future.
- 
- Use L</default_model> instead.
- 
- =head2 defaults_from_model
- 
--Is deprecated and provided only for backwards compatability. Will be removed
-+Is deprecated and provided only for backwards compatibility. Will be removed
- at some point in the future.
- 
- Use L<HTML::FormFu::Model/default_values> instead.
-@@ -3085,7 +3085,7 @@
- 
- =head2 save_to_model
- 
--Is deprecated and provided only for backwards compatability. Will be removed
-+Is deprecated and provided only for backwards compatibility. Will be removed
- at some point in the future.
- 
- Use L<HTML::FormFu::Model/update> instead.
-@@ -3094,7 +3094,7 @@
- 
- =head1 DEPRECATION POLICY
- 
--We try our best to not make incompatable changes, but if they're required
-+We try our best to not make incompatible changes, but if they're required
- we'll make every effort possible to provide backwards compatibility for
- several release-cycles, issuing a warnings about the changes, before removing
- the legacy features.
---- libhtml-formfu-perl.orig/lib/HTML/FormFu/Element.pm
-+++ libhtml-formfu-perl/lib/HTML/FormFu/Element.pm
-@@ -589,7 +589,7 @@
- 
- =head2 db
- 
--Is deprecated and provided only for backwards compatability. Will be removed
-+Is deprecated and provided only for backwards compatibility. Will be removed
- at some point in the future.
- 
- Use L</model_config> instead.
---- libhtml-formfu-perl.orig/lib/HTML/FormFu/Element/_Group.pm
-+++ libhtml-formfu-perl/lib/HTML/FormFu/Element/_Group.pm
-@@ -540,7 +540,7 @@
-           - 12 
- 
- Similar to L</values>, but the last 2 values are expanded to a range. Any 
--preceeding values are used literally, allowing the common empty first item 
-+preceding values are used literally, allowing the common empty first item
- in select menus.
- 
- =head2 empty_first
---- libhtml-formfu-perl.orig/lib/HTML/FormFu/Filter/CopyValue.pm
-+++ libhtml-formfu-perl/lib/HTML/FormFu/Filter/CopyValue.pm
-@@ -28,7 +28,7 @@
- 
- =head1 NAME
- 
--HTML::FormFu::Filter::CopyValue - copy the value from an other field
-+HTML::FormFu::Filter::CopyValue - copy the value from another field
- 
- =head1 SYNOPSIS
- 
-@@ -49,7 +49,7 @@
- =head1 CAVEATS
- 
- If the value of the original field contains an invalid value (a value that
--will be constrained through a constraint) this invalid value will be choosen
-+will be constrained through a constraint) this invalid value will be chosen
- for this field (the field with CopyValue filter).
- 
- So the user has to change two fields or you remove the invalid value in a
+         my $login_form = $self->form;

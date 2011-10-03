@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libhtml-microformats-perl, libjson-perl, librdf-query-perl, librdf-rdfa-parser-perl, librdf-trine-perl, libxml-atom-owl-perl, libxml-libxml-perl, perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

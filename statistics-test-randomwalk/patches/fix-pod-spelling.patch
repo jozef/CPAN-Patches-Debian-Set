@@ -1,0 +1,15 @@
+Description: fix POD spelling
+Author: Jonathan Yu <jawnsy@cpan.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Statistics/Test/RandomWalk.pm
++++ b/lib/Statistics/Test/RandomWalk.pm
+@@ -72,7 +72,7 @@
+ called C<n>-times and its return values are used as
+ random numbers.
+ 
+-The code reference semantics are particularily useful if
++The code reference semantics are particularly useful if
+ you do not want to store all random numbers in memory at
+ the same time. You can write a subroutine that, for example,
+ generates and returns batches of 100 random numbers so no

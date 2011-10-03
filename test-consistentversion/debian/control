@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libtest-simple-perl (>= 0.94), perl (>= 5.10.1) | libautodie-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libtest-simple-perl (>= 0.94), perl (>= 5.10.1) | libautodie-perl
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libtest-pod-content-perl, perl (>= 5.11.1) | libtest-simple-perl (>= 0.94)
+Depends: ${misc:Depends}, ${perl:Depends}, libtest-pod-content-perl, perl (>= 5.11.1) | libtest-simple-perl (>= 0.94)
 X: 0

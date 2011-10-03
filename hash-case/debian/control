@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5.0.0)
-Build-Depends-Indep: libtest-pod-perl, perl (>= 5.8.8-8)
-Depends: ${misc:Depends}, ${perl:Depends}
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: liblog-report-perl (>= 0.26), libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblog-report-perl (>= 0.26)
 X: 0

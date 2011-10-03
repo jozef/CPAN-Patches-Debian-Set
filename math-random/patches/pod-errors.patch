@@ -4,6 +4,9 @@ Description: Fix POD errors
 Origin: vendor
 Forwarded: no
 Author: Jonathan Yu <frequency@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-09
+
 --- a/Random.pm
 +++ b/Random.pm
 @@ -616,8 +616,8 @@

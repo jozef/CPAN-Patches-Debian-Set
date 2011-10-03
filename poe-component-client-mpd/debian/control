@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libaudio-mpd-common-perl (>= 0.1.4), libmoose-perl (>= 0.92), libmoosex-has-sugar-perl, libmoosex-poe-perl, libmoosex-semiaffordanceaccessor-perl, libmoosex-types-perl, libpoe-perl, libreadonly-perl, libsub-exporter-perl, libtest-cpan-meta-perl, libtest-pod-coverage-perl, libtest-pod-perl, mpd, net-tools, netbase, perl (>= 5.10), procps
-Depends: ${misc:Depends}, ${perl:Depends}, libaudio-mpd-common-perl (>= 0.1.4), libmoose-perl (>= 0.92), libmoosex-has-sugar-perl, libmoosex-poe-perl, libmoosex-semiaffordanceaccessor-perl, libmoosex-types-perl, libpoe-perl, libreadonly-perl, libsub-exporter-perl, perl (>= 5.10)
+Build-Depends: debhelper (>= 8), perl (>= 5.11.4) | libmodule-build-perl (>= 0.360100)
+Build-Depends-Indep: libaudio-mpd-common-perl (>= 0.1.4), libmoose-perl (>= 0.92), libmoosex-has-sugar-perl, libmoosex-poe-perl, libmoosex-semiaffordanceaccessor-perl, libmoosex-types-perl, libpod-coverage-trustpod-perl, libpoe-perl, libreadonly-perl, libsub-exporter-perl, libtest-corpus-audio-mpd-perl (>= 1.110710), libtest-cpan-meta-perl, libtest-pod-coverage-perl, libtest-pod-perl, mpd, net-tools, netbase, perl, procps
+Depends: ${misc:Depends}, ${perl:Depends}, libaudio-mpd-common-perl (>= 0.1.4), libmoose-perl (>= 0.92), libmoosex-has-sugar-perl, libmoosex-poe-perl, libmoosex-semiaffordanceaccessor-perl, libmoosex-types-perl, libpoe-perl, libreadonly-perl, libsub-exporter-perl
 X: 0

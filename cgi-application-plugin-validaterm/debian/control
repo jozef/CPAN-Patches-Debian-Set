@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcgi-application-perl, libcgi-application-plugin-forward-perl, libdata-formvalidator-perl, libhtml-fillinform-perl, libhtml-template-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-perl, libdata-formvalidator-perl, libhtml-fillinform-perl
+X: 0

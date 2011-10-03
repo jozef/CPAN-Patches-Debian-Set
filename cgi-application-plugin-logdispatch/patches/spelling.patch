@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=69685
+Last-Update: 2011-06-19
+--- a/lib/CGI/Application/Plugin/LogDispatch.pm
++++ b/lib/CGI/Application/Plugin/LogDispatch.pm
+@@ -520,7 +520,7 @@
+ =head1 SINGLETON SUPPORT
+ 
+ This module can be used as a singleton object.  This means that when the object
+-is created, it will remain accessable for the duration of the process.  This can
++is created, it will remain accessible for the duration of the process.  This can
+ be useful in persistent environments like mod_perl and PersistentPerl, since the
+ object only has to be created one time, and will remain in memory across multiple
+ requests.  It can also be useful if you want to setup a DIE handler, or WARN handler,

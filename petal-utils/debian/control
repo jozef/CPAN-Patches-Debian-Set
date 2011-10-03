@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5), libmodule-build-perl
-Build-Depends-Indep: libpetal-perl (>= 1.06), liburi-perl, perl (>= 5.6.10-12)
-Depends: ${misc:Depends}, ${perl:Depends}, libpetal-perl (>= 1.06), libtimedate-perl (>= 0.01), liburi-perl
+Build-Depends: debhelper (>= 8), libmodule-build-perl
+Build-Depends-Indep: libpetal-perl (>= 2.19-2~), liburi-perl, perl (>= 5.6.10-12)
+Depends: ${misc:Depends}, ${perl:Depends}, libpetal-perl (>= 2.19-2~), libtimedate-perl (>= 0.01), liburi-perl
 X: 0

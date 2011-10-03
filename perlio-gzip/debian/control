@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 8), perl, zlib1g-dev
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

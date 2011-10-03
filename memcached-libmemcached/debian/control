@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 8), libinnodb-dev, libpod-coverage-perl, libtest-pod-coverage-perl, libtest-pod-perl, memcached, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl
+X: 0

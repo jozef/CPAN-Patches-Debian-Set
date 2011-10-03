@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libgraphics-colornames-perl (>= 2.10), libgraphics-colornames-www-perl, libgraphics-colorobject-perl, libparams-validate-perl, libtest-nowarnings-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libgraphics-colornames-perl (>= 2.10), libgraphics-colornames-www-perl, libgraphics-colorobject-perl, libparams-validate-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libgraphics-colornames-perl, libgraphics-colornames-www-perl, libgraphics-colorobject-perl, libparams-validate-perl, libtest-nowarnings-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libgraphics-colornames-perl, libgraphics-colornames-www-perl, libgraphics-colorobject-perl, libparams-validate-perl
 X: 0

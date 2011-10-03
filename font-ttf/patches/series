@@ -1,1 +1,2 @@
-manpages_missing_descriptions
+fix-pod.patch
+fix-spelling.patch

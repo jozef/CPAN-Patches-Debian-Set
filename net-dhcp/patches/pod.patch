@@ -1,0 +1,16 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Sun, 14 Nov 2010 11:03:49 +0100
+Origin: vendor
+Subject: Fix syntax error in POD
+
+--- libnet-dhcp-perl.orig/lib/Net/DHCP/Packet.pm
++++ libnet-dhcp-perl/lib/Net/DHCP/Packet.pm
+@@ -912,8 +912,6 @@
+ 
+ I<Removed as of version 0.60. Please use C<getOptionRaw()> instead.>
+ 
+-=back
+-
+ =item I<removeOption ( CODE )>
+ 
+ Remove option from option list.

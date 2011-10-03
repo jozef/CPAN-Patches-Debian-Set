@@ -1,9 +1,12 @@
-# Author: Damyan Ivanov <dmn@debian.org>
-# Description: make do_verify() croak on error in the same way
-#              verify() already does
-#              Document that verify()/do_verify() croak on errors
-# Debian-Bug: http://bugs.debian.org/511519
-# Upstream-Bug: http://sourceforge.net/tracker/index.php?func=detail&aid=2545158&group_id=73194&atid=537053
+Description: make do_verify() croak on error in the same way verify() 
+ already does. Document that verify()/do_verify() croak on errors.
+Origin: vendor
+Bug: http://sourceforge.net/tracker/index.php?func=detail&aid=2545158&group_id=73194&atid=537053
+Bug-Debian: http://bugs.debian.org/511519
+Forwarded: yes
+Author: Damyan Ivanov <dmn@debian.org>
+Last-Update: 2011-08-05
+
 --- a/DSA.xs
 +++ b/DSA.xs
 @@ -139,6 +139,8 @@ do_verify(dsa, dgst, sig)

@@ -1,0 +1,17 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Sun, 02 Oct 2011 10:42:07 +0200
+Subject: add missing whatis entry
+Origin: vendor
+Forwarded: no
+
+--- libgraphics-primitive-driver-cairo-perl.orig/lib/Graphics/Primitive/Driver/Cairo/TextLayout.pm
++++ libgraphics-primitive-driver-cairo-perl/lib/Graphics/Primitive/Driver/Cairo/TextLayout.pm
+@@ -135,7 +135,7 @@
+ 
+ =head1 NAME
+ 
+-Graphics::Primitive::Driver::Cairo::TextLayout
++Graphics::Primitive::Driver::Cairo::TextLayout - implementation of TextLayout for Cairo
+ 
+ =head1 VERSION
+ 

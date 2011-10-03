@@ -1,0 +1,26 @@
+Description: Fix FTBFS when built with libyaml-syck-perl (>= 1.12)
+ due change in YAML::Syck which does not quote strings when data has 
+ been sorted numerically before being passed to JSON::Syck::Dump.
+ .
+ See: https://rt.cpan.org/Ticket/Display.html?id=50227 and change
+ in YAML::Syck:
+ .
+ * RT 50227 - Not quoting strings when data has been sorted numerically
+   before being passed to JSON::Syck::Dump
+Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=60393
+Bug-Debian: http://bugs.debian.org/593012
+Forwarded: yes
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Reviewed-by: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Last-Update: 2010-08-16
+
+--- a/t/pad.t
++++ b/t/pad.t
+@@ -83,5 +83,5 @@
+ 
+ $ebug->run;
+ $pad = $ebug->pad_human;
+-is($pad->{'$first'}, '"$koremutake"');
++is($pad->{'$first'}, '$koremutake');
+ 

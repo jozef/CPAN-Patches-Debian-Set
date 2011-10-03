@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libclass-errorhandler-perl, libdigest-sha1-perl, libmath-bigint-gmp-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl (>= 1.22), libwww-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-errorhandler-perl, libdigest-sha1-perl, libmath-bigint-gmp-perl, liburi-perl (>= 1.22), libwww-perl
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclass-errorhandler-perl, libjson-perl (>= 2.12), liblwp-protocol-https-perl, libmath-bigint-gmp-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-script-perl, liburi-perl (>= 1.22), libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-errorhandler-perl, libjson-perl (>= 2.12), liblwp-protocol-https-perl, libmath-bigint-gmp-perl, liburi-perl (>= 1.22), libwww-perl
 X: 0

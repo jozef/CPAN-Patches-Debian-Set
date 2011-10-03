@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libarchive-zip-perl, libcommon-sense-perl, libfile-sharedir-perl, libfile-slurp-perl, libfile-spec-perl, libfile-temp-perl, libhtml-html5-parser-perl, libhtml-html5-sanity-perl, libhttp-cache-transparent-perl, libmodule-pluggable-perl, libossp-uuid-perl, librdf-query-perl, librdf-trine-perl, libscalar-list-utils-perl, libtest-simple-perl, liburi-perl, libwww-perl, libxml-atom-owl-perl, libxml-libxml-perl, libxml-regexp-perl, perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

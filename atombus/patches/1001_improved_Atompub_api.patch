@@ -1,0 +1,41 @@
+Description: Improve Atompub api
+ Extend coverage of Atompub POST API:
+  * Provide Location using start_at argument
+  * Set status 201 Created (not default 200 Success)
+  * Set content type application/atom+xml;type=entry
+ .
+ This avoids warnings from Atompub::Client.
+Author: Jonas Smedegaard <dr@jones.dk>
+Last-Update: 2011-06-07
+--- a/lib/AtomBus.pm
++++ b/lib/AtomBus.pm
+@@ -113,6 +113,9 @@
+     });
+     $db_feed->update({updated => $updated});
+     _add_etag($db_entry->id);
++    header Location => uri_for( '/feeds/' . $feed_title, { start_at => $db_entry->id } );
++    content_type 'application/atom+xml;type=entry';
++    status 'created';
+     return _entry_from_db($db_entry)->as_xml;
+ };
+ 
+--- a/t/01-basic.t
++++ b/t/01-basic.t
+@@ -30,7 +30,7 @@
+ };
+ 
+ my $res = dancer_response POST => "/feeds/$feed", { body => $xml1 };
+-is $res->{status} => 200, 'Got 200 for posting entry1.';
++is $res->{status} => 201, 'Got 201 for posting entry1.';
+ 
+ is schema->resultset('AtomBusEntry')->count() => 1, '1 entries in db.';
+ is schema->resultset('AtomBusFeed')->count() => 1, '1 feed in db.';
+@@ -40,7 +40,7 @@
+ ok $entry1, 'Found entry 1.';
+ 
+ $res = dancer_response POST => "/feeds/$feed", { body => $xml2 };
+-is $res->{status} => 200, 'Got 200 for posting entry2.';
++is $res->{status} => 201, 'Got 201 for posting entry2.';
+ 
+ is schema->resultset('AtomBusEntry')->count() => 2, '2 entries in db.';
+ is schema->resultset('AtomBusFeed')->count() => 1, '1 feed in db.';

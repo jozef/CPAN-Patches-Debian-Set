@@ -1,0 +1,15 @@
+fix the pod error
+
+--- a/lib/Padre/Plugin/Debugger.pm
++++ b/lib/Padre/Plugin/Debugger.pm
+@@ -497,10 +497,6 @@
+ 
+ L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Padre-Plugin-Debugger> - Bug tracking
+ 
+-=back
+-
+-
+-
+ =head1 AUTHOR
+ 
+ Peter Makholm, C<< <peter@makholm.net> >>

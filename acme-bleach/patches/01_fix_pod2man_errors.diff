@@ -1,0 +1,52 @@
+Description: fix "manpage-has-errors-from-pod2man" warning from Lintian.
+Author: Nathan Handler <nhandler@ubuntu.com>
+Last-Update: 2011-06-27
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=47379
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=47379
+
+--- a/lib/Acme/Bleach.pm
++++ b/lib/Acme/Bleach.pm
+@@ -66,8 +66,12 @@
+ 
+ Acme::Bleach could not access the source file to execute it.
+ 
++=over 4
++
+ =back 
+ 
++=back
++
+ =head1 SEE ALSO
+ 
+ http://www.templetons.com/tech/proletext.html
+--- a/lib/Acme/Morse.pm
++++ b/lib/Acme/Morse.pm
+@@ -50,6 +50,10 @@
+ 
+ =back 
+ 
++=over 4
++
++=back
++
+ =head1 AUTHOR
+ 
+ Damian Conway (as if you couldn't guess)
+--- a/lib/Acme/DWIM.pm
++++ b/lib/Acme/DWIM.pm
+@@ -76,11 +76,13 @@
+ 
+ ...over 4
+ 
+-...item C...Can't enDWIM '%s'>
++...item C...<Can't enDWIM '%s'>
+ 
+ Acme::DWIM could not access the source file to modify it.
+ 
+-=item C<Can't DWIM '%s'...
++=over 4
++
++=item C<Can't DWIM '%s'>...
+ 
+ Acme...DWIM could not access the source file to execute it...
+ 

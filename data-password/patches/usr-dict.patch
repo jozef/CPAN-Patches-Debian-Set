@@ -1,3 +1,7 @@
+Description: Use FHS compliant paths in Debian package
+Author: Michael Shuler <michael@pbandjelly.org>
+Last-Update: 2011-05-23
+
 --- a/Password.pm
 +++ b/Password.pm
 @@ -25,7 +25,9 @@ $GROUPS = 2;

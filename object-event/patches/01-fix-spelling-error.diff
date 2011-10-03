@@ -1,0 +1,17 @@
+Description: Fixing man page
+Author: Fabrizio Regalli <fabreg@fabreg.it>
+Last-Update: 2011-08-04
+Forwarded: not-needed
+
+
+--- a/lib/Object/Event.pm
++++ b/lib/Object/Event.pm
+@@ -56,7 +56,7 @@
+ string) and call them later by invoking the C<event> method with the event name
+ and some arguments. 
+ 
+-There is even a syntactic sugar which allows to call methods on the instances
++There is even a syntactic sugar which allows one to call methods on the instances
+ of L<Object::Event>-derived classes, to invoke events.  For this feature see
+ the L<EVENT METHODS> section of this document.
+ 

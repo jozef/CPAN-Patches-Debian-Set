@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-method-modifiers-perl, libstrictures-perl, libtest-fatal-perl (>= 0.003), libtest-simple-perl (>= 0.96), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-method-modifiers-perl, libstrictures-perl
+X: 0

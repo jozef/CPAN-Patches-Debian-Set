@@ -1,3 +1,5 @@
 whatis-entries.diff
 how-to-report-bugs.diff
 pod-for-html_formfu_dumpconf.diff
+do-not-check-for-old-version.diff
+spelling.patch

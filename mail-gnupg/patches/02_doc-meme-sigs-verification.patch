@@ -1,6 +1,16 @@
---- a/GnuPG.pm
-+++ b/GnuPG.pm
-@@ -333,6 +333,12 @@ sub get_decrypt_key {
+Description: Updates documentation of Mail::GnuPG to document
+ that MIME-encoded data should be supplied unmodified inside
+ the MIME::Entity input message.
+Origin: vendor
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=2718
+Forwarded: yes
+Author: Niko Tyni <ntyni@iki.fi>
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2010-10-20
+
+--- a/lib/Mail/GnuPG.pm
++++ b/lib/Mail/GnuPG.pm
+@@ -339,6 +339,12 @@
    The message can either be in RFC compliant-ish multipart/signed
    format, or just a single part ascii armored message.
  

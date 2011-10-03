@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.3.7~), perl (>= 5.10) | libmodule-build-perl
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libdbd-sqlite3-perl, libdbi-perl, libfilehandle-fmode-perl, libio-stringy-perl, libtest-deep-perl (>= 0.095), libtest-exception-perl (>= 0.21), libtest-pod-coverage-perl, libtest-pod-perl, libtest-warn-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

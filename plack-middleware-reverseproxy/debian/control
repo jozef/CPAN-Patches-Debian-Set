@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libplack-perl, libyaml-perl, perl (>= 5.10.1) | libparent-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libplack-perl, libyaml-perl, perl (>= 5.10.1) | libparent-perl
+X: 0

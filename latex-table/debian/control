@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.3.7~)
-Build-Depends-Indep: libmoose-perl (>= 0.76), libmoosex-followpbp-perl, libtemplate-perl, libtest-nowarnings-perl, libtest-pod-coverage-perl (>= 1.04), libtest-pod-perl (>= 1.14), perl
+Build-Depends: debhelper (>= 8), perl
+Build-Depends-Indep: libmoose-perl (>= 0.76), libmoosex-followpbp-perl, libtemplate-perl, libtest-nowarnings-perl
 Depends: ${misc:Depends}, ${perl:Depends}, liblatex-driver-perl, liblatex-encode-perl, libmoose-perl (>= 0.76), libmoosex-followpbp-perl, libnumber-format-perl, libreadonly-perl, libtemplate-perl, libtext-csv-perl, perl
 X: 0

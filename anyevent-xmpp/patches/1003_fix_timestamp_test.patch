@@ -1,0 +1,16 @@
+Description: Fix excess space in timestamp
+Author: MMIMS [...] cpan.org
+Last-Update: 2011-05-23
+Forwarded: yes
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=62739
+--- a/lib/AnyEvent/XMPP/Util.pm
++++ b/lib/AnyEvent/XMPP/Util.pm
+@@ -519,7 +519,7 @@
+    my ($s, $m, $h, $md, $mon, $year, $tz) = from_xmpp_datetime ($string);
+ 
+    my $otz = $ENV{TZ};
+-   $ENV{TZ} = ($tz =~ /^([+-])(\d{2}):(\d{2})$/ ? "UTC $tz" : "");
++   $ENV{TZ} = ($tz =~ /^([+-])(\d{2}):(\d{2})$/ ? "UTC$tz" : "");
+    POSIX::tzset ();
+ 
+    my $ts = POSIX::mktime ($s, $m, $h, $md, $mon, $year);

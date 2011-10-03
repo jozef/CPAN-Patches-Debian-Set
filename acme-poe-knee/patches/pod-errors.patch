@@ -1,0 +1,23 @@
+Subject: Fix POD errors
+Date: Mon, 20 Jul 2009 17:45:53 +0200
+From: Ansgar Burchardt <ansgar@43-1.org>
+--- libacme-poe-knee-perl.orig/lib/Acme/POE/Knee.pm
++++ libacme-poe-knee-perl/lib/Acme/POE/Knee.pm
+@@ -223,6 +223,8 @@
+ 
+ Rocco Caputo is <troc+poe@netrus.net>.  POE itself is his creation.
+ 
++=back
++
+ =head2 COPYRIGHT
+ 
+ Copyright (c) 2001, Jos Boumans. All Rights Reserved. This module
+@@ -234,6 +236,4 @@
+ All rights reserved.  POE is free software; you may redistribute it
+ and/or modify it under the same terms as Perl itself.
+ 
+-=back
+-
+-=cut
+\ No newline at end of file
++=cut

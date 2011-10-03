@@ -1,0 +1,30 @@
+Subject: Fix POD syntax errors
+Origin: vendor
+Forwarded: no
+From: Ansgar Burchardt <ansgar@debian.org>
+From: Alessandro Ghedini <al3xbio@gmail.com>
+Reviewed-by: Alessandro Ghedini <al3xbio@gmail.com>
+Last-Update: 2011-09-06
+
+--- a/lib/Moose/Manual/Delta.pod
++++ b/lib/Moose/Manual/Delta.pod
+@@ -55,6 +55,8 @@
+ 
+ This will start warning in the 2.0300 release.
+ 
++=back
++
+ =head1 2.0002
+ 
+ =over 4
+--- a/lib/Moose/Meta/Attribute/Native/Trait/Array.pm
++++ b/lib/Moose/Meta/Attribute/Native/Trait/Array.pm
+@@ -314,7 +314,7 @@
+ 
+ This method accepts one or two arguments.
+ 
+-=item B<shallow_clone>
++=item * B<shallow_clone>
+ 
+ This method returns a shallow clone of the array reference.  The return value
+ is a reference to a new array with the same elements.  It is I<shallow>

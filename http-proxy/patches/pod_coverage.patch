@@ -1,0 +1,17 @@
+Description: pod-coverage tests fails under perl 5.12
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=56259
+Bug-Debian: http://bugs.debian.org/578940
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-07-03
+
+--- a/t/02pod-coverage.t
++++ b/t/02pod-coverage.t
+@@ -3,4 +3,4 @@
+ use Test::More;
+ eval "use Test::Pod::Coverage 1.04";
+ plan skip_all => "Test::Pod::Coverage 1.04 required for testing POD coverage" if $@;
+-all_pod_coverage_ok();
++all_pod_coverage_ok({ also_private => [ qr/^(ERROR|worker)$/ ] });

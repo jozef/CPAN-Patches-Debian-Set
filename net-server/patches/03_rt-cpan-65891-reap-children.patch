@@ -1,0 +1,42 @@
+Description: Comments USER and ACCESS entries in rscsi file.
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=65891
+Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=65891
+Author: Carsten Wolff <carsten@wolffcarsten.de>
+Last-Update: 2011-09-20
+
+--- a/lib/Net/Server/PreFork.pm
++++ b/lib/Net/Server/PreFork.pm
+@@ -330,6 +330,15 @@
+ #               },
+                );
+ 
++  ### reclaim process exit status from any terminated child process
++  ### inherited from a previous incarnation whose SIGCHLD signal was
++  ### ignored during a blind period between a restart and the moment
++  ### when the SIGCHLD handler was established just now
++  while ( defined(my $chld = waitpid(-1, WNOHANG)) ){
++    last unless $chld > 0;
++    $self->{reaped_children}->{$chld} = 1;
++  }
++
+   ### loop on reading info from the children
+   while( 1 ){
+ 
+--- a/lib/Net/Server/PreForkSimple.pm
++++ b/lib/Net/Server/PreForkSimple.pm
+@@ -331,6 +331,15 @@
+ #               },
+                );
+ 
++  ### reclaim process exit status from any terminated child process
++  ### inherited from a previous incarnation whose SIGCHLD signal was
++  ### ignored during a blind period between a restart and the moment
++  ### when the SIGCHLD handler was established just now
++  while ( defined(my $chld = waitpid(-1, WNOHANG)) ){
++    last unless $chld > 0;
++    $self->delete_child($chld);
++  }
++
+   ### loop forever
+   while( 1 ){
+ 

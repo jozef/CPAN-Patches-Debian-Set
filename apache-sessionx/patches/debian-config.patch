@@ -1,4 +1,8 @@
-Subject: Mention how to configure module on Debian
+Description: Mention how to configure module on Debian
+Origin: vendor
+Forwarded: not-needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-22
 
 --- a/SessionX.pm
 +++ b/SessionX.pm

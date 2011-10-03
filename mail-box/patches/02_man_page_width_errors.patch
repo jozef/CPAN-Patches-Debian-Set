@@ -1,25 +1,28 @@
-Description:  fixing un-splittable lines in two PODs
+Description: fixing un-splittable lines in two PODs
 Origin: vendor
 Author: Damyan Ivanov <dmn@debian.org>  
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-02-09
+
 --- a/lib/Mail/Box/Message/Destructed.pod
 +++ b/lib/Mail/Box/Message/Destructed.pod
-@@ -182,7 +182,7 @@
+@@ -140,7 +140,7 @@
  
- =back
+ See L<Mail::Message::Construct::Forward/"Constructing a message">
  
--Mail::Box::Message::Destructed-E<gt>B<read>(FILEHANDLE|SCALAR|REF-SCALAR|ARRAY-OF-LINES, OPTIONS)
-+Mail::Box::Message::Destructed-E<gt>B<read>( FILEHANDLE | SCALAR | REF-SCALAR | ARRAY-OF-LINES, OPTIONS)
+-=item Mail::Box::Message::Destructed-E<gt>B<read>(FILEHANDLE|SCALAR|REF-SCALAR|ARRAY-OF-LINES, OPTIONS)
++=item Mail::Box::Message::Destructed-E<gt>B<read>( FILEHANDLE | SCALAR | REF-SCALAR | ARRAY-OF-LINES, OPTIONS)
  
- =over 4
+ See L<Mail::Message::Construct::Read/"Constructing a message">
  
 --- a/lib/Mail/Box/Net/Message.pod
 +++ b/lib/Mail/Box/Net/Message.pod
-@@ -185,7 +185,7 @@
+@@ -139,7 +139,7 @@
  
- =back
+ See L<Mail::Message::Construct::Forward/"Constructing a message">
  
--Mail::Box::Net::Message-E<gt>B<read>(FILEHANDLE|SCALAR|REF-SCALAR|ARRAY-OF-LINES, OPTIONS)
-+Mail::Box::Net::Message-E<gt>B<read>( FILEHANDLE | SCALAR | REF-SCALAR | ARRAY-OF-LINES, OPTIONS)
+-=item Mail::Box::Net::Message-E<gt>B<read>(FILEHANDLE|SCALAR|REF-SCALAR|ARRAY-OF-LINES, OPTIONS)
++=item Mail::Box::Net::Message-E<gt>B<read>( FILEHANDLE | SCALAR | REF-SCALAR | ARRAY-OF-LINES, OPTIONS)
  
- =over 4
+ See L<Mail::Message::Construct::Read/"Constructing a message">
  

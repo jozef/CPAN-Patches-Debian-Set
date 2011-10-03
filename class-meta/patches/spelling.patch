@@ -1,0 +1,29 @@
+Description: Fix two spelling mistakes and a grammatical one.
+Forwarded: no
+Author: Peter Pentchev <roam@ringlet.net>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-24
+
+--- a/lib/Class/Meta.pm
++++ b/lib/Class/Meta.pm
+@@ -67,9 +67,9 @@
+       has  uuid => (
+         authz    => 'READ',
+         required => 1,
+-        deafult  => sub { Data::UUID->new->create_str },
++        default  => sub { Data::UUID->new->create_str },
+       );
+-      has name => ( rquired => 1         );
++      has name => ( required => 1         );
+       has age  => ( is      => 'integer' );
+       method chk_pass => sub { ... }
+   };
+@@ -141,7 +141,7 @@
+ Class::Meta interface itself, well, read on!
+ 
+ I recommend that you create your Class::Meta classes in a C<BEGIN> block.
+-Although this is not strictly necessary, it helps to ensure that the classes
++Although this is not strictly necessary, it helps ensure that the classes
+ you're building are completely constructed and ready to go by the time
+ compilation has completed. Creating classes with Class::Meta is easy, using
+ the Class::Meta object oriented interface. Here is an example of a very simple

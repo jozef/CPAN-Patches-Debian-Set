@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~), libpod-coverage-perl, libppi-html-perl | perltidy, perl
+Build-Depends: debhelper (>= 7.0.50~), libpod-coverage-perl, libppi-html-perl | perltidy, libtemplate-perl, libtest-differences-perl, libtest-warn-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${sameperl:Depends}, ${shlibs:Depends}
 X: 0

@@ -1,9 +1,9 @@
-Author: Ansgar Burchardt <ansgar@43-1.org>
+Author: Ansgar Burchardt <ansgar@debian.org>
 Subject: Gives more specific information for bug reporting
 
 --- libhtml-formfu-perl.orig/lib/HTML/FormFu.pm
 +++ libhtml-formfu-perl/lib/HTML/FormFu.pm
-@@ -3172,9 +3172,13 @@
+@@ -3137,9 +3137,13 @@
  
  =head1 BUGS
  

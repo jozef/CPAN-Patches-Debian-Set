@@ -1,0 +1,6 @@
+disable-jpeg-test
+pod-fixes.patch
+use-config-ccflags.patch
+disable-jpeg-test10.patch
+pod-errors.patch
+makemaker-ccflags.patch

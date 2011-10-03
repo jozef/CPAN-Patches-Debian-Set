@@ -1,10 +1,10 @@
-Subject: Add missing whatis entries
-From: Ansgar Burchardt <ansgar@43-1.org>
-Date: Fri, 23 Jan 2009 19:55:00 +0100
-
---- libparse-cpan-packages-perl.orig/lib/Parse/CPAN/Packages/Distribution.pm
-+++ libparse-cpan-packages-perl/lib/Parse/CPAN/Packages/Distribution.pm
-@@ -28,7 +28,7 @@
+Description: add missing whatis entries
+Author: Ansgar Burchardt <ansgar@debian.org>
+Origin: vendor
+Forwarded: no
+--- a/lib/Parse/CPAN/Packages/Distribution.pm
++++ b/lib/Parse/CPAN/Packages/Distribution.pm
+@@ -54,7 +54,7 @@
  
  =head1 NAME
  
@@ -13,9 +13,9 @@ Date: Fri, 23 Jan 2009 19:55:00 +0100
  
  =head1 DESCRIPTION
  
---- libparse-cpan-packages-perl.orig/lib/Parse/CPAN/Packages/Package.pm
-+++ libparse-cpan-packages-perl/lib/Parse/CPAN/Packages/Package.pm
-@@ -15,7 +15,7 @@
+--- a/lib/Parse/CPAN/Packages/Package.pm
++++ b/lib/Parse/CPAN/Packages/Package.pm
+@@ -51,7 +51,7 @@
  
  =head1 NAME
  

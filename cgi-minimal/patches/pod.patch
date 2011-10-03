@@ -1,0 +1,42 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: spelling mistakes
+Last-Update: 2010-01-05
+Forwarded: no
+--- a/lib/CGI/Minimal.pod
++++ b/lib/CGI/Minimal.pod
+@@ -45,7 +45,7 @@
+ to put together any HTML or HTTP you need.
+ 
+ 
+-The parser accepts either '&' or ';' as CGI form field seperators.
++The parser accepts either '&' or ';' as CGI form field separators.
+ 
+ IOW
+ 
+@@ -237,7 +237,7 @@
+ 
+  1.13 28 Sep 2004 - Removed support for Module::Build from module install.
+ 
+- 1.12 25 Sep 2004 - Tweaked the default form parser to accept ';' as a field seperator
++ 1.12 25 Sep 2004 - Tweaked the default form parser to accept ';' as a field separator
+                     in addition to '&'. Change suggested by Peter Karman.
+                     Eliminated the explicit application/sgml-form-urlencoded support
+                     as redundant (it still works, it is just not explicitly different
+@@ -285,7 +285,7 @@
+                     of non-mod_perl persistent perl execution environments.
+ 
+  1.08 26 Jul 2001 - Added 'raw' method for obtaining a dump of the raw input buffer data
+-                    without any parsing. Moved documentation into seperate POD file.
++                    without any parsing. Moved documentation into separate POD file.
+ 
+  1.07 01 Dec 2000 - Added capability of taking a GET style parameter string
+                          via STDIN if running at the command line.
+@@ -364,7 +364,7 @@
+     $cgi->param({ 'pick_list' => ['01','05','07'] });
+ 
+ Starting with the 1.12 version, CGI::Minimal accepts the ';' character
+-as a form field seperator in addition to the '&'.
++as a form field separator in addition to the '&'.
+ 
+ IOW: a=b;c=d will decode as well as a=b&c=d in form submissions. This is
+ to provide SGML/XML/XHTML compatibility for those needing it. Since ';' has

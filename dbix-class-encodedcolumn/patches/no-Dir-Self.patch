@@ -13,43 +13,79 @@ copyright information:
   the same terms as Perl itself, either Perl version 5.8.8 or, at your option,
   any later version of Perl 5 you may have available.
 
---- libdbix-class-encodedcolumn-perl.orig/t/02digest.t
-+++ libdbix-class-encodedcolumn-perl/t/02digest.t
-@@ -4,10 +4,16 @@
+--- libdbix-class-encodedcolumn-perl.orig/t/bcrypt.t
++++ libdbix-class-encodedcolumn-perl/t/bcrypt.t
+@@ -3,9 +3,15 @@
  use warnings;
  use Test::More;
  
 -use Dir::Self;
  use File::Spec;
  use File::Temp 'tempdir';
- 
-+### from Dir::Self 0.10
++
 +sub __DIR__ () {
-+	my $level = shift || 0;
-+	my $file = (caller $level)[1];
-+	File::Spec->rel2abs(join '', (File::Spec->splitpath($file))[0, 1])
++  my $level = shift || 0;
++  my $file = (caller $level)[1];
++  File::Spec->rel2abs(join '', (File::Spec->splitpath($file))[0, 1])
 +}
 +
  use lib File::Spec->catdir(__DIR__, 'lib');
  
- my ($sha_ok, $bcrypt_ok, $pgp_ok, $whirlpool_ok);
---- libdbix-class-encodedcolumn-perl.orig/t/03crosstable_leak.t
-+++ libdbix-class-encodedcolumn-perl/t/03crosstable_leak.t
-@@ -4,10 +4,16 @@
+ BEGIN {
+--- libdbix-class-encodedcolumn-perl.orig/t/digest_sha.t
++++ libdbix-class-encodedcolumn-perl/t/digest_sha.t
+@@ -3,9 +3,15 @@
  use warnings;
- use Test::More tests => 5;
+ use Test::More;
  
 -use Dir::Self;
  use File::Spec;
  use File::Temp 'tempdir';
- 
-+## from Dir::Self 0.10
++
 +sub __DIR__ () {
-+	my $level = shift || 0;
-+	my $file = (caller $level)[1];
-+	File::Spec->rel2abs(join '', (File::Spec->splitpath($file))[0, 1])
++  my $level = shift || 0;
++  my $file = (caller $level)[1];
++  File::Spec->rel2abs(join '', (File::Spec->splitpath($file))[0, 1])
 +}
 +
  use lib File::Spec->catdir(__DIR__, 'lib');
  
- #1
+ use DigestTest::Schema;
+--- libdbix-class-encodedcolumn-perl.orig/t/open_pgp.t
++++ libdbix-class-encodedcolumn-perl/t/open_pgp.t
+@@ -3,9 +3,15 @@
+ use warnings;
+ use Test::More;
+ 
+-use Dir::Self;
+ use File::Spec;
+ use File::Temp 'tempdir';
++
++sub __DIR__ () {
++  my $level = shift || 0;
++  my $file = (caller $level)[1];
++  File::Spec->rel2abs(join '', (File::Spec->splitpath($file))[0, 1])
++}
++
+ use lib File::Spec->catdir(__DIR__, 'lib');
+ use DigestTest::Schema;
+ 
+--- libdbix-class-encodedcolumn-perl.orig/t/whirlpool.t
++++ libdbix-class-encodedcolumn-perl/t/whirlpool.t
+@@ -3,9 +3,15 @@
+ use warnings;
+ use Test::More;
+ 
+-use Dir::Self;
+ use File::Spec;
+ use File::Temp 'tempdir';
++
++sub __DIR__ () {
++  my $level = shift || 0;
++  my $file = (caller $level)[1];
++  File::Spec->rel2abs(join '', (File::Spec->splitpath($file))[0, 1])
++}
++
+ use lib File::Spec->catdir(__DIR__, 'lib');
+ use DigestTest::Schema;
+ 

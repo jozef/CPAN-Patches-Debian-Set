@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libapp-cmd-perl (>= 0.202), libkiokudb-perl (>= 0.45), libmoosex-app-cmd-perl, libmoosex-getopt-perl, libmoosex-types-path-class-perl, libproc-invokeeditor-perl (>= 1), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libapp-cmd-perl (>= 0.202), libkiokudb-perl (>= 0.45), libmoosex-app-cmd-perl, libmoosex-getopt-perl, libmoosex-types-path-class-perl, libproc-invokeeditor-perl (>= 1)
+X: 0

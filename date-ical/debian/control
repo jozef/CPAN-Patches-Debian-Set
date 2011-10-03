@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdate-leapyear-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdate-leapyear-perl
+X: 0

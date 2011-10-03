@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), libgmp3-dev, libtest-yaml-meta-perl, perl
+Build-Depends: debhelper (>= 8), libgmp-dev, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

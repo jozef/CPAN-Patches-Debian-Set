@@ -1,0 +1,28 @@
+Description: fix POD errors
+Origin: vendor
+Forwarded: o
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-29
+
+--- a/lib/SVN/Notify/Mirror.pm
++++ b/lib/SVN/Notify/Mirror.pm
+@@ -270,8 +270,6 @@
+ Please update your configurations (see L<SVN::Notify::Mirror::SSH> for
+ details).
+ 
+-=over 4
+-
+ =head2 Methods of Mirroring
+ 
+ There are two schemes to keep a directory synced to a path in the
+--- a/lib/SVN/Notify/Mirror/SSH.pm
++++ b/lib/SVN/Notify/Mirror/SSH.pm
+@@ -273,8 +273,6 @@
+ Once you have set up the various accounts, you are ready to set
+ your options.
+ 
+-=over 4
+-
+ =head1 AUTHOR
+ 
+ John Peacock <jpeacock@cpan.org>

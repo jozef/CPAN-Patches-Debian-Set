@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libfile-find-rule-perl, libfile-find-rule-perl-perl, libperl-minimumversion-perl (>= 1.20), libtest-tester-perl, libyaml-tiny-perl (>= 1.40), perl (>= 5.10.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libfile-find-rule-perl, libfile-find-rule-perl-perl, libperl-minimumversion-perl (>= 1.20), libyaml-tiny-perl (>= 1.40), perl (>= 5.10.0)
+Build-Depends-Indep: libfile-find-rule-perl, libfile-find-rule-perl-perl, libperl-minimumversion-perl (>= 1.20), libtest-tester-perl, libyaml-tiny-perl (>= 1.40), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-find-rule-perl, libfile-find-rule-perl-perl, libperl-minimumversion-perl (>= 1.20), libyaml-tiny-perl (>= 1.40)
 X: 0

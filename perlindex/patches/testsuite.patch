@@ -1,7 +1,9 @@
-Author: Florian Ragwitz <rafl@debian.org>
-Author: Ignace Mouzannar <mouzannar@gmail.com>
-Last-Update: 2009-10-18
 Description: Use the config file in the test suite
+Forwarded: no
+Author: Ignace Mouzannar <mouzannar@gmail.com>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2009-10-18
+
 --- a/t/basic.t
 +++ b/t/basic.t
 @@ -42,13 +42,13 @@

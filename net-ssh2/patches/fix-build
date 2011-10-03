@@ -5,7 +5,7 @@ Author: Ryan Niebur <ryanryan52@gmail.com>
 Last-Update: 2010-04-15
 --- a/Makefile.PL
 +++ b/Makefile.PL
-@@ -40,22 +40,12 @@
+@@ -50,22 +50,12 @@
  
  checklibs
      lib => 'ssh2',

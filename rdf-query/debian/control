@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libbloom-filter-perl, libcrypt-gpg-perl, libdatetime-format-w3cdtf-perl, liberror-perl, libgeo-distance-perl, libgetopt-simple-perl, libjson-perl, libossp-uuid-perl, libparse-recdescent-perl, librdf-perl, librdf-trine-perl, libset-scalar-perl, libtest-exception-perl, libtest-json-perl, liburi-perl (>= 1.52), libwww-perl, libyaml-perl, perl (>= 5.12) | libfile-spec-perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

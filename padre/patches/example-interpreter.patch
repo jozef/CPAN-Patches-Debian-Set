@@ -1,0 +1,12 @@
+Description: On Debian the wish interpreter is in /usr/bin
+Author: Damyan Ivanov <dmn@debian.org>
+Forwarded: no
+
+--- a/eg/tcl/hello_tcl
++++ b/eg/tcl/hello_tcl
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/wish
++#!/usr/bin/wish
+ #Make a label "Hello World"
+ label .hello -text "Hello World"
+ pack .hello

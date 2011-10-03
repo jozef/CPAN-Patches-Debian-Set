@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdata-dumper-concise-perl, libexporter-declare-perl, liblog-log4perl-perl (>= 1.29), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-dumper-concise-perl, libexporter-declare-perl
+X: 0

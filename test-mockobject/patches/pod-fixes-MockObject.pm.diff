@@ -1,6 +1,11 @@
+Description: Wrap line in POD, so that the C<> is not prematurely closed by
+ the "=>". See #466450
+Origin: vendor
+Forwarded: no
+Author: Krzysztof Krzyżaniak (eloy)
 --- a/lib/Test/MockObject.pm
 +++ b/lib/Test/MockObject.pm
-@@ -558,8 +558,8 @@ before the actual module has a chance to
+@@ -579,8 +579,8 @@
  before a use or require or place it before a C<use_ok()> or C<require_ok()>
  call.
  

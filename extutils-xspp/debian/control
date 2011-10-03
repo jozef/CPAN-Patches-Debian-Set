@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
-Build-Depends-Indep: libextutils-parsexs-perl (>= 2.220200), libtest-base-perl, libtest-differences-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libextutils-parsexs-perl (>= 2.220200)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libextutils-parsexs-perl (>= 2.220200) | perl (>= 5.14), libtest-base-perl, libtest-differences-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libextutils-parsexs-perl (>= 2.220200) | perl (>= 5.14)
 X: 0

@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), libev, perl (>= 5.6.10-12)
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+Build-Depends: debhelper (>= 8), libcommon-sense-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libcommon-sense-perl
 X: 0

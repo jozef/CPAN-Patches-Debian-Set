@@ -1,0 +1,15 @@
+Description: new method
+--- a/lib/Software/License.pm
++++ b/lib/Software/License.pm
+@@ -27,6 +27,11 @@
+ 
+ sub notice { shift->_fill_in('NOTICE') }
+ 
++sub summary { 
++    my ($self,$distro) = @_;
++    $distro ||= 'debian' ;
++    $self->_fill_in(uc($distro).'-SUMMARY');
++}
+ 
+ sub license { shift->_fill_in('LICENSE') }
+ 

@@ -1,0 +1,19 @@
+Subject: Debianize interpreter path in example script
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Forwarded: not-needed
+Last-Update: 2011-01-04
+--- a/examples/demo.pl
++++ b/examples/demo.pl
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ 
+ # Demo script for Lingua::EN::NameParse.pm
+ 
+@@ -107,4 +107,4 @@
+ James Graham, Marquess of Montrose
+ Flight Officer John Gillespie Magee
+ Sir Author Conan Doyle
+-Major JA Dunn
+\ No newline at end of file
++Major JA Dunn

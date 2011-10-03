@@ -1,10 +1,11 @@
 Author: gregor herrmann <gregoa@debian.org>
 Description: spelling mistake
 Forwarded: no
-
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2011-05-14
 --- a/lib/DBD/mysql.pm
 +++ b/lib/DBD/mysql.pm
-@@ -1036,7 +1036,7 @@
+@@ -1099,7 +1099,7 @@
  
  =item mysql_multi_statements
  

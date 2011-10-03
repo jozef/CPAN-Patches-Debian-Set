@@ -1,0 +1,22 @@
+Description: use 'wxpl.icon' instead of 'proton.xpm' due to missing copyright
+Author: Fabrizio Regalli <fabreg@fabreg.it>
+Forwarded: not-needed
+
+--- a/lib/Kephra/Config/Default/GlobalSettings.pm
++++ b/lib/Kephra/Config/Default/GlobalSettings.pm
+@@ -122,7 +122,7 @@
+ 					size_y => 600,
+ 				},
+ 				fullscreen => 0,
+-				icon => 'interface/icon/app/proton.xpm',
++				icon => 'interface/icon/app/wxpl.ico',
+ 				max_number => 1,
+ 				maximize_editpanel => 0,
+ 				position_x => 10,
+@@ -417,4 +417,4 @@
+ 	}
+ }
+ 
+-1;
+\ No newline at end of file
++1;

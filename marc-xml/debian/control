@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmarc-charset-perl (>= 0.98), libmarc-record-perl (>= 2), libxml-sax-perl (>= 0.12), perl (>= 5.8.8-7)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmarc-charset-perl (>= 0.98), libmarc-record-perl (>= 2), libxml-sax-perl (>= 0.12), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libmarc-charset-perl (>= 0.98), libmarc-record-perl (>= 2), libxml-sax-perl (>= 0.12)
 X: 0

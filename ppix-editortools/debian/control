@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libclass-xsaccessor-perl, libppi-perl (>= 1.203), libtest-differences-perl (>= 0.48.01), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-xsaccessor-perl, libppi-perl (>= 1.203)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-xsaccessor-perl, libppi-perl, libtest-differences-perl, libtest-most-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-xsaccessor-perl, libppi-perl
 X: 0

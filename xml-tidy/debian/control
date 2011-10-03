@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libmath-basecnv-perl, libtest-pod-coverage-perl, libtest-pod-perl, libxml-xpath-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmath-basecnv-perl, libxml-xpath-perl
+X: 0

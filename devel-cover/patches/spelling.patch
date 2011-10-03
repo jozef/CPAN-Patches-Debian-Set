@@ -2,11 +2,12 @@ Description: fix a spelling mistake
 Origin: vendor
 Forwarded: no
 Author: gregor herrmann <gregoa@debian.org>
-Last-Update: 2010-04-16
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-09-25
 
 --- a/lib/Devel/Cover/Report/Html_minimal.pm
 +++ b/lib/Devel/Cover/Report/Html_minimal.pm
-@@ -761,7 +761,7 @@ it, not 'pod'. The 'pod' option only app
+@@ -761,7 +761,7 @@
  =item unified
  
  Generates a "unified" report for each file. The detailed data that normally

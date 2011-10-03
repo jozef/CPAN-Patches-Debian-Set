@@ -1,0 +1,5 @@
+do_not_ship_ttf_font
+install_man_pages_correctly
+fix_whatis_entries
+fix_spelling
+fix_api_spelling

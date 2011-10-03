@@ -1,0 +1,25 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: spelling
+Forwarded: no
+Last-Update: 2011-06-05
+--- a/lib/Net/NTP.pm
++++ b/lib/Net/NTP.pm
+@@ -217,15 +217,15 @@
+ =head1 ABSTRACT
+ 
+ All this module does is send a packet to an NTP server and then decode
+-the packet recieved into it's respective parts - as outlined in
++the packet received into it's respective parts - as outlined in
+ RFC1305 and RFC2030.
+ 
+ =head1 DESCRIPTION
+ 
+ This module exports a single method (get_ntp_response) and returns an
+ associative array based upon RFC1305 and RFC2030.  The response from
+-the server is "humanized" to a point that further processing of th
+-information recieved from the server can be manipulated.  For example:
++the server is "humanized" to a point that further processing of the
++information received from the server can be manipulated.  For example:
+ timestamps are in epoch, so one could use the localtime function to
+ produce an even more "human" representation of the timestamp.
+ 

@@ -1,13 +1,40 @@
-manpage-has-bad-whatis-entry lintian warning
+Description: add missing whatis entries
+Origin: vendor
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-28
 
---- a/lib/MooseX/Declare/Syntax/EmptyBlockIfMissing.pm
-+++ b/lib/MooseX/Declare/Syntax/EmptyBlockIfMissing.pm
-@@ -17,7 +17,7 @@
+--- a/lib/MooseX/Declare/Context/WithOptions.pm
++++ b/lib/MooseX/Declare/Context/WithOptions.pm
+@@ -79,7 +79,7 @@
  
  =head1 NAME
  
--MooseX::Declare::Syntax::EmptyBlockIfMissing
-+MooseX::Declare::Syntax::EmptyBlockIfMissing - require that the consumer handles non-existant blocks
+-MooseX::Declare::Context::WithOptions
++MooseX::Declare::Context::WithOptions - context with additional options
  
- =head1 DESCRIPTION
+ =head1 AUTHORS
+ 
+--- a/lib/MooseX/Declare/StackItem.pm
++++ b/lib/MooseX/Declare/StackItem.pm
+@@ -68,7 +68,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::Declare::StackItem
++MooseX::Declare::StackItem - internal stackable item
+ 
+ =head1 AUTHORS
+ 
+--- a/lib/MooseX/Declare/Syntax/MethodDeclaration/Parameterized.pm
++++ b/lib/MooseX/Declare/Syntax/MethodDeclaration/Parameterized.pm
+@@ -29,7 +29,7 @@
+ 
+ =head1 NAME
+ 
+-MooseX::Declare::Syntax::MethodDeclaration::Parameterized
++MooseX::Declare::Syntax::MethodDeclaration::Parameterized - Handles method declarations optionally parameterized
+ 
+ =head1 AUTHORS
  

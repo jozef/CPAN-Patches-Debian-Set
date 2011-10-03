@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libhtml-parser-perl, libhttp-message-perl, liburi-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl, libhttp-message-perl, liburi-perl
+X: 0

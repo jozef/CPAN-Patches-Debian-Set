@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 8), libbtparse-dev, libcapture-tiny-perl, libconfig-autoconf-perl, libextutils-libbuilder-perl, perl (>= 5.11.3) | libmodule-build-perl (>= 0.360000)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+X: 0

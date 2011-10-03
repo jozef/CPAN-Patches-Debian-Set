@@ -1,0 +1,20 @@
+Subject: Add NAME section to POD
+Origin: vendor
+Bug: http://rt.cpan.org/Ticket/Display.html?id=70259 
+Forwarded: yes
+From: Ansgar Burchardt <ansgar@debian.org>
+Last-Update: 2011-08-14
+
+--- a/lib/namespace/clean.pm
++++ b/lib/namespace/clean.pm
+@@ -91,6 +91,10 @@
+   }
+ }
+ 
++=head1 NAME
++
++namespace::clean - keep imports and functions out of your namespace
++
+ =head1 SYNOPSIS
+ 
+   package Foo;

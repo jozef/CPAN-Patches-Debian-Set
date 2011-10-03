@@ -1,3 +1,8 @@
+Description: Remove expressions from the test due to Bug [perl #56444]
+Origin: vendor
+Author: Carlo Segre <segre@debian.org>
+Last-Update: 2010-07-27
+
 --- a/t/03-utf8.t
 +++ b/t/03-utf8.t
 @@ -18,7 +18,8 @@

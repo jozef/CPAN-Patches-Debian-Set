@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl, libmoosex-method-signatures-perl, libnamespace-autoclean-perl, libnamespace-clean-perl, libparams-util-perl, libsub-exporter-perl, libtest-fatal-perl, libtest-simple-perl (>= 0.96) | perl (>= 5.13.4), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libnamespace-autoclean-perl, libnamespace-clean-perl, libparams-util-perl, libsub-exporter-perl, libtest-simple-perl (>= 0.96) | perl (>= 5.13.4)
+X: 0

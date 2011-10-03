@@ -1,0 +1,26 @@
+Description: fix POD mistakes
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-31
+
+--- a/lib/Template/Alloy.pod
++++ b/lib/Template/Alloy.pod
+@@ -831,6 +831,8 @@
+ 
+ Note: this works in Alloy and is planned for TT3.
+ 
++=back
++
+ =head1 VIRTUAL METHODS
+ 
+ Virtual methods (vmethods) are a TT feature that allow for operating on the
+@@ -1944,6 +1946,8 @@
+ 
+     Hello.Hi.Howdy.
+ 
++=back
++
+ =head1 CONFIGURATION
+ 
+ The following configuration variables are supported (in

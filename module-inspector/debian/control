@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libfile-find-rule-perl, libfile-find-rule-perl-perl, libfile-find-rule-vcs-perl, libmodule-extract-perl, libmodule-manifest-perl, libmodule-math-depends-perl, libparams-util-perl (>= 0.17), libpod-simple-perl (>= 3.07), libppi-perl (>= 1.118), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl, libyaml-tiny-perl (>= 1.00), perl (>= 5.005)
+Build-Depends-Indep: libfile-find-rule-perl, libfile-find-rule-perl-perl, libfile-find-rule-vcs-perl, libmodule-extract-perl, libmodule-manifest-perl, libmodule-math-depends-perl, libparams-util-perl (>= 0.17), libppi-perl (>= 1.118), libtest-cpan-meta-perl, libtest-minimumversion-perl, libtest-pod-perl, libyaml-tiny-perl (>= 1.00), perl (>= 5.10.1) | libpod-simple-perl (>= 3.07)
 Depends: ${misc:Depends}, libfile-find-rule-perl, libfile-find-rule-perl-perl, libfile-find-rule-vcs-perl, libmodule-extract-perl, libmodule-manifest-perl, libmodule-math-depends-perl, libparams-util-perl (>= 0.17), libppi-perl (>= 1.118), libyaml-tiny-perl (>= 1.00), perl (>= 5.005)
 X: 0

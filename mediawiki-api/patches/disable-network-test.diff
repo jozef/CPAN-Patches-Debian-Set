@@ -1,0 +1,16 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Mon, 08 Aug 2011 11:40:54 +0200
+Origin: vendor
+Subject: disable tests that rely on a working network connection
+
+--- libmediawiki-api-perl.orig/t/10-api.t
++++ libmediawiki-api-perl/t/10-api.t
+@@ -6,6 +6,8 @@
+ use Test::More;
+ use LWP::UserAgent;
+ 
++plan skip_all => "set NETWORK_TESTING to enable this test" unless $ENV{NETWORK_TESTING};
++
+ sub get_url {
+   my $url = shift;
+   my $ua = LWP::UserAgent->new;

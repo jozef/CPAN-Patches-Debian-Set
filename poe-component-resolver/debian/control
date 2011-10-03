@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libpoe-perl (>= 2:1.3110), libsocket-getaddrinfo-perl, libtest-simple-perl (>= 0.96), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libpoe-perl (>= 2:1.3110), libsocket-getaddrinfo-perl
+X: 0

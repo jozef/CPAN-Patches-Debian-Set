@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libcurses-perl, libpoe-perl, perl (>= 5.8.0-7)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcurses-perl, libpoe-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libcurses-perl, libpoe-perl
 X: 0

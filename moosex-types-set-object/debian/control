@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmoose-perl (>= 0.50), libmoosex-types-perl, libset-object-perl, libtest-exception-perl, libtest-use-ok-perl, perl
+Build-Depends-Indep: libmoose-perl (>= 0.50), libmoosex-types-perl, libset-object-perl, libtest-fatal-perl, libtest-use-ok-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.50), libmoosex-types-perl, libset-object-perl
 X: 0

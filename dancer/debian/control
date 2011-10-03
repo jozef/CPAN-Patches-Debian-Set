@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libhttp-body-perl, libhttp-server-simple-psgi-perl, libjson-perl, libmime-types-perl, libplack-perl, libtemplate-perl, libtest-pod-perl, libtest-requires-perl, libtest-tcp-perl, liburi-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}, libhttp-body-perl, libhttp-server-simple-psgi-perl, libmime-types-perl, liburi-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclone-perl, libhttp-body-perl (>= 1.07), libhttp-parser-xs-perl (>= 0.10), libhttp-server-simple-psgi-perl, libjson-perl, libmime-types-perl, libplack-perl, libtemplate-perl, libtest-output-perl, libtest-pod-coverage-perl, libtest-pod-perl (>= 1.44), libtest-requires-perl, libtest-tcp-perl, liburi-perl (>= 1.59), libxml-parser-perl | libxml-sax-perl, libxml-simple-perl, perl (>= 5.11.1) | libtest-simple-perl (>= 0.94)
+Depends: ${misc:Depends}, ${perl:Depends}, libhttp-body-perl (>= 1.07), libhttp-server-simple-psgi-perl, libmime-types-perl, liburi-perl (>= 1.59)
 X: 0

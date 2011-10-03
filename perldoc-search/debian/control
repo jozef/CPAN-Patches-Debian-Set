@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5), quilt (>= 0.40)
-Build-Depends-Indep: libpod-simple-perl, libswish-api-common-perl, libsysadm-install-perl, perl (>= 5.8.0-7)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libpod-simple-perl, libswish-api-common-perl, libsysadm-install-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libpod-simple-perl, libshell-posix-select-perl, libswish-api-common-perl
 X: 0

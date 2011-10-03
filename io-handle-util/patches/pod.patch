@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Forwarded: no
+Last-Update: 2011-02-27
+Subject: pod error
+--- a/lib/IO/Handle/Util.pm
++++ b/lib/IO/Handle/Util.pm
+@@ -370,6 +370,8 @@
+ 
+ Depending on the class of C<$obj> either returns or coerces the object.
+ 
++=back
++
+ Objects that are passed through include anything that subclasses L<IO::Handle>
+ or seems to duck type (supports the C<print> and C<getline> methods, which
+ might be a bit too permissive).

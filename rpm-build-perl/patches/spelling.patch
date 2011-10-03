@@ -4,9 +4,9 @@ Origin: vendor
 Forwarded: https://rt.cpan.org/Ticket/Display.html?id=56888
 Subject: Fix spelling error
 
---- libb-perlreq-perl.orig/perl.req
-+++ libb-perlreq-perl/perl.req
-@@ -341,7 +341,7 @@
+--- a/perl.req
++++ b/perl.req
+@@ -345,7 +345,7 @@
  =item	B<-m>, B<--method>=I<method>
  
  Use particular I<method> for dependency tracking.  Alternatively,

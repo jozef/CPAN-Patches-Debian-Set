@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmoose-perl, libmoosex-types-perl, libmouse-perl, perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl, libmoosex-types-perl, libmouse-perl, libmousex-types-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libmouse-perl | libmoose-perl
 X: 0

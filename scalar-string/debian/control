@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.17), perl (>= 5.10) | libmodule-build-perl
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+Build-Depends: debhelper (>= 7.0.17), libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.10.1) | libparent-perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, perl (>= 5.10.1) | libparent-perl
 X: 0

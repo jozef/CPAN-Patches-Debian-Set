@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: libdate-calc-perl, libsub-identify-perl, libtest-mocktime-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdate-calc-perl
+X: 0

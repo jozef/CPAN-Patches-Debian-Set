@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libjson-xs-perl (>= 2.270), libtest-pod-perl (>= 1.00), perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libjson-xs-perl (>= 2.270), libtest-pod-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

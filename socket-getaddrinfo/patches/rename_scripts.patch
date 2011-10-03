@@ -1,0 +1,58 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Rename scripts
+Last-Update: 2011-03-19
+Forwarded: not-needed
+--- a/bin/getaddrinfo
++++ b/bin/getaddrinfo
+@@ -170,11 +170,11 @@
+ 
+ =head1 NAME
+ 
+-C<getaddrinfo> - command-line tool to C<getaddrinfo(3)> resolver
++C<socket_getaddrinfo> - command-line tool to C<getaddrinfo(3)> resolver
+ 
+ =head1 SYNOPSIS
+ 
+-B<getaddrinfo> [I<options...>] I<host> I<service>
++B<socket_getaddrinfo> [I<options...>] I<host> I<service>
+ 
+ =head1 DESCRIPTION
+ 
+@@ -243,6 +243,10 @@
+ 
+  socket(AF_INET , SOCK_STREAM, IPPROTO_TCP) + '127.0.0.1:80'
+ 
++=head1 NOTE
++
++Upstream this script is known as C<getaddrinfo>, but was renamed on Debian.
++
+ =head1 AUTHOR
+ 
+ Paul Evans <leonerd@leonerd.org.uk>
+--- a/bin/getnameinfo
++++ b/bin/getnameinfo
+@@ -86,11 +86,11 @@
+ 
+ =head1 NAME
+ 
+-C<getnameinfo> - command-line tool to C<getnameinfo(3)> resolver
++C<socket_getnameinfo> - command-line tool to C<getnameinfo(3)> resolver
+ 
+ =head1 SYNOPSIS
+ 
+-B<getnameinfo> [I<options...>] I<address> I<port>
++B<socket_getnameinfo> [I<options...>] I<address> I<port>
+ 
+ =head1 DESCRIPTION
+ 
+@@ -126,6 +126,10 @@
+ 
+ =back
+ 
++=head1 NOTE
++
++Upstream this script is known as C<getnameinfo>, but was renamed on Debian.
++
+ =head1 AUTHOR
+ 
+ Paul Evans <leonerd@leonerd.org.uk>

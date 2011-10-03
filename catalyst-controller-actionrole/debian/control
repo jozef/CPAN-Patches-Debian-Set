@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcatalyst-action-rest-perl, libcatalyst-perl (>= 5.80025), libmoose-perl, perl (>= 5.10.1) | libparent-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl (>= 5.80025), libmoose-perl (>= 2) | libclass-mop-perl, libmoosex-types-perl, libnamespace-clean-perl, libstring-rewriteprefix-perl
+X: 0

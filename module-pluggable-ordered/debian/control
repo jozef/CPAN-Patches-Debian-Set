@@ -1,5 +1,8 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libuniversal-require-perl, perl (>= 5.10) | libmodule-pluggable-perl
-Depends: ${misc:Depends}, ${perl:Depends}, libuniversal-require-perl, perl (>= 5.10) | libmodule-pluggable-perl
+Build-Depends-Indep: libuniversal-require-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, Description: Perl module to load plugins in a specified order
+ Module::Pluggable::Ordered is a Perl module which extends the functionality
+ provided by Module::Pluggable, allowing hooks to determine an ordering for
+ modules to be loaded, libuniversal-require-perl, producing an effect like the System V init process, where files can specify where in the init sequence they'd like to be called.
 X: 0

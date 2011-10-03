@@ -1,0 +1,26 @@
+Description: fix POD errors
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-07-28
+
+--- a/Differentiate.pm
++++ b/Differentiate.pm
+@@ -52,6 +52,8 @@
+ 
+ =head1 METHODS
+ 
++=over
++
+ =item new
+ 
+   $exp = Math::Calculus::Differentiate->new;
+@@ -147,6 +149,8 @@
+ then any errors that occur during the execution of the method are stored. If failure occurs,
+ call this method to get a textual representation of the error.
+ 
++=back
++
+ =head1 SEE ALSO
+ 
+ The author of this module has a website at L<http://www.jwcs.net/~jonathan/>, which has

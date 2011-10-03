@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8), libmodule-build-perl
+Build-Depends-Indep: liblocale-msgfmt-perl, libperl-critic-perl, padre-plugin-api-2, perl, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libperl-critic-perl, padre-plugin-api-2
+X: 1

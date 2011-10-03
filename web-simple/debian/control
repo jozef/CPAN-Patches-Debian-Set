@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libplack-perl, libsyntax-keyword-gather-perl, perl (>= 5.10.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libplack-perl, libsyntax-keyword-gather-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdata-dumper-concise-perl (>= 2.020), libmoo-perl (>= 0.009005), libplack-perl (>= 0.9968), libsyntax-keyword-gather-perl (>= 1.001), libwarnings-illegalproto-perl (>= 0.001), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-dumper-concise-perl (>= 2.020), libmoo-perl (>= 0.009005), libplack-perl (>= 0.9968), libsyntax-keyword-gather-perl (>= 1.001), libwarnings-illegalproto-perl (>= 0.001)
 X: 0

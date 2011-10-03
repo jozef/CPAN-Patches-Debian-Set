@@ -1,0 +1,15 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: Spelling mistake
+Forwarded: no
+Last-Update: 2011-01-21
+--- a/DBI.pm
++++ b/DBI.pm
+@@ -49,7 +49,7 @@
+ otherwise there will only be the C<$dbh> argument and C<$@> contains an
+ error message.
+ 
+-A convinient way to check whether an error occured is to check C<$#_> -
++A convenient way to check whether an error occured is to check C<$#_> -
+ if that is true, then the function was successful, otherwise there was an
+ error.
+ 

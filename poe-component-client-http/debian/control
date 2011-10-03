@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
-Build-Depends-Indep: libpoe-component-client-keepalive-perl (>= 0.2610), libpoe-perl (>= 2:1.2800), libtest-pod-coverage-perl, libtest-pod-perl, libtest-poe-server-tcp-perl, libwww-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libnet-ssleay-perl, libpoe-component-client-keepalive-perl (>= 0.2610), libpoe-perl (>= 2:1.2800), liburi-perl, libwww-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libpoe-component-client-keepalive-perl (>= 0.2680), libpoe-component-sslify-perl, libpoe-perl (>= 2:1.3120), libsocket-getaddrinfo-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-poe-server-tcp-perl, libtest-simple-perl (>= 0.96), liburi-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libnet-ssleay-perl, libpoe-component-client-keepalive-perl (>= 0.2680), libpoe-perl (>= 2:1.3120), libsocket-getaddrinfo-perl, liburi-perl, libwww-perl
 X: 0

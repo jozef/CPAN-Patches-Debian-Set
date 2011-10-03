@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-27
+
+--- a/lib/MouseX/Getopt.pm
++++ b/lib/MouseX/Getopt.pm
+@@ -89,7 +89,7 @@
+ given for the configfile attribute) for you.
+ 
+ Options specified in multiple places follow the following
+-precendence order: commandline overrides configfile, which
++precedence order: commandline overrides configfile, which
+ overrides explicit new_with_options parameters.
+ 
+ =head2 Supported Type Constraints

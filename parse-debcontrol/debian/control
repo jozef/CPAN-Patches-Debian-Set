@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libcompress-zlib-perl, libio-stringy-perl, libpod-coverage-perl, libtest-pod-perl, libtie-ixhash-perl, libwww-perl, perl (>= 5.8.8-7)
-Depends: ${misc:Depends}, ${perl:Depends}, libcompress-zlib-perl, libio-stringy-perl, libwww-perl
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: liberror-perl, libexporter-lite-perl, libio-stringy-perl, libpod-coverage-perl, libtest-exception-perl, libtest-pod-perl, libtie-ixhash-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, liberror-perl, libexporter-lite-perl, libio-stringy-perl, libwww-perl
 X: 0

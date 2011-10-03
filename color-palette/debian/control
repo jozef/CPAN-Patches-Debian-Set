@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libgraphics-color-perl, liblist-moreutils-perl, libmoose-perl, libmoosex-types-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libgraphics-color-perl, liblist-moreutils-perl, libmoose-perl, libmoosex-types-perl
 X: 0

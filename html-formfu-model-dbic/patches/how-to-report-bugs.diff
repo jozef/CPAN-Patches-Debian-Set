@@ -1,9 +1,9 @@
-Author: Ansgar Burchardt <ansgar@43-1.org>
+Author: Ansgar Burchardt <ansgar@debian.org>
 Subject: Gives more specific information for bug reporting
 
 --- libhtml-formfu-model-dbic-perl.orig/lib/HTML/FormFu/Model/DBIC.pm
 +++ libhtml-formfu-model-dbic-perl/lib/HTML/FormFu/Model/DBIC.pm
-@@ -1742,9 +1742,13 @@
+@@ -1799,9 +1799,13 @@
  
  =head1 BUGS
  
@@ -18,5 +18,5 @@ Subject: Gives more specific information for bug reporting
 +L<http://code.google.com/p/html-formfu/issues/list> (preferred) or
 +L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-FormFu>.
  
- =head1 SUBVERSION REPOSITORY
+ =head1 GITHUB REPOSITORY
  

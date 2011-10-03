@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libobject-pluggable-perl, libpoe-perl (>= 2:1.3110), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libobject-pluggable-perl, libpoe-perl (>= 2:1.3110)
+X: 0

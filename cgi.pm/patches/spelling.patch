@@ -1,0 +1,84 @@
+Description: fix a spelling mistake in various files
+Origin: vendor
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=69688
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-26
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+--- a/Changes
++++ b/Changes
+@@ -1233,7 +1233,7 @@
+    21. Fixed warning in initialize_globals() under mod_perl.
+    22. File uploads from Macintosh versions of MSIE should now work.
+    23. Pragmas now preceded by dashes (-nph) rather than colons (:nph).
+-       Old style is supported for backward compatability.
++       Old style is supported for backward compatibility.
+    24. Can now pass arguments to all functions using {} brackets,
+        resolving historical inconsistencies.
+    25. Removed autoloader warnings about absent MultipartBuffer::DESTROY.
+@@ -1465,7 +1465,7 @@
+ 
+     1. Added cookie() support routines.
+     2. Added -expires parameter to header().
+-    3. Added cgi-lib.pl compatability mode.
++    3. Added cgi-lib.pl compatibility mode.
+     4. Made the module more configurable for different operating systems.
+     5. Fixed a dumb bug in JavaScript button() method.
+ 
+@@ -1595,7 +1595,7 @@
+ 
+     1. The user_agent() method is now documented;
+     2. A potential security hole in import() is now plugged.
+-    3. Changed name of import() to import_names() for compatability with
++    3. Changed name of import() to import_names() for compatibility with
+        CGI:: modules.
+ 
+   Bug fixes in version 1.53
+--- a/cgi_docs.html
++++ b/cgi_docs.html
+@@ -1666,7 +1666,7 @@
+        feature, there's no particular reason to use this type of encoding.
+ </DL>
+ 
+-For compatability, the startform() method uses the older form of
++For compatibility, the startform() method uses the older form of
+ encoding by default.  If you want to use the newer form of encoding
+ By default, you can call <A HREF="#multipart">start_multipart_form()</A>
+ instead of <CODE>startform()</CODE>.
+@@ -5559,7 +5559,7 @@
+   <li>Fixed warning in initialize_globals() under mod_perl.
+   <li>File uploads from Macintosh versions of MSIE should now work.
+   <li>Pragmas now preceded by dashes (-nph) rather than colons (:nph).
+-      Old style is supported for backward compatability.
++      Old style is supported for backward compatibility.
+   <li>Can now pass arguments to all functions using {} brackets,
+       resolving historical inconsistencies.
+   <li>Removed autoloader warnings about absent MultipartBuffer::DESTROY.
+@@ -5803,7 +5803,7 @@
+ <ol>
+   <li>Added cookie() support routines.
+   <li>Added -expires parameter to header().
+-  <li>Added cgi-lib.pl compatability mode.
++  <li>Added cgi-lib.pl compatibility mode.
+   <li>Made the module more configurable for different
+       operating systems.
+   <li>Fixed a dumb bug in JavaScript button() method.
+@@ -5946,7 +5946,7 @@
+ <OL>
+   <LI> The user_agent() method is now documented;
+   <LI> A potential security hole in import() is now plugged.
+-  <LI> Changed name of import() to import_names() for compatability
++  <LI> Changed name of import() to import_names() for compatibility
+        with CGI:: modules.
+ </OL>
+ <H3>Bug fixes in version 1.53</H3>
+--- a/lib/CGI.pm
++++ b/lib/CGI.pm
+@@ -7947,7 +7947,7 @@
+ 
+ =head2 Cgi-lib functions that are available in CGI.pm
+ 
+-In compatability mode, the following cgi-lib.pl functions are
++In compatibility mode, the following cgi-lib.pl functions are
+ available for your use:
+ 
+  ReadParse()

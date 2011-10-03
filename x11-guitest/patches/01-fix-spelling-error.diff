@@ -1,0 +1,17 @@
+Description: Fix spelling error
+Author: Fabrizio Regalli <fabreg@fabreg.it>
+Last-Update: 2011-07-26
+Forwarded: no
+
+
+--- a/GUITest.pm
++++ b/GUITest.pm
+@@ -973,7 +973,7 @@
+ Braces are used to quote special characters, for utilizing aliased key
+ names, or for special functionality. Multiple characters can be specified
+ in a brace by space delimiting the entries.  Characters can be repeated using
+-a number that is space delimited after the preceeding key.
++a number that is space delimited after the preceding key.
+ 
+ Quote Special Characters
+ 

@@ -1,5 +1,7 @@
-Author: gregor herrmann <gregoa@debian.org>
 Description: Unicode::Map8 is patched in Debian ...
+Forwarded: not-needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-10-01
 
 --- a/t/utf8.t
 +++ b/t/utf8.t

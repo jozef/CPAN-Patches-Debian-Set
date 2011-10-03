@@ -4,7 +4,7 @@ Origin: vendor
 Forwarded: no
 --- a/lib/Image/Size.pm
 +++ b/lib/Image/Size.pm
-@@ -751,7 +751,7 @@
+@@ -760,7 +760,7 @@
  file handles and scalar references cannot be reliably transformed into a
  unique key for the table of cache data. Buffers could be cached using the
  MD5 module, and perhaps in the future I will make that an option. I do not,

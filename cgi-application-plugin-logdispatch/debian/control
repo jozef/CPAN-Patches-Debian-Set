@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcgi-application-perl, liblog-dispatch-perl, libsub-wrappackages-perl, libtest-pod-coverage-perl, libtest-pod-perl, libuniversal-require-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcgi-application-perl, liblog-dispatch-perl, libuniversal-require-perl
+X: 0

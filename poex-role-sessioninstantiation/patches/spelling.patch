@@ -1,11 +1,12 @@
-Author: gregor herrmann <gregoa@debian.org>
 Description: spelling mistake
 Origin: vendor
 Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-12-26
 
 --- a/lib/POEx/Role/SessionInstantiation/Meta/Session/Magic.pm
 +++ b/lib/POEx/Role/SessionInstantiation/Meta/Session/Magic.pm
-@@ -182,7 +182,7 @@ going out of scope
+@@ -177,7 +177,7 @@
  
  =head2 overload "", !=, ==
  

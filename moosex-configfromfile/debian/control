@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmoose-perl (>= 0.35), libmoosex-types-path-class-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.35), libmoosex-types-path-class-perl
+Build-Depends-Indep: libmoose-perl, libmoosex-types-path-class-perl, libnamespace-autoclean-perl, libtest-fatal-perl, libtry-tiny-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libmoosex-types-path-class-perl, libnamespace-autoclean-perl, libtry-tiny-perl
 X: 0

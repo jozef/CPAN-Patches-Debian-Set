@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libcrypt-ssleay-perl (>= 0.57), libmoose-perl (>= 0.45), libmoosex-attributehelpers-perl (>= 0.09), libsoap-lite-perl (>= 0.710.05), libtest-simple-perl (>= 0.94), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcrypt-ssleay-perl (>= 0.57), libmoose-perl (>= 0.45), libmoosex-attributehelpers-perl (>= 0.09), libsoap-lite-perl (>= 0.710.05)
+X: 0

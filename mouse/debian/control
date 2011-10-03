@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), libclass-method-modifiers-perl, libextutils-parsexs-perl (>= 2.210000), libio-string-perl, liblocale-us-perl, libmoose-perl (>= 0.93), libparams-coerce-perl, libpath-class-perl, libregexp-common-perl, libtest-deep-perl, libtest-exception-perl (>= 0.29), libtest-leaktrace-perl, libtest-output-perl, liburi-perl, libwww-perl, perl (>= 5.10.1)
+Build-Depends: debhelper (>= 8), libclass-method-modifiers-perl, libextutils-parsexs-perl (>= 2.210000) | perl (>= 5.14), libio-string-perl, liblocale-us-perl, libmoose-perl (>= 0.93), libparams-coerce-perl, libpath-class-perl, libregexp-common-perl, libtest-deep-perl, libtest-leaktrace-perl, libtest-output-perl, liburi-perl, libwww-perl, perl (>= 5.10.1)
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

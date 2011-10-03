@@ -1,0 +1,57 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Fix POD syntax and formatting errors
+
+The POD documentation uses an unusual method for adding remarks to the
+middle of an =over/=item list, which in combination with some placement
+of sentences and the use of podselect confuses Pod::Man.  Move things
+around to achieve the desired result without syntax errors.
+
+--- libauthen-sasl-cyrus-perl.orig/Cyrus.xs
++++ libauthen-sasl-cyrus-perl/Cyrus.xs
+@@ -1234,6 +1234,8 @@
+ name of the server being contacted, which may also be used
+ by the underlying mechanism.
+ 
++See SYNOPSIS for an example.
++
+ =back
+ 
+ B<Remark>:
+@@ -1247,10 +1249,6 @@
+ side. Format of this arguments in an IPv4 environment should be: a.b.c.d;port.
+ See sasl_server_new(3) for details.
+ 
+-=over 4
+-
+-See SYNOPSIS for an example.
+-
+ =cut
+ 
+ Authen_SASL_Cyrus
+@@ -1291,6 +1289,8 @@
+ 
+ =pod
+ 
++=over 4
++
+ =item server_start ( CHALLENGE )
+ 
+ C<server_start> begins the authentication using the chosen mechanism.
+@@ -1439,8 +1439,6 @@
+ 
+ See example below.
+ 
+-=over 4
+-
+ =cut
+ 
+ 
+@@ -1478,6 +1476,8 @@
+ 
+ =pod
+ 
++=over 4
++
+ =item listmech( START , SEPARATOR , END )
+ 
+ C<listmech> returns a string containing all mechanisms allowed for the user

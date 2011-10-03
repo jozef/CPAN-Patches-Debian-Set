@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libclone-perl, libmouse-perl, libsub-install-perl, libtest-most-perl, libtry-tiny-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libclone-perl, libmouse-perl, libsub-install-perl, libtry-tiny-perl
+X: 0

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libjifty-perl (>= 0.90519), libnet-ldap-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libjifty-perl (>= 0.90519-1), libnet-ldap-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libjifty-perl, libnet-ldap-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libjifty-perl, libnet-ldap-perl
 X: 0

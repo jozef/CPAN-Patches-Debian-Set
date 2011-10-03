@@ -1,0 +1,25 @@
+Description: There are some weird timing issues between writing/reading/writing/reading.
+ Add a short sleep as a workaround
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-23
+
+--- a/t/read-write.t
++++ b/t/read-write.t
+@@ -35,6 +35,7 @@
+         syswrite($cwrite, 'a');
+         { sysread($cread, my $buf, 1) }
+         $pty->write("foo\n");
++        sleep 1;
+         syswrite($cwrite, 'a');
+         { sysread($cread, my $buf, 1) }
+         {
+@@ -46,6 +47,7 @@
+             is($read, "foo\r\nfoo\r\n---\r\n", 'got the right thing on stdout');
+         }
+         $pty->write("bar\n");
++        sleep 1;
+         syswrite($cwrite, 'a');
+         { sysread($cread, my $buf, 1) }
+         {

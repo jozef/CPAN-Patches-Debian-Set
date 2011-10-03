@@ -11,4 +11,4 @@ Author: Jonathan Yu <frequency@cpan.org>
 +
  =head1 Introduction to Coro
  
- This tutorial will introduce you to the main features of the Coro module family.
+ This tutorial will introduce you to the main features of the Coro module

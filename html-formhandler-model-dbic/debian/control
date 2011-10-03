@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.2.13)
+Build-Depends-Indep: libdatetime-format-mysql-perl, libdatetime-format-sqlite-perl, libdatetime-format-w3cdtf-perl, libdbix-class-perl, libdbix-class-resultset-recursiveupdate-perl (>= 0.012), libhtml-formhandler-perl (>= 0.32000), libmoose-perl (>= 0.90), libnamespace-autoclean-perl (>= 0.09), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libdbix-class-perl, libdbix-class-resultset-recursiveupdate-perl (>= 0.012), libhtml-formhandler-perl (>= 0.32000), libmoose-perl (>= 0.90), libnamespace-autoclean-perl (>= 0.09)
+X: 0

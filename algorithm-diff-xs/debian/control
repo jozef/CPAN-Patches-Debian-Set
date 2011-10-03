@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7), libalgorithm-diff-perl, perl
+Build-Depends: debhelper (>= 8), libalgorithm-diff-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libalgorithm-diff-perl
 X: 0

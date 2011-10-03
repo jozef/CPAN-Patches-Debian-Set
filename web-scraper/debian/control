@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libhtml-parser-perl, libhtml-selector-xpath-perl, libhtml-tagset-perl, libhtml-tree-perl, libhtml-treebuilder-xpath-perl, libtest-base-perl, libtest-requires-perl, libuniversal-require-perl, liburi-perl, libwww-perl (>= 5.827), libxml-xpathengine-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhtml-parser-perl, libhtml-selector-xpath-perl, libhtml-tagset-perl, libhtml-tree-perl, libhtml-treebuilder-xpath-perl, libuniversal-require-perl, liburi-perl, libwww-perl (>= 5.827), libxml-xpathengine-perl, libyaml-perl
+X: 0

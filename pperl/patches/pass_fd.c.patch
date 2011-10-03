@@ -1,5 +1,7 @@
-# http://rt.cpan.org/Public/Bug/Display.html?id=21494
-# http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=461439
+Description: Fix file descriptor passing
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=21494
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=461439
+Author: Florian Weimer <fw@deneb.enyo.de>
 --- a/pass_fd.c
 +++ b/pass_fd.c
 @@ -1,165 +1,75 @@

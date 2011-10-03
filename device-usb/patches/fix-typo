@@ -1,0 +1,14 @@
+Description: Fix typo in pod.
+Author: Tim Retout <diocles@debian.org>
+
+--- a/lib/Device/USB.pm
++++ b/lib/Device/USB.pm
+@@ -479,7 +479,7 @@
+ =head1 FOR MORE INFORMATION
+ 
+ The project is hosted at Google Code L<http://code.google.com/p/perl-device-usb/>.
+-More information on the project, including installation help is avaliable on the
++More information on the project, including installation help is available on the
+ Wiki.
+ 
+ =head1 LIMITATIONS

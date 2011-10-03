@@ -1,0 +1,51 @@
+Description: Use Digest::SHA instead of Digest::SHA1.
+ See: http://bugs.debian.org/594273
+Origin: vendor
+Bug: http://rt.cpan.org/Ticket/Display.html?id=59917
+Forwarded: yes
+Author: Ansgar Burchardt <ANSGAR@cpan.org>
+Reviewed-by: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-08-07
+
+--- a/lib/Authen/Passphrase/MySQL41.pm
++++ b/lib/Authen/Passphrase/MySQL41.pm
+@@ -46,7 +46,7 @@
+ 
+ use Authen::Passphrase 0.003;
+ use Carp qw(croak);
+-use Digest::SHA1 qw(sha1);
++use Digest::SHA qw(sha1);
+ 
+ our $VERSION = "0.007";
+ 
+@@ -166,7 +166,7 @@
+ =head1 SEE ALSO
+ 
+ L<Authen::Passphrase>,
+-L<Digest::SHA1>
++L<Digest::SHA>
+ 
+ =head1 AUTHOR
+ 
+--- a/Build.PL
++++ b/Build.PL
+@@ -34,7 +34,7 @@
+ 		"Digest" => "1.00",
+ 		"Digest::MD4" => "1.2",
+ 		"Digest::MD5" => "1.9953",
+-		"Digest::SHA1" => 0,
++		"Digest::SHA" => 0,
+ 		"MIME::Base64" => "2.21",
+ 		"Module::Runtime" => "0.006",
+ 		"Params::Classify" => 0,
+--- a/META.yml
++++ b/META.yml
+@@ -93,7 +93,7 @@
+   Digest: 1.00
+   Digest::MD4: 1.2
+   Digest::MD5: 1.9953
+-  Digest::SHA1: 0
++  Digest::SHA: 0
+   MIME::Base64: 2.21
+   Module::Runtime: 0.006
+   Params::Classify: 0

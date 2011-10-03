@@ -1,0 +1,18 @@
+Description: fix man page spelling
+Origin: vendor
+Forwarded: no
+Author: Dominique Dumont <domi.dumont@free.fr>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-19
+
+--- a/lib/Dist/Zilla/Plugin/Run/Role/Runner.pm
++++ b/lib/Dist/Zilla/Plugin/Run/Role/Runner.pm
+@@ -104,7 +104,7 @@
+ 
+ =head1 DESCRIPTION
+ 
+-This is the base role for all the plugins L<Dist::Zilla::Plugin::Run> delivers. You dont need this.
++This is the base role for all the plugins L<Dist::Zilla::Plugin::Run> delivers. You don't need this.
+ 
+ =head1 AUTHOR
+ 

@@ -1,0 +1,17 @@
+Description: add whatis entry
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-25
+
+--- a/lib/Syntax/Keyword/Gather.pm
++++ b/lib/Syntax/Keyword/Gather.pm
+@@ -68,7 +68,7 @@
+ 
+ =head1 NAME
+ 
+-Syntax::Keyword::Gather
++Syntax::Keyword::Gather - Provide a gather keyword
+ 
+ =head1 VERSION
+ 

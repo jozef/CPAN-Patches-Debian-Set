@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-accessor-grouped-perl, libdata-stream-bulk-perl (>= 0.07), libdbd-sqlite3-perl, libdbi-perl (>= 1.607), libdbix-class-perl (>= 0.08127), libjson-perl, libkiokudb-perl (>= 0.46), libmoose-perl, libmoosex-types-perl (>= 0.08), libnamespace-autoclean-perl, libnamespace-clean-perl, libsearch-gin-perl (>= 0.07), libsql-abstract-perl, libsql-translator-perl (>= 0.11006), libtest-exception-perl, libtest-tempdir-perl, libtest-use-ok-perl, libtry-tiny-perl, libyaml-libyaml-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-accessor-grouped-perl, libdata-stream-bulk-perl (>= 0.07), libdbi-perl (>= 1.607), libdbix-class-perl (>= 0.08127), libjson-perl, libkiokudb-perl (>= 0.46), libmoose-perl, libmoosex-types-perl (>= 0.08), libnamespace-autoclean-perl, libnamespace-clean-perl, libsearch-gin-perl (>= 0.07), libsql-abstract-perl
+X: 0

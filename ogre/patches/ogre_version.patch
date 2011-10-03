@@ -1,0 +1,17 @@
+Description: builds fine with 1.7.1, 1.7.2 is not yet in Debian
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-02-16
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -2,7 +2,7 @@
+ use warnings;
+ use ExtUtils::MakeMaker;
+ 
+-my $OGRE_REQ_VERSION = '1.7.2';
++my $OGRE_REQ_VERSION = '1.7.1';
+ my $OIS_REQ_VERSION = '0.05';
+ 
+ main();

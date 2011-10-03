@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.78~), debhelper (>= 6), devscripts (>= 2.10.7~), dh-buildinfo, libdata-uuid-perl, libfile-mmagic-perl, libspreadsheet-read-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-perl, libwww-perl, perl (>= 5.10.1) | libtime-local-perl, perl-modules (>= 5.10.0) | libmodule-build-perl (>= 0.2808)
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

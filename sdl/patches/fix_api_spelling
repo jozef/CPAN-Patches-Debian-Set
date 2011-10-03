@@ -1,0 +1,24 @@
+Description: Fix spelling error in API and documentation
+ Spelling errors in API are bad because they confuse users. This patch makes the API accept correct spelling and also accept bad spelling to preserve backward compatibility
+--- a/lib/SDLx/App.pm
++++ b/lib/SDLx/App.pm
+@@ -61,7 +61,7 @@
+ 	$f |= SDL::Video::SDL_OPENGL if ( $options{gl} || $options{opengl} );
+ 	$f |= SDL::Video::SDL_FULLSCREEN
+ 		if ( $options{fullscreen} || $options{full} );
+-	$f |= SDL::Video::SDL_RESIZABLE if ( $options{resizeable} );
++	$f |= SDL::Video::SDL_RESIZABLE if (  $options{resizable} || $options{resizeable} );
+ 	$f |= SDL::Video::SDL_DOUBLEBUF if ($db);
+ 	$f |= SDL::Video::SDL_ASYNCBLIT if ($async);
+ 
+--- a/lib/pods/SDLx/App.pod
++++ b/lib/pods/SDLx/App.pod
+@@ -74,7 +74,7 @@
+ =item * flags
+ Any flags you want to pass to L<SDL::Video> upon initialization. Defaults to SDL_ANYFORMAT. Flags should be I<or'ed> together if you're passing more than one (flags => FOO|BAR). Shortcut: 'f'.
+ 
+-=item * resizeable
++=item * resizable
+ Set this to a true value to make the window resizable by the user. Default is off.
+ 
+ =item * exit_on_quit

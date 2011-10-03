@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50)
+Build-Depends-Indep: libarchive-zip-perl, libpar-dist-perl (>= 0.32), libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libarchive-zip-perl, libpar-dist-perl (>= 0.32)
+X: 0

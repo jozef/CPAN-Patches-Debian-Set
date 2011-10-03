@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libload-perl, perl (>= 5.8)
-Depends: ${misc:Depends}, ${perl:Depends}, libload-perl, perl (>= 5.8)
+Build-Depends-Indep: libload-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libload-perl
 X: 0

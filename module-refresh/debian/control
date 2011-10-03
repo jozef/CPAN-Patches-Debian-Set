@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5), quilt (>= 0.40)
-Build-Depends-Indep: perl (>= 5.8.1)
-Depends: ${misc:Depends}, ${perl:Depends}, perl (>= 5.8.1)
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libpath-class-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

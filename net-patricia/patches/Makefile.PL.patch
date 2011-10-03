@@ -3,7 +3,7 @@ Description: Don't link unnecessarily with -lnsl.
 
 --- a/Makefile.PL
 +++ b/Makefile.PL
-@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
+@@ -5,7 +5,7 @@
  WriteMakefile(
      'NAME'	=> 'Net::Patricia',
      'VERSION_FROM' => 'Patricia.pm', # finds $VERSION

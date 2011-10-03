@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7), gdb, libcapture-tiny-perl, libfile-which-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.89)
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, gdb, libfile-which-perl
+X: 0

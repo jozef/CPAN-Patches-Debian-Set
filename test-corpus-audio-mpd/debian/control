@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), libmodule-build-perl (>= 0.360100)
-Build-Depends-Indep: libfile-sharedir-perl, libpath-class-perl, libreadonly-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libfile-sharedir-perl, libpath-class-perl, libreadonly-perl
+Build-Depends: debhelper (>= 8), libmodule-build-perl (>= 0.360100)
+Build-Depends-Indep: libfile-sharedir-pathclass-perl, libpath-class-perl, libreadonly-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-sharedir-pathclass-perl, libpath-class-perl, libreadonly-perl, mpd (>= 0.16), procps
 X: 0

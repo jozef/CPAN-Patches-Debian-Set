@@ -1,6 +1,6 @@
 Author: Marc 'HE' Brockschmidt <he@debian.org>
 Description: Disable check for libgtk version - this might trigger false positives,
-our shlib-dep system is more fine-grained and correct anyway.
+ our shlib-dep system is more fine-grained and correct anyway.
 --- a/xs/Gtk2.xs
 +++ b/xs/Gtk2.xs
 @@ -125,6 +125,7 @@

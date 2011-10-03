@@ -1,5 +1,10 @@
-From: Niko Tyni <ntyni@iki.fi>
-Subject: [PATCH] Pipe version: parent waits for the child to say "OK" via a pipe.
+Author: Niko Tyni <ntyni@iki.fi>
+Subject: Pipe version: parent waits for the child to say "OK" via a pipe
+Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=28122
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=28122
+Bug-Debian: #439724, #477227
+Last-Update: 2011-04-22
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 
 --- a/lib/HTTP/Server/Simple.pm
 +++ b/lib/HTTP/Server/Simple.pm
@@ -10,7 +15,7 @@ Subject: [PATCH] Pipe version: parent waits for the child to say "OK" via a pipe
 +use IO::Select;
  
  use vars qw($VERSION $bad_request_doc);
- $VERSION = '0.43';
+ $VERSION = '0.44';
 @@ -205,9 +206,30 @@
  
  sub background {

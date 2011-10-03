@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8), quilt (>= 0.46-7)
-Build-Depends-Indep: libcatalyst-perl, libmro-compat-perl, librpc-xml-perl (>= 0.69), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl, libmro-compat-perl, librpc-xml-perl (>= 0.69)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcatalyst-perl, libclass-data-inheritable-perl, libclone-fast-perl, libmro-compat-perl, librpc-xml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcatalyst-perl, libclass-data-inheritable-perl, libclone-fast-perl, libmro-compat-perl, librpc-xml-perl
 X: 0

@@ -1,0 +1,177 @@
+Description: this patch was originally found at
+ http://dev.fiqz.com/svn/fiqz/patches/perl-Net-Server-0.86-ipv6.patch
+ it was then updated by sean finney <seanius@debian.org> to apply against
+ the latest version of Net-Server in debian, and modified for new
+ stricter perl coding/syntax conventions.
+ .
+ after that, it was improved by Carsten Wolff <carsten@wolffcarsten.de>
+ to make it work with all Net::Server personalities and to make the code
+ a little nicer.
+ .
+ There's an outstanding issue with Net::CIDR::cidrlookup, when the listening
+ socket is an IPv4/IPv6 wildcard socket, but this should be fixed in Net::CIDR
+ rather than worked around here.
+Origin: http://dev.fiqz.com/svn/fiqz/patches/perl-Net-Server-0.86-ipv6.patch
+Forwarded: no
+Last-Update: 2011-09-20
+
+--- a/lib/Net/Server/Proto/SSLEAY.pm
++++ b/lib/Net/Server/Proto/SSLEAY.pm
+@@ -23,7 +23,7 @@
+ 
+ use strict;
+ use vars qw($VERSION $AUTOLOAD @ISA);
+-use IO::Socket::INET;
++use IO::Socket::INET6;
+ use Fcntl ();
+ use Errno ();
+ use Socket ();
+@@ -38,7 +38,7 @@
+ }
+ 
+ $VERSION = $Net::Server::VERSION; # done until separated
+-@ISA = qw(IO::Socket::INET);
++@ISA = qw(IO::Socket::INET6);
+ 
+ sub object {
+     my $type  = shift;
+@@ -48,9 +48,12 @@
+     my $prop = $server->{'server'};
+     my $host;
+ 
+-    if ($port =~ m/^([\w\.\-\*\/]+):(\w+)$/) { # allow for things like "domain.com:80"
++    if ($port =~ m/^([\w\.\-\*\/]+):(\w+)$/) { # allow for things like "domain.com:80" (IPv4)
+         ($host, $port) = ($1, $2);
+     }
++    elsif( $port =~ m/^\[([\:\w\.\-\*\/]+)\]:(\w+)$/ ){ # allow for things like "[::1]:80" (IPv6)
++        ($host,$port) = ($1,$2);
++    }
+     elsif ($port =~ /^(\w+)$/) { # allow for things like "80"
+         ($host, $port) = ($default_host, $1);
+     }
+--- a/lib/Net/Server/Proto/SSL.pm
++++ b/lib/Net/Server/Proto/SSL.pm
+@@ -39,10 +39,14 @@
+   my $prop = $server->{server};
+   my $host;
+ 
+-  ### allow for things like "domain.com:80"
++  ### allow for things like "domain.com:80" (IPv4)
+   if( $port =~ m/^([\w\.\-\*\/]+):(\w+)$/ ){
+     ($host,$port) = ($1,$2);
+ 
++  ### allow for things like "[::1]:80" (IPv6)
++  }elsif( $port =~ m/^\[([\:\w\.\-\*\/]+)\]:(\w+)$/ ){
++    ($host,$port) = ($1,$2);
++
+   ### allow for things like "80"
+   }elsif( $port =~ /^(\w+)$/ ){
+     ($host,$port) = ($default_host,$1);
+--- a/lib/Net/Server/Proto/TCP.pm
++++ b/lib/Net/Server/Proto/TCP.pm
+@@ -23,10 +23,10 @@
+ 
+ use strict;
+ use vars qw($VERSION $AUTOLOAD @ISA);
+-use IO::Socket ();
++use IO::Socket::INET6 ();
+ 
+ $VERSION = $Net::Server::VERSION; # done until separated
+-@ISA = qw(IO::Socket::INET);
++@ISA = qw(IO::Socket::INET6);
+ 
+ sub object {
+   my $type  = shift;
+@@ -35,10 +35,14 @@
+   my ($default_host,$port,$server) = @_;
+   my $host;
+ 
+-  ### allow for things like "domain.com:80"
++  ### allow for things like "domain.com:80" (IPv4)
+   if( $port =~ m/^([\w\.\-\*\/]+):(\w+)$/ ){
+     ($host,$port) = ($1,$2);
+ 
++  ### allow for things like "[::1]:80" (IPv6)
++  }elsif( $port =~ m/^\[([\:\w\.\-\*\/]+)\]:(\w+)$/ ){
++    ($host,$port) = ($1,$2);
++
+   ### allow for things like "80"
+   }elsif( $port =~ /^(\w+)$/ ){
+     ($host,$port) = ($default_host,$1);
+--- a/lib/Net/Server.pm
++++ b/lib/Net/Server.pm
+@@ -25,7 +25,8 @@
+ 
+ use strict;
+ use vars qw($VERSION);
+-use Socket qw(inet_aton inet_ntoa AF_INET AF_UNIX SOCK_DGRAM SOCK_STREAM);
++use Socket qw(unpack_sockaddr_in sockaddr_family AF_INET AF_INET6 AF_UNIX SOCK_DGRAM SOCK_STREAM);
++use Socket6 qw(inet_ntop inet_pton unpack_sockaddr_in6);
+ use IO::Socket ();
+ use IO::Select ();
+ use POSIX ();
+@@ -356,7 +357,7 @@
+   push @{ $prop->{host} }, (($prop->{host}->[-1]) x (@{ $prop->{port} } - @{ $prop->{host}})); # augment hosts with as many as port
+   foreach my $host (@{ $prop->{host} }) {
+     $host = '*' if ! defined $host || ! length $host;;
+-    $host = ($host =~ /^([\w\.\-\*\/]+)$/) ? $1 : $self->fatal("Unsecure host \"$host\"");
++    $host = ($host =~ /^([\[\]\:\w\.\-\*\/]+)$/) ? $1 : $self->fatal("Unsecure host \"$host\"");
+   }
+ 
+   $prop->{proto} = []               if ! defined $prop->{proto};
+@@ -757,12 +758,14 @@
+   ### read information about this connection
+   my $sockname = getsockname( $sock );
+   if( $sockname ){
++    $prop->{sockfamily} = sockaddr_family( $sockname );
+     ($prop->{sockport}, $prop->{sockaddr})
+-      = Socket::unpack_sockaddr_in( $sockname );
+-    $prop->{sockaddr} = inet_ntoa( $prop->{sockaddr} );
++      = ($prop->{sockfamily} == AF_INET6) ? unpack_sockaddr_in6( $sockname ) : unpack_sockaddr_in( $sockname );
++    $prop->{sockaddr} = inet_ntop( $prop->{sockfamily}, $prop->{sockaddr} );
+ 
+   }else{
+     ### does this only happen from command line?
++    $prop->{sockfamily} = AF_INET;
+     $prop->{sockaddr} = $ENV{'REMOTE_HOST'} || '0.0.0.0';
+     $prop->{sockhost} = 'inet.test';
+     $prop->{sockport} = 0;
+@@ -773,17 +776,17 @@
+   if( $prop->{udp_true} ){
+     $proto_type = 'UDP';
+     ($prop->{peerport} ,$prop->{peeraddr})
+-      = Socket::sockaddr_in( $prop->{udp_peer} );
++      = ($prop->{sockfamily} == AF_INET6) ? unpack_sockaddr_in6( $prop->{udp_peer} ) : unpack_sockaddr_in( $prop->{udp_peer} );
+   }elsif( $prop->{peername} = getpeername( $sock ) ){
+     ($prop->{peerport}, $prop->{peeraddr})
+-      = Socket::unpack_sockaddr_in( $prop->{peername} );
++      = ($prop->{sockfamily} == AF_INET6) ? unpack_sockaddr_in6( $prop->{peername} ) : unpack_sockaddr_in( $prop->{peername} );
+   }
+ 
+   if( $prop->{peername} || $prop->{udp_true} ){
+-    $prop->{peeraddr} = inet_ntoa( $prop->{peeraddr} );
++    $prop->{peeraddr} = inet_ntop( $prop->{sockfamily}, $prop->{peeraddr} );
+ 
+     if( defined $prop->{reverse_lookups} ){
+-      $prop->{peerhost} = gethostbyaddr( inet_aton($prop->{peeraddr}), AF_INET );
++      $prop->{peerhost} = gethostbyaddr( inet_pton($prop->{sockfamily}, $prop->{peeraddr}), $prop->{sockfamily} );
+     }
+     $prop->{peerhost} = '' unless defined $prop->{peerhost};
+ 
+@@ -803,7 +806,6 @@
+ ### user customizable hook
+ sub post_accept_hook {}
+ 
+-
+ ### perform basic allow/deny service
+ sub allow_deny {
+   my $self = shift;
+@@ -1145,7 +1147,7 @@
+       or $self->fatal("Can't dup socket [$!]");
+ 
+     ### hold on to the socket copy until exec
+-    $prop->{_HUP}->[$i] = IO::Socket::INET->new;
++    $prop->{_HUP}->[$i] = IO::Socket::INET6->new();
+     $prop->{_HUP}->[$i]->fdopen($fd, 'w')
+       or $self->fatal("Can't open to file descriptor [$!]");
+ 

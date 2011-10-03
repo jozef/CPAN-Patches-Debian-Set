@@ -1,11 +1,13 @@
-Author: gregor herrmann <gregoa@debian.org>
 Description: use tmpdir for tests instead of polluting $HOME;
              also, if $HOME doesn't exist, the tests segfault.
              discovered by Niko Tyni in #525534
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-06
 
 --- a/t/GtkMozEmbed.t
 +++ b/t/GtkMozEmbed.t
-@@ -8,13 +8,17 @@
+@@ -8,14 +8,18 @@
  use Gtk2 -init;
  use Gtk2::MozEmbed;
  
@@ -14,8 +16,9 @@ Description: use tmpdir for tests instead of polluting $HOME;
 +
  use Test::More tests => 8;
  
- Gtk2::MozEmbed -> push_startup();
- Gtk2::MozEmbed -> pop_startup();
+ # These cause an abort:
+ # Gtk2::MozEmbed -> push_startup();
+ # Gtk2::MozEmbed -> pop_startup();
  
 -Gtk2::MozEmbed -> set_comp_path($ENV{ HOME });
 -Gtk2::MozEmbed -> set_profile_path($ENV{ HOME } . "/.Schmuh", "Schmuh");
@@ -25,7 +28,7 @@ Description: use tmpdir for tests instead of polluting $HOME;
  
  my $moz = Gtk2::MozEmbed -> new();
  isa_ok($moz, "Gtk2::MozEmbed");
-@@ -53,3 +57,5 @@
+@@ -54,3 +58,5 @@
  
  # my $single = Gtk2::MozEmbedSingle -> new();
  # isa_ok($single, "Gtk2::MozEmbedSingle");

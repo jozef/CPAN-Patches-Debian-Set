@@ -1,0 +1,4 @@
+disable-tests
+fix-typo
+fix-buildsystem
+just-assume-libusb-is-there.diff

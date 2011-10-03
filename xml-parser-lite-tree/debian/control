@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-7)
-Build-Depends-Indep: libsoap-lite-perl (>= 0.70.04-4), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libsoap-lite-perl (>= 0.70.04-4)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: perl
+Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

@@ -1,7 +1,9 @@
-From: Ansgar Burchardt <ansgar@43-1.org>
-Date: Thu, 15 Jul 2010 21:08:28 +0900
+Description: Add whatis entry to documentation
 Origin: vendor
-Subject: Add whatis entry to documentation
+Forwarded: no
+Author: Ansgar Burchardt <ansgar@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-21
 
 --- libmoosex-semiaffordanceaccessor-perl.orig/lib/MooseX/SemiAffordanceAccessor/Role/Attribute.pm
 +++ libmoosex-semiaffordanceaccessor-perl/lib/MooseX/SemiAffordanceAccessor/Role/Attribute.pm

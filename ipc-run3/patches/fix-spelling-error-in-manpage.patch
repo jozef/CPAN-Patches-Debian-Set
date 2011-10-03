@@ -1,0 +1,19 @@
+Description: Fix spelling errors in manpage of IPC::Run3
+Origin: vendor
+Bug: https://rt.cpan.org/Ticket/Display.html?id=60685
+Forwarded: yes
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Reviewed-by: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Last-Update: 2010-08-24
+
+--- a/lib/IPC/Run3.pm
++++ b/lib/IPC/Run3.pm
+@@ -785,7 +785,7 @@
+ 
+ =item *
+ 
+-better: hides OS dependancies
++better: hides OS dependencies
+ 
+ =item *
+ 

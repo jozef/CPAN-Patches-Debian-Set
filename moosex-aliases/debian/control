@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libmoose-perl (>= 0.90), libpod-coverage-trustpod-perl, libtest-exception-perl, libtest-output-perl, libtest-pod-coverage-perl, libtest-pod-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.90)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl (>= 1.09), libtest-fatal-perl, libtest-output-perl, libtest-requires-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 1.09)
 X: 0

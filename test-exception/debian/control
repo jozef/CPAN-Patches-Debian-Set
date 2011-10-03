@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libsub-uplevel-perl (>= 0.18), perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmodule-build-perl (>= 0.360000), libsub-uplevel-perl (>= 0.18), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libsub-uplevel-perl (>= 0.18)
 X: 0

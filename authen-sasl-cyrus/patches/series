@@ -1,2 +1,7 @@
 encode-no-more-than-MAX_OUTBUF
 correct-write-return-value
+numeric-version
+generate-man-pages
+fix-pod-errors
+strlen-size
+test-warnings

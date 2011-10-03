@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libclone-perl, libdbi-perl (>= 1.612), libparams-util-perl (>= 1.00), libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.90)
+Build-Depends-Indep: libclone-perl, libdbi-perl (>= 1.616), libparams-util-perl (>= 1.00), libtest-pod-coverage-perl, libtest-pod-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.90)
 Depends: ${misc:Depends}, ${perl:Depends}, libclone-perl, libparams-util-perl (>= 1.00)
 X: 0

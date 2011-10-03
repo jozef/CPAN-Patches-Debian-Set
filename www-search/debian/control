@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.2)
+Depends: ${misc:Depends}, ${perl:Depends}, libbit-vector-perl, libdate-manip-perl, libfile-slurp-perl, libhtml-parser-perl, liburi-perl, libuser-perl, libwww-perl
+X: 0

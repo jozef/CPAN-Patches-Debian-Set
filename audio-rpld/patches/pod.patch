@@ -1,0 +1,25 @@
+Description: fix POD issues
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2010-11-17
+
+--- a/lib/Audio/RPLD.pm
++++ b/lib/Audio/RPLD.pm
+@@ -1553,7 +1553,7 @@
+ 
+ =head3 $res = $rpld-E<gt>showpointer([$pointer])
+ 
+-Returns informations about the given or all pointers.
++Returns information about the given or all pointers.
+ 
+ The return value is a hashref with keys of the pointer names.
+ The values for those keys are a hashref containing information on the corresponding pointer.
+@@ -1586,6 +1586,7 @@
+ 1;
+ 
+ =pod
++
+ =head1 SEE ALSO
+ 
+ =head1 AUTHOR

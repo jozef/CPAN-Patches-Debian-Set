@@ -1,0 +1,17 @@
+Description: Fix spelling error in XML::Parser::LiteCopy
+Origin: vendor
+Forwarded: no
+Author: Salvatore Bonaccorso <salvatore.bonaccorso@gmail.com>
+Last-Update: 2010-07-24
+
+--- a/lib/XML/Parser/LiteCopy.pm
++++ b/lib/XML/Parser/LiteCopy.pm
+@@ -357,7 +357,7 @@
+ 
+ =head2 Final
+ 
+-Called at the end of the parsing process. You should perform any neccessary
++Called at the end of the parsing process. You should perform any necessary
+ cleanup here.
+ 
+ =head1 SEE ALSO

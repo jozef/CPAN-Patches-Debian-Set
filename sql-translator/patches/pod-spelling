@@ -1,0 +1,14 @@
+Description: Fix spelling error in POD
+Author: Maximilian Gass <mxey@cloudconnected.org>
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=68912
+--- a/lib/SQL/Translator/Manual.pod
++++ b/lib/SQL/Translator/Manual.pod
+@@ -349,7 +349,7 @@
+ TTSchema producer in conjunction with a Template Toolkit template as
+ described earlier.  However, you can also easily pass a reference to a
+ subroutine that SQL::Translator can call for the production of the
+-ouput.  This subroutine will be passed a single argument of the
++output.  This subroutine will be passed a single argument of the
+ SQL::Translator object which you can use to access the Schema objects.
+ Please read the POD for SQL::Translator and SQL::Translator::Schema to
+ learn the methods you can call.  Here is a very simple example:

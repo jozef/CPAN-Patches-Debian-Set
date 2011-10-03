@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), libcairo-perl (>= 1.000), libclutter-1.0-dev, libextutils-depends-perl (>= 0.300), libextutils-pkgconfig-perl (>= 1.03), libglib-perl (>= 1.220), libgstreamer-perl, libgtk2-perl, libpango-perl (>= 1.140), perl, quilt (>= 0.46-7)
+Build-Depends: debhelper (>= 7.0.50), libcairo-perl (>= 1.000), libclutter-1.0-dev, libextutils-depends-perl (>= 0.300), libextutils-pkgconfig-perl (>= 1.03), libglib-perl (>= 1.220), libgstreamer-perl, libgtk2-perl, libpango-perl (>= 1.140), perl, xauth, xvfb
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libcairo-perl (>= 1.000), libglib-perl (>= 1.220), libgtk2-perl, libpango-perl (>= 1.140)
-X: 0
+X: 1

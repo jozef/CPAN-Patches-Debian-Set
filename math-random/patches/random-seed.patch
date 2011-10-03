@@ -4,10 +4,13 @@ Description: Update seeding algorithm
  times sequentially. This patch replaces that with Don Armstrong's
  proposed solution, Perl_seed. See BTS#537952 for details.
 Origin: vendor
-Author: Jonathan Yu <frequency@cpan.org>
-Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=537952
-Bug-CPAN: https://rt.cpan.org/Ticket/Display.html?id=48080
+Bug-Debian: http://bugs.debian.org/537952
+Bug: https://rt.cpan.org/Ticket/Display.html?id=48080
 Forwarded: yes
+Author: Jonathan Yu <frequency@cpan.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-05-09
+
 --- a/Random.pm
 +++ b/Random.pm
 @@ -73,7 +73,12 @@

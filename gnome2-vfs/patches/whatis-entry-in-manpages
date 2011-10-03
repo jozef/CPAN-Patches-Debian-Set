@@ -1,5 +1,7 @@
-Author: Ryan Niebur <ryanryan52@gmail.com>
 Description: fix whatis entries in manpages
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
 
 --- a/xs/GnomeVFSAddress.xs
 +++ b/xs/GnomeVFSAddress.xs

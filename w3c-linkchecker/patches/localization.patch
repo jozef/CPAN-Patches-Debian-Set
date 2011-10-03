@@ -1,0 +1,26 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Forwarded: not needed
+Subject: Changes required to make it work out of the box
+ - Change to Doc_URI to look at localhost
+Last-Update: 2011-04-08
+--- a/etc/checklink.conf
++++ b/etc/checklink.conf
+@@ -45,13 +45,14 @@
+ # Doc_URI is the URI to the Link Checker documentation, shown in the
+ # results report in CGI mode, and the usage message in command line mode.
+ # The URIs to the CSS and JavaScript files in the generated HTML are also
+-# formed using this as their base URI.  If you have installed the documentation
+-# locally somewhere, you may wish to change this to point to that location.
++# formed using this as their base URI. This setting also controls the
++# location other resources used by this script.
++# So if you wish to use this Link Checker instance via the webiterface
++# from a different host, you will need to change this setting.
+ # This must be an absolute URI.
+ #
+ # Default:
+-# Doc_URI = http://validator.w3.org/docs/checklink.html
+-
++Doc_URI = http://localhost/w3c-linkchecker/docs/checklink.html
+ 
+ #
+ # Forbidden_Protocols is a comma separated list of additional protocols/URI

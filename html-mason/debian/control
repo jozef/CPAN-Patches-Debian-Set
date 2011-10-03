@@ -1,0 +1,5 @@
+App: libhtml-mason-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libapache2-mod-perl2, libcache-cache-perl, libchi-perl, libclass-container-perl, libexception-class-perl, liblog-any-perl, libparams-validate-perl, libtest-deep-perl, libtest-memory-cycle-perl, libtest-pod-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcache-cache-perl, libclass-container-perl, libexception-class-perl, libhtml-mason-perl (>= ${source:Upstream-Version}), libhtml-parser-perl, liblog-any-perl, libparams-validate-perl
+X: 0

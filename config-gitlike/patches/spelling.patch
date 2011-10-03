@@ -1,0 +1,17 @@
+Description: fix a spelling msitake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-01-23
+
+--- a/lib/Config/GitLike/Cascaded.pm
++++ b/lib/Config/GitLike/Cascaded.pm
+@@ -23,7 +23,7 @@
+ 
+ =head1 SYNOPSIS
+ 
+-This module exists purely for backwards compatability; its use is
++This module exists purely for backwards compatibility; its use is
+ deprecated, and will be removed in a future release.
+ 
+ =head1 DESCRIPTION

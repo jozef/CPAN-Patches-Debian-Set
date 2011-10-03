@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcatalyst-modules-perl (>= 1), libfile-sharedir-install-perl, padre, perl, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, padre
+X: 1

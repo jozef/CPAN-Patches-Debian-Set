@@ -1,0 +1,24 @@
+Description: Replace deprecated (and dropped from Debian) Wx::Perl::Dialog with
+ Padre::Wx::Dialog
+Origin: upstream http://svn.perlide.org/padre/trunk@12308 http://svn.perlide.org/padre/trunk@12316
+
+--- a/lib/Padre/Plugin/Vi/CommandLine.pm
++++ b/lib/Padre/Plugin/Vi/CommandLine.pm
+@@ -4,7 +4,7 @@ use warnings;
+ use strict;
+ 
+ use Cwd              ();
+-use Wx::Perl::Dialog ();
++use Padre::Wx::Dialog ();
+ use Padre::Wx        ();
+ use File::Spec       ();
+ use File::Basename   ();
+@@ -66,7 +66,7 @@ sub dialog {
+ 
+ 	my $main = Padre->ide->wx->main;
+ 	if ( not $dialog ) {
+-		$dialog = Wx::Perl::Dialog->new(
++		$dialog = Padre::Wx::Dialog->new(
+ 			parent => $main->{notebook},
+ 			title  => "Command Line",
+ 			layout => \@layout,

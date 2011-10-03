@@ -1,6 +1,6 @@
 From: Franck Joncourt <franck@debian.org>
 Origin: vendor
-Forwarded: no
+Forwarded: http://rt.cpan.org/Public/Bug/Display.html?id=54151
 Subject: Disable tests which require a network access.
  We disable tests which require network communication. This way we avoid
  FTBFS due to services not available.

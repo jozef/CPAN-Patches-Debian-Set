@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libcommon-sense-perl, libdatetime-format-builder-perl, libdatetime-format-natural-perl, libdatetime-format-strptime-perl, libdatetime-perl, libdatetime-set-perl, libhtml-html5-parser-perl, libhtml-html5-sanity-perl, libhttp-date-perl | libwww-perl (<< 6), libjson-perl, librdf-icalendar-perl, librdf-kml-exporter-perl, librdf-trine-perl, librdf-vcard-perl, liburi-perl, libxml-atom-fromowl-perl, libxml-libxml-perl, perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

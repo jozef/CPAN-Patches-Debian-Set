@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
+Build-Depends: debhelper (>= 8)
 Build-Depends-Indep: libparams-util-perl, libsub-exporter-perl, libtest-pod-perl (>= 1.41), perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
 Depends: ${misc:Depends}, ${perl:Depends}, libparams-util-perl, libsub-exporter-perl
 X: 0

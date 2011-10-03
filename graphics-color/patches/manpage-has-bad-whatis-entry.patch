@@ -1,0 +1,29 @@
+Author: Florian Schlichting <fschlich@zedat.fu-berlin.de>
+Description: silence lintian warning manpage-has-bad-whatis-entry
+ lintian complains about manpage NAME sections not parseable by lexgrog.
+ What's lacking is a dash and short description. This patch adds very 
+ basic descriptions.
+Forwarded: no
+
+--- a/lib/Graphics/Color/HSV.pm
++++ b/lib/Graphics/Color/HSV.pm
+@@ -174,7 +174,7 @@
+ 
+ =head1 NAME
+ 
+-Graphics::Color::HSV
++Graphics::Color::HSV - HSV color space
+ 
+ =head1 VERSION
+ 
+--- a/lib/Graphics/Color/Types.pm
++++ b/lib/Graphics/Color/Types.pm
+@@ -24,7 +24,7 @@
+ 
+ =head1 NAME
+ 
+-Graphics::Color::Types
++Graphics::Color::Types - define Moose types Number360OrLess and NumberOneOrLess
+ 
+ =head1 VERSION
+ 

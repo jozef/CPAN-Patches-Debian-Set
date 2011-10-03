@@ -1,0 +1,24 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Avoid lines that are too long to be displayed by nroff by
+ rephrasing the description of the profile() method.
+
+--- libclass-prototyped-perl.orig/lib/Class/Prototyped.pm
++++ libclass-prototyped-perl/lib/Class/Prototyped.pm
+@@ -2559,11 +2559,12 @@
+ 
+ =item C<profile> (C<filter>, rank 80)
+ 
+-If C<profile> is set to 1, increments C<< 
+-$Class::Prototyped::Mirror::PROFILE::counts->{$package}->{$slotName} >> 
+-everytime the slot is accessed.  If C<profile> is set to 2, increments C<< 
+-$Class::Prototyped::Mirror::PROFILE::counts->{$package}->{$slotName}->{$caller} >>
+-everytime the slot is accessed, where C<$caller> is C<"$file ($line)">.
++Stores profiling information in C<<
++$Class::Prototyped::Mirror::PROFILE::counts >>.  If C<profile> is set to 1,
++increments C<< $counts->{$package}->{$slotName} >> everytime the slot is
++accessed.  If C<profile> is set to 2, increments C<<
++$counts->{$package}->{$slotName}->{$caller} >> everytime the slot is accessed,
++where C<$caller> is C<"$file ($line)">.
+ 
+ =item C<wantarray> (C<filter>, rank 90)
+ 

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libclass-mop-perl (>= 0.84), libmoose-perl (>= 0.84), libmoosex-role-parameterized-perl (>= 0.13), libnamespace-autoclean-perl, libtest-exception-perl, libtest-use-ok-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-mop-perl (>= 0.84), libmoose-perl (>= 0.84), libnamespace-autoclean-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl (>= 2) | libclass-mop-perl (>= 0.84), libmoosex-role-parameterized-perl, libnamespace-autoclean-perl, libtest-exception-perl, libtest-use-ok-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 2) | libclass-mop-perl (>= 0.84), libnamespace-autoclean-perl
 X: 0

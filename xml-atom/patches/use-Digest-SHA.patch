@@ -1,0 +1,48 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Thu, 02 Jun 2011 18:59:01 +0200
+Subject: Use Digest::SHA instead of Digest::SHA1
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -12,7 +12,7 @@
+ requires('Class::Data::Inheritable');
+ requires('XML::XPath');
+ requires('LWP::UserAgent');
+-requires('Digest::SHA1');
++requires('Digest::SHA');
+ requires('DateTime');
+ requires('DateTime::TimeZone');
+ requires('XML::LibXML', 1.69);
+--- a/README
++++ b/README
+@@ -6,7 +6,7 @@
+ 
+     * XML::LibXML
+     * LWP
+-    * Digest::SHA1
++    * Digest::SHA
+     * MIME::Base64
+     * HTML::Parser
+ 
+--- a/lib/XML/Atom/Client.pm
++++ b/lib/XML/Atom/Client.pm
+@@ -9,7 +9,7 @@
+ use XML::Atom::Entry;
+ use XML::Atom::Feed;
+ use XML::Atom::Util qw( first textValue );
+-use Digest::SHA1 qw( sha1 );
++use Digest::SHA qw( sha1 );
+ use MIME::Base64 qw( encode_base64 );
+ use DateTime;
+ 
+--- a/lib/XML/Atom/Server.pm
++++ b/lib/XML/Atom/Server.pm
+@@ -6,7 +6,7 @@
+ use XML::Atom;
+ use base qw( XML::Atom::ErrorHandler );
+ use MIME::Base64 qw( encode_base64 decode_base64 );
+-use Digest::SHA1 qw( sha1 );
++use Digest::SHA qw( sha1 );
+ use XML::Atom::Util qw( first encode_xml textValue );
+ use XML::Atom::Entry;
+ 

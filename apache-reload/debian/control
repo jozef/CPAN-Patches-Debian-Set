@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: apache2, apache2-threaded-dev|apache2-prefork-dev, libapache2-mod-perl2, libapache2-mod-perl2-dev, perl (>= 5.6.10-12)
+Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends-Indep: apache2, apache2-threaded-dev|apache2-prefork-dev, libapache2-mod-perl2, libapache2-mod-perl2-dev, perl
 Depends: ${misc:Depends}, ${perl:Depends}, libapache2-mod-perl2
 X: 0

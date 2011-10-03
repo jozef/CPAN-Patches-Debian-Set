@@ -1,5 +1,9 @@
-Author: Florian Ragwitz <rafl@debian.org>
 Description: Use a config file instead of hardcoded paths to determine @perllib
+Forwarded: no
+Author: Florian Ragwitz <rafl@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-04
+
 --- a/perlindex.PL
 +++ b/perlindex.PL
 @@ -82,6 +82,7 @@

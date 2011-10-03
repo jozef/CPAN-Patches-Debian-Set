@@ -1,0 +1,20 @@
+Author: Russ Allbery <rra@debian.org>
+Description: Change version number to be numeric
+
+Change the version number from 0.13-server to 0.13.1 so that it's numeric.
+Perl warns (in 5.10) and fails (in 5.12) with the previous non-numeric
+version.
+
+--- libauthen-sasl-cyrus-perl.orig/Cyrus.pm
++++ libauthen-sasl-cyrus-perl/Cyrus.pm
+@@ -5,7 +5,9 @@
+ 
+ @ISA = qw(DynaLoader);# Exporter);
+ 
+-$VERSION = "0.13-server";
++# Modified for Debian from 0.13-server to avoid Perl 5.12 problems with
++# non-numeric versions.
++$VERSION = "0.13.1";
+ 
+ bootstrap Authen::SASL::Cyrus $VERSION;
+ 

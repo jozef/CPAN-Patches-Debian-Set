@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdatetime-format-sqlite-perl, libdatetime-perl (>= 0.1), libdbi-perl (>= 1.21), perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl (>= 0.1), libdbi-perl (>= 1.21), perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdatetime-format-sqlite-perl, libdatetime-perl, libdbd-sqlite3-perl, libdbi-perl, libtest-database-perl, libtest-nowarnings-perl, libtest-pod-coverage-perl, libtest-pod-perl, libtest-simple-perl (>= 0.96), perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdatetime-perl, libdbi-perl
 X: 0

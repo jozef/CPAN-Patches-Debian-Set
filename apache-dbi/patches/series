@@ -1,2 +1,3 @@
 debian-perl-path.patch
-pod-errors.patch
+doc-fixes.patch
+Digest-SHA.patch

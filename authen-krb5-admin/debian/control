@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50~), libkrb5-dev (>= 1.8+dfsg~), perl
+Build-Depends: debhelper (>= 8), libkrb5-dev (>= 1.8+dfsg~), perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libauthen-krb5-perl (>= 1.9-2)
 X: 0

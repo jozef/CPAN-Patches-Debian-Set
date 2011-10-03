@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8), libfile-slurp-perl, libtest-pod-perl (>= 1.00), libxml-libxml-perl (>= 1.64)
+Build-Depends-Indep: perl
+Depends: ${misc:Depends}, ${perl:Depends}, libfile-slurp-perl, libxml-libxml-perl (>= 1.64)
+X: 0

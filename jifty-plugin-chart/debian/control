@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50)
-Build-Depends-Indep: libchart-perl, libgd-gd2-perl, libgd-graph-perl, libimage-info-perl, libjifty-perl (>= 0.90519), libxml-simple-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libchart-perl, libgd-gd2-perl, libgd-graph-perl, libimage-info-perl, libjifty-perl (>= 0.90519-1), libjs-mochikit, libxml-simple-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libchart-perl, libgd-gd2-perl, libgd-graph-perl, libimage-info-perl, libjifty-perl (>= 1.10518+dfsg), libtest-script-run-perl, libxml-simple-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libchart-perl, libgd-gd2-perl, libgd-graph-perl, libimage-info-perl, libjifty-perl (>= 1.10518+dfsg), libjs-mochikit, libxml-simple-perl
 X: 0

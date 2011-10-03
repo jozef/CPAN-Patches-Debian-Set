@@ -1,6 +1,6 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libcache-simple-timedexpiry-perl (>= 0.21), libclass-accessor-perl, libclass-returnvalue-perl (>= 0.40), libclone-perl, libdbd-sqlite3-perl, libdbix-dbschema-perl, libdevel-symdump-perl, libtest-pod-perl, libwant-perl, perl (>= 5.8.3)
-Depends: ${misc:Depends}, ${perl:Depends}, libcache-simple-timedexpiry-perl (>= 0.21), libclass-accessor-perl, libclass-returnvalue-perl (>= 0.40), libclone-perl, libdbd-pg-perl | libdbd-mysql-perl | libdbd-sqlite3-perl | libdbd-odbc-perl |
+Build-Depends-Indep: libcache-simple-timedexpiry-perl, libclass-accessor-perl, libclass-returnvalue-perl, libclone-perl, libdbd-sqlite3-perl, libdbix-dbschema-perl, libdevel-symdump-perl, libtest-pod-perl, libwant-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcache-simple-timedexpiry-perl, libclass-accessor-perl, libclass-returnvalue-perl, libclone-perl, libdbd-pg-perl | libdbd-mysql-perl | libdbd-sqlite3-perl | libdbd-odbc-perl |
  libdbd-sqlite2-perl | libdbd-informix-perl | libdbd-sybase-perl, libdbix-dbschema-perl, libwant-perl
 X: 0

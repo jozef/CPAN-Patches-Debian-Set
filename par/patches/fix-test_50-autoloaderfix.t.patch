@@ -1,5 +1,7 @@
-Author: Damyan Ivanov <dmn@debian.org>
 Description: avoid endless loop in t/50-autoloaderfix.t
+Author: Damyan Ivanov <dmn@debian.org>
+Origin: vendor
+Forwarded: no
 
 --- a/t/50-autoloaderfix.t
 +++ b/t/50-autoloaderfix.t

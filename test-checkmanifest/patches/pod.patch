@@ -1,0 +1,26 @@
+Subject: Two NAME sections, authoritative one lacking a what is
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Forwarded: no
+Last-Update: 2011-04-10
+--- a/lib/Test/CheckManifest.pm
++++ b/lib/Test/CheckManifest.pm
+@@ -238,7 +238,7 @@
+ 
+ =head1 NAME
+ 
+-Test::CheckManifest
++Test::CheckManifest - Check if your Manifest matches your distro
+ 
+ =head1 VERSION
+ 
+@@ -257,10 +257,6 @@
+ 
+ There is only one method exported: C<ok_manifest>
+ 
+-=head1 NAME
+-
+-Test::CheckManifest - Check if your Manifest matches your distro
+-
+ =head1 METHODS
+ 
+ =head2 ok_manifest   [{exlude => $arref}][$msg]

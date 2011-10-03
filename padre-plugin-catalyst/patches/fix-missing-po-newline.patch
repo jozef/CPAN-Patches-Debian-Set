@@ -1,0 +1,18 @@
+Description: drop \n around a translation, matching the original string
+ Otherwise msgfmt complains
+ Upstream SVN has updated translation without that string
+Forwarded: not-needed
+Author: Damyan Ivanov <dmn@debian.org>
+
+--- a/share/locale/Padre__Plugin__Catalyst-es-es.po
++++ b/share/locale/Padre__Plugin__Catalyst-es-es.po
+@@ -176,8 +176,7 @@ msgstr "No se pudo iniciar el servidor a
+ 
+ #: lib/Padre/Plugin/Catalyst.pm:532
+ msgid "Web server stopped successfully."
+-msgstr "\n"
+-"Se detuvo correctamente el servidor web.\n"
++msgstr "Se detuvo correctamente el servidor web."
+ 
+ #: lib/Padre/Plugin/Catalyst.pm:547
+ msgid "Catalyst support for Padre"

@@ -1,5 +1,3 @@
-cgi_pm.patch
-perl5.10.patch
 german.patch
 new_process_group.patch
 delay.patch

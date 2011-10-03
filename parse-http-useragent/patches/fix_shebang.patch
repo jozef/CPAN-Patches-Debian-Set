@@ -1,0 +1,30 @@
+Description: Parser::HTTP::UserAgent provides several example scripts
+ that have #!/usr/bin/env as shebang. This patch changes the shebangs to
+ #!/usr/bin/perl in order to comply with Debian Policy.
+Forwarded: not-needed
+Author: Ernesto Hernández-Novich <emhn@usb.ve>
+
+--- a/eg/accuracy.pl
++++ b/eg/accuracy.pl
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ # (c) 2009 Burak Gursoy. Distributed under the Perl License.
+ use strict;
+ use warnings;
+--- a/eg/bench.pl
++++ b/eg/bench.pl
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ # (c) 2009 Burak Gursoy. Distributed under the Perl License.
+ use strict;
+ use warnings;
+--- a/eg/dump.pl
++++ b/eg/dump.pl
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl -w
++#!/usr/bin/perl -w
+ # (c) 2009 Burak Gursoy. Distributed under the Perl License.
+ # Enables internal pre-parsed structure dumper and then dumps
+ #    the parsed structure.

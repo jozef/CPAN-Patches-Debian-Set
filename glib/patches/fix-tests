@@ -1,4 +1,7 @@
-hackishly skip certain tests if locales aren't set up, because they fail
+Description: hackishly skip certain tests if locales aren't set up, because they fail
+Origin: vendor
+Forwarded: no
+Author: Ryan Niebur <ryan@debian.org>
 
 --- a/t/options.t
 +++ b/t/options.t

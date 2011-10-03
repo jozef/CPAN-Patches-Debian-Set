@@ -1,4 +1,3 @@
-fix-rest-test-format.patch
-manpage-has-bad-whatis-entry.patch
+content_lacks-wants-scalar-not-regex.patch
 follow-symlink.patch
 spelling.patch

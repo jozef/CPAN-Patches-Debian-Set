@@ -1,0 +1,15 @@
+Description: fix a tiny spelling error
+Author: Damyan Ivanov <dmn@debian.org>
+Origin: http://padre.perlide.org/trac/changeset/13377/trunk
+
+--- a/lib/Padre/Plugin/SpellCheck.pm
++++ b/lib/Padre/Plugin/SpellCheck.pm
+@@ -135,7 +135,7 @@ SpellCheck / Preferences).
+ This plugin is using C<Text::Aspell> underneath, so check this module's
+ pod for more information.
+ 
+-Of course, you need to have the aspell binary and dictionnary installed.
++Of course, you need to have the aspell binary and dictionary installed.
+ 
+ =head1 PUBLIC METHODS
+ 

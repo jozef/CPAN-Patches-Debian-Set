@@ -1,0 +1,14 @@
+Description: relax regex for dirname change; our tools may build in libio-all-perl* instead if IO-All*
+Origin: vendor
+Forwarded: not needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-01-20
+
+--- a/t/chdir.t
++++ b/t/chdir.t
+@@ -10,4 +10,4 @@
+     my $dir = io('t')->chdir;
+     is((io(io->curdir->absolute->pathname)->splitdir)[-1], 't');
+ }
+-like((io(io->curdir->absolute->pathname)->splitdir)[-1], qr'(?i:^IO-All)');
++like((io(io->curdir->absolute->pathname)->splitdir)[-1], qr'(?i:IO-All)');

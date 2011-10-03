@@ -1,6 +1,4 @@
-consumer_newline.patch
 quote_xml_version.patch
-convert_errors.patch
+combined_pod_fixes.patch
 file_consumer_encoding.patch
-fix_pod.patch
-fix_05basic_t.patch
+half_code_pod_errors.patch

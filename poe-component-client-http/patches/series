@@ -1,3 +1,2 @@
-legacy_libscan_customisation_in_Makefile_PL.patch
-fix_WHATIS_entry.patch
+fix-whatis-entry.patch
 disable_network_tests.patch

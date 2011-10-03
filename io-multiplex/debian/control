@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: netbase, perl (>= 5.8)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: netbase, perl
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

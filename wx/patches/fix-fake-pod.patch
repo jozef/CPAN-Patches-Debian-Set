@@ -1,0 +1,17 @@
+Description: fix =pod usege where '=for comment' is meant
+ Having it as POD makes it into man page, which is incomplete and useless
+Author: Damyan Ivanov <dmn@debian.org>
+Bug: https://rt.cpan.org/Ticket/Display.html?id=70362
+Forwarded: yes
+
+--- a/build/Wx/XSP/Overload.pm
++++ b/build/Wx/XSP/Overload.pm
+@@ -52,7 +52,7 @@ sub post_process {
+     }
+ }
+ 
+-=pod
++=for comment
+ 
+ void
+ wxCaret::Move( ... )

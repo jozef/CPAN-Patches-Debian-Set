@@ -1,0 +1,38 @@
+Bug: https://rt.cpan.org/Public/Bug/Display.html?id=62475
+Bug-Debian: http://bugs.debian.org/629275
+Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=62475
+
+From 298df4863d9c598d3eccd14412f043b33887da04 Mon Sep 17 00:00:00 2001
+From: Niko Tyni <ntyni@debian.org>
+Date: Sun, 10 Jul 2011 21:05:13 +0300
+Subject: [PATCH] Adapt to 5.13.x dependency changes
+
+File::Glob added "use feature 'switch'" for 5.13.6, and
+Socket added 'require Scalar::Util' for 5.13.9.
+---
+ t/02-perlreq.t |    8 +++++---
+ 1 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/t/02-perlreq.t b/t/02-perlreq.t
+index d4d1be3..98ab0c5 100644
+--- a/t/02-perlreq.t
++++ b/t/02-perlreq.t
+@@ -33,10 +33,12 @@ sub Requires ($$) {
+ 	ok $? == 0, "$f zero exit status";
+ }
+ 
+-# Valid for perl-5.8.0 - perl-5.8.9.
++# Valid for perl-5.8.0 - perl-5.14.1
+ Requires "AutoLoader.pm"	=> "perl-base >= 1:5.6.1";
+ Requires "Exporter.pm"		=> "perl(Exporter/Heavy.pm) perl-base >= 1:5.6.0";
+ Requires "IO/File.pm"		=> "perl(File/Spec.pm) perl(IO/Seekable.pm) perl(SelectSaver.pm) perl(Symbol.pm) perl-base >= 1:5.6.1";
+-Requires "File/Glob.pm"		=> "perl(Text/ParseWords.pm) perl(XSLoader.pm)";
+-Requires "Socket.pm"		=> "perl(warnings/register.pm) perl(XSLoader.pm)";
++Requires "File/Glob.pm"		=> ($] > 5.013005 ? "perl(feature.pm) " : "") .
++				   "perl(Text/ParseWords.pm) perl(XSLoader.pm)";
++Requires "Socket.pm"		=> ($] > 5.013008 ? "perl(Scalar/Util.pm) " : "") .
++				   "perl(warnings/register.pm) perl(XSLoader.pm)";
+ 
+-- 
+1.7.5.4
+

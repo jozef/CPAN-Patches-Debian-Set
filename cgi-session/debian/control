@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), quilt (>= 0.40)
-Build-Depends-Indep: libcgi-simple-perl, libdbd-sqlite3-perl, libdbi-perl, libfreezethaw-perl, perl (>= 5.8)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcgi-simple-perl, libdbd-sqlite3-perl, libdbi-perl, libfreezethaw-perl, perl
 Depends: ${misc:Depends}, ${perl:Depends}
 X: 0

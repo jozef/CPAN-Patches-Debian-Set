@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 8), libinline-perl, libtest-pod-coverage-perl, libtest-pod-perl, libusb-dev, perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libinline-perl, perl
+X: 0

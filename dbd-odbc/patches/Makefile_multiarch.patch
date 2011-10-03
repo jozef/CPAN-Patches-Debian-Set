@@ -1,0 +1,21 @@
+Description: Actually use the supplied odbc lib directory instead of the one
+ guessed by finding the headers. The latter doesn't work anymore with
+ multiarch.
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/642237
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-09-20
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -1026,7 +1026,8 @@
+ 
+     my @dirs;
+     # start with specified dir if there was one
+-    push @dirs, "$home/lib" if defined($opt_o) || defined($ENV{ODBCHOME});
++    push @dirs, "$opt_o" if defined($opt_o);
++    push @dirs, "$ENV{ODBCHOME}" if defined($ENV{ODBCHOME});
+ 
+     # look in perl's libspath as it is more likely to be compatible
+     # (e.g., a lib64 dir)

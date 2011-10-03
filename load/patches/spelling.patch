@@ -1,0 +1,17 @@
+Description: fix a spelling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-06-05
+
+--- a/lib/load.pm
++++ b/lib/load.pm
+@@ -814,7 +814,7 @@
+ base class.  Also implicitely specifies the "dontscan" keyword, causing the
+ source of the module to be scanned only when the first not yet loaded
+ subroutine is about to be executed.  If you only want to have the "inherit"
+-keyword functionality, then you must specify that explicitely:
++keyword functionality, then you must specify that explicitly:
+ 
+  package Your::Module::Adapted;
+  @ISA = qw(Your::Module);

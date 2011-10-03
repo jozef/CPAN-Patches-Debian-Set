@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 5), libjson-perl, libwww-perl
-Build-Depends-Indep: perl (>= 5.6.10-12)
-Depends: ${misc:Depends}, ${perl:Depends}, libjson-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libhttp-daemon-perl | libwww-perl (<< 6), libjson-perl, libtest-pod-perl, libwww-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libhttp-daemon-perl | libwww-perl (<< 6), libjson-perl, libwww-perl
 X: 0

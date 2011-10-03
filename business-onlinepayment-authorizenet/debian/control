@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: debhelper (>= 7.0.50), libbusiness-onlinepayment-perl (>= 3), libnet-https-any-perl, libtext-csv-xs-perl, libtie-ixhash-perl, libxml-simple-perl, libxml-writer-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libbusiness-onlinepayment-perl (>= 3.01), libnet-https-any-perl, libtext-csv-xs-perl, libtie-ixhash-perl, libxml-simple-perl, libxml-writer-perl
+X: 0

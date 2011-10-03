@@ -4,41 +4,41 @@ Description:
 
 --- a/Makefile.PL
 +++ b/Makefile.PL
-@@ -246,13 +246,15 @@
+@@ -247,13 +247,15 @@
              { # with Apache 2, make sure we have the same defines as mod_perl
              $txt =~ s/-O\d//g if ($ccdebug =~ /-O\d/) ;
              $txt =~ /CCFLAGS\s*=(.*?)\n/s ;
--	    my $flags = $mp2cfg->{MODPERL_CCOPTS} || $1 ;
-+	    my $extra = "$Config{cppflags} " . `apxs2 -q CFLAGS` ;
-+	    my $flags = "$mp2cfg->{MODPERL_CCOPTS} $extra" || $1 ;
-             $txt =~ s/CCFLAGS\s*=(.*?)\n/CCFLAGS = $ccdebug $flags\n/s ;
++            my $extra = "$Config{cppflags} " . `apxs2 -q CFLAGS` ;
+ 	    my $flags = $mp2cfg->{MODPERL_CCOPTS} || $1 ;
+-            $txt =~ s/CCFLAGS\s*=(.*?)\n/CCFLAGS = $ccdebug $flags $addcflags\n/s ;
++            $txt =~ s/CCFLAGS\s*=(.*?)\n/CCFLAGS = $ccdebug $flags $addcflags $extra\n/s ;
              }
          else
              {
-+	    my $extra = "$Config{cppflags} " . Apache::src->new->ccflags ;
++            my $extra = "$Config{cppflags} " . Apache::src->new->ccflags ;
              $txt =~ s/-O\d//g if ($ccdebug =~ /-O\d/) ;
--	    $txt =~ s/CCFLAGS\s*=/CCFLAGS = $ccdebug / ;
-+	    $txt =~ s/CCFLAGS\s*=/CCFLAGS = $ccdebug $extra/ ;
+-	    $txt =~ s/CCFLAGS\s*=/CCFLAGS = $ccdebug $addcflags/ ;
++	    $txt =~ s/CCFLAGS\s*=/CCFLAGS = $ccdebug $addcflags $extra/ ;
              }
  
          
-@@ -304,6 +306,15 @@
+@@ -305,7 +307,14 @@
           }
       }
  
+- foreach my $hash (qw(MAN3PODS PM))
++    # Debian hack - strip .pl from executables
++    while (($k, $v) = each %{$self->{MAN1PODS}})
++      {
++        $v =~ s/\.pl// or next;
++        $self->{MAN1PODS}{$k} = $v;
++      }
 +
-+	# Debian hack - strip .pl from executables
-+	while (($k, $v) = each %{$self->{MAN1PODS}})
-+	  {
-+	    $v =~ s/\.pl// or next;
-+	    $self->{MAN1PODS}{$k} = $v;
-+	  }
-+
-+
-  foreach my $hash (qw(MAN3PODS PM))
++foreach my $hash (qw(MAN3PODS PM))
       {
       foreach (keys %{$self->{$hash}})
-@@ -317,6 +328,14 @@
+          {
+@@ -318,6 +327,14 @@
         $self -> MM::post_initialize (@_) ;
         }
  
@@ -53,16 +53,16 @@ Description:
  
   sub MY::post_constants
         {
-@@ -326,6 +345,8 @@
+@@ -326,7 +343,7 @@
+ 
         my $txt = $self -> MM::post_constants (@_) ;
  
-        $txt .= "\n# Change name of dynamic lib, in case we need two of them (with and w/o Apache support)\nINST_DYNAMIC = \$(INST_ARCHAUTODIR)\\\$(DLBASE).NoApache.\$(DLEXT)\n" if ($EPNOAPACHELIB) ;
+-       $txt .= "\n# Change name of dynamic lib, in case we need two of them (with and w/o Apache support)\nINST_DYNAMIC = \$(INST_ARCHAUTODIR)\\\$(DLBASE).NoApache.\$(DLEXT)\n" if ($EPNOAPACHELIB) ;
 +       $txt .= "\n# Change name of dynamic lib, in case we need two of them (different Apache versions)\nINST_DYNAMIC = \$(INST_ARCHAUTODIR)/\$(DLBASE)-13.\$(DLEXT)\n" if ($mod_perl::VERSION and $mod_perl::VERSION < 1.99) ;
-+
  
         return $txt ;
  
-@@ -336,21 +357,8 @@
+@@ -337,20 +354,7 @@
  sub GetString
  	{
  	my ($prompt, $default) = @_ ;
@@ -80,13 +80,11 @@ Description:
 -            { return "" ; }
 -    
 -        }
--    }
-+	return prompt($prompt, $default) ;
-+	}
++        return prompt($prompt, $default) ;
+     }
  
  ## ----------------------------------------------------------------------------
- 
-@@ -546,26 +554,26 @@
+@@ -547,26 +551,26 @@
      $apache_src = '' if ($apache_src eq '-') ;
      }
  
@@ -108,7 +106,7 @@ Description:
      else
  	{
 -        eval 'use Apache2::BuildConfig' ;
-+        eval 'use Apache2::BuildConfig'  unless $ENV{FORCEMP1};
++        eval 'use Apache2::BuildConfig' unless $ENV{FORCEMP1};
  
 -        if ($@ eq '')
 +        if (!$ENV{FORCEMP1} and $@ eq '')
@@ -120,7 +118,7 @@ Description:
              print "Found mod_perl 2.0\n" ;
  	    }
  	else
-@@ -574,11 +582,11 @@
+@@ -575,11 +579,11 @@
  
              if ($@ eq '')
                  { 
@@ -134,7 +132,7 @@ Description:
                  }
  	    }
          }
-@@ -786,7 +794,10 @@
+@@ -787,7 +791,10 @@
      $i = '' ;
      $o = '' ;
      }
@@ -142,11 +140,11 @@ Description:
 +
 +if ($mp2cfg) {
 +  $i .= " -I$mp2cfg->{apr_includedir}" if $mp2cfg->{apr_includedir};
-+}
++}		
  
  if ($win32 && $apache)
      {	# borrowed from mod_perl
-@@ -1290,9 +1301,11 @@
+@@ -1337,10 +1344,11 @@
      'INC'	   => "-I$EPPATH $i",     			 
      'VERSION'      => undef,
      'VERSION_FROM' => "$EPPATH/Embperl.pm",
@@ -154,7 +152,8 @@ Description:
      $optdebug?('OPTIMIZE' => $ccdebug):(),
      ) ;
  
+-
 +$i = "-I$EPPATH $i";
  
- 
  open FH, ">xs/mmargs.pl" or die "Cannot open xs/mmargs.pl ($!).\n
+ --------------------------------------------------------------------------

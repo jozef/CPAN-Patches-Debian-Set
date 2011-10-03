@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libencode-locale-perl, libhtml-parser-perl, libhttp-date-perl, liblwp-mediatypes-perl, liburi-perl, perl (>= 5.10.1) | libio-compress-perl
+Depends: ${misc:Depends}, ${perl:Depends}, libencode-locale-perl, libhtml-parser-perl, libhttp-date-perl, liblwp-mediatypes-perl, liburi-perl, perl (>= 5.10.1) | libio-compress-perl
+X: 0

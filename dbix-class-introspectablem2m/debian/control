@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libdbix-class-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdbix-class-perl
+X: 0

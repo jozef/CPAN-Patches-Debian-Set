@@ -1,0 +1,27 @@
+Description: fix a splling mistake
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-04-24
+
+--- a/lib/MooseX/POE/Meta/Method/State.pm
++++ b/lib/MooseX/POE/Meta/Method/State.pm
+@@ -2,7 +2,7 @@ package MooseX::POE::Meta::Method::State
+ BEGIN {
+   $MooseX::POE::Meta::Method::State::VERSION = '0.214';
+ }
+-# ABSTRACT: Dont look into this, its boring
++# ABSTRACT: Don't look into this, its boring
+ use strict;
+ use Moose;
+ extends qw(Moose::Meta::Method);
+@@ -15,7 +15,7 @@ no Moose;
+ 
+ =head1 NAME
+ 
+-MooseX::POE::Meta::Method::State - Dont look into this, its boring
++MooseX::POE::Meta::Method::State - Don't look into this, its boring
+ 
+ =head1 VERSION
+ 

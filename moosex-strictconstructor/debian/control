@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmoose-perl (>= 0.94), libtest-exception-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.94)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libmoose-perl (>= 0.94), libnamespace-autoclean-perl, libtest-fatal-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl (>= 0.94), libnamespace-autoclean-perl
 X: 0

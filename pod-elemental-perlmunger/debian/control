@@ -1,5 +1,5 @@
 App: 0
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libmoose-perl, libnamespace-autoclean-perl, libpod-elemental-perl, libppi-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libmoose-perl, libnamespace-autoclean-perl, libpod-elemental-perl, libppi-perl
+Build-Depends-Indep: liblist-moreutils-perl, libmoose-perl, libnamespace-autoclean-perl, libpod-elemental-perl, libppi-perl, libtest-simple-perl (>= 0.96), perl
+Depends: ${misc:Depends}, ${perl:Depends}, liblist-moreutils-perl, libmoose-perl, libnamespace-autoclean-perl, libpod-elemental-perl, libppi-perl
 X: 0

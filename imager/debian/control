@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.50), libfreetype6-dev, libgif-dev, libinline-perl, libjpeg62-dev, libpng12-dev, libt1-dev, libtest-pod-coverage-perl, libtest-pod-perl, libtiff4-dev, perl
+Build-Depends: debhelper (>= 8), libfreetype6-dev, libgif-dev, libinline-perl, libjpeg-dev, libpng12-dev, libtest-pod-coverage-perl, libtest-pod-perl, libtiff4-dev, perl
 Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
 X: 0

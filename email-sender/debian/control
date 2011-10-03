@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libcapture-tiny-perl (>= 0.08), libemail-abstract-perl (>= 3), libemail-address-perl, libemail-simple-perl (>= 1.998), liblist-moreutils-perl, libmoose-perl (>= 0.70), libsub-override-perl, libsys-hostname-long-perl, libtest-mockobject-perl, libthrowable-perl, libtry-tiny-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libcapture-tiny-perl (>= 0.08), libemail-abstract-perl (>= 3), libemail-address-perl, libemail-simple-perl (>= 1.998), liblist-moreutils-perl, libmoose-perl (>= 0.70), libsys-hostname-long-perl, libthrowable-perl, libtry-tiny-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libcapture-tiny-perl, libemail-abstract-perl (>= 3), libemail-address-perl, libemail-simple-perl, liblist-moreutils-perl, libmoose-perl (>= 0.70), libsub-override-perl, libtest-mockobject-perl, libthrowable-perl, libtry-tiny-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libcapture-tiny-perl, libemail-abstract-perl (>= 3), libemail-address-perl, libemail-simple-perl, liblist-moreutils-perl, libmoose-perl (>= 0.70), libthrowable-perl, libtry-tiny-perl
 X: 0

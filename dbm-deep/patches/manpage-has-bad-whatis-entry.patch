@@ -1,10 +1,12 @@
 Description: fix some missing pod entries
 Forwarded: no
 Author: AGOSTINI Yves <agostini@univ-metz.fr>
-Author: gregor herrmann <gregoa@debian.org>
+Reviewed-By: gregor herrmann <gregoa@debian.org>
+Origin: vendor
+Last-Update: 2010-07-24
 
---- libdbm-deep-perl.orig/lib/DBM/Deep/Cookbook.pod
-+++ libdbm-deep-perl/lib/DBM/Deep/Cookbook.pod
+--- a/lib/DBM/Deep/Cookbook.pod
++++ b/lib/DBM/Deep/Cookbook.pod
 @@ -1,6 +1,6 @@
  =head1 NAME
  
@@ -13,8 +15,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 DESCRIPTION
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Internals.pod
-+++ libdbm-deep-perl/lib/DBM/Deep/Internals.pod
+--- a/lib/DBM/Deep/Internals.pod
++++ b/lib/DBM/Deep/Internals.pod
 @@ -1,6 +1,6 @@
  =head1 NAME
  
@@ -23,8 +25,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 OUT OF DATE
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Engine.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Engine.pm
+--- a/lib/DBM/Deep/Engine.pm
++++ b/lib/DBM/Deep/Engine.pm
 @@ -19,7 +19,7 @@
  
  =head1 NAME
@@ -34,8 +36,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 PURPOSE
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Iterator.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Iterator.pm
+--- a/lib/DBM/Deep/Iterator.pm
++++ b/lib/DBM/Deep/Iterator.pm
 @@ -7,7 +7,7 @@
  
  =head1 NAME
@@ -45,8 +47,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 PURPOSE
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Null.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Null.pm
+--- a/lib/DBM/Deep/Null.pm
++++ b/lib/DBM/Deep/Null.pm
 @@ -7,7 +7,7 @@
  
  =head1 NAME
@@ -56,8 +58,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 PURPOSE
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Iterator/File/BucketList.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Iterator/File/BucketList.pm
+--- a/lib/DBM/Deep/Iterator/File/BucketList.pm
++++ b/lib/DBM/Deep/Iterator/File/BucketList.pm
 @@ -7,7 +7,7 @@
  
  =head1 NAME
@@ -67,8 +69,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 PURPOSE
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Iterator/File/Index.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Iterator/File/Index.pm
+--- a/lib/DBM/Deep/Iterator/File/Index.pm
++++ b/lib/DBM/Deep/Iterator/File/Index.pm
 @@ -7,7 +7,7 @@
  
  =head1 NAME
@@ -78,8 +80,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 PURPOSE
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Storage/File.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Storage/File.pm
+--- a/lib/DBM/Deep/Storage/File.pm
++++ b/lib/DBM/Deep/Storage/File.pm
 @@ -13,7 +13,7 @@
  
  =head1 NAME
@@ -89,9 +91,9 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 PURPOSE
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Engine/File.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Engine/File.pm
-@@ -40,7 +40,7 @@
+--- a/lib/DBM/Deep/Engine/File.pm
++++ b/lib/DBM/Deep/Engine/File.pm
+@@ -41,7 +41,7 @@
  
  =head1 NAME
  
@@ -100,8 +102,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  =head1 PURPOSE
  
---- libdbm-deep-perl.orig/lib/DBM/Deep/Sector/File.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Sector/File.pm
+--- a/lib/DBM/Deep/Sector/File.pm
++++ b/lib/DBM/Deep/Sector/File.pm
 @@ -39,12 +39,12 @@
      return;
  }
@@ -121,8 +123,8 @@ Author: gregor herrmann <gregoa@debian.org>
  
  sub load {
      my $self = shift;
---- libdbm-deep-perl.orig/lib/DBM/Deep/Storage.pm
-+++ libdbm-deep-perl/lib/DBM/Deep/Storage.pm
+--- a/lib/DBM/Deep/Storage.pm
++++ b/lib/DBM/Deep/Storage.pm
 @@ -5,6 +5,10 @@
  use strict;
  use warnings FATAL => 'all';

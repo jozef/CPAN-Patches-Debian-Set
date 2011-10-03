@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libclass-mop-perl (>= 0.93), libdata-visitor-perl (>= 0.21), libmoose-perl (>= 1.05), libnamespace-clean-perl, libtest-use-ok-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libclass-mop-perl (>= 0.93), libdata-visitor-perl (>= 0.21), libmoose-perl (>= 1.05), libnamespace-clean-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdata-visitor-perl (>= 0.21), libmoose-perl (>= 2) | libclass-mop-perl (>= 0.93), libnamespace-clean-perl, libtest-use-ok-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdata-visitor-perl (>= 0.21), libmoose-perl (>= 2) | libclass-mop-perl (>= 0.93), libnamespace-clean-perl
 X: 0

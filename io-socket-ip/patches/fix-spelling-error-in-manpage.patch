@@ -1,0 +1,18 @@
+Description: Fix spelling errors in manpage
+Origin: vendor
+Bug: http://rt.cpan.org/Public/Bug/Display.html?id=67087
+Forwarded: yes
+Author: Salvatore Bonaccorso <carnil@debian.org>
+Last-Update: 2011-03-30
+
+--- a/lib/IO/Socket/IP.pm
++++ b/lib/IO/Socket/IP.pm
+@@ -261,7 +261,7 @@
+ 
+ If neither C<Type> nor C<Proto> hints are provided, a default of
+ C<SOCK_STREAM> and C<IPPROTO_TCP> respectively will be set, to maintain
+-compatibilty with C<IO::Socket::INET>.
++compatibility with C<IO::Socket::INET>.
+ 
+ If the constructor fails, it will set C<$@> to an appropriate error message;
+ this may be from C<$!> or it may be some other string; not every failure

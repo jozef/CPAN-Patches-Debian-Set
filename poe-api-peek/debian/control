@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libdevel-size-perl, libpoe-perl (>= 2:1.0001), libtest-distribution-perl, libtest-nowarnings-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libdevel-size-perl, libpoe-perl (>= 2:1.0001)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libdevel-size-perl, libpoe-perl (>= 2:1.3110), libtest-distribution-perl, libtest-nowarnings-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libdevel-size-perl, libpoe-perl (>= 2:1.3110)
 X: 0

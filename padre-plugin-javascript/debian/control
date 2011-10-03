@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-autouse-perl (>= 1.26), libjavascript-beautifier-perl (>= 0.03), libjavascript-minifier-xs-perl, libje-perl, libmodule-build-perl (>= 0.360100), libtest-needsdisplay-perl (>= 1.05), libtest-nowarnings-perl (>= 0.084), padre-plugin-api-2, perl, xauth, xfonts-base, xvfb
+Depends: ${misc:Depends}, ${perl:Depends}, libclass-autouse-perl (>= 1.26), libjavascript-beautifier-perl (>= 0.03), libjavascript-minifier-xs-perl, libje-perl, padre-plugin-api-2
+X: 1

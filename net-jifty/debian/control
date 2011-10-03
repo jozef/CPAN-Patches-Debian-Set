@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libany-moose-perl (>= 0.04), libtest-mockobject-perl, liburi-perl, libwww-perl, libyaml-perl, perl
-Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl (>= 0.04), liburi-perl, libwww-perl, libyaml-perl
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libany-moose-perl (>= 0.04), libdatetime-perl, libemail-address-perl, libencode-perl (>= 2.41) | perl (>= 5.13.9), libhash-merge-perl, libpath-class-perl, libterm-readkey-perl, libtest-mockobject-perl, liburi-perl, libwww-perl, libyaml-perl, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libany-moose-perl (>= 0.04), libdatetime-perl, libemail-address-perl, libencode-perl (>= 2.41) | perl (>= 5.13.9), libhash-merge-perl, libpath-class-perl, libterm-readkey-perl, liburi-perl, libwww-perl, libyaml-perl
 X: 0

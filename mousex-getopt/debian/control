@@ -1,0 +1,5 @@
+App: 0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libgetopt-long-descriptive-perl (>= 0.081), libmouse-perl, libtest-exception-perl, libtest-warn-perl (>= 0.21), perl (>= 5.10.1) | libetest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libgetopt-long-descriptive-perl (>= 0.081), libmouse-perl
+X: 0

@@ -1,2 +1,4 @@
 skip-splashfast-tests.patch
 hashbang.patch
+fix-fake-pod.patch
+spelling.patch

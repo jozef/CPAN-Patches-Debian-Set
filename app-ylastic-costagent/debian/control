@@ -1,0 +1,5 @@
+App: ylastic-costagent
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: libarchive-zip-perl, libconfig-tiny-perl, libgetopt-lucid-perl, libio-socket-ssl-perl, liblog-dispatchouli-perl (>= 2), libmozilla-ca-perl, libobject-tiny-perl, libtest-fatal-perl, libtest-warn-perl, libtime-piece-month-perl, libwww-mechanize-perl, perl (>= 5.10.1) | libtest-simple-perl (>= 0.88)
+Depends: ${misc:Depends}, ${perl:Depends}, libarchive-zip-perl, libconfig-tiny-perl, libgetopt-lucid-perl, libio-socket-ssl-perl, liblog-dispatchouli-perl (>= 2), libmozilla-ca-perl, libobject-tiny-perl, libtime-piece-month-perl, libwww-mechanize-perl, perl (>= 5.10.1) | libautodie-perl (>= 2.00)
+X: 0

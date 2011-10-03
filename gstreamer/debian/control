@@ -1,4 +1,4 @@
 App: 0
-Build-Depends: debhelper (>= 7.0.8), gstreamer0.10-alsa, gstreamer0.10-plugins-base, libextutils-depends-perl (>= 0.205), libextutils-pkgconfig-perl (>= 1.07), libglib-perl (>= 1:1.180), libgstreamer0.10-dev, perl, quilt (>= 0.46-7)
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libglib-perl (>= 1:1.180)
+Build-Depends: debhelper (>= 8), gstreamer0.10-alsa, gstreamer0.10-plugins-base, libextutils-depends-perl, libextutils-pkgconfig-perl, libglib-perl, libgstreamer0.10-dev (>= 0.10.33), perl
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}, libglib-perl
 X: 0

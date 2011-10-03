@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7.2.13)
-Build-Depends-Indep: libconvert-binhex-perl, libio-stringy-perl, libmailtools-perl (>= 1.0203), libtest-pod-perl, netbase, perl (>= 5.10.0)
-Depends: ${misc:Depends}, ${perl:Depends}, libconvert-binhex-perl, libio-stringy-perl, libmailtools-perl (>= 1.0203), perl (>= 5.10)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libconvert-binhex-perl, libmailtools-perl, libtest-deep-perl, libtest-pod-perl, netbase, perl
+Depends: ${misc:Depends}, ${perl:Depends}, libconvert-binhex-perl, libmailtools-perl
 X: 0

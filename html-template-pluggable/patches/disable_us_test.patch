@@ -1,0 +1,23 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2010-01-03
+Subject: one test only works in the US locale
+Bug: http://rt.cpan.org/Ticket/Display.html?id=64434
+--- a/helpers/t/number.t
++++ b/helpers/t/number.t
+@@ -57,6 +57,8 @@
+ # diag("output: ", $o4);
+ like( $o4, qr/Yes/ );
+ 
++SKIP: {
++    skip "test dependent on locale", 1;
+ my $t4 = HTML::Template::Pluggable->new(
+     scalarref       => \q{<tmpl_loop o.v:h><tmpl_var h.n> <tmpl_var name="Number.format_price(h.n)"></tmpl_loop>},
+     global_vars     => 1,
+@@ -67,6 +69,7 @@
+ my $o5 = $t4->output;
+ # diag("output: ", $o4);
+ like( $o5, qr/USD 2.25/ );
++};
+ 
+ 
+ __END__

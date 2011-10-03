@@ -1,0 +1,4 @@
+App: 0
+Build-Depends: cdbs (>= 0.4.85~), debhelper (>= 7.0.1), devscripts (>= 2.10.7~), dh-buildinfo, libconfig-jfdi-perl, libfile-sharedir-perl, libhash-merge-simple-perl, libhtml-html5-parser-perl, libhtml-html5-writer-perl, libhttp-message-perl | libwww-perl (< 6), libhttp-negotiate-perl | libwww-perl (< 6), libplack-perl, librdf-query-perl, librdf-rdfa-generator-perl, librdf-trine-perl (>= 0.134), libtest-www-mechanize-psgi-perl, libtrine-perl, liburi-perl, libwww-perl, libxml-libxml-perl (>= 1.70), perl
+Depends: ${cdbs:Depends}, ${misc:Depends}, ${perl:Depends}
+X: 0

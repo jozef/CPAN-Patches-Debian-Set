@@ -1,0 +1,22 @@
+Description: new class to represent GPL-1+ clauses
+--- /dev/null
++++ b/lib/Software/License/GPL_1_plus.pm
+@@ -0,0 +1,18 @@
++use strict;
++use warnings;
++package Software::License::GPL_1_plus;
++
++use base 'Software::License::GPL_1';
++
++sub name { 'The GNU General Public License, Version 1 or later, February 1989' }
++
++1;
++__DATA__
++__DEBIAN-SUMMARY__
++This program is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; either version 1, or (at your option)
++any later version.
++
++On Debian systems, the complete text of version 1 of the GNU General
++Public License can be found in `/usr/share/common-licenses/GPL-1'.

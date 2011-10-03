@@ -1,0 +1,37 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Subject: pod errors
+Forwarded: no
+Last-Update: 2011-01-18
+--- a/lib/Astro/FITS/Header.pm
++++ b/lib/Astro/FITS/Header.pm
+@@ -13,7 +13,7 @@
+ =head1 DESCRIPTION
+ 
+ Stores information about a FITS header block in an object. Takes an hash
+-with an array reference as an arguement. The array should contain a list
++with an array reference as an argument. The array should contain a list
+ of FITS header cards as input.
+ 
+ =cut
+--- a/lib/Astro/FITS/Header/AST.pm
++++ b/lib/Astro/FITS/Header/AST.pm
+@@ -20,7 +20,7 @@
+ the FITS HDU from an AST FrameSet object.
+ 
+ It stores information about a FITS header block in an object. Takes an hash
+-as an arguement, with an array reference pointing to an Starlink::AST
++as an argument, with an array reference pointing to an Starlink::AST
+ FramSet object.
+ 
+ =cut
+--- a/lib/Astro/FITS/Header/CFITSIO.pm
++++ b/lib/Astro/FITS/Header/CFITSIO.pm
+@@ -23,7 +23,7 @@
+ directly to a FITS HDU.
+ 
+ It stores information about a FITS header block in an object. Takes an
+-hash as an arguement, with either an array reference pointing to an
++hash as an argument, with either an array reference pointing to an
+ array of FITS header cards, or a filename, or (alternatively) and FITS
+ identifier.
+ 

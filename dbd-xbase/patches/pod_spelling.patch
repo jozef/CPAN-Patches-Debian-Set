@@ -1,8 +1,9 @@
 # Description: fix some spelling errors
 # Author: Damyan Ivanov <dmn@debian.org>
+# Forwarded: https://rt.cpan.org/Public/Bug/Display.html?id=70613
 --- a/lib/DBD/XBase.pm
 +++ b/lib/DBD/XBase.pm
-@@ -156,7 +156,7 @@ sub quote {
+@@ -156,7 +156,7 @@
  	### return "'\Q$text\E'";
  }
  
@@ -11,7 +12,7 @@
  sub commit {
  	warn "Commit ineffective while AutoCommit is on"
  		if $_[0]->FETCH('Warn');
-@@ -678,7 +678,7 @@ rtrim, length. I do not have an exact id
+@@ -678,7 +678,7 @@
  functions I want to support. It's easy to write them in a couple of
  minutes now the interface is there (check the XBase::SQL module if you
  want to send a patch containing support for more), it's just that I do
@@ -22,7 +23,7 @@
  The select command may contain and order by clause. Only one column is
 --- a/lib/XBase.pm
 +++ b/lib/XBase.pm
-@@ -1047,7 +1047,7 @@ B<name> is then the name of the table, o
+@@ -1047,7 +1047,7 @@
  B<memofile> specifies non standard name for the associated memo file.
  By default it's the name of the dbf file, with extension dbt or fpt.
  
@@ -31,7 +32,7 @@
  the dbt file and you do not need it. Default is false.
  
  B<memosep> separator of memo records in the dBase III dbt files. The
-@@ -1193,7 +1193,7 @@ in the hash retain their value.
+@@ -1193,7 +1193,7 @@
  
  =back
  
@@ -42,7 +43,7 @@
  Assorted examples of reading and writing:
 --- a/lib/XBase/Base.pm
 +++ b/lib/XBase/Base.pm
-@@ -353,7 +353,7 @@ Unlinks the file.
+@@ -353,7 +353,7 @@
  
  =item create_file
  
@@ -53,7 +54,7 @@
  =back
 --- a/lib/XBase/FAQ.pod
 +++ b/lib/XBase/FAQ.pod
-@@ -117,7 +117,7 @@ If you want to match wildcards with B<DB
+@@ -116,7 +116,7 @@
  =item Can I sue you if B<XBase.pm/DBD::XBase> corrupts my data?
  
  No. At least, I hope no. The software is provided without any
@@ -64,7 +65,7 @@
  that the results are different from those expected, you are welcome to
 --- a/lib/XBase/Index.pm
 +++ b/lib/XBase/Index.pm
-@@ -1760,7 +1760,7 @@ making my life easier in helping you.
+@@ -1760,7 +1760,7 @@
  
  =head2 Programmer's notes
  

@@ -1,5 +1,5 @@
 App: 0
-Build-Depends: debhelper (>= 7), quilt (>= 0.40)
-Build-Depends-Indep: libclass-errorhandler-perl, libdatetime-format-mail-perl, libdatetime-format-w3cdtf-perl, libdatetime-perl, libfeed-find-perl, libhtml-parser-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-fetch-perl (>= 0.03-2), liburi-perl, libwww-perl, libxml-atom-perl (>= 0.32), libxml-libxml-perl (>= 1.66), libxml-rss-libxml-perl, libxml-rss-perl (>= 1.44), perl (>= 5.8.0-7)
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libclass-errorhandler-perl, libdatetime-format-mail-perl, libdatetime-format-w3cdtf-perl, libdatetime-perl, libfeed-find-perl, libhtml-parser-perl, libtest-pod-coverage-perl, libtest-pod-perl, liburi-fetch-perl (>= 0.03-2), liburi-perl, libwww-perl, libxml-atom-perl (>= 0.32), libxml-libxml-perl (>= 1.66), libxml-rss-libxml-perl, libxml-rss-perl (>= 1.44), perl
 Depends: ${misc:Depends}, ${perl:Depends}, libclass-errorhandler-perl, libdatetime-format-mail-perl, libdatetime-format-w3cdtf-perl, libdatetime-perl, libfeed-find-perl, libhtml-parser-perl, liburi-fetch-perl (>= 0.03-2), liburi-perl, libwww-perl, libxml-atom-perl (>= 0.32), libxml-libxml-perl (>= 1.66), libxml-rss-perl (>= 1.44)
 X: 0

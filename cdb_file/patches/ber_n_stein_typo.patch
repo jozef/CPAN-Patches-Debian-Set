@@ -1,0 +1,26 @@
+Description: fix a typo in Dan Ber_n_stein's name
+Author: Florian Schlichting <fschlich@zedat.fu-berlin.de>
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=70939
+
+--- a/CDB_File.pm
++++ b/CDB_File.pm
+@@ -41,7 +41,7 @@
+ =head1 DESCRIPTION
+ 
+ B<CDB_File> is a module which provides a Perl interface to Dan
+-Berstein's B<cdb> package:
++Bernstein's B<cdb> package:
+ 
+     cdb is a fast, reliable, lightweight package for creating and
+     reading constant databases.
+--- a/README
++++ b/README
+@@ -3,7 +3,7 @@
+ 
+ See INSTALL for installation instructions.
+ 
+-CDB_File is a module which provides a Perl interface to Dan Berstein's
++CDB_File is a module which provides a Perl interface to Dan Bernstein's
+ cdb package:
+ 
+     cdb is a fast, reliable, lightweight package for creating and

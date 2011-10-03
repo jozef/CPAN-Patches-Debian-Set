@@ -1,0 +1,113 @@
+Description: Port to libnotify 0.7 API
+Bug-Debian: http://bugs.debian.org/633973
+Forwarded: no
+Author: Micah Gersten <micahg@ubuntu.com>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-02
+
+---
+ t/notification.t |   15 ++-------------
+ xs/Notify.xs     |   39 ++-------------------------------------
+ 2 files changed, 4 insertions(+), 50 deletions(-)
+
+--- a/xs/Notify.xs
++++ b/xs/Notify.xs
+@@ -86,26 +86,12 @@
+ MODULE = Gtk2::Notify	PACKAGE = Gtk2::Notify	PREFIX = notify_notification_
+ 
+ NotifyNotification *
+-notify_notification_new (class, summary, body=NULL, icon=NULL, attach=NULL)
++notify_notification_new (class, summary, body=NULL, icon=NULL)
+ 		const gchar *summary
+ 		const gchar *body
+ 		const gchar *icon
+-		GtkWidget_ornull *attach
+ 	C_ARGS:
+-		summary, body, icon, attach
+-
+-#if GTK_CHECK_VERSION (2, 9, 2)
+-
+-NotifyNotification *
+-notify_notification_new_with_status_icon (class, summary, body=NULL, icon=NULL, status_icon=NULL)
+-		const gchar *summary
+-		const gchar *body
+-		const gchar *icon
+-		GtkStatusIcon *status_icon
+-	C_ARGS:
+-		summary, body, icon, status_icon
+-
+-#endif
++		summary, body, icon
+ 
+ gboolean
+ notify_notification_update (notification, summary, message=NULL, icon=NULL)
+@@ -114,27 +100,6 @@
+ 		const gchar *message
+ 		const gchar *icon
+ 
+-void
+-notify_notification_attach_to_widget (notification, attach)
+-		NotifyNotification *notification
+-		GtkWidget *attach
+-
+-#if GTK_CHECK_VERSION (2, 9, 2)
+-
+-void
+-notify_notification_attach_to_status_icon (notification, status_icon)
+-		NotifyNotification *notification
+-		GtkStatusIcon *status_icon
+-
+-#endif
+-
+-void
+-notify_notification_set_geometry_hints (notification, screen, x, y)
+-		NotifyNotification *notification
+-		GdkScreen *screen
+-		gint x
+-		gint y
+-
+ NO_OUTPUT gboolean
+ notify_notification_show (notification)
+ 		NotifyNotification *notification
+--- a/t/notification.t
++++ b/t/notification.t
+@@ -2,20 +2,19 @@
+ 
+ use strict;
+ use warnings;
+-use Gtk2::TestHelper tests => 34;
++use Gtk2::TestHelper tests => 31;
+ use Test::Exception;
+ use Gtk2::Notify -init, $0;
+ 
+ ginterfaces_ok('Gtk2::Notify');
+ 
+ my $w = Gtk2::Window->new;
+-my $n = Gtk2::Notify->new('foo', 'bar', '', $w);
++my $n = Gtk2::Notify->new('foo', 'bar', '');
+ 
+ isa_ok($n, 'Gtk2::Notify');
+ 
+ my @methods = qw(
+         add_action
+-        attach_to_widget
+         clear_actions
+         clear_hints
+         close
+@@ -46,16 +45,6 @@
+         }, 42);
+ }, 'add_action');
+ 
+-{
+-    my $nw = Gtk2::Window->new;
+-    lives_ok(sub {
+-            $n->attach_to_widget($nw);
+-    }, 'attach_to_widget');
+-    lives_ok(sub {
+-            $n->attach_to_widget($w);
+-    }, 'attach_to_widget');
+-}
+-
+ lives_ok(sub {
+         $n->clear_actions;
+ }, 'clear_actions with existing actions');

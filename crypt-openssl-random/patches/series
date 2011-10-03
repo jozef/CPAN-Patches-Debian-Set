@@ -1,1 +1,2 @@
 Makefile.PL-no-ssl-in-LIBS.patch
+pod.patch
